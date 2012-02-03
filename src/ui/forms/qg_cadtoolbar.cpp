@@ -486,6 +486,9 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawSpline:
     case RS2::ActionDrawText:
         showToolBar(RS2::ToolBarMain, false);
+        if(tbMain != NULL){
+            tbMain->showCadToolBar(actionType);
+        }
         break;
     case RS2::ActionDrawArc:
     case RS2::ActionDrawArc3P:
@@ -514,6 +517,9 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawEllipseCenter3Points:
     case RS2::ActionDrawEllipseInscribe:
         showToolBar(RS2::ToolBarEllipses, false);
+        if(tbEllipses != NULL){
+            tbEllipses->showCadToolBar(actionType);
+        }
         break;
     case RS2::ActionDrawLine:
     case RS2::ActionDrawLineAngle:
