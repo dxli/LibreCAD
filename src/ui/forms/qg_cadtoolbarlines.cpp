@@ -279,55 +279,56 @@ void QG_CadToolBarLines::showCadToolBar(RS2::ActionType actionType) {
     switch(actionType){
     case RS2::ActionDrawLine:
         bNormal->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineAngle:
         bAngle->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineBisector:
         bBisector->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineFree:
         bFree->setChecked(true);
-        break;
+        return;
 //    case RS2::ActionDrawLineHorVert:
 //        bFree->setChecked(true);
-//        break;
+//        return;
     case RS2::ActionDrawLineHorizontal:
         bHorizontal->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineOrthogonal:
         bOrthogonal->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineOrthTan:
         bOrthTan->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineParallel:
         bParallel->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineParallelThrough:
         bParallelThrough->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLinePolygonCenCor:
         bPolygon->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLinePolygonCorCor:
         bPolygon2->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineRectangle:
         bRectangle->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineRelAngle:
         bRelAngle->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineTangent1:
         bTangent1->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineTangent2:
         bTangent2->setChecked(true);
-        break;
+        return;
     case RS2::ActionDrawLineVertical:
         bVertical->setChecked(true);
         default:
         bHidden->setChecked(true);
+        return;
     }
 }

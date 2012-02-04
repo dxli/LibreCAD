@@ -188,6 +188,7 @@ void QG_CadToolBarCircles::showCadToolBar(RS2::ActionType actionType){
         bCircleInscribe->setChecked(true);
         return;
     default:
+        bHidden->setChecked(true);
         return;
     }
 }

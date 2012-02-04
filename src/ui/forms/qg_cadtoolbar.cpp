@@ -552,6 +552,9 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionPolylineEquidistant:
     case RS2::ActionPolylineSegment:
         showToolBar(RS2::ToolBarPolylines, false);
+        if(tbPolylines != NULL){
+            tbPolylines->showCadToolBar(actionType);
+        }
         break;
     case RS2::ActionDimAligned:
     case RS2::ActionDimLinear:
