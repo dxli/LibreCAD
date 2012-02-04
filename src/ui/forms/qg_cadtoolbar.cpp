@@ -539,6 +539,9 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawLineTangent2:
     case RS2::ActionDrawLineVertical:
         showToolBar(RS2::ToolBarLines, false);
+        if(tbLines != NULL){
+            tbLines->showCadToolBar(actionType);
+        }
         break;
     case RS2::ActionDrawPolyline:
     case RS2::ActionPolylineAdd:
