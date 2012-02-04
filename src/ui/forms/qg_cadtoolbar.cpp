@@ -565,6 +565,9 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDimAngular:
     case RS2::ActionDimLeader:
         showToolBar(RS2::ToolBarDim, false);
+        if(tbDim != NULL){
+            tbDim->showCadToolBar(actionType);
+        }
         break;
     case RS2::ActionModifyAttributes:
     case RS2::ActionModifyAttributesNoSelect:
