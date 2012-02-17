@@ -374,6 +374,21 @@ RS_Vector RS_Snapper::snapIntersection(const RS_Vector& coord) {
 }
 
 
+/**
+ * Snaps to closest perpendicular entity
+ *
+ *@param coord The mouse coordinate.
+ *@return The coordinates of the point or an invalid vector.
+ */
+ RS_Vector RS_Snapper::snapPerpendicular(const RS_Vector& coord){
+      RS_Vector vec(false);
+
+      vec = container->getNearestPerpendicular(coord);
+
+      return vec;
+ }
+
+
 
 /**
  * 'Corrects' the given coordinates to 0, 90, 180, 270 degrees relative to
@@ -515,6 +530,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
         return NULL;
     }
     RS_DEBUG->print("RS_Snapper::catchEntity: OK");
+    return NULL;
 }
 
 
