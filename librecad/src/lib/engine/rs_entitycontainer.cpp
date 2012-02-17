@@ -1307,13 +1307,12 @@ RS_Vector RS_EntityContainer::getNearestPerpendicular(const RS_Vector& coord
                     || en->getParent()->rtti() == RS2::EntityDimDiametric /**< Diametric Dimension */
                     || en->getParent()->rtti() == RS2::EntityDimAngular   /**< Angular Dimension */
                     || en->getParent()->rtti() == RS2::EntityDimLeader    /**< Leader Dimension */
-                    ){//do not do intersection for point for Spline, Insert, text, Dim
+                    ){//do not do perpendicular for point for Spline, Insert, text, Dim
                 continue;
             }
 
-            sol = RS_Information::getIntersection(closestEntity,
-                                                  en,
-                                                  true);
+            sol = RS_Information::getPerpendicular(closestEntity,
+                                                  en);
 
             point=sol.getClosest(coord,&curDist,NULL);
             if(sol.getNumber()>0 && curDist<minDist){
@@ -1321,26 +1320,10 @@ RS_Vector RS_EntityContainer::getNearestPerpendicular(const RS_Vector& coord
                 minDist=curDist;
             }
 
-            //                for (int i=0; i<4; i++) {
-            //                    point = sol.get(i);
-            //                    if (point.valid) {
-            //                        curDist = coord.distanceTo(point);
-
-            //                        if (curDist<minDist) {
-            //                            closestPoint = point;
-            //                            minDist = curDist;
-            //                            if (dist!=NULL) {
-            //                                *dist = curDist;
-            //                            }
-            //                        }
-            //                    }
-            //                }
         }
-        //}
+
     }
-    if(dist!=NULL && closestPoint.valid) {
-        *dist=minDist;
-    }
+
     return closestPoint;
 }
 

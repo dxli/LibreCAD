@@ -219,11 +219,11 @@ RS_VectorSolutions RS_Information::getPerpendicular(RS_Entity* e1,RS_Entity* e2)
         (e2->rtti()==RS2::EntityArc || e2->rtti()==RS2::EntityCircle
             || e2->rtti()==RS2::EntityEllipse)) {
 
-        t1 = e1->getTangentPoint();
-        t2 = e2->getTangentPoint();
+        t1 = e1->getTangentPoint(e1->getNearestPointOnEntity(e1,e2));
+        t2 = e2->getTangentPoint(e2->getNearestPointOnEntity(e2,e1));
 
         if(RS_Vector::dotP(t1,t2)==0){
-            ret = container->getNearestPointOnEntity(e1);
+            ret = container->getNearestPointOnEntity(e1,e2);
             return ret;
         }
     }
@@ -231,20 +231,20 @@ RS_VectorSolutions RS_Information::getPerpendicular(RS_Entity* e1,RS_Entity* e2)
     if(e1->rtti()==RS2::EntityArc || e1->rtti()==RS2::EntityCircle
             || e1->rtti()==RS2::EntityEllipse){
 
-         t1 = e1->getTangentPoint(e1->getNearestPointOnEntity(e2));
+         t1 = e1->getTangentPoint(e1->getNearestPointOnEntity(e1,e2));
 
          if(RS_Vector::dotP(t1,t2)==0){
-             ret = container->getNearestPointOnEntity(e1);
+             ret = container->getNearestPointOnEntity(e1,e2);
              return ret;
          }
      }
      else if(e2->rtti()==RS2::EntityArc || e2->rtti()==RS2::EntityCircle
             || e2->rtti()==RS2::EntityEllipse){
 
-         t2 = e2->getTangentPoint(e2->getNearestPointOnEntity(e1));
+        t2 = e2->getTangentPoint(e2->getNearestPointOnEntity(e2,e1));
 
          if(RS_Vector::dotP(t1,t2)==0){
-             ret = container->getNearestPointOnEntity(e1);
+             ret = container->getNearestPointOnEntity(e1,e2);
              return ret;
          }
     }
@@ -252,7 +252,7 @@ RS_VectorSolutions RS_Information::getPerpendicular(RS_Entity* e1,RS_Entity* e2)
     t1 = e1;
     t2 = e2;
     if(RS_Vector::dotP(t1,t2)==0){
-        ret = container->getNearestPointOnEntity(e1);
+        ret = container->getNearestPointOnEntity(e1,e2);
         return ret;
     }
 
