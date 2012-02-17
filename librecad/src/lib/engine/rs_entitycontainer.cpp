@@ -1279,6 +1279,72 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
 }
 
 
+RS_Vector RS_EntityContainer::getNearestPerpendicular(const RS_Vector& coord
+                                                     ) {
+
+    double minDist = RS_MAXDOUBLE;  // minimum measured distance
+    double curDist;                 // currently measured distance
+    RS_Vector closestPoint(false); // closest found endpoint
+    RS_Vector point;                // endpoint found
+    RS_VectorSolutions sol;
+    RS_Entity* closestEntity;
+
+    closestEntity = getNearestEntity(coord, NULL, RS2::ResolveAll);
+
+    if (closestEntity!=NULL) {
+        for (RS_Entity* en = firstEntity(RS2::ResolveAll);
+             en != NULL;
+             en = nextEntity(RS2::ResolveAll)) {
+            if (
+                    !en->isVisible()
+                    || en == closestEntity
+                    || en->rtti() == RS2::EntityPoint         /**Point*/
+                    || en->getParent()->rtti() == RS2::EntityInsert         /**Insert*/
+                    || en->getParent()->rtti() == RS2::EntityText         /**< Text 15*/
+                    || en->getParent()->rtti() == RS2::EntityDimAligned   /**< Aligned Dimension */
+                    || en->getParent()->rtti() == RS2::EntityDimLinear    /**< Linear Dimension */
+                    || en->getParent()->rtti() == RS2::EntityDimRadial    /**< Radial Dimension */
+                    || en->getParent()->rtti() == RS2::EntityDimDiametric /**< Diametric Dimension */
+                    || en->getParent()->rtti() == RS2::EntityDimAngular   /**< Angular Dimension */
+                    || en->getParent()->rtti() == RS2::EntityDimLeader    /**< Leader Dimension */
+                    ){//do not do intersection for point for Spline, Insert, text, Dim
+                continue;
+            }
+
+            sol = RS_Information::getIntersection(closestEntity,
+                                                  en,
+                                                  true);
+
+            point=sol.getClosest(coord,&curDist,NULL);
+            if(sol.getNumber()>0 && curDist<minDist){
+                closestPoint=point;
+                minDist=curDist;
+            }
+
+            //                for (int i=0; i<4; i++) {
+            //                    point = sol.get(i);
+            //                    if (point.valid) {
+            //                        curDist = coord.distanceTo(point);
+
+            //                        if (curDist<minDist) {
+            //                            closestPoint = point;
+            //                            minDist = curDist;
+            //                            if (dist!=NULL) {
+            //                                *dist = curDist;
+            //                            }
+            //                        }
+            //                    }
+            //                }
+        }
+        //}
+    }
+    if(dist!=NULL && closestPoint.valid) {
+        *dist=minDist;
+    }
+    return closestPoint;
+}
+
+
 
 RS_Vector RS_EntityContainer::getNearestRef(const RS_Vector& coord,
                                             double* dist) {

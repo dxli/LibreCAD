@@ -187,6 +187,78 @@ RS_Entity* RS_Information::getNearestEntity(const RS_Vector& coord,
 }
 
 
+RS_VectorSolutions RS_Information::getPerpendicular(RS_Entity* e1,RS_Entity* e2){
+
+    RS_VectorSolutions ret;
+
+    RS_VectorSolutions t1;
+    RS_VectorSolutions t2;
+
+    ret(false);
+
+    if (e1==NULL || e2==NULL ) {
+        RS_DEBUG->print("RS_Information::getPerpendicular() for NULL entities");
+        return ret;
+    }
+    if (e1->getId() == e2->getId()) {
+        RS_DEBUG->print("RS_Information::getPerpendicular() of the same entity");
+        return ret;
+    }
+    // unsupported entities / entity combinations:
+    if (
+        e1->rtti()==RS2::EntityText || e2->rtti()==RS2::EntityText ||
+        isDimension(e1->rtti()) || isDimension(e2->rtti())) {
+        return ret;
+    }
+
+
+    // arc,circle,elipse/arc,circle,elipse
+    if(
+        (e1->rtti()==RS2::EntityArc || e1->rtti()==RS2::EntityCircle
+            || e1->rtti()==RS2::EntityEllipse) &&
+        (e2->rtti()==RS2::EntityArc || e2->rtti()==RS2::EntityCircle
+            || e2->rtti()==RS2::EntityEllipse)) {
+
+        t1 = e1->getTangentPoint();
+        t2 = e2->getTangentPoint();
+
+        if(RS_Vector::dotP(t1,t2)==0){
+            ret = container->getNearestPointOnEntity(e1);
+            return ret;
+        }
+    }
+    // line/arc,circle,elipse , arc,circle,elipse/line
+    if(e1->rtti()==RS2::EntityArc || e1->rtti()==RS2::EntityCircle
+            || e1->rtti()==RS2::EntityEllipse){
+
+         t1 = e1->getTangentPoint(e1->getNearestPointOnEntity(e2));
+
+         if(RS_Vector::dotP(t1,t2)==0){
+             ret = container->getNearestPointOnEntity(e1);
+             return ret;
+         }
+     }
+     else if(e2->rtti()==RS2::EntityArc || e2->rtti()==RS2::EntityCircle
+            || e2->rtti()==RS2::EntityEllipse){
+
+         t2 = e2->getTangentPoint(e2->getNearestPointOnEntity(e1));
+
+         if(RS_Vector::dotP(t1,t2)==0){
+             ret = container->getNearestPointOnEntity(e1);
+             return ret;
+         }
+    }
+    //line/line
+    t1 = e1;
+    t2 = e2;
+    if(RS_Vector::dotP(t1,t2)==0){
+        ret = container->getNearestPointOnEntity(e1);
+        return ret;
+    }
+
+    return ret;
+}
+
 
 /**
  * Calculates the intersection point(s) between two entities.

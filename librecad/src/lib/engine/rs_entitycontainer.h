@@ -158,6 +158,8 @@ public:
     virtual RS_Vector getNearestDist(double distance,
                                      const RS_Vector& coord,
                                      double* dist = NULL);
+    virtual RS_Vector getNearestPerpendicular(const RS_Vector& coord
+                                                         );
     virtual RS_Vector getNearestIntersection(const RS_Vector& coord,
             double* dist = NULL);
     virtual RS_Vector getNearestRef(const RS_Vector& coord,
