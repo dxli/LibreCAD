@@ -1,44 +1,36 @@
 
-# Common project definitions for LibreCAD. This file gets
-# included from the various *.pro files.
 
+# Store intermedia stuff somewhere else
+OBJECTS_DIR = generated/obj
+MOC_DIR = generated/moc
+RCC_DIR = generated/rcc
+TS_DIR = generated/ts
+UI_DIR = generated/ui
+UI_HEADERS_DIR = generated/ui
+UI_SOURCES_DIR = generated/ui
 
+# Copy command
 win32 {
+    COPY = copy /y
+} else {
+    COPY = cp
+}
 
-    boost {
-        # Use Boost on Windows.
+# Boost
+exists($${BOOST_DIR}){
+INCLUDEPATH += "$${BOOST_DIR}"
+LIBS += -L"$${BOOST_LIBDIR}" $${BOOST_LIBS}
+HEADERS += "$${BOOST_DIR}"
+}
 
-        # Specify where boost is installed (this should have the boost
-        # headers in ./boost/ and libraries in ./lib/).
-        #
-        # See
-        #   http://www.boostpro.com/download/
-        # and
-        #   http://www.boost.org/doc/libs/1_47_0/more/getting_started/windows.html
-        # on getting and using a boost library prebuild for MSVC.
-        BOOST_DIR = $$(ProgramFiles)/boost/boost_1_47
+!exists($${BOOST_DIR}) {
+   # error(Boost was not found, please install boost!)
+}
+!build_pass:verbose:message(Using boost libraries in $${BOOST_DIR}.)
 
-        # BOOST_LIBS may specifiy boost import libraries (this are the libraries
-        # without the `lib` prefix, which have a corresponding `.dll` file!).
-        # They are only needed when dynamically linking against boost, otherwise 
-        # leave it empty and the autolink process will take care of linking to
-        # the correct (static) boost library. (Most of the boost components are 
-        # header-only anyway.)
-        # 
-        # For example: `BOOST_LIBS = -lboost_regex-vc71-mt-1_47.lib`
-        BOOST_LIBS = 
-
-        # Make boost known to compiler and linker.
-        # This should also work on other platforms (but BOOST_LIBS may need
-        # to be set to the required boost *.sl/*.so/*.dylib/*.a).
-        DEFINES += HAS_BOOST
-        INCLUDEPATH += $${BOOST_DIR}
-        LIBS += -L$${BOOST_DIR}/lib $${BOOST_LIBS}
-
-        !build_pass:verbose:message(Using boost libraries in $${BOOST_DIR}.)
-    }
-
-    # On windows, check for MSVC compilers - they need help on C99 
+# Windows compiler settings
+win32 {
+    # On windows, check for MSVC compilers - they need help on C99
     # features and a hint to povide M_PI et al.
     win32-msvc.net|win32-msvc2003|win32-msvc2005|win32-msvc2008|win32-msvc2010 {
        !build_pass:verbose:message(Setting up support for MSVC.)
@@ -52,4 +44,3 @@ win32 {
        QMAKE_CXXFLAGS += /wd4100
     }
 }
-
