@@ -175,7 +175,10 @@ void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {
         break;
     default:
 <<<<<<< HEAD
+<<<<<<< HEAD
         bHidden->setChecked(true);
+=======
+>>>>>>> bc1cebe1a81b52dbc9cf9abef59cb0a6bc7fcbb0
 =======
 >>>>>>> bc1cebe1a81b52dbc9cf9abef59cb0a6bc7fcbb0
         break;
