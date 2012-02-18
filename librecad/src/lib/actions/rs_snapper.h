@@ -52,6 +52,8 @@ public:
     bool snapDistance;       /// Whether to snap to distance from endpoints or not.
     bool snapCenter;       /// Whether to snap to centers or not.
     bool snapIntersection; /// Whether to snap to intersections or not.
+    bool snapPerpendicular; /// Whether to snap to intersections or not.
+
 
     bool snapOnEntity;     /// Whether to snap to entities or not.
 
@@ -82,7 +84,7 @@ public:
         snapCenter       = false;
         snapOnEntity     = false;
         snapIntersection = false;
-
+        snapPerpendicular= false;
         restriction = RS2::RestrictNothing;
 
         return *this;
@@ -101,6 +103,7 @@ public:
         snapCenter       = false;
         snapOnEntity     = false;
         snapIntersection = false;
+        snapPerpendicular= false;
 
         restriction = RS2::RestrictNothing;
 
@@ -170,6 +173,7 @@ public:
     RS_Vector snapMiddle(const RS_Vector& coord);
     RS_Vector snapDist(const RS_Vector& coord);
     RS_Vector snapIntersection(const RS_Vector& coord);
+    RS_Vector snapPerpendicular(const RS_Vector& coord);
     //RS_Vector snapDirect(RS_Vector coord, bool abs);
 
     RS_Vector restrictOrthogonal(const RS_Vector& coord);

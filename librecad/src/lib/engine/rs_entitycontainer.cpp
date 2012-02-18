@@ -1312,7 +1312,7 @@ RS_Vector RS_EntityContainer::getNearestPerpendicular(const RS_Vector& coord
             }
 
             sol = RS_Information::getPerpendicular(closestEntity,
-                                                  en);
+                                                  en,coord);
 
             point=sol.getClosest(coord,&curDist,NULL);
             if(sol.getNumber()>0 && curDist<minDist){

@@ -60,7 +60,8 @@ public:
                                 double* dist = NULL,
                                 RS2::ResolveLevel level=RS2::ResolveAll) const;
 
-    static RS_Information::getPerpendicular(RS_Entity* e1,RS_Entity* e2);
+    static RS_VectorSolutions getPerpendicular(RS_Entity* e1,RS_Entity* e2,
+                                               const RS_Vector& coord);
 
     static RS_VectorSolutions getIntersection(RS_Entity* e1,
             RS_Entity* e2,
