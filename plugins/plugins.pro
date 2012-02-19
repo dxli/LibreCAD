@@ -15,8 +15,7 @@ SUBDIRS     = \
         list \
         sameprop \
         importshp \
-        sample
-
+        sample 
 
 TRANSLATIONS =
 
@@ -36,6 +35,7 @@ win32 {
 }
 unix {
     macx { 
+	CONFIG += x86 x86_64
 	INSTALLDIR = ../LibreCAD.app/Contents/Resources/plugins
     }
     else { 
