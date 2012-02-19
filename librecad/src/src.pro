@@ -6,7 +6,7 @@ DEFINES += QC_APPKEY="\"/LibreCAD\""
 DEFINES += QC_APPNAME="\"LibreCAD\""
 DEFINES += QC_COMPANYNAME="\"LibreCAD\""
 DEFINES += QC_COMPANYKEY="\"LibreCAD\""
-DEFINES += QC_VERSION="\"master\""4
+DEFINES += QC_VERSION="\"master\""
 DEFINES += QC_DELAYED_SPLASH_SCREEN=1
 DEFINES += HAS_BOOST=1
 DEFINES += HAS_CPP11=1
@@ -79,13 +79,13 @@ win32 {
 
     RC_FILE = ../res/main/librecad.rc
     DESTDIR = ../../windows
-    QMAKE_POST_LINK = ../scripts/postprocess-win.bat
+    QMAKE_POST_LINK = ../../scripts/postprocess-win.bat
 }
 
 
 
 # Additional libraries to load
-LIBS += -L../generated -ldxfrw -ldxflib -ljwwlib -lfparser
+LIBS += -L../../generated/lib -ldxfrw -ldxflib -ljwwlib -lfparser
 
 DEPENDPATH += \
     ../../libraries/dxflib/src \
