@@ -1,17 +1,11 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2011-03-22T19:33:11
-#
-#-------------------------------------------------
-
 TEMPLATE = subdirs
 TARGET = librecad
-
 CONFIG += ordered
 
 SUBDIRS     = \
     libraries \
-    librecad
-#        plugins
+    librecad \
+    plugins \
+    tools
 
 exists( custom.pro ):include( custom.pro )

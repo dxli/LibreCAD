@@ -33,27 +33,22 @@ NOTE 1: On systems (Ubuntu??) You might need to run qmake-qt4 instead of just qm
 
 ---- Windows Users ----
 
-Download a copy of QT SDk from http://qt.nokia.com/downloads/
+Download a copy of QT SDk < 4.8.0, 4.7.4 for example from http://qt.nokia.com/downloads/ 
+Download boost 1.48 from https://sourceforge.net/projects/boost/files/boost/1.48.0/
+unzip into c:/boost/1_48_0 (in this directory you will find boost root directory, INSTALL, index, Jamroot etc.. etc)
 
 After installation, start qtCreator and load LibreCAD.pro,
 from the the build menu select 'Build All'
 
 
------
-Ubuntu Lucid
-gcc version 4.4.3 (Ubuntu 4.4.3-4ubuntu5)
-Using Qt version 4.6.2 in /usr/lib
+---- OSX USERS ----
 
------ (RVT)
-OSX 10.5.8
-i686-apple-darwin9-gcc-4.0.1 (GCC) 4.0.1 (Apple Inc. build 5493)
-Using Qt version 4.6.3 in /opt/local/libexec/qt4-mac/lib
+install macports from http://www.macports.org/
 
------ (RVT)
-Debian 5.0.3
-gcc (Debian 4.3.2-1.1) 4.3.2
-Using Qt version 4.4.3 in /usr/lib
+After that install QT and a new gcc, at mimimum you properly need gcc 44
+Install a version of Qt < 4.8.0, 4.7.4 for example
+sudo port install gcc46 qt4-creator-mac qt4-mac boost
 
------ (RVT)
-Windows XP
-Using Qt version 4.7.0
+When installed run to build a makefile
+qmake librecad.pro -r -spec mkspec/macports
+
