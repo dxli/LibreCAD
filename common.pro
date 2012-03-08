@@ -1,13 +1,16 @@
 
 
 # Store intermedia stuff somewhere else
-OBJECTS_DIR = generated/obj
-MOC_DIR = generated/moc
-RCC_DIR = generated/rcc
-TS_DIR = generated/ts
-UI_DIR = generated/ui
-UI_HEADERS_DIR = generated/ui
-UI_SOURCES_DIR = generated/ui
+isEmpty(GENERATED_DIR){
+ GENERATED_DIR = generated
+}
+ # Store intermedia stuff somewhere else
+OBJECTS_DIR = $${GENERATED_DIR}/obj
+MOC_DIR = $${GENERATED_DIR}/moc
+RCC_DIR = $${GENERATED_DIR}/rcc
+UI_DIR = $${GENERATED_DIR}/ui
+UI_HEADERS_DIR = $${GENERATED_DIR}/ui
+UI_SOURCES_DIR = $${GENERATED_DIR}/ui
 
 
 # Copy command
@@ -29,7 +32,6 @@ exists($${BOOST_DIR}){
    # error(Boost was not found, please install boost!)
 }
 message(Using boost libraries in $${BOOST_DIR}.)
-
 
 # Windows compiler settings
 win32 {
