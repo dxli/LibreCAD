@@ -195,8 +195,9 @@ protected:
 
     virtual void requestArcOptions(RS_ActionInterface* action,
                                    bool on, bool update);
-
-        virtual void requestArcTangentialOptions(RS_ActionInterface* action,
+    virtual void requestFlowerOptions(RS_ActionInterface* action,
+                                      bool on, bool update);
+    virtual void requestArcTangentialOptions(RS_ActionInterface* action,
                                    bool on, bool update);
 
     virtual void requestCircleOptions(RS_ActionInterface* action,

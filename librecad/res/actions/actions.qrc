@@ -1,6 +1,7 @@
 <RCC version="1.0">
 <qresource prefix="/actions">
 <file>configure.png</file>
+<file>flower.png</file>
 <file>editcopy.png</file>
 <file>editcopy2.png</file>
 <file>editcut.png</file>

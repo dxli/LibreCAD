@@ -46,6 +46,7 @@ public slots:
     virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void setCadToolBar( QG_CadToolBar * tb );
     virtual void drawCircle();
+	virtual void drawFlower();
     virtual void drawCircleCR();
     virtual void drawCircle2P();
     virtual void drawCircle3P();

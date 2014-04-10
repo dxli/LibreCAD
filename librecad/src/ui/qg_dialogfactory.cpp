@@ -45,6 +45,7 @@
 #include "qg_blockdialog.h"
 #include "qg_cadtoolbar.h"
 #include "qg_circleoptions.h"
+#include "qg_floweroptions.h"
 #include "qg_circletan2options.h"
 #include "qg_commandwidget.h"
 #include "qg_coordinatewidget.h"
@@ -722,6 +723,10 @@ void QG_DialogFactory::requestOptions(RS_ActionInterface* action,
         requestCircleOptions(action, on, update);
         break;
 
+    case RS2::ActionDrawFlower:
+        requestFlowerOptions(action, on, update);
+        break;
+
     case RS2::ActionDrawCircleTan2:
         requestCircleTan2Options(action, on, update);
         break;
@@ -1130,7 +1135,7 @@ void QG_DialogFactory::updateArcTangentialOptions(const double& d, bool byRadius
 
 
 /**
- * Shows a widget for arc options.
+ * Shows a widget for circle options.
  */
 void QG_DialogFactory::requestCircleOptions(RS_ActionInterface* action,
                                             bool on, bool update) {
@@ -1150,6 +1155,28 @@ void QG_DialogFactory::requestCircleOptions(RS_ActionInterface* action,
     }
 }
 
+/**
+  * Shows a widget for flower options.
+  */
+void QG_DialogFactory::requestFlowerOptions(RS_ActionInterface* action,
+                                            bool on, bool update) {
+
+    static QG_FlowerOptions* toolWidget = NULL;
+
+    if(optionWidget!=NULL) {
+        if(toolWidget!=NULL) {
+            delete toolWidget;
+            toolWidget = NULL;
+        }
+        if (on==true) {
+            toolWidget = new QG_FlowerOptions();
+            optionWidget->addWidget(toolWidget);
+            toolWidget->setAction(action, update);
+
+            toolWidget->show();
+        }
+    }
+}
 
 /**
  * Shows a widget for arc options.

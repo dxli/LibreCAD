@@ -1142,6 +1142,11 @@ void QC_ApplicationWindow::initActions(void)
     menu->addAction(action);
     connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
 
+    //Flower
+    action = actionFactory.createAction(RS2::ActionDrawFlower, actionHandler);
+    menu->addAction(action);
+    connect(this, SIGNAL(windowsChanged(bool)), action, SLOT(setEnabled(bool)));
+
     // Dimensioning actions:
     //
 #ifdef __APPLE1__

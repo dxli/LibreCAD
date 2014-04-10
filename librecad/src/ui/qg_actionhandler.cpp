@@ -50,6 +50,7 @@
 #include "rs_actiondrawarc3p.h"
 #include "rs_actiondrawarctangential.h"
 #include "rs_actiondrawcircle.h"
+#include "rs_actiondrawflower.h"
 #include "rs_actiondrawcircle2p.h"
 #include "rs_actiondrawcircle3p.h"
 #include "rs_actiondrawcircletan1_2p.h"
@@ -488,6 +489,9 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
         break;
     case RS2::ActionDrawCircle:
         a = new RS_ActionDrawCircle(*doc, *gv);
+        break;
+    case RS2::ActionDrawFlower:
+        a = new RS_ActionDrawFlower(*doc, *gv);
         break;
     case RS2::ActionDrawCircleCR:
         a = new RS_ActionDrawCircleCR(*doc, *gv);
@@ -1360,6 +1364,10 @@ void QG_ActionHandler::slotDrawLinePolygon2() {
 
 void QG_ActionHandler::slotDrawCircle() {
     setCurrentAction(RS2::ActionDrawCircle);
+}
+
+void QG_ActionHandler::slotDrawFlower() {
+    setCurrentAction(RS2::ActionDrawFlower);
 }
 
 void QG_ActionHandler::slotDrawCircleCR() {

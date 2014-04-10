@@ -89,6 +89,12 @@ void QG_CadToolBarCircles::drawCircle() {
     }
 }
 
+void QG_CadToolBarCircles::drawFlower() {
+    if (cadToolBar!=NULL && actionHandler!=NULL) {
+        actionHandler->slotDrawFlower();
+    }
+}
+
 void QG_CadToolBarCircles::drawCircleCR() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
         actionHandler->slotDrawCircleCR();
@@ -151,6 +157,10 @@ void QG_CadToolBarCircles::restoreAction()
         actionHandler->slotDrawCircle();
         return;
     }
+	if ( bFlower ->isChecked() ) {
+            actionHandler->slotDrawFlower();
+            return;
+        }
     if ( bCircleCR ->isChecked() ) {
         actionHandler->slotDrawCircleCR();
         return;
@@ -207,6 +217,9 @@ void QG_CadToolBarCircles::showCadToolBar(RS2::ActionType actionType){
     switch(actionType){
     case RS2::ActionDrawCircle:
         bCircle->setChecked(true);
+        return;
+	case RS2::ActionDrawFlower:
+        bFlower->setChecked(true);
         return;
     case RS2::ActionDrawCircle2P:
         bCircle2P->setChecked(true);

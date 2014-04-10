@@ -491,6 +491,44 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QToolButton" name="bFlower">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>186</y>
+     <width>32</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>Flowers</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../../../res/extui/extui.qrc">
+     <normaloff>:/extui/flower.png</normaloff>:/extui/flower.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="autoExclusive">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -662,6 +700,22 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>32</x>
      <y>167</y>
+    </hint>
+   </hints>
+  </connection>
+   <connection>
+   <sender>bFlower</sender>
+   <signal>clicked()</signal>
+   <receiver>QG_CadToolBarCircles</receiver>
+   <slot>drawFlower()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>0</x>
+     <y>220</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>25</y>
     </hint>
    </hints>
   </connection>

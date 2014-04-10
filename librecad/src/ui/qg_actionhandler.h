@@ -124,6 +124,7 @@ public slots:
     void slotDrawLinePolygon();
     void slotDrawLinePolygon2();
     void slotDrawCircle();
+    void slotDrawFlower();
     void slotDrawCircleCR();
     void slotDrawCircle2P();
     void slotDrawCircle3P();

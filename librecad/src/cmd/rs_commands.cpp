@@ -76,6 +76,11 @@ RS_Commands::RS_Commands() {
     cmdTranslation.insert("ci", tr("ci"));
     shortCommands.insert(tr("ci"), RS2::ActionDrawCircle);
 
+    cmdTranslation.insert("flower", tr("flower"));
+    mainCommands.insert(tr("flower"), RS2::ActionDrawFlower);
+    cmdTranslation.insert("fl", tr("fl"));
+    shortCommands.insert(tr("fl"), RS2::ActionDrawFlower);
+
     cmdTranslation.insert("rectangle", tr("rectangle"));
     mainCommands.insert(tr("rectangle"), RS2::ActionDrawLineRectangle);
     cmdTranslation.insert("rect", tr("rect"));
