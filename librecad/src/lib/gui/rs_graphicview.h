@@ -321,6 +321,7 @@ public:
     //virtual void zoomPan(RS_Vector v1);
     virtual void zoomPan(int dx, int dy);
     virtual void zoomScroll(RS2::Direction direction);
+    virtual void zoomScroll(const RS_Vector& point);
     virtual void zoomPage();
 
     virtual void drawWindow_DEPRECATED(RS_Vector v1, RS_Vector v2);

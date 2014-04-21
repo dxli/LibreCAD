@@ -114,6 +114,10 @@ RS_Commands::RS_Commands() {
 
     cmdTranslation.insert("zv", tr("zv"));
     mainCommands.insert(tr("zv", "zoom - previous"), RS2::ActionZoomPrevious);
+    
+    cmdTranslation.insert("viewAt", tr("viewAt"));
+    mainCommands.insert(tr("viewAt","viewAt"), RS2::ActionZoomScroll);
+    shortCommands.insert(tr("va"),RS2::ActionZoomScroll);
 
     // edit:
     cmdTranslation.insert("kill", tr("kill"));

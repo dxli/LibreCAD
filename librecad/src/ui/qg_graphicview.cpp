@@ -487,7 +487,7 @@ void QG_GraphicView::wheelEvent(QWheelEvent *e) {
 
     if (scroll) {
         setCurrentAction(new RS_ActionZoomScroll(direction,
-                         *container, *this));
+                         *container, *this, RS_Vector(false)));
     }
 
     // zoom in / out:
@@ -546,7 +546,7 @@ void QG_GraphicView::keyPressEvent(QKeyEvent* e) {
 
     if (scroll) {
         setCurrentAction(new RS_ActionZoomScroll(direction,
-                         *container, *this));
+                         *container, *this, RS_Vector(false)));
     }
 
     RS_GraphicView::keyPressEvent(e);

@@ -38,16 +38,27 @@
 class RS_ActionZoomScroll : public RS_ActionInterface {
 	Q_OBJECT
 public:
+     enum Status {
+        SetPoint      /**< Setting the point to view at. */
+              
+    };
     RS_ActionZoomScroll(RS2::Direction direction,
                         RS_EntityContainer& container,
-                        RS_GraphicView& graphicView);
+                        RS_GraphicView& graphicView,
+                        const RS_Vector& point);
     ~RS_ActionZoomScroll() {}
-
+   
     virtual void init(int status=0);
     virtual void trigger();
+    virtual void commandEvent(RS_CommandEvent* e);
+    virtual void coordinateEvent(RS_CoordinateEvent* e);
+    virtual void updateMouseButtonHints();
+    virtual void mouseMoveEvent(QMouseEvent* e);
+    virtual void mouseReleaseEvent(QMouseEvent* /*e*/);
 
 protected:
     RS2::Direction direction;
+    RS_Vector point;
 };
 
 #endif

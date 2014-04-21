@@ -228,6 +228,7 @@ public:
         ActionZoomPan,
         ActionZoomRedraw,
         ActionZoomPrevious,
+        ActionZoomScroll,
 
         ActionSelect,
         ActionSelectSingle,

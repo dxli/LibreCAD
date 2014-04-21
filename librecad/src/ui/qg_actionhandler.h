@@ -75,6 +75,7 @@ public slots:
 
     void slotZoomIn();
     void slotZoomOut();
+    void slotZoomScroll();
     void slotZoomAuto();
     void slotZoomWindow();
     void slotZoomPan();

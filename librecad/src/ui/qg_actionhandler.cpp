@@ -145,6 +145,7 @@
 #include "rs_actionzoomprevious.h"
 #include "rs_actionzoomredraw.h"
 #include "rs_actionzoomwindow.h"
+#include "rs_actionzoomscroll.h"
 
 #include "rs_actiondrawpolyline.h"
 #include "rs_actionpolylineadd.h"
@@ -403,6 +404,9 @@ RS_ActionInterface* QG_ActionHandler::setCurrentAction(RS2::ActionType id) {
     case RS2::ActionZoomRedraw:
         a = new RS_ActionZoomRedraw(*doc, *gv);
         break;
+    case RS2::ActionZoomScroll:
+        a = new RS_ActionZoomScroll(RS2::Up, *doc, *gv, RS_Vector(false));
+    	break;
 
         // Drawing actions:
         //
@@ -1154,6 +1158,10 @@ void QG_ActionHandler::slotZoomIn() {
 
 void QG_ActionHandler::slotZoomOut() {
     setCurrentAction(RS2::ActionZoomOut);
+}
+
+void QG_ActionHandler::slotZoomScroll() {
+    setCurrentAction(RS2::ActionZoomScroll);
 }
 
 void QG_ActionHandler::slotZoomAuto() {
