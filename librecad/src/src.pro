@@ -209,7 +209,8 @@ HEADERS += \
     lib/scripting/rs_script.h \
     lib/scripting/rs_scriptlist.h \
     ui/forms/qg_snaptoolbar.h \
-    actions/lc_actiondrawcircle2pr.h
+    actions/lc_actiondrawcircle2pr.h \
+    ui/forms/qg_ruler.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -292,7 +293,8 @@ SOURCES += \
     ui/forms/qg_snaptoolbar.cpp \
     lib/engine/rs_color.cpp \
     lib/engine/rs_pen.cpp \
-    actions/lc_actiondrawcircle2pr.cpp
+    actions/lc_actiondrawcircle2pr.cpp \
+    ui/forms/qg_ruler.cpp
 
 # ################################################################################
 # Command

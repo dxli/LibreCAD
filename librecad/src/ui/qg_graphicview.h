@@ -28,6 +28,7 @@
 #define QG_GRAPHICVIEW_H
 
 #include <QWidget>
+#include <memory>
 
 #include "rs_graphicview.h"
 #include "rs_layerlistlistener.h"
@@ -36,6 +37,7 @@
 class QGridLayout;
 class QLabel;
 class QG_ScrollBar;
+class QG_Ruler;
 
 /**
  * This is the Qt implementation of a widget which can view a 
@@ -131,6 +133,12 @@ protected:
 	QPixmap *PixmapLayer3;  // USed for crosshair and actionitems
 	
 	RS2::RedrawMethod redrawMethod;
+
+    //ruler
+    bool m_bShowRuler;
+    std::unique_ptr<QG_Ruler> m_pRulerH;
+    std::unique_ptr<QG_Ruler> m_pRulerV;
+
 		
 };
 

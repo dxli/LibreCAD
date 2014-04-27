@@ -44,6 +44,7 @@
 
 
 #include "qg_scrollbar.h"
+#include "qg_ruler.h"
 
 #define QG_SCROLLMARGIN 400
 
@@ -52,7 +53,9 @@
  * Constructor.
  */
 QG_GraphicView::QG_GraphicView(QWidget* parent, const char* name, Qt::WindowFlags f)
-        : QWidget(parent, f), RS_GraphicView() {
+        : QWidget(parent, f), RS_GraphicView()
+        , m_bShowRuler(true)
+{
 
     setObjectName(name);
     setBackground(background);
@@ -123,6 +126,12 @@ QG_GraphicView::QG_GraphicView(QWidget* parent, const char* name, Qt::WindowFlag
 
     // See https://sourceforge.net/tracker/?func=detail&aid=3289298&group_id=342582&atid=1433844 (Left-mouse drag shrinks window)
     setAttribute(Qt::WA_NoMousePropagation);
+
+    //ruler
+    if(m_bShowRuler){
+        m_pRulerH.reset(new QG_Ruler(RS2::Up));
+        m_pRulerV.reset(new QG_Ruler(RS2::Left));
+    }
 }
 
 
@@ -801,8 +810,16 @@ void QG_GraphicView::paintEvent(QPaintEvent *) {
         }
 
     if (redrawMethod & RS2::RedrawOverlay) {
+
         PixmapLayer3->fill(Qt::transparent);
         RS_PainterQt painter3(PixmapLayer3);
+        //ruler
+        if(m_bShowRuler){
+            m_pRulerH->setViewSize(getWidth(), getHeight(), hScrollBar->height());
+            painter3.drawPixmap(m_pRulerH->rect(), *(m_pRulerH->pixmap()));
+            m_pRulerV->setViewSize(getWidth(), getHeight(), hScrollBar->height());
+            painter3.drawPixmap(m_pRulerV->rect(), *(m_pRulerV->pixmap()));
+        }
         drawLayer3((RS_Painter*)&painter3);
         painter3.end();
     }
