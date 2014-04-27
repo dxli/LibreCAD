@@ -129,8 +129,8 @@ QG_GraphicView::QG_GraphicView(QWidget* parent, const char* name, Qt::WindowFlag
 
     //ruler
     if(m_bShowRuler){
-        m_pRulerH.reset(new QG_Ruler(RS2::Up));
-        m_pRulerV.reset(new QG_Ruler(RS2::Left));
+        m_pRulerH.reset(new QG_Ruler(this, RS2::Up));
+        m_pRulerV.reset(new QG_Ruler(this, RS2::Left));
     }
 }
 
