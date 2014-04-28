@@ -24,7 +24,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "qg_graphicview.h"
 
 
-QG_Ruler::QG_Ruler(const QG_GraphicView*const view, RS2::Direction dir):
+QG_Ruler::QG_Ruler(QG_GraphicView* view, RS2::Direction dir):
     m_qPosition(0,0,0,0)
     ,m_pPixmap(NULL)
   ,m_eDirection(dir)
@@ -76,5 +76,11 @@ QPixmap* QG_Ruler::pixmap() const
 {
     return m_pPixmap;
 }
+
+void QG_Ruler::updateZoom()
+{
+    RS_Grid* grid=m_pView->getGrid();
+}
+
 
 

@@ -31,7 +31,7 @@ class QG_GraphicView;
 class QG_Ruler
 {
 public:
-    QG_Ruler(const QG_GraphicView*const view, RS2::Direction dir=RS2::Up);
+    QG_Ruler(QG_GraphicView* view, RS2::Direction dir=RS2::Up);
     ~QG_Ruler();
     QRect rect() const;
     void setViewSize(int w, int h, int barSize);
@@ -43,7 +43,7 @@ public:
     RS2::Direction m_eDirection;
 private:
     void setDirection(RS2::Direction dir);
-    const QG_GraphicView*const m_pView;
+    QG_GraphicView*const m_pView;
 
 };
 
