@@ -1625,11 +1625,9 @@ void RS_GraphicView::drawGrid(RS_Painter *painter) {
     painter->setPen(gridColor);
 
 //    grid->updatePointArray();
-    RS_Vector* pts = grid->getPoints();
-    if (pts!=NULL) {
-        for (int i=0; i<grid->count(); ++i) {
-            painter->drawGridPoint(toGui(pts[i]));
-        }
+    const std::vector<RS_Vector>& pts = grid->getPoints();
+    for (const RS_Vector& vp: pts){
+        painter->drawGridPoint(toGui(vp));
     }
 
     // draw grid info:
@@ -1668,16 +1666,14 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
         RS_Vector dv=grid->getMetaGridWidth().scale(factor);
         double dx=fabs(dv.x);
         double dy=fabs(dv.y); //potential bug, need to recover metaGrid.width
-    // draw meta grid:
+        // draw meta grid:
         const std::vector<double>& mx = grid->getMetaX();
-        if (mx.size()>0) {
-            for (size_t i=0; i<mx.size(); ++i) {
-                painter->drawLine(RS_Vector(toGuiX(mx[i]), 0),
-                                  RS_Vector(toGuiX(mx[i]), getHeight()));
-                if(grid->isIsometric()){
-                    painter->drawLine(RS_Vector(toGuiX(mx[i])+0.5*dx, 0),
-                                      RS_Vector(toGuiX(mx[i])+0.5*dx, getHeight()));
-                }
+        for (const double& x: mx){
+            painter->drawLine(RS_Vector(toGuiX(x), 0),
+                              RS_Vector(toGuiX(x), getHeight()));
+            if(grid->isIsometric()){
+                painter->drawLine(RS_Vector(toGuiX(x)+0.5*dx, 0),
+                                  RS_Vector(toGuiX(x)+0.5*dx, getHeight()));
             }
         }
     const std::vector<double>& my = grid->getMetaY();
@@ -1712,11 +1708,11 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
             painter->drawLine(vp2,vp3);
         }
 
-    }else{//orthogonal
-
-        for (size_t i=0; i<my.size(); ++i) {
-            painter->drawLine(RS_Vector(0, toGuiY(my[i])),
-                              RS_Vector(getWidth(), toGuiY(my[i])));
+    }else{
+        //orthogonal
+        for (const double& y: my){
+            painter->drawLine(RS_Vector(0, toGuiY(y)),
+                              RS_Vector(getWidth(), toGuiY(y)));
         }
     }
 

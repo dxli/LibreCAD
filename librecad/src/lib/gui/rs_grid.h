@@ -44,10 +44,10 @@ public:
 
     void updatePointArray();
 
-        /**
+    /**
          * @return Array of all visible grid points.
          */
-    RS_Vector* getPoints() {
+    std::vector<RS_Vector>& getPoints() {
         return pt;
     }
     /**
@@ -55,7 +55,7 @@ public:
       */
     RS_Vector snapGrid(const RS_Vector& coord) const;
 
-        /**
+    /**
          * @return Number of visible grid points.
          */
     int count() {
@@ -68,49 +68,49 @@ public:
         return crosshairType;
     }
 
-        /**
+    /**
          * @return Current grid spacing.
          */
-        //double getSpacing() {
-        //	return spacing;
-        //}
+    //double getSpacing() {
+    //	return spacing;
+    //}
 
-        /**
+    /**
          * @return Current meta grid spacing.
          */
-        //double getMetaSpacing() {
-        //	return metaSpacing;
-        //}
+    //double getMetaSpacing() {
+    //	return metaSpacing;
+    //}
 
-        /**
+    /**
          * @return Grid info for status widget.
          */
-        QString getInfo() {
-                return QString("%1 / %2").arg(spacing).arg(metaSpacing);
-        }
+    QString getInfo() {
+        return QString("%1 / %2").arg(spacing).arg(metaSpacing);
+    }
 
-        /**
+    /**
          * @return Meta grid positions in X.
          */
-        std::vector<double> getMetaX() {
-                return metaX;
-        }
+    std::vector<double> getMetaX() {
+        return metaX;
+    }
 
-        /**
+    /**
          * @return Number of visible meta grid lines in X.
          */
     int countMetaX() {
         return numMetaX;
     }
 
-        /**
+    /**
          * @return Meta grid positions in Y.
          */
-        std::vector<double> getMetaY() {
-                return metaY;
-        }
+    std::vector<double> getMetaY() {
+        return metaY;
+    }
 
-        /**
+    /**
          * @return Number of visible meta grid lines in Y.
          */
     int countMetaY() {
@@ -134,26 +134,26 @@ protected:
     //! Graphic view this grid is connected to.
     RS_GraphicView* graphicView;
 
-        //! Current grid spacing
-        double spacing;
-        //! Current meta grid spacing
-        double metaSpacing;
+    //! Current grid spacing
+    double spacing;
+    //! Current meta grid spacing
+    double metaSpacing;
 
     //! Pointer to array of grid points
-    RS_Vector* pt;
+    std::vector<RS_Vector> pt;
     RS_Vector baseGrid; // the left-bottom grid point
     RS_Vector cellV;// (dx,dy)
     RS_Vector metaGridWidth;
     //! Number of points in the array
     int number;
-        //! Meta grid positions in X
-        std::vector<double> metaX;
-        //! Number of meta grid lines in X
-        int numMetaX;
-        //! Meta grid positions in Y
-        std::vector<double> metaY;
-        //! Number of meta grid lines in Y
-        int numMetaY;
+    //! Meta grid positions in X
+    std::vector<double> metaX;
+    //! Number of meta grid lines in X
+    int numMetaX;
+    //! Meta grid positions in Y
+    std::vector<double> metaY;
+    //! Number of meta grid lines in Y
+    int numMetaY;
     bool isometric;
     RS2::CrosshairType crosshairType;
 

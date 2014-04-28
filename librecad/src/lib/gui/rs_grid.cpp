@@ -40,7 +40,6 @@
  */
 RS_Grid::RS_Grid(RS_GraphicView* graphicView): baseGrid(false) {
     this->graphicView = graphicView;
-    pt = NULL;
     number = 0;
     numMetaX = 0;
     numMetaY = 0;
@@ -51,9 +50,6 @@ RS_Grid::RS_Grid(RS_GraphicView* graphicView): baseGrid(false) {
  * Destructor.
  */
 RS_Grid::~RS_Grid() {
-    if (pt!=NULL) {
-        delete[] pt;
-    }
 }
 
 /**
@@ -111,10 +107,7 @@ void RS_Grid::updatePointArray() {
 //        std::cout<<"Grid userGrid="<<userGrid<<std::endl;
 
         // delete old grid:
-        if (pt!=NULL) {
-            delete[] pt;
-            pt = NULL;
-        }
+        pt.clear();
         metaX.clear();
         metaY.clear();
 
@@ -357,7 +350,7 @@ void RS_Grid::updatePointArray() {
 
                 if (number>0 && number<1000000) {
 
-                    pt = new RS_Vector[number];
+                    pt.resize(number);
 
                     int i=0;
                     RS_Vector bp0(baseGrid),dbp1(hdx,hdy);
@@ -405,7 +398,7 @@ void RS_Grid::updatePointArray() {
                     }
                 }
                 number = 0;
-                pt = NULL;
+                pt.clear();
                 numMetaX = 0;
                 metaX.clear();
                 numMetaY = 0;
@@ -428,7 +421,7 @@ void RS_Grid::updatePointArray() {
 
                 if (number>0 && number<1000000) {
 
-                    pt = new RS_Vector[number];
+                    pt.resize(number);
 
                     int i=0;
                     RS_Vector bp0(baseGrid);
@@ -487,7 +480,7 @@ void RS_Grid::updatePointArray() {
 
                 }
                 number = 0;
-                pt = NULL;
+                pt.clear();
                 numMetaX = 0;
                 metaX.clear();
                 numMetaY = 0;
