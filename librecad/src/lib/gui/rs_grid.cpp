@@ -42,9 +42,7 @@ RS_Grid::RS_Grid(RS_GraphicView* graphicView): baseGrid(false) {
     this->graphicView = graphicView;
     pt = NULL;
     number = 0;
-    metaX = NULL;
     numMetaX = 0;
-    metaY = NULL;
     numMetaY = 0;
 }
 
@@ -55,12 +53,6 @@ RS_Grid::RS_Grid(RS_GraphicView* graphicView): baseGrid(false) {
 RS_Grid::~RS_Grid() {
     if (pt!=NULL) {
         delete[] pt;
-    }
-    if (metaX!=NULL) {
-        delete[] metaX;
-    }
-    if (metaY!=NULL) {
-        delete[] metaY;
     }
 }
 
@@ -123,14 +115,9 @@ void RS_Grid::updatePointArray() {
             delete[] pt;
             pt = NULL;
         }
-        if (metaX!=NULL) {
-            delete[] metaX;
-            metaX = NULL;
-        }
-        if (metaY!=NULL) {
-            delete[] metaY;
-            metaY = NULL;
-        }
+        metaX.clear();
+        metaY.clear();
+
         number = 0;
         numMetaX = 0;
         numMetaY = 0;
@@ -396,8 +383,8 @@ void RS_Grid::updatePointArray() {
 
                         if (numMetaX>0 && numMetaY>0) {
                             // create meta grid arrays:
-                            metaX = new double[numMetaX];
-                            metaY = new double[numMetaY];
+                            metaX.resize(numMetaX);
+                            metaY.resize(numMetaY);
 
                             double x0(baseMetaGrid.x);
                             for (int i=0; i<numMetaX; x0 += metaGridWidth.x) {
@@ -411,18 +398,18 @@ void RS_Grid::updatePointArray() {
 
                         }
                         numMetaX = 0;
-                        metaX = NULL;
+                        metaX.clear();
                         numMetaY = 0;
-                        metaY = NULL;
+                        metaY.clear();
                         return;
                     }
                 }
                 number = 0;
                 pt = NULL;
                 numMetaX = 0;
-                metaX = NULL;
+                metaX.clear();
                 numMetaY = 0;
-                metaY = NULL;
+                metaY.clear();
             }else{
                 cellV.set(fabs(gridWidth.x),fabs(gridWidth.y));
                 int numberX = (RS_Math::round((right-left) / gridWidth.x) + 1);
@@ -478,8 +465,8 @@ void RS_Grid::updatePointArray() {
 
                         if (numMetaX>0 && numMetaY>0) {
                             // create meta grid arrays:
-                            metaX = new double[numMetaX];
-                            metaY = new double[numMetaY];
+                            metaX.resize(numMetaX);
+                            metaY.resize(numMetaY);
 
                             int i=0;
                             for (int x=0; x<numMetaX; ++x) {
@@ -492,9 +479,9 @@ void RS_Grid::updatePointArray() {
                             return;
                         }
                         numMetaX = 0;
-                        metaX = NULL;
+                        metaX.clear();
                         numMetaY = 0;
-                        metaY = NULL;
+                        metaY.clear();
                     }
                     return;
 
@@ -502,9 +489,9 @@ void RS_Grid::updatePointArray() {
                 number = 0;
                 pt = NULL;
                 numMetaX = 0;
-                metaX = NULL;
+                metaX.clear();
                 numMetaY = 0;
-                metaY = NULL;
+                metaY.clear();
             }
 
             //                RS_DEBUG->print("RS_Grid::update: 015");

@@ -1669,9 +1669,9 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
         double dx=fabs(dv.x);
         double dy=fabs(dv.y); //potential bug, need to recover metaGrid.width
     // draw meta grid:
-        double* mx = grid->getMetaX();
-        if (mx!=NULL) {
-            for (int i=0; i<grid->countMetaX(); ++i) {
+        const std::vector<double>& mx = grid->getMetaX();
+        if (mx.size()>0) {
+            for (size_t i=0; i<mx.size(); ++i) {
                 painter->drawLine(RS_Vector(toGuiX(mx[i]), 0),
                                   RS_Vector(toGuiX(mx[i]), getHeight()));
                 if(grid->isIsometric()){
@@ -1680,11 +1680,11 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
                 }
             }
         }
-    double* my = grid->getMetaY();
+    const std::vector<double>& my = grid->getMetaY();
     if(grid->isIsometric()){//isometric metaGrid
         dx=fabs(dx);
         dy=fabs(dy);
-        if(my==NULL || dx<1||dy<1) return;
+        if(my.size()==0 || dx<1||dy<1) return;
         RS_Vector baseMeta(toGui(RS_Vector(mx[0],my[0])));
         // x-x0=k*dx, x-remainder(x-x0,dx)
         RS_Vector vp0(-remainder(-baseMeta.x,dx)-dx,getHeight()-remainder(getHeight()-baseMeta.y,dy)+dy);
@@ -1714,11 +1714,9 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
 
     }else{//orthogonal
 
-        if (my!=NULL) {
-            for (int i=0; i<grid->countMetaY(); ++i) {
-                painter->drawLine(RS_Vector(0, toGuiY(my[i])),
-                                  RS_Vector(getWidth(), toGuiY(my[i])));
-            }
+        for (size_t i=0; i<my.size(); ++i) {
+            painter->drawLine(RS_Vector(0, toGuiY(my[i])),
+                              RS_Vector(getWidth(), toGuiY(my[i])));
         }
     }
 

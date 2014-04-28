@@ -92,7 +92,7 @@ public:
         /**
          * @return Meta grid positions in X.
          */
-        double* getMetaX() {
+        std::vector<double> getMetaX() {
                 return metaX;
         }
 
@@ -106,7 +106,7 @@ public:
         /**
          * @return Meta grid positions in Y.
          */
-        double* getMetaY() {
+        std::vector<double> getMetaY() {
                 return metaY;
         }
 
@@ -147,11 +147,11 @@ protected:
     //! Number of points in the array
     int number;
         //! Meta grid positions in X
-        double* metaX;
+        std::vector<double> metaX;
         //! Number of meta grid lines in X
         int numMetaX;
         //! Meta grid positions in Y
-        double* metaY;
+        std::vector<double> metaY;
         //! Number of meta grid lines in Y
         int numMetaY;
     bool isometric;
