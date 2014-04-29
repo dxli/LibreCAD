@@ -19,9 +19,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **********************************************************************/
 #include <QPixmap>
+#include <QPainter>
 #include <cassert>
 #include "qg_ruler.h"
 #include "qg_graphicview.h"
+#include "rs_grid.h"
+#include "rs_debug.h"
 
 
 QG_Ruler::QG_Ruler(QG_GraphicView* view, RS2::Direction dir):
@@ -59,12 +62,13 @@ void QG_Ruler::setViewSize(int w, int h, int barSize)
         //only support ruler at left and Up
         assert(false);
     }
+    m_fRulerWidth=barSize;
     if(rect==m_qPosition) return;
     if(m_pPixmap)
         delete m_pPixmap;
     m_qPosition=rect;
     m_pPixmap=new QPixmap(rect.width(), rect.height());
-    m_pPixmap->fill(Qt::lightGray);
+    m_pPixmap->fill(Qt::white);
 }
 
 QRect QG_Ruler::rect() const
@@ -79,7 +83,30 @@ QPixmap* QG_Ruler::pixmap() const
 
 void QG_Ruler::updateZoom()
 {
+
+    if(m_pPixmap==NULL) return;
+    m_pPixmap->fill(Qt::white);
     RS_Grid* grid=m_pView->getGrid();
+    if(grid==NULL) return;
+
+    const std::vector<double>& metaGrid=(m_eDirection==RS2::Up)?grid->getMetaX():grid->getMetaY();
+
+    QPainter painter(m_pPixmap);
+    if(m_eDirection==RS2::Left){
+        QTransform transform(0.,1.,0.,1.,0.,0.,0.,0.,1.);
+        painter.setTransform(transform);
+    }
+    QPen pen;
+    pen.setColor(Qt::black);
+    pen.setWidth(1);
+    painter.setPen(pen);
+    double (RS_GraphicView::*f)(double)=(m_eDirection==RS2::Up)?(&RS_GraphicView::toGuiX):(&RS_GraphicView::toGuiY);
+
+    for(const double& x: metaGrid){
+        const double xGui=(m_pView->*f)(x)-m_fRulerWidth+0.5;
+        painter.drawLine(xGui,0,xGui,m_fRulerWidth);
+    }
+    painter.end();
 }
 
 

@@ -44,6 +44,7 @@ public:
 private:
     void setDirection(RS2::Direction dir);
     QG_GraphicView*const m_pView;
+    qreal m_fRulerWidth;
 
 };
 

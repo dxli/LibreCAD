@@ -11,7 +11,7 @@ include(../../librecad/src/muparser.pri)
 
 # For plugins
 INCLUDEPATH    += ../../librecad/src/plugins
-INCLUDEPATH    += $$DEPENDPATH
+INCLUDEPATH += $$DEPENDPATH
 
 SOURCES += \
     plot.cpp \

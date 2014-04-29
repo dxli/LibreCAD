@@ -106,6 +106,7 @@ protected:
 private slots:
     void slotHScrolled(int value);
     void slotVScrolled(int value);
+    void updateRulers();
 
 protected:
     //! Horizontal scrollbar.

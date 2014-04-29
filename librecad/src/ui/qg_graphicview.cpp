@@ -131,6 +131,7 @@ QG_GraphicView::QG_GraphicView(QWidget* parent, const char* name, Qt::WindowFlag
     if(m_bShowRuler){
         m_pRulerH.reset(new QG_Ruler(this, RS2::Up));
         m_pRulerV.reset(new QG_Ruler(this, RS2::Left));
+        updateRulers();
     }
 }
 
@@ -668,6 +669,8 @@ void QG_GraphicView::adjustOffsetControls() {
     RS_DEBUG->print("QG_GraphicView::adjustOffsetControls() end");
 
         running = false;
+        updateRulers();
+
 }
 
 
@@ -675,7 +678,17 @@ void QG_GraphicView::adjustOffsetControls() {
  * override this to adjust controls and widgets that
  * control the zoom factor of the graphic.
  */
-void QG_GraphicView::adjustZoomControls() {}
+void QG_GraphicView::adjustZoomControls() {
+    updateRulers();
+}
+
+void QG_GraphicView::updateRulers() {
+    if(m_bShowRuler){
+        m_pRulerH->updateZoom();
+        m_pRulerV->updateZoom();
+    }
+}
+
 
 
 /**
@@ -694,6 +707,8 @@ void QG_GraphicView::slotHScrolled(int value) {
     } else {
         setOffsetX(-value);
     }
+    updateRulers();
+
     //if (isUpdateEnabled()) {
 //         updateGrid();
     redraw();
@@ -717,6 +732,8 @@ void QG_GraphicView::slotVScrolled(int value) {
     } else {
         setOffsetY(value);
     }
+    updateRulers();
+
     //if (isUpdateEnabled()) {
   //  updateGrid();
     redraw();

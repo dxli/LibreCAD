@@ -92,7 +92,7 @@ public:
     /**
          * @return Meta grid positions in X.
          */
-    std::vector<double> getMetaX() {
+    std::vector<double>& getMetaX() {
         return metaX;
     }
 
@@ -106,7 +106,7 @@ public:
     /**
          * @return Meta grid positions in Y.
          */
-    std::vector<double> getMetaY() {
+    std::vector<double>& getMetaY() {
         return metaY;
     }
 
