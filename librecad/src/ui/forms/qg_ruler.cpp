@@ -32,6 +32,7 @@ QG_Ruler::QG_Ruler(QG_GraphicView* view, RS2::Direction dir):
     ,m_pPixmap(NULL)
   ,m_eDirection(dir)
   ,m_pView(view)
+  ,m_fRulerLength(0.)
 {
 }
 
@@ -53,10 +54,12 @@ void QG_Ruler::setViewSize(int w, int h, int barSize)
     QRect rect;
     switch(m_eDirection){
     case RS2::Left:
-        rect=QRect(0, barSize, barSize, h - barSize);
+        m_fRulerLength=h - barSize;
+        rect=QRect(0, barSize, barSize, m_fRulerLength);
         break;
     case RS2::Up:
-        rect=QRect(barSize, 0,  w-barSize, barSize);
+        m_fRulerLength=w - barSize;
+        rect=QRect(barSize, 0, m_fRulerLength, barSize);
         break;
     default:
         //only support ruler at left and Up
@@ -88,11 +91,13 @@ void QG_Ruler::updateZoom()
     m_pPixmap->fill(Qt::white);
     RS_Grid* grid=m_pView->getGrid();
     if(grid==NULL) return;
+    double majorDiv=(m_eDirection==RS2::Up)?grid->getCellVector().x:grid->getCellVector().y;
 
-    const std::vector<double>& metaGrid=(m_eDirection==RS2::Up)?grid->getMetaX():grid->getMetaY();
+//    const std::vector<double>& metaGrid=(m_eDirection==RS2::Up)?grid->getMetaX():grid->getMetaY();
 
     QPainter painter(m_pPixmap);
     if(m_eDirection==RS2::Left){
+        // transform by switching x <-> y
         QTransform transform(0.,1.,0.,1.,0.,0.,0.,0.,1.);
         painter.setTransform(transform);
     }
@@ -100,12 +105,29 @@ void QG_Ruler::updateZoom()
     pen.setColor(Qt::black);
     pen.setWidth(1);
     painter.setPen(pen);
-    double (RS_GraphicView::*f)(double)=(m_eDirection==RS2::Up)?(&RS_GraphicView::toGuiX):(&RS_GraphicView::toGuiY);
+    double (RS_GraphicView::*toGui)(double)=(m_eDirection==RS2::Up)?(&RS_GraphicView::toGuiX):(&RS_GraphicView::toGuiY);
+    double (RS_GraphicView::*toGraph)(int)=(m_eDirection==RS2::Up)?(&RS_GraphicView::toGraphX):(&RS_GraphicView::toGraphY);
 
-    for(const double& x: metaGrid){
-        const double xGui=(m_pView->*f)(x)-m_fRulerWidth+0.5;
-        painter.drawLine(xGui,0,xGui,m_fRulerWidth);
-    }
+    double dx=(m_eDirection==RS2::Up)?majorDiv:-majorDiv;
+    int depth=1;
+    double dxGui;
+    do{
+        double x0=  (m_pView->*toGraph)(m_fRulerWidth);
+        x0 -= remainder(x0, dx)+dx;
+        double xGui;
+        int rulerSize=m_fRulerWidth/depth;
+        do{
+            xGui = (m_pView->*toGui)(x0) - m_fRulerWidth;
+            painter.drawLine(xGui, m_fRulerWidth-rulerSize, xGui, m_fRulerWidth);
+            x0 += dx;
+        } while (xGui< m_fRulerLength);
+        dxGui=fabs((m_pView->*toGui)(x0 +dx) - (m_pView->*toGui)(x0));
+        if(depth&0x1)
+            dx *= 0.5;
+        else
+            dx *=0.2;
+        ++depth;
+    }while(dxGui>5.);
     painter.end();
 }
 
