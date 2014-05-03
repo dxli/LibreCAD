@@ -115,7 +115,7 @@ void QG_Ruler::updateZoom()
         double x0=  (m_pView->*toGraph)(m_fRulerWidth);
         x0 -= remainder(x0, dx)+dx;
         double xGui;
-        int rulerSize=m_fRulerWidth/depth;
+        int rulerSize=(int) (m_fRulerWidth/(0.75*depth));
         do{
             xGui = (m_pView->*toGui)(x0) - m_fRulerWidth;
             painter.drawLine(xGui, m_fRulerWidth-rulerSize, xGui, m_fRulerWidth);
@@ -127,7 +127,11 @@ void QG_Ruler::updateZoom()
         else
             dx *=0.2;
         ++depth;
-    }while(dxGui>5.);
+    }while(dxGui>=8.);
+    pen.setColor(Qt::white);
+    painter.setPen(pen);
+    painter.drawLine(0, m_fRulerWidth-1, m_fRulerWidth, m_fRulerWidth-1);
+
     painter.end();
 }
 
