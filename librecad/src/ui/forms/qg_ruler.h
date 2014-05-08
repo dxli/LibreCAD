@@ -22,6 +22,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define QG_RULER_H
 
 #include "rs.h"
+#include "rs_units.h"
 
 class QPixmap;
 class QRect;
@@ -43,6 +44,13 @@ public:
     RS2::Direction m_eDirection;
 private:
     void setDirection(RS2::Direction dir);
+    /**
+     * @brief subDivision, find next level division to show on ruler
+     * @param dx, current division
+     * @param unit, units
+     * @return
+     */
+    double subDivision(const double& dx, const RS2::Unit unit);
     QG_GraphicView*const m_pView;
     qreal m_fRulerWidth;
     qreal m_fRulerLength;

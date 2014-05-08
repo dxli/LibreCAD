@@ -21,9 +21,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <QPixmap>
 #include <QPainter>
 #include <cassert>
+#include <QDebug>
 #include "qg_ruler.h"
 #include "qg_graphicview.h"
 #include "rs_grid.h"
+#include "rs_graphic.h"
+#include "rs_units.h"
 #include "rs_debug.h"
 
 
@@ -109,6 +112,15 @@ void QG_Ruler::updateZoom()
     double (RS_GraphicView::*toGraph)(int)=(m_eDirection==RS2::Up)?(&RS_GraphicView::toGraphX):(&RS_GraphicView::toGraphY);
 
     double dx=(m_eDirection==RS2::Up)?majorDiv:-majorDiv;
+    // find out unit:
+    RS2::Unit unit = RS2::None;
+//    RS2::LinearFormat format = RS2::Decimal;
+    RS_Graphic* graphic=m_pView->getGraphic();
+    if (graphic!=NULL) {
+        unit = graphic->getUnit();
+//        format = graphic->getLinearFormat();
+    }
+    qDebug()<<"dx="<<dx<<" "<< RS_Units::unitToString(unit);
     int depth=1;
     double dxGui;
     do{
@@ -134,6 +146,13 @@ void QG_Ruler::updateZoom()
 
     painter.end();
 }
+
+double QG_Ruler::subDivision(const double& dx, const RS2::Unit unit)
+{
+
+}
+
+
 
 
 
