@@ -128,7 +128,7 @@ QG_GraphicView::QG_GraphicView(QWidget* parent, const char* name, Qt::WindowFlag
     setAttribute(Qt::WA_NoMousePropagation);
 
     //ruler
-    if(m_bShowRuler){
+    if(isRulerOn()){
         m_pRulerH.reset(new QG_Ruler(this, RS2::Up));
         m_pRulerV.reset(new QG_Ruler(this, RS2::Left));
         updateRulers();
@@ -683,7 +683,11 @@ void QG_GraphicView::adjustZoomControls() {
 }
 
 void QG_GraphicView::updateRulers() {
-    if(m_bShowRuler){
+    if(isRulerOn()){
+        if(m_pRulerH.get()==NULL){
+            m_pRulerH.reset(new QG_Ruler(this, RS2::Up));
+            m_pRulerV.reset(new QG_Ruler(this, RS2::Left));
+        }
         m_pRulerH->updateZoom();
         m_pRulerV->updateZoom();
     }
@@ -831,7 +835,8 @@ void QG_GraphicView::paintEvent(QPaintEvent *) {
         PixmapLayer3->fill(Qt::transparent);
         RS_PainterQt painter3(PixmapLayer3);
         //ruler
-        if(m_bShowRuler){
+        if(isRulerOn()){
+            if(m_pRulerH.get()==NULL) updateRulers();
             m_pRulerH->setViewSize(getWidth(), getHeight(), hScrollBar->height());
             painter3.drawPixmap(m_pRulerH->rect(), *(m_pRulerH->pixmap()));
             m_pRulerV->setViewSize(getWidth(), getHeight(), hScrollBar->height());

@@ -228,6 +228,9 @@ void QG_DlgOptionsDrawing::setGraphic(RS_Graphic* g) {
 
     rbIsometricGrid->setDisabled(!cbGridOn->isChecked());
     rbOrthogonalGrid->setDisabled(!cbGridOn->isChecked());
+    // Ruler
+    cbRulerOn->setChecked(graphic->isRulerOn());
+    //crosshair
     RS2::CrosshairType chType=graphic->getCrosshairType();
     switch(chType){
     case RS2::LeftCrosshair:
@@ -380,6 +383,7 @@ void QG_DlgOptionsDrawing::validate() {
         // grid:
         //graphic->addVariable("$GRIDMODE", (int)cbGridOn->isChecked() , 70);
         graphic->setGridOn(cbGridOn->isChecked());
+        graphic->setRulerOn(cbRulerOn->isChecked());
 #ifdef  RS_VECTOR2D
         spacing=RS_Vector(0.0,0.0);
 #else
@@ -681,7 +685,6 @@ void QG_DlgOptionsDrawing::updateUnitLabels() {
     //have to update paper size when unit changes
     updatePaperSize();
 }
-
 
 void QG_DlgOptionsDrawing::on_rbIsometricGrid_clicked()
 {

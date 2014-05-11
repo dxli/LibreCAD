@@ -291,6 +291,8 @@ virtual QDateTime getModifyTime(void){
         {
             return paperScaleFixed;
         }
+        bool isRulerOn() const;
+        void setRulerOn(bool isRulerOn);
 
     friend std::ostream& operator << (std::ostream& os, RS_Graphic& g);
 
@@ -307,6 +309,10 @@ private:
         RS2::CrosshairType crosshairType; //corss hair type used by isometric grid
         //if set to true, will refuse to modify paper scale
         bool paperScaleFixed;
+        /**
+         * @brief m_bShowRuler, if true, show rulers
+         */
+        bool m_bShowRuler;
 };
 
 

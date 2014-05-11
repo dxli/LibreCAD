@@ -43,9 +43,12 @@
  * Default constructor.
  */
 RS_Graphic::RS_Graphic(RS_EntityContainer* parent)
-        : RS_Document(parent),
-        layerList(),
-blockList(true),paperScaleFixed(false)
+        : RS_Document(parent)
+        ,layerList()
+        ,blockList(true)
+        ,paperScaleFixed(false)
+        ,m_bShowRuler(false)
+
 {
 
     RS_SETTINGS->beginGroup("/Defaults");
@@ -82,6 +85,10 @@ blockList(true),paperScaleFixed(false)
     setPaperInsertionBase(getPaperInsertionBase());
 
     setModified(false);
+
+    RS_SETTINGS->beginGroup("Appearance");
+    m_bShowRuler=( RS_SETTINGS->readNumEntry("ShowRulers", 0) == 1 );
+    RS_SETTINGS->endGroup();
 }
 
 
@@ -944,6 +951,19 @@ void RS_Graphic::addEntity(RS_Entity* entity)
     }
 }
 
+
+bool RS_Graphic::isRulerOn() const
+{
+    return m_bShowRuler;
+}
+
+void RS_Graphic::setRulerOn(bool showRuler)
+{
+    m_bShowRuler=showRuler;
+    RS_SETTINGS->beginGroup("Appearance");
+    RS_SETTINGS->writeEntry("ShowRulers", m_bShowRuler?1:0);
+    RS_SETTINGS->endGroup();
+}
 
 /**
  * Dumps the entities to stdout.

@@ -364,6 +364,7 @@ public:
     //    gridVisible = on;
     //}
     bool isGridOn();
+    bool isRulerOn();
     bool isGridIsometric();
     void setCrosshairType(RS2::CrosshairType chType);
     RS2::CrosshairType getCrosshairType();

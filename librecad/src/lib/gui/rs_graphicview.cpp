@@ -174,6 +174,21 @@ bool RS_GraphicView::isGridOn() {
     }
     return true;
 }
+/**
+ * @return true if the grid is switched on.
+ */
+bool RS_GraphicView::isRulerOn() {
+    if (container!=NULL) {
+        RS_Graphic* g = container->getGraphic();
+        if (g!=NULL) {
+            return g->isRulerOn();
+        }
+    }
+    RS_SETTINGS->beginGroup("Appearance");
+    bool ret=(RS_SETTINGS->readNumEntry("ShowRuler", 0)==1);
+    RS_SETTINGS->endGroup();
+    return ret;
+}
 
 /**
  * @return true if the grid is isometric

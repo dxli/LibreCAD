@@ -149,6 +149,7 @@ void QG_Ruler::updateZoom()
 
 double QG_Ruler::subDivision(const double& dx, const RS2::Unit unit)
 {
+    return 0.;
 
 }
 
