@@ -152,6 +152,7 @@
 #include "rs_actionpolylineequidistant.h"
 #include "rs_actionpolylinesegment.h"
 #include "rs_actionorder.h"
+#include "qc_applicationwindow.h"
 
 /**
  * Constructor.
@@ -225,13 +226,13 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
     case RS2::ActionFileNew:
                 action = RS_ActionFileNew::createGUIAction(id, mw);
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFileNewNew()));
+                QC_ApplicationWindow::getAppWindow(), SLOT(slotFileNew()));
         break;
 
     case RS2::ActionFileNewTemplate:
                 action = RS_ActionFileNewTemplate::createGUIAction(id, mw);
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFileNewTemplate()));
+                QC_ApplicationWindow::getAppWindow(), SLOT(slotFileNewNew()));
         break;
 
     case RS2::ActionFileOpen:
@@ -243,7 +244,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
     case RS2::ActionFileSave:
                 action = RS_ActionFileSave::createGUIAction(id, mw);
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFileSave()));
+                QC_ApplicationWindow::getAppWindow(), SLOT(slotFileSave()));
         break;
 
     case RS2::ActionFileSaveAs:
@@ -258,7 +259,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
                         //action->zetStatusTip(tr("Exports the current drawing as bitmap"));
 
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFileExport()));
+                 QC_ApplicationWindow::getAppWindow(), SLOT(slotFileExport()));
         break;
 
     case RS2::ActionFileClose:
@@ -284,7 +285,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
                         //action->zetStatusTip(tr("Prints out the current drawing"));
 
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFilePrint()));
+                 QC_ApplicationWindow::getAppWindow(), SLOT(slotFilePrint()));
         break;
 
     case RS2::ActionFilePrintPDF:
@@ -295,7 +296,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
                         //action->zetStatusTip(tr("Prints out the current drawing"));
 
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFilePrintPDF()));
+                 QC_ApplicationWindow::getAppWindow(), SLOT(slotFilePrintPDF()));
         break;
 
     case RS2::ActionFilePrintPreview:
@@ -1376,7 +1377,10 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
         connect(action, SIGNAL(triggered()),
                 obj, SLOT(slotBlocksExplode()));
         break;
-
+    case RS2::ActionBlocksImport:
+        action = new QAction(QIcon(":/ui/blockinsert.png"), tr("&Block"), this);
+        connect(action, SIGNAL(triggered()), QC_ApplicationWindow::getAppWindow(), SLOT(slotImportBlock()));
+        break;
 
         // Options actions:
         //
@@ -1400,7 +1404,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
 
                         //action->zetStatusTip(tr("General Application Preferences"));
         connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotOptionsGeneral()));
+                 QC_ApplicationWindow::getAppWindow(), SLOT(slotOptionsGeneral()));
         break;
 
     case RS2::ActionOptionsDrawing:

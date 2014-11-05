@@ -57,6 +57,7 @@ class QG_PenToolBar;
 class QHelpEngine;
 class QC_PluginInterface;
 class QG_ActiveLayerName;
+class QG_ActionFactory;
 
 /**
  * Main application window. Hold together document, view and controls.
@@ -352,6 +353,7 @@ private:
      * @param w, pointer to window widget
      */
     void updateWindowTitle(QWidget* w);
+    void popularizeMenuToolBar(QG_ActionFactory* factory, QMenu* subMenu, QToolBar* toolBar, std::initializer_list<RS2::ActionType> list);
 
     /** Pointer to the application window (this). */
     static QC_ApplicationWindow* appWindow;
