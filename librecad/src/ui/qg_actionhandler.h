@@ -68,6 +68,7 @@ public slots:
           void slotFileSave();
      */
     void slotFileSaveAs();
+    void slotFileExportMakerCam();
     /*
          void slotFileClose();
          void slotFilePrint();

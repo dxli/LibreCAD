@@ -88,6 +88,7 @@
 #include "rs_actioneditcopy.h"
 #include "rs_actioneditpaste.h"
 #include "rs_actioneditundo.h"
+#include "rs_actionfileexportmakercam.h"
 #include "rs_actionfilenew.h"
 #include "rs_actionfilenewtemplate.h"
 #include "rs_actionfileopen.h"
@@ -306,6 +307,11 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
                 action->setCheckable(true);
         connect(action, SIGNAL(triggered(bool)),
                 obj, SLOT(slotFilePrintPreview(bool)));
+        break;
+
+    case RS2::ActionFileExportMakerCam:
+        action = RS_ActionFileExportMakerCam::createGUIAction(id, mw);
+        connect(action, SIGNAL(triggered()), obj, SLOT(slotFileExportMakerCam()));
         break;
 
     case RS2::ActionFileQuit:

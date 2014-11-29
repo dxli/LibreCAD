@@ -660,6 +660,7 @@ void QC_ApplicationWindow::initActions(void)
                                       ,RS2::ActionFilePrintPDF});
     action= actionFactory.addGUI(menu, fileToolBar, this, RS2::ActionFilePrintPreview);
     connect(this, SIGNAL(printPreviewChanged(bool)), action, SLOT(setChecked(bool)));
+    actionFactory.addGUI(menu, actionHandler, RS2::ActionFileExportMakerCam);
 
     menu->addSeparator();
     actionFactory.addGUI(menu, this, RS2::ActionFileQuit);
