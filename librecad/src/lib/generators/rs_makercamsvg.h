@@ -37,6 +37,7 @@
 #include <rs_layer.h>
 #include <rs_line.h>
 #include <rs_point.h>
+#include <rs_polyline.h>
 #include <rs_vector.h>
 
 class RS_MakerCamSVG {
@@ -66,12 +67,14 @@ private:
     void writeInsert(xmlpp::Element* parent, RS_Insert* insert);
     void writePoint(xmlpp::Element* parent, RS_Point* point);
     void writeLine(xmlpp::Element* parent, RS_Line* line);
+    void writePolyline(xmlpp::Element* parent, RS_Polyline* polyline);
     void writeCircle(xmlpp::Element* parent, RS_Circle* circle);
     void writeArc(xmlpp::Element* parent, RS_Arc* arc);
     void writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse);
     
     std::string numXml(double value);
     RS_Vector convertToSvg(RS_Vector vector);
+    std::string svgArcPath(RS_Arc* arc);
 
     bool writeInvisibleLayers;
     bool writeConstructionLayers;

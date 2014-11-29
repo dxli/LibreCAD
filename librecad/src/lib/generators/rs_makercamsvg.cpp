@@ -40,6 +40,8 @@
 #include "rs_point.h"
 #include "rs_line.h"
 #include "rs_leader.h"
+#include "rs_math.h"
+#include "rs_polyline.h"
 #include "rs_spline.h"
 #include "lc_splinepoints.h"
 #include "rs_system.h"
@@ -187,12 +189,14 @@ void RS_MakerCamSVG::writeLayer(xmlpp::Element* parent, RS_Document* document, R
             g->set_attribute("stroke-width", "1");
 
             writeEntities(g, document, layer);
-        } else {
+        } 
+        else {
 
             RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Omitting construction layer with name '%s'",
                             qPrintable(layer->getName()));
         }
-    } else {
+    } 
+    else {
     
         RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Omitting invisible layer with name '%s'",
                         qPrintable(layer->getName()));
@@ -203,7 +207,7 @@ void RS_MakerCamSVG::writeEntities(xmlpp::Element* parent, RS_Document* document
 
     RS_DEBUG->print("RS_MakerCamSVG::writeEntitiesFromBlock: Writing entities from layer ...");
 
-    for (RS_Entity *e = document->firstEntity(RS2::ResolveNone); e != NULL; e = document->nextEntity(RS2::ResolveNone)) {
+    for (RS_Entity* e = document->firstEntity(RS2::ResolveNone); e != NULL; e = document->nextEntity(RS2::ResolveNone)) {
 
         if (e->getLayer() == layer) {
 
@@ -228,6 +232,9 @@ void RS_MakerCamSVG::writeEntity(xmlpp::Element* parent, RS_Entity* entity) {
             break;
         case RS2::EntityLine:
             writeLine(parent, (RS_Line*)entity);
+            break;
+        case RS2::EntityPolyline:
+            writePolyline(parent, (RS_Polyline*)entity);
             break;
         case RS2::EntityCircle:
             writeCircle(parent, (RS_Circle*)entity);
@@ -259,7 +266,6 @@ void RS_MakerCamSVG::writeInsert(xmlpp::Element* parent, RS_Insert* insert) {
     e->set_attribute("x", numXml(insertionpoint.x));
     e->set_attribute("y", numXml(insertionpoint.y - (max.y - min.y)));
     e->set_attribute("href", "#" + std::to_string(block->getId()), "xlink");
-    
 }
 
 void RS_MakerCamSVG::writePoint(xmlpp::Element* parent, RS_Point* point) {
@@ -293,6 +299,43 @@ void RS_MakerCamSVG::writeLine(xmlpp::Element* parent, RS_Line* line) {
     e->set_attribute("y2", numXml(endpoint.y));
 }
 
+void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline) {
+
+    RS_DEBUG->print("RS_MakerCamSVG::writePolyline: Writing polyline ...");
+
+    xmlpp::Element* e = parent->add_child("path");
+
+    RS_Vector startpoint = convertToSvg(polyline->getStartpoint());
+    RS_Vector endpoint = convertToSvg(polyline->getEndpoint());
+
+    std::string path = "M" + numXml(startpoint.x) + "," + numXml(startpoint.y);
+    
+    for (RS_Entity* entity = polyline->firstEntity(RS2::ResolveNone); entity != NULL; entity = polyline->nextEntity(RS2::ResolveNone)) {
+
+        if (!entity->isAtomic()) {
+            continue;
+        }
+
+        if (entity->rtti() == RS2::EntityArc) {
+            
+            path += svgArcPath((RS_Arc*)entity);  
+        } 
+        else {
+        
+            RS_Vector point = convertToSvg(entity->getEndpoint());
+            
+            path += " L" + numXml(point.x) + "," + numXml(point.y);
+        }
+    }
+    
+    if (polyline->isClosed()) {
+
+        path += " Z";
+    }
+    
+    e->set_attribute("d", path);
+}
+
 void RS_MakerCamSVG::writeCircle(xmlpp::Element* parent, RS_Circle* circle) {
 
     RS_DEBUG->print("RS_MakerCamSVG::writeCircle: Writing circle ...");
@@ -313,32 +356,9 @@ void RS_MakerCamSVG::writeArc(xmlpp::Element* parent, RS_Arc* arc) {
     xmlpp::Element* e = parent->add_child("path");
 
     RS_Vector startpoint = convertToSvg(arc->getStartpoint());
-    RS_Vector endpoint = convertToSvg(arc->getEndpoint());
-    double radius = arc->getRadius();
-
-    double startangle = arc->getAngle1();
-    double endangle = arc->getAngle2();
-
-    
-    if (endangle < startangle) {
-        endangle += (2.0 * 3.14159265);
-    }
-
-    bool large_arc_flag = ((endangle - startangle) > 3.14159265);
-    bool sweep_flag = false;
-
-    if (arc->isReversed())
-    {
-        large_arc_flag = !large_arc_flag;
-        sweep_flag = !sweep_flag;
-    }
 
     std::string path = "M" + numXml(startpoint.x) + "," + numXml(startpoint.y) + " " +
-                       "A" + numXml(radius) + "," + numXml(radius) + " " +
-                       "0 " + 
-                       (large_arc_flag ? "1" : "0") + " " +
-                       (sweep_flag ? "1" : "0") + " " +
-                       numXml(endpoint.x) + "," + numXml(endpoint.y);
+                       svgArcPath(arc);
 
     e->set_attribute("d", path);
 }
@@ -354,7 +374,7 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
     double minorradius = ellipse->getMinorRadius();
     double majorradius = ellipse->getMajorRadius();
 
-    double majorangle = 180 - (180.0 / 3.14159265 * ellipse->getAngle() - 90);
+    double majorangle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
 
     std::string transform = "translate(" + numXml(center.x) + ", " + numXml(center.y) + ") " +
                             "rotate(" + numXml(majorangle) + ")";
@@ -366,15 +386,7 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
 
 std::string RS_MakerCamSVG::numXml(double value) {
     
-    char buffer[30];
-    
-    snprintf(buffer, sizeof(buffer), "%10.8f", value);
-
-    std::string formatted(buffer);
-
-    // TODO: How to not memory leak ... (delete[] buffer doen't work)
-
-    return formatted;
+    return RS_Math::doubleToString(value, 8).toStdString();
 }
 
 RS_Vector RS_MakerCamSVG::convertToSvg(RS_Vector vector) {
@@ -382,4 +394,33 @@ RS_Vector RS_MakerCamSVG::convertToSvg(RS_Vector vector) {
     RS_Vector translated((vector.x - min.x), (max.y - vector.y));
 
     return translated;
+}
+
+std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
+
+    RS_Vector endpoint = convertToSvg(arc->getEndpoint());
+    double radius = arc->getRadius();
+
+    double startangle = RS_Math::rad2deg(arc->getAngle1());
+    double endangle = RS_Math::rad2deg(arc->getAngle2());
+
+    
+    if (endangle < startangle) {
+        endangle += 360;
+    }
+
+    bool large_arc_flag = ((endangle - startangle) > 180);
+    bool sweep_flag = false;
+
+    if (arc->isReversed())
+    {
+        large_arc_flag = !large_arc_flag;
+        sweep_flag = !sweep_flag;
+    }
+
+    return "A" + numXml(radius) + "," + numXml(radius) + " " +
+           "0 " + 
+           (large_arc_flag ? "1" : "0") + " " +
+           (sweep_flag ? "1" : "0") + " " +
+           numXml(endpoint.x) + "," + numXml(endpoint.y);
 }
