@@ -86,6 +86,8 @@ private:
     RS_Vector min;
     RS_Vector max;
     
+    RS_Vector offset;
+    
     std::string unit;
 };
 

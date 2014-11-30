@@ -40,7 +40,6 @@
 #include "rs_point.h"
 #include "rs_line.h"
 #include "rs_leader.h"
-#include "rs_math.h"
 #include "rs_polyline.h"
 #include "rs_spline.h"
 #include "lc_splinepoints.h"
@@ -50,6 +49,7 @@
 #include "rs_grid.h"
 #include "rs_dialogfactory.h"
 #include "rs_units.h"
+#include "rs_utility.h"
 
 RS_MakerCamSVG::RS_MakerCamSVG(bool writeInvisibleLayers,
                                bool writeConstructionLayers,
@@ -64,10 +64,13 @@ RS_MakerCamSVG::RS_MakerCamSVG(bool writeInvisibleLayers,
     this->convertEllipsesToPaths = convertEllipsesToPaths;
 
     this->doc = new xmlpp::Document();
+    
+    this->offset = RS_Vector(0, 0);
 }
 
 RS_MakerCamSVG::~RS_MakerCamSVG() {
-    delete doc;    
+
+    delete doc;
 }
 
 bool RS_MakerCamSVG::generate(RS_Graphic* graphic) {
@@ -126,13 +129,22 @@ void RS_MakerCamSVG::write(RS_Graphic* graphic) {
 
 void RS_MakerCamSVG::writeBlocks(xmlpp::Element* parent, RS_Document* document) {
 
-    RS_DEBUG->print("RS_MakerCamSVG::writeBlocks: Writing blocks ...");
+    if (!writeBlocksInline) {
 
-    RS_BlockList* blocklist = document->getBlockList();
+        RS_DEBUG->print("RS_MakerCamSVG::writeBlocks: Writing blocks ...");
 
-    for (int i = 0; i < blocklist->count(); i++) {
+        RS_BlockList* blocklist = document->getBlockList();
 
-        writeBlock(parent, blocklist->at(i));
+        if (blocklist->count() > 0) {
+
+            xmlpp::Element* e = parent->add_child("defs");
+
+            for (int i = 0; i < blocklist->count(); i++) {
+
+                writeBlock(e, blocklist->at(i));
+            }
+        }
+
     }
 }
 
@@ -141,15 +153,12 @@ void RS_MakerCamSVG::writeBlock(xmlpp::Element* parent, RS_Block* block) {
     RS_DEBUG->print("RS_MakerCamSVG::writeBlock: Writing block with name '%s'",
                     qPrintable(block->getName()));
 
-    xmlpp::Element* defs = parent->add_child("defs");
+    xmlpp::Element* e = parent->add_child("g");
 
-    defs->set_attribute("blockname", qPrintable(block->getName()), "lc");
-
-    xmlpp::Element* g = defs->add_child("g");
-
-    g->set_attribute("id", std::to_string(block->getId()));
+    e->set_attribute("id", std::to_string(block->getId()));
+    e->set_attribute("blockname", qPrintable(block->getName()), "lc");
     
-    writeLayers(g, block);
+    writeLayers(e, block);
 }
 
 void RS_MakerCamSVG::writeLayers(xmlpp::Element* parent, RS_Document* document) {
@@ -173,22 +182,22 @@ void RS_MakerCamSVG::writeLayer(xmlpp::Element* parent, RS_Document* document, R
             RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Writing layer with name '%s'",
                             qPrintable(layer->getName()));
 
-            xmlpp::Element* g = parent->add_child("g");
+            xmlpp::Element* e = parent->add_child("g");
             
-            g->set_attribute("layername", qPrintable(layer->getName()), "lc");
-            g->set_attribute("is_locked", (layer->isLocked() ? "true" : "false"), "lc");
-            g->set_attribute("is_construction", (layer->isConstructionLayer() ? "true" : "false"), "lc");
+            e->set_attribute("layername", qPrintable(layer->getName()), "lc");
+            e->set_attribute("is_locked", (layer->isLocked() ? "true" : "false"), "lc");
+            e->set_attribute("is_construction", (layer->isConstructionLayer() ? "true" : "false"), "lc");
 
             if (layer->isFrozen())
             {
-                g->set_attribute("style", "display: none;");
+                e->set_attribute("style", "display: none;");
             }
 
-            g->set_attribute("fill", "none");
-            g->set_attribute("stroke", "black");
-            g->set_attribute("stroke-width", "1");
+            e->set_attribute("fill", "none");
+            e->set_attribute("stroke", "black");
+            e->set_attribute("stroke-width", "1");
 
-            writeEntities(g, document, layer);
+            writeEntities(e, document, layer);
         } 
         else {
 
@@ -255,17 +264,34 @@ void RS_MakerCamSVG::writeEntity(xmlpp::Element* parent, RS_Entity* entity) {
 
 void RS_MakerCamSVG::writeInsert(xmlpp::Element* parent, RS_Insert* insert) {
 
-    RS_DEBUG->print("RS_MakerCamSVG::writeInsert: Writing insert ...");
-
-    xmlpp::Element* e = parent->add_child("use");
+    RS_Block* block = insert->getBlockForInsert();
 
     RS_Vector insertionpoint = convertToSvg(insert->getInsertionPoint());
-    
-    RS_Block* block = insert->getBlockForInsert();    
-    
-    e->set_attribute("x", numXml(insertionpoint.x));
-    e->set_attribute("y", numXml(insertionpoint.y - (max.y - min.y)));
-    e->set_attribute("href", "#" + std::to_string(block->getId()), "xlink");
+
+    if (writeBlocksInline) {
+
+        RS_DEBUG->print("RS_MakerCamSVG::writeInsert: Writing insert inline ...");
+
+        offset.set(insertionpoint.x, insertionpoint.y - (max.y - min.y));
+
+        xmlpp::Element* e = parent->add_child("g");
+
+        e->set_attribute("blockname", qPrintable(block->getName()), "lc");
+
+        writeLayers(e, block);
+        
+        offset.set(0, 0);
+    }
+    else {
+
+        RS_DEBUG->print("RS_MakerCamSVG::writeInsert: Writing insert as reference to block ...");
+
+        xmlpp::Element* e = parent->add_child("use");
+
+        e->set_attribute("x", numXml(insertionpoint.x));
+        e->set_attribute("y", numXml(insertionpoint.y - (max.y - min.y)));
+        e->set_attribute("href", "#" + std::to_string(block->getId()), "xlink");
+    }
 }
 
 void RS_MakerCamSVG::writePoint(xmlpp::Element* parent, RS_Point* point) {
@@ -386,14 +412,14 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
 
 std::string RS_MakerCamSVG::numXml(double value) {
     
-    return RS_Math::doubleToString(value, 8).toStdString();
+    return RS_Utility::doubleToString(value, 8).toStdString();
 }
 
 RS_Vector RS_MakerCamSVG::convertToSvg(RS_Vector vector) {
 
     RS_Vector translated((vector.x - min.x), (max.y - vector.y));
 
-    return translated;
+    return translated + offset;
 }
 
 std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
