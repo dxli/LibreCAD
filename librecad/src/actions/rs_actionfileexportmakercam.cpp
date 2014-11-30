@@ -70,7 +70,7 @@ void RS_ActionFileExportMakerCam::trigger() {
             RS_SETTINGS->beginGroup("/ExportMakerCam");
         
             RS_MakerCamSVG* generator = new RS_MakerCamSVG((bool)RS_SETTINGS->readNumEntry("/ExportInvisibleLayers"),
-                                                           (bool)RS_SETTINGS->readNumEntry("/ExportConstuctionLayers"),
+                                                           (bool)RS_SETTINGS->readNumEntry("/ExportConstructionLayers"),
                                                            (bool)RS_SETTINGS->readNumEntry("/WriteBlocksInline"),
                                                            (bool)RS_SETTINGS->readNumEntry("/ConvertEllipsesToPaths"));
 
