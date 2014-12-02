@@ -1950,10 +1950,11 @@ void QG_DialogFactory::requestOptionsDrawingDialog(RS_Graphic& graphic) {
     dlg.exec();
 }
 
-void QG_DialogFactory::requestOptionsMakerCamDialog() {
+bool QG_DialogFactory::requestOptionsMakerCamDialog() {
 
     QG_DlgOptionsMakerCam dlg(parent);
-    dlg.exec();
+
+    return (dlg.exec() == QDialog::Accepted);
 }
 
 QString QG_DialogFactory::requestFileSaveAsDialog(const QString& caption /* = QString() */,

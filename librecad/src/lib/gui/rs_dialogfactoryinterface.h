@@ -378,7 +378,7 @@ public:
      * This virtual method must be overwritten and must present
      * a dialog for options how to export as MakeCAM SVG.
      */
-    virtual void requestOptionsMakerCamDialog() = 0;
+    virtual bool requestOptionsMakerCamDialog() = 0;
 
     /**
      * This virtual method must be overwritten and must present

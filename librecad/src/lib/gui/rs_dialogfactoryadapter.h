@@ -86,7 +86,7 @@ public:
     virtual bool requestHatchDialog(RS_Hatch* ) { return false; }
     virtual void requestOptionsGeneralDialog() {}
     virtual void requestOptionsDrawingDialog(RS_Graphic& ) {}
-    virtual void requestOptionsMakerCamDialog() {}
+    virtual bool requestOptionsMakerCamDialog() { return false; }
     virtual QString requestFileSaveAsDialog(const QString& caption = QString(),
                                             const QString& dir = QString(),
                                             const QString& filter = QString(),
