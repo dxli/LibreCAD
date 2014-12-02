@@ -74,6 +74,11 @@ private:
     
     std::string numXml(double value);
     RS_Vector convertToSvg(RS_Vector vector);
+
+    std::string svgPathClose();
+    std::string svgPathCurveTo(RS_Vector point, RS_Vector controlpoint1, RS_Vector controlpoint2);
+    std::string svgPathLineTo(RS_Vector point);
+    std::string svgPathMoveTo(RS_Vector point);
     std::string svgArcPath(RS_Arc* arc);
 
     bool writeInvisibleLayers;
