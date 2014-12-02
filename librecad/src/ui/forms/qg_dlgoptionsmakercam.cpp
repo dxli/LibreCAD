@@ -68,7 +68,7 @@ void QG_DlgOptionsMakerCam::loadSettings() {
     updateCheckbox(checkInvisibleLayers, "ExportInvisibleLayers", 0);
     updateCheckbox(checkConstructionLayers, "ExportConstructionLayers", 0);
     updateCheckbox(checkBlocksInline, "WriteBlocksInline", 1);
-    updateCheckbox(checkEllipsesToPaths, "ConvertEllipsesToPaths", 0);
+    updateCheckbox(checkEllipsesToPaths, "ConvertEllipsesToPaths", 1);
 
     RS_SETTINGS->endGroup();
 }

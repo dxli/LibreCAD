@@ -331,10 +331,7 @@ void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline
 
     xmlpp::Element* e = parent->add_child("path");
 
-    RS_Vector startpoint = convertToSvg(polyline->getStartpoint());
-    RS_Vector endpoint = convertToSvg(polyline->getEndpoint());
-
-    std::string path = "M" + numXml(startpoint.x) + "," + numXml(startpoint.y);
+    std::string path = svgPathMoveTo(convertToSvg(polyline->getStartpoint()));
     
     for (RS_Entity* entity = polyline->firstEntity(RS2::ResolveNone); entity != NULL; entity = polyline->nextEntity(RS2::ResolveNone)) {
 
@@ -348,15 +345,13 @@ void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline
         } 
         else {
         
-            RS_Vector point = convertToSvg(entity->getEndpoint());
-            
-            path += " L" + numXml(point.x) + "," + numXml(point.y);
+            path += svgPathLineTo(convertToSvg(entity->getEndpoint()));
         }
     }
     
     if (polyline->isClosed()) {
 
-        path += " Z";
+        path += svgPathClose();
     }
     
     e->set_attribute("d", path);
@@ -381,9 +376,7 @@ void RS_MakerCamSVG::writeArc(xmlpp::Element* parent, RS_Arc* arc) {
 
     xmlpp::Element* e = parent->add_child("path");
 
-    RS_Vector startpoint = convertToSvg(arc->getStartpoint());
-
-    std::string path = "M" + numXml(startpoint.x) + "," + numXml(startpoint.y) + " " +
+    std::string path = svgPathMoveTo(convertToSvg(arc->getStartpoint())) +
                        svgArcPath(arc);
 
     e->set_attribute("d", path);
@@ -391,23 +384,58 @@ void RS_MakerCamSVG::writeArc(xmlpp::Element* parent, RS_Arc* arc) {
 
 void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
 
-    RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse ...");
-
-    xmlpp::Element* e = parent->add_child("ellipse");
-
     RS_Vector center = convertToSvg(ellipse->getCenter());
 
-    double minorradius = ellipse->getMinorRadius();
     double majorradius = ellipse->getMajorRadius();
+    double minorradius = ellipse->getMinorRadius();
 
-    double majorangle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
+    if (convertEllipsesToPaths) {
 
-    std::string transform = "translate(" + numXml(center.x) + ", " + numXml(center.y) + ") " +
-                            "rotate(" + numXml(majorangle) + ")";
+        RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse appriximated by path with 4 cubic bézier curves ...");
 
-    e->set_attribute("rx", numXml(minorradius));
-    e->set_attribute("ry", numXml(majorradius));
-    e->set_attribute("transform", transform);
+        // See http://www.tinaja.com/glib/ellipse4.pdf
+        const double kappa = 0.551784;
+
+        xmlpp::Element* e = parent->add_child("path");
+
+        RS_Vector major {majorradius, 0.0};
+        RS_Vector minor {0.0, minorradius};
+
+        RS_Vector flip_y {1.0, -1.0};
+
+        major.rotate(ellipse->getAngle());
+        minor.rotate(ellipse->getAngle());
+        
+        major.scale(flip_y);
+        minor.scale(flip_y);
+
+        RS_Vector offsetmajor {major * kappa};
+        RS_Vector offsetminor {minor * kappa};
+
+        std::string path = svgPathMoveTo(center - major) + 
+                           svgPathCurveTo((center - minor), (center - major - offsetminor), (center - minor - offsetmajor)) +
+                           svgPathCurveTo((center + major), (center - minor + offsetmajor), (center + major - offsetminor)) +
+                           svgPathCurveTo((center + minor), (center + major + offsetminor), (center + minor + offsetmajor)) +
+                           svgPathCurveTo((center - major), (center + minor - offsetmajor), (center - major + offsetminor)) + 
+                           svgPathClose();
+                           
+        e->set_attribute("d", path);
+    }
+    else {
+        
+        RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse ...");
+
+        double angle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
+
+        xmlpp::Element* e = parent->add_child("ellipse");
+
+        std::string transform = "translate(" + numXml(center.x) + ", " + numXml(center.y) + ") " +
+                                "rotate(" + numXml(angle) + ")";
+
+        e->set_attribute("rx", numXml(minorradius));
+        e->set_attribute("ry", numXml(majorradius));
+        e->set_attribute("transform", transform);
+    }
 }
 
 std::string RS_MakerCamSVG::numXml(double value) {
@@ -420,6 +448,28 @@ RS_Vector RS_MakerCamSVG::convertToSvg(RS_Vector vector) {
     RS_Vector translated((vector.x - min.x), (max.y - vector.y));
 
     return translated + offset;
+}
+
+std::string RS_MakerCamSVG::svgPathClose() {
+
+    return "Z ";
+}
+
+std::string RS_MakerCamSVG::svgPathCurveTo(RS_Vector point, RS_Vector controlpoint1, RS_Vector controlpoint2) {
+
+    return "C" + numXml(controlpoint1.x) + "," + numXml(controlpoint1.y) + " " +
+           numXml(controlpoint2.x) + "," + numXml(controlpoint2.y) + " " +
+           numXml(point.x) + "," + numXml(point.y) + " ";
+}
+
+std::string RS_MakerCamSVG::svgPathLineTo(RS_Vector point) {
+
+    return "L" + numXml(point.x) + "," + numXml(point.y) + " ";
+}
+
+std::string RS_MakerCamSVG::svgPathMoveTo(RS_Vector point) {
+
+    return "M" + numXml(point.x) + "," + numXml(point.y) + " ";
 }
 
 std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
@@ -448,5 +498,5 @@ std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
            "0 " + 
            (large_arc_flag ? "1" : "0") + " " +
            (sweep_flag ? "1" : "0") + " " +
-           numXml(endpoint.x) + "," + numXml(endpoint.y);
+           numXml(endpoint.x) + "," + numXml(endpoint.y) + " ";
 }
