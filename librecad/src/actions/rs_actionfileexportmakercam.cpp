@@ -59,35 +59,37 @@ void RS_ActionFileExportMakerCam::trigger() {
 
     if (graphic != NULL) {
 
-        RS_DIALOGFACTORY->requestOptionsMakerCamDialog();
+        bool accepted = RS_DIALOGFACTORY->requestOptionsMakerCamDialog();
 
-        QString filename = RS_DIALOGFACTORY->requestFileSaveAsDialog(tr("Export as"), 
-                                                                     "", 
-                                                                     "Scalable Vector Graphics (*.svg)");
+        if (accepted) {
 
-        if (filename != "") {
-        
-            RS_SETTINGS->beginGroup("/ExportMakerCam");
-        
-            RS_MakerCamSVG* generator = new RS_MakerCamSVG((bool)RS_SETTINGS->readNumEntry("/ExportInvisibleLayers"),
-                                                           (bool)RS_SETTINGS->readNumEntry("/ExportConstructionLayers"),
-                                                           (bool)RS_SETTINGS->readNumEntry("/WriteBlocksInline"),
-                                                           (bool)RS_SETTINGS->readNumEntry("/ConvertEllipsesToPaths"));
+            QString filename = RS_DIALOGFACTORY->requestFileSaveAsDialog(tr("Export as"), 
+                                                                         "", 
+                                                                         "Scalable Vector Graphics (*.svg)");
 
-            RS_SETTINGS->endGroup();
+            if (filename != "") {
             
-            if (generator->generate(graphic)) {
+                RS_SETTINGS->beginGroup("/ExportMakerCam");
             
-                std::ofstream file;
-                file.open(filename.toStdString());
-                file << generator->resultAsString();
-                file.close();
+                RS_MakerCamSVG* generator = new RS_MakerCamSVG((bool)RS_SETTINGS->readNumEntry("/ExportInvisibleLayers"),
+                                                               (bool)RS_SETTINGS->readNumEntry("/ExportConstructionLayers"),
+                                                               (bool)RS_SETTINGS->readNumEntry("/WriteBlocksInline"),
+                                                               (bool)RS_SETTINGS->readNumEntry("/ConvertEllipsesToPaths"));
+
+                RS_SETTINGS->endGroup();
+                
+                if (generator->generate(graphic)) {
+                
+                    std::ofstream file;
+                    file.open(filename.toStdString());
+                    file << generator->resultAsString();
+                    file.close();
+                }
+                
+                delete generator;
+                generator = NULL;
             }
-            
-            delete generator;
-            generator = NULL;
         }
-
     }
     
     finish(false);

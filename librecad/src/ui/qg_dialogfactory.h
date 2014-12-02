@@ -262,7 +262,7 @@ public:
     virtual bool requestHatchDialog(RS_Hatch* hatch);
     virtual void requestOptionsGeneralDialog();
     virtual void requestOptionsDrawingDialog(RS_Graphic& graphic);
-    virtual void requestOptionsMakerCamDialog();
+    virtual bool requestOptionsMakerCamDialog();
 
     virtual QString requestFileSaveAsDialog(const QString& caption = QString(),
                                             const QString& dir = QString(),
