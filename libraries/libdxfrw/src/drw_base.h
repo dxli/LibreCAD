@@ -13,7 +13,7 @@
 #ifndef DRW_BASE_H
 #define DRW_BASE_H
 
-#define DRW_VERSION "0.5.11"
+#define DRW_VERSION "0.5.13"
 
 #include <string>
 #include <cmath>
@@ -155,6 +155,11 @@ public:
         if (d.type == STRING) sdata = d.sdata;
         content = d.content;
     }
+
+    DRW_Variant(int c, UTF8STRING s) { addString(s); code=c;}
+    DRW_Variant(int c, int i) { addInt(i); code=c;}
+    DRW_Variant(int c, double d) { addDouble(d); code=c;}
+    DRW_Variant(int c, double x, double y, double z) { setType(COORD); vdata.x=x; vdata.y=y; vdata.z=z; content.v = &vdata; code=c;}
 
     ~DRW_Variant() {
     }
