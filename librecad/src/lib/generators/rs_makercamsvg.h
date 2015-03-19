@@ -2,22 +2,22 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
-**  Copyright (C) 2014 Christian Luginbühl (dinkel@pimprecords.com}
+** Copyright (C) 2014 Christian Luginbühl (dinkel@pimprecords.com)
 **
 **
-** This file may be distributed and/or modified under the terms of the
-** GNU General Public License as published by the Free Software
-** Foundation either version 2 of the License, or (at your option)
-**  any later version.
+** This program is free software; you can redistribute it and/or modify
+** it under the terms of the GNU General Public License as published by
+** the Free Software Foundation; either version 2 of the License, or
+** (at your option) any later version.
 **
 ** This program is distributed in the hope that it will be useful,
 ** but WITHOUT ANY WARRANTY; without even the implied warranty of
-** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 ** GNU General Public License for more details.
 **
-** You should have received a copy of the GNU General Public License
-** along with this program; if not, write to the Free Software
-** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+** You should have received a copy of the GNU General Public License along
+** with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 **
 **********************************************************************/
 
@@ -48,10 +48,10 @@ public:
                    bool convertEllipsesToPaths = false);
 
     ~RS_MakerCamSVG();
-    
+
     bool generate(RS_Graphic* graphic);
     std::string resultAsString();
-        
+
 private:
     void write(RS_Graphic* graphic);
 
@@ -71,7 +71,7 @@ private:
     void writeCircle(xmlpp::Element* parent, RS_Circle* circle);
     void writeArc(xmlpp::Element* parent, RS_Arc* arc);
     void writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse);
-    
+
     std::string numXml(double value);
     RS_Vector convertToSvg(RS_Vector vector);
 
@@ -87,12 +87,12 @@ private:
     bool convertEllipsesToPaths;
 
     xmlpp::Document* doc;
-    
+
     RS_Vector min;
     RS_Vector max;
-    
+
     RS_Vector offset;
-    
+
     std::string unit;
 };
 
