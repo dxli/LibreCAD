@@ -2,6 +2,7 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2015 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
 **
@@ -27,10 +28,11 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QAction>
-#include <limits.h>
+#include <climits>
 #include "qc_applicationwindow.h"
 #include "rs_graphicview.h"
 
+#include "rs_line.h"
 #include "rs_linetypepattern.h"
 #include "rs_eventhandler.h"
 #include "rs_graphic.h"
@@ -1291,8 +1293,10 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patte
         return;
     }
     if( isPrintPreview() || isPrinting() ) {
-        //do not draw construction layer on print preview or print
-            if(e->isConstructionLayer()) return;
+        // do not draw construction layer on print preview or print
+        if( ! e->isPrint()
+          ||  e->isConstruction())
+            return;
     }
 
     // test if the entity is in the viewport
@@ -1348,7 +1352,7 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patte
         if (!e->isParentSelected()) {
             RS_VectorSolutions s = e->getRefPoints();
 
-            for (int i=0; i<s.getNumber(); ++i) {
+			for (size_t i=0; i<s.getNumber(); ++i) {
                 int sz = -1;
 				RS_Color col = handleColor;
 				if (i == 0) {

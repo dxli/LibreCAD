@@ -28,7 +28,9 @@
 #define RS_ACTIONDRAWARCTANGENTIAL_H
 
 #include "rs_previewactioninterface.h"
-#include "rs_arc.h"
+
+class RS_AtomicEntity;
+class RS_ArcData;
 
 /**
  * This action class can handle user events to draw 
@@ -79,13 +81,9 @@ public:
     virtual void updateMouseCursor();
 //    virtual void updateToolBar();
 
-    void setRadius(double r) {
-        data.radius = r;
-    }
+	void setRadius(double r);
 
-    double getRadius() const {
-        return data.radius;
-    }
+	double getRadius() const;
     void setAngle(double r) {
         angleLength= r;
     }
@@ -114,7 +112,7 @@ protected:
     /**
   * Arc data calculated.
   */
-    RS_ArcData data;
+	std::unique_ptr<RS_ArcData> data;
 private:
     double angleLength;
     bool byRadius;

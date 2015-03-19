@@ -24,9 +24,9 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondrawlineparallel.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_creation.h"
@@ -100,7 +100,7 @@ void RS_ActionDrawLineParallel::mouseMoveEvent(QMouseEvent* e) {
     case SetEntity: {
             deletePreview();
 
-            RS_Creation creation(preview, NULL, false);
+			RS_Creation creation(preview.get(), NULL, false);
             creation.createParallel(coord,
                                     distance, number,
                                     entity);

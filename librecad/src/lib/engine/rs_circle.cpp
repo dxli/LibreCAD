@@ -2,6 +2,7 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2015 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2011-2012 Dongxu Li (dongxuli2011@gmail.com)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
@@ -28,8 +29,9 @@
 #include <QDebug>
 #include "rs_circle.h"
 
-//#include <values.h>
 
+#include "rs_arc.h"
+#include "rs_line.h"
 #include "rs_constructionline.h"
 #include "rs_information.h"
 #include "rs_graphicview.h"
@@ -76,9 +78,13 @@ double RS_Circle::getLength() const {
 }
 
 bool RS_Circle::isTangent(const RS_CircleData&  circleData){
-    double d=circleData.center.distanceTo(data.center);
-    if( fabs(d-fabs(circleData.radius - data.radius))<RS_TOLERANCE ||
-            fabs(d-fabs(circleData.radius + data.radius))<RS_TOLERANCE ) return true;
+    const double d=circleData.center.distanceTo(data.center);
+//    DEBUG_HEADER();
+    const double r0=fabs(circleData.radius);
+    const double r1=fabs(data.radius);
+//    std::cout<<fabs(d-fabs(r0-r1))<<" : "<<fabs(d-fabs(r0+r1))<<std::endl;
+    if( fabs(d-fabs(r0-r1))<20.*RS_TOLERANCE ||
+            fabs(d-fabs(r0+r1))<20.*RS_TOLERANCE ) return true;
     return false;
 }
 
@@ -260,8 +266,8 @@ QVector<RS_Entity* > RS_Circle::offsetTwoSides(const double& distance) const
 {
     QVector<RS_Entity*> ret(0,NULL);
     ret<<new RS_Circle(NULL,RS_CircleData(getCenter(),getRadius()+distance));
-    if(getRadius()>distance)
-    ret<<new RS_Circle(NULL,RS_CircleData(getCenter(),getRadius()-distance));
+	if(fabs(getRadius()-distance)>RS_TOLERANCE)
+	ret<<new RS_Circle(NULL,RS_CircleData(getCenter(),fabs(getRadius()-distance)));
     return ret;
 }
 
@@ -296,14 +302,14 @@ RS_VectorSolutions RS_Circle::createTan2(const QVector<RS_AtomicEntity*>& circle
     }
     for(auto it0=e1.begin();it0!=e1.end();it0++){
         delete *it0;
-    }
+	}
     return centers;
 
 }
 
-QList<RS_Circle> RS_Circle::createTan3(const QVector<RS_AtomicEntity*>& circles)
+std::vector<RS_Circle> RS_Circle::createTan3(const std::vector<RS_AtomicEntity*>& circles)
 {
-    QList<RS_Circle> ret;
+	std::vector<RS_Circle> ret;
     if(circles.size()!=3) return ret;
      QList<RS_Circle> cs;
      for(unsigned short i=0u;i<3u;i++){
@@ -329,7 +335,7 @@ QList<RS_Circle> RS_Circle::createTan3(const QVector<RS_AtomicEntity*>& circles)
                         break;
                     }
                 }
-                if(addNew) ret<<c0;
+				if(addNew) ret.push_back(c0);
             }
         }
 
@@ -337,7 +343,7 @@ QList<RS_Circle> RS_Circle::createTan3(const QVector<RS_AtomicEntity*>& circles)
     }while(++flags<8u);
 //    std::cout<<__FILE__<<" : "<<__FUNCTION__<<" : line "<<__LINE__<<std::endl;
 //    std::cout<<"before testing, ret.size()="<<ret.size()<<std::endl;
-    for(int i=0;i<ret.size();){
+	for(size_t i=0;i<ret.size();){
         if(ret[i].testTan3(circles) == false) {
             ret.erase(ret.begin()+i);
         }else{
@@ -349,7 +355,7 @@ QList<RS_Circle> RS_Circle::createTan3(const QVector<RS_AtomicEntity*>& circles)
     return ret;
 }
 
-bool RS_Circle::testTan3(const QVector<RS_AtomicEntity*>& circles)
+bool RS_Circle::testTan3(const std::vector<RS_AtomicEntity*>& circles)
 {
 
     if(circles.size()!=3) return false;
@@ -482,15 +488,18 @@ RS_VectorSolutions RS_Circle::getRefPoints() {
 
 
 /**
- * @return Always an invalid vector.
+ * @brief compute nearest endpoint, intersection with X/Y axis at 0, 90, 180 and 270 degree
+ *
+ * Use getNearestMiddle() method to compute the nearest circle quadrant endpoints
+ *
+ * @param coord coordinates to compute, e.g. mouse cursor position
+ * @param dist double pointer to return distance between mouse pointer and nearest entity point
+ * @return the nearest intersection of the circle with X/Y axis.
  */
-RS_Vector RS_Circle::getNearestEndpoint(const RS_Vector& /*coord*/, double* dist)const {
-    if (dist!=NULL) {
-        *dist = RS_MAXDOUBLE;
-    }
-    return RS_Vector(false);
+RS_Vector RS_Circle::getNearestEndpoint(const RS_Vector& coord, double* dist /*= nullptr*/) const
+{
+    return getNearestMiddle( coord, dist, 0);
 }
-
 
 
 RS_Vector RS_Circle::getNearestPointOnEntity(const RS_Vector& coord,
@@ -570,16 +579,57 @@ RS_Vector RS_Circle::getMiddlePoint(void)const
     return RS_Vector(false);
 }
 
-RS_Vector RS_Circle::getNearestMiddle(const RS_Vector& /*coord*/,
-                                      double* dist,
-                                      const int /*middlePoints*/
-                                      )const {
-    if (dist!=NULL) {
-        *dist = RS_MAXDOUBLE;
+/**
+ * @brief compute middlePoints for each quadrant of a circle
+ *
+ * 0 middlePoints snaps to axis intersection at 0, 90, 180 and 270 degree (getNearestEndpoint) \n
+ * 1 middlePoints snaps to 45, 135, 225 and 315 degree \n
+ * 2 middlePoints snaps to 30, 60, 120, 150, 210, 240, 300 and 330 degree \n
+ * and so on
+ *
+ * @param coord coordinates to compute, e.g. mouse cursor position
+ * @param dist double pointer to return distance between mouse pointer and nearest entity point
+ * @param middlePoints number of middle points to compute per quadrant (0 for endpoints)
+ * @return the nearest of equidistant middle points of the circles quadrants.
+ */
+RS_Vector RS_Circle::getNearestMiddle(const RS_Vector& coord,
+                                      double* dist /*= nullptr*/,
+                                      const int middlePoints /*= 1*/) const
+{
+    if( data.radius <= RS_TOLERANCE) {
+        //circle too short
+        if ( nullptr != dist) {
+            *dist = RS_MAXDOUBLE;
+        }
+        return RS_Vector(false);
     }
-    return RS_Vector(false);
-}
 
+    RS_Vector vPoint( getNearestPointOnEntity( coord, true, dist));
+    int iCounts = middlePoints + 1;
+    double dAngleSteps = 0.5 * M_PI / iCounts;
+    double dAngleToPoint = data.center.angleTo(vPoint);
+    int iStepCount = static_cast<int>((dAngleToPoint + 0.5 * dAngleSteps) / dAngleSteps);
+    if( 0 < middlePoints) {
+        // for nearest middle eliminate start/endpoints
+        int iQuadrant = static_cast<int>(dAngleToPoint / 0.5 / M_PI);
+        int iQuadrantStep = iStepCount - iQuadrant * iCounts;
+        if( 0 == iQuadrantStep) {
+            ++iStepCount;
+        }
+        else if( iCounts == iQuadrantStep) {
+            --iStepCount;
+        }
+    }
+
+    vPoint.setPolar( data.radius, dAngleSteps * iStepCount);
+    vPoint.move( data.center);
+
+    if( nullptr != dist) {
+        *dist = vPoint.distanceTo( coord);
+    }
+
+    return vPoint;
+}
 
 
 RS_Vector RS_Circle::getNearestDist(double /*distance*/,
@@ -742,6 +792,21 @@ LC_Quadratic RS_Circle::getQuadratic() const
     ret.move(data.center);
     return ret;
 }
+
+
+/**
+* @brief Returns area of full circle
+* Note: Circular arcs are handled separately by RS_Arc (areaLIneIntegral) 
+* However, full ellipses and ellipse arcs are handled by RS_Ellipse
+* @return \pi r^2
+*/
+double RS_Circle::areaLineIntegral() const
+{
+	const double r = getRadius();
+	
+	return M_PI*r*r;
+}
+
 
 /**
  * Dumps the circle's data to stdout.

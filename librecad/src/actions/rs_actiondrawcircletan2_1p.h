@@ -25,9 +25,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QVector>
 #include "rs_previewactioninterface.h"
-//#include "rs_ellipse.h"
 
-class RS_Circle;
+class RS_AtomicEntity;
+class RS_CircleData;
 
 /**
  * Given two circles and a point, draw a common tangent circle passing the point
@@ -50,7 +50,7 @@ public:
 public:
     RS_ActionDrawCircleTan2_1P(RS_EntityContainer& container,
                                  RS_GraphicView& graphicView);
-    ~RS_ActionDrawCircleTan2_1P();
+	~RS_ActionDrawCircleTan2_1P();
 
     static QAction* createGUIAction(RS2::ActionType type, QObject* /*parent*/);
 
@@ -77,9 +77,7 @@ public:
 //    virtual void showOptions();
 //    virtual void hideOptions();
 //    void setRadius(const double& r);
-    double getRadius(){
-        return cData.radius;
-    }
+	double getRadius() const;
 
 
 protected:
@@ -87,12 +85,12 @@ protected:
     QVector<RS_AtomicEntity*> circles;
     RS_Vector point;
     private:
-    RS_CircleData cData;
+	std::unique_ptr<RS_CircleData> cData;
     RS_Vector coord;
     double radius;
     bool valid;
-    QVector<RS2::EntityType> enTypeList;
-    //keep a list of centers found
+	const QVector<RS2::EntityType> enTypeList={RS2::EntityLine, RS2::EntityArc, RS2::EntityCircle};
+	//keep a list of centers found
     RS_VectorSolutions centers;
 
 };

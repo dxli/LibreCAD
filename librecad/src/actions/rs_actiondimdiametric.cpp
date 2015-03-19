@@ -24,12 +24,15 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondimdiametric.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
+#include "rs_arc.h"
+#include "rs_circle.h"
+#include "rs_line.h"
 
 
 RS_ActionDimDiametric::RS_ActionDimDiametric(
@@ -134,7 +137,7 @@ void RS_ActionDimDiametric::mouseMoveEvent(QMouseEvent* e) {
             pos = snapPoint(e);
 
             preparePreview();
-            RS_DimDiametric* d = new RS_DimDiametric(preview, data, edata);
+			RS_DimDiametric* d = new RS_DimDiametric(preview.get(), data, edata);
 
             deletePreview();
             preview->addEntity(d);

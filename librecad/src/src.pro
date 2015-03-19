@@ -33,8 +33,7 @@ CONFIG += qt \
 
 greaterThan( QT_MAJOR_VERSION, 4 ) {
     # in Qt5 help is deprecated in CONFIG
-    QT += widgets printsupport help
-    CONFIG += c++11
+	QT += widgets printsupport help
 } else {
     CONFIG += help 
 } 
@@ -389,6 +388,7 @@ HEADERS += actions/rs_actionblocksadd.h \
     actions/rs_actionlayerstogglelock.h \
     actions/rs_actionlayerstoggleview.h \
     actions/rs_actionlayerstoggleprint.h \
+    actions/lc_actionlayerstoggleconstruction.h \
     actions/rs_actionlibraryinsert.h \
     actions/rs_actionlockrelativezero.h \
     actions/rs_actionmodifyattributes.h \
@@ -524,6 +524,7 @@ SOURCES += actions/rs_actionblocksadd.cpp \
     actions/rs_actionlayerstogglelock.cpp \
     actions/rs_actionlayerstoggleview.cpp \
     actions/rs_actionlayerstoggleprint.cpp \
+    actions/lc_actionlayerstoggleconstruction.cpp \
     actions/rs_actionlibraryinsert.cpp \
     actions/rs_actionlockrelativezero.cpp \
     actions/rs_actionmodifyattributes.cpp \

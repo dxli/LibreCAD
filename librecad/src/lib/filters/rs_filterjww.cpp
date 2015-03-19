@@ -24,26 +24,36 @@
 **
 **********************************************************************/
 
-
+#include <QTextCodec>
 #include "rs_filterjww.h"
-
-#include <stdio.h>
 
 #include "dl_attributes.h"
 #include "dl_codes.h"
 #include "dl_writer_ascii.h"
 
+
+#include "rs_arc.h"
+#include "rs_block.h"
+#include "rs_circle.h"
 #include "rs_dimaligned.h"
 #include "rs_dimangular.h"
 #include "rs_dimdiametric.h"
 #include "rs_dimlinear.h"
 #include "rs_dimradial.h"
+#include "rs_ellipse.h"
 #include "rs_hatch.h"
 #include "rs_image.h"
+#include "rs_insert.h"
+#include "rs_layer.h"
 #include "rs_leader.h"
+#include "rs_line.h"
+#include "rs_point.h"
+#include "rs_polyline.h"
+#include "rs_solid.h"
+#include "rs_spline.h"
+#include "lc_splinepoints.h"
 #include "rs_system.h"
 
-#include <qtextcodec.h>
 
 /**
  * Default constructor.
@@ -286,8 +296,8 @@ void RS_FilterJWW::addArc(const DL_ArcData& data) {
         //	   p2[0], p2[1], p2[2]);
         RS_Vector v(data.cx, data.cy);
         RS_ArcData d(v, data.radius,
-                                 data.angle1/ARAD,
-                                 data.angle2/ARAD,
+								 RS_Math::deg2rad(data.angle1),
+								 RS_Math::deg2rad(data.angle2),
                                  false);
         RS_Arc* entity = new RS_Arc(currentContainer, d);
         setEntityAttributes(entity, attributes);
@@ -443,7 +453,7 @@ void RS_FilterJWW::addInsert(const DL_InsertData& data) {
         //cout << "Insert: " << name << " " << ip << " " << cols << "/" << rows << endl;
 
         RS_InsertData d(data.name.c_str(),
-                                        ip, sc, data.angle/ARAD,
+										ip, sc, RS_Math::deg2rad(data.angle),
                                         data.cols, data.rows,
                                         sp,
                                         NULL,
@@ -1925,11 +1935,11 @@ void RS_FilterJWW::writeArc(DL_WriterA& dw, RS_Arc* a,
                                                         const DL_Attributes& attrib) {
         double a1, a2;
         if (a->isReversed()) {
-                a1 = a->getAngle2()*ARAD;
-                a2 = a->getAngle1()*ARAD;
+				a1 = RS_Math::rad2deg(a->getAngle2());
+				a2 = RS_Math::rad2deg(a->getAngle1());
         } else {
-                a1 = a->getAngle1()*ARAD;
-                a2 = a->getAngle2()*ARAD;
+				a1 = RS_Math::rad2deg(a->getAngle1());
+				a2 = RS_Math::rad2deg(a->getAngle2());
         }
         jww.writeArc(
                 dw,
@@ -1986,7 +1996,7 @@ void RS_FilterJWW::writeInsert(DL_WriterA& dw, RS_Insert* i,
                                           i->getScale().x,
                                           i->getScale().y,
                                           0.0,
-                                          i->getAngle()*ARAD,
+										  RS_Math::rad2deg(i->getAngle()),
                                           i->getCols(), i->getRows(),
                                           i->getSpacing().x,
                                           i->getSpacing().y),

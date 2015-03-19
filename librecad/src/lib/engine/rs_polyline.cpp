@@ -479,12 +479,12 @@ bool RS_Polyline::offset(const RS_Vector& coord, const double& distance){
 //        RS_VectorSolutions sol1;
         double dmax(RS_TOLERANCE15);
         RS_Vector trimP(false);
-        for(int j=0;j<sol0.getNumber();j++){
+		for(const RS_Vector& vp: sol0){
 
-            double d0( (sol0.get(j) - pnew->entityAt(previousIndex)->getStartpoint()).squared());//potential bug, need to trim better
+			double d0( (vp - pnew->entityAt(previousIndex)->getStartpoint()).squared());//potential bug, need to trim better
             if(d0>dmax) {
                 dmax=d0;
-                trimP=sol0.get(j);
+				trimP=vp;
             }
         }
         if(trimP.valid){
@@ -505,11 +505,11 @@ bool RS_Polyline::offset(const RS_Vector& coord, const double& distance){
 //        RS_VectorSolutions sol1;
         double dmax(RS_TOLERANCE15);
         RS_Vector trimP(false);
-        for(int j=0;j<sol0.getNumber();j++){
-            double d0( (sol0.get(j) - pnew->entityAt(previousIndex)->getEndpoint()).squared());//potential bug, need to trim better
+		for(const RS_Vector& vp: sol0){
+			double d0( (vp - pnew->entityAt(previousIndex)->getEndpoint()).squared());//potential bug, need to trim better
             if(d0>dmax) {
                 dmax=d0;
-                trimP=sol0.get(j);
+				trimP=vp;
             }
         }
         if(trimP.valid){
@@ -534,12 +534,12 @@ bool RS_Polyline::offset(const RS_Vector& coord, const double& distance){
 //            double a0(intersections.at(i).angleTo(vp0));
 //            double a1(intersections.at(i).angleTo(vp1));
             RS_VectorSolutions sol1;
-            for(int j=0;j<sol0.getNumber();j++){
-                if(RS_Math::isAngleBetween(intersections.at(i).angleTo(sol0.get(j)),
+			for(const RS_Vector& vp: sol0){
+				if(RS_Math::isAngleBetween(intersections.at(i).angleTo(vp),
                                            pnew->entityAt(i)->getDirection2(),
                                            pnew->entityAt(i+1)->getDirection1(),
                                            false)==false){
-                    sol1.push_back(sol0.get(j));
+					sol1.push_back(vp);
                 }
             }
             if(sol1.getNumber()==0) continue;
@@ -564,6 +564,7 @@ void RS_Polyline::move(const RS_Vector& offset) {
     RS_EntityContainer::move(offset);
     data.startpoint.move(offset);
     data.endpoint.move(offset);
+    calculateBorders();
 }
 
 
@@ -577,6 +578,7 @@ void RS_Polyline::rotate(const RS_Vector& center, const RS_Vector& angleVector) 
     RS_EntityContainer::rotate(center, angleVector);
     data.startpoint.rotate(center, angleVector);
     data.endpoint.rotate(center, angleVector);
+    calculateBorders();
 }
 
 
@@ -585,6 +587,7 @@ void RS_Polyline::scale(const RS_Vector& center, const RS_Vector& factor) {
     RS_EntityContainer::scale(center, factor);
     data.startpoint.scale(center, factor);
     data.endpoint.scale(center, factor);
+    calculateBorders();
 }
 
 
@@ -593,6 +596,7 @@ void RS_Polyline::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint
     RS_EntityContainer::mirror(axisPoint1, axisPoint2);
     data.startpoint.mirror(axisPoint1, axisPoint2);
     data.endpoint.mirror(axisPoint1, axisPoint2);
+    calculateBorders();
 }
 
 
@@ -605,6 +609,7 @@ void RS_Polyline::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
     if (ref.distanceTo(data.endpoint)<1.0e-4) {
        data.endpoint.move(offset);
     }
+    calculateBorders();
     //update();
 }
 
@@ -627,6 +632,7 @@ void RS_Polyline::stretch(const RS_Vector& firstCorner,
     }
 
         RS_EntityContainer::stretch(firstCorner, secondCorner, offset);
+    calculateBorders();
 }
 
 
@@ -654,7 +660,6 @@ void RS_Polyline::draw(RS_Painter* painter,RS_GraphicView* view, double& /*patte
         while(e!=NULL) {
             view->drawEntityPlain(painter, e, patternOffset);
             e = nextEntity(RS2::ResolveNone);
-            //RS_DEBUG->print("offset: %f\nlength was: %f", offset, e->getLength());
         }
     }
 }

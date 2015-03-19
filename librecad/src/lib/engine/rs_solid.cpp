@@ -27,6 +27,7 @@
 
 #include "rs_solid.h"
 
+#include "rs_line.h"
 #include "rs_graphicview.h"
 #include "rs_painter.h"
 #include "rs_information.h"
@@ -380,7 +381,7 @@ void RS_Solid::draw(RS_Painter* painter, RS_GraphicView* view,
         return;
     }
 
-    RS_SolidData d = getData();
+//    RS_SolidData d = getData();
     if (isTriangle()) {
         painter->fillTriangle(view->toGui(getCorner(0)),
                               view->toGui(getCorner(1)),

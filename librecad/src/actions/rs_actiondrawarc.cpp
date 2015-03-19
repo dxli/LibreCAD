@@ -24,26 +24,28 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondrawarc.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commands.h"
 #include "rs_commandevent.h"
+#include "rs_arc.h"
+#include "rs_circle.h"
 
 
 RS_ActionDrawArc::RS_ActionDrawArc(RS_EntityContainer& container,
                                    RS_GraphicView& graphicView)
         :RS_PreviewActionInterface("Draw arcs",
-                           container, graphicView) {
+						   container, graphicView)
+		,data(new RS_ArcData())
+{
 
     reset();
 }
 
-
-
-RS_ActionDrawArc::~RS_ActionDrawArc() {}
+RS_ActionDrawArc::~RS_ActionDrawArc(){}
 
 QAction* RS_ActionDrawArc::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
         // (tr("Arc: Center, Point, Angles")
@@ -55,18 +57,17 @@ QAction* RS_ActionDrawArc::createGUIAction(RS2::ActionType /*type*/, QObject* /*
 
 
 void RS_ActionDrawArc::reset() {
-    //bool rev = data.reversed;
 
-    if (data.reversed) {
-        data = RS_ArcData(RS_Vector(false),
+	if (data->reversed) {
+		data.reset(new RS_ArcData(RS_Vector(false),
                           0.0,
                           2*M_PI, 0.0,
-                          true);
+						  true));
     } else {
-        data = RS_ArcData(RS_Vector(false),
+		data.reset(new RS_ArcData(RS_Vector(false),
                           0.0,
                           0.0, 2*M_PI,
-                          false);
+						  false));
     }
 }
 
@@ -84,7 +85,7 @@ void RS_ActionDrawArc::trigger() {
     RS_PreviewActionInterface::trigger();
 
     RS_Arc* arc = new RS_Arc(container,
-                             data);
+							 *data);
     arc->setLayerToActive();
     arc->setPenToActive();
     container->addEntity(arc);
@@ -114,56 +115,56 @@ void RS_ActionDrawArc::mouseMoveEvent(QMouseEvent* e) {
     RS_Vector mouse = snapPoint(e);
     switch (getStatus()) {
     case SetCenter:
-        data.center = mouse;
+		data->center = mouse;
         break;
 
     case SetRadius:
-        if (data.center.valid) {
-            data.radius = data.center.distanceTo(mouse);
+		if (data->center.valid) {
+			data->radius = data->center.distanceTo(mouse);
             deletePreview();
-            preview->addEntity(new RS_Circle(preview,
-                                             RS_CircleData(data.center,
-                                                           data.radius)));
+			preview->addEntity(new RS_Circle(preview.get(),
+											 RS_CircleData(data->center,
+														   data->radius)));
             drawPreview();
         }
         break;
 
     case SetAngle1:
-        data.angle1 = data.center.angleTo(mouse);
-        if (data.reversed) {
-            data.angle2 = RS_Math::correctAngle(data.angle1-M_PI/3);
+		data->angle1 = data->center.angleTo(mouse);
+		if (data->reversed) {
+			data->angle2 = RS_Math::correctAngle(data->angle1-M_PI/3);
         } else {
-            data.angle2 = RS_Math::correctAngle(data.angle1+M_PI/3);
+			data->angle2 = RS_Math::correctAngle(data->angle1+M_PI/3);
         }
         deletePreview();
-        preview->addEntity(new RS_Arc(preview,
-                                      data));
+		preview->addEntity(new RS_Arc(preview.get(),
+									  *data));
         drawPreview();
         break;
 
     case SetAngle2:
-        data.angle2 = data.center.angleTo(mouse);
+		data->angle2 = data->center.angleTo(mouse);
         deletePreview();
-        preview->addEntity(new RS_Arc(preview,
-                                      data));
+		preview->addEntity(new RS_Arc(preview.get(),
+									  *data));
         drawPreview();
         break;
 
     case SetIncAngle:
-        data.angle2 = data.angle1 + data.center.angleTo(mouse);
+		data->angle2 = data->angle1 + data->center.angleTo(mouse);
         deletePreview();
-        preview->addEntity(new RS_Arc(preview,
-                                      data));
+		preview->addEntity(new RS_Arc(preview.get(),
+									  *data));
         drawPreview();
         break;
 
     case SetChordLength: {
-            double x = data.center.distanceTo(mouse);
-            if (fabs(x/(2*data.radius))<=1.0) {
-                data.angle2 = data.angle1 + asin(x/(2*data.radius)) * 2;
+			double x = data->center.distanceTo(mouse);
+			if (fabs(x/(2*data->radius))<=1.0) {
+				data->angle2 = data->angle1 + asin(x/(2*data->radius)) * 2;
                 deletePreview();
-                preview->addEntity(new RS_Arc(preview,
-                                              data));
+				preview->addEntity(new RS_Arc(preview.get(),
+											  *data));
                 drawPreview();
             }
         }
@@ -199,37 +200,37 @@ void RS_ActionDrawArc::coordinateEvent(RS_CoordinateEvent* e) {
 
     switch (getStatus()) {
     case SetCenter:
-        data.center = mouse;
+		data->center = mouse;
         graphicView->moveRelativeZero(mouse);
         setStatus(SetRadius);
         break;
 
     case SetRadius:
-        if (data.center.valid) {
-            data.radius = data.center.distanceTo(mouse);
+		if (data->center.valid) {
+			data->radius = data->center.distanceTo(mouse);
         }
         setStatus(SetAngle1);
         break;
 
     case SetAngle1:
-        data.angle1 = data.center.angleTo(mouse);
+		data->angle1 = data->center.angleTo(mouse);
         setStatus(SetAngle2);
         break;
 
     case SetAngle2:
-        data.angle2 = data.center.angleTo(mouse);
+		data->angle2 = data->center.angleTo(mouse);
         trigger();
         break;
 
     case SetIncAngle:
-        data.angle2 = data.angle1 + data.center.angleTo(mouse);
+		data->angle2 = data->angle1 + data->center.angleTo(mouse);
         trigger();
         break;
 
     case SetChordLength: {
-            double x = data.center.distanceTo(mouse);
-            if (fabs(x/(2*data.radius))<=1.0) {
-                data.angle2 = data.angle1 + asin(x/(2*data.radius)) * 2;
+			double x = data->center.distanceTo(mouse);
+			if (fabs(x/(2*data->radius))<=1.0) {
+				data->angle2 = data->angle1 + asin(x/(2*data->radius)) * 2;
                 trigger();
             }
         }
@@ -269,7 +270,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
             bool ok;
             double r = RS_Math::eval(c, &ok);
             if (ok) {
-                data.radius = r;
+				data->radius = r;
                 setStatus(SetAngle1);
                 e->accept();
             } else {
@@ -284,7 +285,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
             bool ok;
             double a = RS_Math::eval(c, &ok);
             if (ok) {
-                data.angle1 = RS_Math::deg2rad(a);
+				data->angle1 = RS_Math::deg2rad(a);
                 e->accept();
                 setStatus(SetAngle2);
             } else {
@@ -304,7 +305,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
                 bool ok;
                 double a = RS_Math::eval(c, &ok);
                 if (ok) {
-                    data.angle2 = RS_Math::deg2rad(a);
+					data->angle2 = RS_Math::deg2rad(a);
                     e->accept();
                     trigger();
                 } else {
@@ -320,7 +321,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
             bool ok;
             double a = RS_Math::eval(c, &ok);
             if (ok) {
-                data.angle2 = data.angle1 + RS_Math::deg2rad(a);
+				data->angle2 = data->angle1 + RS_Math::deg2rad(a);
                 e->accept();
                 trigger();
             } else {
@@ -335,8 +336,8 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
             bool ok;
             double l = RS_Math::eval(c, &ok);
             if (ok) {
-                if (fabs(l/(2*data.radius))<=1.0) {
-                    data.angle2 = data.angle1 + asin(l/(2*data.radius)) * 2;
+				if (fabs(l/(2*data->radius))<=1.0) {
+					data->angle2 = data->angle1 + asin(l/(2*data->radius)) * 2;
                     trigger();
                 } else {
                     if (RS_DIALOGFACTORY!=NULL) {
@@ -427,6 +428,13 @@ void RS_ActionDrawArc::updateMouseCursor() {
 }
 
 
+bool RS_ActionDrawArc::isReversed() const{
+	return data->reversed;
+}
+
+void RS_ActionDrawArc::setReversed(bool r) const{
+	data->reversed = r;
+}
 
 //void RS_ActionDrawArc::updateToolBar() {
 //    if (RS_DIALOGFACTORY!=NULL) {

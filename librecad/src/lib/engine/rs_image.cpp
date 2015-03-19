@@ -26,11 +26,12 @@
 
 
 #include "rs_image.h"
+#include "rs_line.h"
+#include "rs_settings.h"
 
 #include "rs_constructionline.h"
 #include "rs_debug.h"
 #include "rs_graphicview.h"
-#include "rs_painter.h"
 #include "rs_painterqt.h"
 
 
@@ -161,8 +162,8 @@ RS_VectorSolutions RS_Image::getCorners() const {
 bool RS_Image::containsPoint(const RS_Vector& coord) const{
     QPolygonF paf;
     RS_VectorSolutions corners =getCorners();
-    for(int i=0;i<corners.getNumber();i++){
-        paf.push_back(QPointF(corners.get(i).x,corners.get(i).y));
+	for(const RS_Vector& vp: corners){
+		paf.push_back(QPointF(vp.x, vp.y));
     }
     paf.push_back(paf.at(0));
     return paf.containsPoint(QPointF(coord.x,coord.y),Qt::OddEvenFill);
@@ -277,10 +278,14 @@ double RS_Image::getDistanceToPoint(const RS_Vector& coord,
     RS_VectorSolutions corners = getCorners();
 
     //allow selecting image by clicking within images, bug#3464626
-    if(containsPoint(coord)){
-        //if coord is on image
-        return double(0.);
-    }
+	if(containsPoint(coord)){
+		//if coord is on image
+
+		RS_SETTINGS->beginGroup("/Appearance");
+		bool draftMode = (bool)RS_SETTINGS->readNumEntry("/DraftMode", 0);
+		RS_SETTINGS->endGroup();
+		if(!draftMode) return double(0.);
+	}
     //continue to allow selecting by image edges
     double dist;
     double minDist = RS_MAXDOUBLE;

@@ -33,6 +33,10 @@
 #include "rs_actioninterface.h"
 #include "rs_eventhandler.h"
 #include "rs_actionselect.h"
+#include "rs_arc.h"
+#include "rs_circle.h"
+#include "rs_line.h"
+#include "rs_point.h"
 #include "rs_mtext.h"
 #include "rs_text.h"
 #include "rs_layer.h"
@@ -849,8 +853,8 @@ void Doc_plugin_interface::addArc(QPointF *start, qreal radius, qreal a1, qreal 
     if (doc!=NULL) {
         RS_Vector v(start->x(), start->y());
         RS_ArcData d(v, radius,
-                 a1/ARAD,
-                 a2/ARAD,
+				 RS_Math::deg2rad(a1),
+				 RS_Math::deg2rad(a2),
                  false);
         RS_Arc* entity = new RS_Arc(doc, d);
         doc->addEntity(entity);

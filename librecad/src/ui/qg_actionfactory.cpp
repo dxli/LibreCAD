@@ -106,6 +106,8 @@
 #include "rs_actionlayersremove.h"
 #include "rs_actionlayerstogglelock.h"
 #include "rs_actionlayerstoggleview.h"
+#include "rs_actionlayerstoggleprint.h"
+#include "lc_actionlayerstoggleconstruction.h"
 #include "rs_actionlockrelativezero.h"
 #include "rs_actionmodifyattributes.h"
 #include "rs_actionmodifybevel.h"
@@ -257,12 +259,8 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
         break;
 
     case RS2::ActionFileExport:
-                        // tr("Export Drawing")
-                        action = new QAction(tr("&Export..."), NULL);
-                        //action->zetStatusTip(tr("Exports the current drawing as bitmap"));
-
-        connect(action, SIGNAL(triggered()),
-                obj, SLOT(slotFileExport()));
+        action = new QAction( QIcon(":/actions/fileexport.png"), tr("&Export..."), NULL);
+        connect( action, SIGNAL( triggered()), obj, SLOT(slotFileExport()));
         break;
 
     case RS2::ActionFileClose:
@@ -1332,6 +1330,16 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
                 action = RS_ActionLayersToggleView::createGUIAction(id, mw);
         connect(action, SIGNAL(triggered()),
                 obj, SLOT(slotLayersToggleView()));
+        break;
+
+    case RS2::ActionLayersTogglePrint:
+        action = RS_ActionLayersTogglePrint::createGUIAction(id, mw);
+        connect(action, SIGNAL(triggered()), obj, SLOT(slotLayersTogglePrint()));
+        break;
+
+    case RS2::ActionLayersToggleConstruction:
+        action = LC_ActionLayersToggleConstruction::createGUIAction(id, mw);
+        connect(action, SIGNAL(triggered()), obj, SLOT(slotLayersToggleConstruction()));
         break;
 
         // Block actions:

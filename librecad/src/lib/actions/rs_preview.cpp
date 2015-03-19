@@ -28,6 +28,7 @@
 #include "rs_preview.h"
 
 #include "rs_entitycontainer.h"
+#include "rs_line.h"
 #include "rs_graphicview.h"
 #include "rs_information.h"
 #include "rs_settings.h"
@@ -37,7 +38,7 @@
  * Constructor.
  */
 RS_Preview::RS_Preview(RS_EntityContainer* parent)
-        : RS_EntityContainer(parent) {
+		: RS_EntityContainer(parent, true) {
 
     RS_SETTINGS->beginGroup("/Appearance");
     maxEntities = RS_SETTINGS->readNumEntry("/MaxPreview", 100);

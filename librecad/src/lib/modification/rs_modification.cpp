@@ -26,10 +26,13 @@
 
 #include "rs_modification.h"
 
+#include "rs_arc.h"
+#include "rs_circle.h"
+#include "rs_ellipse.h"
+#include "rs_line.h"
 #include "rs_graphicview.h"
 #include "rs_clipboard.h"
 #include "rs_creation.h"
-//#include "rs_entity.h"
 #include "rs_graphic.h"
 #include "rs_information.h"
 #include "rs_insert.h"
@@ -2043,10 +2046,10 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
                                         e, false);
 
                 if (s2.hasValid()) {
-                    for (int k=0; k<s2.getNumber(); ++k) {
-                        if (s2.get(k).valid) {
-                            if (e->isPointOnEntity(s2.get(k), 1.0e-4)) {
-                                sol.push_back(s2.get(k));
+					for (const RS_Vector& vp: s2){
+						if (vp.valid) {
+							if (e->isPointOnEntity(vp, 1.0e-4)) {
+								sol.push_back(vp);
                             }
                         }
                     }
@@ -2091,7 +2094,7 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
             //trim according to intersections
             QVector<double> angles;
             const auto& center0=c->getCenter();
-            for(RS_Vector& vp : sol.getVector()){
+			for(const RS_Vector& vp : sol){
                 angles<< center0.angleTo(vp);
             }
             //sort intersections by angle to circle center
@@ -2117,7 +2120,7 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
     }
 
     // trim trim entity
-    int ind = 0;
+	size_t ind = 0;
     RS_Vector is, is2;
 
     //RS2::Ending ending = trimmed1->getTrimPoint(trimCoord, is);

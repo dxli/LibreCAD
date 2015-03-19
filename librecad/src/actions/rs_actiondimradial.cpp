@@ -24,12 +24,14 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondimradial.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
+#include "rs_arc.h"
+#include "rs_circle.h"
 
 
 RS_ActionDimRadial::RS_ActionDimRadial(
@@ -131,7 +133,7 @@ void RS_ActionDimRadial::mouseMoveEvent(QMouseEvent* e) {
 
             preparePreview();
 
-            RS_DimRadial* d = new RS_DimRadial(preview, data, edata);
+			RS_DimRadial* d = new RS_DimRadial(preview.get(), data, edata);
 
             deletePreview();
             preview->addEntity(d);

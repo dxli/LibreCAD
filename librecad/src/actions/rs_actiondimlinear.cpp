@@ -24,13 +24,14 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondimlinear.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
 #include "rs_constructionline.h"
+#include "rs_line.h"
 
 /**
  * Constructor.
@@ -171,7 +172,7 @@ void RS_ActionDimLinear::mouseMoveEvent(QMouseEvent* e) {
     case SetExtPoint2:
         if (edata.extensionPoint1.valid) {
             deletePreview();
-            preview->addEntity(new RS_Line(preview,
+			preview->addEntity(new RS_Line(preview.get(),
                                            RS_LineData(edata.extensionPoint1,
                                                        mouse)));
             drawPreview();
@@ -185,7 +186,7 @@ void RS_ActionDimLinear::mouseMoveEvent(QMouseEvent* e) {
 
             preparePreview();
 
-            RS_DimLinear* dim = new RS_DimLinear(preview, data, edata);
+			RS_DimLinear* dim = new RS_DimLinear(preview.get(), data, edata);
             preview->addEntity(dim);
             dim->update();
             drawPreview();

@@ -1,8 +1,8 @@
 /****************************************************************************
 **
- * Draw ellipse by foci and a point on ellipse
+ * Draw a tangential circle of two given circles, with given radius
 
-Copyright (C) 2012 Dongxu Li (dongxuli2011@gmail.com)
+Copyright (C) 2012-2015 Dongxu Li (dongxuli2011@gmail.com)
 Copyright (C) 2011 R. van Twisk (librecad@rvt.dds.nl)
 
 This program is free software; you can redistribute it and/or
@@ -25,7 +25,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include <QVector>
 #include "rs_previewactioninterface.h"
-#include "rs_ellipse.h"
+
+class RS_AtomicEntity;
+class RS_CircleData;
 
 /**
  * Draw a circle tangential to two give circles and with radius
@@ -47,7 +49,7 @@ public:
 public:
     RS_ActionDrawCircleTan2(RS_EntityContainer& container,
                                  RS_GraphicView& graphicView);
-    ~RS_ActionDrawCircleTan2();
+	~RS_ActionDrawCircleTan2();
 
     static QAction* createGUIAction(RS2::ActionType type, QObject* /*parent*/);
 
@@ -74,22 +76,19 @@ public:
     virtual void showOptions();
     virtual void hideOptions();
     void setRadius(const double& r);
-    double getRadius(){
-        return cData.radius;
-    }
+	double getRadius() const;
 
 
 protected:
     RS_Entity* catchCircle(QMouseEvent* e);
     QVector<RS_AtomicEntity*> circles;
     private:
-    RS_CircleData cData;
+	std::unique_ptr<RS_CircleData> cData;
     RS_Vector coord;
     double radius;
     bool valid;
-    QVector<RS2::EntityType> enTypeList;
-    //keep a list of centers found
-    RS_VectorSolutions centers;
+	const QVector<RS2::EntityType> enTypeList={RS2::EntityLine, RS2::EntityArc, RS2::EntityCircle};
+	RS_VectorSolutions centers;
 
 };
 

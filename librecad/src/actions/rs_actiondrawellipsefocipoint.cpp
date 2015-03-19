@@ -26,6 +26,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
+#include "rs_ellipse.h"
 
 /**
  * Constructor.
@@ -43,9 +44,6 @@ RS_ActionDrawEllipseFociPoint::RS_ActionDrawEllipseFociPoint(
 
 }
 
-
-
-RS_ActionDrawEllipseFociPoint::~RS_ActionDrawEllipseFociPoint() {}
 
 
 QAction* RS_ActionDrawEllipseFociPoint::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
@@ -117,7 +115,7 @@ void RS_ActionDrawEllipseFociPoint::mouseMoveEvent(QMouseEvent* e) {
                               major*d,
                               sqrt(d*d-c*c)/d,
                               0., 0.,false);
-            preview->addEntity(new RS_Ellipse(preview, ed));
+			preview->addEntity(new RS_Ellipse(preview.get(), ed));
             drawPreview();
         }
         break;

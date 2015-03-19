@@ -34,6 +34,8 @@
 #include "rs_debug.h"
 #include "rs_dimension.h"
 #include "rs_layer.h"
+#include "rs_arc.h"
+#include "rs_ellipse.h"
 #include "rs_line.h"
 #include "rs_insert.h"
 #include "rs_spline.h"
@@ -1225,7 +1227,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
                 closestPoint = point;
                 minDist = curDist;
                 if (dist!=NULL) {
-                    *dist = curDist;
+                    *dist = minDist;
                 }
             }
         }
@@ -1278,7 +1280,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
                 closestPoint = point;
                 minDist = curDist;
                 if (dist!=NULL) {
-                    *dist = curDist;
+                    *dist = minDist;
                 }
                 if(pEntity!=NULL){
                     *pEntity=en;
@@ -1357,7 +1359,7 @@ RS_Vector RS_EntityContainer::getNearestCenter(const RS_Vector& coord,
         }
     }
     if (dist!=NULL) {
-        *dist = curDist;
+        *dist = minDist;
     }
 
     return closestPoint;
@@ -1397,7 +1399,7 @@ RS_Vector RS_EntityContainer::getNearestMiddle(const RS_Vector& coord,
         }
     }
     if (dist!=NULL) {
-        *dist = curDist;
+        *dist = minDist;
     }
 
     return closestPoint;
@@ -1472,7 +1474,7 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
         }
     }
     if(dist!=NULL && closestPoint.valid) {
-        *dist=minDist;
+        *dist = minDist;
     }
 
     return closestPoint;
@@ -1498,7 +1500,7 @@ RS_Vector RS_EntityContainer::getNearestRef(const RS_Vector& coord,
                 closestPoint = point;
                 minDist = curDist;
                 if (dist!=NULL) {
-                    *dist = curDist;
+                    *dist = minDist;
                 }
             }
         }
@@ -1526,7 +1528,7 @@ RS_Vector RS_EntityContainer::getNearestSelectedRef(const RS_Vector& coord,
                 closestPoint = point;
                 minDist = curDist;
                 if (dist!=NULL) {
-                    *dist = curDist;
+                    *dist = minDist;
                 }
             }
         }
@@ -1875,7 +1877,7 @@ void RS_EntityContainer::revertDirection() {
 		entities.swap(k, entities.size() - 1 - k);
 	}
 
-	foreach(RS_Entity* entity, entities) {
+	for(RS_Entity*const entity: entities) {
 		entity->revertDirection();
 	}
 }

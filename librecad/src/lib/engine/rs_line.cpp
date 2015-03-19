@@ -2,6 +2,7 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2015 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2010 R. van Twisk (librecad@rvt.dds.nl)
 ** Copyright (C) 2001-2003 RibbonSoft. All rights reserved.
 **
@@ -25,7 +26,6 @@
 **********************************************************************/
 
 
-#include <QtGui>
 #include "rs_line.h"
 
 #include "rs_debug.h"
@@ -36,6 +36,7 @@
 #include "rs_information.h"
 #include "lc_quadratic.h"
 #include "rs_painterqt.h"
+#include "rs_circle.h"
 
 
 #ifdef EMU_C99
@@ -129,7 +130,7 @@ RS_Vector RS_Line::getNearestPointOnEntity(const RS_Vector& coord,
     }else{
         //find projection on line
         const double t=RS_Vector::dotP(vpc,direction)/a;
-        if( !isConstructionLayer() && onEntity &&
+        if( !isConstruction() && onEntity &&
                 ( t<=-RS_TOLERANCE || t>=1.+RS_TOLERANCE )
                 ){
             //                !( vpc.x>= minV.x && vpc.x <= maxV.x && vpc.y>= minV.y && vpc.y<=maxV.y) ) {
@@ -370,7 +371,7 @@ bool RS_Line::offset(const RS_Vector& coord, const double& distance) {
     if(ds< RS_TOLERANCE) return false;
     direction /= ds;
     RS_Vector vp(coord-getStartpoint());
-    RS_Vector vp1(getStartpoint() + direction*(RS_Vector::dotP(direction,vp))); //projection
+//    RS_Vector vp1(getStartpoint() + direction*(RS_Vector::dotP(direction,vp))); //projection
     direction.set(-direction.y,direction.x); //rotate pi/2
     if(RS_Vector::dotP(direction,vp)<0.) {
         direction *= -1.;
@@ -383,7 +384,7 @@ bool RS_Line::offset(const RS_Vector& coord, const double& distance) {
 bool RS_Line::isTangent(const RS_CircleData&  circleData){
     double d;
     getNearestPointOnEntity(circleData.center,false,&d);
-    if(fabs(d-circleData.radius)<RS_TOLERANCE) return true;
+    if(fabs(d-circleData.radius)<20.*RS_TOLERANCE) return true;
     return false;
 }
 
@@ -566,7 +567,7 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
     RS_Vector pEnd(view->toGui(endPoints.at(1)));
     //    std::cout<<"draw line: "<<pStart<<" to "<<pEnd<<std::endl;
     RS_Vector direction=pEnd-pStart;
-    if(isConstructionLayer(true) && direction.squared() > RS_TOLERANCE){
+    if(isConstruction(true) && direction.squared() > RS_TOLERANCE){
         //extend line on a construction layer to fill the whole view
         RS_Vector lb(0,0);
         RS_Vector rt(view->getWidth(),view->getHeight());

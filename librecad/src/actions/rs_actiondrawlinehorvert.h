@@ -28,8 +28,8 @@
 #define RS_ACTIONDRAWLINEHORVERT_H
 
 #include "rs_previewactioninterface.h"
-#include "rs_line.h"
 
+class RS_LineData;
 /**
  * This action class can handle user events to draw 
  * horizontal/vertical lines from a given startpoint
@@ -70,7 +70,7 @@ protected:
     /**
      * Line data.
      */
-    RS_LineData data;
+	std::unique_ptr<RS_LineData> data;
     /**
      * 2 points
      */

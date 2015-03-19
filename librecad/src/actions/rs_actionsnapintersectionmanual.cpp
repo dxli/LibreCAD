@@ -24,12 +24,13 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actionsnapintersectionmanual.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_information.h"
+#include "rs_circle.h"
 
 
 /**
@@ -119,7 +120,7 @@ void RS_ActionSnapIntersectionManual::mouseMoveEvent(QMouseEvent* e) {
             if (ip.valid) {
                 deletePreview();
                 preview->addEntity(
-                    new RS_Circle(preview,
+					new RS_Circle(preview.get(),
                                   RS_CircleData(
                                       ip,
                                       graphicView->toGraphDX(4))));

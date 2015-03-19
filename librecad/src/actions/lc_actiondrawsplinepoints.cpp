@@ -25,13 +25,14 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "lc_actiondrawsplinepoints.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commands.h"
 #include "rs_commandevent.h"
+#include "rs_point.h"
 
 LC_ActionDrawSplinePoints::LC_ActionDrawSplinePoints(RS_EntityContainer& container,
     RS_GraphicView& graphicView) : RS_ActionDrawSpline( container, graphicView)
@@ -114,7 +115,7 @@ void LC_ActionDrawSplinePoints::mouseMoveEvent(QMouseEvent* e)
 		QList<RS_Vector> cpts = sp->getPoints();
 		for(int i = 0; i < cpts.count(); i++)
 		{
-			preview->addEntity(new RS_Point(preview, RS_PointData(cpts.at(i))));
+			preview->addEntity(new RS_Point(preview.get(), RS_PointData(cpts.at(i))));
 		}
 		drawPreview();
 	}
@@ -153,7 +154,7 @@ void LC_ActionDrawSplinePoints::coordinateEvent(RS_CoordinateEvent* e)
 		{
             spline = new LC_SplinePoints(container, data);
 			spline->addPoint(mouse);
-			preview->addEntity(new RS_Point(preview, RS_PointData(mouse)));
+			preview->addEntity(new RS_Point(preview.get(), RS_PointData(mouse)));
 		}
 		setStatus(SetNextPoint);
 		graphicView->moveRelativeZero(mouse);

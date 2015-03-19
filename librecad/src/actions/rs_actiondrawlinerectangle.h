@@ -28,7 +28,8 @@
 #define RS_ACTIONDRAWLINERECTANGLE_H
 
 #include "rs_previewactioninterface.h"
-#include "rs_line.h"
+
+class RS_LineData;
 
 /**
  * This action class can handle user events to draw 
@@ -50,7 +51,7 @@ public:
 public:
     RS_ActionDrawLineRectangle(RS_EntityContainer& container,
                                RS_GraphicView& graphicView);
-    ~RS_ActionDrawLineRectangle();
+	~RS_ActionDrawLineRectangle();
 
     static QAction* createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/);
 
@@ -78,7 +79,7 @@ protected:
     /**
      * Line data for the 4 lines.
      */
-    RS_LineData data[4];
+	std::unique_ptr<RS_LineData> data[4];
     /**
      * 1st corner.
      */

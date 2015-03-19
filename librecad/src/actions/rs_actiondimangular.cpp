@@ -24,14 +24,15 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondimangular.h"
 
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
 #include "rs_information.h"
+#include "rs_line.h"
 
 
 
@@ -120,7 +121,7 @@ void RS_ActionDimAngular::mouseMoveEvent(QMouseEvent* e) {
             RS_Vector mouse = snapPoint(e);
             edata.definitionPoint4 = mouse;
 
-            RS_DimAngular* d = new RS_DimAngular(preview, data, edata);
+			RS_DimAngular* d = new RS_DimAngular(preview.get(), data, edata);
 
             deletePreview();
             preview->addEntity(d);

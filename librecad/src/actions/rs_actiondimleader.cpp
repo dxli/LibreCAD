@@ -24,13 +24,14 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondimleader.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commandevent.h"
 #include "rs_leader.h"
+#include "rs_line.h"
 
 
 RS_ActionDimLeader::RS_ActionDimLeader(RS_EntityContainer& container,
@@ -118,7 +119,7 @@ void RS_ActionDimLeader::mouseMoveEvent(QMouseEvent* e) {
         for (int i = 0; i < points.size(); ++i) {
             RS_Vector v = points.at(i);
             if (last.valid) {
-                preview->addEntity(new RS_Line(preview,
+				preview->addEntity(new RS_Line(preview.get(),
                                                RS_LineData(last, v)));
             }
             last = v;
@@ -126,7 +127,7 @@ void RS_ActionDimLeader::mouseMoveEvent(QMouseEvent* e) {
 
         if ( !points.isEmpty() ) {
             RS_Vector p = points.last();
-            preview->addEntity(new RS_Line(preview,
+			preview->addEntity(new RS_Line(preview.get(),
                                        RS_LineData(p, mouse)));
         }
         drawPreview();

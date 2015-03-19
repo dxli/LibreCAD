@@ -2,6 +2,7 @@
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
 **
+** Copyright (C) 2015 A. Stebich (librecad@mail.lordofbikes.de)
 ** Copyright (C) 2011 Rallaz (rallazz@gmail.com)
 ** Copyright (C) 2010-2011 R. van Twisk (librecad@rvt.dds.nl)
 **
@@ -42,7 +43,8 @@ QG_LayerModel::QG_LayerModel(QObject * parent) : QAbstractTableModel(parent) {
     layerHidden = QIcon(":/ui/hiddenblock.png");
     layerDefreeze = QIcon(":/ui/unlockedlayer.png");
     layerFreeze = QIcon(":/ui/lockedlayer.png");
-    constructionLayer = QIcon(":/ui/fileprint.png");
+    layerPrint = QIcon(":/ui/fileprint.png");
+    layerConstruction = QIcon(":/ui/constructionlayer.png");
 }
 
 QG_LayerModel::~QG_LayerModel() {
@@ -118,20 +120,21 @@ QVariant QG_LayerModel::data ( const QModelIndex & index, int role ) const {
         case VISIBLE:
             if (!lay->isFrozen()) {
                 return layerVisible;
-            } else {
-                return layerHidden;
             }
-            case LOCKED:
+            return layerHidden;
+        case LOCKED:
             if (!lay->isLocked()) {
                 return layerDefreeze;
-            } else {
-                return layerFreeze;
             }
-        case ConstructionLayer:
-            return constructionLayer.pixmap(QSize(20,20),lay->isConstructionLayer() ?
-                                        QIcon::Disabled:
-                                        QIcon::Normal,
-                                    QIcon::On);
+            return layerFreeze;
+        case PRINT:
+            return layerPrint.pixmap(QSize(20,20),
+                                     lay->isPrint() ? QIcon::Normal : QIcon::Disabled,
+                                     QIcon::On);
+        case CONSTRUCTION:
+            return layerConstruction.pixmap(QSize(14,14),
+                                            lay->isConstruction() ? QIcon::Normal : QIcon::Disabled,
+                                            QIcon::On);
         default:
             break;
 
@@ -158,7 +161,7 @@ QG_LayerWidget::QG_LayerWidget(QG_ActionHandler* ah, QWidget* parent,
     showByBlock = false;
     lastLayer = NULL;
 
-    layerModel = new QG_LayerModel;
+    layerModel = new QG_LayerModel(this);
     layerView = new QTableView(this);
     layerView->setModel (layerModel);
     layerView->setShowGrid (false);
@@ -166,9 +169,10 @@ QG_LayerWidget::QG_LayerWidget(QG_ActionHandler* ah, QWidget* parent,
     layerView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     layerView->setFocusPolicy(Qt::NoFocus);
     layerView->setMinimumHeight(140);
-    layerView->setColumnWidth(QG_LayerModel::VISIBLE, 16);
-    layerView->setColumnWidth(QG_LayerModel::LOCKED, 16);
-    layerView->setColumnWidth(QG_LayerModel::ConstructionLayer, 20);
+    layerView->setColumnWidth(QG_LayerModel::VISIBLE, 18);
+    layerView->setColumnWidth(QG_LayerModel::LOCKED, 18);
+    layerView->setColumnWidth(QG_LayerModel::PRINT, 24);
+    layerView->setColumnWidth(QG_LayerModel::CONSTRUCTION, 18);
     layerView->verticalHeader()->hide();
     layerView->horizontalHeader()->setStretchLastSection(true);
     layerView->horizontalHeader()->hide();
@@ -177,7 +181,7 @@ QG_LayerWidget::QG_LayerWidget(QG_ActionHandler* ah, QWidget* parent,
     lay->setSpacing ( 0 );
     lay->setContentsMargins(2, 2, 2, 2);
 
-    QHBoxLayout* layButtons = new QHBoxLayout();
+    QHBoxLayout* layButtons = new QHBoxLayout(this);
     QToolButton* but;
     // show all layer:
     but = new QToolButton(this);
@@ -221,7 +225,7 @@ QG_LayerWidget::QG_LayerWidget(QG_ActionHandler* ah, QWidget* parent,
     layButtons->addWidget(but);
 
     // lineEdit to filter layer list with RegEx
-    matchLayerName = new QLineEdit;
+    matchLayerName = new QLineEdit(this);
     matchLayerName->setReadOnly(false);
     //matchLayerName->setText("*");
     matchLayerName->setToolTip(tr("Looking for matching layer names"));
@@ -241,7 +245,7 @@ QG_LayerWidget::QG_LayerWidget(QG_ActionHandler* ah, QWidget* parent,
  * Destructor
  */
 QG_LayerWidget::~QG_LayerWidget() {
-    delete layerView;
+//    delete layerView;
 }
 
 
@@ -368,8 +372,11 @@ void QG_LayerWidget::slotActivated(QModelIndex layerIdx /*const QString& layerNa
     case QG_LayerModel::LOCKED:
         actionHandler->slotLayersToggleLock();
         break;
-    case QG_LayerModel::ConstructionLayer:
+    case QG_LayerModel::PRINT:
         actionHandler->slotLayersTogglePrint();
+        break;
+    case QG_LayerModel::CONSTRUCTION:
+        actionHandler->slotLayersToggleConstruction();
         break;
     default:
         activateLayer(l);
@@ -426,14 +433,19 @@ void QG_LayerWidget::contextMenuEvent(QContextMenuEvent *e) {
                                  SLOT(slotLayersDefreezeAll()), 0);
         contextMenu->addAction( tr("&Freeze all Layers"), actionHandler,
                                  SLOT(slotLayersFreezeAll()), 0);
+        contextMenu->addSeparator();
         contextMenu->addAction( tr("&Add Layer"), actionHandler,
                                  SLOT(slotLayersAdd()), 0);
         contextMenu->addAction( tr("&Remove Layer"), actionHandler,
                                  SLOT(slotLayersRemove()), 0);
-        contextMenu->addAction( tr("&Edit Layer"), actionHandler,
+        contextMenu->addAction( tr("Edit Layer &Attributes"), actionHandler,
                                  SLOT(slotLayersEdit()), 0);
-        contextMenu->addAction( tr("&Toggle Visibility"), actionHandler,
+        contextMenu->addAction( tr("Toggle Layer &Visibility"), actionHandler,
                                  SLOT(slotLayersToggleView()), 0);
+        contextMenu->addAction( tr("Toggle Layer &Printing"), actionHandler,
+                                 SLOT(slotLayersTogglePrint()), 0);
+        contextMenu->addAction( tr("Toggle &Construction Layer"), actionHandler,
+                                 SLOT(slotLayersToggleConstruction()), 0);
         contextMenu->exec(QCursor::pos());
         delete contextMenu;
     }

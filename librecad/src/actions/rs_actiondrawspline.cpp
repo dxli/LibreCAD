@@ -24,13 +24,14 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actiondrawspline.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_commands.h"
 #include "rs_commandevent.h"
+#include "rs_point.h"
 
 
 RS_ActionDrawSpline::RS_ActionDrawSpline(RS_EntityContainer& container,
@@ -129,7 +130,7 @@ void RS_ActionDrawSpline::mouseMoveEvent(QMouseEvent* e) {
 
                 QList<RS_Vector> cpts = tmpSpline->getControlPoints();
                 for (int i = 0; i < cpts.size(); ++i) {
-                        preview->addEntity(new RS_Point(preview, RS_PointData(cpts.at(i))));
+						preview->addEntity(new RS_Point(preview.get(), RS_PointData(cpts.at(i))));
                 }
         drawPreview();
     }

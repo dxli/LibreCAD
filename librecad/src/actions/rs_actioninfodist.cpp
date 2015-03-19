@@ -24,11 +24,12 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actioninfodist.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
+#include "rs_line.h"
 
 
 RS_ActionInfoDist::RS_ActionInfoDist(RS_EntityContainer& container,
@@ -88,7 +89,7 @@ void RS_ActionInfoDist::mouseMoveEvent(QMouseEvent* e) {
 
                 deletePreview();
 
-                preview->addEntity(new RS_Line(preview,
+				preview->addEntity(new RS_Line(preview.get(),
                                                RS_LineData(point1,
                                                            point2)));
 

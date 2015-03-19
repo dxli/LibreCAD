@@ -24,12 +24,13 @@
 **
 **********************************************************************/
 
+#include <QAction>
 #include "rs_actionmodifystretch.h"
 
-#include <QAction>
 #include "rs_dialogfactory.h"
 #include "rs_graphicview.h"
 #include "rs_modification.h"
+#include "rs_line.h"
 
 
 
@@ -89,25 +90,25 @@ void RS_ActionModifyStretch::mouseMoveEvent(QMouseEvent* e) {
             secondCorner = snapPoint(e);
             deletePreview();
             preview->addEntity(
-                new RS_Line(preview,
+				new RS_Line(preview.get(),
                             RS_LineData(RS_Vector(firstCorner.x,
                                                   firstCorner.y),
                                         RS_Vector(secondCorner.x,
                                                   firstCorner.y))));
             preview->addEntity(
-                new RS_Line(preview,
+				new RS_Line(preview.get(),
                             RS_LineData(RS_Vector(secondCorner.x,
                                                   firstCorner.y),
                                         RS_Vector(secondCorner.x,
                                                   secondCorner.y))));
             preview->addEntity(
-                new RS_Line(preview,
+				new RS_Line(preview.get(),
                             RS_LineData(RS_Vector(secondCorner.x,
                                                   secondCorner.y),
                                         RS_Vector(firstCorner.x,
                                                   secondCorner.y))));
             preview->addEntity(
-                new RS_Line(preview,
+				new RS_Line(preview.get(),
                             RS_LineData(RS_Vector(firstCorner.x,
                                                   secondCorner.y),
                                         RS_Vector(firstCorner.x,

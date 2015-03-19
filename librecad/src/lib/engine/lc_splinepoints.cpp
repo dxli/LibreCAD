@@ -24,7 +24,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "lc_splinepoints.h"
 
+#include "rs_circle.h"
 #include "rs_debug.h"
+#include "rs_line.h"
 #include "rs_graphicview.h"
 #include "rs_painter.h"
 #include "rs_graphic.h"
@@ -916,7 +918,7 @@ RS_Vector LC_SplinePoints::getNearestMiddle(const RS_Vector& coord,
 		return vStart;
 	}
 
-	vEnd = data.splinePoints.at(1);
+    vEnd = data.controlPoints.at(1);
 
 	if(n < 3)
 	{
@@ -3175,7 +3177,7 @@ void addQuadQuadIntersect(RS_VectorSolutions *pVS,
 
     RS_VectorSolutions&& pvRes = RS_Math::simultaneousQuadraticSolverFull(m);
 
-    for(RS_Vector& vSol: pvRes.getVector())
+	for(RS_Vector vSol: pvRes)
     {
 		if(vSol.x > -RS_TOLERANCE && vSol.x < 1.0 + RS_TOLERANCE &&
 			vSol.y > -RS_TOLERANCE && vSol.y < 1.0 + RS_TOLERANCE)
