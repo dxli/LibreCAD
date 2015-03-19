@@ -64,7 +64,7 @@ RS_MakerCamSVG::RS_MakerCamSVG(bool writeInvisibleLayers,
     this->convertEllipsesToPaths = convertEllipsesToPaths;
 
     this->doc = new xmlpp::Document();
-    
+
     this->offset = RS_Vector(0, 0);
 }
 
@@ -76,7 +76,7 @@ RS_MakerCamSVG::~RS_MakerCamSVG() {
 bool RS_MakerCamSVG::generate(RS_Graphic* graphic) {
 
     write(graphic);
-    
+
     return true;
 }
 
@@ -157,7 +157,7 @@ void RS_MakerCamSVG::writeBlock(xmlpp::Element* parent, RS_Block* block) {
 
     e->set_attribute("id", std::to_string(block->getId()));
     e->set_attribute("blockname", qPrintable(block->getName()), "lc");
-    
+
     writeLayers(e, block);
 }
 
@@ -176,17 +176,17 @@ void RS_MakerCamSVG::writeLayers(xmlpp::Element* parent, RS_Document* document) 
 void RS_MakerCamSVG::writeLayer(xmlpp::Element* parent, RS_Document* document, RS_Layer* layer) {
 
     if (writeInvisibleLayers || !layer->isFrozen()) {
-    
-        if (writeConstructionLayers || !layer->isConstructionLayer()) {
-        
+
+        if (writeConstructionLayers || !layer->isConstruction()) {
+
             RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Writing layer with name '%s'",
                             qPrintable(layer->getName()));
 
             xmlpp::Element* e = parent->add_child("g");
-            
+
             e->set_attribute("layername", qPrintable(layer->getName()), "lc");
             e->set_attribute("is_locked", (layer->isLocked() ? "true" : "false"), "lc");
-            e->set_attribute("is_construction", (layer->isConstructionLayer() ? "true" : "false"), "lc");
+            e->set_attribute("is_construction", (layer->isConstruction() ? "true" : "false"), "lc");
 
             if (layer->isFrozen())
             {
@@ -198,15 +198,15 @@ void RS_MakerCamSVG::writeLayer(xmlpp::Element* parent, RS_Document* document, R
             e->set_attribute("stroke-width", "1");
 
             writeEntities(e, document, layer);
-        } 
+        }
         else {
 
             RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Omitting construction layer with name '%s'",
                             qPrintable(layer->getName()));
         }
-    } 
+    }
     else {
-    
+
         RS_DEBUG->print("RS_MakerCamSVG::writeLayer: Omitting invisible layer with name '%s'",
                         qPrintable(layer->getName()));
     }
@@ -279,7 +279,7 @@ void RS_MakerCamSVG::writeInsert(xmlpp::Element* parent, RS_Insert* insert) {
         e->set_attribute("blockname", qPrintable(block->getName()), "lc");
 
         writeLayers(e, block);
-        
+
         offset.set(0, 0);
     }
     else {
@@ -332,7 +332,7 @@ void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline
     xmlpp::Element* e = parent->add_child("path");
 
     std::string path = svgPathMoveTo(convertToSvg(polyline->getStartpoint()));
-    
+
     for (RS_Entity* entity = polyline->firstEntity(RS2::ResolveNone); entity != NULL; entity = polyline->nextEntity(RS2::ResolveNone)) {
 
         if (!entity->isAtomic()) {
@@ -340,20 +340,20 @@ void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline
         }
 
         if (entity->rtti() == RS2::EntityArc) {
-            
-            path += svgArcPath((RS_Arc*)entity);  
-        } 
+
+            path += svgArcPath((RS_Arc*)entity);
+        }
         else {
-        
+
             path += svgPathLineTo(convertToSvg(entity->getEndpoint()));
         }
     }
-    
+
     if (polyline->isClosed()) {
 
         path += svgPathClose();
     }
-    
+
     e->set_attribute("d", path);
 }
 
@@ -405,24 +405,24 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
 
         major.rotate(ellipse->getAngle());
         minor.rotate(ellipse->getAngle());
-        
+
         major.scale(flip_y);
         minor.scale(flip_y);
 
         RS_Vector offsetmajor {major * kappa};
         RS_Vector offsetminor {minor * kappa};
 
-        std::string path = svgPathMoveTo(center - major) + 
+        std::string path = svgPathMoveTo(center - major) +
                            svgPathCurveTo((center - minor), (center - major - offsetminor), (center - minor - offsetmajor)) +
                            svgPathCurveTo((center + major), (center - minor + offsetmajor), (center + major - offsetminor)) +
                            svgPathCurveTo((center + minor), (center + major + offsetminor), (center + minor + offsetmajor)) +
-                           svgPathCurveTo((center - major), (center + minor - offsetmajor), (center - major + offsetminor)) + 
+                           svgPathCurveTo((center - major), (center + minor - offsetmajor), (center - major + offsetminor)) +
                            svgPathClose();
-                           
+
         e->set_attribute("d", path);
     }
     else {
-        
+
         RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse ...");
 
         double angle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
@@ -439,7 +439,7 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
 }
 
 std::string RS_MakerCamSVG::numXml(double value) {
-    
+
     return RS_Utility::doubleToString(value, 8).toStdString();
 }
 
@@ -480,7 +480,7 @@ std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
     double startangle = RS_Math::rad2deg(arc->getAngle1());
     double endangle = RS_Math::rad2deg(arc->getAngle2());
 
-    
+
     if (endangle < startangle) {
         endangle += 360;
     }
@@ -495,7 +495,7 @@ std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
     }
 
     return "A" + numXml(radius) + "," + numXml(radius) + " " +
-           "0 " + 
+           "0 " +
            (large_arc_flag ? "1" : "0") + " " +
            (sweep_flag ? "1" : "0") + " " +
            numXml(endpoint.x) + "," + numXml(endpoint.y) + " ";
