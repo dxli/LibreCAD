@@ -87,10 +87,10 @@ public:
     virtual void requestOptionsGeneralDialog() {}
     virtual void requestOptionsDrawingDialog(RS_Graphic& ) {}
     virtual bool requestOptionsMakerCamDialog() { return false; }
-    virtual QString requestFileSaveAsDialog(const QString& caption = QString(),
-                                            const QString& dir = QString(),
-                                            const QString& filter = QString(),
-                                            QString* selectedFilter = 0) { return ""; }
+    virtual QString requestFileSaveAsDialog(const QString& = QString::null,
+                                            const QString& = QString::null,
+                                            const QString& = QString::null,
+                                            QString* = 0) { return ""; }
     virtual void updateCoordinateWidget(const RS_Vector& , const RS_Vector& , bool =false) {}
     virtual void updateMouseWidget(const QString& ,
                                    const QString& ,
