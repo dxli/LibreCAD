@@ -45,7 +45,7 @@ public:
     RS_MakerCamSVG(bool writeInvisibleLayers = true,
                    bool writeConstructionLayers = true,
                    bool writeBlocksInline = false,
-                   bool convertEllipsesToPaths = false);
+                   bool convertEllipsesToBeziers = false);
 
     ~RS_MakerCamSVG();
 
@@ -79,12 +79,18 @@ private:
     std::string svgPathCurveTo(RS_Vector point, RS_Vector controlpoint1, RS_Vector controlpoint2);
     std::string svgPathLineTo(RS_Vector point);
     std::string svgPathMoveTo(RS_Vector point);
-    std::string svgArcPath(RS_Arc* arc);
+    std::string svgPathArc(RS_Arc* arc);
+    std::string svgPathArc(RS_Vector point, double radius_x, double radius_y, double x_axis_rotation, bool large_arc_flag, bool sweep_flag);
+
+    RS_Vector calcEllipsePoint(RS_Vector center, double majorradius, double minorradius, double x_axis_rotation, double angle);
+    RS_Vector calcEllipsePointDerivative(double majorradius, double minorradius, double x_axis_rotation, double angle);
+
+    double calcAlpha(double angle);
 
     bool writeInvisibleLayers;
     bool writeConstructionLayers;
     bool writeBlocksInline;
-    bool convertEllipsesToPaths;
+    bool convertEllipsesToBeziers;
 
     xmlpp::Document* doc;
 

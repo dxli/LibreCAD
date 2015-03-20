@@ -54,14 +54,14 @@
 RS_MakerCamSVG::RS_MakerCamSVG(bool writeInvisibleLayers,
                                bool writeConstructionLayers,
                                bool writeBlocksInline,
-                               bool convertEllipsesToPaths) {
+                               bool convertEllipsesToBeziers) {
 
     RS_DEBUG->print("RS_MakerCamSVG::RS_MakerCamSVG()");
 
     this->writeInvisibleLayers = writeInvisibleLayers;
     this->writeConstructionLayers = writeConstructionLayers;
     this->writeBlocksInline = writeBlocksInline;
-    this->convertEllipsesToPaths = convertEllipsesToPaths;
+    this->convertEllipsesToBeziers = convertEllipsesToBeziers;
 
     this->doc = new xmlpp::Document();
 
@@ -341,7 +341,7 @@ void RS_MakerCamSVG::writePolyline(xmlpp::Element* parent, RS_Polyline* polyline
 
         if (entity->rtti() == RS2::EntityArc) {
 
-            path += svgArcPath((RS_Arc*)entity);
+            path += svgPathArc((RS_Arc*)entity);
         }
         else {
 
@@ -377,7 +377,7 @@ void RS_MakerCamSVG::writeArc(xmlpp::Element* parent, RS_Arc* arc) {
     xmlpp::Element* e = parent->add_child("path");
 
     std::string path = svgPathMoveTo(convertToSvg(arc->getStartpoint())) +
-                       svgArcPath(arc);
+                       svgPathArc(arc);
 
     e->set_attribute("d", path);
 }
@@ -389,52 +389,133 @@ void RS_MakerCamSVG::writeEllipse(xmlpp::Element* parent, RS_Ellipse* ellipse) {
     double majorradius = ellipse->getMajorRadius();
     double minorradius = ellipse->getMinorRadius();
 
-    if (convertEllipsesToPaths) {
+    if (convertEllipsesToBeziers) {
 
-        RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse appriximated by path with 4 cubic bézier curves ...");
+        if (ellipse->isArc()) {
 
-        // See http://www.tinaja.com/glib/ellipse4.pdf
-        const double kappa = 0.551784;
+            const int segments = 4;
 
-        xmlpp::Element* e = parent->add_child("path");
+            RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse arc approximated by 'path' with %d cubic bézier segments (as discussed in https://www.spaceroots.org/documents/ellipse/elliptical-arc.pdf) ...", segments);
 
-        RS_Vector major {majorradius, 0.0};
-        RS_Vector minor {0.0, minorradius};
+            xmlpp::Element* e = parent->add_child("path");
 
-        RS_Vector flip_y {1.0, -1.0};
+            double x_axis_rotation = 2 * M_PI - ellipse->getAngle();
 
-        major.rotate(ellipse->getAngle());
-        minor.rotate(ellipse->getAngle());
+            double start_angle = 2 * M_PI - ellipse->getAngle2();
+            double end_angle = 2 * M_PI - ellipse->getAngle1();
 
-        major.scale(flip_y);
-        minor.scale(flip_y);
+            if (ellipse->isReversed()) {
+                double temp_angle = start_angle;
+                start_angle = end_angle;
+                end_angle = temp_angle;
+            }
 
-        RS_Vector offsetmajor {major * kappa};
-        RS_Vector offsetminor {minor * kappa};
+            if (end_angle <= start_angle) {
+                end_angle += 2 * M_PI;
+            }
 
-        std::string path = svgPathMoveTo(center - major) +
-                           svgPathCurveTo((center - minor), (center - major - offsetminor), (center - minor - offsetmajor)) +
-                           svgPathCurveTo((center + major), (center - minor + offsetmajor), (center + major - offsetminor)) +
-                           svgPathCurveTo((center + minor), (center + major + offsetminor), (center + minor + offsetmajor)) +
-                           svgPathCurveTo((center - major), (center + minor - offsetmajor), (center - major + offsetminor)) +
-                           svgPathClose();
+            double total_angle = end_angle - start_angle;
 
-        e->set_attribute("d", path);
+            double alpha = calcAlpha(total_angle / segments);
+
+            RS_Vector start_point = calcEllipsePoint(center, majorradius, minorradius, x_axis_rotation, start_angle);
+
+            std::string path = svgPathMoveTo(start_point);
+
+            for (int i = 1; i <= segments; i++) {
+                double segment_start_angle = start_angle + ((i - 1) / (double)segments) * total_angle;
+                double segment_end_angle = start_angle + (i / (double)segments) * total_angle;
+
+                RS_Vector segment_start_point = calcEllipsePoint(center, majorradius, minorradius, x_axis_rotation, segment_start_angle);
+                RS_Vector segment_end_point = calcEllipsePoint(center, majorradius, minorradius, x_axis_rotation, segment_end_angle);
+
+                RS_Vector segment_control_point_1 = segment_start_point + calcEllipsePointDerivative(majorradius, minorradius, x_axis_rotation, segment_start_angle) * alpha;
+                RS_Vector segment_control_point_2 = segment_end_point - calcEllipsePointDerivative(majorradius, minorradius, x_axis_rotation, segment_end_angle) * alpha;
+
+                path += svgPathCurveTo(segment_end_point, segment_control_point_1, segment_control_point_2);
+            }
+
+            e->set_attribute("d", path);
+        }
+        else {
+
+            RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse approximated by 'path' with 4 cubic bézier segments (as discussed in http://www.tinaja.com/glib/ellipse4.pdf) ...");
+
+            const double kappa = 0.551784;
+
+            xmlpp::Element* e = parent->add_child("path");
+
+            RS_Vector major {majorradius, 0.0};
+            RS_Vector minor {0.0, minorradius};
+
+            RS_Vector flip_y {1.0, -1.0};
+
+            major.rotate(ellipse->getAngle());
+            minor.rotate(ellipse->getAngle());
+
+            major.scale(flip_y);
+            minor.scale(flip_y);
+
+            RS_Vector offsetmajor {major * kappa};
+            RS_Vector offsetminor {minor * kappa};
+
+            std::string path = svgPathMoveTo(center - major) +
+                               svgPathCurveTo((center - minor), (center - major - offsetminor), (center - minor - offsetmajor)) +
+                               svgPathCurveTo((center + major), (center - minor + offsetmajor), (center + major - offsetminor)) +
+                               svgPathCurveTo((center + minor), (center + major + offsetminor), (center + minor + offsetmajor)) +
+                               svgPathCurveTo((center - major), (center + minor - offsetmajor), (center - major + offsetminor)) +
+                               svgPathClose();
+
+            e->set_attribute("d", path);
+        }
     }
     else {
 
-        RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse ...");
+        if (ellipse->isArc()) {
 
-        double angle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
+            RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing ellipse arc as 'path' with arc segments ...");
 
-        xmlpp::Element* e = parent->add_child("ellipse");
+            xmlpp::Element* e = parent->add_child("path");
 
-        std::string transform = "translate(" + numXml(center.x) + ", " + numXml(center.y) + ") " +
-                                "rotate(" + numXml(angle) + ")";
+            double x_axis_rotation = 180 - (RS_Math::rad2deg(ellipse->getAngle()));
 
-        e->set_attribute("rx", numXml(minorradius));
-        e->set_attribute("ry", numXml(majorradius));
-        e->set_attribute("transform", transform);
+            double startangle = RS_Math::rad2deg(ellipse->getAngle1());
+            double endangle = RS_Math::rad2deg(ellipse->getAngle2());
+
+            if (endangle <= startangle) {
+                endangle += 360;
+            }
+
+            bool large_arc_flag = ((endangle - startangle) > 180);
+            bool sweep_flag = false;
+
+            if (ellipse->isReversed()) {
+                large_arc_flag = !large_arc_flag;
+                sweep_flag = !sweep_flag;
+            }
+
+            std::string path = svgPathMoveTo(convertToSvg(ellipse->getStartpoint())) +
+                               svgPathArc(convertToSvg(ellipse->getEndpoint()), majorradius, minorradius, x_axis_rotation, large_arc_flag, sweep_flag);
+
+            e->set_attribute("d", path);
+            e->set_attribute("stroke", "red");
+
+        }
+        else {
+
+            RS_DEBUG->print("RS_MakerCamSVG::writeEllipse: Writing full ellipse as 'ellipse' ...");
+
+            double angle = 180 - (RS_Math::rad2deg(ellipse->getAngle()) - 90);
+
+            xmlpp::Element* e = parent->add_child("ellipse");
+
+            std::string transform = "translate(" + numXml(center.x) + ", " + numXml(center.y) + ") " +
+                                    "rotate(" + numXml(angle) + ")";
+
+            e->set_attribute("rx", numXml(minorradius));
+            e->set_attribute("ry", numXml(majorradius));
+            e->set_attribute("transform", transform);
+        }
     }
 }
 
@@ -472,7 +553,7 @@ std::string RS_MakerCamSVG::svgPathMoveTo(RS_Vector point) {
     return "M" + numXml(point.x) + "," + numXml(point.y) + " ";
 }
 
-std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
+std::string RS_MakerCamSVG::svgPathArc(RS_Arc* arc) {
 
     RS_Vector endpoint = convertToSvg(arc->getEndpoint());
     double radius = arc->getRadius();
@@ -481,7 +562,7 @@ std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
     double endangle = RS_Math::rad2deg(arc->getAngle2());
 
 
-    if (endangle < startangle) {
+    if (endangle <= startangle) {
         endangle += 360;
     }
 
@@ -494,9 +575,35 @@ std::string RS_MakerCamSVG::svgArcPath(RS_Arc* arc) {
         sweep_flag = !sweep_flag;
     }
 
-    return "A" + numXml(radius) + "," + numXml(radius) + " " +
-           "0 " +
-           (large_arc_flag ? "1" : "0") + " " +
+    return svgPathArc(endpoint, radius, radius, 0.0, large_arc_flag, sweep_flag);
+}
+
+std::string RS_MakerCamSVG::svgPathArc(RS_Vector point, double radius_x, double radius_y, double x_axis_rotation, bool large_arc_flag, bool sweep_flag) {
+
+    return "A" + numXml(radius_x) + "," + numXml(radius_y) + " " +
+           numXml(x_axis_rotation) + " " +
+           (large_arc_flag ? "1" : "0") + "," +
            (sweep_flag ? "1" : "0") + " " +
-           numXml(endpoint.x) + "," + numXml(endpoint.y) + " ";
+           numXml(point.x) + "," + numXml(point.y) + " ";
+}
+
+RS_Vector RS_MakerCamSVG::calcEllipsePoint(RS_Vector center, double majorradius, double minorradius, double x_axis_rotation, double angle) {
+
+    RS_Vector point(center.x + (majorradius * cos(x_axis_rotation) * cos(angle)) - (minorradius * sin(x_axis_rotation) * sin(angle)),
+                    center.y + (majorradius * sin(x_axis_rotation) * cos(angle)) + (minorradius * cos(x_axis_rotation) * sin(angle)));
+
+    return point;
+}
+
+RS_Vector RS_MakerCamSVG::calcEllipsePointDerivative(double majorradius, double minorradius, double x_axis_rotation, double angle) {
+
+    RS_Vector vector((-majorradius * cos(x_axis_rotation) * sin(angle)) - (minorradius * sin(x_axis_rotation) * cos(angle)),
+                     (-majorradius * sin(x_axis_rotation) * sin(angle)) + (minorradius * cos(x_axis_rotation) * cos(angle)));
+
+    return vector;
+}
+
+double RS_MakerCamSVG::calcAlpha(double angle) {
+
+    return sin(angle) * ((sqrt(4.0 + 3.0 * pow(tan(angle / 2), 2.0)) - 1.0) / 3.0);
 }
