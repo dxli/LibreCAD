@@ -61,7 +61,7 @@ void QG_DlgOptionsMakerCam::loadSettings() {
     updateCheckbox(checkInvisibleLayers, "ExportInvisibleLayers", 0);
     updateCheckbox(checkConstructionLayers, "ExportConstructionLayers", 0);
     updateCheckbox(checkBlocksInline, "WriteBlocksInline", 1);
-    updateCheckbox(checkEllipsesToPaths, "ConvertEllipsesToPaths", 1);
+    updateCheckbox(checkEllipsesToBeziers, "ConvertEllipsesToBeziers", 1);
 
     RS_SETTINGS->endGroup();
 }
@@ -78,7 +78,7 @@ void QG_DlgOptionsMakerCam::saveSettings() {
     saveBoolean("ExportInvisibleLayers", checkInvisibleLayers);
     saveBoolean("ExportConstructionLayers", checkConstructionLayers);
     saveBoolean("WriteBlocksInline", checkBlocksInline);
-    saveBoolean("ConvertEllipsesToPaths", checkEllipsesToPaths);
+    saveBoolean("ConvertEllipsesToBeziers", checkEllipsesToBeziers);
 
     RS_SETTINGS->endGroup();
 }

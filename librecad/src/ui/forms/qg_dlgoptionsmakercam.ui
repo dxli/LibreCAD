@@ -128,7 +128,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
    <item alignment="Qt::AlignTop">
     <widget class="QGroupBox">
      <property name="title">
-      <string>Ellipses</string>
+      <string>Ellipses / Ellipse arcs</string>
      </property>
      <layout class="QHBoxLayout">
       <item>
@@ -142,7 +142,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
            </sizepolicy>
           </property>
           <property name="text">
-           <string>MakerCAM as of November 2014 cannot display ellipses correctly, when they are created using the &lt;ellipse&gt; tag together with a rotation in the &quot;transform&quot; attribute.</string>
+           <string>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, when they are created using the &lt;ellipse&gt; tag  with a rotation in the &quot;transform&quot; attribute or as &lt;path&gt; using elliptic arc segments.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -150,9 +150,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkEllipsesToPaths">
+         <widget class="QCheckBox" name="checkEllipsesToBeziers">
           <property name="text">
-           <string>Approximate ellipses with safe &lt;path&gt; elements</string>
+           <string>Approximate ellipses and ellipse arcs with cubic béziers</string>
           </property>
          </widget>
         </item>
