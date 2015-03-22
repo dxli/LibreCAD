@@ -638,12 +638,11 @@ void QC_ApplicationWindow::initActions(void)
     menu->setObjectName("File");
     fileToolBar->setWindowTitle(tr("File"));
 
-    actionFactory.addGUI(menu, fileToolBar, this, {RS2::ActionFileNew
+	actionFactory.addGUI(menu, fileToolBar, this, {RS2::ActionFileNew
                                                    ,RS2::ActionFileNewTemplate
                                                    ,RS2::ActionFileOpen
                                                    ,RS2::ActionFileSave
-                                                   ,RS2::ActionFileSaveAs
-                                                   ,RS2::ActionFileExport});
+													,RS2::ActionFileSaveAs});
 
     subMenu = menu->addMenu( QIcon(":/actions/fileimport.png"), tr("Import"));
     subMenu->setObjectName("Import");
@@ -654,14 +653,19 @@ void QC_ApplicationWindow::initActions(void)
 
     // Import Block:
     actionFactory.addGUI(subMenu, this, RS2::ActionBlocksImport);
+	subMenu = menu->addMenu( QIcon(":/actions/fileimport.png"), tr("Export"));
+	subMenu->setObjectName("Export");
+	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionFileExportMakerCam);
+	actionFactory.addGUI(subMenu, this, {RS2::ActionFilePrintPDF
+										, RS2::ActionFileExport});
 
     menu->addSeparator();
+
     actionFactory.addGUI(menu, this, {RS2::ActionFileClose
                                       ,RS2::ActionFilePrint
                                       ,RS2::ActionFilePrintPDF});
     action= actionFactory.addGUI(menu, fileToolBar, this, RS2::ActionFilePrintPreview);
     connect(this, SIGNAL(printPreviewChanged(bool)), action, SLOT(setChecked(bool)));
-    actionFactory.addGUI(menu, actionHandler, RS2::ActionFileExportMakerCam);
 
     menu->addSeparator();
     actionFactory.addGUI(menu, this, RS2::ActionFileQuit);

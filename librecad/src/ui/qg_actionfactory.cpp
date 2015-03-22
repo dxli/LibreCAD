@@ -259,7 +259,7 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
         break;
 
     case RS2::ActionFileExport:
-        action = new QAction( QIcon(":/actions/fileexport.png"), tr("&Export..."), NULL);
+		action = new QAction( QIcon(":/actions/fileexport.png"), tr("&Export as image"), NULL);
         connect( action, SIGNAL( triggered()), obj, SLOT(slotFileExport()));
         break;
 
