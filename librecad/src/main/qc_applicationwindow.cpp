@@ -661,13 +661,13 @@ void QC_ApplicationWindow::initActions(void)
 
     menu->addSeparator();
 
-	actionFactory.addGUI(menu, this, {RS2::ActionFileClose
-									  , RS2::ActionFilePrint});
-    action= actionFactory.addGUI(menu, fileToolBar, this, RS2::ActionFilePrintPreview);
-    connect(this, SIGNAL(printPreviewChanged(bool)), action, SLOT(setChecked(bool)));
+	action= actionFactory.addGUI(menu, fileToolBar, this, RS2::ActionFilePrintPreview);
+	action= actionFactory.addGUI(menu, fileToolBar, this, RS2::ActionFilePrint);
+	connect(this, SIGNAL(printPreviewChanged(bool)), action, SLOT(setChecked(bool)));
 
     menu->addSeparator();
-    actionFactory.addGUI(menu, this, RS2::ActionFileQuit);
+	actionFactory.addGUI(menu, this, RS2::ActionFileClose);
+	actionFactory.addGUI(menu, this, RS2::ActionFileQuit);
     menu->addSeparator();
     addToolBar(Qt::TopToolBarArea, fileToolBar); //tr("File");
 
