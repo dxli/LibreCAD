@@ -32,22 +32,15 @@
  *  Constructs a QG_CadToolBarSelect as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarSelect::QG_CadToolBarSelect(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
+	,nextAction(-1)
+	,selectAction(nullptr)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-
-    init();
+	setupUi(this);
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarSelect::~QG_CadToolBarSelect()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -58,15 +51,8 @@ void QG_CadToolBarSelect::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarSelect::init() {
-    cadToolBar = NULL;
-    actionHandler = NULL;
-    selectAction = NULL;
-    nextAction = -1;
-}
-
 void QG_CadToolBarSelect::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
+	if (e->button()==Qt::RightButton && cadToolBar) {
         cadToolBar->back();
         e->accept();
     }
@@ -76,20 +62,8 @@ void QG_CadToolBarSelect::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarSelect::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-        //actionHandler->setCadToolBarSelect(this);
-    }
-    else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarSelect::setCadToolBar(): No valid toolbar set.");
-    }
-}
-
 void QG_CadToolBarSelect::selectSingle() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
        if(actionHandler->getCurrentAction()->rtti() != RS2::ActionSelect){
         actionHandler->slotSelectSingle();
        }
@@ -97,55 +71,55 @@ void QG_CadToolBarSelect::selectSingle() {
 }
 
 void QG_CadToolBarSelect::selectContour() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectContour();
     }
 }
 
 void QG_CadToolBarSelect::deselectAll() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotDeselectAll();
     }
 }
 
 void QG_CadToolBarSelect::selectAll() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectAll();
     }
 }
 
 void QG_CadToolBarSelect::selectWindow() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectWindow();
     }
 }
 
 void QG_CadToolBarSelect::deselectWindow() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotDeselectWindow();
     }
 }
 
 void QG_CadToolBarSelect::selectIntersected() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectIntersected();
     }
 }
 
 void QG_CadToolBarSelect::deselectIntersected() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotDeselectIntersected();
     }
 }
 
 void QG_CadToolBarSelect::selectInvert() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectInvert();
     }
 }
 
 void QG_CadToolBarSelect::selectLayer() {
-    if (actionHandler!=NULL) {
+	if (actionHandler) {
         actionHandler->slotSelectLayer();
     }
 }
@@ -164,7 +138,7 @@ void QG_CadToolBarSelect::setNextAction(int nextAction) {
 }
 
 void QG_CadToolBarSelect::runNextAction() {
-    if (selectAction!=NULL) {
+	if (selectAction) {
         if(selectAction->rtti() == RS2::ActionSelect){
             //refuse to run next action if no entity is selected, to avoid segfault by action upon empty selection
             //issue#235
@@ -176,12 +150,6 @@ void QG_CadToolBarSelect::runNextAction() {
     if (nextAction!=-1) {
         actionHandler->killSelectActions();
         actionHandler->setCurrentAction((RS2::ActionType)nextAction);
-    }
-}
-
-void QG_CadToolBarSelect::back() {
-    if(parentTB != NULL){
-        parentTB->showPreviousToolBar();
     }
 }
 

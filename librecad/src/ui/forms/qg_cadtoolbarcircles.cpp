@@ -31,22 +31,13 @@
  *  Constructs a QG_CadToolBarCircles as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarCircles::QG_CadToolBarCircles(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarCircles::QG_CadToolBarCircles(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
     setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-
-    init();
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarCircles::~QG_CadToolBarCircles()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -55,11 +46,6 @@ QG_CadToolBarCircles::~QG_CadToolBarCircles()
 void QG_CadToolBarCircles::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarCircles::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
 }
 
 void QG_CadToolBarCircles::mousePressEvent(QMouseEvent* e) {
@@ -73,15 +59,6 @@ void QG_CadToolBarCircles::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarCircles::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarCircles::setCadToolBar(): No valid toolbar set.");
-    }
-}
 
 void QG_CadToolBarCircles::drawCircle() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
@@ -208,6 +185,7 @@ void QG_CadToolBarCircles::restoreAction()
 void QG_CadToolBarCircles::resetToolBar() {
     bHidden->setChecked(true);
 }
+
 void QG_CadToolBarCircles::on_bBack_clicked()
 {
    parentTB->showPreviousToolBar();

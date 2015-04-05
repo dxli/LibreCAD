@@ -32,21 +32,13 @@
  *  Constructs a QG_CadToolBarMain as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarMain::QG_CadToolBarMain(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-
-    init();
+	setupUi(this);
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarMain::~QG_CadToolBarMain()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -57,11 +49,9 @@ void QG_CadToolBarMain::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarMain::init() {
-        actionHandler= NULL;
-}
 
 void QG_CadToolBarMain::setCadToolBar(QG_CadToolBar* tb) {
+
     if (tb!=NULL) {
         actionHandler= tb->getActionHandler();
     } else {
@@ -150,9 +140,9 @@ void QG_CadToolBarMain::resetToolBar()
 }
 
 void QG_CadToolBarMain::mouseReleaseEvent(QMouseEvent* e) {
- if (e->button()==Qt::RightButton) {
-    finishCurrentAction(true);
- }
+	if (e->button()==Qt::RightButton) {
+		finishCurrentAction(true);
+	}
 }
 
 void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {

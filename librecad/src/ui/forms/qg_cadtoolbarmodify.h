@@ -29,24 +29,23 @@
 class QG_CadToolBar;
 class QG_ActionHandler;
 
-#include "rs.h"
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarmodify.h"
 
-class QG_CadToolBarModify : public QWidget, public Ui::QG_CadToolBarModify
+class QG_CadToolBarModify : public QWidget, public Ui::QG_CadToolBarModify, public LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarModify(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarModify();
+	QG_CadToolBarModify(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarModify() = default;
     //restore action from checked button
-    void restoreAction();
+	virtual void restoreAction();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
 public slots:
     virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
+	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void modifyMove();
     virtual void modifyRotate();
     virtual void modifyScale();
@@ -66,13 +65,8 @@ public slots:
     virtual void modifyExplode();
     virtual void modifyExplodeText();
     virtual void modifyOffset();
-    virtual void modifyRevertDirection();
-    virtual void back();
-    virtual void resetToolBar();
-
-protected:
-    QG_ActionHandler* actionHandler;
-    QG_CadToolBar* cadToolBar;
+	virtual void modifyRevertDirection();
+	virtual void resetToolBar();
 
 protected slots:
     virtual void languageChange();
@@ -81,10 +75,9 @@ private slots:
     void on_bBack_clicked();
 
 private:
-    void init();
-    QList<QToolButton*> buttonList;
-    QG_CadToolBar* parentTB;
+	void init();
     QToolButton* bHidden;
+	QList<QToolButton*> buttonList;
 
 };
 

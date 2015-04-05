@@ -29,20 +29,20 @@
 class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarlines.h"
 
-class QG_CadToolBarLines : public QWidget, public Ui::QG_CadToolBarLines
+class QG_CadToolBarLines : public QWidget, public Ui::QG_CadToolBarLines, public LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarLines(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarLines();
-    void restoreAction(); //restore action from checked button
+	QG_CadToolBarLines(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarLines() = default;
+	virtual void restoreAction(); //restore action from checked button
 
 public slots:
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
+	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawLine();
     virtual void drawLineAngle();
     virtual void drawLineHorizontal();
@@ -59,24 +59,15 @@ public slots:
     virtual void drawLineRelAngle();
     virtual void drawLineFree();
     virtual void drawLinePolygon();
-    virtual void drawLinePolygon2();
-    virtual void back();
+	virtual void drawLinePolygon2();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
-
-protected:
-    QG_CadToolBar* cadToolBar;
-    QG_ActionHandler* actionHandler;
 
 protected slots:
     virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();
-
-private:
-    void init();
-    QG_CadToolBar* parentTB;
 
 };
 

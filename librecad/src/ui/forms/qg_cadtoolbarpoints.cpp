@@ -31,20 +31,11 @@
  *  Constructs a QG_CadToolBarPoints as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarPoints::QG_CadToolBarPoints(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarPoints::QG_CadToolBarPoints(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarPoints::~QG_CadToolBarPoints()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
 }
 
 /*
@@ -54,11 +45,6 @@ QG_CadToolBarPoints::~QG_CadToolBarPoints()
 void QG_CadToolBarPoints::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarPoints::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
 }
 
 void QG_CadToolBarPoints::mousePressEvent(QMouseEvent* e) {
@@ -72,24 +58,9 @@ void QG_CadToolBarPoints::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarPoints::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarPoints::setCadToolBar(): No valid toolbar set.");
-    }
-}
-
 void QG_CadToolBarPoints::drawPoint() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
         actionHandler->slotDrawPoint();
     }
 }
 
-void QG_CadToolBarPoints::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->back();
-    }
-}

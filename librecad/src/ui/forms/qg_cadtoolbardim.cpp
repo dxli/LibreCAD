@@ -31,21 +31,13 @@
  *  Constructs a QG_CadToolBarDim as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarDim::QG_CadToolBarDim(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarDim::QG_CadToolBarDim(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	, LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-    init();
+	setupUi(this);
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarDim::~QG_CadToolBarDim()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -56,10 +48,6 @@ void QG_CadToolBarDim::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarDim::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
 
 void QG_CadToolBarDim::mousePressEvent(QMouseEvent* e) {
     if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
@@ -72,15 +60,6 @@ void QG_CadToolBarDim::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarDim::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarDim::setCadToolBar(): No valid toolbar set.");
-    }
-}
 
 void QG_CadToolBarDim::drawDimAligned() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {

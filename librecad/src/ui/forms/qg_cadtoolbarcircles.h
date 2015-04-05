@@ -29,22 +29,22 @@
 class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarcircles.h"
 
-class QG_CadToolBarCircles : public QWidget, public Ui::QG_CadToolBarCircles
+class QG_CadToolBarCircles : public QWidget, public Ui::QG_CadToolBarCircles, public LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarCircles(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarCircles();
+	QG_CadToolBarCircles(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarCircles() = default;
     //restore action from checked button
-    void restoreAction();
+	virtual void restoreAction();
 
 public slots:
     virtual void mousePressEvent( QMouseEvent * e );
     virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
     virtual void drawCircle();
     virtual void drawCircleCR();
     virtual void drawCircle2P();
@@ -60,20 +60,11 @@ public slots:
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected:
-    QG_ActionHandler* actionHandler;
-    QG_CadToolBar* cadToolBar;
-
 protected slots:
     virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();
-
-private:
-    void init();
-    QG_CadToolBar* parentTB;
-
 };
 
 #endif // QG_CADTOOLBARCIRCLES_H

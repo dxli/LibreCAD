@@ -31,22 +31,13 @@
  *  Constructs a QG_CadToolBarLines as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarLines::QG_CadToolBarLines(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarLines::QG_CadToolBarLines(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-
-    init();
+	setupUi(this);
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarLines::~QG_CadToolBarLines()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -57,10 +48,6 @@ void QG_CadToolBarLines::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarLines::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
 
 /*void QG_CadToolBarLines::mousePressEvent(QMouseEvent* e) {
     if (e->button()==RightButton && cadToolBar!=NULL) {
@@ -75,15 +62,6 @@ void QG_CadToolBarLines::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarLines::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarLines::setCadToolBar(): No valid toolbar set.");
-    }
-}
 
 void QG_CadToolBarLines::drawLine() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
@@ -187,11 +165,6 @@ void QG_CadToolBarLines::drawLinePolygon2() {
     }
 }
 
-void QG_CadToolBarLines::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->showPreviousToolBar();
-    }
-}
 
 //restore action from checked
 void QG_CadToolBarLines::restoreAction() {

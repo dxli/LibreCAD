@@ -29,17 +29,18 @@
 class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarellipses.h"
 
-class QG_CadToolBarEllipses : public QWidget, public Ui::QG_CadToolBarEllipses
+class QG_CadToolBarEllipses : public QWidget, public Ui::QG_CadToolBarEllipses, public LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarEllipses(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarEllipses();
+	QG_CadToolBarEllipses(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarEllipses() = default;
     //restore action from checked button
-    void restoreAction();
+	virtual void restoreAction();
 
 public slots:
     virtual void mousePressEvent( QMouseEvent * e );
@@ -51,24 +52,14 @@ public slots:
     virtual void drawEllipse4Points();
     virtual void drawEllipseCenter3Points();
     virtual void drawEllipseInscribe();
-    virtual void back();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
-
-protected:
-    QG_CadToolBar* cadToolBar;
-    QG_ActionHandler* actionHandler;
 
 protected slots:
     virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();
-
-private:
-    void init();
-    QG_CadToolBar* parentTB;
-
 };
 
 #endif // QG_CADTOOLBARELLIPSES_H

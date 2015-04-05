@@ -31,20 +31,11 @@
  *  Constructs a QG_CadToolBarEllipses as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarEllipses::QG_CadToolBarEllipses(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarEllipses::QG_CadToolBarEllipses(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarEllipses::~QG_CadToolBarEllipses()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
 }
 
 /*
@@ -54,11 +45,6 @@ QG_CadToolBarEllipses::~QG_CadToolBarEllipses()
 void QG_CadToolBarEllipses::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarEllipses::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
 }
 
 void QG_CadToolBarEllipses::mousePressEvent(QMouseEvent* e) {
@@ -114,11 +100,6 @@ void QG_CadToolBarEllipses::drawEllipseInscribe() {
     }
 }
 
-void QG_CadToolBarEllipses::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->showPreviousToolBar();
-    }
-}
 //restore action from checked button
 void QG_CadToolBarEllipses::restoreAction()
 {

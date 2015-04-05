@@ -31,20 +31,11 @@
  *  Constructs a QG_CadToolBarInfo as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarInfo::QG_CadToolBarInfo(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarInfo::QG_CadToolBarInfo(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarInfo::~QG_CadToolBarInfo()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
 }
 
 /*
@@ -56,10 +47,6 @@ void QG_CadToolBarInfo::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarInfo::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
 
 void QG_CadToolBarInfo::mousePressEvent(QMouseEvent* e) {
     if (e->button()==Qt::RightButton && cadToolBar!=NULL) {

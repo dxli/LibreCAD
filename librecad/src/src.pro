@@ -220,7 +220,8 @@ HEADERS += \
     lib/scripting/rs_scriptlist.h \
     ui/forms/qg_snaptoolbar.h \
     actions/lc_actiondrawcircle2pr.h \
-    ui/forms/qg_activelayername.h
+    ui/forms/qg_activelayername.h \
+    ui/forms/lc_cadtoolbarinterface.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -306,7 +307,8 @@ SOURCES += \
     lib/engine/rs_color.cpp \
     lib/engine/rs_pen.cpp \
     actions/lc_actiondrawcircle2pr.cpp \
-    ui/forms/qg_activelayername.cpp
+    ui/forms/qg_activelayername.cpp \
+    ui/forms/lc_cadtoolbarinterface.cpp
 
 # ################################################################################
 # Command

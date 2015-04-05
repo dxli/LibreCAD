@@ -32,21 +32,11 @@
  *  Constructs a QG_CadToolBarArcs as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarArcs::QG_CadToolBarArcs(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarArcs::~QG_CadToolBarArcs()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
 }
 
 /*
@@ -60,10 +50,6 @@ void QG_CadToolBarArcs::languageChange()
 
 #include <QContextMenuEvent>
 
-void QG_CadToolBarArcs::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
 
 /*void QG_CadToolBarArcs::mousePressEvent(QMouseEvent* e) {
     if (e->button()==RightButton && cadToolBar!=NULL) {
@@ -76,15 +62,6 @@ void QG_CadToolBarArcs::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarArcs::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarArcs::setCadToolBar(): No valid toolbar set.");
-    }
-}
 
 void QG_CadToolBarArcs::drawArc() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
@@ -144,11 +121,6 @@ void QG_CadToolBarArcs::resetToolBar() {
 void QG_CadToolBarArcs::on_bBack_clicked()
 {
    parentTB->showPreviousToolBar();
-}
-void QG_CadToolBarArcs::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->showPreviousToolBar();
-    }
 }
 
 void QG_CadToolBarArcs::showCadToolBar(RS2::ActionType actionType) {

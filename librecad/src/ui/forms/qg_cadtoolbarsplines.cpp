@@ -27,20 +27,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *  Constructs a QG_CadToolBarSplines as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarSplines::QG_CadToolBarSplines(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarSplines::QG_CadToolBarSplines(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarSplines::~QG_CadToolBarSplines()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
 }
 
 /*
@@ -52,11 +43,6 @@ void QG_CadToolBarSplines::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarSplines::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
-
 //void QG_CadToolBarSplines::mousePressEvent(QMouseEvent* e) {
 //    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
 //        cadToolBar->back();
@@ -66,16 +52,6 @@ void QG_CadToolBarSplines::init() {
 
 void QG_CadToolBarSplines::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
-}
-
-void QG_CadToolBarSplines::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarSplines::setCadToolBar(): No valid toolbar set.");
-    }
 }
 
 void QG_CadToolBarSplines::drawSpline() {
@@ -90,11 +66,6 @@ void QG_CadToolBarSplines::drawSplineInt() {
     }
 }
 
-void QG_CadToolBarSplines::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->showPreviousToolBar();
-    }
-}
 
 //restore action from checked button
 void QG_CadToolBarSplines::restoreAction()

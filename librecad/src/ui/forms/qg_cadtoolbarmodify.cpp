@@ -31,20 +31,12 @@
  *  Constructs a QG_CadToolBarModify as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarModify::QG_CadToolBarModify(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarModify::QG_CadToolBarModify(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	, LC_CadToolBarInterface(parent)
 {
-    setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-    init();
-}
-
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarModify::~QG_CadToolBarModify()
-{
-    // no need to delete child widgets, Qt does it all for us
+	setupUi(this);
+	init();
 }
 
 /*
@@ -108,16 +100,6 @@ void QG_CadToolBarModify::mousePressEvent(QMouseEvent* e) {
 
 void QG_CadToolBarModify::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
-}
-
-void QG_CadToolBarModify::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarModify::setCadToolBar(): No valid toolbar set.");
-    }
 }
 
 void QG_CadToolBarModify::modifyMove() {
@@ -240,11 +222,6 @@ void QG_CadToolBarModify::modifyRevertDirection() {
     }
 }
 
-void QG_CadToolBarModify::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->back();
-    }
-}
 //restore action from checked
 void QG_CadToolBarModify::restoreAction() {
     if(actionHandler==NULL) return;

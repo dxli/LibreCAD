@@ -29,17 +29,18 @@
 class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarinfo.h"
 
-class QG_CadToolBarInfo : public QWidget, public Ui::QG_CadToolBarInfo
+class QG_CadToolBarInfo : public QWidget, public Ui::QG_CadToolBarInfo, LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarInfo(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarInfo();
+	QG_CadToolBarInfo(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarInfo() = default;
     //restore action from checked button
-    void restoreAction();
+	virtual void restoreAction();
 
 public slots:
     virtual void mousePressEvent( QMouseEvent * e );
@@ -55,19 +56,11 @@ public slots:
     virtual void showCadToolBar(RS2::ActionType actionType);
 
 
-protected:
-    QG_ActionHandler* actionHandler;
-    QG_CadToolBar* cadToolBar;
-
 protected slots:
     virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();
-
-private:
-    void init();
-    QG_CadToolBar* parentTB;
 
 };
 

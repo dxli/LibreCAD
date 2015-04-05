@@ -31,21 +31,13 @@
  *  Constructs a QG_CadToolBarPolylines as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarPolylines::QG_CadToolBarPolylines(QWidget* parent, Qt::WindowFlags fl)
+QG_CadToolBarPolylines::QG_CadToolBarPolylines(QG_CadToolBar* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	, LC_CadToolBarInterface(parent)
 {
     setupUi(this);
-    parentTB=static_cast<QG_CadToolBar*>(parent);
-    init();
 }
 
-/*
- *  Destroys the object and frees any allocated resources
- */
-QG_CadToolBarPolylines::~QG_CadToolBarPolylines()
-{
-    // no need to delete child widgets, Qt does it all for us
-}
 
 /*
  *  Sets the strings of the subwidgets using the current
@@ -56,10 +48,6 @@ void QG_CadToolBarPolylines::languageChange()
     retranslateUi(this);
 }
 
-void QG_CadToolBarPolylines::init() {
-    actionHandler = NULL;
-    cadToolBar = NULL;
-}
 
 void QG_CadToolBarPolylines::mousePressEvent(QMouseEvent* e) {
     if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
@@ -72,15 +60,6 @@ void QG_CadToolBarPolylines::contextMenuEvent(QContextMenuEvent *e) {
     e->accept();
 }
 
-void QG_CadToolBarPolylines::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarPolylines::setCadToolBar(): No valid toolbar set.");
-    }
-}
 
 void QG_CadToolBarPolylines::drawPolyline() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
@@ -130,11 +109,6 @@ void QG_CadToolBarPolylines::polylineSegment() {
     }
 }
 
-void QG_CadToolBarPolylines::back() {
-    if (cadToolBar!=NULL) {
-        cadToolBar->back();
-    }
-}
 //restore action from checked button
 void QG_CadToolBarPolylines::restoreAction()
 {

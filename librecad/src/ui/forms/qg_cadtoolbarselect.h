@@ -30,20 +30,20 @@ class QG_CadToolBar;
 class QG_ActionHandler;
 class RS_ActionInterface;
 
+#include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarselect.h"
 
-class QG_CadToolBarSelect : public QWidget, public Ui::QG_CadToolBarSelect
+class QG_CadToolBarSelect : public QWidget, public Ui::QG_CadToolBarSelect, public LC_CadToolBarInterface
 {
     Q_OBJECT
 
 public:
-    QG_CadToolBarSelect(QWidget* parent = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBarSelect();
+	QG_CadToolBarSelect(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
+	~QG_CadToolBarSelect() = default;
 
 public slots:
     virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
+	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void selectSingle();
     virtual void selectContour();
     virtual void deselectAll();
@@ -56,12 +56,7 @@ public slots:
     virtual void selectLayer();
     virtual void setSelectAction( RS_ActionInterface * selectAction );
     virtual void setNextAction( int nextAction );
-    virtual void runNextAction();
-    virtual void back();
-
-protected:
-    QG_CadToolBar* cadToolBar;
-    QG_ActionHandler* actionHandler;
+	virtual void runNextAction();
 
 protected slots:
     virtual void languageChange();
@@ -71,11 +66,7 @@ private slots:
 
 private:
     int nextAction;
-    RS_ActionInterface* selectAction;
-    QG_CadToolBar* parentTB;
-
-    void init();
-
+	RS_ActionInterface* selectAction;
 };
 
 #endif // QG_CADTOOLBARSELECT_H
