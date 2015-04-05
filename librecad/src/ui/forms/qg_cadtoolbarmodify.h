@@ -32,7 +32,7 @@ class QG_ActionHandler;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarmodify.h"
 
-class QG_CadToolBarModify : public QWidget, public Ui::QG_CadToolBarModify, public LC_CadToolBarInterface
+class QG_CadToolBarModify : public LC_CadToolBarInterface, public Ui::QG_CadToolBarModify
 {
     Q_OBJECT
 
@@ -44,8 +44,6 @@ public:
     virtual void showCadToolBar(RS2::ActionType actionType);
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void modifyMove();
     virtual void modifyRotate();
     virtual void modifyScale();

@@ -33,8 +33,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -137,12 +136,6 @@ void QG_CadToolBarMain::restoreAction()
 void QG_CadToolBarMain::resetToolBar()
 {
     bHidden->setChecked(true);
-}
-
-void QG_CadToolBarMain::mouseReleaseEvent(QMouseEvent* e) {
-	if (e->button()==Qt::RightButton) {
-		finishCurrentAction(true);
-	}
 }
 
 void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {

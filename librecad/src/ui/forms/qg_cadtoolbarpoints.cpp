@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarPoints::QG_CadToolBarPoints(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -45,17 +44,6 @@ QG_CadToolBarPoints::QG_CadToolBarPoints(QG_CadToolBar* parent, Qt::WindowFlags 
 void QG_CadToolBarPoints::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarPoints::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarPoints::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
 }
 
 void QG_CadToolBarPoints::drawPoint() {

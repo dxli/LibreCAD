@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarinfo.h"
 
-class QG_CadToolBarInfo : public QWidget, public Ui::QG_CadToolBarInfo, LC_CadToolBarInterface
+class QG_CadToolBarInfo : public LC_CadToolBarInterface, public Ui::QG_CadToolBarInfo
 {
     Q_OBJECT
 
@@ -43,9 +43,6 @@ public:
 	virtual void restoreAction();
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
     virtual void infoDist();
     virtual void infoDist2();
     virtual void infoAngle();

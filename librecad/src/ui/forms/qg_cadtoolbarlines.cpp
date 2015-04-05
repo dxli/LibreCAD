@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarLines::QG_CadToolBarLines(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -47,21 +46,6 @@ void QG_CadToolBarLines::languageChange()
 {
     retranslateUi(this);
 }
-
-
-/*void QG_CadToolBarLines::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}*/
-
-
-
-void QG_CadToolBarLines::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
 
 void QG_CadToolBarLines::drawLine() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
@@ -246,8 +230,9 @@ void QG_CadToolBarLines::resetToolBar() {
 }
 void QG_CadToolBarLines::on_bBack_clicked()
 {
-   parentTB->showPreviousToolBar();
+   LC_CadToolBarInterface::back();
 }
+
 void QG_CadToolBarLines::showCadToolBar(RS2::ActionType actionType) {
     switch(actionType){
     case RS2::ActionDrawLine:

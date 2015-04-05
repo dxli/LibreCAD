@@ -28,8 +28,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarSplines::QG_CadToolBarSplines(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -41,17 +40,6 @@ QG_CadToolBarSplines::QG_CadToolBarSplines(QG_CadToolBar* parent, Qt::WindowFlag
 void QG_CadToolBarSplines::languageChange()
 {
     retranslateUi(this);
-}
-
-//void QG_CadToolBarSplines::mousePressEvent(QMouseEvent* e) {
-//    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-//        cadToolBar->back();
-//        e->accept();
-//    }
-//}
-
-void QG_CadToolBarSplines::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
 }
 
 void QG_CadToolBarSplines::drawSpline() {
@@ -103,4 +91,9 @@ void QG_CadToolBarSplines::showCadToolBar(RS2::ActionType actionType) {
         bHidden->setChecked(true);
         return;
     }
+}
+
+void QG_CadToolBarSplines::on_bBack_clicked()
+{
+   LC_CadToolBarInterface::back();
 }

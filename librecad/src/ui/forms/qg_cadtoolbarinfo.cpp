@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarInfo::QG_CadToolBarInfo(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -45,28 +44,6 @@ QG_CadToolBarInfo::QG_CadToolBarInfo(QG_CadToolBar* parent, Qt::WindowFlags fl)
 void QG_CadToolBarInfo::languageChange()
 {
     retranslateUi(this);
-}
-
-
-void QG_CadToolBarInfo::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarInfo::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
-void QG_CadToolBarInfo::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarInfo::setCadToolBar(): No valid toolbar set.");
-    }
 }
 
 void QG_CadToolBarInfo::infoDist() {

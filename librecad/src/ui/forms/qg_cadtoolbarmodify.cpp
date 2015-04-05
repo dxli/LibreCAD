@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarModify::QG_CadToolBarModify(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	, LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 	init();
@@ -89,17 +88,6 @@ void QG_CadToolBarModify::init() {
     }
     //initial status
     bHidden->setChecked(true);
-}
-
-void QG_CadToolBarModify::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarModify::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
 }
 
 void QG_CadToolBarModify::modifyMove() {

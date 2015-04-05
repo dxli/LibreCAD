@@ -33,7 +33,7 @@ class RS_ActionInterface;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarselect.h"
 
-class QG_CadToolBarSelect : public QWidget, public Ui::QG_CadToolBarSelect, public LC_CadToolBarInterface
+class QG_CadToolBarSelect : public LC_CadToolBarInterface, public Ui::QG_CadToolBarSelect
 {
     Q_OBJECT
 
@@ -42,8 +42,6 @@ public:
 	~QG_CadToolBarSelect() = default;
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void selectSingle();
     virtual void selectContour();
     virtual void deselectAll();

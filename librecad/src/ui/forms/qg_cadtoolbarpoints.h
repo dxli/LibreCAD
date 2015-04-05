@@ -32,7 +32,7 @@ class QG_ActionHandler;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarpoints.h"
 
-class QG_CadToolBarPoints : public QWidget, public Ui::QG_CadToolBarPoints, public LC_CadToolBarInterface
+class QG_CadToolBarPoints : public LC_CadToolBarInterface, public Ui::QG_CadToolBarPoints
 {
     Q_OBJECT
 
@@ -41,8 +41,6 @@ public:
 	~QG_CadToolBarPoints() = default;
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-	virtual void contextMenuEvent( QContextMenuEvent * e );
 	virtual void drawPoint();
 
 protected slots:

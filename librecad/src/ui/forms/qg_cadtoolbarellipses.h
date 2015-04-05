@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarellipses.h"
 
-class QG_CadToolBarEllipses : public QWidget, public Ui::QG_CadToolBarEllipses, public LC_CadToolBarInterface
+class QG_CadToolBarEllipses : public LC_CadToolBarInterface, public Ui::QG_CadToolBarEllipses
 {
     Q_OBJECT
 
@@ -43,9 +43,6 @@ public:
 	virtual void restoreAction();
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void setCadToolBar( QG_CadToolBar * tb );
     virtual void drawEllipseAxis();
     virtual void drawEllipseArcAxis();
     virtual void drawEllipseFociPoint();

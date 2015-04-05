@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarDim::QG_CadToolBarDim(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	, LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -47,19 +46,6 @@ void QG_CadToolBarDim::languageChange()
 {
     retranslateUi(this);
 }
-
-
-void QG_CadToolBarDim::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarDim::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
 
 void QG_CadToolBarDim::drawDimAligned() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {

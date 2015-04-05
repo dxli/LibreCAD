@@ -28,7 +28,7 @@ class QG_ActionHandler;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarsplines.h"
 
-class QG_CadToolBarSplines : public QWidget, public Ui::QG_CadToolBarSplines, public LC_CadToolBarInterface
+class QG_CadToolBarSplines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarSplines
 {
     Q_OBJECT
 
@@ -39,8 +39,6 @@ public:
 	virtual void restoreAction();
 
 public slots:
-//    virtual void mousePressEvent( QMouseEvent * e );
-	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawSpline();
 	virtual void drawSplineInt();
     virtual void resetToolBar();
@@ -49,6 +47,8 @@ public slots:
 protected slots:
     virtual void languageChange();
 
+private slots:
+	void on_bBack_clicked();
 };
 
 #endif // QG_CADTOOLBARSPLINES_H

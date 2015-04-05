@@ -33,8 +33,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 	,nextAction(-1)
 	,selectAction(nullptr)
 {
@@ -49,17 +48,6 @@ QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags 
 void QG_CadToolBarSelect::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarSelect::mousePressEvent(QMouseEvent* e) {
-	if (e->button()==Qt::RightButton && cadToolBar) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarSelect::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
 }
 
 void QG_CadToolBarSelect::selectSingle() {

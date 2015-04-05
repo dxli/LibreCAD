@@ -32,7 +32,7 @@
 #include "qg_actionhandler.h"
 class QG_CadToolBar;
 
-class QG_CadToolBarMain : public QWidget, public Ui::QG_CadToolBarMain, public LC_CadToolBarInterface
+class QG_CadToolBarMain : public LC_CadToolBarInterface, public Ui::QG_CadToolBarMain
 {
     Q_OBJECT
 
@@ -46,8 +46,7 @@ public:
 	virtual void setCadToolBar(QG_CadToolBar* tb);
 
 protected slots:
-    virtual void languageChange();
-    virtual void mouseReleaseEvent(QMouseEvent* e);
+	virtual void languageChange();
 
 private slots:
     void slotDrawMText();

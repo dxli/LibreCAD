@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarCircles::QG_CadToolBarCircles(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
     setupUi(this);
 }
@@ -47,18 +46,6 @@ void QG_CadToolBarCircles::languageChange()
 {
     retranslateUi(this);
 }
-
-void QG_CadToolBarCircles::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarCircles::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
 
 void QG_CadToolBarCircles::drawCircle() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {

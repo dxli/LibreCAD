@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarcircles.h"
 
-class QG_CadToolBarCircles : public QWidget, public Ui::QG_CadToolBarCircles, public LC_CadToolBarInterface
+class QG_CadToolBarCircles : public LC_CadToolBarInterface, public Ui::QG_CadToolBarCircles
 {
     Q_OBJECT
 
@@ -43,8 +43,6 @@ public:
 	virtual void restoreAction();
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawCircle();
     virtual void drawCircleCR();
     virtual void drawCircle2P();

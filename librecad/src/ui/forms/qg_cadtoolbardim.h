@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbardim.h"
 
-class QG_CadToolBarDim : public QWidget, public Ui::QG_CadToolBarDim, public LC_CadToolBarInterface
+class QG_CadToolBarDim : public LC_CadToolBarInterface, public Ui::QG_CadToolBarDim
 {
     Q_OBJECT
 
@@ -42,8 +42,6 @@ public:
 	virtual void restoreAction(); //restore action from checked button
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawDimAligned();
     virtual void drawDimLinear();
     virtual void drawDimLinearHor();

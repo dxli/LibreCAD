@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarlines.h"
 
-class QG_CadToolBarLines : public QWidget, public Ui::QG_CadToolBarLines, public LC_CadToolBarInterface
+class QG_CadToolBarLines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarLines
 {
     Q_OBJECT
 
@@ -42,7 +42,6 @@ public:
 	virtual void restoreAction(); //restore action from checked button
 
 public slots:
-	virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawLine();
     virtual void drawLineAngle();
     virtual void drawLineHorizontal();

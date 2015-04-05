@@ -32,7 +32,7 @@ class QG_ActionHandler;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarpolylines.h"
 
-class QG_CadToolBarPolylines : public QWidget, public Ui::QG_CadToolBarPolylines, public LC_CadToolBarInterface
+class QG_CadToolBarPolylines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarPolylines
 {
     Q_OBJECT
 
@@ -43,8 +43,6 @@ public:
 	virtual void restoreAction();
 
 public slots:
-    virtual void mousePressEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawPolyline();
     virtual void polylineAdd();
     virtual void polylineAppend();

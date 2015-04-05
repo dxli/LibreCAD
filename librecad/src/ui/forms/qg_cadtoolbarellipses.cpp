@@ -32,8 +32,7 @@
  *  name 'name' and widget flags set to 'f'.
  */
 QG_CadToolBarEllipses::QG_CadToolBarEllipses(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+	:LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -45,27 +44,6 @@ QG_CadToolBarEllipses::QG_CadToolBarEllipses(QG_CadToolBar* parent, Qt::WindowFl
 void QG_CadToolBarEllipses::languageChange()
 {
     retranslateUi(this);
-}
-
-void QG_CadToolBarEllipses::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==Qt::RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}
-
-void QG_CadToolBarEllipses::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
-void QG_CadToolBarEllipses::setCadToolBar(QG_CadToolBar* tb) {
-    cadToolBar = tb;
-    if (tb!=NULL) {
-        actionHandler = tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarEllipses::setCadToolBar(): No valid toolbar set.");
-    }
 }
 
 void QG_CadToolBarEllipses::drawEllipseAxis() {

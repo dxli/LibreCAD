@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbararcs.h"
 
-class QG_CadToolBarArcs : public QWidget, public Ui::QG_CadToolBarArcs, public LC_CadToolBarInterface
+class QG_CadToolBarArcs : public LC_CadToolBarInterface, public Ui::QG_CadToolBarArcs
 {
     Q_OBJECT
 
@@ -42,7 +42,6 @@ public:
     void restoreAction(); //restore action from checked button
 
 public slots:
-    virtual void contextMenuEvent( QContextMenuEvent * e );
     virtual void drawArc();
     virtual void drawArc3P();
     virtual void drawArcParallel();

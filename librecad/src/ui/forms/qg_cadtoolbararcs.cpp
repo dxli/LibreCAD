@@ -32,9 +32,8 @@
  *  Constructs a QG_CadToolBarArcs as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
  */
-QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl)
-    : QWidget(parent, fl)
-	,LC_CadToolBarInterface(parent)
+QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
+	LC_CadToolBarInterface(parent, fl)
 {
 	setupUi(this);
 }
@@ -47,21 +46,6 @@ void QG_CadToolBarArcs::languageChange()
 {
     retranslateUi(this);
 }
-
-#include <QContextMenuEvent>
-
-
-/*void QG_CadToolBarArcs::mousePressEvent(QMouseEvent* e) {
-    if (e->button()==RightButton && cadToolBar!=NULL) {
-        cadToolBar->back();
-        e->accept();
-    }
-}*/
-
-void QG_CadToolBarArcs::contextMenuEvent(QContextMenuEvent *e) {
-    e->accept();
-}
-
 
 void QG_CadToolBarArcs::drawArc() {
     if (cadToolBar!=NULL && actionHandler!=NULL) {
