@@ -111,7 +111,7 @@ void QG_CadToolBar::back() {
  */
 void QG_CadToolBar::forceNext() {
     if(toolbars.size()==0) return;
-	if (toolbars.last()!=nullptr && toolbars.last()==tbSelect) {
+	if (toolbars.back()!=nullptr && toolbars.back()==tbSelect) {
         tbSelect->runNextAction();
     }
 }
@@ -196,11 +196,11 @@ void QG_CadToolBar::hideSubToolBars(){
 }
 
 void QG_CadToolBar::showSubToolBar(){
-    if (!toolbars.last()->isVisible()) { // On OSX, without this line LibreCAD wuld crash. Not sure if it's a Qt problem or 'somewhere' logic within LibreCAD
+	if (!toolbars.back()->isVisible()) { // On OSX, without this line LibreCAD wuld crash. Not sure if it's a Qt problem or 'somewhere' logic within LibreCAD
         //shift down to show the handle to move the toolbar
         //has to be 20, 10 is not enough
-        toolbars.last()->move(0,20);
-        toolbars.last()->show();
+		toolbars.back()->move(0,20);
+		toolbars.back()->show();
     }
 }
 void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
@@ -214,18 +214,18 @@ void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
             }
         }
         if(toolbars.size()>1){
-			if(toolbars.last() != nullptr) toolbars.last() ->setVisible(false);
+			if(toolbars.back() != nullptr) toolbars.back() ->setVisible(false);
             toolbars.pop_back();
             toolbarIDs.pop_back();
         }
         //        std::cout<<"QG_CadToolBar::showPreviousToolBar(true): toolbars.size()="<<toolbars.size()<<std::endl;
-        showToolBar(toolbarIDs.last());
+		showToolBar(toolbarIDs.back());
     }else{
         hideSubToolBars();
         //        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
         if(toolbars.size()>1){
             //            std::cout<<"QG_CadToolBar::showPreviousToolBar(false): hide:"<<toolbarIDs[toolbars.size()-1]<<std::endl;
-			if(toolbars.last()== nullptr) toolbars.last()->setVisible(false);
+			if(toolbars.back()== nullptr) toolbars.back()->setVisible(false);
             toolbars.pop_back();
             toolbarIDs.pop_back();
 
@@ -285,13 +285,13 @@ void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
         break;
     }
     hideSubToolBars();
-    int i0=toolbarIDs.indexOf(id)+1;
-    if(i0>0 && i0<toolbarIDs.size()){
-        toolbars.erase(toolbars.begin()+i0,toolbars.end());
-        toolbarIDs.erase(toolbarIDs.begin()+i0,toolbarIDs.end());
+	auto it=std::find(toolbarIDs.begin(), toolbarIDs.end(), id);
+	if(it != toolbarIDs.end()){
+		toolbarIDs.erase(it,toolbarIDs.end());
+		toolbars.erase(toolbars.begin() + toolbarIDs.size(),toolbars.end());
     }
 	if (newTb!=nullptr) {
-        if(!( toolbarIDs.size()>0 && id == toolbarIDs.last())) {
+		if(!( toolbarIDs.size()>0 && id == toolbarIDs.back())) {
             toolbarIDs.push_back(id);
             toolbars.push_back(newTb);
         }
@@ -300,7 +300,7 @@ void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
 }
 
 void QG_CadToolBar::resetToolBar() {
-    QWidget* currentTb=toolbars.last();
+	QWidget* currentTb=toolbars.back();
     if(currentTb == tbMain) {
         tbMain->resetToolBar();
         return;

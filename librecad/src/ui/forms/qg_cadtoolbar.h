@@ -27,6 +27,7 @@
 #define QG_CADTOOLBAR_H
 
 #include <QWidget>
+#include <vector>
 #include "rs.h"
 #include "ui_qg_cadtoolbar.h"
 
@@ -78,8 +79,8 @@ protected:
 	LC_CadToolBarInterface* tbSplines;
 	LC_CadToolBarInterface* tbInfo;
     QG_ActionHandler* actionHandler;
-    QVector<RS2::ToolBarId> toolbarIDs;
-	QVector<LC_CadToolBarInterface*> toolbars;
+	std::vector<RS2::ToolBarId> toolbarIDs;
+	std::vector<LC_CadToolBarInterface*> toolbars;
     //    RS2::ToolBarId previousID;
     //    RS2::ToolBarId savedID;
 	LC_CadToolBarInterface* tbMain;
