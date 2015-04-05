@@ -47,25 +47,25 @@ void QG_CadToolBarArcs::languageChange()
 }
 
 void QG_CadToolBarArcs::drawArc() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawArc();
     }
 }
 
 void QG_CadToolBarArcs::drawArc3P() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawArc3P();
     }
 }
 
 void QG_CadToolBarArcs::drawArcParallel() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawArcParallel();
     }
 }
 
 void QG_CadToolBarArcs::drawArcTangential() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawArcTangential();
     }
 }
@@ -73,7 +73,7 @@ void QG_CadToolBarArcs::drawArcTangential() {
 //restore action from checked button
 void QG_CadToolBarArcs::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bArc ->isChecked() ) {
         actionHandler->slotDrawArc();
         return;
@@ -93,18 +93,18 @@ void QG_CadToolBarArcs::restoreAction()
     //clear all action
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 
 void QG_CadToolBarArcs::resetToolBar() {
-	finishCurrentAction(true);
-    bHidden->setChecked(true);
+	bHidden->setChecked(true);
 }
 
 void QG_CadToolBarArcs::on_bBack_clicked()
 {
+	finishCurrentAction(true);
    parentTB->showPreviousToolBar();
 }
 

@@ -47,7 +47,7 @@ void QG_CadToolBarPoints::languageChange()
 }
 
 void QG_CadToolBarPoints::drawPoint() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawPoint();
     }
 }

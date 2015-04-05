@@ -48,75 +48,75 @@ void QG_CadToolBarCircles::languageChange()
 }
 
 void QG_CadToolBarCircles::drawCircle() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircle();
     }
 }
 
 void QG_CadToolBarCircles::drawCircleCR() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleCR();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2P() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircle2P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2PR() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircle2PR();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle3P() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircle3P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle1_2P() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleTan1_2P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2_1P() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleTan2_1P();
     }
 }
 void QG_CadToolBarCircles::drawCircleParallel() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleParallel();
     }
 }
 void QG_CadToolBarCircles::drawCircleInscribe() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleInscribe();
     }
 }
 void QG_CadToolBarCircles::drawCircleTan2() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleTan2();
     }
 }
 void QG_CadToolBarCircles::drawCircleTan3() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawCircleTan3();
     }
 }
 void QG_CadToolBarCircles::back() {
-    if (cadToolBar!=NULL) {
+	if (cadToolBar!=nullptr) {
         cadToolBar->back();
     }
 }
 //restore action from checked button
 void QG_CadToolBarCircles::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bCircle ->isChecked() ) {
         actionHandler->slotDrawCircle();
         return;
@@ -164,13 +164,12 @@ void QG_CadToolBarCircles::restoreAction()
     //clear all action
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 
 void QG_CadToolBarCircles::resetToolBar() {
-	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 

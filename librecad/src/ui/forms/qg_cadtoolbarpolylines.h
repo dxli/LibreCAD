@@ -54,7 +54,6 @@ public slots:
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-
 protected slots:
     virtual void languageChange();
 

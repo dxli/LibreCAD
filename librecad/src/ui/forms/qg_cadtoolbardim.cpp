@@ -48,62 +48,62 @@ void QG_CadToolBarDim::languageChange()
 }
 
 void QG_CadToolBarDim::drawDimAligned() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimAligned();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinear() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimLinear();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinearHor() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimLinearHor();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinearVer() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimLinearVer();
     }
 }
 
 void QG_CadToolBarDim::drawDimRadial() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimRadial();
     }
 }
 
 void QG_CadToolBarDim::drawDimDiametric() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimDiametric();
     }
 }
 
 void QG_CadToolBarDim::drawDimAngular() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimAngular();
     }
 }
 
 void QG_CadToolBarDim::drawDimLeader() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDimLeader();
     }
 }
 
 //void QG_CadToolBarDim::back() {
-//    if (cadToolBar!=NULL) {
+//    if (cadToolBar!=nullptr) {
 //        cadToolBar->back();
 //    }
 //}
 //restore action from checked button
 void QG_CadToolBarDim::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bAligned ->isChecked() ) {
         actionHandler->slotDimAligned();
         return;
@@ -139,12 +139,12 @@ void QG_CadToolBarDim::restoreAction()
     //clear all action
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
-void QG_CadToolBarDim::resetToolBar() {
-	finishCurrentAction(true);
+void QG_CadToolBarDim::resetToolBar()
+{
     bHidden->setChecked(true);
 }
 

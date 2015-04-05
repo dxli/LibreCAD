@@ -134,7 +134,6 @@ void QG_CadToolBarMain::restoreAction()
 
 void QG_CadToolBarMain::resetToolBar()
 {
-	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 

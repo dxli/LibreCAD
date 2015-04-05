@@ -48,49 +48,49 @@ void QG_CadToolBarPolylines::languageChange()
 }
 
 void QG_CadToolBarPolylines::drawPolyline() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawPolyline();
     }
 }
 
 void QG_CadToolBarPolylines::polylineAdd() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineAdd();
     }
 }
 
 void QG_CadToolBarPolylines::polylineAppend() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineAppend();
     }
 }
 
 void QG_CadToolBarPolylines::polylineDel() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineDel();
     }
 }
 
 void QG_CadToolBarPolylines::polylineDelBetween() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineDelBetween();
     }
 }
 
 void QG_CadToolBarPolylines::polylineTrim() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineTrim();
     }
 }
 
 void QG_CadToolBarPolylines::polylineEquidistant() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineEquidistant();
     }
 }
 
 void QG_CadToolBarPolylines::polylineSegment() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotPolylineSegment();
     }
 }
@@ -98,7 +98,7 @@ void QG_CadToolBarPolylines::polylineSegment() {
 //restore action from checked button
 void QG_CadToolBarPolylines::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bPolyline ->isChecked() ) {
         actionHandler->slotDrawPolyline();
         return;
@@ -133,14 +133,13 @@ void QG_CadToolBarPolylines::restoreAction()
     }
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 
 void QG_CadToolBarPolylines::resetToolBar()
 {
-	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 

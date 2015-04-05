@@ -60,7 +60,6 @@ protected slots:
 
 private slots:
     void on_bBack_clicked();
-
 };
 
 #endif // QG_CADTOOLBARDIM_H

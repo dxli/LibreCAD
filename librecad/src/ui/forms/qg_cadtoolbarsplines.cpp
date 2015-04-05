@@ -76,7 +76,6 @@ void QG_CadToolBarSplines::restoreAction()
 
 void QG_CadToolBarSplines::resetToolBar()
 {
-	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 

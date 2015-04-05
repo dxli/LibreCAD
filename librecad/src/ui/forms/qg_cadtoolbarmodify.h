@@ -26,11 +26,12 @@
 #ifndef QG_CADTOOLBARMODIFY_H
 #define QG_CADTOOLBARMODIFY_H
 
-class QG_CadToolBar;
-class QG_ActionHandler;
-
+#include <vector>
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarmodify.h"
+
+class QG_CadToolBar;
+class QG_ActionHandler;
 
 class QG_CadToolBarModify : public LC_CadToolBarInterface, public Ui::QG_CadToolBarModify
 {
@@ -75,8 +76,7 @@ private slots:
 private:
 	void init();
     QToolButton* bHidden;
-	QList<QToolButton*> buttonList;
-
+	std::vector<QToolButton*> buttonList;
 };
 
 #endif // QG_CADTOOLBARMODIFY_H

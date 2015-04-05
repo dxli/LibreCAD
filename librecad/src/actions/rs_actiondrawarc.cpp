@@ -61,12 +61,12 @@ void RS_ActionDrawArc::reset() {
 	if (data->reversed) {
 		data.reset(new RS_ArcData(RS_Vector(false),
                           0.0,
-                          2*M_PI, 0.0,
+						  2.*M_PI, 0.0,
 						  true));
     } else {
 		data.reset(new RS_ArcData(RS_Vector(false),
                           0.0,
-                          0.0, 2*M_PI,
+						  0.0, 2.*M_PI,
 						  false));
     }
 }

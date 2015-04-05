@@ -47,44 +47,44 @@ void QG_CadToolBarInfo::languageChange()
 }
 
 void QG_CadToolBarInfo::infoDist() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotInfoDist();
     }
 }
 
 void QG_CadToolBarInfo::infoDist2() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotInfoDist2();
     }
 }
 
 void QG_CadToolBarInfo::infoAngle() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotInfoAngle();
     }
 }
 
 void QG_CadToolBarInfo::infoTotalLength() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotInfoTotalLength();
     }
 }
 
 void QG_CadToolBarInfo::infoArea() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotInfoArea();
     }
 }
 
 //void QG_CadToolBarInfo::back() {
-//    if (cadToolBar!=NULL) {
+//    if (cadToolBar!=nullptr) {
 //        cadToolBar->back();
 //    }
 //}
 //restore action from checked button
 void QG_CadToolBarInfo::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     //clear all action
     if ( bDist ->isChecked() ) {
         actionHandler->slotInfoDist();
@@ -111,13 +111,12 @@ void QG_CadToolBarInfo::restoreAction()
     //actionHandler->slotInfoDist();
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 void QG_CadToolBarInfo::resetToolBar()
 {
-	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 

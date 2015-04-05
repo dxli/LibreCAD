@@ -47,33 +47,33 @@ void QG_CadToolBarEllipses::languageChange()
 }
 
 void QG_CadToolBarEllipses::drawEllipseAxis() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawEllipseAxis();
     }
 }
 
 void QG_CadToolBarEllipses::drawEllipseArcAxis() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawEllipseArcAxis();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseFociPoint() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawEllipseFociPoint();
     }
 }
 void QG_CadToolBarEllipses::drawEllipse4Points() {
-    if (actionHandler!=NULL) {
+	if (actionHandler!=nullptr) {
         actionHandler->slotDrawEllipse4Points();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseCenter3Points() {
-    if (actionHandler!=NULL) {
+	if (actionHandler!=nullptr) {
         actionHandler->slotDrawEllipseCenter3Points();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseInscribe() {
-    if (actionHandler!=NULL) {
+	if (actionHandler!=nullptr) {
         actionHandler->slotDrawEllipseInscribe();
     }
 }
@@ -81,7 +81,7 @@ void QG_CadToolBarEllipses::drawEllipseInscribe() {
 //restore action from checked button
 void QG_CadToolBarEllipses::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bEllipseAxes ->isChecked() ) {
         actionHandler->slotDrawEllipseAxis();
         return;
@@ -109,13 +109,13 @@ void QG_CadToolBarEllipses::restoreAction()
     //clear all action
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 
-void QG_CadToolBarEllipses::resetToolBar() {
-	finishCurrentAction(true);
+void QG_CadToolBarEllipses::resetToolBar()
+{
     bHidden->setChecked(true);
 }
 void QG_CadToolBarEllipses::on_bBack_clicked()

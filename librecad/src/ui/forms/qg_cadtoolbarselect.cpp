@@ -133,7 +133,7 @@ void QG_CadToolBarSelect::runNextAction() {
             if( static_cast<RS_ActionSelect*>(selectAction)->countSelected()==0) return;
         }
         selectAction->finish();
-        selectAction = NULL;
+		selectAction = nullptr;
     }
     if (nextAction!=-1) {
         actionHandler->killSelectActions();
@@ -143,7 +143,7 @@ void QG_CadToolBarSelect::runNextAction() {
 
 void QG_CadToolBarSelect::on_bBack_clicked()
 {
-    if(parentTB != NULL){
+	if(parentTB != nullptr){
         parentTB->showPreviousToolBar();
     }
 }
