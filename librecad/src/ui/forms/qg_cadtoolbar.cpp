@@ -50,8 +50,6 @@ QG_CadToolBar::QG_CadToolBar(QWidget* parent, const char* name, Qt::WindowFlags 
 {
     setObjectName(name);
     setupUi(this);
-    toolbars.clear();
-    toolbarIDs.clear();
     init();
 }
 
@@ -134,6 +132,23 @@ void QG_CadToolBar::contextMenuEvent(QContextMenuEvent *e) {
  */
 void QG_CadToolBar::createSubToolBars(QG_ActionHandler* ah) {
     actionHandler = ah;
+	for(LC_CadToolBarInterface*const p: std::initializer_list<LC_CadToolBarInterface*>({
+		new QG_CadToolBarMain(this)
+		,new QG_CadToolBarLines(this)
+		,new QG_CadToolBarArcs(this)
+		,new QG_CadToolBarCircles(this)
+		,new QG_CadToolBarEllipses(this)
+		,new QG_CadToolBarSplines(this)
+		,new QG_CadToolBarPolylines(this)
+		,new QG_CadToolBarDim(this)
+		,new QG_CadToolBarInfo(this)
+		,new QG_CadToolBarModify(this)
+		,new QG_CadToolBarSelect(this)
+})){
+		p->setCadToolBar(this);
+		p->hide();
+		m_toolbars[p->rtti()]= p;
+	}
     tbMain = new QG_CadToolBarMain(this);
     tbMain->setCadToolBar(this);
 
@@ -383,10 +398,6 @@ void QG_CadToolBar::showToolBarInfo() {
 void QG_CadToolBar::showToolBarModify() {
     showToolBar(RS2::ToolBarModify);
 }
-
-//void QG_CadToolBar::showToolBarSnap() {
-//    showToolBar(RS2::ToolBarSnap);
-//}
 
 void QG_CadToolBar::showToolBarDim() {
     showToolBar(RS2::ToolBarDim);

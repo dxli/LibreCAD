@@ -28,6 +28,7 @@
 
 #include <QWidget>
 #include <vector>
+#include <map>
 #include "rs.h"
 #include "ui_qg_cadtoolbar.h"
 
@@ -76,6 +77,9 @@ signals:
     void signalNext();
 
 protected:
+
+	std::map<RS2::ToolBarId, LC_CadToolBarInterface*> m_toolbars;
+
 	LC_CadToolBarInterface* tbSplines;
 	LC_CadToolBarInterface* tbInfo;
     QG_ActionHandler* actionHandler;

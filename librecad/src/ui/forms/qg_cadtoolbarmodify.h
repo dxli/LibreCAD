@@ -43,6 +43,10 @@ public:
     //restore action from checked button
 	virtual void restoreAction();
     virtual void showCadToolBar(RS2::ActionType actionType);
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarModify;
+	}
 
 public slots:
     virtual void modifyMove();

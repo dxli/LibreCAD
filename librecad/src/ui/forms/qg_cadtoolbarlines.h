@@ -40,6 +40,10 @@ public:
 	QG_CadToolBarLines(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
 	~QG_CadToolBarLines() = default;
 	virtual void restoreAction(); //restore action from checked button
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarLines;
+	}
 
 public slots:
     virtual void drawLine();

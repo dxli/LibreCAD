@@ -44,6 +44,10 @@ public:
     void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 	virtual void setCadToolBar(QG_CadToolBar* tb);
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarMain;
+	}
 
 public slots:
 	virtual void mousePressEvent( QMouseEvent * e );
@@ -53,8 +57,7 @@ protected slots:
 
 private slots:
     void slotDrawMText();
-    void slotDrawImage();
-	void on_bBack_clicked();
+	void slotDrawImage();
 };
 
 #endif

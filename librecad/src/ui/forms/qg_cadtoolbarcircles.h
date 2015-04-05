@@ -41,6 +41,10 @@ public:
 	~QG_CadToolBarCircles() = default;
     //restore action from checked button
 	virtual void restoreAction();
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarCircles;
+	}
 
 public slots:
     virtual void drawCircle();

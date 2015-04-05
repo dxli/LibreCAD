@@ -41,6 +41,10 @@ public:
 	~QG_CadToolBarEllipses() = default;
     //restore action from checked button
 	virtual void restoreAction();
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarEllipses;
+	}
 
 public slots:
     virtual void drawEllipseAxis();

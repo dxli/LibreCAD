@@ -40,6 +40,10 @@ class QG_CadToolBarSelect : public LC_CadToolBarInterface, public Ui::QG_CadTool
 public:
 	QG_CadToolBarSelect(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
 	~QG_CadToolBarSelect() = default;
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarSelect;
+	}
 
 public slots:
     virtual void selectSingle();

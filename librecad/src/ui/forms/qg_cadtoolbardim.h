@@ -40,6 +40,10 @@ public:
 	QG_CadToolBarDim(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
 	~QG_CadToolBarDim() = default;
 	virtual void restoreAction(); //restore action from checked button
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarDim;
+	}
 
 public slots:
     virtual void drawDimAligned();

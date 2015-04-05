@@ -14,6 +14,8 @@ public:
 	LC_CadToolBarInterface() = delete;
 	LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::WindowFlags fl = 0);
 	virtual ~LC_CadToolBarInterface()=default;
+
+	virtual RS2::ToolBarId rtti() const = 0;
 	virtual void setCadToolBar( QG_CadToolBar * tb );
 	void finishCurrentAction(bool resetToolBar=false); //clear current action
 

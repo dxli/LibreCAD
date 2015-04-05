@@ -41,6 +41,10 @@ public:
 	~QG_CadToolBarInfo() = default;
     //restore action from checked button
 	virtual void restoreAction();
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarInfo;
+	}
 
 public slots:
     virtual void infoDist();

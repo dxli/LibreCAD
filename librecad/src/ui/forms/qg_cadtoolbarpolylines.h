@@ -41,6 +41,10 @@ public:
 	~QG_CadToolBarPolylines() = default;
     //restore action from checked button
 	virtual void restoreAction();
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarPolylines;
+	}
 
 public slots:
     virtual void drawPolyline();

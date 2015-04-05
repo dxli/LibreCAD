@@ -37,6 +37,10 @@ public:
 	~QG_CadToolBarSplines() = default;
     //restore action from checked button
 	virtual void restoreAction();
+	RS2::ToolBarId rtti() const
+	{
+		return RS2::ToolBarSplines;
+	}
 
 public slots:
     virtual void drawSpline();

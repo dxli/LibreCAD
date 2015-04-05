@@ -137,13 +137,6 @@ void QG_CadToolBarMain::resetToolBar()
     bHidden->setChecked(true);
 }
 
-void QG_CadToolBarMain::on_bBack_clicked()
-{
-	finishCurrentAction(true);
-	resetToolBar();
-}
-
-
 void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
 {
 	if (e->button()==Qt::RightButton && cadToolBar) {
