@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarlines.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarLines as a child of 'parent', with the
@@ -226,10 +226,13 @@ void QG_CadToolBarLines::restoreAction() {
 }
 
 void QG_CadToolBarLines::resetToolBar() {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
+
 void QG_CadToolBarLines::on_bBack_clicked()
 {
+	finishCurrentAction(true);
    LC_CadToolBarInterface::back();
 }
 

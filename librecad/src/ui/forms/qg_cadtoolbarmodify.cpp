@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarmodify.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarModify as a child of 'parent', with the
@@ -305,12 +305,15 @@ void QG_CadToolBarModify::restoreAction() {
     }
 }
 
-void QG_CadToolBarModify::resetToolBar() {
+void QG_CadToolBarModify::resetToolBar()
+{
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
 void QG_CadToolBarModify::on_bBack_clicked()
 {
+	finishCurrentAction(true);
    parentTB->showToolBar(RS2::ToolBarMain);
 }
 void QG_CadToolBarModify::showCadToolBar(RS2::ActionType actionType) {

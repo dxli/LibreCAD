@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarellipses.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarEllipses as a child of 'parent', with the
@@ -115,10 +115,12 @@ void QG_CadToolBarEllipses::restoreAction()
 }
 
 void QG_CadToolBarEllipses::resetToolBar() {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 void QG_CadToolBarEllipses::on_bBack_clicked()
 {
+	finishCurrentAction(true);
     parentTB->showPreviousToolBar();
 }
 

@@ -6,6 +6,7 @@
 
 class QG_CadToolBar;
 class QG_ActionHandler;
+class RS_ActionInterface;
 
 class LC_CadToolBarInterface: public QWidget
 {
@@ -13,9 +14,15 @@ public:
 	LC_CadToolBarInterface() = delete;
 	LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::WindowFlags fl = 0);
 	virtual ~LC_CadToolBarInterface()=default;
-	virtual void restoreAction() {} //restore action from checked button
 	virtual void setCadToolBar( QG_CadToolBar * tb );
+	void finishCurrentAction(bool resetToolBar=false); //clear current action
+
+	virtual void resetToolBar() {}
+	virtual void runNextAction() {}
+	virtual void restoreAction() {} //restore action from checked button
 	virtual void showCadToolBar(RS2::ActionType /*actionType*/) {}
+	virtual void setSelectAction( RS_ActionInterface * /*selectAction*/ ) {}
+	virtual void setNextAction( int /*nextAction*/ ) {}
 
 public slots:
 	virtual void back();

@@ -24,9 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarmain.h"
-
 #include "qg_cadtoolbar.h"
-#include "qg_cadtoolbarmain.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarMain as a child of 'parent', with the
@@ -51,13 +50,13 @@ void QG_CadToolBarMain::languageChange()
 
 void QG_CadToolBarMain::setCadToolBar(QG_CadToolBar* tb) {
 
-    if (tb!=NULL) {
+	if (tb!=nullptr) {
         actionHandler= tb->getActionHandler();
     } else {
         RS_DEBUG->print(RS_Debug::D_ERROR,
                         "QG_CadToolBarMain::setCadToolBar(): No valid toolbar set.");
     }
-    if (actionHandler!=NULL) {
+	if (actionHandler!=nullptr) {
         connect(bMenuLine, SIGNAL(clicked()),
                 tb, SLOT(showToolBarLines()));
         connect(bMenuArc, SIGNAL(clicked()),
@@ -102,9 +101,9 @@ void QG_CadToolBarMain::setCadToolBar(QG_CadToolBar* tb) {
 //clear current action
 void QG_CadToolBarMain::finishCurrentAction(bool resetToolBar)
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(resetToolBar); //finish the action, but do not update toolBar
     }
 }
@@ -124,7 +123,7 @@ void QG_CadToolBarMain::slotDrawImage()
 //restore action from checked button
 void QG_CadToolBarMain::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bMenuPoint ->isChecked() ) {
         actionHandler->slotDrawPoint();
         return;
@@ -135,8 +134,25 @@ void QG_CadToolBarMain::restoreAction()
 
 void QG_CadToolBarMain::resetToolBar()
 {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
+
+void QG_CadToolBarMain::on_bBack_clicked()
+{
+	finishCurrentAction(true);
+	resetToolBar();
+}
+
+
+void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
+{
+	if (e->button()==Qt::RightButton && cadToolBar) {
+		finishCurrentAction(true);
+		resetToolBar();
+	}
+}
+
 
 void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {
     switch(actionType){

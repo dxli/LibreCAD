@@ -1,5 +1,8 @@
+#include <QMouseEvent>
 #include "lc_cadtoolbarinterface.h"
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
+#include "rs_debug.h"
 
 LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::WindowFlags fl):
 	QWidget(_parentTB, fl)
@@ -20,8 +23,18 @@ void LC_CadToolBarInterface::setCadToolBar(QG_CadToolBar* tb) {
 }
 
 
+void LC_CadToolBarInterface::finishCurrentAction(bool resetToolBar)
+{
+	if(actionHandler==nullptr) return;
+	RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
+	if(currentAction != nullptr) {
+		currentAction->finish(resetToolBar); //finish the action, but do not update toolBar
+	}
+}
+
 void LC_CadToolBarInterface::mousePressEvent(QMouseEvent* e) {
 	if (e->button()==Qt::RightButton && cadToolBar) {
+		finishCurrentAction(true);
 		cadToolBar->showPreviousToolBar(true);
 		e->accept();
 	}

@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarpolylines.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarPolylines as a child of 'parent', with the
@@ -138,13 +138,16 @@ void QG_CadToolBarPolylines::restoreAction()
     }
 }
 
-void QG_CadToolBarPolylines::resetToolBar() {
+void QG_CadToolBarPolylines::resetToolBar()
+{
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
 void QG_CadToolBarPolylines::on_bBack_clicked()
 {
-    parentTB->showPreviousToolBar();
+	finishCurrentAction(true);
+	parentTB->showPreviousToolBar();
 }
 
 void QG_CadToolBarPolylines::showCadToolBar(RS2::ActionType actionType){

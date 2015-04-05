@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarinfo.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarInfo as a child of 'parent', with the
@@ -115,12 +115,15 @@ void QG_CadToolBarInfo::restoreAction()
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
-void QG_CadToolBarInfo::resetToolBar() {
+void QG_CadToolBarInfo::resetToolBar()
+{
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
 void QG_CadToolBarInfo::on_bBack_clicked()
 {
+	finishCurrentAction(true);
     parentTB->showPreviousToolBar();
 }
 

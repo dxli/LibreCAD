@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarpoints.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarPoints as a child of 'parent', with the

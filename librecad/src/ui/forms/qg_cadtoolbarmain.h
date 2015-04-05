@@ -26,10 +26,10 @@
 #ifndef QG_CADTOOLBARMAIN_H
 #define QG_CADTOOLBARMAIN_H
 
-
 #include "ui_qg_cadtoolbarmain.h"
 #include "lc_cadtoolbarinterface.h"
 #include "qg_actionhandler.h"
+
 class QG_CadToolBar;
 
 class QG_CadToolBarMain : public LC_CadToolBarInterface, public Ui::QG_CadToolBarMain
@@ -45,12 +45,16 @@ public:
     virtual void showCadToolBar(RS2::ActionType actionType);
 	virtual void setCadToolBar(QG_CadToolBar* tb);
 
+public slots:
+	virtual void mousePressEvent( QMouseEvent * e );
+
 protected slots:
 	virtual void languageChange();
 
 private slots:
     void slotDrawMText();
     void slotDrawImage();
+	void on_bBack_clicked();
 };
 
 #endif

@@ -24,9 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbararcs.h"
-
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarArcs as a child of 'parent', with the
@@ -100,8 +99,10 @@ void QG_CadToolBarArcs::restoreAction()
 }
 
 void QG_CadToolBarArcs::resetToolBar() {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
+
 void QG_CadToolBarArcs::on_bBack_clicked()
 {
    parentTB->showPreviousToolBar();

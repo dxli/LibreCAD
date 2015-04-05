@@ -26,23 +26,13 @@
 #ifndef QG_CADTOOLBAR_H
 #define QG_CADTOOLBAR_H
 
-class QG_ActionHandler;
-
-#include "rs_actioninterface.h"
-#include "qg_cadtoolbararcs.h"
-#include "qg_cadtoolbarcircles.h"
-#include "qg_cadtoolbardim.h"
-#include "qg_cadtoolbarellipses.h"
-#include "qg_cadtoolbarinfo.h"
-#include "qg_cadtoolbarlines.h"
-#include "qg_cadtoolbarmain.h"
-#include "qg_cadtoolbarmodify.h"
-#include "qg_cadtoolbarpoints.h"
-#include "qg_cadtoolbarpolylines.h"
-#include "qg_cadtoolbarselect.h"
-#include "qg_cadtoolbarsplines.h"
-#include "qg_snaptoolbar.h"
+#include <QWidget>
+#include "rs.h"
 #include "ui_qg_cadtoolbar.h"
+
+class QG_ActionHandler;
+class LC_CadToolBarInterface;
+class RS_ActionInterface;
 
 class QG_CadToolBar : public QWidget, public Ui::QG_CadToolBar
 {
@@ -50,7 +40,7 @@ class QG_CadToolBar : public QWidget, public Ui::QG_CadToolBar
 
 public:
     QG_CadToolBar(QWidget* parent = 0, const char* name = 0, Qt::WindowFlags fl = 0);
-    ~QG_CadToolBar();
+	~QG_CadToolBar() = default;
 
     virtual QG_ActionHandler * getActionHandler();
 
@@ -85,24 +75,24 @@ signals:
     void signalNext();
 
 protected:
-    QG_CadToolBarSplines* tbSplines;
-    QG_CadToolBarInfo* tbInfo;
+	LC_CadToolBarInterface* tbSplines;
+	LC_CadToolBarInterface* tbInfo;
     QG_ActionHandler* actionHandler;
     QVector<RS2::ToolBarId> toolbarIDs;
-    QVector<QWidget*> toolbars;
+	QVector<LC_CadToolBarInterface*> toolbars;
     //    RS2::ToolBarId previousID;
     //    RS2::ToolBarId savedID;
-    QG_CadToolBarMain* tbMain;
-    QG_CadToolBarDim* tbDim;
-    QG_CadToolBarLines* tbLines;
+	LC_CadToolBarInterface* tbMain;
+	LC_CadToolBarInterface* tbDim;
+	LC_CadToolBarInterface* tbLines;
     //    QG_CadToolBarPoints* tbPoints;
-    QG_CadToolBarEllipses* tbEllipses;
-    QG_CadToolBarArcs* tbArcs;
-    QG_CadToolBarModify* tbModify;
-    QG_CadToolBarCircles* tbCircles;
+	LC_CadToolBarInterface* tbEllipses;
+	LC_CadToolBarInterface* tbArcs;
+	LC_CadToolBarInterface* tbModify;
+	LC_CadToolBarInterface* tbCircles;
     //    QG_SnapToolBar* tbSnap;
-    QG_CadToolBarSelect* tbSelect;
-    QG_CadToolBarPolylines* tbPolylines;
+	LC_CadToolBarInterface* tbSelect;
+	LC_CadToolBarInterface* tbPolylines;
 
 protected slots:
     virtual void languageChange();

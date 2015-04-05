@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbardim.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarDim as a child of 'parent', with the
@@ -144,11 +144,13 @@ void QG_CadToolBarDim::restoreAction()
     }
 }
 void QG_CadToolBarDim::resetToolBar() {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
 void QG_CadToolBarDim::on_bBack_clicked()
 {
+	finishCurrentAction(true);
     parentTB->showPreviousToolBar();
 }
 

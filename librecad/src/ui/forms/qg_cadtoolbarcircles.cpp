@@ -24,8 +24,8 @@
 **
 **********************************************************************/
 #include "qg_cadtoolbarcircles.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarCircles as a child of 'parent', with the
@@ -170,11 +170,13 @@ void QG_CadToolBarCircles::restoreAction()
 }
 
 void QG_CadToolBarCircles::resetToolBar() {
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
 void QG_CadToolBarCircles::on_bBack_clicked()
 {
+	finishCurrentAction(true);
    parentTB->showPreviousToolBar();
 }
 

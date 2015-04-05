@@ -20,8 +20,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **********************************************************************/
 #include "qg_cadtoolbarsplines.h"
-
 #include "qg_cadtoolbar.h"
+#include "qg_actionhandler.h"
 
 /*
  *  Constructs a QG_CadToolBarSplines as a child of 'parent', with the
@@ -43,13 +43,13 @@ void QG_CadToolBarSplines::languageChange()
 }
 
 void QG_CadToolBarSplines::drawSpline() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawSpline();
     }
 }
 
 void QG_CadToolBarSplines::drawSplineInt() {
-    if (cadToolBar!=NULL && actionHandler!=NULL) {
+	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
         actionHandler->slotDrawSplinePoints();
     }
 }
@@ -58,7 +58,7 @@ void QG_CadToolBarSplines::drawSplineInt() {
 //restore action from checked button
 void QG_CadToolBarSplines::restoreAction()
 {
-    if(actionHandler==NULL) return;
+	if(actionHandler==nullptr) return;
     if ( bSpline ->isChecked() ) {
         actionHandler->slotDrawSpline();
         return;
@@ -69,12 +69,14 @@ void QG_CadToolBarSplines::restoreAction()
     }
     bHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-    if(currentAction != NULL) {
+	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
     }
 }
 
-void QG_CadToolBarSplines::resetToolBar() {
+void QG_CadToolBarSplines::resetToolBar()
+{
+	finishCurrentAction(true);
     bHidden->setChecked(true);
 }
 
@@ -95,5 +97,6 @@ void QG_CadToolBarSplines::showCadToolBar(RS2::ActionType actionType) {
 
 void QG_CadToolBarSplines::on_bBack_clicked()
 {
+	finishCurrentAction(true);
    LC_CadToolBarInterface::back();
 }
