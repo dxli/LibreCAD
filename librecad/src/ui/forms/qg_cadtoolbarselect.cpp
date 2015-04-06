@@ -146,5 +146,6 @@ void QG_CadToolBarSelect::on_bBack_clicked()
 	finishCurrentAction(true);
 	if(cadToolBar){
 		cadToolBar->showPreviousToolBar(true);
+		cadToolBar->resetToolBar();
     }
 }
