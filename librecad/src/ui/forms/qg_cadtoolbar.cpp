@@ -157,14 +157,14 @@ void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
 	// cleanup mouse hint when showing previous tool bar, bug#3480121
 	RS_DIALOGFACTORY->updateMouseWidget("","",false);
 	if(cleanup){
-		if(actionHandler != nullptr) {
+		if(actionHandler) {
 			RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-			if(currentAction != nullptr) {
+			if(currentAction) {
 				currentAction->finish(false); //finish the action, but do not update toolBar
 			}
 		}
 		if(toolbars.size()>1){
-			if(toolbars.back() != nullptr) toolbars.back() ->setVisible(false);
+			if(toolbars.back()) toolbars.back() ->setVisible(false);
 			toolbars.pop_back();
 		}
 		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(true): toolbars.size()="<<toolbars.size()<<std::endl;

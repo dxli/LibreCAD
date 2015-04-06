@@ -20,7 +20,7 @@ void LC_CadToolBarInterface::finishCurrentAction(bool resetToolBar)
 {
 	if(actionHandler==nullptr) return;
 	RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-	if(currentAction != nullptr) {
+	if(currentAction) {
 		currentAction->finish(resetToolBar); //finish the action, but do not update toolBar
 	}
 }
