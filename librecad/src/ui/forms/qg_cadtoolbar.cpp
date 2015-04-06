@@ -195,7 +195,7 @@ void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
 	hideSubToolBars();
 	auto it=std::find(toolbars.begin(), toolbars.end(), newTb);
 	if(it != toolbars.end()){
-		toolbars.erase(it,toolbars.end());
+		toolbars.erase(it+1,toolbars.end());
 	}
 	if(!( toolbars.size()>0 && newTb == toolbars.back())) {
 		toolbars.push_back(newTb);
