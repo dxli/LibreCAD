@@ -84,7 +84,6 @@ protected:
 	std::map<RS2::ToolBarId, LC_CadToolBarInterface*> m_toolbars;
 	QG_ActionHandler* actionHandler = nullptr;
 
-	std::vector<RS2::ToolBarId> toolbarIDs;
 	std::vector<LC_CadToolBarInterface*> toolbars;
 
 protected slots:

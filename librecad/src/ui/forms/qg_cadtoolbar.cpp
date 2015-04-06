@@ -154,36 +154,33 @@ void QG_CadToolBar::showSubToolBar(){
 }
 
 void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
-    // cleanup mouse hint when showing previous tool bar, bug#3480121
-    RS_DIALOGFACTORY->updateMouseWidget("","",false);
-    if(cleanup){
+	// cleanup mouse hint when showing previous tool bar, bug#3480121
+	RS_DIALOGFACTORY->updateMouseWidget("","",false);
+	if(cleanup){
 		if(actionHandler != nullptr) {
-            RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
+			RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 			if(currentAction != nullptr) {
-                currentAction->finish(false); //finish the action, but do not update toolBar
-            }
-        }
-        if(toolbars.size()>1){
+				currentAction->finish(false); //finish the action, but do not update toolBar
+			}
+		}
+		if(toolbars.size()>1){
 			if(toolbars.back() != nullptr) toolbars.back() ->setVisible(false);
-            toolbars.pop_back();
-            toolbarIDs.pop_back();
-        }
-        //        std::cout<<"QG_CadToolBar::showPreviousToolBar(true): toolbars.size()="<<toolbars.size()<<std::endl;
-		showToolBar(toolbarIDs.back());
-    }else{
-        hideSubToolBars();
-        //        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
-        if(toolbars.size()>1){
-            //            std::cout<<"QG_CadToolBar::showPreviousToolBar(false): hide:"<<toolbarIDs[toolbars.size()-1]<<std::endl;
+			toolbars.pop_back();
+		}
+		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(true): toolbars.size()="<<toolbars.size()<<std::endl;
+		showToolBar(toolbars.back()->rtti());
+	}else{
+		hideSubToolBars();
+		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
+		if(toolbars.size()>1){
+			//            std::cout<<"QG_CadToolBar::showPreviousToolBar(false): hide:"<<toolbarIDs[toolbars.size()-1]<<std::endl;
 			if(toolbars.back()== nullptr) toolbars.back()->setVisible(false);
-            toolbars.pop_back();
-            toolbarIDs.pop_back();
+			toolbars.pop_back();
+		}
 
-        }
-
-        //        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
-        showSubToolBar();
-    }
+		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
+		showSubToolBar();
+	}
 }
 
 void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
@@ -196,13 +193,11 @@ void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
 	}
 	if(restoreAction) newTb->restoreAction();
 	hideSubToolBars();
-	auto it=std::find(toolbarIDs.begin(), toolbarIDs.end(), id);
-	if(it != toolbarIDs.end()){
-		toolbarIDs.erase(it,toolbarIDs.end());
-		toolbars.erase(toolbars.begin() + toolbarIDs.size(),toolbars.end());
+	auto it=std::find(toolbars.begin(), toolbars.end(), newTb);
+	if(it != toolbars.end()){
+		toolbars.erase(it,toolbars.end());
 	}
-	if(!( toolbarIDs.size()>0 && id == toolbarIDs.back())) {
-		toolbarIDs.push_back(id);
+	if(!( toolbars.size()>0 && newTb == toolbars.back())) {
 		toolbars.push_back(newTb);
 	}
 	showSubToolBar();
