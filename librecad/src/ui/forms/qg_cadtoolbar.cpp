@@ -85,13 +85,39 @@ void QG_CadToolBar::init() {
 		p->hide();
 		m_toolbars[p->rtti()]= p;
 	}
+	//populate toolbarMain
+	addMainButtons({
+					   RS2::ToolBarLines,RS2::ToolBarArcs, RS2::ToolBarCircles,
+					   RS2::ToolBarEllipses, RS2::ToolBarPolylines, RS2::ToolBarSplines
+		   });
 }
 
-/**
- * @return Pointer to action handler or nullptr.
- */
-QG_ActionHandler* QG_CadToolBar::getActionHandler() {
-    return actionHandler;
+
+void QG_CadToolBar::addMainButtons(const std::initializer_list<RS2::ToolBarId>& /*list*/)
+{
+//	if(!m_toolbars.count(RS2::ToolBarMain)) return;
+//	LC_CadToolBarInterface*const p = m_toolbars[RS2::ToolBarMain];
+//	std::vector<QObject*> buttons;
+//	for(auto id: list){
+//		buttons.push_back(m_toolbars[id]);
+//	}
+//	p->addItems(buttons, false);
+
+}
+
+void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2::ToolBarId toolbarID)
+{
+	qDebug()<<"QG_CadToolBar::populateSubToolBar(): begin";
+
+	if(!m_toolbars.count(toolbarID)) return;
+	LC_CadToolBarInterface*const p = m_toolbars[toolbarID];
+	p->addSubActions(actions, true);
+
+	if(toolbarID == RS2::ToolBarMain){
+		addMainButtons({RS2::ToolBarDim,RS2::ToolBarInfo, RS2::ToolBarModify});
+	}
+	qDebug()<<"QG_CadToolBar::populateSubToolBar(): end";
+
 }
 
 /**
@@ -106,8 +132,8 @@ void QG_CadToolBar::back() {
  * Called from the application.
  */
 void QG_CadToolBar::forceNext() {
-    if(toolbars.size()==0) return;
-	auto p=toolbars.back();
+    if(activeToolbars.size()==0) return;
+	auto p=activeToolbars.back();
 	if (p && p->rtti() == RS2::ToolBarSelect)
 		p->runNextAction();
 }
@@ -133,17 +159,17 @@ void QG_CadToolBar::setActionHandler(QG_ActionHandler* ah) {
 	for(const auto& p: m_toolbars){
 		p.second->setActionHandler(ah);
 	}
-    showToolBarMain();
+	showToolBar(RS2::ToolBarArcs, false);
 }
 
 void QG_CadToolBar::hideSubToolBars(){
-	for(auto p: toolbars){
+	for(auto p: activeToolbars){
 		p->hide();
 	}
 }
 
 void QG_CadToolBar::showSubToolBar(){
-	LC_CadToolBarInterface* const p = toolbars.back();
+	LC_CadToolBarInterface* const p = activeToolbars.back();
 	if (!p->isVisible()) { // On OSX, without this line LibreCAD wuld crash. Not sure if it's a Qt problem or 'somewhere' logic within LibreCAD
         //shift down to show the handle to move the toolbar
         //has to be 20, 10 is not enough
@@ -162,19 +188,19 @@ void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
 				currentAction->finish(false); //finish the action, but do not update toolBar
 			}
 		}
-		if(toolbars.size()>1){
-			if(toolbars.back()) toolbars.back() ->setVisible(false);
-			toolbars.pop_back();
+		if(activeToolbars.size()>1){
+			if(activeToolbars.back()) activeToolbars.back() ->setVisible(false);
+			activeToolbars.pop_back();
 		}
 		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(true): toolbars.size()="<<toolbars.size()<<std::endl;
-		showToolBar(toolbars.back()->rtti());
+		showToolBar(activeToolbars.back()->rtti());
 	}else{
 		hideSubToolBars();
 		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
-		if(toolbars.size()>1){
+		if(activeToolbars.size()>1){
 			//            std::cout<<"QG_CadToolBar::showPreviousToolBar(false): hide:"<<toolbarIDs[toolbars.size()-1]<<std::endl;
-			if(toolbars.back()== nullptr) toolbars.back()->setVisible(false);
-			toolbars.pop_back();
+			if(activeToolbars.back()== nullptr) activeToolbars.back()->setVisible(false);
+			activeToolbars.pop_back();
 		}
 
 		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
@@ -192,18 +218,18 @@ void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
 	}
 	if(restoreAction) newTb->restoreAction();
 	hideSubToolBars();
-	auto it=std::find(toolbars.begin(), toolbars.end(), newTb);
-	if(it != toolbars.end()){
-		toolbars.erase(it+1,toolbars.end());
+	auto it=std::find(activeToolbars.begin(), activeToolbars.end(), newTb);
+	if(it != activeToolbars.end()){
+		activeToolbars.erase(it+1,activeToolbars.end());
 	}
-	if(!( toolbars.size()>0 && newTb == toolbars.back())) {
-		toolbars.push_back(newTb);
+	if(!( activeToolbars.size()>0 && newTb == activeToolbars.back())) {
+		activeToolbars.push_back(newTb);
 	}
 	showSubToolBar();
 }
 
 void QG_CadToolBar::resetToolBar() {
-	LC_CadToolBarInterface* currentTb=toolbars.back();
+	LC_CadToolBarInterface* currentTb=activeToolbars.back();
 	currentTb->resetToolBar();
 }
 

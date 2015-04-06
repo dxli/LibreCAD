@@ -1,4 +1,8 @@
 #include <QMouseEvent>
+#include <QGridLayout>
+#include <QActionGroup>
+#include <QIcon>
+#include <QToolButton>
 #include "lc_cadtoolbarinterface.h"
 #include "qg_cadtoolbar.h"
 #include "qg_actionhandler.h"
@@ -8,7 +12,17 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
 	QWidget(_parentTB, fl)
 	,cadToolBar(_parentTB)
   ,actionHandler(nullptr)
+  ,m_pButtonBack(new QAction(QIcon(":/extui/back.png"), "Back", this))
+  ,m_pButtonForward(new QAction(QIcon(":/extui/forward.png"), "Back", this))
+  ,m_pHidden(new QAction("ActionHidden", this))
+  ,m_pGrid(new QGridLayout)
+  ,m_pActionGroup(new QActionGroup(this))
 {
+	m_pGrid->setContentsMargins(0,0,0,0);
+	m_pGrid->setSpacing(1);
+	m_pActionGroup->setExclusive(true);
+	m_pHidden->setChecked(true);
+	m_pActionGroup->addAction(m_pHidden);
 }
 
 void LC_CadToolBarInterface::setActionHandler(QG_ActionHandler* ah)
@@ -46,13 +60,36 @@ void LC_CadToolBarInterface::mousePressEvent(QMouseEvent* e) {
 	}
 }
 
-//void LC_CadToolBarInterface::contextMenuEvent(QContextMenuEvent *e) {
-//	e->accept();
-//}
-
 void LC_CadToolBarInterface::back()
 {
 	if (cadToolBar) {
 		cadToolBar->showPreviousToolBar(true);
 	}
+}
+
+
+void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
+{
+	qDebug()<<"LC_CadToolBarInterface::addSubAction(): begin";
+
+	const int row=m_pGrid->count()/2;
+	const int col=m_pGrid->count()%2;
+	QToolButton* button=new QToolButton(this);
+	button->setDefaultAction(action);
+	m_pGrid->addWidget(button, row, col, 1, 1);
+	if(addGroup) m_pActionGroup->addAction(action);
+	qDebug()<<"m_pGrid->count()="<<m_pGrid->count();
+	qDebug()<<"LC_CadToolBarInterface::addSubAction(): end";
+
+}
+
+
+void LC_CadToolBarInterface::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
+{
+	qDebug()<<"LC_CadToolBarInterface::addSubActions(): begin";
+
+	for(auto p: actions){
+		this->addSubAction(p, addGroup);
+	}
+	qDebug()<<"LC_CadToolBarInterface::addSubActions(): end";
 }

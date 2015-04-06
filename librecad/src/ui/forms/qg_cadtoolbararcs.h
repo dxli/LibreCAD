@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbararcs.h"
 
-class QG_CadToolBarArcs : public LC_CadToolBarInterface, public Ui::QG_CadToolBarArcs
+class QG_CadToolBarArcs : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -44,13 +44,11 @@ public:
 	{
 		return RS2::ToolBarArcs;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
+	virtual void resetToolBar();
+
 
 public slots:
-    virtual void drawArc();
-    virtual void drawArc3P();
-    virtual void drawArcParallel();
-    virtual void drawArcTangential();
-    virtual void resetToolBar();
 	virtual void showCadToolBar(RS2::ActionType actionType);
 
 protected slots:
@@ -58,6 +56,8 @@ protected slots:
 
 private slots:
     void on_bBack_clicked();
+private:
+	QAction* bArc=nullptr, *bArc3P=nullptr, *bArcParallel=nullptr, *bArcTangential=nullptr;
 };
 
 #endif // QG_CADTOOLBARARCS_H

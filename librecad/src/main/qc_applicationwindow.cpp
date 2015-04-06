@@ -656,7 +656,7 @@ void QC_ApplicationWindow::initActions(void)
 {
     RS_DEBUG->print("QC_ApplicationWindow::initActions()");
 
-    QG_ActionFactory actionFactory(actionHandler, this);
+	QG_ActionFactory actionFactory(actionHandler, this, cadToolBar);
     QAction* action;
     QMenu* menu;
     QMenu* subMenu;
@@ -873,7 +873,9 @@ void QC_ApplicationWindow::initActions(void)
     actionFactory.addGUI(subMenu, actionHandler, {RS2::ActionDrawArc
                                                   ,RS2::ActionDrawArc3P
                                                   ,RS2::ActionDrawArcParallel
-                                                  ,RS2::ActionDrawArcTangential});
+												  ,RS2::ActionDrawArcTangential},
+						 RS2::ToolBarArcs
+						 );
 
     // Circles:
     subMenu= menu->addMenu(tr("&Circle"));

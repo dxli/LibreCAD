@@ -7,6 +7,9 @@
 class QG_CadToolBar;
 class QG_ActionHandler;
 class RS_ActionInterface;
+class QAction;
+class QGridLayout;
+class QActionGroup;
 
 class LC_CadToolBarInterface: public QWidget
 {
@@ -16,6 +19,10 @@ public:
 	virtual ~LC_CadToolBarInterface()=default;
 
 	virtual RS2::ToolBarId rtti() const = 0;
+	//! \{ \brief populate toolbar with QAction buttons
+	void addSubAction(QAction*const action, bool addGroup=true);
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
+	//! \}
 	virtual void setActionHandler(QG_ActionHandler* ah);
 	void finishCurrentAction(bool resetToolBar=false); //clear current action
 	void killSelectActions();
@@ -37,6 +44,11 @@ protected:
 	QG_CadToolBar* cadToolBar;
 	QG_ActionHandler* actionHandler;
 
+	QAction* m_pButtonBack;
+	QAction* m_pButtonForward;
+	QAction* m_pHidden;
+	QGridLayout* m_pGrid;
+	QActionGroup* m_pActionGroup;
 };
 
 #endif // LC_CADTOOLBARINTERFACE_H

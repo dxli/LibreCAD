@@ -35,6 +35,7 @@
 class QG_ActionHandler;
 class LC_CadToolBarInterface;
 class RS_ActionInterface;
+class QActions;
 
 class QG_CadToolBar : public QWidget, public Ui::QG_CadToolBar
 {
@@ -44,33 +45,37 @@ public:
     QG_CadToolBar(QWidget* parent = 0, const char* name = 0, Qt::WindowFlags fl = 0);
 	~QG_CadToolBar() = default;
 
-    virtual QG_ActionHandler * getActionHandler();
+	/**
+	 * @brief populateSubToolBars add actions to subtoolbars
+	 * @param actions
+	 */
+	void populateSubToolBar(const std::vector<QAction*>& actions, RS2::ToolBarId toolbarID);
 
 public slots:
-    virtual void back();
-    virtual void forceNext();
-    virtual void mouseReleaseEvent( QMouseEvent * e );
-    virtual void contextMenuEvent( QContextMenuEvent * e );
-	virtual void setActionHandler( QG_ActionHandler * ah );
-    /** show the toolbar by id
+	void back();
+	void forceNext();
+	void mouseReleaseEvent( QMouseEvent * e );
+	void contextMenuEvent( QContextMenuEvent * e );
+	void setActionHandler( QG_ActionHandler * ah );
+	/** \brief showToolBar show the toolbar by id
       * if restoreAction is true, also, start the action specified by the checked button of the toolbar
       **/
-    virtual void showToolBar(RS2::ToolBarId id, bool restoreAction = true );
-    virtual void showToolBarMain();
-    virtual void showToolBarLines();
-    virtual void showToolBarArcs();
-    virtual void showToolBarEllipses();
-    virtual void showToolBarSplines();
-    virtual void showToolBarPolylines();
-    virtual void showToolBarCircles();
-    virtual void showToolBarInfo();
-    virtual void showToolBarModify();
-    virtual void showToolBarDim();
-    virtual void showToolBarSelect();
-    virtual void showToolBarSelect( RS_ActionInterface * selectAction, int nextAction );
-    virtual void showPreviousToolBar(bool cleanup = true);
-    virtual void showCadToolBar(RS2::ActionType actionType, bool cleanup=false);
-    virtual void resetToolBar();
+	void showToolBar(RS2::ToolBarId id, bool restoreAction = true );
+	void showToolBarMain();
+	void showToolBarLines();
+	void showToolBarArcs();
+	void showToolBarEllipses();
+	void showToolBarSplines();
+	void showToolBarPolylines();
+	void showToolBarCircles();
+	void showToolBarInfo();
+	void showToolBarModify();
+	void showToolBarDim();
+	void showToolBarSelect();
+	void showToolBarSelect( RS_ActionInterface * selectAction, int nextAction );
+	void showPreviousToolBar(bool cleanup = true);
+	void showCadToolBar(RS2::ActionType actionType, bool cleanup=false);
+	void resetToolBar();
 
 signals:
     void signalBack();
@@ -84,7 +89,7 @@ protected:
 	std::map<RS2::ToolBarId, LC_CadToolBarInterface*> m_toolbars;
 	QG_ActionHandler* actionHandler = nullptr;
 
-	std::vector<LC_CadToolBarInterface*> toolbars;
+	std::vector<LC_CadToolBarInterface*> activeToolbars;
 
 protected slots:
     virtual void languageChange();
@@ -92,8 +97,8 @@ protected slots:
     void showSubToolBar();
 
 private:
-    void init();
-
+	void init();
+	void addMainButtons(const std::initializer_list<RS2::ToolBarId>& list);
 };
 
 #endif // QG_CADTOOLBAR_H
