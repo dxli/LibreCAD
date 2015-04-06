@@ -98,7 +98,8 @@ void QG_CadToolBarArcs::restoreAction()
     }
 }
 
-void QG_CadToolBarArcs::resetToolBar() {
+void QG_CadToolBarArcs::resetToolBar()
+{
 	bHidden->setChecked(true);
 }
 

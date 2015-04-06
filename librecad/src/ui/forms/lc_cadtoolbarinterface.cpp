@@ -25,6 +25,19 @@ void LC_CadToolBarInterface::finishCurrentAction(bool resetToolBar)
 	}
 }
 
+
+void LC_CadToolBarInterface::killSelectActions()
+{
+	if(actionHandler==nullptr) return;
+	actionHandler->killSelectActions();
+}
+
+void LC_CadToolBarInterface::killAllActions()
+{
+	if(actionHandler==nullptr) return;
+	actionHandler->killAllActions();
+}
+
 void LC_CadToolBarInterface::mousePressEvent(QMouseEvent* e) {
 	if (e->button()==Qt::RightButton && cadToolBar) {
 		finishCurrentAction(true);

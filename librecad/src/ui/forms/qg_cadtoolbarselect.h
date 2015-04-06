@@ -59,6 +59,7 @@ public slots:
     virtual void setSelectAction( RS_ActionInterface * selectAction );
     virtual void setNextAction( int nextAction );
 	virtual void runNextAction();
+	virtual void mousePressEvent( QMouseEvent * e );
 
 protected slots:
     virtual void languageChange();

@@ -259,6 +259,7 @@ void QG_CadToolBar::showToolBarSelect(RS_ActionInterface* selectAction,
 	p->setNextAction(nextAction);
 	p->setSelectAction(selectAction);
     showToolBar(RS2::ToolBarSelect);
+	showSubToolBar();
 }
 
 void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
@@ -268,8 +269,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     default:
         return;
         //default action resets toolbar, issue#295
-    case RS2::ActionDefault:
-        resetToolBar();
+	case RS2::ActionDefault:
         break;
     case RS2::ActionDrawImage:
     case RS2::ActionDrawPoint:

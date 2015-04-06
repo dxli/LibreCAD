@@ -169,7 +169,8 @@ void QG_CadToolBarCircles::restoreAction()
     }
 }
 
-void QG_CadToolBarCircles::resetToolBar() {
+void QG_CadToolBarCircles::resetToolBar()
+{
     bHidden->setChecked(true);
 }
 

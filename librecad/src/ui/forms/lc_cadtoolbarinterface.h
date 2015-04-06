@@ -18,6 +18,8 @@ public:
 	virtual RS2::ToolBarId rtti() const = 0;
 	virtual void setActionHandler(QG_ActionHandler* ah);
 	void finishCurrentAction(bool resetToolBar=false); //clear current action
+	void killSelectActions();
+	void killAllActions();
 
 	virtual void resetToolBar() {}
 	virtual void runNextAction() {}

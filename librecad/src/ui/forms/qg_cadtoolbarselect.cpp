@@ -141,11 +141,18 @@ void QG_CadToolBarSelect::runNextAction() {
     }
 }
 
+void QG_CadToolBarSelect::mousePressEvent(QMouseEvent* e) {
+	if (e->button()==Qt::RightButton && cadToolBar) {
+		on_bBack_clicked();
+		e->accept();
+	}
+}
+
 void QG_CadToolBarSelect::on_bBack_clicked()
 {
-	finishCurrentAction(true);
+	killSelectActions();
 	if(cadToolBar){
 		cadToolBar->showPreviousToolBar(true);
 		cadToolBar->resetToolBar();
-    }
+	}
 }
