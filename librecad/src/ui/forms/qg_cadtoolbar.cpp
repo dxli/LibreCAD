@@ -39,7 +39,6 @@
 #include "qg_cadtoolbarpolylines.h"
 #include "qg_cadtoolbarselect.h"
 #include "qg_cadtoolbarsplines.h"
-#include "qg_snaptoolbar.h"
 
 /*
  *  Constructs a QG_CadToolBar as a child of 'parent', with the
