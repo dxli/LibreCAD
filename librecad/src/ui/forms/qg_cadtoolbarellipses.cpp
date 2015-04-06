@@ -47,33 +47,33 @@ void QG_CadToolBarEllipses::languageChange()
 }
 
 void QG_CadToolBarEllipses::drawEllipseAxis() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (cadToolBar && actionHandler) {
         actionHandler->slotDrawEllipseAxis();
     }
 }
 
 void QG_CadToolBarEllipses::drawEllipseArcAxis() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (cadToolBar && actionHandler) {
         actionHandler->slotDrawEllipseArcAxis();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseFociPoint() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (cadToolBar && actionHandler) {
         actionHandler->slotDrawEllipseFociPoint();
     }
 }
 void QG_CadToolBarEllipses::drawEllipse4Points() {
-	if (actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawEllipse4Points();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseCenter3Points() {
-	if (actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawEllipseCenter3Points();
     }
 }
 void QG_CadToolBarEllipses::drawEllipseInscribe() {
-	if (actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawEllipseInscribe();
     }
 }

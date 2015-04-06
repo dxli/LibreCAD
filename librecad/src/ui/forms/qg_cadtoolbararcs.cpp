@@ -47,25 +47,25 @@ void QG_CadToolBarArcs::languageChange()
 }
 
 void QG_CadToolBarArcs::drawArc() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawArc();
     }
 }
 
 void QG_CadToolBarArcs::drawArc3P() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawArc3P();
     }
 }
 
 void QG_CadToolBarArcs::drawArcParallel() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawArcParallel();
     }
 }
 
 void QG_CadToolBarArcs::drawArcTangential() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawArcTangential();
     }
 }

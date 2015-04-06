@@ -48,49 +48,49 @@ void QG_CadToolBarPolylines::languageChange()
 }
 
 void QG_CadToolBarPolylines::drawPolyline() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawPolyline();
     }
 }
 
 void QG_CadToolBarPolylines::polylineAdd() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineAdd();
     }
 }
 
 void QG_CadToolBarPolylines::polylineAppend() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineAppend();
     }
 }
 
 void QG_CadToolBarPolylines::polylineDel() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineDel();
     }
 }
 
 void QG_CadToolBarPolylines::polylineDelBetween() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineDelBetween();
     }
 }
 
 void QG_CadToolBarPolylines::polylineTrim() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineTrim();
     }
 }
 
 void QG_CadToolBarPolylines::polylineEquidistant() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineEquidistant();
     }
 }
 
 void QG_CadToolBarPolylines::polylineSegment() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotPolylineSegment();
     }
 }

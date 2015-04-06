@@ -89,121 +89,121 @@ void QG_CadToolBarModify::init() {
 }
 
 void QG_CadToolBarModify::modifyMove() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyMove();
     }
 }
 
 void QG_CadToolBarModify::modifyRotate() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyRotate();
     }
 }
 
 void QG_CadToolBarModify::modifyScale() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyScale();
     }
 }
 
 void QG_CadToolBarModify::modifyMirror() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyMirror();
     }
 }
 
 void QG_CadToolBarModify::modifyMoveRotate() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyMoveRotate();
     }
 }
 
 void QG_CadToolBarModify::modifyRotate2() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyRotate2();
     }
 }
 
 void QG_CadToolBarModify::modifyTrim() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyTrim();
     }
 }
 
 void QG_CadToolBarModify::modifyTrim2() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyTrim2();
     }
 }
 
 void QG_CadToolBarModify::modifyTrimAmount() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyTrimAmount();
     }
 }
 
 void QG_CadToolBarModify::modifyCut() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyCut();
     }
 }
 
 void QG_CadToolBarModify::modifyBevel() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyBevel();
     }
 }
 
 void QG_CadToolBarModify::modifyRound() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyRound();
     }
 }
 
 void QG_CadToolBarModify::modifyEntity() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyEntity();
     }
 }
 
 void QG_CadToolBarModify::modifyDelete() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyDelete();
     }
 }
 
 void QG_CadToolBarModify::modifyAttributes() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyAttributes();
     }
 }
 
 void QG_CadToolBarModify::modifyStretch() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyStretch();
     }
 }
 
 void QG_CadToolBarModify::modifyExplode() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotBlocksExplode();
     }
 }
 
 void QG_CadToolBarModify::modifyExplodeText() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyExplodeText();
     }
 }
 
 void QG_CadToolBarModify::modifyOffset() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyOffset();
     }
 }
 
 void QG_CadToolBarModify::modifyRevertDirection() {
-	if ( actionHandler) {
+	if (actionHandler) {
         actionHandler->slotModifyRevertDirection();
     }
 }

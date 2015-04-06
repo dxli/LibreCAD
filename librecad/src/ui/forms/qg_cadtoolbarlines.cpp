@@ -48,103 +48,103 @@ void QG_CadToolBarLines::languageChange()
 }
 
 void QG_CadToolBarLines::drawLine() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLine();
     }
 }
 
 void QG_CadToolBarLines::drawLineAngle() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineAngle();
     }
 }
 
 void QG_CadToolBarLines::drawLineHorizontal() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineHorizontal();
     }
 }
 
 void QG_CadToolBarLines::drawLineHorVert() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineHorVert();
     }
 }
 
 void QG_CadToolBarLines::drawLineVertical() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineVertical();
     }
 }
 
 void QG_CadToolBarLines::drawLineParallel() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineParallel();
     }
 }
 
 void QG_CadToolBarLines::drawLineParallelThrough() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineParallelThrough();
     }
 }
 
 void QG_CadToolBarLines::drawLineRectangle() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineRectangle();
     }
 }
 
 void QG_CadToolBarLines::drawLineBisector() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineBisector();
     }
 }
 
 void QG_CadToolBarLines::drawLineTangent1() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineTangent1();
     }
 }
 
 void QG_CadToolBarLines::drawLineTangent2() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineTangent2();
     }
 }
 
 void QG_CadToolBarLines::drawLineOrthogonal() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineOrthogonal();
     }
 }
 
 void QG_CadToolBarLines::drawLineOrthTan() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineOrthTan();
     }
 }
 
 void QG_CadToolBarLines::drawLineRelAngle() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineRelAngle();
     }
 }
 
 void QG_CadToolBarLines::drawLineFree() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLineFree();
     }
 }
 
 void QG_CadToolBarLines::drawLinePolygon() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLinePolygon();
     }
 }
 
 void QG_CadToolBarLines::drawLinePolygon2() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawLinePolygon2();
     }
 }

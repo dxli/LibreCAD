@@ -43,13 +43,13 @@ void QG_CadToolBarSplines::languageChange()
 }
 
 void QG_CadToolBarSplines::drawSpline() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawSpline();
     }
 }
 
 void QG_CadToolBarSplines::drawSplineInt() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawSplinePoints();
     }
 }

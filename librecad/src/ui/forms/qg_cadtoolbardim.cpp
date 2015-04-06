@@ -48,55 +48,55 @@ void QG_CadToolBarDim::languageChange()
 }
 
 void QG_CadToolBarDim::drawDimAligned() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimAligned();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinear() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimLinear();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinearHor() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimLinearHor();
     }
 }
 
 void QG_CadToolBarDim::drawDimLinearVer() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimLinearVer();
     }
 }
 
 void QG_CadToolBarDim::drawDimRadial() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimRadial();
     }
 }
 
 void QG_CadToolBarDim::drawDimDiametric() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimDiametric();
     }
 }
 
 void QG_CadToolBarDim::drawDimAngular() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimAngular();
     }
 }
 
 void QG_CadToolBarDim::drawDimLeader() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDimLeader();
     }
 }
 
 //void QG_CadToolBarDim::back() {
-//    if (cadToolBar!=nullptr) {
+//    if (cadToolBar) {
 //        cadToolBar->back();
 //    }
 //}

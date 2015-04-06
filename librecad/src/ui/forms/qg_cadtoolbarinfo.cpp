@@ -47,37 +47,37 @@ void QG_CadToolBarInfo::languageChange()
 }
 
 void QG_CadToolBarInfo::infoDist() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotInfoDist();
     }
 }
 
 void QG_CadToolBarInfo::infoDist2() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotInfoDist2();
     }
 }
 
 void QG_CadToolBarInfo::infoAngle() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotInfoAngle();
     }
 }
 
 void QG_CadToolBarInfo::infoTotalLength() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotInfoTotalLength();
     }
 }
 
 void QG_CadToolBarInfo::infoArea() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotInfoArea();
     }
 }
 
 //void QG_CadToolBarInfo::back() {
-//    if (cadToolBar!=nullptr) {
+//    if (cadToolBar) {
 //        cadToolBar->back();
 //    }
 //}

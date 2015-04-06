@@ -48,68 +48,68 @@ void QG_CadToolBarCircles::languageChange()
 }
 
 void QG_CadToolBarCircles::drawCircle() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircle();
     }
 }
 
 void QG_CadToolBarCircles::drawCircleCR() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleCR();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2P() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircle2P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2PR() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircle2PR();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle3P() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircle3P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle1_2P() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleTan1_2P();
     }
 }
 
 void QG_CadToolBarCircles::drawCircle2_1P() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleTan2_1P();
     }
 }
 void QG_CadToolBarCircles::drawCircleParallel() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleParallel();
     }
 }
 void QG_CadToolBarCircles::drawCircleInscribe() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleInscribe();
     }
 }
 void QG_CadToolBarCircles::drawCircleTan2() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleTan2();
     }
 }
 void QG_CadToolBarCircles::drawCircleTan3() {
-	if (cadToolBar!=nullptr && actionHandler!=nullptr) {
+	if (actionHandler) {
         actionHandler->slotDrawCircleTan3();
     }
 }
 void QG_CadToolBarCircles::back() {
-	if (cadToolBar!=nullptr) {
+	if (cadToolBar) {
         cadToolBar->back();
     }
 }
