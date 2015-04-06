@@ -16,7 +16,7 @@ public:
 	virtual ~LC_CadToolBarInterface()=default;
 
 	virtual RS2::ToolBarId rtti() const = 0;
-	virtual void setCadToolBar( QG_CadToolBar * tb );
+	virtual void setActionHandler(QG_ActionHandler* ah);
 	void finishCurrentAction(bool resetToolBar=false); //clear current action
 
 	virtual void resetToolBar() {}
@@ -33,7 +33,6 @@ public slots:
 
 protected:
 	QG_CadToolBar* cadToolBar;
-	QG_CadToolBar* parentTB;
 	QG_ActionHandler* actionHandler;
 
 };

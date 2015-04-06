@@ -47,55 +47,43 @@ void QG_CadToolBarMain::languageChange()
     retranslateUi(this);
 }
 
+void QG_CadToolBarMain::setActionHandler(QG_ActionHandler* ah)
+{
+	actionHandler=ah;
+	connect(bMenuLine, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarLines()));
+	connect(bMenuArc, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarArcs()));
+	connect(bMenuCircle, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarCircles()));
+	connect(bMenuEllipse, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarEllipses()));
+	connect(bMenuSpline, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarSplines()));
+	connect(bMenuPolyline, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarPolylines()));
+	connect(bMenuPoint, SIGNAL(clicked()),
+			actionHandler, SLOT(slotDrawPoint()));
 
-void QG_CadToolBarMain::setCadToolBar(QG_CadToolBar* tb) {
+	connect(bMenuText, SIGNAL(clicked()),
+			this, SLOT(slotDrawMText()));
+	connect(bMenuDim, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarDim()));
+	connect(bMenuHatch, SIGNAL(clicked()),
+			actionHandler, SLOT(slotDrawHatch()));
+	connect(bMenuImage, SIGNAL(clicked()),
+			this, SLOT(slotDrawImage()));
 
-	if (tb!=nullptr) {
-        actionHandler= tb->getActionHandler();
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarMain::setCadToolBar(): No valid toolbar set.");
-    }
-	if (actionHandler!=nullptr) {
-        connect(bMenuLine, SIGNAL(clicked()),
-                tb, SLOT(showToolBarLines()));
-        connect(bMenuArc, SIGNAL(clicked()),
-                tb, SLOT(showToolBarArcs()));
-        connect(bMenuCircle, SIGNAL(clicked()),
-                tb, SLOT(showToolBarCircles()));
-        connect(bMenuEllipse, SIGNAL(clicked()),
-                tb, SLOT(showToolBarEllipses()));
-        connect(bMenuSpline, SIGNAL(clicked()),
-                tb, SLOT(showToolBarSplines()));
-        connect(bMenuPolyline, SIGNAL(clicked()),
-                tb, SLOT(showToolBarPolylines()));
-        connect(bMenuPoint, SIGNAL(clicked()),
-                actionHandler, SLOT(slotDrawPoint()));
+	connect(bMenuModify, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarModify()));
+	connect(bMenuInfo, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarInfo()));
 
-        connect(bMenuText, SIGNAL(clicked()),
-                //actionHandler, SLOT(slotDrawMText()));
-                this, SLOT(slotDrawMText()));
-        connect(bMenuDim, SIGNAL(clicked()),
-                tb, SLOT(showToolBarDim()));
-        connect(bMenuHatch, SIGNAL(clicked()),
-                actionHandler, SLOT(slotDrawHatch()));
-        connect(bMenuImage, SIGNAL(clicked()),
-                this, SLOT(slotDrawImage()));
-                //actionHandler, SLOT(slotDrawImage()));
+	connect(bMenuBlock, SIGNAL(clicked()),
+			actionHandler, SLOT(slotBlocksCreate()));
+	connect(bMenuSelect, SIGNAL(clicked()),
+			cadToolBar, SLOT(showToolBarSelect()));
 
-        connect(bMenuModify, SIGNAL(clicked()),
-                tb, SLOT(showToolBarModify()));
-        connect(bMenuInfo, SIGNAL(clicked()),
-                tb, SLOT(showToolBarInfo()));
-
-        connect(bMenuBlock, SIGNAL(clicked()),
-                actionHandler, SLOT(slotBlocksCreate()));
-        connect(bMenuSelect, SIGNAL(clicked()),
-                tb, SLOT(showToolBarSelect()));
-    } else {
-        RS_DEBUG->print(RS_Debug::D_ERROR,
-                        "QG_CadToolBarMain::setCadToolBar(): No valid action handler set.");
-    }
 }
 
 //clear current action

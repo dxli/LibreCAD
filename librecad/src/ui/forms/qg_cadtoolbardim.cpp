@@ -151,7 +151,7 @@ void QG_CadToolBarDim::resetToolBar()
 void QG_CadToolBarDim::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-    parentTB->showPreviousToolBar();
+	cadToolBar->showPreviousToolBar();
 }
 
 void  QG_CadToolBarDim::showCadToolBar(RS2::ActionType actionType){

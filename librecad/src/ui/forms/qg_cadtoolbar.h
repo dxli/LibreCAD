@@ -51,7 +51,7 @@ public slots:
     virtual void forceNext();
     virtual void mouseReleaseEvent( QMouseEvent * e );
     virtual void contextMenuEvent( QContextMenuEvent * e );
-    virtual void createSubToolBars( QG_ActionHandler * ah );
+	virtual void setActionHandler( QG_ActionHandler * ah );
     /** show the toolbar by id
       * if restoreAction is true, also, start the action specified by the checked button of the toolbar
       **/
@@ -78,26 +78,14 @@ signals:
 
 protected:
 
+	/**
+	 * @brief m_toolbars holds cad toolbars managed by this LC_CadToolBar instance
+	 */
 	std::map<RS2::ToolBarId, LC_CadToolBarInterface*> m_toolbars;
+	QG_ActionHandler* actionHandler = nullptr;
 
-	LC_CadToolBarInterface* tbSplines;
-	LC_CadToolBarInterface* tbInfo;
-    QG_ActionHandler* actionHandler;
 	std::vector<RS2::ToolBarId> toolbarIDs;
 	std::vector<LC_CadToolBarInterface*> toolbars;
-    //    RS2::ToolBarId previousID;
-    //    RS2::ToolBarId savedID;
-	LC_CadToolBarInterface* tbMain;
-	LC_CadToolBarInterface* tbDim;
-	LC_CadToolBarInterface* tbLines;
-    //    QG_CadToolBarPoints* tbPoints;
-	LC_CadToolBarInterface* tbEllipses;
-	LC_CadToolBarInterface* tbArcs;
-	LC_CadToolBarInterface* tbModify;
-	LC_CadToolBarInterface* tbCircles;
-    //    QG_SnapToolBar* tbSnap;
-	LC_CadToolBarInterface* tbSelect;
-	LC_CadToolBarInterface* tbPolylines;
 
 protected slots:
     virtual void languageChange();

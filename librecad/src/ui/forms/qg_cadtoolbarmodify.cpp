@@ -313,8 +313,9 @@ void QG_CadToolBarModify::resetToolBar()
 void QG_CadToolBarModify::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-   parentTB->showToolBar(RS2::ToolBarMain);
+   cadToolBar->showToolBar(RS2::ToolBarMain);
 }
+
 void QG_CadToolBarModify::showCadToolBar(RS2::ActionType actionType) {
     switch(actionType){
     case RS2::ActionModifyAttributes:

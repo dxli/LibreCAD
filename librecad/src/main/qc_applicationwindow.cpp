@@ -1293,7 +1293,7 @@ void QC_ApplicationWindow::initToolBar() {
         addToolBar(Qt::LeftToolBarArea, t);
 
     cadToolBar = new QG_CadToolBar(t, "CAD Tools");
-    cadToolBar->createSubToolBars(actionHandler);
+    cadToolBar->setActionHandler(actionHandler);
 
     connect(cadToolBar, SIGNAL(signalBack()),
             this, SLOT(slotBack()));

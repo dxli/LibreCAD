@@ -47,10 +47,12 @@
  */
 QG_CadToolBar::QG_CadToolBar(QWidget* parent, const char* name, Qt::WindowFlags fl)
     : QWidget(parent, fl)
+	,actionHandler(nullptr)
 {
     setObjectName(name);
     setupUi(this);
-    init();
+	setCursor(Qt::ArrowCursor);
+	init();
 }
 
 
@@ -65,28 +67,25 @@ void QG_CadToolBar::languageChange()
 
 
 void QG_CadToolBar::init() {
-    setCursor(Qt::ArrowCursor);
-	actionHandler = nullptr;
-	//    currentTb = nullptr;
-    //    previousID = RS2::ToolBarNone;
-    //    savedID = RS2::ToolBarNone;
+	//create sub cad toolbars
+	const std::initializer_list<LC_CadToolBarInterface*> tbs={
+		new QG_CadToolBarMain(this)
+		,new QG_CadToolBarLines(this)
+		,new QG_CadToolBarArcs(this)
+		,new QG_CadToolBarCircles(this)
+		,new QG_CadToolBarEllipses(this)
+		,new QG_CadToolBarSplines(this)
+		,new QG_CadToolBarPolylines(this)
+		,new QG_CadToolBarDim(this)
+		,new QG_CadToolBarInfo(this)
+		,new QG_CadToolBarModify(this)
+		,new QG_CadToolBarSelect(this)
+	};
 
-	tbMain = nullptr;
-
-	//    tbPoints = nullptr;
-	tbLines = nullptr;
-	tbArcs = nullptr;
-	tbCircles = nullptr;
-	tbEllipses = nullptr;
-	tbSplines = nullptr;
-	tbPolylines = nullptr;
-
-	tbDim = nullptr;
-
-	tbModify = nullptr;
-	tbInfo = nullptr;
-	tbSelect = nullptr;
-	//    tbSnap = nullptr;
+	for(auto p: tbs){
+		p->hide();
+		m_toolbars[p->rtti()]= p;
+	}
 }
 
 /**
@@ -109,9 +108,9 @@ void QG_CadToolBar::back() {
  */
 void QG_CadToolBar::forceNext() {
     if(toolbars.size()==0) return;
-	if (toolbars.back()!=nullptr && toolbars.back()==tbSelect) {
-        tbSelect->runNextAction();
-    }
+	auto p=toolbars.back();
+	if (p && p->rtti() == RS2::ToolBarSelect)
+		p->runNextAction();
 }
 
 void QG_CadToolBar::mouseReleaseEvent(QMouseEvent* e) {
@@ -130,94 +129,30 @@ void QG_CadToolBar::contextMenuEvent(QContextMenuEvent *e) {
  *
  * @param ah Pointer to action handler which will deal with the actions in this tool bar.
  */
-void QG_CadToolBar::createSubToolBars(QG_ActionHandler* ah) {
-    actionHandler = ah;
-	for(LC_CadToolBarInterface*const p: std::initializer_list<LC_CadToolBarInterface*>({
-		new QG_CadToolBarMain(this)
-		,new QG_CadToolBarLines(this)
-		,new QG_CadToolBarArcs(this)
-		,new QG_CadToolBarCircles(this)
-		,new QG_CadToolBarEllipses(this)
-		,new QG_CadToolBarSplines(this)
-		,new QG_CadToolBarPolylines(this)
-		,new QG_CadToolBarDim(this)
-		,new QG_CadToolBarInfo(this)
-		,new QG_CadToolBarModify(this)
-		,new QG_CadToolBarSelect(this)
-})){
-		p->setCadToolBar(this);
-		p->hide();
-		m_toolbars[p->rtti()]= p;
+void QG_CadToolBar::setActionHandler(QG_ActionHandler* ah) {
+	actionHandler = ah;
+	for(const auto& p: m_toolbars){
+		p.second->setActionHandler(ah);
 	}
-    tbMain = new QG_CadToolBarMain(this);
-    tbMain->setCadToolBar(this);
-
-    //    tbPoints = new QG_CadToolBarPoints(this);
-    //    tbPoints->setCadToolBar(this);
-    //    tbPoints->hide();
-
-    tbLines = new QG_CadToolBarLines(this);
-    tbLines->setCadToolBar(this);
-    tbLines->hide();
-
-    tbArcs = new QG_CadToolBarArcs(this);
-    tbArcs->setCadToolBar(this);
-    tbArcs->hide();
-
-    tbCircles = new QG_CadToolBarCircles(this);
-    tbCircles->setCadToolBar(this);
-    tbCircles->hide();
-
-    tbEllipses = new QG_CadToolBarEllipses(this);
-    tbEllipses->setCadToolBar(this);
-    tbEllipses->hide();
-
-    tbSplines = new QG_CadToolBarSplines(this);
-    tbSplines->setCadToolBar(this);
-    tbSplines->hide();
-
-    tbPolylines = new QG_CadToolBarPolylines(this);
-    tbPolylines->setCadToolBar(this);
-    tbPolylines->hide();
-
-    tbDim = new QG_CadToolBarDim(this);
-    tbDim->setCadToolBar(this);
-    tbDim->hide();
-
-    tbInfo = new QG_CadToolBarInfo(this);
-    tbInfo->setCadToolBar(this);
-    tbInfo->hide();
-
-    tbModify = new QG_CadToolBarModify(this);
-    tbModify->setCadToolBar(this);
-    tbModify->hide();
-
-	//    tbSnap = nullptr;
-    //tbSnap = new QG_CadToolBarSnap(this);
-    //tbSnap->setCadToolBar(this);
-    //tbSnap->hide();
-
-    tbSelect = new QG_CadToolBarSelect(this);
-    tbSelect->setCadToolBar(this);
-    tbSelect->hide();
-
     showToolBarMain();
 }
 
 void QG_CadToolBar::hideSubToolBars(){
-    for(auto it=toolbars.begin();it != toolbars.end();it++){
-        (*it)->hide();
-    }
+	for(auto p: toolbars){
+		p->hide();
+	}
 }
 
 void QG_CadToolBar::showSubToolBar(){
-	if (!toolbars.back()->isVisible()) { // On OSX, without this line LibreCAD wuld crash. Not sure if it's a Qt problem or 'somewhere' logic within LibreCAD
+	LC_CadToolBarInterface* const p = toolbars.back();
+	if (!p->isVisible()) { // On OSX, without this line LibreCAD wuld crash. Not sure if it's a Qt problem or 'somewhere' logic within LibreCAD
         //shift down to show the handle to move the toolbar
         //has to be 20, 10 is not enough
-		toolbars.back()->move(0,20);
-		toolbars.back()->show();
+		p->move(0,20);
+		p->show();
     }
 }
+
 void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
     // cleanup mouse hint when showing previous tool bar, bug#3480121
     RS_DIALOGFACTORY->updateMouseWidget("","",false);
@@ -252,120 +187,35 @@ void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
 }
 
 void QG_CadToolBar::showToolBar(RS2::ToolBarId id, bool restoreAction ) {
-	LC_CadToolBarInterface* newTb = nullptr;
-    switch (id) {
-    default:
-    case RS2::ToolBarMain:
-        if(restoreAction) tbMain->restoreAction();
-        newTb = tbMain;
-        break;
-    case RS2::ToolBarLines:
-        if(restoreAction) tbLines->restoreAction();
-        newTb = tbLines;
-        break;
-    case RS2::ToolBarArcs:
-        if(restoreAction) tbArcs->restoreAction();
-        newTb = tbArcs;
-        break;
-    case RS2::ToolBarEllipses:
-        if(restoreAction) tbEllipses->restoreAction();
-        newTb = tbEllipses;
-        break;
-    case RS2::ToolBarSplines:
-        if(restoreAction) tbSplines->restoreAction();
-        newTb = tbSplines;
-        break;
-    case RS2::ToolBarPolylines:
-        if(restoreAction) tbPolylines->restoreAction();
-        newTb = tbPolylines;
-        break;
-    case RS2::ToolBarCircles:
-        if(restoreAction) tbCircles->restoreAction();
-        newTb = tbCircles;
-        break;
-    case RS2::ToolBarInfo:
-        if(restoreAction) tbInfo->restoreAction();
-        newTb = tbInfo;
-        break;
-    case RS2::ToolBarModify:
-        if(restoreAction) tbModify->restoreAction();
-        newTb = tbModify;
-        break;
-    case RS2::ToolBarDim:
-        if(restoreAction) tbDim->restoreAction();
-        newTb = tbDim;
-        break;
-    case RS2::ToolBarSelect:
-        newTb = tbSelect;
-        break;
-    }
-    hideSubToolBars();
+
+	LC_CadToolBarInterface* newTb;
+	if(m_toolbars.count(id)){
+		newTb=m_toolbars[id];
+	}else{
+		newTb=m_toolbars[RS2::ToolBarMain];
+	}
+	if(restoreAction) newTb->restoreAction();
+	hideSubToolBars();
 	auto it=std::find(toolbarIDs.begin(), toolbarIDs.end(), id);
 	if(it != toolbarIDs.end()){
 		toolbarIDs.erase(it,toolbarIDs.end());
 		toolbars.erase(toolbars.begin() + toolbarIDs.size(),toolbars.end());
-    }
-	if (newTb!=nullptr) {
-		if(!( toolbarIDs.size()>0 && id == toolbarIDs.back())) {
-            toolbarIDs.push_back(id);
-            toolbars.push_back(newTb);
-        }
-    }
-    showSubToolBar();
+	}
+	if(!( toolbarIDs.size()>0 && id == toolbarIDs.back())) {
+		toolbarIDs.push_back(id);
+		toolbars.push_back(newTb);
+	}
+	showSubToolBar();
 }
 
 void QG_CadToolBar::resetToolBar() {
-	QWidget* currentTb=toolbars.back();
-    if(currentTb == tbMain) {
-        tbMain->resetToolBar();
-        return;
-    }
-    if(currentTb == tbLines) {
-        tbLines->resetToolBar();
-        return;
-    }
-    if(currentTb == tbArcs) {
-        tbArcs->resetToolBar();
-        return;
-    }
-    if(currentTb == tbCircles) {
-        tbCircles->resetToolBar();
-        return;
-    }
-    if(currentTb == tbEllipses) {
-        tbEllipses->resetToolBar();
-        return;
-    }
-    if(currentTb == tbSplines) {
-        tbSplines->resetToolBar();
-        return;
-    }
-    if(currentTb == tbPolylines) {
-        tbPolylines->resetToolBar();
-        return;
-    }
-    if(currentTb == tbDim) {
-        tbDim->resetToolBar();
-        return;
-    }
-    if(currentTb == tbInfo) {
-        tbInfo->resetToolBar();
-        return;
-    }
-    if(currentTb == tbModify) {
-        tbModify->resetToolBar();
-        return;
-    }
+	LC_CadToolBarInterface* currentTb=toolbars.back();
+	currentTb->resetToolBar();
 }
 
 void QG_CadToolBar::showToolBarMain() {
     showToolBar(RS2::ToolBarMain);
 }
-
-//void QG_CadToolBar::showToolBarPoints() {
-//    //not needed
-//    //showToolBar(RS2::ToolBarPoints);
-//}
 
 void QG_CadToolBar::showToolBarLines() {
     showToolBar(RS2::ToolBarLines);
@@ -409,13 +259,15 @@ void QG_CadToolBar::showToolBarSelect() {
 
 void QG_CadToolBar::showToolBarSelect(RS_ActionInterface* selectAction,
                                       int nextAction) {
+	auto p=m_toolbars[RS2::ToolBarSelect];
 
-    tbSelect->setNextAction(nextAction);
-    tbSelect->setSelectAction(selectAction);
+	p->setNextAction(nextAction);
+	p->setSelectAction(selectAction);
     showToolBar(RS2::ToolBarSelect);
 }
 
 void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
+	RS2::ToolBarId id=RS2::ToolBarNone;
     switch(actionType){
     //no op
     default:
@@ -427,19 +279,13 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawImage:
     case RS2::ActionDrawPoint:
     case RS2::ActionDrawMText:
-        showToolBar(RS2::ToolBarMain, false);
-		if(tbMain != nullptr){
-            tbMain->showCadToolBar(actionType);
-        }
-        break;
+		id=RS2::ToolBarMain;
+		break;
     case RS2::ActionDrawArc:
     case RS2::ActionDrawArc3P:
     case RS2::ActionDrawArcParallel:
     case RS2::ActionDrawArcTangential:
-        showToolBar(RS2::ToolBarArcs, false);
-	   if(tbArcs != nullptr){
-           tbArcs->showCadToolBar(actionType);
-       }
+		id=RS2::ToolBarArcs;
         break;
     case RS2::ActionDrawCircle:
     case RS2::ActionDrawCircle2P:
@@ -450,10 +296,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawCircleTan2:
     case RS2::ActionDrawCircleTan2_1P:
     case RS2::ActionDrawCircleTan1_2P:
-        showToolBar(RS2::ToolBarCircles, false);
-	   if(tbCircles != nullptr){
-           tbCircles->showCadToolBar(actionType);
-       }
+		id=RS2::ToolBarCircles;
         break;
     case RS2::ActionDrawEllipseArcAxis:
     case RS2::ActionDrawEllipseAxis:
@@ -461,17 +304,11 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawEllipse4Points:
     case RS2::ActionDrawEllipseCenter3Points:
     case RS2::ActionDrawEllipseInscribe:
-        showToolBar(RS2::ToolBarEllipses, false);
-		if(tbEllipses != nullptr){
-            tbEllipses->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarEllipses;
         break;
     case RS2::ActionDrawSpline:
     case RS2::ActionDrawSplinePoints:
-        showToolBar(RS2::ToolBarSplines, false);
-        if(tbSplines){
-            tbSplines->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarSplines;
         break;
     case RS2::ActionDrawLine:
     case RS2::ActionDrawLineAngle:
@@ -490,10 +327,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDrawLineTangent1:
     case RS2::ActionDrawLineTangent2:
     case RS2::ActionDrawLineVertical:
-        showToolBar(RS2::ToolBarLines, false);
-		if(tbLines != nullptr){
-            tbLines->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarLines;
         break;
     case RS2::ActionDrawPolyline:
     case RS2::ActionPolylineAdd:
@@ -503,10 +337,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionPolylineTrim:
     case RS2::ActionPolylineEquidistant:
     case RS2::ActionPolylineSegment:
-        showToolBar(RS2::ToolBarPolylines, false);
-		if(tbPolylines != nullptr){
-            tbPolylines->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarPolylines;
         break;
     case RS2::ActionDimAligned:
     case RS2::ActionDimLinear:
@@ -516,10 +347,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionDimDiametric:
     case RS2::ActionDimAngular:
     case RS2::ActionDimLeader:
-        showToolBar(RS2::ToolBarDim, false);
-		if(tbDim != nullptr){
-            tbDim->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarDim;
         break;
     case RS2::ActionModifyAttributes:
     case RS2::ActionModifyAttributesNoSelect:
@@ -551,10 +379,7 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionModifyOffsetNoSelect:
     case RS2::ActionModifyRevertDirection:
     case RS2::ActionModifyRevertDirectionNoSelect:
-        showToolBar(RS2::ToolBarModify, false);
-		if(tbModify != nullptr){
-            tbModify->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarModify;
         break;
     case RS2::ActionInfoInside:
     case RS2::ActionInfoDist:
@@ -563,12 +388,13 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
     case RS2::ActionInfoTotalLength:
     case RS2::ActionInfoTotalLengthNoSelect:
     case RS2::ActionInfoArea:
-        showToolBar(RS2::ToolBarInfo, false);
-		if(tbInfo != nullptr){
-            tbInfo->showCadToolBar(actionType);
-        }
+		id=RS2::ToolBarInfo;
         break;
     }
+	if(id != RS2::ToolBarNone){
+		m_toolbars[id]->showCadToolBar(actionType);
+		showToolBar(id, false);
+	}
     if(cleanup){
 		if(actionHandler != nullptr) {
             RS_ActionInterface* currentAction =actionHandler->getCurrentAction();

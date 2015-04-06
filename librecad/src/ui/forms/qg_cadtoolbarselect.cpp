@@ -143,7 +143,7 @@ void QG_CadToolBarSelect::runNextAction() {
 
 void QG_CadToolBarSelect::on_bBack_clicked()
 {
-	if(parentTB != nullptr){
-        parentTB->showPreviousToolBar();
+	if(cadToolBar){
+		cadToolBar->showPreviousToolBar();
     }
 }

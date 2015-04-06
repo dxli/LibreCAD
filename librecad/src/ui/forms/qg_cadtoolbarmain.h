@@ -42,8 +42,8 @@ public:
 	virtual void restoreAction(); //restore action from checked button
     void finishCurrentAction(bool resetToolBar=false); //clear current action
     void resetToolBar();
+	virtual void setActionHandler(QG_ActionHandler* ah);
     virtual void showCadToolBar(RS2::ActionType actionType);
-	virtual void setCadToolBar(QG_CadToolBar* tb);
 	RS2::ToolBarId rtti() const
 	{
 		return RS2::ToolBarMain;

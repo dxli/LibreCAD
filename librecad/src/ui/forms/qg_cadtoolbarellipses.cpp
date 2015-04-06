@@ -121,7 +121,7 @@ void QG_CadToolBarEllipses::resetToolBar()
 void QG_CadToolBarEllipses::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-    parentTB->showPreviousToolBar();
+	cadToolBar->showPreviousToolBar();
 }
 
 

@@ -123,7 +123,7 @@ void QG_CadToolBarInfo::resetToolBar()
 void QG_CadToolBarInfo::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-    parentTB->showPreviousToolBar();
+	cadToolBar->showPreviousToolBar();
 }
 
 void QG_CadToolBarInfo:: showCadToolBar(RS2::ActionType actionType){

@@ -176,7 +176,7 @@ void QG_CadToolBarCircles::resetToolBar() {
 void QG_CadToolBarCircles::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-   parentTB->showPreviousToolBar();
+	cadToolBar->showPreviousToolBar();
 }
 
 void QG_CadToolBarCircles::showCadToolBar(RS2::ActionType actionType){

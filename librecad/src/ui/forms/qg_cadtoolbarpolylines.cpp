@@ -146,7 +146,7 @@ void QG_CadToolBarPolylines::resetToolBar()
 void QG_CadToolBarPolylines::on_bBack_clicked()
 {
 	finishCurrentAction(true);
-	parentTB->showPreviousToolBar();
+	cadToolBar->showPreviousToolBar();
 }
 
 void QG_CadToolBarPolylines::showCadToolBar(RS2::ActionType actionType){
