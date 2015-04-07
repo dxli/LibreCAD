@@ -36,10 +36,12 @@
 QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 	LC_CadToolBarInterface(parent, fl)
 {
-	QVBoxLayout* vLayout=new QVBoxLayout(this);
-	QToolButton* button=new QToolButton(this);
+	QToolButton* button=new QToolButton;
 	button->setDefaultAction(m_pButtonBack);
-
+	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	QVBoxLayout* vLayout=new QVBoxLayout;
+	vLayout->setSpacing(1);
+	vLayout->setMargin(0);
 	vLayout->addWidget(button);
 	vLayout->addLayout(m_pGrid);
 
@@ -109,26 +111,23 @@ void QG_CadToolBarArcs::on_bBack_clicked()
 }
 
 void QG_CadToolBarArcs::showCadToolBar(RS2::ActionType actionType) {
-    switch(actionType){
-    case RS2::ActionDrawArc:
-		if(bArc)
-			bArc->setChecked(true);
-        return;
-    case RS2::ActionDrawArc3P:
-		if(bArc3P)
+	if(!bArc) return;
+	switch(actionType){
+	case RS2::ActionDrawArc:
+		bArc->setChecked(true);
+		return;
+	case RS2::ActionDrawArc3P:
 		bArc3P->setChecked(true);
-        return;
-    case RS2::ActionDrawArcParallel:
-		if(bArcParallel)
+		return;
+	case RS2::ActionDrawArcParallel:
 		bArcParallel->setChecked(true);
-        return;
-    case RS2::ActionDrawArcTangential:
-		if(bArcTangential)
+		return;
+	case RS2::ActionDrawArcTangential:
 		bArcTangential->setChecked(true);
-        return;
-        default:
+		return;
+	default:
 		m_pHidden->setChecked(true);
-        return;
-    }
+		return;
+	}
 }
 //EOF

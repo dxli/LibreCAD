@@ -18,9 +18,12 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
   ,m_pGrid(new QGridLayout)
   ,m_pActionGroup(new QActionGroup(this))
 {
-	m_pGrid->setContentsMargins(0,0,0,0);
+	m_pGrid->setMargin(0);
 	m_pGrid->setSpacing(1);
+	m_pGrid->setColumnMinimumWidth(0,32);
+	m_pGrid->setColumnMinimumWidth(1,32);
 	m_pActionGroup->setExclusive(true);
+	m_pHidden->setCheckable(true);
 	m_pHidden->setChecked(true);
 	m_pActionGroup->addAction(m_pHidden);
 }
@@ -74,10 +77,14 @@ void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
 
 	const int row=m_pGrid->count()/2;
 	const int col=m_pGrid->count()%2;
-	QToolButton* button=new QToolButton(this);
+	QToolButton* button=new QToolButton;
 	button->setDefaultAction(action);
+	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	m_pGrid->addWidget(button, row, col, 1, 1);
 	if(addGroup) m_pActionGroup->addAction(action);
+	QRect rect = button->geometry();
+	rect.setHeight(rect.width()+3);
+	button->setGeometry(rect);
 	qDebug()<<"m_pGrid->count()="<<m_pGrid->count();
 	qDebug()<<"LC_CadToolBarInterface::addSubAction(): end";
 
