@@ -2,6 +2,13 @@
 #define LC_CADTOOLBARINTERFACE_H
 
 #include <QWidget>
+#include <QToolButton>
+
+class LC_ToolButton: public QToolButton
+{
+
+};
+
 #include "rs.h"
 
 class QG_CadToolBar;
