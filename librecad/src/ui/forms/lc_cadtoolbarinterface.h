@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QToolButton>
+class QToolBar;
 
 class LC_ToolButton: public QToolButton
 {
@@ -54,7 +55,8 @@ protected:
 	QAction* m_pButtonBack;
 	QAction* m_pButtonForward;
 	QAction* m_pHidden;
-	QGridLayout* m_pGrid;
+	QToolBar *m_pGrid0, *m_pGrid1;
+	size_t actions0=0, actions1=0;
 	QActionGroup* m_pActionGroup;
 };
 

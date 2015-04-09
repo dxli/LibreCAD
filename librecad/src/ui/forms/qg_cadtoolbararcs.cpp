@@ -25,6 +25,7 @@
 **********************************************************************/
 #include <QVBoxLayout>
 #include <QToolButton>
+#include <QToolBar>
 #include "qg_cadtoolbararcs.h"
 #include "qg_cadtoolbar.h"
 #include "qg_actionhandler.h"
@@ -40,10 +41,18 @@ QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 	button->setDefaultAction(m_pButtonBack);
 	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	QVBoxLayout* vLayout=new QVBoxLayout;
-	vLayout->setSpacing(1);
+	vLayout->setSpacing(0);
 	vLayout->setMargin(0);
 	vLayout->addWidget(button);
-	vLayout->addLayout(m_pGrid);
+	vLayout->setContentsMargins(0,0,0,0);
+	QHBoxLayout* hLayout=new QHBoxLayout;
+	hLayout->setSpacing(0);
+	hLayout->setMargin(0);
+	hLayout->addWidget(m_pGrid0);
+	hLayout->addWidget(m_pGrid1);
+	hLayout->setContentsMargins(0,0,0,0);
+
+	vLayout->addLayout(hLayout);
 
 //	if(this->layout() ) delete layout();
 	setLayout(vLayout);
