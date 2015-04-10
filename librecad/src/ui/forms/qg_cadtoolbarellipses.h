@@ -47,12 +47,6 @@ public:
 	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
-    virtual void drawEllipseAxis();
-    virtual void drawEllipseArcAxis();
-    virtual void drawEllipseFociPoint();
-    virtual void drawEllipse4Points();
-    virtual void drawEllipseCenter3Points();
-    virtual void drawEllipseInscribe();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 

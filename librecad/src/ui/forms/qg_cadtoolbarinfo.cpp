@@ -47,36 +47,6 @@ void QG_CadToolBarInfo::addSubActions(const std::vector<QAction*>& actions, bool
 		buttons[i]=actions[i];
 }
 
-void QG_CadToolBarInfo::infoDist() {
-	if (actionHandler) {
-        actionHandler->slotInfoDist();
-    }
-}
-
-void QG_CadToolBarInfo::infoDist2() {
-	if (actionHandler) {
-        actionHandler->slotInfoDist2();
-    }
-}
-
-void QG_CadToolBarInfo::infoAngle() {
-	if (actionHandler) {
-        actionHandler->slotInfoAngle();
-    }
-}
-
-void QG_CadToolBarInfo::infoTotalLength() {
-	if (actionHandler) {
-        actionHandler->slotInfoTotalLength();
-    }
-}
-
-void QG_CadToolBarInfo::infoArea() {
-	if (actionHandler) {
-        actionHandler->slotInfoArea();
-    }
-}
-
 //restore action from checked button
 void QG_CadToolBarInfo::restoreAction()
 {

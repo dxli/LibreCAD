@@ -47,17 +47,6 @@ public:
 	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
-    virtual void drawCircle();
-    virtual void drawCircleCR();
-    virtual void drawCircle2P();
-    virtual void drawCircle2PR();
-    virtual void drawCircle3P();
-    virtual void drawCircle1_2P();
-    virtual void drawCircle2_1P();
-    virtual void drawCircleParallel();
-    virtual void drawCircleInscribe();
-    virtual void drawCircleTan2();
-    virtual void drawCircleTan3();
     virtual void back();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);

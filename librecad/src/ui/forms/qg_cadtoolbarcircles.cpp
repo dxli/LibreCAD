@@ -50,67 +50,6 @@ void QG_CadToolBarCircles::addSubActions(const std::vector<QAction*>& actions, b
 		buttons[i]=actions[i];
 }
 
-void QG_CadToolBarCircles::drawCircle() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircle();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircleCR() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleCR();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircle2P() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircle2P();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircle2PR() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircle2PR();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircle3P() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircle3P();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircle1_2P() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleTan1_2P();
-    }
-}
-
-void QG_CadToolBarCircles::drawCircle2_1P() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleTan2_1P();
-    }
-}
-void QG_CadToolBarCircles::drawCircleParallel() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleParallel();
-    }
-}
-void QG_CadToolBarCircles::drawCircleInscribe() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleInscribe();
-    }
-}
-void QG_CadToolBarCircles::drawCircleTan2() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleTan2();
-    }
-}
-void QG_CadToolBarCircles::drawCircleTan3() {
-	if (actionHandler) {
-        actionHandler->slotDrawCircleTan3();
-    }
-}
 void QG_CadToolBarCircles::back() {
 	if (cadToolBar) {
         cadToolBar->back();

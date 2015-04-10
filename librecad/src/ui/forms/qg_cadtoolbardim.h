@@ -46,15 +46,6 @@ public:
 	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
-    virtual void drawDimAligned();
-    virtual void drawDimLinear();
-    virtual void drawDimLinearHor();
-    virtual void drawDimLinearVer();
-    virtual void drawDimRadial();
-    virtual void drawDimDiametric();
-    virtual void drawDimAngular();
-    virtual void drawDimLeader();
-    //virtual void back();
     virtual void resetToolBar();
     virtual void  showCadToolBar(RS2::ActionType actionType);
 

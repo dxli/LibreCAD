@@ -48,12 +48,6 @@ public:
 
 
 public slots:
-    virtual void infoDist();
-    virtual void infoDist2();
-    virtual void infoAngle();
-    virtual void infoTotalLength();
-    virtual void infoArea();
-//    virtual void back();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 

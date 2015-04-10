@@ -48,38 +48,6 @@ void QG_CadToolBarEllipses::addSubActions(const std::vector<QAction*>& actions, 
 		buttons[i]=actions[i];
 }
 
-void QG_CadToolBarEllipses::drawEllipseAxis() {
-	if (cadToolBar && actionHandler) {
-        actionHandler->slotDrawEllipseAxis();
-    }
-}
-
-void QG_CadToolBarEllipses::drawEllipseArcAxis() {
-	if (cadToolBar && actionHandler) {
-        actionHandler->slotDrawEllipseArcAxis();
-    }
-}
-void QG_CadToolBarEllipses::drawEllipseFociPoint() {
-	if (cadToolBar && actionHandler) {
-        actionHandler->slotDrawEllipseFociPoint();
-    }
-}
-void QG_CadToolBarEllipses::drawEllipse4Points() {
-	if (actionHandler) {
-        actionHandler->slotDrawEllipse4Points();
-    }
-}
-void QG_CadToolBarEllipses::drawEllipseCenter3Points() {
-	if (actionHandler) {
-        actionHandler->slotDrawEllipseCenter3Points();
-    }
-}
-void QG_CadToolBarEllipses::drawEllipseInscribe() {
-	if (actionHandler) {
-        actionHandler->slotDrawEllipseInscribe();
-    }
-}
-
 //restore action from checked button
 void QG_CadToolBarEllipses::restoreAction()
 {

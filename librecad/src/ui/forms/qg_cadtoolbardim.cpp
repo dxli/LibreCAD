@@ -47,54 +47,6 @@ void QG_CadToolBarDim::addSubActions(const std::vector<QAction*>& actions, bool 
 		buttons[i]=actions[i];
 }
 
-void QG_CadToolBarDim::drawDimAligned() {
-	if (actionHandler) {
-        actionHandler->slotDimAligned();
-    }
-}
-
-void QG_CadToolBarDim::drawDimLinear() {
-	if (actionHandler) {
-        actionHandler->slotDimLinear();
-    }
-}
-
-void QG_CadToolBarDim::drawDimLinearHor() {
-	if (actionHandler) {
-        actionHandler->slotDimLinearHor();
-    }
-}
-
-void QG_CadToolBarDim::drawDimLinearVer() {
-	if (actionHandler) {
-        actionHandler->slotDimLinearVer();
-    }
-}
-
-void QG_CadToolBarDim::drawDimRadial() {
-	if (actionHandler) {
-        actionHandler->slotDimRadial();
-    }
-}
-
-void QG_CadToolBarDim::drawDimDiametric() {
-	if (actionHandler) {
-        actionHandler->slotDimDiametric();
-    }
-}
-
-void QG_CadToolBarDim::drawDimAngular() {
-	if (actionHandler) {
-        actionHandler->slotDimAngular();
-    }
-}
-
-void QG_CadToolBarDim::drawDimLeader() {
-	if (actionHandler) {
-        actionHandler->slotDimLeader();
-    }
-}
-
 //restore action from checked button
 void QG_CadToolBarDim::restoreAction()
 {
