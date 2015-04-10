@@ -34,179 +34,22 @@
 QG_CadToolBarModify::QG_CadToolBarModify(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
-	init();
 }
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarModify::languageChange()
+void QG_CadToolBarModify::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons=	{bMove, bRotate, bScale, bMirror, bMoveRotate, bRotate2, bRevertDirection,
+									 bTrim, bTrim2, bTrimAmount, bOffset,  bBevel, bRound, bCut, bStretch, bEntity,
+									 bAttributes, bDelete, bDeleteQuick, bExplodeText,bExplode
+									 };
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
-void QG_CadToolBarModify::init() {
-    //button list
-    buttonList.push_back(bMove);
-    buttonList.push_back(bRotate);
-    buttonList.push_back(bScale);
-    buttonList.push_back(bMirror);
-    buttonList.push_back(bMoveRotate);
-    buttonList.push_back(bRotate2);
-    buttonList.push_back(bTrim);
-    buttonList.push_back(bTrim2);
-    buttonList.push_back(bTrimAmount);
-    buttonList.push_back(bBevel);
-    buttonList.push_back(bRound);
-    buttonList.push_back(bCut);
-    buttonList.push_back(bStretch);
-    buttonList.push_back(bEntity);
-    buttonList.push_back(bAttributes);
-    buttonList.push_back(bDelete);
-    buttonList.push_back(bExplode);
-    buttonList.push_back(bExplodeText);
-    /** disable "Modify Text" for bug: https://sourceforge.net/p/librecad/bugs/415/ */
-//    buttonList.push_back(bEntityText);
-   if(bEntityText) {
-       bEntityText->hide();
-       bEntityText->setDisabled(true);
-   }
-    buttonList.push_back(bOffset);
-    //add a bHidden button
-    bHidden=new QToolButton(buttonList.at(0)->parentWidget());
-    bHidden->hide();
-    bHidden->setMaximumSize(0,0); //zero size
-    buttonList.push_back(bHidden);
-    //set up auto-exclusive
-	for(QToolButton* const p: buttonList){
-		p->setCheckable(true);
-		p->setAutoExclusive(true);
-    }
-    //initial status
-    bHidden->setChecked(true);
-}
-
-void QG_CadToolBarModify::modifyMove() {
-	if (actionHandler) {
-        actionHandler->slotModifyMove();
-    }
-}
-
-void QG_CadToolBarModify::modifyRotate() {
-	if (actionHandler) {
-        actionHandler->slotModifyRotate();
-    }
-}
-
-void QG_CadToolBarModify::modifyScale() {
-	if (actionHandler) {
-        actionHandler->slotModifyScale();
-    }
-}
-
-void QG_CadToolBarModify::modifyMirror() {
-	if (actionHandler) {
-        actionHandler->slotModifyMirror();
-    }
-}
-
-void QG_CadToolBarModify::modifyMoveRotate() {
-	if (actionHandler) {
-        actionHandler->slotModifyMoveRotate();
-    }
-}
-
-void QG_CadToolBarModify::modifyRotate2() {
-	if (actionHandler) {
-        actionHandler->slotModifyRotate2();
-    }
-}
-
-void QG_CadToolBarModify::modifyTrim() {
-	if (actionHandler) {
-        actionHandler->slotModifyTrim();
-    }
-}
-
-void QG_CadToolBarModify::modifyTrim2() {
-	if (actionHandler) {
-        actionHandler->slotModifyTrim2();
-    }
-}
-
-void QG_CadToolBarModify::modifyTrimAmount() {
-	if (actionHandler) {
-        actionHandler->slotModifyTrimAmount();
-    }
-}
-
-void QG_CadToolBarModify::modifyCut() {
-	if (actionHandler) {
-        actionHandler->slotModifyCut();
-    }
-}
-
-void QG_CadToolBarModify::modifyBevel() {
-	if (actionHandler) {
-        actionHandler->slotModifyBevel();
-    }
-}
-
-void QG_CadToolBarModify::modifyRound() {
-	if (actionHandler) {
-        actionHandler->slotModifyRound();
-    }
-}
-
-void QG_CadToolBarModify::modifyEntity() {
-	if (actionHandler) {
-        actionHandler->slotModifyEntity();
-    }
-}
-
-void QG_CadToolBarModify::modifyDelete() {
-	if (actionHandler) {
-        actionHandler->slotModifyDelete();
-    }
-}
-
-void QG_CadToolBarModify::modifyAttributes() {
-	if (actionHandler) {
-        actionHandler->slotModifyAttributes();
-    }
-}
-
-void QG_CadToolBarModify::modifyStretch() {
-	if (actionHandler) {
-        actionHandler->slotModifyStretch();
-    }
-}
-
-void QG_CadToolBarModify::modifyExplode() {
-	if (actionHandler) {
-        actionHandler->slotBlocksExplode();
-    }
-}
-
-void QG_CadToolBarModify::modifyExplodeText() {
-	if (actionHandler) {
-        actionHandler->slotModifyExplodeText();
-    }
-}
-
-void QG_CadToolBarModify::modifyOffset() {
-	if (actionHandler) {
-        actionHandler->slotModifyOffset();
-    }
-}
-
-void QG_CadToolBarModify::modifyRevertDirection() {
-	if (actionHandler) {
-        actionHandler->slotModifyRevertDirection();
-    }
-}
 
 //restore action from checked
 void QG_CadToolBarModify::restoreAction() {
@@ -282,11 +125,7 @@ void QG_CadToolBarModify::restoreAction() {
     if ( bExplodeText ->isChecked() ) {
         actionHandler->slotModifyExplodeText();
         return;
-    }
-//    if ( bEntityText ->isChecked() ) {
-//        actionHandler->slotModifyExplodeText();
-//        return;
-//    }
+	}
     if ( bOffset ->isChecked() ) {
         actionHandler->slotModifyOffset();
         return;
@@ -295,7 +134,7 @@ void QG_CadToolBarModify::restoreAction() {
         actionHandler->slotModifyRevertDirection();
         return;
     }
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     //clear all action
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
@@ -305,7 +144,7 @@ void QG_CadToolBarModify::restoreAction() {
 
 void QG_CadToolBarModify::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarModify::on_bBack_clicked()
@@ -315,6 +154,7 @@ void QG_CadToolBarModify::on_bBack_clicked()
 }
 
 void QG_CadToolBarModify::showCadToolBar(RS2::ActionType actionType) {
+	if(!bAttributes) return;
     switch(actionType){
     case RS2::ActionModifyAttributes:
         bAttributes->setChecked(true);
@@ -382,7 +222,7 @@ void QG_CadToolBarModify::showCadToolBar(RS2::ActionType actionType) {
 //        bEntityText->setChecked(true);
         //    case RS2::ActionModifyOffsetNoSelect:
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }

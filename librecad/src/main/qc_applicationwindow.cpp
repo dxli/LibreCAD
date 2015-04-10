@@ -979,7 +979,9 @@ void QC_ApplicationWindow::initActions(void)
                                                ,RS2::ActionModifyDelete
                                                ,RS2::ActionModifyDeleteQuick
                                                ,RS2::ActionModifyExplodeText
-                                               ,RS2::ActionBlocksExplode});
+											   ,RS2::ActionBlocksExplode},
+						 RS2::ToolBarModify
+						 );
 
     // Snapping actions:
     //

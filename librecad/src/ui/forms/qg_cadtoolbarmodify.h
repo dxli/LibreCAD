@@ -28,12 +28,11 @@
 
 #include <vector>
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarmodify.h"
 
 class QG_CadToolBar;
 class QG_ActionHandler;
 
-class QG_CadToolBarModify : public LC_CadToolBarInterface, public Ui::QG_CadToolBarModify
+class QG_CadToolBarModify : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -47,40 +46,19 @@ public:
 	{
 		return RS2::ToolBarModify;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
-    virtual void modifyMove();
-    virtual void modifyRotate();
-    virtual void modifyScale();
-    virtual void modifyMirror();
-    virtual void modifyMoveRotate();
-    virtual void modifyRotate2();
-    virtual void modifyTrim();
-    virtual void modifyTrim2();
-    virtual void modifyTrimAmount();
-    virtual void modifyCut();
-    virtual void modifyBevel();
-    virtual void modifyRound();
-    virtual void modifyEntity();
-    virtual void modifyDelete();
-    virtual void modifyAttributes();
-    virtual void modifyStretch();
-    virtual void modifyExplode();
-    virtual void modifyExplodeText();
-    virtual void modifyOffset();
-	virtual void modifyRevertDirection();
 	virtual void resetToolBar();
-
-protected slots:
-    virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();
 
 private:
-	void init();
-    QToolButton* bHidden;
-	std::vector<QToolButton*> buttonList;
+	QAction *bMove=nullptr, *bRotate=nullptr, *bScale=nullptr, *bMirror=nullptr, *bMoveRotate=nullptr, *bRotate2=nullptr,
+	*bRevertDirection=nullptr, *bTrim=nullptr, *bTrim2=nullptr, *bTrimAmount=nullptr, *bOffset=nullptr,  *bBevel=nullptr,
+	*bRound=nullptr, *bCut=nullptr, *bStretch=nullptr, *bEntity=nullptr, *bAttributes=nullptr, *bDelete=nullptr,
+	*bDeleteQuick=nullptr, *bExplodeText=nullptr,*bExplode=nullptr;
 };
 
 #endif // QG_CADTOOLBARMODIFY_H
