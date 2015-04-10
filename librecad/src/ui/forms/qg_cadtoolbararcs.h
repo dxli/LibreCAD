@@ -39,12 +39,12 @@ public:
 	QG_CadToolBarArcs(QG_CadToolBar* parent = 0, Qt::WindowFlags fl = 0);
 	~QG_CadToolBarArcs() = default;
     void restoreAction(); //restore action from checked button
+	virtual void resetToolBar();
 	RS2::ToolBarId rtti() const
 	{
 		return RS2::ToolBarArcs;
 	}
 	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
-	virtual void resetToolBar();
 
 
 public slots:

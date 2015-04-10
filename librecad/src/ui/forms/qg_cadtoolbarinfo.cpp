@@ -34,16 +34,17 @@
 QG_CadToolBarInfo::QG_CadToolBarInfo(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarInfo::languageChange()
+void QG_CadToolBarInfo::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons=	{ bDist, bDist2, bAngle, bTotalLength, bArea};
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
 void QG_CadToolBarInfo::infoDist() {
@@ -76,11 +77,6 @@ void QG_CadToolBarInfo::infoArea() {
     }
 }
 
-//void QG_CadToolBarInfo::back() {
-//    if (cadToolBar) {
-//        cadToolBar->back();
-//    }
-//}
 //restore action from checked button
 void QG_CadToolBarInfo::restoreAction()
 {
@@ -109,7 +105,7 @@ void QG_CadToolBarInfo::restoreAction()
     //default to measure point to point distance
     //bDist->setChecked(true);
     //actionHandler->slotInfoDist();
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -117,7 +113,7 @@ void QG_CadToolBarInfo::restoreAction()
 }
 void QG_CadToolBarInfo::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarInfo::on_bBack_clicked()
@@ -127,8 +123,8 @@ void QG_CadToolBarInfo::on_bBack_clicked()
 }
 
 void QG_CadToolBarInfo:: showCadToolBar(RS2::ActionType actionType){
+	if(!bDist) return;
     switch(actionType){
-
 //    case RS2::ActionInfoInside:
     case RS2::ActionInfoDist:
         bDist->setChecked(true);
@@ -147,7 +143,7 @@ void QG_CadToolBarInfo:: showCadToolBar(RS2::ActionType actionType){
         bArea->setChecked(true);
         return;
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
     }
 }
 

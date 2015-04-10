@@ -999,7 +999,9 @@ void QC_ApplicationWindow::initActions(void)
                                                ,RS2::ActionInfoDist2
                                                ,RS2::ActionInfoAngle
                                                ,RS2::ActionInfoTotalLength
-                                               ,RS2::ActionInfoArea});
+											   ,RS2::ActionInfoArea},
+						 RS2::ToolBarInfo
+						 );
 
     //action = actionFactory.createAction(RS2::ActionInfoInside,
     //                                    actionHandler);

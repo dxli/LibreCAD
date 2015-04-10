@@ -30,9 +30,8 @@ class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarinfo.h"
 
-class QG_CadToolBarInfo : public LC_CadToolBarInterface, public Ui::QG_CadToolBarInfo
+class QG_CadToolBarInfo : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -45,6 +44,8 @@ public:
 	{
 		return RS2::ToolBarInfo;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
+
 
 public slots:
     virtual void infoDist();
@@ -56,12 +57,10 @@ public slots:
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-
-protected slots:
-    virtual void languageChange();
-
 private slots:
     void on_bBack_clicked();
+private:
+	QAction *bDist=nullptr, *bDist2=nullptr, *bAngle=nullptr, *bTotalLength=nullptr, *bArea=nullptr;
 };
 
 #endif // QG_CADTOOLBARINFO_H
