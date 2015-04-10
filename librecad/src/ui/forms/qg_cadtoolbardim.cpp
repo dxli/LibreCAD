@@ -34,17 +34,17 @@
 QG_CadToolBarDim::QG_CadToolBarDim(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
-
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarDim::languageChange()
+void QG_CadToolBarDim::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons={bAligned, bLinear, bLinearHor, bLinearVer, bRadial, bDiametric, bAngular, bLeader};
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
 void QG_CadToolBarDim::drawDimAligned() {
@@ -95,11 +95,6 @@ void QG_CadToolBarDim::drawDimLeader() {
     }
 }
 
-//void QG_CadToolBarDim::back() {
-//    if (cadToolBar) {
-//        cadToolBar->back();
-//    }
-//}
 //restore action from checked button
 void QG_CadToolBarDim::restoreAction()
 {
@@ -137,7 +132,7 @@ void QG_CadToolBarDim::restoreAction()
         return;
     }
     //clear all action
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -145,7 +140,7 @@ void QG_CadToolBarDim::restoreAction()
 }
 void QG_CadToolBarDim::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarDim::on_bBack_clicked()
@@ -155,6 +150,7 @@ void QG_CadToolBarDim::on_bBack_clicked()
 }
 
 void  QG_CadToolBarDim::showCadToolBar(RS2::ActionType actionType){
+	if(!bAligned) return;
     switch(actionType){
     case RS2::ActionDimAligned:
         bAligned->setChecked(true);
@@ -181,7 +177,7 @@ void  QG_CadToolBarDim::showCadToolBar(RS2::ActionType actionType){
         bLeader->setChecked(true);
         return;
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }

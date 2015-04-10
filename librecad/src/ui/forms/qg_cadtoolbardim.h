@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbardim.h"
 
-class QG_CadToolBarDim : public LC_CadToolBarInterface, public Ui::QG_CadToolBarDim
+class QG_CadToolBarDim : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -44,6 +44,7 @@ public:
 	{
 		return RS2::ToolBarDim;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
     virtual void drawDimAligned();
@@ -58,12 +59,12 @@ public slots:
     virtual void resetToolBar();
     virtual void  showCadToolBar(RS2::ActionType actionType);
 
-
-protected slots:
-    virtual void languageChange();
-
 private slots:
     void on_bBack_clicked();
+
+private:
+	QAction *bAligned=nullptr,*bLinear=nullptr,*bLinearHor=nullptr,*bLinearVer=nullptr,
+	*bRadial=nullptr,*bDiametric=nullptr,*bAngular=nullptr,*bLeader=nullptr;
 };
 
 #endif // QG_CADTOOLBARDIM_H

@@ -948,7 +948,9 @@ void QC_ApplicationWindow::initActions(void)
                                                ,RS2::ActionDimRadial
                                                ,RS2::ActionDimDiametric
                                                ,RS2::ActionDimAngular
-                                               ,RS2::ActionDimLeader});
+											   ,RS2::ActionDimLeader},
+						 RS2::ToolBarDim
+						 );
 
     // Modifying actions:
     //
