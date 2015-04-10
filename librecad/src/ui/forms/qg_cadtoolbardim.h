@@ -30,7 +30,6 @@ class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbardim.h"
 
 class QG_CadToolBarDim : public LC_CadToolBarInterface
 {

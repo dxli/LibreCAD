@@ -34,16 +34,18 @@
 QG_CadToolBarEllipses::QG_CadToolBarEllipses(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarEllipses::languageChange()
+
+void QG_CadToolBarEllipses::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons=	{bEllipseAxes, bEllipseArcAxes , bEllipseFociPoint , bEllipse4Points , bEllipseCenter3Points , bEllipseInscribe};
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
 void QG_CadToolBarEllipses::drawEllipseAxis() {
@@ -107,7 +109,7 @@ void QG_CadToolBarEllipses::restoreAction()
         return;
     }
     //clear all action
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -116,7 +118,7 @@ void QG_CadToolBarEllipses::restoreAction()
 
 void QG_CadToolBarEllipses::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 void QG_CadToolBarEllipses::on_bBack_clicked()
 {
@@ -126,6 +128,7 @@ void QG_CadToolBarEllipses::on_bBack_clicked()
 
 
 void QG_CadToolBarEllipses::showCadToolBar(RS2::ActionType actionType) {
+	if(!bEllipseAxes) return;
     switch(actionType){
     case RS2::ActionDrawEllipseAxis:
         bEllipseAxes ->setChecked(true);
@@ -146,7 +149,7 @@ void QG_CadToolBarEllipses::showCadToolBar(RS2::ActionType actionType) {
         bEllipseInscribe ->setChecked(true);
         return;
         default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }

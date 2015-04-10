@@ -902,7 +902,9 @@ void QC_ApplicationWindow::initActions(void)
                                                   ,RS2::ActionDrawEllipseFociPoint
                                                   ,RS2::ActionDrawEllipse4Points
                                                   ,RS2::ActionDrawEllipseCenter3Points
-                                                  ,RS2::ActionDrawEllipseInscribe});
+												  ,RS2::ActionDrawEllipseInscribe},
+						 RS2::ToolBarEllipses
+						 );
 
     // Splines:
     subMenu= menu->addMenu(tr("&Spline"));
