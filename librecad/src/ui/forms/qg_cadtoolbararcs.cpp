@@ -40,18 +40,17 @@ QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 	QToolButton* button=new QToolButton;
 	button->setDefaultAction(m_pButtonBack);
 	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	QVBoxLayout* vLayout=new QVBoxLayout;
-	vLayout->setSpacing(0);
-	vLayout->setMargin(0);
-	vLayout->addWidget(button);
-	vLayout->setContentsMargins(0,0,0,0);
+
 	QHBoxLayout* hLayout=new QHBoxLayout;
-	hLayout->setSpacing(0);
-	hLayout->setMargin(0);
 	hLayout->addWidget(m_pGrid0);
 	hLayout->addWidget(m_pGrid1);
+	hLayout->setSpacing(1);
 	hLayout->setContentsMargins(0,0,0,0);
 
+	QVBoxLayout* vLayout=new QVBoxLayout;
+	vLayout->setSpacing(1);
+	vLayout->setContentsMargins(0,0,0,0);
+	vLayout->addWidget(button);
 	vLayout->addLayout(hLayout);
 
 //	if(this->layout() ) delete layout();

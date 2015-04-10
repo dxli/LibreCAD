@@ -16,15 +16,20 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
   ,m_pButtonBack(new QAction(QIcon(":/extui/back.png"), "Back", this))
   ,m_pButtonForward(new QAction(QIcon(":/extui/forward.png"), "Back", this))
   ,m_pHidden(new QAction("ActionHidden", this))
-  ,m_pGrid0(new QToolBar(this))
-  ,m_pGrid1(new QToolBar(this))
+  ,m_pGrid0(new QToolBar)
+  ,m_pGrid1(new QToolBar)
   ,m_pActionGroup(new QActionGroup(this))
 {
+	setStyleSheet("QToolBar{ margin: 0px }");
+	setContentsMargins(0,0,0,0);
+	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	for(auto p: {m_pGrid0, m_pGrid1}){
 		p->setFloatable(false);
 		p->setMovable(false);
 		p->setOrientation(Qt::Vertical);
+		p->setContentsMargins(0,0,0,0);
 	}
+
 	m_pActionGroup->setExclusive(true);
 	m_pHidden->setCheckable(true);
 	m_pHidden->setChecked(true);
