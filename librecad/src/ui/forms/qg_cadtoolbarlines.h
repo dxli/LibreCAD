@@ -30,9 +30,8 @@ class QG_CadToolBar;
 
 #include "qg_actionhandler.h"
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarlines.h"
 
-class QG_CadToolBarLines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarLines
+class QG_CadToolBarLines : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -44,6 +43,7 @@ public:
 	{
 		return RS2::ToolBarLines;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
     virtual void drawLine();
@@ -66,12 +66,12 @@ public slots:
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected slots:
-    virtual void languageChange();
-
 private slots:
-    void on_bBack_clicked();
-
+	void on_bBack_clicked();
+private:
+	QAction *bNormal=nullptr, *bAngle=nullptr, *bHorizontal=nullptr, *bVertical=nullptr, *bRectangle=nullptr, *bBisector=nullptr,
+	*bParallel=nullptr, *bParallelThrough=nullptr, *bTangent1=nullptr, *bTangent2=nullptr, *bOrthTan=nullptr,
+	*bOrthogonal=nullptr, *bRelAngle=nullptr, *bPolygon=nullptr, *bPolygon2=nullptr, *bFree=nullptr;
 };
 
 #endif // QG_CADTOOLBARLINES_H

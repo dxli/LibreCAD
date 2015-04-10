@@ -34,17 +34,20 @@
 QG_CadToolBarLines::QG_CadToolBarLines(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarLines::languageChange()
+void QG_CadToolBarLines::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons=	{bNormal, bAngle, bHorizontal, bVertical, bRectangle, bBisector,
+									 bParallel, bParallelThrough, bTangent1, bTangent2, bOrthTan,
+									 bOrthogonal, bRelAngle, bPolygon, bPolygon2, bFree};
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
 void QG_CadToolBarLines::drawLine() {
@@ -218,7 +221,7 @@ void QG_CadToolBarLines::restoreAction() {
         return;
     }
     //clear all action
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -227,7 +230,7 @@ void QG_CadToolBarLines::restoreAction() {
 
 void QG_CadToolBarLines::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarLines::on_bBack_clicked()
@@ -237,6 +240,7 @@ void QG_CadToolBarLines::on_bBack_clicked()
 }
 
 void QG_CadToolBarLines::showCadToolBar(RS2::ActionType actionType) {
+	if(!bNormal) return;
     switch(actionType){
     case RS2::ActionDrawLine:
         bNormal->setChecked(true);
@@ -287,7 +291,7 @@ void QG_CadToolBarLines::showCadToolBar(RS2::ActionType actionType) {
         bTangent2->setChecked(true);
         return;
         default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }

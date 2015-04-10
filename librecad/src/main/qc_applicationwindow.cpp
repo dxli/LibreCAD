@@ -864,8 +864,9 @@ void QC_ApplicationWindow::initActions(void)
                                                   ,RS2::ActionDrawLineRelAngle
                                                   ,RS2::ActionDrawLinePolygonCenCor
                                                   ,RS2::ActionDrawLinePolygonCorCor
-                                                  ,RS2::ActionDrawLineFree
-                                                  ,RS2::ActionDrawPolyline});
+												  ,RS2::ActionDrawLineFree},
+						 RS2::ToolBarLines
+						 );
 
     // Arcs:
     subMenu= menu->addMenu(tr("&Arc"));
