@@ -31,9 +31,8 @@ class QG_ActionHandler;
 class RS_ActionInterface;
 
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarselect.h"
 
-class QG_CadToolBarSelect : public LC_CadToolBarInterface, public Ui::QG_CadToolBarSelect
+class QG_CadToolBarSelect : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -46,23 +45,10 @@ public:
 	}
 
 public slots:
-    virtual void selectSingle();
-    virtual void selectContour();
-    virtual void deselectAll();
-    virtual void selectAll();
-    virtual void selectWindow();
-    virtual void deselectWindow();
-    virtual void selectIntersected();
-    virtual void deselectIntersected();
-    virtual void selectInvert();
-    virtual void selectLayer();
     virtual void setSelectAction( RS_ActionInterface * selectAction );
     virtual void setNextAction( int nextAction );
 	virtual void runNextAction();
 	virtual void mousePressEvent( QMouseEvent * e );
-
-protected slots:
-    virtual void languageChange();
 
 private slots:
     void on_bBack_clicked();

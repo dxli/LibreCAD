@@ -37,79 +37,6 @@ QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags 
 	,nextAction(-1)
 	,selectAction(nullptr)
 {
-	setupUi(this);
-}
-
-
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarSelect::languageChange()
-{
-    retranslateUi(this);
-}
-
-void QG_CadToolBarSelect::selectSingle() {
-	if (actionHandler) {
-       if(actionHandler->getCurrentAction()->rtti() != RS2::ActionSelect){
-        actionHandler->slotSelectSingle();
-       }
-    }
-}
-
-void QG_CadToolBarSelect::selectContour() {
-	if (actionHandler) {
-        actionHandler->slotSelectContour();
-    }
-}
-
-void QG_CadToolBarSelect::deselectAll() {
-	if (actionHandler) {
-        actionHandler->slotDeselectAll();
-    }
-}
-
-void QG_CadToolBarSelect::selectAll() {
-	if (actionHandler) {
-        actionHandler->slotSelectAll();
-    }
-}
-
-void QG_CadToolBarSelect::selectWindow() {
-	if (actionHandler) {
-        actionHandler->slotSelectWindow();
-    }
-}
-
-void QG_CadToolBarSelect::deselectWindow() {
-	if (actionHandler) {
-        actionHandler->slotDeselectWindow();
-    }
-}
-
-void QG_CadToolBarSelect::selectIntersected() {
-	if (actionHandler) {
-        actionHandler->slotSelectIntersected();
-    }
-}
-
-void QG_CadToolBarSelect::deselectIntersected() {
-	if (actionHandler) {
-        actionHandler->slotDeselectIntersected();
-    }
-}
-
-void QG_CadToolBarSelect::selectInvert() {
-	if (actionHandler) {
-        actionHandler->slotSelectInvert();
-    }
-}
-
-void QG_CadToolBarSelect::selectLayer() {
-	if (actionHandler) {
-        actionHandler->slotSelectLayer();
-    }
 }
 
 void QG_CadToolBarSelect::setSelectAction(RS_ActionInterface* selectAction) {
@@ -119,9 +46,9 @@ void QG_CadToolBarSelect::setSelectAction(RS_ActionInterface* selectAction) {
 void QG_CadToolBarSelect::setNextAction(int nextAction) {
     this->nextAction = nextAction;
     if (nextAction==-1) {
-        bDoit->hide();
+		m_pButtonForward->setVisible(false);
     } else {
-        bDoit->show();
+		m_pButtonForward->setVisible(true);
     }
 }
 

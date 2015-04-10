@@ -834,7 +834,9 @@ void QC_ApplicationWindow::initActions(void)
                          ,RS2::ActionDeselectIntersected
                          ,RS2::ActionSelectLayer
                          ,RS2::ActionSelectInvert
-                         });
+						 },
+						 RS2::ToolBarSelect
+						 );
 
     // Drawing actions:
     //
