@@ -923,8 +923,9 @@ void QC_ApplicationWindow::initActions(void)
                                                   ,RS2::ActionPolylineDelBetween
                                                   ,RS2::ActionPolylineTrim
                                                   ,RS2::ActionPolylineEquidistant
-                                                  ,RS2::ActionPolylineSegment});
-
+												  ,RS2::ActionPolylineSegment},
+						 RS2::ToolBarPolylines
+						 );
     // Text:
     subMenu= menu->addMenu(tr("&Text"));
     subMenu->setObjectName("Text");

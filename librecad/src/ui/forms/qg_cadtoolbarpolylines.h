@@ -30,9 +30,8 @@ class QG_CadToolBar;
 class QG_ActionHandler;
 
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarpolylines.h"
 
-class QG_CadToolBarPolylines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarPolylines
+class QG_CadToolBarPolylines : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -45,25 +44,17 @@ public:
 	{
 		return RS2::ToolBarPolylines;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
-    virtual void drawPolyline();
-    virtual void polylineAdd();
-    virtual void polylineAppend();
-    virtual void polylineDel();
-    virtual void polylineDelBetween();
-    virtual void polylineTrim();
-    virtual void polylineEquidistant();
-	virtual void polylineSegment();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected slots:
-    virtual void languageChange();
-
 private slots:
     void on_bBack_clicked();
-
+private:
+	QAction *bPolyline=nullptr,*bPolylineAdd=nullptr,*bPolylineAppend=nullptr,*bPolylineDel=nullptr,
+	*bPolylineDelBetween=nullptr,*bPolylineTrim=nullptr,*bPolylineEquidistant=nullptr,*bPolylineSegment=nullptr;
 };
 
 #endif // QG_CADTOOLBARPOLYLINES_H
