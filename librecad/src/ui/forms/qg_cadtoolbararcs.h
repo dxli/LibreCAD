@@ -51,9 +51,6 @@ public:
 public slots:
 	virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected slots:
-    virtual void languageChange();
-
 private slots:
     void on_bBack_clicked();
 private:

@@ -34,17 +34,20 @@
 QG_CadToolBarCircles::QG_CadToolBarCircles(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-    setupUi(this);
 }
 
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarCircles::languageChange()
+void QG_CadToolBarCircles::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons=	{bCircle, bCircleCR, bCircle2P, bCircle2PR, bCircle3P,
+									 bCircleParallel, bCircleInscribe, bCircleTan1_2P, bCircleTan2,
+									 bCircleTan2_1P, bCircleTan3};
+
+	assert(buttons.size()==actions.size());
+
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
 }
 
 void QG_CadToolBarCircles::drawCircle() {
@@ -162,7 +165,7 @@ void QG_CadToolBarCircles::restoreAction()
         return;
     }
     //clear all action
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -171,7 +174,7 @@ void QG_CadToolBarCircles::restoreAction()
 
 void QG_CadToolBarCircles::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarCircles::on_bBack_clicked()
@@ -181,6 +184,7 @@ void QG_CadToolBarCircles::on_bBack_clicked()
 }
 
 void QG_CadToolBarCircles::showCadToolBar(RS2::ActionType actionType){
+	if(!bCircle) return;
     switch(actionType){
     case RS2::ActionDrawCircle:
         bCircle->setChecked(true);
@@ -216,7 +220,7 @@ void QG_CadToolBarCircles::showCadToolBar(RS2::ActionType actionType){
         bCircleTan2_1P->setChecked(true);
         return;
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }

@@ -32,7 +32,7 @@ class QG_CadToolBar;
 #include "lc_cadtoolbarinterface.h"
 #include "ui_qg_cadtoolbarcircles.h"
 
-class QG_CadToolBarCircles : public LC_CadToolBarInterface, public Ui::QG_CadToolBarCircles
+class QG_CadToolBarCircles : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -45,6 +45,7 @@ public:
 	{
 		return RS2::ToolBarCircles;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
     virtual void drawCircle();
@@ -62,11 +63,21 @@ public slots:
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected slots:
-    virtual void languageChange();
-
 private slots:
     void on_bBack_clicked();
+
+private:
+	QAction *bCircle=nullptr,
+	*bCircleCR=nullptr,
+	*bCircle2P=nullptr,
+	*bCircle2PR=nullptr,
+	*bCircle3P=nullptr,
+	*bCircleParallel=nullptr,
+	*bCircleInscribe=nullptr,
+	*bCircleTan2=nullptr,
+	*bCircleTan3=nullptr,
+	*bCircleTan2_1P=nullptr,
+	*bCircleTan1_2P=nullptr;
 };
 
 #endif // QG_CADTOOLBARCIRCLES_H

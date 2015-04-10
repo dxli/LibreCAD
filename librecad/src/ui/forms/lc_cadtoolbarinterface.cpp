@@ -20,6 +20,11 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
   ,m_pGrid1(new QToolBar)
   ,m_pActionGroup(new QActionGroup(this))
 {
+	initToolBars();
+}
+
+void LC_CadToolBarInterface::initToolBars()
+{
 	setStyleSheet("QToolBar{ margin: 0px }");
 	setContentsMargins(0,0,0,0);
 	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -34,6 +39,26 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
 	m_pHidden->setCheckable(true);
 	m_pHidden->setChecked(true);
 	m_pActionGroup->addAction(m_pHidden);
+
+
+	QToolButton* button=new QToolButton;
+	button->setDefaultAction(m_pButtonBack);
+	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	QHBoxLayout* hLayout=new QHBoxLayout;
+	hLayout->addWidget(m_pGrid0);
+	hLayout->addWidget(m_pGrid1);
+	hLayout->setSpacing(1);
+	hLayout->setContentsMargins(0,0,0,0);
+
+	QVBoxLayout* vLayout=new QVBoxLayout;
+	vLayout->setSpacing(1);
+	vLayout->setContentsMargins(0,0,0,0);
+	vLayout->addWidget(button);
+	vLayout->addLayout(hLayout);
+
+//	if(this->layout() ) delete layout();
+	setLayout(vLayout);
 }
 
 void LC_CadToolBarInterface::setActionHandler(QG_ActionHandler* ah)
@@ -81,7 +106,8 @@ void LC_CadToolBarInterface::back()
 
 void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
 {
-	qDebug()<<"LC_CadToolBarInterface::addSubAction(): begin";
+	RS_DEBUG->print("LC_CadToolBarInterface::addSubAction(): begin\n");
+	action->setCheckable(true);
 	if(actions0>actions1){
 		m_pGrid1->addAction(action);
 		++actions1;
@@ -91,8 +117,7 @@ void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
 	}
 
 	if(addGroup) m_pActionGroup->addAction(action);
-//	qDebug()<<"m_pGrid->count()="<<m_pGrid->count();
-	qDebug()<<"LC_CadToolBarInterface::addSubAction(): end";
+	RS_DEBUG->print("LC_CadToolBarInterface::addSubAction(): end\n");
 
 }
 

@@ -58,6 +58,8 @@ protected:
 	QToolBar *m_pGrid0, *m_pGrid1;
 	size_t actions0=0, actions1=0;
 	QActionGroup* m_pActionGroup;
+private:
+	void initToolBars();
 };
 
 #endif // LC_CADTOOLBARINTERFACE_H

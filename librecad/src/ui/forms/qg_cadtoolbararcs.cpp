@@ -37,33 +37,6 @@
 QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 	LC_CadToolBarInterface(parent, fl)
 {
-	QToolButton* button=new QToolButton;
-	button->setDefaultAction(m_pButtonBack);
-	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-	QHBoxLayout* hLayout=new QHBoxLayout;
-	hLayout->addWidget(m_pGrid0);
-	hLayout->addWidget(m_pGrid1);
-	hLayout->setSpacing(1);
-	hLayout->setContentsMargins(0,0,0,0);
-
-	QVBoxLayout* vLayout=new QVBoxLayout;
-	vLayout->setSpacing(1);
-	vLayout->setContentsMargins(0,0,0,0);
-	vLayout->addWidget(button);
-	vLayout->addLayout(hLayout);
-
-//	if(this->layout() ) delete layout();
-	setLayout(vLayout);
-}
-
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarArcs::languageChange()
-{
-//    retranslateUi(this);
 }
 
 void QG_CadToolBarArcs::addSubActions(const std::vector<QAction*>& actions, bool addGroup)

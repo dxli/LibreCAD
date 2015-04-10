@@ -890,7 +890,9 @@ void QC_ApplicationWindow::initActions(void)
                                                   ,RS2::ActionDrawCircleTan1_2P
                                                   ,RS2::ActionDrawCircleTan2
                                                   ,RS2::ActionDrawCircleTan2_1P
-                                                  ,RS2::ActionDrawCircleTan3});
+												  ,RS2::ActionDrawCircleTan3},
+						 RS2::ToolBarCircles
+						 );
 
     // Ellipses:
     subMenu= menu->addMenu(tr("&Ellipse"));
