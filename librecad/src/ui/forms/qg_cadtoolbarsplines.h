@@ -26,9 +26,8 @@ class QG_CadToolBar;
 class QG_ActionHandler;
 
 #include "lc_cadtoolbarinterface.h"
-#include "ui_qg_cadtoolbarsplines.h"
 
-class QG_CadToolBarSplines : public LC_CadToolBarInterface, public Ui::QG_CadToolBarSplines
+class QG_CadToolBarSplines : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -41,18 +40,17 @@ public:
 	{
 		return RS2::ToolBarSplines;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup);
+
 
 public slots:
-    virtual void drawSpline();
-	virtual void drawSplineInt();
     virtual void resetToolBar();
     virtual void showCadToolBar(RS2::ActionType actionType);
 
-protected slots:
-    virtual void languageChange();
-
 private slots:
 	void on_bBack_clicked();
+private:
+	QAction *bSpline=nullptr, *bSplineInt=nullptr;
 };
 
 #endif // QG_CADTOOLBARSPLINES_H

@@ -913,7 +913,9 @@ void QC_ApplicationWindow::initActions(void)
     subMenu= menu->addMenu(tr("&Spline"));
     subMenu->setObjectName("Spline");
     actionFactory.addGUI(subMenu, actionHandler, {RS2::ActionDrawSpline
-                                                  , RS2::ActionDrawSplinePoints});
+												  , RS2::ActionDrawSplinePoints},
+						 RS2::ToolBarSplines
+						 );
 
         // Polylines:
     subMenu= menu->addMenu(tr("&Polyline"));

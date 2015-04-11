@@ -48,9 +48,7 @@ LC_ActionDrawSplinePoints::~LC_ActionDrawSplinePoints() {}
 
 QAction* LC_ActionDrawSplinePoints::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/)
 {
-	QAction* action = new QAction(tr("&Spline through points"),  NULL);
-	action->setIcon(QIcon(":/extui/menusplinepoints.png"));
-	//action->zetStatusTip(tr("Draw splines"));
+	QAction* action = new QAction(QIcon(":/extui/menusplinepoints.png"), tr("&Spline through points"),  NULL);
 	return action;
 }
 

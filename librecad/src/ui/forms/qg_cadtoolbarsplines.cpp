@@ -30,30 +30,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 QG_CadToolBarSplines::QG_CadToolBarSplines(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarSplines::languageChange()
+void QG_CadToolBarSplines::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
-}
+	qDebug()<<"QG_CadToolBarArcs::addSubActions(): begin";
+	LC_CadToolBarInterface::addSubActions(actions, addGroup);
+	std::vector<QAction*> buttons={bSpline, bSplineInt};
+	assert(buttons.size()==actions.size());
 
-void QG_CadToolBarSplines::drawSpline() {
-	if (actionHandler) {
-        actionHandler->slotDrawSpline();
-    }
-}
+	for(size_t i=0; i<buttons.size(); ++i)
+		buttons[i]=actions[i];
+	qDebug()<<"QG_CadToolBarArcs::addSubActions(): end";
 
-void QG_CadToolBarSplines::drawSplineInt() {
-	if (actionHandler) {
-        actionHandler->slotDrawSplinePoints();
-    }
 }
-
 
 //restore action from checked button
 void QG_CadToolBarSplines::restoreAction()
@@ -67,7 +57,7 @@ void QG_CadToolBarSplines::restoreAction()
         actionHandler->slotDrawSplinePoints();
         return;
     }
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
 	if(currentAction != nullptr) {
         currentAction->finish(false); //finish the action, but do not update toolBar
@@ -76,11 +66,12 @@ void QG_CadToolBarSplines::restoreAction()
 
 void QG_CadToolBarSplines::resetToolBar()
 {
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 
 void QG_CadToolBarSplines::showCadToolBar(RS2::ActionType actionType) {
+	if(!bSpline) return;
     switch(actionType){
     case RS2::ActionDrawSpline:
         bSpline->setChecked(true);
@@ -89,7 +80,7 @@ void QG_CadToolBarSplines::showCadToolBar(RS2::ActionType actionType) {
         bSplineInt->setChecked(true);
         return;
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         return;
     }
 }
