@@ -34,17 +34,49 @@
 QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
-	setupUi(this);
 }
 
-
-/*
- *  Sets the strings of the subwidgets using the current
- *  language.
- */
-void QG_CadToolBarMain::languageChange()
+void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-    retranslateUi(this);
+	const auto actionTypes={RS2::ActionDrawText, RS2::ActionDrawImage, RS2::ActionDrawPoint};
+	for(auto a0: actions){
+		if(std::find_if(actionTypes.begin(), actionTypes.end(), [&a0](const RS2::ActionType& a)->bool{
+						return a0->data() == a;
+	}) == actionTypes.end())
+			continue;
+		const std::vector<QAction*> action={a0};
+		LC_CadToolBarInterface::addSubActions(action, addGroup);
+		switch(a0->data().toInt()){
+		case RS2::ActionDrawText:
+			bMenuText=a0;
+			break;
+		case RS2::ActionDrawImage:
+			bMenuImage=a0;
+			break;
+		case RS2::ActionDrawPoint:
+			bMenuPoint=a0;
+			break;
+		default:
+			continue;
+		}
+	}
+	if(!(bMenuText && bMenuImage && bMenuPoint)) return;
+	const std::initializer_list<std::tuple<QAction*, QString, QString>> buttons={
+		{bMenuLine, "menuline", R"(Show toolbar "Lines")"},
+		{bMenuArc, "menuarc", R"(Show toolbar "Arcs")"},
+		{bMenuCircle, "menucircle", R"(Show toolbar "Circles")"},
+		{bMenuEllipse, "menuellipse", R"(Show toolbar "Ellipses")"},
+		{bMenuSpline, "menuspline", R"(Show toolbar "Splines")"},
+		{bMenuPolyline, "menupolyline", R"(Show toolbar "Polylines")"},
+		{bMenuDim, "dimhor", R"(Show toolbar "Dimensions")"},
+		{bMenuHatch, "menuhatch", R"(Create Hatch)"},
+		{bMenuModify, "menumodify", R"(Show toolbar "Modify")"},
+		{bMenuInfo, "menuinfo", R"(Show toolbar "Info")"},
+				bMenuModify, bMenuInfo, bMenuBlock, bMenuSelect}
+}
+	for(auto a: ){
+		a=new QAction(this);
+	}
 }
 
 void QG_CadToolBarMain::setActionHandler(QG_ActionHandler* ah)
@@ -116,14 +148,14 @@ void QG_CadToolBarMain::restoreAction()
         actionHandler->slotDrawPoint();
         return;
     }
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
     finishCurrentAction();
 }
 
 void QG_CadToolBarMain::resetToolBar()
 {
 	killAllActions();
-    bHidden->setChecked(true);
+	m_pHidden->setChecked(true);
 }
 
 void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
@@ -136,6 +168,7 @@ void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
 
 
 void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {
+	if(!bMenuImage) return;
     switch(actionType){
     case RS2::ActionDrawImage:
         bMenuImage->setChecked(true);
@@ -147,7 +180,7 @@ void QG_CadToolBarMain::showCadToolBar(RS2::ActionType actionType) {
         bMenuText->setChecked(true);
         break;
     default:
-        bHidden->setChecked(true);
+		m_pHidden->setChecked(true);
         break;
     }
 }

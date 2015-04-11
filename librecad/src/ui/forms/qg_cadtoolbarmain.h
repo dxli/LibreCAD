@@ -26,13 +26,12 @@
 #ifndef QG_CADTOOLBARMAIN_H
 #define QG_CADTOOLBARMAIN_H
 
-#include "ui_qg_cadtoolbarmain.h"
 #include "lc_cadtoolbarinterface.h"
-#include "qg_actionhandler.h"
 
 class QG_CadToolBar;
+class QG_ActionHandler;
 
-class QG_CadToolBarMain : public LC_CadToolBarInterface, public Ui::QG_CadToolBarMain
+class QG_CadToolBarMain : public LC_CadToolBarInterface
 {
     Q_OBJECT
 
@@ -48,16 +47,17 @@ public:
 	{
 		return RS2::ToolBarMain;
 	}
+	virtual void addSubActions(const std::vector<QAction*>& actions, bool addGroup=true);
 
 public slots:
 	virtual void mousePressEvent( QMouseEvent * e );
 
-protected slots:
-	virtual void languageChange();
-
 private slots:
     void slotDrawMText();
 	void slotDrawImage();
+private:
+	QAction *bMenuImage=nullptr, *bMenuPoint=nullptr, *bMenuText=nullptr;
+	QAction *bMenuLine=nullptr, *bMenuArc=nullptr, *bMenuCircle=nullptr, *bMenuEllipse=nullptr, *bMenuSpline=nullptr, *bMenuPolyline=nullptr, *bMenuDim=nullptr, *bMenuHatch=nullptr, *bMenuModify=nullptr, *bMenuInfo=nullptr, *bMenuBlock=nullptr,
+	*bMenuSelect=nullptr;
 };
-
 #endif

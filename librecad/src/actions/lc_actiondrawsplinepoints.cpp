@@ -41,7 +41,7 @@ LC_ActionDrawSplinePoints::LC_ActionDrawSplinePoints(RS_EntityContainer& contain
   ,data(new LC_SplinePointsData(false, false))
   ,spline(nullptr)
 {
-	setName("Draw spline through points");
+	setName("DrawSplinePoints");
 }
 
 LC_ActionDrawSplinePoints::~LC_ActionDrawSplinePoints() {}
