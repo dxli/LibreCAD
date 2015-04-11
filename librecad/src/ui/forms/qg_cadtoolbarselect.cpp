@@ -23,6 +23,8 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+#include <QToolButton>
+#include <QLayout>
 #include "qg_cadtoolbarselect.h"
 #include "qg_cadtoolbar.h"
 #include "rs_actionselect.h"
@@ -37,6 +39,12 @@ QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags 
 	,nextAction(-1)
 	,selectAction(nullptr)
 {
+	if(layout()){
+		QToolButton* button=new QToolButton;
+		button->setDefaultAction(m_pButtonForward);
+		button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+		layout()->addWidget(button);
+	}
 }
 
 void QG_CadToolBarSelect::setSelectAction(RS_ActionInterface* selectAction) {
@@ -46,8 +54,10 @@ void QG_CadToolBarSelect::setSelectAction(RS_ActionInterface* selectAction) {
 void QG_CadToolBarSelect::setNextAction(int nextAction) {
     this->nextAction = nextAction;
     if (nextAction==-1) {
+		DEBUG_HEADER();
 		m_pButtonForward->setVisible(false);
     } else {
+		DEBUG_HEADER();
 		m_pButtonForward->setVisible(true);
     }
 }
