@@ -157,6 +157,7 @@ void QG_CadToolBarLines::drawLinePolygon2() {
 //restore action from checked
 void QG_CadToolBarLines::restoreAction() {
 	if(actionHandler==nullptr) return;
+	if(!bNormal) return;
     if(bNormal->isChecked()) {
         actionHandler->slotDrawLine();
         return;

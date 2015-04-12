@@ -24,6 +24,7 @@
 **
 **********************************************************************/
 #include<tuple>
+#include<utility>
 #include "qg_cadtoolbarmain.h"
 #include "qg_cadtoolbar.h"
 #include "qg_actionhandler.h"
@@ -40,25 +41,19 @@ QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
 
 void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-	const auto actionTypes={RS2::ActionDrawText, RS2::ActionDrawImage, RS2::ActionDrawPoint};
-	for(auto a0: actions){
-		if(std::find_if(actionTypes.begin(), actionTypes.end(), [&a0](const RS2::ActionType& a)->bool{
-						return a0->data() == a;
-	}) == actionTypes.end())
-			continue;
-		switch(a0->data().toInt()){
-		case RS2::ActionDrawText:
-			bMenuText=a0;
-			break;
-		case RS2::ActionDrawImage:
-			bMenuImage=a0;
-			break;
-		case RS2::ActionDrawPoint:
-			bMenuPoint=a0;
-			break;
-		default:
-			continue;
-		}
+	const std::initializer_list<std::pair<QAction**, RS2::ActionType>> actionTypes=
+	{
+		std::make_pair(&bMenuText, RS2::ActionDrawMText),
+		std::make_pair(&bMenuImage, RS2::ActionDrawImage),
+		std::make_pair(&bMenuPoint, RS2::ActionDrawPoint)
+	};
+	for(auto a: actions){
+		auto it0=std::find_if(actionTypes.begin(), actionTypes.end(),
+							  [&a](const std::pair<QAction**, RS2::ActionType>& a0)->bool{
+			return a->data() == a0.second;
+		});
+		if(it0==actionTypes.end()) return;
+		* it0->first = a;
 	}
 	if(!(bMenuText && bMenuImage && bMenuPoint)) return;
 	const std::initializer_list<std::tuple<QAction**, QString, const char*>> buttons={
@@ -83,12 +78,17 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		listAction.push_back(p);
 	}
 	auto it = std::find(listAction.begin(), listAction.end(),bMenuDim);
-	listAction.insert(it, bMenuPoint);
+
+	//add draw actions
+	listAction.insert(it, bMenuText);
+
 	QAction* nullAction=new QAction(this);
 	nullAction->setCheckable(false);
 	nullAction->setEnabled(false);
 	listAction.insert(it, nullAction);
-	listAction.insert(it, bMenuText);
+
+	listAction.insert(it, bMenuPoint);
+
 	it = std::find(listAction.begin(), listAction.end(),bMenuModify);
 	listAction.insert(it, bMenuImage);
 	LC_CadToolBarInterface::addSubActions(listAction, addGroup);

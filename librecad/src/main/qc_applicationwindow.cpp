@@ -933,8 +933,8 @@ void QC_ApplicationWindow::initActions(void)
     // Text:
     subMenu= menu->addMenu(tr("&Text"));
     subMenu->setObjectName("Text");
-	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawMText);
-	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawText, RS2::ToolBarMain);
+	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawMText, RS2::ToolBarMain);
+	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawText);
 
     // Hatch:
 	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawHatch);
