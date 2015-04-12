@@ -39,6 +39,7 @@ QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags 
 	,nextAction(-1)
 	,selectAction(nullptr)
 {
+	initToolBars();
 	if(layout()){
 		QToolButton* button=new QToolButton;
 		button->setDefaultAction(m_pButtonForward);

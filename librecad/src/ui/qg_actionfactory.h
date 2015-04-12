@@ -61,7 +61,8 @@ public:
      * @param id, action type
      * @return a pointer to the action created
      */
-    QAction*  addGUI(QMenu* menu, QObject* obj, RS2::ActionType id) const;
+	QAction*  addGUI(QMenu* menu, QObject* obj, RS2::ActionType id,
+					 RS2::ToolBarId toolbarId = RS2::ToolBarNone) const;
     /**
      * @brief addGUI, create action by action type and add the action to menu
      * @param menu, a pointer to QMemu to add the action

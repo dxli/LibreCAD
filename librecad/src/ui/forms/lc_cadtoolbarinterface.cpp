@@ -13,18 +13,24 @@ LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::Win
 	QWidget(_parentTB, fl)
 	,cadToolBar(_parentTB)
   ,actionHandler(nullptr)
-  ,m_pButtonBack(new QAction(QIcon(":/extui/back.png"), "Back", this))
-  ,m_pButtonForward(new QAction(QIcon(":/extui/forward.png"), "Back", this))
   ,m_pHidden(new QAction("ActionHidden", this))
   ,m_pGrid0(new QToolBar)
   ,m_pGrid1(new QToolBar)
   ,m_pActionGroup(new QActionGroup(this))
 {
-	initToolBars();
 }
 
 void LC_CadToolBarInterface::initToolBars()
 {
+	switch(rtti()){
+	case RS2::ToolBarSelect:
+		m_pButtonForward=new QAction(QIcon(":/extui/forward.png"), "Back", this);
+		//continue to default, no break by design
+	default:
+		m_pButtonBack = new QAction(QIcon(":/extui/back.png"), "Back", this);
+	case RS2::ToolBarMain:
+		break;
+	}
 	setStyleSheet("QToolBar{ margin: 0px }");
 	setContentsMargins(0,0,0,0);
 	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -40,11 +46,6 @@ void LC_CadToolBarInterface::initToolBars()
 	m_pHidden->setChecked(true);
 	m_pActionGroup->addAction(m_pHidden);
 
-
-	QToolButton* button=new QToolButton;
-	button->setDefaultAction(m_pButtonBack);
-	button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
 	QHBoxLayout* hLayout=new QHBoxLayout;
 	hLayout->addWidget(m_pGrid0);
 	hLayout->addWidget(m_pGrid1);
@@ -54,7 +55,12 @@ void LC_CadToolBarInterface::initToolBars()
 	QVBoxLayout* vLayout=new QVBoxLayout;
 	vLayout->setSpacing(1);
 	vLayout->setContentsMargins(0,0,0,0);
-	vLayout->addWidget(button);
+	if(m_pButtonBack){
+		QToolButton* button=new QToolButton;
+		button->setDefaultAction(m_pButtonBack);
+		button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+		vLayout->addWidget(button);
+	}
 	vLayout->addLayout(hLayout);
 
 //	if(this->layout() ) delete layout();

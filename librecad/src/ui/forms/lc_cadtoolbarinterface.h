@@ -45,13 +45,12 @@ protected:
 	QG_CadToolBar* cadToolBar;
 	QG_ActionHandler* actionHandler;
 
-	QAction* m_pButtonBack;
-	QAction* m_pButtonForward;
+	QAction* m_pButtonBack=nullptr;
+	QAction* m_pButtonForward=nullptr;
 	QAction* m_pHidden;
 	QToolBar *m_pGrid0, *m_pGrid1;
 	size_t actions0=0, actions1=0;
 	QActionGroup* m_pActionGroup;
-private:
 	void initToolBars();
 };
 

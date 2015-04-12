@@ -34,6 +34,7 @@
 QG_CadToolBarModify::QG_CadToolBarModify(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 void QG_CadToolBarModify::addSubActions(const std::vector<QAction*>& actions, bool addGroup)

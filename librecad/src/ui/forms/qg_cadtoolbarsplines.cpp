@@ -30,6 +30,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 QG_CadToolBarSplines::QG_CadToolBarSplines(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 void QG_CadToolBarSplines::addSubActions(const std::vector<QAction*>& actions, bool addGroup)

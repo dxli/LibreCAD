@@ -34,6 +34,7 @@
 QG_CadToolBarPolylines::QG_CadToolBarPolylines(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 

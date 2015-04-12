@@ -1466,10 +1466,14 @@ QAction* QG_ActionFactory::createAction(	RS2::ActionType id, QObject* obj,
 }
 
 
-QAction*  QG_ActionFactory::addGUI(QMenu* menu, QObject* obj, RS2::ActionType id) const
+QAction*  QG_ActionFactory::addGUI(QMenu* menu, QObject* obj, RS2::ActionType id,
+								   RS2::ToolBarId toolbarId ) const
 {
     QAction* const action=createAction(id, obj);
     if(action) menu->addAction(action);
+	if(m_pCADToolBar && toolbarId != RS2::ToolBarNone){
+		m_pCADToolBar->populateSubToolBar({action}, toolbarId);
+	   }
     return action;
 }
 

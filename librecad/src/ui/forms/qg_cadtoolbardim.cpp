@@ -34,6 +34,7 @@
 QG_CadToolBarDim::QG_CadToolBarDim(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 void QG_CadToolBarDim::addSubActions(const std::vector<QAction*>& actions, bool addGroup)

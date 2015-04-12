@@ -846,7 +846,7 @@ void QC_ApplicationWindow::initActions(void)
     // Points:
 //    subMenu= menu->addMenu(tr("&Point"));
 //    subMenu->setObjectName("Point");
-    actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawPoint);
+	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawPoint, RS2::ToolBarMain);
 
     // Lines:
     subMenu= menu->addMenu(tr("&Line"));
@@ -933,13 +933,13 @@ void QC_ApplicationWindow::initActions(void)
     // Text:
     subMenu= menu->addMenu(tr("&Text"));
     subMenu->setObjectName("Text");
-    actionFactory.addGUI(subMenu, actionHandler, {RS2::ActionDrawMText
-                                                  , RS2::ActionDrawText});
+	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawMText);
+	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawText, RS2::ToolBarMain);
 
     // Hatch:
-    actionFactory.addGUI(menu, actionHandler, {RS2::ActionDrawHatch
+	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawHatch);
                                                // Image:
-                                               , RS2::ActionDrawImage});
+	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawImage, RS2::ToolBarMain);
     // Dimensioning actions:
     //
 #ifdef __APPLE1__

@@ -23,6 +23,7 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+#include<tuple>
 #include "qg_cadtoolbarmain.h"
 #include "qg_cadtoolbar.h"
 #include "qg_actionhandler.h"
@@ -34,6 +35,7 @@
 QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
@@ -44,8 +46,6 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 						return a0->data() == a;
 	}) == actionTypes.end())
 			continue;
-		const std::vector<QAction*> action={a0};
-		LC_CadToolBarInterface::addSubActions(action, addGroup);
 		switch(a0->data().toInt()){
 		case RS2::ActionDrawText:
 			bMenuText=a0;
@@ -61,22 +61,37 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		}
 	}
 	if(!(bMenuText && bMenuImage && bMenuPoint)) return;
-	const std::initializer_list<std::tuple<QAction*, QString, QString>> buttons={
-		{bMenuLine, "menuline", R"(Show toolbar "Lines")"},
-		{bMenuArc, "menuarc", R"(Show toolbar "Arcs")"},
-		{bMenuCircle, "menucircle", R"(Show toolbar "Circles")"},
-		{bMenuEllipse, "menuellipse", R"(Show toolbar "Ellipses")"},
-		{bMenuSpline, "menuspline", R"(Show toolbar "Splines")"},
-		{bMenuPolyline, "menupolyline", R"(Show toolbar "Polylines")"},
-		{bMenuDim, "dimhor", R"(Show toolbar "Dimensions")"},
-		{bMenuHatch, "menuhatch", R"(Create Hatch)"},
-		{bMenuModify, "menumodify", R"(Show toolbar "Modify")"},
-		{bMenuInfo, "menuinfo", R"(Show toolbar "Info")"},
-				bMenuModify, bMenuInfo, bMenuBlock, bMenuSelect}
-}
-	for(auto a: ){
-		a=new QAction(this);
+	const std::initializer_list<std::tuple<QAction**, QString, const char*>> buttons={
+		std::make_tuple(&bMenuLine, "menuline", R"(Show toolbar "Lines")"),
+		std::make_tuple(&bMenuArc, "menuarc", R"(Show toolbar "Arcs")"),
+		std::make_tuple(&bMenuCircle, "menucircle", R"(Show toolbar "Circles")"),
+		std::make_tuple(&bMenuEllipse, "menuellipse", R"(Show toolbar "Ellipses")"),
+		std::make_tuple(&bMenuPolyline, "menupolyline", R"(Show toolbar "Polylines")"),
+		std::make_tuple(&bMenuSpline, "menuspline", R"(Show toolbar "Splines")"),
+		std::make_tuple(&bMenuDim, "dimhor", R"(Show toolbar "Dimensions")"),
+		std::make_tuple(&bMenuHatch, "menuhatch", R"(Create Hatch)"),
+		std::make_tuple(&bMenuModify, "menuedit", R"(Show toolbar "Modify")"),
+		std::make_tuple(&bMenuInfo, "menumeasure", R"(Show toolbar "Info")"),
+		std::make_tuple(&bMenuBlock, "menublock", R"(Show toolbar "Block")"),
+		std::make_tuple(&bMenuSelect, "menuselect", R"(Show toolbar "Select")")
+	};
+	std::vector<QAction*> listAction;
+	for(const auto& a: buttons){
+		QAction* p=new QAction(QIcon(":/extui/"+std::get<1>(a)+".png"),
+					  QCoreApplication::translate("main", std::get<2>(a)), this);
+		*std::get<0>(a)=p;
+		listAction.push_back(p);
 	}
+	auto it = std::find(listAction.begin(), listAction.end(),bMenuDim);
+	listAction.insert(it, bMenuPoint);
+	QAction* nullAction=new QAction(this);
+	nullAction->setCheckable(false);
+	nullAction->setEnabled(false);
+	listAction.insert(it, nullAction);
+	listAction.insert(it, bMenuText);
+	it = std::find(listAction.begin(), listAction.end(),bMenuModify);
+	listAction.insert(it, bMenuImage);
+	LC_CadToolBarInterface::addSubActions(listAction, addGroup);
 }
 
 void QG_CadToolBarMain::setActionHandler(QG_ActionHandler* ah)

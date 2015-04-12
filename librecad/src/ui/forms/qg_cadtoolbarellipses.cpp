@@ -34,6 +34,7 @@
 QG_CadToolBarEllipses::QG_CadToolBarEllipses(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	:LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 

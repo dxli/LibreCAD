@@ -37,6 +37,7 @@
 QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 	LC_CadToolBarInterface(parent, fl)
 {
+	initToolBars();
 }
 
 void QG_CadToolBarArcs::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
