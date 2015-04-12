@@ -34,7 +34,6 @@
 #include "qg_cadtoolbarlines.h"
 #include "qg_cadtoolbarmain.h"
 #include "qg_cadtoolbarmodify.h"
-#include "qg_cadtoolbarpoints.h"
 #include "qg_cadtoolbarpolylines.h"
 #include "qg_cadtoolbarselect.h"
 #include "qg_cadtoolbarsplines.h"

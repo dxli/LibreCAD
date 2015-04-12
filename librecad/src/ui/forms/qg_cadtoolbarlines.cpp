@@ -153,7 +153,6 @@ void QG_CadToolBarLines::drawLinePolygon2() {
     }
 }
 
-
 //restore action from checked
 void QG_CadToolBarLines::restoreAction() {
 	if(actionHandler==nullptr) return;
