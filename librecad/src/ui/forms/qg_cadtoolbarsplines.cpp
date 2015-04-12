@@ -49,7 +49,7 @@ void QG_CadToolBarSplines::addSubActions(const std::vector<QAction*>& actions, b
 //restore action from checked button
 void QG_CadToolBarSplines::restoreAction()
 {
-	if(actionHandler==nullptr) return;
+	if(!(actionHandler&&bSpline)) return;
     if ( bSpline ->isChecked() ) {
         actionHandler->slotDrawSpline();
         return;

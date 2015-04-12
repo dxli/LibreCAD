@@ -53,8 +53,8 @@ void QG_CadToolBarPolylines::addSubActions(const std::vector<QAction*>& actions,
 //restore action from checked button
 void QG_CadToolBarPolylines::restoreAction()
 {
-	if(actionHandler==nullptr) return;
-    if ( bPolyline ->isChecked() ) {
+	if(!(actionHandler && bPolyline)) return;
+	if ( bPolyline ->isChecked() ) {
         actionHandler->slotDrawPolyline();
         return;
     }

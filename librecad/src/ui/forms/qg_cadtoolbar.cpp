@@ -121,10 +121,19 @@ void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2
  * Called from the sub toolbar
  */
 void QG_CadToolBar::back() {
+	finishCurrentAction(false);
     showPreviousToolBar(true);
     //    emit(signalBack());
 }
 
+void QG_CadToolBar::finishCurrentAction(bool resetToolBar)
+{
+	if(actionHandler==nullptr) return;
+	RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
+	if(currentAction) {
+		currentAction->finish(resetToolBar); //finish the action, but do not update toolBar
+	}
+}
 /**
  * Called from the application.
  */

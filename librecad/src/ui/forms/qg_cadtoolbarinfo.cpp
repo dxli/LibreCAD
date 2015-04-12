@@ -51,8 +51,8 @@ void QG_CadToolBarInfo::addSubActions(const std::vector<QAction*>& actions, bool
 //restore action from checked button
 void QG_CadToolBarInfo::restoreAction()
 {
-	if(actionHandler==nullptr) return;
-    //clear all action
+	if(!(actionHandler && bDist)) return;
+	//clear all action
     if ( bDist ->isChecked() ) {
         actionHandler->slotInfoDist();
         return;

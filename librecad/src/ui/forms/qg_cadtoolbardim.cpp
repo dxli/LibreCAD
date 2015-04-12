@@ -51,8 +51,8 @@ void QG_CadToolBarDim::addSubActions(const std::vector<QAction*>& actions, bool 
 //restore action from checked button
 void QG_CadToolBarDim::restoreAction()
 {
-	if(actionHandler==nullptr) return;
-    if ( bAligned ->isChecked() ) {
+	if(!(actionHandler && bAligned)) return;
+	if ( bAligned ->isChecked() ) {
         actionHandler->slotDimAligned();
         return;
     }

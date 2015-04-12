@@ -161,8 +161,8 @@ void QG_CadToolBarMain::slotDrawImage()
 //restore action from checked button
 void QG_CadToolBarMain::restoreAction()
 {
-	if(actionHandler==nullptr) return;
-    if ( bMenuPoint ->isChecked() ) {
+	if(!(actionHandler&&bMenuPoint)) return;
+	if ( bMenuPoint ->isChecked() ) {
         actionHandler->slotDrawPoint();
         return;
     }
@@ -179,7 +179,8 @@ void QG_CadToolBarMain::resetToolBar()
 void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
 {
 	if (e->button()==Qt::RightButton && cadToolBar) {
-		finishCurrentAction(true);
+		DEBUG_HEADER();
+		finishCurrentAction(false);
 		resetToolBar();
 	}
 }

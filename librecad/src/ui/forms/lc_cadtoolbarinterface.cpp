@@ -60,6 +60,7 @@ void LC_CadToolBarInterface::initToolBars()
 		button->setDefaultAction(m_pButtonBack);
 		button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 		vLayout->addWidget(button);
+		connect(m_pButtonBack, SIGNAL(triggered()), cadToolBar, SLOT(back()));
 	}
 	vLayout->addLayout(hLayout);
 
@@ -104,6 +105,7 @@ void LC_CadToolBarInterface::mousePressEvent(QMouseEvent* e) {
 
 void LC_CadToolBarInterface::back()
 {
+	finishCurrentAction(true);
 	if (cadToolBar) {
 		cadToolBar->showPreviousToolBar(true);
 	}

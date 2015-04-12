@@ -52,8 +52,8 @@ void QG_CadToolBarEllipses::addSubActions(const std::vector<QAction*>& actions, 
 //restore action from checked button
 void QG_CadToolBarEllipses::restoreAction()
 {
-	if(actionHandler==nullptr) return;
-    if ( bEllipseAxes ->isChecked() ) {
+	if(!(actionHandler && bEllipseAxes)) return;
+	if ( bEllipseAxes ->isChecked() ) {
         actionHandler->slotDrawEllipseAxis();
         return;
     }

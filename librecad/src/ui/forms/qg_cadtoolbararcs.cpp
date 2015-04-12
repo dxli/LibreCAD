@@ -42,21 +42,21 @@ QG_CadToolBarArcs::QG_CadToolBarArcs(QG_CadToolBar* parent, Qt::WindowFlags fl):
 
 void QG_CadToolBarArcs::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-	qDebug()<<"QG_CadToolBarArcs::addSubActions(): begin";
+	RS_DEBUG->print("QG_CadToolBarArcs::addSubActions(): begin\n");
 	LC_CadToolBarInterface::addSubActions(actions, addGroup);
 	std::vector<QAction*> buttons={bArc, bArc3P, bArcParallel, bArcTangential};
 	assert(buttons.size()==actions.size());
 
 	for(size_t i=0; i<buttons.size(); ++i)
 		buttons[i]=actions[i];
-	qDebug()<<"QG_CadToolBarArcs::addSubActions(): end";
+	RS_DEBUG->print("QG_CadToolBarArcs::addSubActions(): end\n");
 
 }
 
 //restore action from checked button
 void QG_CadToolBarArcs::restoreAction()
 {
-	if(actionHandler==nullptr) return;
+	if(!(actionHandler&&bArc)) return;
     if ( bArc ->isChecked() ) {
         actionHandler->slotDrawArc();
         return;

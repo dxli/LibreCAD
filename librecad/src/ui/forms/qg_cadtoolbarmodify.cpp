@@ -54,8 +54,8 @@ void QG_CadToolBarModify::addSubActions(const std::vector<QAction*>& actions, bo
 
 //restore action from checked
 void QG_CadToolBarModify::restoreAction() {
-	if(actionHandler==nullptr) return;
-    if ( bMove ->isChecked() ) {
+	if(!(actionHandler&&bMove)) return;
+	if ( bMove ->isChecked() ) {
         actionHandler->slotModifyMove();
         return;
     }

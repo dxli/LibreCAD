@@ -59,7 +59,7 @@ void QG_CadToolBarCircles::back() {
 //restore action from checked button
 void QG_CadToolBarCircles::restoreAction()
 {
-	if(actionHandler==nullptr) return;
+	if(!(actionHandler && bCircle)) return;
     if ( bCircle ->isChecked() ) {
         actionHandler->slotDrawCircle();
         return;
