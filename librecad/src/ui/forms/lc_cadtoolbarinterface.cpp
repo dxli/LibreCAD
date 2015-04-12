@@ -11,7 +11,7 @@
 
 LC_CadToolBarInterface::LC_CadToolBarInterface(QG_CadToolBar* _parentTB, Qt::WindowFlags fl):
 	QWidget(_parentTB, fl)
-	,cadToolBar(_parentTB)
+  ,cadToolBar(_parentTB)
   ,actionHandler(nullptr)
   ,m_pHidden(new QAction("ActionHidden", this))
   ,m_pGrid0(new QToolBar)
@@ -130,10 +130,7 @@ void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
 
 void LC_CadToolBarInterface::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
 {
-	qDebug()<<"LC_CadToolBarInterface::addSubActions(): begin";
-
 	for(auto p: actions){
 		this->addSubAction(p, addGroup);
 	}
-	qDebug()<<"LC_CadToolBarInterface::addSubActions(): end";
 }

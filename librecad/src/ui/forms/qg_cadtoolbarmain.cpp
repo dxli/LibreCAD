@@ -92,43 +92,46 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 	it = std::find(listAction.begin(), listAction.end(),bMenuModify);
 	listAction.insert(it, bMenuImage);
 	LC_CadToolBarInterface::addSubActions(listAction, addGroup);
+	if(actionHandler)
+		setActionHandler(actionHandler);
 }
 
 void QG_CadToolBarMain::setActionHandler(QG_ActionHandler* ah)
 {
 	actionHandler=ah;
-	connect(bMenuLine, SIGNAL(clicked()),
+	if(!bMenuLine) return;
+	connect(bMenuLine, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarLines()));
-	connect(bMenuArc, SIGNAL(clicked()),
+	connect(bMenuArc, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarArcs()));
-	connect(bMenuCircle, SIGNAL(clicked()),
+	connect(bMenuCircle, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarCircles()));
-	connect(bMenuEllipse, SIGNAL(clicked()),
+	connect(bMenuEllipse, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarEllipses()));
-	connect(bMenuSpline, SIGNAL(clicked()),
+	connect(bMenuSpline, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarSplines()));
-	connect(bMenuPolyline, SIGNAL(clicked()),
+	connect(bMenuPolyline, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarPolylines()));
-	connect(bMenuPoint, SIGNAL(clicked()),
+	connect(bMenuPoint, SIGNAL(triggered()),
 			actionHandler, SLOT(slotDrawPoint()));
 
-	connect(bMenuText, SIGNAL(clicked()),
+	connect(bMenuText, SIGNAL(triggered()),
 			this, SLOT(slotDrawMText()));
-	connect(bMenuDim, SIGNAL(clicked()),
+	connect(bMenuDim, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarDim()));
-	connect(bMenuHatch, SIGNAL(clicked()),
+	connect(bMenuHatch, SIGNAL(triggered()),
 			actionHandler, SLOT(slotDrawHatch()));
-	connect(bMenuImage, SIGNAL(clicked()),
+	connect(bMenuImage, SIGNAL(triggered()),
 			this, SLOT(slotDrawImage()));
 
-	connect(bMenuModify, SIGNAL(clicked()),
+	connect(bMenuModify, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarModify()));
-	connect(bMenuInfo, SIGNAL(clicked()),
+	connect(bMenuInfo, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarInfo()));
 
-	connect(bMenuBlock, SIGNAL(clicked()),
+	connect(bMenuBlock, SIGNAL(triggered()),
 			actionHandler, SLOT(slotBlocksCreate()));
-	connect(bMenuSelect, SIGNAL(clicked()),
+	connect(bMenuSelect, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarSelect()));
 
 }

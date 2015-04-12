@@ -23,7 +23,6 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-//#include <iostream>
 #include "qg_cadtoolbar.h"
 #include "rs_dialogfactory.h"
 #include "rs_actioninterface.h"
@@ -107,7 +106,7 @@ void QG_CadToolBar::addMainButtons(const std::initializer_list<RS2::ToolBarId>& 
 
 void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2::ToolBarId toolbarID)
 {
-	qDebug()<<"QG_CadToolBar::populateSubToolBar(): begin";
+	RS_DEBUG->print("QG_CadToolBar::populateSubToolBar(): begin\n");
 
 	if(!m_toolbars.count(toolbarID)) return;
 	LC_CadToolBarInterface*const p = m_toolbars[toolbarID];
@@ -116,8 +115,7 @@ void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2
 	if(toolbarID == RS2::ToolBarMain){
 		addMainButtons({RS2::ToolBarDim,RS2::ToolBarInfo, RS2::ToolBarModify});
 	}
-	qDebug()<<"QG_CadToolBar::populateSubToolBar(): end";
-
+	RS_DEBUG->print("QG_CadToolBar::populateSubToolBar(): end\n");
 }
 
 /**
