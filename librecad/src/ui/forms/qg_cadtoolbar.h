@@ -98,7 +98,6 @@ protected slots:
 
 private:
 	void init();
-	void addMainButtons(const std::initializer_list<RS2::ToolBarId>& list);
 	void finishCurrentAction(bool resetToolBar=false);
 };
 

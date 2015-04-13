@@ -83,24 +83,6 @@ void QG_CadToolBar::init() {
 		p->hide();
 		m_toolbars[p->rtti()]= p;
 	}
-	//populate toolbarMain
-	addMainButtons({
-					   RS2::ToolBarLines,RS2::ToolBarArcs, RS2::ToolBarCircles,
-					   RS2::ToolBarEllipses, RS2::ToolBarPolylines, RS2::ToolBarSplines
-		   });
-}
-
-
-void QG_CadToolBar::addMainButtons(const std::initializer_list<RS2::ToolBarId>& /*list*/)
-{
-//	if(!m_toolbars.count(RS2::ToolBarMain)) return;
-//	LC_CadToolBarInterface*const p = m_toolbars[RS2::ToolBarMain];
-//	std::vector<QObject*> buttons;
-//	for(auto id: list){
-//		buttons.push_back(m_toolbars[id]);
-//	}
-//	p->addItems(buttons, false);
-
 }
 
 void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2::ToolBarId toolbarID)
@@ -111,9 +93,6 @@ void QG_CadToolBar::populateSubToolBar(const std::vector<QAction*>& actions, RS2
 	LC_CadToolBarInterface*const p = m_toolbars[toolbarID];
 	p->addSubActions(actions, true);
 
-	if(toolbarID == RS2::ToolBarMain){
-		addMainButtons({RS2::ToolBarDim,RS2::ToolBarInfo, RS2::ToolBarModify});
-	}
 	RS_DEBUG->print("QG_CadToolBar::populateSubToolBar(): end\n");
 }
 
@@ -165,7 +144,6 @@ void QG_CadToolBar::setActionHandler(QG_ActionHandler* ah) {
 	for(const auto& p: m_toolbars){
 		p.second->setActionHandler(ah);
 	}
-	showToolBar(RS2::ToolBarArcs, false);
 }
 
 void QG_CadToolBar::hideSubToolBars(){
@@ -187,10 +165,13 @@ void QG_CadToolBar::showSubToolBar(){
 void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
 	// cleanup mouse hint when showing previous tool bar, bug#3480121
 	RS_DIALOGFACTORY->updateMouseWidget("","",false);
+	for(auto p: activeToolbars){
+		qDebug()<<"QG_CadToolBar::showPreviousToolBar():begin "<<p->rtti();
+	}
 	if(cleanup){
 		if(actionHandler) {
 			RS_ActionInterface* currentAction =actionHandler->getCurrentAction();
-			if(currentAction) {
+			if(currentAction && currentAction->rtti() != RS2::ActionDefault) {
 				currentAction->finish(false); //finish the action, but do not update toolBar
 			}
 		}
@@ -211,6 +192,9 @@ void QG_CadToolBar::showPreviousToolBar(bool cleanup) {
 
 		//        std::cout<<"QG_CadToolBar::showPreviousToolBar(false): toolbars.size()="<<toolbars.size()<<std::endl;
 		showSubToolBar();
+	}
+	for(auto p: activeToolbars){
+		qDebug()<<"QG_CadToolBar::showPreviousToolBar():end "<<p->rtti();
 	}
 }
 
@@ -301,8 +285,8 @@ void QG_CadToolBar::showCadToolBar(RS2::ActionType actionType, bool cleanup){
         return;
         //default action resets toolbar, issue#295
 	case RS2::ActionDefault:
-        break;
-    case RS2::ActionDrawImage:
+		break;
+	case RS2::ActionDrawImage:
     case RS2::ActionDrawPoint:
     case RS2::ActionDrawMText:
 		id=RS2::ToolBarMain;

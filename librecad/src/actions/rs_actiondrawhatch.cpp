@@ -240,19 +240,8 @@ void RS_ActionDrawHatch::updateMouseButtonHints() {
     RS_DIALOGFACTORY->updateMouseWidget("", "");
 }
 
-
-
 void RS_ActionDrawHatch::updateMouseCursor() {
     graphicView->setMouseCursor(RS2::CadCursor);
 }
-
-
-
-void RS_ActionDrawHatch::updateToolBar() {
-    //not needed any more with new snap
-    return;
-    RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarMain);
-}
-
 
 // EOF
