@@ -83,7 +83,6 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 	listAction.insert(it, bMenuText);
 
 	QAction* nullAction=new QAction(this);
-	nullAction->setCheckable(false);
 	nullAction->setEnabled(false);
 	listAction.insert(it, nullAction);
 
@@ -91,7 +90,11 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 
 	it = std::find(listAction.begin(), listAction.end(),bMenuModify);
 	listAction.insert(it, bMenuImage);
-	LC_CadToolBarInterface::addSubActions(listAction, addGroup);
+	LC_CadToolBarInterface::addSubActions(listAction, false);
+	for(auto p: {bMenuText, bMenuPoint, bMenuImage}){
+		p->setCheckable(true);
+		m_pActionGroup->addAction(p);
+	}
 	if(actionHandler)
 		setActionHandler(actionHandler);
 }
@@ -181,7 +184,8 @@ void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
 	if (e->button()==Qt::RightButton && cadToolBar) {
 		DEBUG_HEADER();
 		finishCurrentAction(false);
-		resetToolBar();
+		m_pHidden->setChecked(true);
+		//resetToolBar();
 	}
 }
 

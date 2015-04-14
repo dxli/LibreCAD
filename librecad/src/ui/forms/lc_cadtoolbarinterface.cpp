@@ -115,7 +115,13 @@ void LC_CadToolBarInterface::back()
 void LC_CadToolBarInterface::addSubAction(QAction*const action, bool addGroup)
 {
 	RS_DEBUG->print("LC_CadToolBarInterface::addSubAction(): begin\n");
-	action->setCheckable(true);
+	switch(rtti()){
+	case RS2::ToolBarMain:
+		action->setCheckable(false);
+		break;
+	default:
+		action->setCheckable(true);
+	}
 	if(actions0>actions1){
 		m_pGrid1->addAction(action);
 		++actions1;
