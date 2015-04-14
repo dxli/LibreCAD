@@ -39,13 +39,14 @@ QG_CadToolBarMain::QG_CadToolBarMain(QG_CadToolBar* parent, Qt::WindowFlags fl)
 	initToolBars();
 }
 
-void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool addGroup)
+void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool /*addGroup*/)
 {
 	const std::initializer_list<std::pair<QAction**, RS2::ActionType>> actionTypes=
 	{
 		std::make_pair(&bMenuText, RS2::ActionDrawMText),
 		std::make_pair(&bMenuImage, RS2::ActionDrawImage),
-		std::make_pair(&bMenuPoint, RS2::ActionDrawPoint)
+		std::make_pair(&bMenuPoint, RS2::ActionDrawPoint),
+		std::make_pair(&bMenuBlock, RS2::ActionBlocksAdd)
 	};
 	for(auto a: actions){
 		auto it0=std::find_if(actionTypes.begin(), actionTypes.end(),
@@ -55,7 +56,7 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		if(it0==actionTypes.end()) return;
 		* it0->first = a;
 	}
-	if(!(bMenuText && bMenuImage && bMenuPoint)) return;
+	if(!(bMenuText && bMenuImage && bMenuPoint&& bMenuBlock)) return;
 	const std::initializer_list<std::tuple<QAction**, QString, const char*>> buttons={
 		std::make_tuple(&bMenuLine, "menuline", R"(Show toolbar "Lines")"),
 		std::make_tuple(&bMenuArc, "menuarc", R"(Show toolbar "Arcs")"),
@@ -67,7 +68,6 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		std::make_tuple(&bMenuHatch, "menuhatch", R"(Create Hatch)"),
 		std::make_tuple(&bMenuModify, "menuedit", R"(Show toolbar "Modify")"),
 		std::make_tuple(&bMenuInfo, "menumeasure", R"(Show toolbar "Info")"),
-		std::make_tuple(&bMenuBlock, "menublock", R"(Show toolbar "Block")"),
 		std::make_tuple(&bMenuSelect, "menuselect", R"(Show toolbar "Select")")
 	};
 	std::vector<QAction*> listAction;
@@ -90,6 +90,8 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 
 	it = std::find(listAction.begin(), listAction.end(),bMenuModify);
 	listAction.insert(it, bMenuImage);
+	it = std::find(listAction.begin(), listAction.end(),bMenuSelect);
+	listAction.insert(it, bMenuBlock);
 	LC_CadToolBarInterface::addSubActions(listAction, false);
 	for(auto p: {bMenuText, bMenuPoint, bMenuImage}){
 		p->setCheckable(true);
@@ -115,17 +117,9 @@ void QG_CadToolBarMain::setActionHandler(QG_ActionHandler* ah)
 			cadToolBar, SLOT(showToolBarSplines()));
 	connect(bMenuPolyline, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarPolylines()));
-	connect(bMenuPoint, SIGNAL(triggered()),
-			actionHandler, SLOT(slotDrawPoint()));
 
-	connect(bMenuText, SIGNAL(triggered()),
-			this, SLOT(slotDrawMText()));
 	connect(bMenuDim, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarDim()));
-	connect(bMenuHatch, SIGNAL(triggered()),
-			actionHandler, SLOT(slotDrawHatch()));
-	connect(bMenuImage, SIGNAL(triggered()),
-			this, SLOT(slotDrawImage()));
 
 	connect(bMenuModify, SIGNAL(triggered()),
 			cadToolBar, SLOT(showToolBarModify()));

@@ -56,8 +56,8 @@ private slots:
     void slotDrawMText();
 	void slotDrawImage();
 private:
-	QAction *bMenuImage=nullptr, *bMenuPoint=nullptr, *bMenuText=nullptr;
-	QAction *bMenuLine=nullptr, *bMenuArc=nullptr, *bMenuCircle=nullptr, *bMenuEllipse=nullptr, *bMenuSpline=nullptr, *bMenuPolyline=nullptr, *bMenuDim=nullptr, *bMenuHatch=nullptr, *bMenuModify=nullptr, *bMenuInfo=nullptr, *bMenuBlock=nullptr,
+	QAction *bMenuImage=nullptr, *bMenuPoint=nullptr, *bMenuText=nullptr, *bMenuBlock=nullptr;
+	QAction *bMenuLine=nullptr, *bMenuArc=nullptr, *bMenuCircle=nullptr, *bMenuEllipse=nullptr, *bMenuSpline=nullptr, *bMenuPolyline=nullptr, *bMenuDim=nullptr, *bMenuHatch=nullptr, *bMenuModify=nullptr, *bMenuInfo=nullptr,
 	*bMenuSelect=nullptr;
 };
 #endif

@@ -1031,17 +1031,18 @@ void QC_ApplicationWindow::initActions(void)
     //
     menu = menuBar()->addMenu(tr("&Block"));
     menu->setObjectName("Block");
-    actionFactory.addGUI(menu, actionHandler, {RS2::ActionBlocksDefreezeAll
-                                               ,RS2::ActionBlocksFreezeAll
-                                               ,RS2::ActionBlocksToggleView
-                                               ,RS2::ActionBlocksAdd
-                                               ,RS2::ActionBlocksRemove
-                                               ,RS2::ActionBlocksAttributes
-                                               ,RS2::ActionBlocksInsert
-                                               ,RS2::ActionBlocksEdit
-                                               ,RS2::ActionBlocksSave
-                                               ,RS2::ActionBlocksCreate
-                                               ,RS2::ActionBlocksExplode});
+	actionFactory.addGUI(menu, actionHandler, {RS2::ActionBlocksDefreezeAll
+											   ,RS2::ActionBlocksFreezeAll
+											   ,RS2::ActionBlocksToggleView});
+
+	actionFactory.addGUI(menu, actionHandler,RS2::ActionBlocksAdd, RS2::ToolBarMain);
+	actionFactory.addGUI(menu, actionHandler, {RS2::ActionBlocksRemove
+											   ,RS2::ActionBlocksAttributes
+											   ,RS2::ActionBlocksInsert
+											   ,RS2::ActionBlocksEdit
+											   ,RS2::ActionBlocksSave
+											   ,RS2::ActionBlocksCreate
+											   ,RS2::ActionBlocksExplode});
 
     QMainWindow::addToolBarBreak(Qt::TopToolBarArea);
     addToolBar(Qt::TopToolBarArea, penToolBar);
