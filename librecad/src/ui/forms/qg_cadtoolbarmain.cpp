@@ -56,7 +56,10 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		if(it0==actionTypes.end()) return;
 		* it0->first = a;
 	}
-	if(!(bMenuText && bMenuImage && bMenuPoint&& bMenuBlock)) return;
+	if(std::any_of(actionTypes.begin(), actionTypes.end(),
+				   [](const std::pair<QAction**, RS2::ActionType>& a)->bool{
+				   return *(a.first)==nullptr;
+})) return;
 	const std::initializer_list<std::tuple<QAction**, QString, const char*>> buttons={
 		std::make_tuple(&bMenuLine, "menuline", R"(Show toolbar "Lines")"),
 		std::make_tuple(&bMenuArc, "menuarc", R"(Show toolbar "Arcs")"),
@@ -93,9 +96,9 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 	it = std::find(listAction.begin(), listAction.end(),bMenuSelect);
 	listAction.insert(it, bMenuBlock);
 	LC_CadToolBarInterface::addSubActions(listAction, false);
-	for(auto p: {bMenuText, bMenuPoint, bMenuImage}){
-		p->setCheckable(true);
-		m_pActionGroup->addAction(p);
+	for(auto a: actionTypes){
+		(*a.first)->setCheckable(true);
+		m_pActionGroup->addAction(*a.first);
 	}
 	if(actionHandler)
 		setActionHandler(actionHandler);
@@ -176,10 +179,7 @@ void QG_CadToolBarMain::resetToolBar()
 void QG_CadToolBarMain::mousePressEvent(QMouseEvent* e)
 {
 	if (e->button()==Qt::RightButton && cadToolBar) {
-		DEBUG_HEADER();
-		finishCurrentAction(false);
-		m_pHidden->setChecked(true);
-		//resetToolBar();
+		resetToolBar();
 	}
 }
 

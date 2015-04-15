@@ -69,7 +69,7 @@ void RS_ActionDrawMText::init(int status) {
                     showOptions();
                 } else {
                     hideOptions();
-                    setFinished();
+					finish(true);
                 }
             }
             break;
