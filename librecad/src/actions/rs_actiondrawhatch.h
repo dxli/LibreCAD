@@ -52,6 +52,9 @@ public:
     ~RS_ActionDrawHatch() = default;
 	
 	static QAction* createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/);
+	RS2::ActionType rtti() {
+		return RS2::ActionDrawHatch;
+	}
 
     virtual void init(int status=0);
     virtual void trigger();

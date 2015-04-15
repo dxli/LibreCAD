@@ -46,7 +46,8 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		std::make_pair(&bMenuText, RS2::ActionDrawMText),
 		std::make_pair(&bMenuImage, RS2::ActionDrawImage),
 		std::make_pair(&bMenuPoint, RS2::ActionDrawPoint),
-		std::make_pair(&bMenuBlock, RS2::ActionBlocksCreate)
+		std::make_pair(&bMenuBlock, RS2::ActionBlocksCreate),
+		std::make_pair(&bMenuHatch, RS2::ActionDrawHatch)
 	};
 	for(auto a: actions){
 		auto it0=std::find_if(actionTypes.begin(), actionTypes.end(),
@@ -68,7 +69,7 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		std::make_tuple(&bMenuPolyline, "menupolyline", R"(Show toolbar "Polylines")"),
 		std::make_tuple(&bMenuSpline, "menuspline", R"(Show toolbar "Splines")"),
 		std::make_tuple(&bMenuDim, "dimhor", R"(Show toolbar "Dimensions")"),
-		std::make_tuple(&bMenuHatch, "menuhatch", R"(Create Hatch)"),
+//		std::make_tuple(&bMenuHatch, "menuhatch", R"(Create Hatch)"),
 		std::make_tuple(&bMenuModify, "menuedit", R"(Show toolbar "Modify")"),
 		std::make_tuple(&bMenuInfo, "menumeasure", R"(Show toolbar "Info")"),
 		std::make_tuple(&bMenuSelect, "menuselect", R"(Show toolbar "Select")")
@@ -95,6 +96,8 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 	listAction.insert(it, bMenuImage);
 	it = std::find(listAction.begin(), listAction.end(),bMenuSelect);
 	listAction.insert(it, bMenuBlock);
+	it = std::find(listAction.begin(), listAction.end(),bMenuImage);
+	listAction.insert(it, bMenuHatch);
 	LC_CadToolBarInterface::addSubActions(listAction, false);
 	for(auto a: actionTypes){
 		(*a.first)->setCheckable(true);

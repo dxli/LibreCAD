@@ -937,9 +937,8 @@ void QC_ApplicationWindow::initActions(void)
 	actionFactory.addGUI(subMenu, actionHandler, RS2::ActionDrawText);
 
     // Hatch:
-	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawHatch);
-                                               // Image:
-	actionFactory.addGUI(menu, actionHandler, RS2::ActionDrawImage, RS2::ToolBarMain);
+	actionFactory.addGUI(menu, actionHandler, {RS2::ActionDrawHatch,
+											   RS2::ActionDrawImage}, RS2::ToolBarMain);
     // Dimensioning actions:
     //
 #ifdef __APPLE1__
