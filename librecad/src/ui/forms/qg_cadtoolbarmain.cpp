@@ -46,7 +46,7 @@ void QG_CadToolBarMain::addSubActions(const std::vector<QAction*>& actions, bool
 		std::make_pair(&bMenuText, RS2::ActionDrawMText),
 		std::make_pair(&bMenuImage, RS2::ActionDrawImage),
 		std::make_pair(&bMenuPoint, RS2::ActionDrawPoint),
-		std::make_pair(&bMenuBlock, RS2::ActionBlocksAdd)
+		std::make_pair(&bMenuBlock, RS2::ActionBlocksCreate)
 	};
 	for(auto a: actions){
 		auto it0=std::find_if(actionTypes.begin(), actionTypes.end(),
