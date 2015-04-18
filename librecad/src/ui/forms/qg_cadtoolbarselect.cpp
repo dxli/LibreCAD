@@ -46,6 +46,7 @@ QG_CadToolBarSelect::QG_CadToolBarSelect(QG_CadToolBar* parent, Qt::WindowFlags 
 		button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 		layout()->addWidget(button);
 	}
+	connect(m_pButtonForward, SIGNAL(triggered()), this, SLOT(runNextAction()));
 }
 
 void QG_CadToolBarSelect::setSelectAction(RS_ActionInterface* selectAction) {
