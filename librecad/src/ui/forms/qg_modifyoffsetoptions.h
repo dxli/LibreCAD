@@ -31,6 +31,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "ui_qg_modifyoffsetoptions.h"
 
+#ifndef LDOUBLE
+typedef long double LDOUBLE;
+#endif
+
 class RS_ActionInterface;
 class RS_ActionDrawModifyOffset;
 
@@ -45,11 +49,11 @@ public:
 public slots:
 //    virtual void setAction( RS_ActionInterface * a, bool update );
     virtual void updateDist( const QString & d );
-    virtual void setDist( double& d , bool initial=true);
+	virtual void setDist( LDOUBLE& d , bool initial=true);
 
 protected:
 //    RS_ActionModifyOffset* action;
-    double* dist;
+	LDOUBLE* dist;
 
 protected slots:
     virtual void languageChange();

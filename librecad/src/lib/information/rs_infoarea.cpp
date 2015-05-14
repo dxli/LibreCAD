@@ -100,7 +100,7 @@ void RS_InfoArea::calculate() {
         p1=p2;
     }
 
-    area = 0.5*fabs(area);
+    area = 0.5*fabsl(area);
     calculationNeeded=false;
 }
 
@@ -114,7 +114,7 @@ double RS_InfoArea::getArea(const QPolygon& polygon)
         const QPoint& p1=polygon.at((i+1)%polygon.size());
         ret += p0.x()*p1.y()-p0.y()*p1.x();
     }
-    return 0.5*fabs(ret);
+    return 0.5*fabsl(ret);
 }
 
 /**

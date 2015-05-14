@@ -56,7 +56,7 @@ struct RS_SnapMode {
 
 	RS2::SnapRestriction restriction= RS2::RestrictNothing; /// The restriction on the free snap.
 
-	double distance=5.; /// The distance to snap before defaulting to free snaping.
+	LDOUBLE distance=5.; /// The distance to snap before defaulting to free snaping.
 
     /**
       * Default Constructor
@@ -190,7 +190,7 @@ public:
 
 protected:
     void deleteSnapper();
-    double getSnapRange() const;
+	LDOUBLE getSnapRange() const;
     RS_EntityContainer* container;
     RS_GraphicView* graphicView;
     RS_Entity* keyEntity;
@@ -202,7 +202,7 @@ protected:
      * Snap distance for snaping to points with a
      * given distance from endpoints.
      */
-	double m_SnapDistance;
+	LDOUBLE m_SnapDistance;
     /**
      * Snap to equidistant middle points
      * default to 1, i.e., equidistant to start/end points

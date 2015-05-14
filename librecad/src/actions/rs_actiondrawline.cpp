@@ -116,9 +116,9 @@ RS_Vector RS_ActionDrawLine::snapToAngle(const RS_Vector &currentCoord)
             snapMode.snapGrid) {
         return currentCoord;
     }
-	double angle = data->startpoint.angleTo(currentCoord)*180.0/M_PI;
+ LDOUBLE angle = data->startpoint.angleTo(currentCoord)*180.0/M_PI;
     /*Snapping to angle(15*) if shift key is pressed*/
-    const double angularResolution=15.;
+    const LDOUBLE angularResolution=15.;
     angle -= remainder(angle,angularResolution);
     angle *= M_PI/180.;
     RS_Vector res = currentCoord;

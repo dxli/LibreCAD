@@ -89,8 +89,8 @@ bool RS_Settings::writeEntry(const QString& key,const QString& value) {
     return writeEntry(key, QVariant(value));
 }
 
-bool RS_Settings::writeEntry(const QString& key, double value) {
-    return writeEntry(key, QVariant(value));
+bool RS_Settings::writeEntry(const QString& key, LDOUBLE value) {
+	return writeEntry(key, QVariant((double)value));
 }
 
 bool RS_Settings::writeEntry(const QString& key, const QVariant& value) {

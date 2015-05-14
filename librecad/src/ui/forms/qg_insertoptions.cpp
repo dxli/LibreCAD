@@ -81,12 +81,12 @@ void QG_InsertOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sColumnSpacing;
         QString sRowSpacing;
         if (update) {
-            sAngle = QString("%1").arg(RS_Math::rad2deg(action->getAngle()));
-            sFactor = QString("%1").arg(action->getFactor());
+			sAngle = QString("%1").arg((double)RS_Math::rad2deg(action->getAngle()));
+			sFactor = QString("%1").arg((double)action->getFactor());
             sColumns = QString("%1").arg(action->getColumns());
             sRows = QString("%1").arg(action->getRows());
-            sColumnSpacing = QString("%1").arg(action->getColumnSpacing());
-            sRowSpacing = QString("%1").arg(action->getRowSpacing());
+			sColumnSpacing = QString("%1").arg((double)action->getColumnSpacing());
+			sRowSpacing = QString("%1").arg((double)action->getRowSpacing());
         } else {
             RS_SETTINGS->beginGroup("/Insert");
             sAngle = RS_SETTINGS->readEntry("/InsertAngle", "0.0");

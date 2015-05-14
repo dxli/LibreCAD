@@ -167,7 +167,7 @@ void RS_ActionModifyMoveRotate::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 data.angle = RS_Math::deg2rad(a);

@@ -41,8 +41,8 @@ struct LC_HyperbolaData {
 	LC_HyperbolaData() = default;
 	LC_HyperbolaData(const RS_Vector& center,
 					 const RS_Vector& majorP,
-					 double ratio,
-					 double angle1, double angle2,
+					 LDOUBLE ratio,
+					 LDOUBLE angle1, LDOUBLE angle2,
 					 bool reversed);
 	~LC_HyperbolaData() = default;
 	/** create data based on foci and a point on hyperbola */
@@ -55,11 +55,11 @@ struct LC_HyperbolaData {
 	//! Endpoint of major axis relative to center.
 	RS_Vector majorP;
 	//! Ratio of minor axis to major axis.
-	double ratio;
+	LDOUBLE ratio;
 	//! Start angle
-	double angle1;
+	LDOUBLE angle1;
 	//! End angle
-	double angle2;
+	LDOUBLE angle2;
 	//! Reversed (cw) flag
 	bool reversed;
 };
@@ -96,7 +96,7 @@ public:
 
 
 
-//    virtual double getLength() const;
+//    virtual LDOUBLE getLength() const;
 
 //    /**
 //    //Hyperbola must have ratio<1, and not reversed
@@ -104,8 +104,8 @@ public:
 //    *@ x2, hyperbola angle
 //    //@return the arc length between hyperbola angle x1, x2
 //    **/
-//    double getHyperbolaLength(double a1, double a2) const;
-//    double getHyperbolaLength(double a2) const;
+//    LDOUBLE getHyperbolaLength(LDOUBLE a1, LDOUBLE a2) const;
+//    LDOUBLE getHyperbolaLength(LDOUBLE a2) const;
 
 
     /** @return Copy of data that defines the hyperbola. **/
@@ -128,24 +128,24 @@ public:
     }
 
     /** @return The rotation angle of this hyperbola */
-    double getAngle() const {
+	LDOUBLE getAngle() const {
         return data.majorP.angle();
     }
 
     /** @return The start angle of this arc */
-    double getAngle1() const {
+	LDOUBLE getAngle1() const {
         return data.angle1;
     }
     /** Sets new start angle. */
-    void setAngle1(double a1) {
+	void setAngle1(LDOUBLE a1) {
         data.angle1 = a1;
     }
     /** @return The end angle of this arc */
-    double getAngle2() const {
+	LDOUBLE getAngle2() const {
         return data.angle2;
     }
     /** Sets new end angle. */
-    void setAngle2(double a2) {
+	void setAngle2(LDOUBLE a2) {
         data.angle2 = a2;
     }
 
@@ -169,22 +169,22 @@ public:
     }
 
     /** @return The ratio of minor to major axis */
-    double getRatio() const {
+	LDOUBLE getRatio() const {
         return data.ratio;
     }
     /** Sets new ratio. */
-    void setRatio(double r) {
+	void setRatio(LDOUBLE r) {
         data.ratio = r;
     }
 
 
     /** @return The major radius of this hyperbola. Same as getRadius() */
-    double getMajorRadius() const {
+	LDOUBLE getMajorRadius() const {
         return data.majorP.magnitude();
     }
 
     /** @return The minor radius of this hyperbola */
-    double getMinorRadius() const {
+	LDOUBLE getMinorRadius() const {
         return data.majorP.magnitude()*data.ratio;
     }
 
@@ -192,45 +192,45 @@ public:
 
     virtual RS_Vector getMiddlePoint(void)const {return RS_Vector(false);}
     virtual RS_Vector getNearestEndpoint(const RS_Vector& /*coord*/,
-                                         double*/* dist = NULL*/) const
+										 LDOUBLE*/* dist = NULL*/) const
     {return RS_Vector(false);}
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& /*coord*/,
-            bool /*onEntity = true*/, double*/* dist = NULL*/, RS_Entity**/* entity=NULL*/) const
+			bool /*onEntity = true*/, LDOUBLE*/* dist = NULL*/, RS_Entity**/* entity=NULL*/) const
     {return RS_Vector(false);}
     virtual RS_Vector getNearestCenter(const RS_Vector& /*coord*/,
-									   double*/* dist = NULL*/) const
+									   LDOUBLE*/* dist = NULL*/) const
    {return RS_Vector(false);}
     virtual RS_Vector getNearestMiddle(const RS_Vector& /*coord*/,
-                                       double*/* dist = NULL*/,
+									   LDOUBLE*/* dist = NULL*/,
                                        int/* middlePoints = 1*/
                                        )const
    {return RS_Vector(false);}
-    virtual RS_Vector getNearestDist(double /*distance*/,
+	virtual RS_Vector getNearestDist(LDOUBLE /*distance*/,
                                      const RS_Vector&/* coord*/,
-									 double*/* dist = NULL*/) const
+									 LDOUBLE*/* dist = NULL*/) const
     {return RS_Vector(false);}
     virtual RS_Vector getNearestOrthTan(const RS_Vector& /*coord*/,
                                     const RS_Line& /*normal*/,
 									 bool /*onEntity = false*/) const
     {return RS_Vector(false);}
-    virtual double getDistanceToPoint(const RS_Vector& /*coord*/,
+	virtual LDOUBLE getDistanceToPoint(const RS_Vector& /*coord*/,
                                       RS_Entity** /*entity=NULL*/,
                                       RS2::ResolveLevel/* level=RS2::ResolveNone*/,
-                                      double /*solidDist = RS_MAXDOUBLE*/) const
-    {return RS_MAXDOUBLE;}
+									  LDOUBLE /*solidDist = RS_MAXDOUBLE*/) const
+	{return RS_MAXDOUBLE;}
     virtual bool isPointOnEntity(const RS_Vector& /*coord*/,
-                                 double /*tolerance=RS_TOLERANCE*/) const;
+								 LDOUBLE /*tolerance=RS_TOLERANCE*/) const;
 
     virtual void move(const RS_Vector& /*offset*/){}
-    virtual void rotate(const double& /*angle*/){}
+	virtual void rotate(const LDOUBLE& /*angle*/){}
     virtual void rotate(const RS_Vector& /*angleVector*/){}
-    virtual void rotate(const RS_Vector& /*center*/, const double& /*angle*/){}
+	virtual void rotate(const RS_Vector& /*center*/, const LDOUBLE& /*angle*/){}
     virtual void rotate(const RS_Vector& /*center*/, const RS_Vector& /*angle*/){}
     virtual void scale(const RS_Vector& /*center*/, const RS_Vector& /*factor*/){}
     virtual void mirror(const RS_Vector& /*axisPoint1*/, const RS_Vector& /*axisPoint2*/){}
     virtual void moveRef(const RS_Vector& /*ref*/, const RS_Vector& /*offset*/){}
 
-    virtual void draw(RS_Painter* /*painter*/, RS_GraphicView* /*view*/, double& /*patternOffset*/){}
+	virtual void draw(RS_Painter* /*painter*/, RS_GraphicView* /*view*/, LDOUBLE& /*patternOffset*/){}
 
     friend std::ostream& operator << (std::ostream& os, const LC_Hyperbola& a);
 
@@ -238,8 +238,8 @@ public:
 //    virtual void calculateBorders();
 
     //direction of tangent at endpoints
-    virtual double getDirection1() const{return 0.;}
-    virtual double getDirection2() const{return 0.;}
+	virtual LDOUBLE getDirection1() const{return 0.;}
+	virtual LDOUBLE getDirection2() const{return 0.;}
     /** return the equation of the entity
     for quadratic,
 

@@ -54,27 +54,27 @@ void RS_ConstructionLine::calculateBorders() {
 }
 
 RS_Vector RS_ConstructionLine::getNearestEndpoint(const RS_Vector& coord,
-        double* dist) const{
-    double dist1, dist2;
+		LDOUBLE* dist) const{
+	LDOUBLE dist1, dist2;
 
     dist1 = (data.point1-coord).squared();
     dist2 = (data.point2-coord).squared();
 
     if (dist2<dist1) {
 		if (dist) {
-            *dist = sqrt(dist2);
+			*dist = sqrtl(dist2);
         }
         return data.point2;
     } else {
 		if (dist) {
-            *dist = sqrt(dist1);
+			*dist = sqrtl(dist1);
         }
         return data.point1;
     }
 }
 
 RS_Vector RS_ConstructionLine::getNearestPointOnEntity(const RS_Vector& coord,
-        bool /*onEntity*/, double* /*dist*/, RS_Entity** entity) const{
+		bool /*onEntity*/, LDOUBLE* /*dist*/, RS_Entity** entity) const{
 
 	if (entity) {
         *entity = const_cast<RS_ConstructionLine*>(this);
@@ -99,10 +99,10 @@ RS_Vector RS_ConstructionLine::getNearestPointOnEntity(const RS_Vector& coord,
 }
 
 RS_Vector RS_ConstructionLine::getNearestCenter(const RS_Vector& /*coord*/,
-		double* dist) const{
+		LDOUBLE* dist) const{
 
 	if (dist) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
 
     return RS_Vector(false);
@@ -119,7 +119,7 @@ m0 x + m1 y + m2 =0
 **/
 LC_Quadratic RS_ConstructionLine::getQuadratic() const
 {
-    std::vector<double> ce(3,0.);
+	std::vector<LDOUBLE> ce(3,0.);
     auto&& dvp=data.point2 - data.point1;
     RS_Vector normal(-dvp.y,dvp.x);
     ce[0]=normal.x;
@@ -132,45 +132,45 @@ RS_Vector RS_ConstructionLine::getMiddlePoint() const{
     return RS_Vector(false);
 }
 RS_Vector RS_ConstructionLine::getNearestMiddle(const RS_Vector& /*coord*/,
-        double* dist, const int /*middlePoints*/)const {
+		LDOUBLE* dist, const int /*middlePoints*/)const {
 	if (dist) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
     return RS_Vector(false);
 }
 
 
 
-RS_Vector RS_ConstructionLine::getNearestDist(double /*distance*/,
+RS_Vector RS_ConstructionLine::getNearestDist(LDOUBLE /*distance*/,
         const RS_Vector& /*coord*/,
-		double* dist) const{
+		LDOUBLE* dist) const{
 	if (dist) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
     return RS_Vector(false);
 }
 
 
-double RS_ConstructionLine::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_ConstructionLine::getDistanceToPoint(const RS_Vector& coord,
         RS_Entity** entity,
-        RS2::ResolveLevel /*level*/, double /*solidDist*/) const {
+		RS2::ResolveLevel /*level*/, LDOUBLE /*solidDist*/) const {
 
     RS_DEBUG->print("RS_ConstructionLine::getDistanceToPoint");
 
 	if (entity) {
         *entity = const_cast<RS_ConstructionLine*>(this);
     }
-    //double dist = RS_MAXDOUBLE;
+	//LDOUBLE dist = RS_MAXDOUBLE;
     RS_Vector se = data.point2-data.point1;
-    double d(se.magnitude());
+	LDOUBLE d(se.magnitude());
     if(d<RS_TOLERANCE) {
         //line too short
-        return RS_MAXDOUBLE;
+		return RS_MAXDOUBLE;
     }
     se.set( se.x/d,-se.y/d); //normalized
     RS_Vector vpc= coord - data.point1;
-    vpc.rotate(se); // rotate to use the line as x-axis, and the distance is fabs(y)
-    return ( fabs(vpc.y) );
+    vpc.rotate(se); // rotate to use the line as x-axis, and the distance is fabsl(y)
+    return ( fabsl(vpc.y) );
 }
 
 
@@ -183,7 +183,7 @@ void RS_ConstructionLine::move(const RS_Vector& offset) {
 
 
 
-void RS_ConstructionLine::rotate(const RS_Vector& center, const double& angle) {
+void RS_ConstructionLine::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     data.point1.rotate(center, angleVector);
     data.point2.rotate(center, angleVector);

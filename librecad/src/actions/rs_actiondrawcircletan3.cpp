@@ -153,10 +153,10 @@ bool RS_ActionDrawCircleTan3::getData(){
                     ){
                 RS_Circle* c1=static_cast<RS_Circle*>(circles[i1]);
                 RS_Circle* c2=static_cast<RS_Circle*>(circles[i2]);
-                if(fabs(fabs(c1->getRadius())-fabs(c2->getRadius()))<RS_TOLERANCE){
+                if(fabsl(fabsl(c1->getRadius())-fabsl(c2->getRadius()))<RS_TOLERANCE){
                     //degenerate
-                    const RS_Vector p0=(c1->getCenter()+c2->getCenter())*0.5;
-                    const RS_Vector p1=p0 + (c1->getCenter() - p0).rotate(0.5*M_PI);
+					const RS_Vector p0=(c1->getCenter()+c2->getCenter())*0.5L;
+					const RS_Vector p1=p0 + (c1->getCenter() - p0).rotate(0.5L*PI);
                     lc1=RS_Line(NULL, RS_LineData(p0,p1 )).getQuadratic();
                     sol=LC_Quadratic::getIntersection(lc0,lc1);
 
@@ -182,7 +182,7 @@ bool RS_ActionDrawCircleTan3::getData(){
                         sol.appendTo(LC_Quadratic::getIntersection(lc01,lc1));
                 }
             }
-            double d;
+            LDOUBLE d;
 
         //line passes circle center, need a second parabola as the image of the line
         for(int j=1;j<=2;j++){
@@ -233,11 +233,11 @@ bool RS_ActionDrawCircleTan3::preparePreview(){
     }
     //find the nearest circle
 	size_t index=candidates.size();
-    double dist=RS_MAXDOUBLE*RS_MAXDOUBLE;
+    LDOUBLE dist=RS_MAXDOUBLE*RS_MAXDOUBLE;
 	for(size_t i=0;i<candidates.size();++i){
-        double d;
+        LDOUBLE d;
 		RS_Circle(nullptr, *candidates.at(i)).getNearestPointOnEntity(coord,false,&d);
-		double dCenter=coord.distanceTo(candidates.at(i)->center);
+	 LDOUBLE dCenter=coord.distanceTo(candidates.at(i)->center);
         d=std::min(d,dCenter);
         if(d<dist){
             dist=d;
@@ -332,7 +332,7 @@ void RS_ActionDrawCircleTan3::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     case SetFocus1: {
             bool ok;
-            double m = RS_Math::eval(c, &ok);
+            LDOUBLE m = RS_Math::eval(c, &ok);
 			if (ok) {
                 ratio = m / major.magnitude();
                 if (!isArc) {
@@ -350,7 +350,7 @@ void RS_ActionDrawCircleTan3::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle1: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
 			if (ok) {
                 angle1 = RS_Math::deg2rad(a);
                 setStatus(SetAngle2);
@@ -364,7 +364,7 @@ void RS_ActionDrawCircleTan3::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle2: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
 			if (ok) {
                 angle2 = RS_Math::deg2rad(a);
                 trigger();

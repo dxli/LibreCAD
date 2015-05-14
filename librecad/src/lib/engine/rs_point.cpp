@@ -55,7 +55,7 @@ RS_VectorSolutions RS_Point::getRefPoints() const
 	return RS_VectorSolutions{data.pos};
 }
 
-RS_Vector RS_Point::getNearestEndpoint(const RS_Vector& coord, double* dist)const {
+RS_Vector RS_Point::getNearestEndpoint(const RS_Vector& coord, LDOUBLE* dist)const {
 
     if (dist) {
         *dist = data.pos.distanceTo(coord);
@@ -67,7 +67,7 @@ RS_Vector RS_Point::getNearestEndpoint(const RS_Vector& coord, double* dist)cons
 
 
 RS_Vector RS_Point::getNearestPointOnEntity(const RS_Vector& coord,
-        bool /*onEntity*/, double* dist, RS_Entity** entity) const{
+		bool /*onEntity*/, LDOUBLE* dist, RS_Entity** entity) const{
     if (dist) {
         *dist = data.pos.distanceTo(coord);
     }
@@ -79,7 +79,7 @@ RS_Vector RS_Point::getNearestPointOnEntity(const RS_Vector& coord,
 
 
 
-RS_Vector RS_Point::getNearestCenter(const RS_Vector& coord, double* dist) const{
+RS_Vector RS_Point::getNearestCenter(const RS_Vector& coord, LDOUBLE* dist) const{
 
     if (dist) {
         *dist = data.pos.distanceTo(coord);
@@ -95,7 +95,7 @@ RS_Vector RS_Point::getMiddlePoint()const{
 
 
 RS_Vector RS_Point::getNearestMiddle(const RS_Vector& coord,
-                                     double* dist,
+									 LDOUBLE* dist,
                                      const int /*middlePoints*/)const {
     if (dist) {
         *dist = data.pos.distanceTo(coord);
@@ -106,21 +106,21 @@ RS_Vector RS_Point::getNearestMiddle(const RS_Vector& coord,
 
 
 
-RS_Vector RS_Point::getNearestDist(double /*distance*/,
+RS_Vector RS_Point::getNearestDist(LDOUBLE /*distance*/,
                                    const RS_Vector& /*coord*/,
-								   double* dist) const{
+								   LDOUBLE* dist) const{
     if (dist) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
     return RS_Vector(false);
 }
 
 
 
-double RS_Point::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_Point::getDistanceToPoint(const RS_Vector& coord,
                                     RS_Entity** entity,
                                     RS2::ResolveLevel /*level*/,
-                                                                        double /*solidDist*/)const {
+																		LDOUBLE /*solidDist*/)const {
     if (entity) {
         *entity = const_cast<RS_Point*>(this);
     }
@@ -143,7 +143,7 @@ void RS_Point::move(const RS_Vector& offset) {
 
 
 
-void RS_Point::rotate(const RS_Vector& center, const double& angle) {
+void RS_Point::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     data.pos.rotate(center, angle);
     calculateBorders();
 }
@@ -166,7 +166,7 @@ void RS_Point::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) 
 }
 
 
-void RS_Point::draw(RS_Painter* painter,RS_GraphicView* view, double& /*patternOffset*/) {
+void RS_Point::draw(RS_Painter* painter,RS_GraphicView* view, LDOUBLE& /*patternOffset*/) {
     if (painter==NULL || view==NULL) {
         return;
     }

@@ -155,7 +155,7 @@ void RS_ActionDrawEllipseAxis::mouseMoveEvent(QMouseEvent* e) {
         if (center.valid && major.valid) {
             deletePreview();
             RS_Line line(NULL, RS_LineData(center-major, center+major));
-            double d = line.getDistanceToPoint(mouse);
+            LDOUBLE d = line.getDistanceToPoint(mouse);
             ratio = d/(line.getLength()/2);
             RS_EllipseData ed(center, major,
                               ratio,
@@ -255,7 +255,7 @@ void RS_ActionDrawEllipseAxis::coordinateEvent(RS_CoordinateEvent* e) {
 
     case SetMinor: {
             RS_Line line(NULL, RS_LineData(center-major, center+major));
-            double d = line.getDistanceToPoint(mouse);
+            LDOUBLE d = line.getDistanceToPoint(mouse);
             ratio = d/(line.getLength()/2);
             if (!isArc) {
                 trigger();
@@ -307,7 +307,7 @@ void RS_ActionDrawEllipseAxis::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     case SetMinor: {
             bool ok;
-            double m = RS_Math::eval(c, &ok);
+            LDOUBLE m = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 ratio = m / major.magnitude();
@@ -326,7 +326,7 @@ void RS_ActionDrawEllipseAxis::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle1: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 angle1 = RS_Math::deg2rad(a);
@@ -341,7 +341,7 @@ void RS_ActionDrawEllipseAxis::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle2: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 angle2 = RS_Math::deg2rad(a);

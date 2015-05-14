@@ -51,8 +51,8 @@
 #endif
 
 RS_PasteData::RS_PasteData(RS_Vector _insertionPoint,
-		double _factor,
-		double _angle,
+		LDOUBLE _factor,
+		LDOUBLE _angle,
 		bool _asInsert,
 		const QString& _blockName):
 		insertionPoint(_insertionPoint)
@@ -408,7 +408,7 @@ void RS_Modification::paste(const RS_PasteData& data, RS_Graphic* source) {
         return;
     }
 
-    double factor = 1.0;
+	LDOUBLE factor = 1.0;
 
     if (source==NULL) {
         source = RS_CLIPBOARD->getGraphic();
@@ -668,8 +668,8 @@ bool RS_Modification::splitPolyline(RS_Polyline& polyline,
             if (e==&e1 && e==&e2) {
                 // Trim within a single entity:
                 RS_Vector sp = line->getStartpoint();
-                double dist1 = (v1-sp).magnitude();
-                double dist2 = (v2-sp).magnitude();
+				LDOUBLE dist1 = (v1-sp).magnitude();
+				LDOUBLE dist2 = (v2-sp).magnitude();
                 pl->addVertex(dist1<dist2 ? v1 : v2, 0.0);
                 pl = pl2;
                 pl->setStartpoint(dist1<dist2 ? v2 : v1);
@@ -744,7 +744,7 @@ RS_Polyline* RS_Modification::addPolylineNode(RS_Polyline& polyline,
 
         if (e->isAtomic()) {
             RS_AtomicEntity* ae = (RS_AtomicEntity*)e;
-            double bulge = 0.0;
+			LDOUBLE bulge = 0.0;
             if (ae->rtti()==RS2::EntityArc) {
                 RS_DEBUG->print("RS_Modification::addPolylineNode: arc segment");
                 bulge = ((RS_Arc*)ae)->getBulge();
@@ -882,7 +882,7 @@ RS_Polyline* RS_Modification::deletePolylineNode(RS_Polyline& polyline,
 
         if (e->isAtomic()) {
             RS_AtomicEntity* ae = (RS_AtomicEntity*)e;
-            double bulge = 0.0;
+			LDOUBLE bulge = 0.0;
             if (ae->rtti()==RS2::EntityArc) {
                 RS_DEBUG->print("RS_Modification::deletePolylineNode: arc segment");
                 bulge = ((RS_Arc*)ae)->getBulge();
@@ -1025,8 +1025,8 @@ RS_Polyline* RS_Modification::deletePolylineNodesBetween(RS_Polyline& polyline,
     bool deleteStart = false;
     if (polyline.isClosed()) {
         bool found = false;
-        double length1 = 0.0;
-        double length2 = 0.0;
+		LDOUBLE length1 = 0.0;
+		LDOUBLE length2 = 0.0;
         RS_Entity* e=polyline.firstEntity();
 
         if (startpointInvolved) {
@@ -1079,7 +1079,7 @@ RS_Polyline* RS_Modification::deletePolylineNodesBetween(RS_Polyline& polyline,
     bool nextIsStraight = false;
     RS_Entity* lastEntity = polyline.lastEntity();
     int i=0;
-	double bulge = 0.0;
+	LDOUBLE bulge = 0.0;
 	for(auto e: polyline){
 
         RS_DEBUG->print("RS_Modification::deletePolylineNodesBetween: entity: %d", i++);
@@ -1271,7 +1271,7 @@ RS_Polyline* RS_Modification::polylineTrim(RS_Polyline& polyline,
 
             if (e->isAtomic()) {
                 RS_AtomicEntity* ae = (RS_AtomicEntity*)e;
-                double bulge = 0.0;
+				LDOUBLE bulge = 0.0;
                 if (ae->rtti()==RS2::EntityArc) {
                     RS_DEBUG->print("RS_Modification::polylineTrim: arc segment");
                     bulge = ((RS_Arc*)ae)->getBulge();
@@ -1345,7 +1345,7 @@ RS_Polyline* RS_Modification::polylineTrim(RS_Polyline& polyline,
 
             if (e->isAtomic()) {
                 RS_AtomicEntity* ae = (RS_AtomicEntity*)e;
-                double bulge = 0.0;
+				LDOUBLE bulge = 0.0;
                 if (ae->rtti()==RS2::EntityArc) {
                     RS_DEBUG->print("RS_Modification::polylineTrim: arc segment");
                     bulge = ((RS_Arc*)ae)->getBulge();
@@ -1631,7 +1631,7 @@ bool RS_Modification::scale(RS_ScaleData& data) {
 	}
 	for(auto ec: *container){
         if (ec->isSelected() ) {
-            if ( fabs(data.factor.x - data.factor.y) > RS_TOLERANCE ) {
+            if ( fabsl(data.factor.x - data.factor.y) > RS_TOLERANCE ) {
                     if ( ec->rtti() == RS2::EntityCircle ) {
     //non-isotropic scaling, replacing selected circles with ellipses
                 RS_Circle *c=(RS_Circle*) ec;
@@ -2048,8 +2048,8 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
     if (trimEntity->rtti()==RS2::EntityCircle) {
         // convert a circle into a trimmable arc, need to start from intersections
         RS_Circle* c = static_cast<RS_Circle*>(trimEntity);
-        double aStart=0.;
-        double aEnd=2.*M_PI;
+		LDOUBLE aStart=0.;
+		LDOUBLE aEnd=2.*M_PI;
         switch(sol.size()){
         case 0:
             break;
@@ -2060,14 +2060,14 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
         default:
         case 2:
             //trim according to intersections
-			std::vector<double> angles;
+			std::vector<LDOUBLE> angles;
             const auto& center0=c->getCenter();
 			for(const RS_Vector& vp : sol){
 				angles.push_back(center0.angleTo(vp));
             }
             //sort intersections by angle to circle center
             std::sort(angles.begin(), angles.end());
-            const double a0=center0.angleTo(trimCoord);
+			const LDOUBLE a0=center0.angleTo(trimCoord);
 			for(size_t i=0; i<angles.size(); ++i){
                 aStart=angles.at(i);
                 aEnd=angles.at( (i+1)%angles.size());
@@ -2197,7 +2197,7 @@ bool RS_Modification::trim(const RS_Vector& trimCoord,
  */
 bool RS_Modification::trimAmount(const RS_Vector& trimCoord,
                                  RS_AtomicEntity* trimEntity,
-                                 double dist) {
+								 LDOUBLE dist) {
 
     if (trimEntity==NULL) {
         RS_DEBUG->print(RS_Debug::D_WARNING,
@@ -2281,7 +2281,7 @@ bool RS_Modification::cut(const RS_Vector& cutCoord,
 
     RS_AtomicEntity* cut1 = NULL;
     RS_AtomicEntity* cut2 = NULL;
-    double a;
+	LDOUBLE a;
 
     switch (cutEntity->rtti()) {
     case RS2::EntityCircle:
@@ -2774,8 +2774,8 @@ bool RS_Modification::round(const RS_Vector& coord,
     RS_Vector is = sol.getClosest(coord);
     RS_Vector p1 = entity1->getNearestPointOnEntity(is, false);
     RS_Vector p2 = entity2->getNearestPointOnEntity(is, false);
-    double ang1 = is.angleTo(p1);
-    double ang2 = is.angleTo(p2);
+	LDOUBLE ang1 = is.angleTo(p1);
+	LDOUBLE ang2 = is.angleTo(p2);
     bool reversed = (RS_Math::getAngleDifference(ang1, ang2)>M_PI);
 
     RS_Arc* arc = new RS_Arc(baseContainer,

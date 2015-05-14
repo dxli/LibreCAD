@@ -46,12 +46,12 @@ struct RS_DimRadialData {
      * @param leader Leader length.
      */
     RS_DimRadialData(const RS_Vector& definitionPoint,
-					 double leader);
+					 LDOUBLE leader);
 
     /** Definition point. */
     RS_Vector definitionPoint;
     /** Leader length. */
-    double leader;
+	LDOUBLE leader;
 };
 
 std::ostream& operator << (std::ostream& os,
@@ -93,12 +93,12 @@ public:
     RS_Vector getDefinitionPoint() {
         return edata.definitionPoint;
     }
-    double getLeader() {
+	LDOUBLE getLeader() {
         return edata.leader;
     }
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

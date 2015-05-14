@@ -81,7 +81,7 @@ RS_Entity* RS_Creation::createParallelThrough(const RS_Vector& coord,
 		return nullptr;
     }
 
-    double dist;
+	LDOUBLE dist;
 
     if (e->rtti()==RS2::EntityLine) {
         RS_Line* l = (RS_Line*)e;
@@ -93,7 +93,7 @@ RS_Entity* RS_Creation::createParallelThrough(const RS_Vector& coord,
         dist = e->getDistanceToPoint(coord);
     }
 
-    if (dist<RS_MAXDOUBLE) {
+	if (dist<RS_MAXDOUBLE) {
         return createParallel(coord, dist, number, e);
     } else {
 		return nullptr;
@@ -118,7 +118,7 @@ RS_Entity* RS_Creation::createParallelThrough(const RS_Vector& coord,
  *    parallel has been created.
  */
 RS_Entity* RS_Creation::createParallel(const RS_Vector& coord,
-                                       double distance, int number,
+									   LDOUBLE distance, int number,
                                        RS_Entity* e) {
 	if (e==nullptr) {
 		return nullptr;
@@ -163,14 +163,14 @@ RS_Entity* RS_Creation::createParallel(const RS_Vector& coord,
  *    parallel has been created.
  */
 RS_Line* RS_Creation::createParallelLine(const RS_Vector& coord,
-                                         double distance, int number,
+										 LDOUBLE distance, int number,
                                          RS_Line* e) {
 
 	if (e==nullptr) {
 		return nullptr;
     }
 
-	double ang = e->getAngle1() + M_PI_2;
+	LDOUBLE ang = e->getAngle1() + M_PI_2;
     RS_Vector p1, p2;
     RS_LineData parallelData;
 	RS_Line* ret = nullptr;
@@ -195,11 +195,11 @@ RS_Line* RS_Creation::createParallelLine(const RS_Vector& coord,
         p2 += e->getEndpoint();
 		RS_Line parallel2(nullptr, RS_LineData(p1, p2));
 
-        double dist1 = parallel1.getDistanceToPoint(coord);
-        double dist2 = parallel2.getDistanceToPoint(coord);
-        double minDist = std::min(dist1, dist2);
+		LDOUBLE dist1 = parallel1.getDistanceToPoint(coord);
+		LDOUBLE dist2 = parallel2.getDistanceToPoint(coord);
+		LDOUBLE minDist = std::min(dist1, dist2);
 
-        if (minDist<RS_MAXDOUBLE) {
+		if (minDist<RS_MAXDOUBLE) {
             if (dist1<dist2) {
                 parallelData = parallel1.getData();
             } else {
@@ -238,7 +238,7 @@ RS_Line* RS_Creation::createParallelLine(const RS_Vector& coord,
  *    parallel has been created.
  */
 RS_Arc* RS_Creation::createParallelArc(const RS_Vector& coord,
-                                       double distance, int number,
+									   LDOUBLE distance, int number,
                                        RS_Arc* e) {
 
 	if (e==nullptr) {
@@ -261,7 +261,7 @@ RS_Arc* RS_Creation::createParallelArc(const RS_Vector& coord,
 		RS_Arc parallel1(nullptr, e->getData());
         parallel1.setRadius(e->getRadius() + distance*num);
         if (parallel1.getRadius()<0.0) {
-            parallel1.setRadius(RS_MAXDOUBLE);
+			parallel1.setRadius(RS_MAXDOUBLE);
             ok = false;
         }
 
@@ -269,11 +269,11 @@ RS_Arc* RS_Creation::createParallelArc(const RS_Vector& coord,
 		//RS_Arc parallel2(nullptr, e->getData());
         //parallel2.setRadius(e->getRadius()+distance*num);
 
-        //double dist1 = parallel1.getDistanceToPoint(coord);
-        //double dist2 = parallel2.getDistanceToPoint(coord);
-        //double minDist = min(dist1, dist2);
+		//LDOUBLE dist1 = parallel1.getDistanceToPoint(coord);
+		//LDOUBLE dist2 = parallel2.getDistanceToPoint(coord);
+		//LDOUBLE minDist = min(dist1, dist2);
 
-        //if (minDist<RS_MAXDOUBLE) {
+		//if (minDist<RS_MAXDOUBLE) {
 		if (ok) {
             //if (dist1<dist2) {
             parallelData = parallel1.getData();
@@ -313,7 +313,7 @@ RS_Arc* RS_Creation::createParallelArc(const RS_Vector& coord,
  *    parallel has been created.
  */
 RS_Circle* RS_Creation::createParallelCircle(const RS_Vector& coord,
-                                             double distance, int number,
+											 LDOUBLE distance, int number,
                                              RS_Circle* e) {
 
 	if (e==nullptr) {
@@ -336,7 +336,7 @@ RS_Circle* RS_Creation::createParallelCircle(const RS_Vector& coord,
 		RS_Circle parallel1(nullptr, e->getData());
         parallel1.setRadius(e->getRadius() + distance*num);
         if (parallel1.getRadius()<0.0) {
-            parallel1.setRadius(RS_MAXDOUBLE);
+			parallel1.setRadius(RS_MAXDOUBLE);
             ok = false;
         }
 
@@ -344,11 +344,11 @@ RS_Circle* RS_Creation::createParallelCircle(const RS_Vector& coord,
 		//RS_Circle parallel2(nullptr, e->getData());
         //parallel2.setRadius(e->getRadius()+distance*num);
 
-        //double dist1 = parallel1.getDistanceToPoint(coord);
-        //double dist2 = parallel2.getDistanceToPoint(coord);
-        //double minDist = min(dist1, dist2);
+		//LDOUBLE dist1 = parallel1.getDistanceToPoint(coord);
+		//LDOUBLE dist2 = parallel2.getDistanceToPoint(coord);
+		//LDOUBLE minDist = min(dist1, dist2);
 
-        //if (minDist<RS_MAXDOUBLE) {
+		//if (minDist<RS_MAXDOUBLE) {
 		if (ok) {
             //if (dist1<dist2) {
             parallelData = parallel1.getData();
@@ -385,7 +385,7 @@ RS_Circle* RS_Creation::createParallelCircle(const RS_Vector& coord,
  *    parallel has been created.
  */
 LC_SplinePoints* RS_Creation::createParallelSplinePoints(const RS_Vector& coord,
-	double distance, int number, LC_SplinePoints* e)
+	LDOUBLE distance, int number, LC_SplinePoints* e)
 {
 	if(!e) return nullptr;
 
@@ -427,7 +427,7 @@ LC_SplinePoints* RS_Creation::createParallelSplinePoints(const RS_Vector& coord,
  */
 RS_Line* RS_Creation::createBisector(const RS_Vector& coord1,
                                      const RS_Vector& coord2,
-                                     double length,
+									 LDOUBLE length,
                                      int num,
                                      RS_Line* l1,
                                      RS_Line* l2) {
@@ -444,9 +444,9 @@ RS_Line* RS_Creation::createBisector(const RS_Vector& coord1,
 		return nullptr;
     }
 
-    double angle1 = inters.angleTo(l1->getNearestPointOnEntity(coord1));
-    double angle2 = inters.angleTo(l2->getNearestPointOnEntity(coord2));
-    double angleDiff = RS_Math::getAngleDifference(angle1, angle2);
+	LDOUBLE angle1 = inters.angleTo(l1->getNearestPointOnEntity(coord1));
+	LDOUBLE angle2 = inters.angleTo(l2->getNearestPointOnEntity(coord2));
+	LDOUBLE angleDiff = RS_Math::getAngleDifference(angle1, angle2);
     if (angleDiff>M_PI) {
 		angleDiff = angleDiff - 2.*M_PI;
     }
@@ -458,7 +458,7 @@ RS_Line* RS_Creation::createBisector(const RS_Vector& coord1,
 
     for (int n=1; n<=num; ++n) {
 
-        double angle = angle1 +
+		LDOUBLE angle = angle1 +
                 (angleDiff / (num+1) * n);
 
         RS_LineData d;
@@ -571,8 +571,8 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
 	RS_Line* ret = nullptr;
     RS_Vector circleCenter1;
     RS_Vector circleCenter2;
-    double circleRadius1 = 0.0;
-    double circleRadius2 = 0.0;
+	LDOUBLE circleRadius1 = 0.0;
+	LDOUBLE circleRadius2 = 0.0;
 
     // check given entities:
 	if(! (circle1 && circle2))
@@ -597,16 +597,16 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
 
         // create all possible tangents:
 
-        double angle1 = circleCenter1.angleTo(circleCenter2);
-        double dist1 = circleCenter1.distanceTo(circleCenter2);
+		LDOUBLE angle1 = circleCenter1.angleTo(circleCenter2);
+		LDOUBLE dist1 = circleCenter1.distanceTo(circleCenter2);
 
-        if (dist1>1.0e-6) {
+		if (dist1>1.0e-6L) {
             // outer tangents:
-            double dist2 = circleRadius2 - circleRadius1;
+			LDOUBLE dist2 = circleRadius2 - circleRadius1;
             if (dist1>dist2) {
-                double angle2 = asin(dist2/dist1);
-				double angt1 = angle1 + angle2 + M_PI_2;
-				double angt2 = angle1 - angle2 - M_PI_2;
+				LDOUBLE angle2 = asin(dist2/dist1);
+				LDOUBLE angt1 = angle1 + angle2 + M_PI_2;
+				LDOUBLE angt2 = angle1 - angle2 - M_PI_2;
                 RS_Vector offs1;
                 RS_Vector offs2;
 
@@ -627,11 +627,11 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
             }
 
             // inner tangents:
-            double dist3 = circleRadius2 + circleRadius1;
+			LDOUBLE dist3 = circleRadius2 + circleRadius1;
             if (dist1>dist3) {
-                double angle3 = asin(dist3/dist1);
-				double angt3 = angle1 + angle3 + M_PI_2;
-				double angt4 = angle1 - angle3 - M_PI_2;
+				LDOUBLE angle3 = asin(dist3/dist1);
+				LDOUBLE angt3 = angle1 + angle3 + M_PI_2;
+				LDOUBLE angt4 = angle1 - angle3 - M_PI_2;
                 RS_Vector offs1;
                 RS_Vector offs2;
 
@@ -662,12 +662,12 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
 //        std::cout<<"translation: "<<-m0<<std::endl;
         e2->move(-m0); //circle1 centered at origin
 
-        double a,b;
-        double a0(0.);
+		LDOUBLE a,b;
+		LDOUBLE a0(0.L);
         if(circle1->rtti() != RS2::EntityEllipse){//circle1 is either arc or circle
-            a=fabs(circle1->getRadius());
+			a=(LDOUBLE) fabsl(circle1->getRadius());
             b=a;
-			if(fabs(a)<RS_TOLERANCE) return nullptr;
+			if(fabsl((LDOUBLE) a)<RS_TOLERANCE) return nullptr;
         }else{//circle1 is ellipse
             RS_Ellipse* e1=static_cast<RS_Ellipse*>(circle1);
             a0=e1->getAngle();
@@ -675,13 +675,13 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
             e2->rotate(-a0);//e1 major axis along x-axis
             a=e1->getMajorRadius();
             b=e1->getRatio()*a;
-			if(fabs(a)<RS_TOLERANCE || fabs(b)<RS_TOLERANCE) return nullptr;
+			if(fabsl(a)<RS_TOLERANCE || fabsl(b)<RS_TOLERANCE) return nullptr;
         }
         RS_Vector factor1(1./a,1./b);
 //        std::cout<<"scaling: factor1="<<factor1<<std::endl;
         e2->scale(RS_Vector(0.,0.),factor1);//circle1 is a unit circle
         factor1.set(a,b);
-        double a2(e2->getAngle());
+		LDOUBLE a2(e2->getAngle());
 //        std::cout<<"rotation: a2="<<-a2<<std::endl;
         e2->rotate(-a2); //ellipse2 with major axis in x-axis direction
         a=e2->getMajorP().x;
@@ -690,14 +690,14 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
 //        std::cout<<"Center: (x,y)="<<v<<std::endl;
 
 
-        std::vector<double> m(0,0.);
-        m.push_back(1./(a*a)); //ma000
-        m.push_back(1./(b*b)); //ma000
-        m.push_back(v.y*v.y-1.); //ma100
+		std::vector<LDOUBLE> m(0,0.L);
+		m.push_back(1.L/(a*a)); //ma000
+		m.push_back(1.L/(b*b)); //ma000
+		m.push_back(v.y*v.y-1.L); //ma100
         m.push_back(v.x*v.y); //ma101
-        m.push_back(v.x*v.x-1.); //ma111
-        m.push_back(2.*a*b*v.y); //mb10
-        m.push_back(2.*a*b*v.x); //mb11
+		m.push_back(v.x*v.x-1.L); //ma111
+		m.push_back(2.L*a*b*v.y); //mb10
+		m.push_back(2.L*a*b*v.x); //mb11
         m.push_back(a*a*b*b); //mc1
 
         auto&& vs0=RS_Math::simultaneousQuadraticSolver(m); //to hold solutions
@@ -721,8 +721,8 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
     }
     // find closest tangent:
 	if(poss.size()<1) return nullptr;
-    double minDist = RS_MAXDOUBLE;
-    double dist;
+	LDOUBLE minDist = RS_MAXDOUBLE;
+	LDOUBLE dist;
     int idx = -1;
 	for (size_t i=0; i<poss.size(); ++i) {
 		if (poss[i]) {
@@ -734,7 +734,7 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
             }
         }
     }
-//idx=static_cast<int>(poss.size()*(random()/(double(1.0)+RAND_MAX)));
+//idx=static_cast<int>(poss.size()*(random()/(LDOUBLE(1.0)+RAND_MAX)));
     if (idx!=-1) {
         RS_LineData d = poss[idx]->getData();
 		for(auto p: poss){
@@ -772,13 +772,13 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
     RS_Vector&& center1=e1->getCenter();
     RS_Vector&& center2=e2->getCenter();
     RS_Vector&& cp=(center1+center2)*0.5;
-    double dist=center1.distanceTo(center2);
+	LDOUBLE dist=center1.distanceTo(center2);
     if(dist<RS_TOLERANCE) return ret;
     RS_Vector&& vp= center1 - cp;
-     double c=dist/(e1->getRadius()+e2->getRadius());
+	 LDOUBLE c=dist/(e1->getRadius()+e2->getRadius());
      if( c < 1. - RS_TOLERANCE) {
         //two circles intersection or one circle in the other, there's an ellipse path
-		 ret.push_back(new RS_Ellipse(nullptr, RS_EllipseData(cp,vp,sqrt(1. - c*c),0.,0.,false)));
+		 ret.push_back(new RS_Ellipse(nullptr, RS_EllipseData(cp,vp,sqrtl(1. - c*c),0.,0.,false)));
      }
     if( dist + e2 ->getRadius() < e1->getRadius() +RS_TOLERANCE ) {
         //one circle inside of another, the path is an ellipse
@@ -787,7 +787,7 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
     if(c > 1. + RS_TOLERANCE) {
         //not circle in circle, there's a hyperbola path
     c= (e1->getRadius()  - e2->getRadius())/dist;
-	ret.push_back(new LC_Hyperbola(nullptr, LC_HyperbolaData(cp,vp*c,sqrt(1. - c*c),0.,0.,false)));
+	ret.push_back(new LC_Hyperbola(nullptr, LC_HyperbolaData(cp,vp*c,sqrtl(1. - c*c),0.,0.,false)));
     return ret;
 }
 	ret.push_back( new RS_Line(nullptr, RS_LineData(cp, RS_Vector(cp.x - vp.y, cp.y+vp.x))));
@@ -806,8 +806,8 @@ RS_Line* RS_Creation::createTangent2(const RS_Vector& coord,
      */
 RS_Line* RS_Creation::createLineRelAngle(const RS_Vector& coord,
                                          RS_Entity* entity,
-                                         double angle,
-                                         double length) {
+										 LDOUBLE angle,
+										 LDOUBLE length) {
 
     // check given entity / coord:
 	if (entity==nullptr || !coord.valid ||
@@ -817,7 +817,7 @@ RS_Line* RS_Creation::createLineRelAngle(const RS_Vector& coord,
 		return nullptr;
     }
 
-    double a1=0.0;
+	LDOUBLE a1=0.0;
 
     switch (entity->rtti()) {
     case RS2::EntityLine:
@@ -933,9 +933,9 @@ RS_Line* RS_Creation::createPolygon2(const RS_Vector& corner1,
         document->startUndoCycle();
     }
 
-    double len = corner1.distanceTo(corner2);
-    double ang1 = corner1.angleTo(corner2);
-    double ang = ang1;
+	LDOUBLE len = corner1.distanceTo(corner2);
+	LDOUBLE ang1 = corner1.angleTo(corner2);
+	LDOUBLE ang = ang1;
 
     RS_Vector c1(false);
     RS_Vector c2 = corner1;
@@ -1107,7 +1107,7 @@ RS_Insert* RS_Creation::createLibraryInsert(RS_LibraryInsertData& data) {
 
     // unit conversion:
 	if (graphic) {
-        double uf = RS_Units::convert(1.0, g.getUnit(),
+		LDOUBLE uf = RS_Units::convert(1.0, g.getUnit(),
                                       graphic->getUnit());
         g.scale(RS_Vector(0.0, 0.0), RS_Vector(uf, uf));
     }

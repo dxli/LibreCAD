@@ -92,9 +92,9 @@ public:
     }
 
     virtual QString getMeasuredLabel();
-    double getAngle();
+	LDOUBLE getAngle();
     RS_Vector getCenter() const;
-        bool getAngles(double& ang1, double& ang2, bool& reversed,
+		bool getAngles(LDOUBLE& ang1, LDOUBLE& ang2, bool& reversed,
                 RS_Vector& p1, RS_Vector& p2);
 
     virtual void updateDim(bool autoText=false);
@@ -112,7 +112,7 @@ public:
         return edata.definitionPoint4;
     }
     virtual void move(const RS_Vector& offset);
-       virtual void rotate(const RS_Vector& center, const double& angle);
+	   virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
        virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
        virtual void scale(const RS_Vector& center, const RS_Vector& factor);
        virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

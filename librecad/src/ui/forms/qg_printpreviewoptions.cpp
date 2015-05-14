@@ -212,7 +212,7 @@ void QG_PrintPreviewOptions::fit() {
 
 
 void QG_PrintPreviewOptions::scale(const double& factor) {
-    double&& f=fabs(factor); // do we need negative factor at all?
+    double&& f=fabsl(factor); // do we need negative factor at all?
     if(action->setScale(f, false)){
         //        std::cout<<"QG_PrintPreviewOptions::scale(const QString& s): line: "<<__LINE__<<" s="<<factor<<std::endl;
         updateScaleBox(f);
@@ -252,7 +252,7 @@ void QG_PrintPreviewOptions::scale(const QString& s0) {
             factor=f;
         }
     }
-    factor=fabs(factor); // do we need negative factor at all?
+    factor=fabsl(factor); // do we need negative factor at all?
 //    if(factor<1.0e-6 || factor>1.0e6) {
 //        if(factor>1.0e6){
 //            action->printWarning(tr("Paper scale factor larger than 1.0e6"));
@@ -281,9 +281,9 @@ void QG_PrintPreviewOptions::updateScaleBox(const double& f){
         bool ok1,ok2;
         double n = s.left(i0).toDouble(&ok1);
         double d = s.mid(i0+1).toDouble(&ok2);
-        if(! (ok1 && ok2)|| fabs(d)<RS_TOLERANCE) continue;
+        if(! (ok1 && ok2)|| fabsl(d)<RS_TOLERANCE) continue;
 
-        if(fabs(f-n/d)<RS_TOLERANCE) break;
+        if(fabsl(f-n/d)<RS_TOLERANCE) break;
     }
     if(i<cbScale->count()){
         cbScale->setCurrentIndex(i);
@@ -294,7 +294,7 @@ void QG_PrintPreviewOptions::updateScaleBox(const double& f){
     if(f>1.){
         s=QString("%1:1").arg(f);
     }else{
-        if(fabs(f)>RS_TOLERANCE) s=QString("1:%1").arg(1./f);
+        if(fabsl(f)>RS_TOLERANCE) s=QString("1:%1").arg(1./f);
     }
     if(cbScale->count()>defaultScales){
         i=defaultScales;

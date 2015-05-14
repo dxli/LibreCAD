@@ -43,13 +43,8 @@ RS_ActionInfoAngle::RS_ActionInfoAngle(RS_EntityContainer& container,
                            container, graphicView) {}
 
 QAction* RS_ActionInfoAngle::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
-/* RVT_PORT    QAction* action = new QAction(tr("Angle between two lines"),
-                                  tr("&Angle between two lines"),
-                                  QKeySequence(), NULL); */
 
-    QAction* action = new QAction(tr("An&gle between two lines"), NULL);
-    //action->zetStatusTip(tr("Measures the angle between two lines"));
-        action->setIcon(QIcon(":/extui/infoangle.png"));
+	QAction* action = new QAction(QIcon(":/extui/infoangle.png"), tr("An&gle between two lines"), NULL);
     return action;
 }
 
@@ -73,16 +68,16 @@ void RS_ActionInfoAngle::trigger() {
             intersection = sol.get(0);
 
             if (intersection.valid && point1.valid && point2.valid) {
-                double angle1 = intersection.angleTo(point1);
-                double angle2 = intersection.angleTo(point2);
-				double angle = remainder(angle2-angle1,2.*M_PI);
+                LDOUBLE angle1 = intersection.angleTo(point1);
+                LDOUBLE angle2 = intersection.angleTo(point2);
+			 LDOUBLE angle = remainder(angle2-angle1,2.*M_PI);
 
 				QString str = RS_Units::formatAngle(angle,
 													graphic->getAngleFormat(), graphic->getAnglePrecision());
 
                 if(angle<0.){
 					str += " or ";
-					str += RS_Units::formatAngle(angle + 2.*M_PI,
+					str += RS_Units::formatAngle(angle + 2.L*M_PI,
 												 graphic->getAngleFormat(), graphic->getAnglePrecision());
                 }
                 RS_DIALOGFACTORY->commandMessage(tr("Angle: %1").arg(str));
@@ -172,16 +167,6 @@ void RS_ActionInfoAngle::updateMouseButtonHints() {
 void RS_ActionInfoAngle::updateMouseCursor() {
     graphicView->setMouseCursor(RS2::CadCursor);
 }
-
-
-
-//void RS_ActionInfoAngle::updateToolBar() {
-//    if (RS_DIALOGFACTORY) {
-//        if (isFinished()) {
-//            RS_DIALOGFACTORY->resetToolBar();
-//        }
-//    }
-//}
 
 
 // EOF

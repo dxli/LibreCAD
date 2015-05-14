@@ -81,7 +81,7 @@ public:
 		data.length1 = l1;
 	}
 
-	double getLength1() {
+ LDOUBLE getLength1() {
 		return data.length1;
 	}
 	
@@ -89,7 +89,7 @@ public:
 		data.length2 = l2;
 	}
 
-	double getLength2() {
+ LDOUBLE getLength2() {
 		return data.length2;
 	}
 

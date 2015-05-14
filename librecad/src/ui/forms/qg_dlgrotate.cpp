@@ -114,8 +114,8 @@ void QG_DlgRotate::destroy() {
 
 void QG_DlgRotate::setData(RS_RotateData* d) {
     data = d;
-    if( fabs(data->angle) > RS_TOLERANCE ) {
-        angle=QString::number(RS_Math::rad2deg(data->angle));
+    if( fabsl(data->angle) > RS_TOLERANCE ) {
+		angle=QString::number((double)RS_Math::rad2deg(data->angle));
     }
     leAngle->setText(angle);
 

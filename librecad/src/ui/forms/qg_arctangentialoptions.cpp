@@ -75,8 +75,8 @@ void QG_ArcTangentialOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sr,sa;
         bool bbr;
         if (update) {
-            sr = QString("%1").arg(action->getRadius());
-            sa = QString("%1").arg(action->getAngle()*180./M_PI);
+			sr = QString("%1").arg((double)action->getRadius());
+			sa = QString("%1").arg((double)action->getAngle()*180./M_PI);
             bbr= action->getByRadius();
         } else {
             RS_SETTINGS->beginGroup("/Draw");
@@ -135,7 +135,7 @@ void QG_ArcTangentialOptions::on_leRadius_textEdited()
 {
     if(rbRadius->isChecked()) {
         bool ok;
-        double d=fabs(RS_Math::eval(leRadius->text(), &ok));
+        double d=fabsl(RS_Math::eval(leRadius->text(), &ok));
         if(!ok) return;
         if (d<RS_TOLERANCE) d=1.0;
         //updateRadius(QString::number(d,'g',5));
@@ -155,7 +155,7 @@ void QG_ArcTangentialOptions::on_leAngle_textEdited()
         action->setAngle(d);
         //updateAngle(QString::number(d*180./M_PI,'g',5));
         action->setByRadius(false);
-        leAngle->setText(QString::number(RS_Math::rad2deg( d),'g',5));
+		leAngle->setText(QString::number((double)RS_Math::rad2deg( d),'g',5));
     }
 }
 

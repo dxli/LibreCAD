@@ -74,7 +74,7 @@ void QG_DlgDimLinear::setDim(RS_DimLinear& d) {
     }
 
     wLabel->setLabel(dim->getLabel(false));
-    leAngle->setText(QString("%1").arg(RS_Math::rad2deg(dim->getAngle())));
+	leAngle->setText(QString("%1").arg((double)RS_Math::rad2deg(dim->getAngle())));
 }
 
 void QG_DlgDimLinear::updateDim() {

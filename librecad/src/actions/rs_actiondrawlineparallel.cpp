@@ -127,7 +127,7 @@ void RS_ActionDrawLineParallel::updateMouseButtonHints() {
         case SetEntity:
             RS_DIALOGFACTORY->updateMouseWidget(
                 tr("Specify Distance <%1> or select entity or [%2]")
-                .arg(distance).arg(RS_COMMANDS->command("through")),
+				.arg((double)distance).arg(RS_COMMANDS->command("through")),
                 tr("Cancel"));
             break;
 
@@ -182,7 +182,7 @@ void RS_ActionDrawLineParallel::commandEvent(RS_CommandEvent* e) {
                 setStatus(SetNumber);
             } else {
                 bool ok;
-                double d = RS_Math::eval(c, &ok);
+                LDOUBLE d = RS_Math::eval(c, &ok);
                 if(ok) e->accept();
                 if (ok && d>1.0e-10) {
                     distance = d;

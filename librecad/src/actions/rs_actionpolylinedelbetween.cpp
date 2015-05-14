@@ -120,7 +120,7 @@ void RS_ActionPolylineDelBetween::mouseReleaseEvent(QMouseEvent* e) {
                         } else {
 							snapPoint(e);
                                 delSegment = NULL;
-                                double dist = graphicView->toGraphDX(snapRange)*0.9;
+                                LDOUBLE dist = graphicView->toGraphDX(snapRange)*0.9;
                                 delSegment =  (RS_AtomicEntity*)((RS_Polyline*)delEntity)->getNearestEntity( RS_Vector(graphicView->toGraphX(e->x()),
                                                                         graphicView->toGraphY(e->y())), &dist, RS2::ResolveNone);
                                 if(delSegment == NULL)

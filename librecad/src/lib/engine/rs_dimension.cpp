@@ -65,10 +65,10 @@ RS_DimensionData::RS_DimensionData(const RS_Vector& _definitionPoint,
 				 RS_MTextData::VAlign _valign,
 				 RS_MTextData::HAlign _halign,
 				 RS_MTextData::MTextLineSpacingStyle _lineSpacingStyle,
-				 double _lineSpacingFactor,
+				 LDOUBLE _lineSpacingFactor,
 				 QString _text,
 				 QString _style,
-				 double _angle):
+				 LDOUBLE _angle):
 	definitionPoint(_definitionPoint)
 	,middleOfText(_middleOfText)
 	,valign(_valign)
@@ -158,22 +158,22 @@ void RS_Dimension::updateCreateDimensionLine(const RS_Vector& p1,
         const RS_Vector& p2, bool arrow1, bool arrow2, bool forceAutoText) {
 
     // general scale (DIMSCALE)
-    double dimscale = getGeneralScale();
+	LDOUBLE dimscale = getGeneralScale();
     // text height (DIMTXT)
-    double dimtxt = getTextHeight()*dimscale;
+	LDOUBLE dimtxt = getTextHeight()*dimscale;
     // text distance to line (DIMGAP)
-    double dimgap = getDimensionLineGap()*dimscale;
+	LDOUBLE dimgap = getDimensionLineGap()*dimscale;
 
     // length of dimension line:
-    double distance = p1.distanceTo(p2);
+	LDOUBLE distance = p1.distanceTo(p2);
     // arrow size:
-    double arrowSize = getArrowSize()*dimscale;
+	LDOUBLE arrowSize = getArrowSize()*dimscale;
 
     // do we have to put the arrows outside of the line?
     bool outsideArrows = (distance<arrowSize*2.5);
 
     // arrow angles:
-    double arrowAngle1, arrowAngle2;
+	LDOUBLE arrowAngle1, arrowAngle2;
 
     // Create dimension line:
     RS_Line* dimensionLine = new RS_Line(this, RS_LineData(p1, p2));
@@ -194,7 +194,7 @@ void RS_Dimension::updateCreateDimensionLine(const RS_Vector& p1,
         dimensionLine->setStartpoint(p1 + dir);
         dimensionLine->setEndpoint(p2 - dir);
     }
-double dimtsz=getTickSize()*dimscale;
+LDOUBLE dimtsz=getTickSize()*dimscale;
 if(dimtsz < 0.01) {
     //display arrow
     // Arrows:
@@ -250,8 +250,8 @@ if(dimtsz < 0.01) {
     RS_MTextData textData;
     RS_Vector textPos;
 
-        double dimAngle1 = dimensionLine->getAngle1();
-        double textAngle;
+		LDOUBLE dimAngle1 = dimensionLine->getAngle1();
+		LDOUBLE textAngle;
         bool corrected=false;
         if (getAlignText())
             textAngle =0.0;
@@ -306,8 +306,8 @@ if(dimtsz < 0.01) {
     text->setLayer(NULL);
     //horizontal text, split dimensionLine
     if (getAlignText()) {
-        double w =text->getUsedTextWidth()/2+dimgap;
-        double h = text->getUsedTextHeight()/2+dimgap;
+		LDOUBLE w =text->getUsedTextWidth()/2+dimgap;
+		LDOUBLE h = text->getUsedTextHeight()/2+dimgap;
         RS_Vector v1 = textPos - RS_Vector(w, h);
         RS_Vector v2 = textPos + RS_Vector(w, h);
         RS_Line l[] = {
@@ -351,28 +351,28 @@ if(dimtsz < 0.01) {
 /**
  * @return general factor for linear dimensions.
  */
-double RS_Dimension::getGeneralFactor() {
+LDOUBLE RS_Dimension::getGeneralFactor() {
     return getGraphicVariable("$DIMLFAC", 1.0, 40);
 }
 
 /**
  * @return general scale for dimensions.
  */
-double RS_Dimension::getGeneralScale() {
+LDOUBLE RS_Dimension::getGeneralScale() {
     return getGraphicVariable("$DIMSCALE", 1.0, 40);
 }
 
 /**
  * @return arrow size in drawing units.
  */
-double RS_Dimension::getArrowSize() {
+LDOUBLE RS_Dimension::getArrowSize() {
     return getGraphicVariable("$DIMASZ", 2.5, 40);
 }
 
 /**
  * @return tick size in drawing units.
  */
-double RS_Dimension::getTickSize() {
+LDOUBLE RS_Dimension::getTickSize() {
     return getGraphicVariable("$DIMTSZ", 0., 40);
 }
 
@@ -380,7 +380,7 @@ double RS_Dimension::getTickSize() {
 /**
  * @return extension line overlength in drawing units.
  */
-double RS_Dimension::getExtensionLineExtension() {
+LDOUBLE RS_Dimension::getExtensionLineExtension() {
     return getGraphicVariable("$DIMEXE", 1.25, 40);
 }
 
@@ -389,7 +389,7 @@ double RS_Dimension::getExtensionLineExtension() {
 /**
  * @return extension line offset from entities in drawing units.
  */
-double RS_Dimension::getExtensionLineOffset() {
+LDOUBLE RS_Dimension::getExtensionLineOffset() {
     return getGraphicVariable("$DIMEXO", 0.625, 40);
 }
 
@@ -398,7 +398,7 @@ double RS_Dimension::getExtensionLineOffset() {
 /**
  * @return extension line gap to text in drawing units.
  */
-double RS_Dimension::getDimensionLineGap() {
+LDOUBLE RS_Dimension::getDimensionLineGap() {
     return getGraphicVariable("$DIMGAP", 0.625, 40);
 }
 
@@ -407,7 +407,7 @@ double RS_Dimension::getDimensionLineGap() {
 /**
  * @return Dimension lables text height.
  */
-double RS_Dimension::getTextHeight() {
+LDOUBLE RS_Dimension::getTextHeight() {
     return getGraphicVariable("$DIMTXT", 2.5, 40);
 }
 
@@ -433,16 +433,16 @@ bool RS_Dimension::getAlignText() {
  * If the variable is not found it is added with the given default
  * value converted to the local unit.
  */
-double RS_Dimension::getGraphicVariable(const QString& key, double defMM,
+LDOUBLE RS_Dimension::getGraphicVariable(const QString& key, LDOUBLE defMM,
                                         int code) {
 
-    double v = getGraphicVariableDouble(key, RS_MINDOUBLE);
-    if (v<=RS_MINDOUBLE) {
+	LDOUBLE v = getGraphicVariableDouble(key, RS_MINDOUBLE);
+	if (v<=RS_MINDOUBLE) {
         addGraphicVariable(
             key,
             RS_Units::convert(defMM, RS2::Millimeter, getGraphicUnit()),
             code);
-        v = getGraphicVariableDouble(key, 1.0);
+		v = getGraphicVariableDouble(key, 1.0L);
     }
 
     return v;
@@ -458,7 +458,7 @@ void RS_Dimension::move(const RS_Vector& offset) {
 
 
 
-void RS_Dimension::rotate(const RS_Vector& center, const double& angle) {
+void RS_Dimension::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
 	data.definitionPoint.rotate(center, angleVector);
     data.middleOfText.rotate(center, angleVector);

@@ -74,15 +74,15 @@ void QG_DlgArc::setArc(RS_Arc& a) {
         cbLayer->setLayer(*lay);
     }
     QString s;
-    s.setNum(arc->getCenter().x);
+	s.setNum((double) arc->getCenter().x);
     leCenterX->setText(s);
-    s.setNum(arc->getCenter().y);
+	s.setNum((double) arc->getCenter().y);
     leCenterY->setText(s);
-    s.setNum(arc->getRadius());
+	s.setNum((double) arc->getRadius());
     leRadius->setText(s);
-    s.setNum(RS_Math::rad2deg(arc->getAngle1()));
+	s.setNum((double) RS_Math::rad2deg(arc->getAngle1()));
     leAngle1->setText(s);
-    s.setNum(RS_Math::rad2deg(arc->getAngle2()));
+	s.setNum((double) RS_Math::rad2deg(arc->getAngle2()));
     leAngle2->setText(s);
     cbReversed->setChecked(arc->isReversed());
 }

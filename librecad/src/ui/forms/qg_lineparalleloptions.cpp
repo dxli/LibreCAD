@@ -72,7 +72,7 @@ void QG_LineParallelOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sd;
         QString sn;
         if (update) {
-            sd = QString("%1").arg(action->getDistance());
+			sd = QString("%1").arg((double)action->getDistance());
             sn = QString("%1").arg(action->getNumber());
         } else {
             RS_SETTINGS->beginGroup("/Draw");

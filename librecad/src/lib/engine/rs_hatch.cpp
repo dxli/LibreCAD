@@ -49,8 +49,8 @@
 #endif
 
 RS_HatchData::RS_HatchData(bool _solid,
-						   double _scale,
-						   double _angle,
+						   LDOUBLE _scale,
+						   LDOUBLE _angle,
 						   const QString& _pattern):
 	solid(_solid)
   ,scale(_scale)
@@ -213,7 +213,7 @@ void RS_Hatch::update() {
 
     // find out how many pattern-instances we need in x/y:
     int px1, py1, px2, py2;
-    double f;
+	LDOUBLE f;
     RS_Hatch* copy = (RS_Hatch*)this->clone();
     copy->rotate(RS_Vector(0.0,0.0), -data.angle);
     copy->forcedCalculateBorders();
@@ -230,8 +230,8 @@ void RS_Hatch::update() {
 
     if (cSize.x<1.0e-6 || cSize.y<1.0e-6 ||
             pSize.x<1.0e-6 || pSize.y<1.0e-6 ||
-            cSize.x>RS_MAXDOUBLE-1 || cSize.y>RS_MAXDOUBLE-1 ||
-            pSize.x>RS_MAXDOUBLE-1 || pSize.y>RS_MAXDOUBLE-1) {
+			cSize.x>RS_MAXDOUBLE-1 || cSize.y>RS_MAXDOUBLE-1 ||
+			pSize.x>RS_MAXDOUBLE-1 || pSize.y>RS_MAXDOUBLE-1) {
         delete pat;
         delete copy;
         updateRunning = false;
@@ -371,21 +371,21 @@ void RS_Hatch::update() {
         else if(is.size() > 1)
         {
             RS_Vector sp = startPoint;
-            double sa = center.angleTo(sp);
-            if(ellipse != NULL) sa=ellipse->getEllipseAngle(sp);
+			LDOUBLE sa = center.angleTo(sp);
+			if(ellipse) sa=ellipse->getEllipseAngle(sp);
             bool done;
-            double minDist;
-            double dist = 0.0;
+			LDOUBLE minDist;
+			LDOUBLE dist = 0.0L;
             std::shared_ptr<RS_Vector> av;
             std::shared_ptr<RS_Vector> v;
             RS_Vector last = RS_Vector(false);
             do {
                 done = true;
-                minDist = RS_MAXDOUBLE;
+				minDist = RS_MAXDOUBLE;
                 av.reset();
                 for (int i = 0; i < is.size(); ++i) {
                     v = is.at(i);
-                    double a;
+					LDOUBLE a;
                     switch(e->rtti()){
                     case RS2::EntityLine:
                         dist = sp.distanceTo(*v);
@@ -394,7 +394,7 @@ void RS_Hatch::update() {
                     case RS2::EntityCircle:
                         a = center.angleTo(*v);
                         dist = reversed?
-                                    fmod(sa - a + 2.*M_PI,2.*M_PI):
+									fmod(sa - a + 2*M_PI,2.*M_PI):
                                     fmod(a - sa + 2.*M_PI,2.*M_PI);
                         break;
                     case RS2::EntityEllipse:
@@ -415,7 +415,7 @@ void RS_Hatch::update() {
                     }
                 }
 
-                // copy to sorted list, removing double points
+				// copy to sorted list, removing LDOUBLE points
                 if (!done && av.get()) {
                     if (last.valid==false || last.distanceTo(*av)>RS_TOLERANCE) {
                         is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(*av)));
@@ -445,7 +445,7 @@ is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(endPoint)));
                     tmp2.addEntity(new RS_Line(&tmp2,
                                                RS_LineData(*v1, *v2)));
                 } else if (arc || circle) {
-                    if(fabs(center.angleTo(*v2)-center.angleTo(*v1)) > RS_TOLERANCE_ANGLE)
+                    if(fabsl(center.angleTo(*v2)-center.angleTo(*v1)) > RS_TOLERANCE_ANGLE)
                     {//don't create an arc with a too small angle
                         tmp2.addEntity(new RS_Arc(&tmp2,
                                                   RS_ArcData(center,
@@ -550,7 +550,7 @@ void RS_Hatch::activateContour(bool on) {
 /**
  * Overrides drawing of subentities. This is only ever called for solid fills.
  */
-void RS_Hatch::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/) {
+void RS_Hatch::draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& /*patternOffset*/) {
 
     if (!data.solid) {
 		for(auto se: entities){
@@ -635,7 +635,7 @@ void RS_Hatch::draw(RS_Painter* painter, RS_GraphicView* view, double& /*pattern
 //                    }
 
                     RS_Vector c=view->toGui(circle->getCenter());
-                    double r=view->toGuiDX(circle->getRadius());
+					LDOUBLE r=view->toGuiDX(circle->getRadius());
 #if QT_VERSION >= 0x040400
                     path.addEllipse(QPoint(c.x,c.y),r,r);
 #else
@@ -717,9 +717,9 @@ void RS_Hatch::draw(RS_Painter* painter, RS_GraphicView* view, double& /*pattern
 }
 
 //must be called after update()
-double RS_Hatch::getTotalArea() {
+LDOUBLE RS_Hatch::getTotalArea() {
 
-    double totalArea=0.;
+	LDOUBLE totalArea=0.;
 
     // loops:
 	for(auto l: entities){
@@ -731,11 +731,11 @@ double RS_Hatch::getTotalArea() {
     return totalArea;
 }
 
-double RS_Hatch::getDistanceToPoint(
+LDOUBLE RS_Hatch::getDistanceToPoint(
     const RS_Vector& coord,
     RS_Entity** entity,
     RS2::ResolveLevel level,
-    double solidDist) const {
+	LDOUBLE solidDist) const {
 
     if (data.solid==true) {
         if (entity) {
@@ -751,7 +751,7 @@ double RS_Hatch::getDistanceToPoint(
             return solidDist;
         }
 
-        return RS_MAXDOUBLE;
+		return RS_MAXDOUBLE;
     } else {
         return RS_EntityContainer::getDistanceToPoint(coord, entity,
                 level, solidDist);
@@ -767,7 +767,7 @@ void RS_Hatch::move(const RS_Vector& offset) {
 
 
 
-void RS_Hatch::rotate(const RS_Vector& center, const double& angle) {
+void RS_Hatch::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_EntityContainer::rotate(center, angle);
     data.angle = RS_Math::correctAngle(data.angle+angle);
     update();
@@ -790,7 +790,7 @@ void RS_Hatch::scale(const RS_Vector& center, const RS_Vector& factor) {
 
 void RS_Hatch::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) {
     RS_EntityContainer::mirror(axisPoint1, axisPoint2);
-    double ang = axisPoint1.angleTo(axisPoint2);
+	LDOUBLE ang = axisPoint1.angleTo(axisPoint2);
     data.angle = RS_Math::correctAngle(data.angle + ang*2.0);
     update();
 }

@@ -73,8 +73,8 @@ void QG_ImageOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sAngle;
         QString sFactor;
         if (update) {
-            sAngle = QString("%1").arg(RS_Math::rad2deg(action->getAngle()));
-            sFactor = QString("%1").arg(action->getFactor());
+			sAngle = QString("%1").arg((double)RS_Math::rad2deg(action->getAngle()));
+			sFactor = QString("%1").arg((double)action->getFactor());
         } else {
             RS_SETTINGS->beginGroup("/Image");
             sAngle = RS_SETTINGS->readEntry("/ImageAngle", "0.0");

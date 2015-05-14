@@ -121,7 +121,7 @@ void RS_ActionDrawPolyline::mouseMoveEvent(QMouseEvent* e) {
     RS_DEBUG->print("RS_ActionDrawLinePolyline::mouseMoveEvent begin");
 
     RS_Vector mouse = snapPoint(e);
-    double bulge=solveBulge(mouse);
+    LDOUBLE bulge=solveBulge(mouse);
     if (getStatus()==SetNextPoint && point.valid) {
         deletePreview();
         // clearPreview();
@@ -129,7 +129,7 @@ void RS_ActionDrawPolyline::mouseMoveEvent(QMouseEvent* e) {
                 //RS_Polyline* p = polyline->clone();
                 //p->reparent(preview);
                 //preview->addEntity(p);
-        if (fabs(bulge)<RS_TOLERANCE || Mode==Line) {
+        if (fabsl(bulge)<RS_TOLERANCE || Mode==Line) {
 			preview->addEntity(new RS_Line(preview.get(),
                                        RS_LineData(point, mouse)));
         } else
@@ -157,13 +157,13 @@ void RS_ActionDrawPolyline::mouseReleaseEvent(QMouseEvent* e) {
     }
 }
 
-double RS_ActionDrawPolyline::solveBulge(RS_Vector mouse) {
+ LDOUBLE RS_ActionDrawPolyline::solveBulge(RS_Vector mouse) {
 
-    double b(0.);
+    LDOUBLE b(0.);
     bool suc;
     RS_Arc arc(NULL, RS_ArcData());
     RS_Line line(NULL,RS_LineData());
-    double direction,direction2,delta;
+    LDOUBLE direction,direction2,delta;
     RS_AtomicEntity* lastentity;
     calculatedSegment=false;
 
@@ -180,7 +180,7 @@ double RS_ActionDrawPolyline::solveBulge(RS_Vector mouse) {
             line.setEndpoint(mouse);
             direction2=RS_Math::correctAngle(line.getDirection2()+M_PI);
             delta=direction2-direction;
-            if( fabs(remainder(delta,M_PI))>RS_TOLERANCE_ANGLE ) {
+            if( fabsl(remainder(delta,M_PI))>RS_TOLERANCE_ANGLE ) {
                 b=tan(delta/2);
                 suc = arc.createFrom2PBulge(point,mouse,b);
                 if (suc)
@@ -256,7 +256,7 @@ void RS_ActionDrawPolyline::coordinateEvent(RS_CoordinateEvent* e) {
     }
 
     RS_Vector mouse = e->getCoordinate();
-    double bulge=solveBulge(mouse);
+    LDOUBLE bulge=solveBulge(mouse);
     if (calculatedSegment)
         mouse=calculatedEndpoint;
 

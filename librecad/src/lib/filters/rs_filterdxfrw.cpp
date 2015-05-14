@@ -463,7 +463,7 @@ void RS_FilterDXFRW::addEllipse(const DRW_Ellipse& data) {
     RS_Vector v1(data.basePoint.x, data.basePoint.y);
     RS_Vector v2(data.secPoint.x, data.secPoint.y);
     double ang2 = data.endparam;
-    if ( fabs(ang2- 6.28318530718) < 1.0e-10 && fabs(data.staparam) < 1.0e-10 )
+    if ( fabsl(ang2- 6.28318530718) < 1.0e-10 && fabsl(data.staparam) < 1.0e-10 )
         ang2 = 0.0;
     RS_EllipseData ed(v1, v2, data.ratio, data.staparam,
                                     ang2, false);
@@ -510,11 +510,11 @@ void RS_FilterDXFRW::addLWPolyline(const DRW_LWPolyline& data) {
     RS_Polyline *polyline = new RS_Polyline(currentContainer, d);
     setEntityAttributes(polyline, &data);
 
-    QList< QPair<RS_Vector*, double> > verList;
+	QList< std::pair<RS_Vector*, LDOUBLE> > verList;
     for (unsigned int i=0; i<data.vertlist.size(); i++) {
         DRW_Vertex2D *vert = data.vertlist.at(i);
         RS_Vector *v = new RS_Vector(vert->x, vert->y);
-        verList.append(qMakePair(v, vert->bulge));
+		verList.append(std::make_pair(v, (LDOUBLE) vert->bulge));
     }
     polyline->appendVertexs(verList);
     while (!verList.isEmpty())
@@ -541,11 +541,11 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
     RS_Polyline *polyline = new RS_Polyline(currentContainer, d);
     setEntityAttributes(polyline, &data);
 
-    QList< QPair<RS_Vector*, double> > verList;
+	QList< std::pair<RS_Vector*, LDOUBLE> > verList;
     for (unsigned int i=0; i<data.vertlist.size(); i++) {
         DRW_Vertex *vert = data.vertlist.at(i);
         RS_Vector *v = new RS_Vector(vert->basePoint.x, vert->basePoint.y);
-        verList.append(qMakePair(v, vert->bulge));
+		verList.append(std::make_pair(v, (LDOUBLE)vert->bulge));
     }
     polyline->appendVertexs(verList);
     while (!verList.isEmpty())
@@ -818,7 +818,7 @@ RS_DimensionData RS_FilterDXFRW::convDimensionData(const  DRW_Dimension* data) {
     // middlepoint of text can be 0/0 which is considered to be invalid (!):
     //  0/0 because older QCad versions save the middle of the text as 0/0
     //  althought they didn't suport saving of the middle of the text.
-    if (fabs(crd.x)<1.0e-6 && fabs(crd.y)<1.0e-6) {
+    if (fabsl(crd.x)<1.0e-6 && fabsl(crd.y)<1.0e-6) {
         midP = RS_Vector(false);
     }
 
@@ -1112,7 +1112,7 @@ void RS_FilterDXFRW::addHatch(const DRW_Hatch *data) {
                     DRW_Ellipse *e2 = (DRW_Ellipse *)ent;
                     double ang1 = e2->staparam;
                     double ang2 = e2->endparam;
-                    if ( fabs(ang2 - 6.28318530718) < 1.0e-10 && fabs(ang1) < 1.0e-10 )
+                    if ( fabsl(ang2 - 6.28318530718) < 1.0e-10 && fabsl(ang1) < 1.0e-10 )
                         ang2 = 0.0;
                     else { //convert angle to parameter
                         ang1 = atan(tan(ang1)/e2->ratio);
@@ -1277,8 +1277,8 @@ void RS_FilterDXFRW::addHeader(const DRW_Header* data){
         case DRW_Variant::INTEGER:
             container->addVariable(key, var->content.i, var->code);
             break;
-        case DRW_Variant::DOUBLE:
-            container->addVariable(key, var->content.d, var->code);
+		case DRW_Variant::DOUBLE:
+			container->addVariable(key, (LDOUBLE) var->content.d, var->code);
             break;
         default:
             break;
@@ -1940,11 +1940,11 @@ void RS_FilterDXFRW::writeVports(){
     vp.snapIsopair = graphic->getCrosshairType();
     if (vp.snapIsopair > 2)
         vp.snapIsopair = 0;
-    if (fabs(spacing.x) < 1.0e-6) {
+    if (fabsl(spacing.x) < 1.0e-6) {
         vp.gridBehavior = 7; //auto
         vp.gridSpacing.x = 10;
     }
-    if (fabs(spacing.y) < 1.0e-6) {
+    if (fabsl(spacing.y) < 1.0e-6) {
         vp.gridBehavior = 7; //auto
         vp.gridSpacing.y = 10;
     }

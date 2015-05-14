@@ -91,14 +91,14 @@ struct RS_TextData {
      */
     RS_TextData(const RS_Vector& insertionPoint,
                 const RS_Vector& secondPoint,
-                double height,
-                double widthRel,
+				LDOUBLE height,
+				LDOUBLE widthRel,
                 VAlign valign,
                 HAlign halign,
                 TextGeneration textGeneration,
                 const QString& text,
                 const QString& style,
-                double angle,
+				LDOUBLE angle,
 				RS2::UpdateMode updateMode = RS2::Update);
 
     /** Insertion point */
@@ -106,9 +106,9 @@ struct RS_TextData {
     /** Second point for fit or aligned*/
     RS_Vector secondPoint;
     /** Nominal (initial) text height */
-    double height;
+	LDOUBLE height;
     /** Width/Height relation */
-    double widthRel;
+	LDOUBLE widthRel;
     /** Vertical alignment */
     VAlign valign;
     /** Horizontal alignment */
@@ -120,7 +120,7 @@ struct RS_TextData {
     /** Text style name */
     QString style;
     /** Rotation angle */
-    double angle;
+	LDOUBLE angle;
     /** Update mode */
     RS2::UpdateMode updateMode;
 };
@@ -164,16 +164,16 @@ public:
     RS_Vector getSecondPoint() {
         return data.secondPoint;
     }
-    double getHeight() {
+	LDOUBLE getHeight() {
         return data.height;
     }
-    void setHeight(double h) {
+	void setHeight(LDOUBLE h) {
         data.height = h;
     }
-    double getWidthRel() {
+	LDOUBLE getWidthRel() {
         return data.widthRel;
     }
-    void setWidthRel(double w) {
+	void setWidthRel(LDOUBLE w) {
         data.widthRel = w;
     }
     //RLZ: bad functions, this is MText style align
@@ -205,20 +205,20 @@ public:
     QString getStyle() {
         return data.style;
     }
-        void setAngle(double a) {
+		void setAngle(LDOUBLE a) {
                 data.angle = a;
         }
-    double getAngle() {
+	LDOUBLE getAngle() {
         return data.angle;
     }
-    double getUsedTextWidth() {
+	LDOUBLE getUsedTextWidth() {
         return usedTextWidth;
     }
-    double getUsedTextHeight() {
+	LDOUBLE getUsedTextHeight() {
         return usedTextHeight;
     }
 
-//	virtual double getLength() const {
+//	virtual LDOUBLE getLength() const {
 //		return -1.0;
 //	}
 
@@ -226,11 +226,11 @@ public:
      * @return The insertion point as endpoint.
      */
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+										 LDOUBLE* dist = NULL)const;
 	virtual RS_VectorSolutions getRefPoints() const;
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -249,13 +249,13 @@ protected:
      * This property is updated by the update method.
      * @see update
      */
-    double usedTextWidth;
+	LDOUBLE usedTextWidth;
     /**
      * Text height used by the current contents of this text entity.
      * This property is updated by the update method.
      * @see update
      */
-    double usedTextHeight;
+	LDOUBLE usedTextHeight;
 };
 
 #endif

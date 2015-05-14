@@ -72,7 +72,7 @@ void RS_ActionDrawEllipseFociPoint::trigger() {
 
     RS_EllipseData ed(center,
                       major*d,
-                      sqrt(d*d-c*c)/d,
+                      sqrtl(d*d-c*c)/d,
                       0., 0.,false);
     RS_Ellipse* ellipse = new RS_Ellipse(container, ed);
     ellipse->setLayerToActive();
@@ -115,7 +115,7 @@ void RS_ActionDrawEllipseFociPoint::mouseMoveEvent(QMouseEvent* e) {
             deletePreview();
             RS_EllipseData ed(center,
                               major*d,
-                              sqrt(d*d-c*c)/d,
+                              sqrtl(d*d-c*c)/d,
                               0., 0.,false);
 			preview->addEntity(new RS_Ellipse(preview.get(), ed));
             drawPreview();
@@ -203,7 +203,7 @@ void RS_ActionDrawEllipseFociPoint::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     //    case SetFocus1: {
     //            bool ok;
-    //            double m = RS_Math::eval(c, &ok);
+    //            LDOUBLE m = RS_Math::eval(c, &ok);
     //            if (ok) {
     //                ratio = m / major.magnitude();
     //                if (!isArc) {
@@ -221,7 +221,7 @@ void RS_ActionDrawEllipseFociPoint::commandEvent(RS_CommandEvent* e) {
 
     //    case SetFocus2: {
     //            bool ok;
-    //            double a = RS_Math::eval(c, &ok);
+    //            LDOUBLE a = RS_Math::eval(c, &ok);
     //            if (ok) {
     //                angle1 = RS_Math::deg2rad(a);
     //                setStatus(SetAngle2);
@@ -235,15 +235,15 @@ void RS_ActionDrawEllipseFociPoint::commandEvent(RS_CommandEvent* e) {
 
     case SetPoint: {
         bool ok;
-        double a = RS_Math::eval(cmd, &ok);
+        LDOUBLE a = RS_Math::eval(cmd, &ok);
         if (ok) {
             e->accept();
 //            std::cout<<"e->isAccepted()="<<e->isAccepted()<<std::endl;
-            d=0.5*fabs(a);
+            d=0.5*fabsl(a);
             if (d > c + RS_TOLERANCE) {
                 trigger();
             }else{
-                RS_DIALOGFACTORY->commandMessage(QString::number(fabs(a))+" is smaller than distance between foci");
+				RS_DIALOGFACTORY->commandMessage(QString::number(fabs((double)a))+" is smaller than distance between foci");
             }
         } else {
             if (RS_DIALOGFACTORY) {

@@ -43,8 +43,8 @@ struct RS_EllipseData {
 	RS_EllipseData(const RS_EllipseData& ) = default;
     RS_EllipseData(const RS_Vector& center,
                    const RS_Vector& majorP,
-                   double ratio,
-                   double angle1, double angle2,
+				   LDOUBLE ratio,
+				   LDOUBLE angle1, LDOUBLE angle2,
 				   bool reversed);
 
     //! Ellipse center
@@ -52,11 +52,11 @@ struct RS_EllipseData {
     //! Endpoint of major axis relative to center.
     RS_Vector majorP;
     //! Ratio of minor axis to major axis.
-    double ratio;
+	LDOUBLE ratio;
     //! Start angle
-    double angle1;
+	LDOUBLE angle1;
     //! End angle
-    double angle2;
+	LDOUBLE angle2;
     //! Reversed (cw) flag
     bool reversed;
 };
@@ -92,12 +92,12 @@ public:
      * @return End point of the entity.
      */
     virtual RS_Vector getEndpoint() const;
-    virtual RS_Vector getEllipsePoint(const double& a) const; //find the point according to ellipse angle
+	virtual RS_Vector getEllipsePoint(const LDOUBLE& a) const; //find the point according to ellipse angle
 
     virtual void moveStartpoint(const RS_Vector& pos);
     virtual void moveEndpoint(const RS_Vector& pos);
 #ifdef  HAS_BOOST
-    virtual double getLength() const;
+	virtual LDOUBLE getLength() const;
 
     /**
     //Ellipse must have ratio<1, and not reversed
@@ -105,10 +105,10 @@ public:
     *@ x2, ellipse angle
     //@return the arc length between ellipse angle x1, x2
     **/
-    double getEllipseLength(double a1, double a2) const;
-    double getEllipseLength(double a2) const;
+	LDOUBLE getEllipseLength(LDOUBLE a1, LDOUBLE a2) const;
+	LDOUBLE getEllipseLength(LDOUBLE a2) const;
 #else
-    virtual double getLength() const{
+	virtual LDOUBLE getLength() const{
         return -1.;
    }
 #endif
@@ -120,7 +120,7 @@ public:
     virtual RS_Vector prepareTrim(const RS_Vector& trimCoord,
                                   const RS_VectorSolutions& trimSol);
 
-    double getEllipseAngle (const RS_Vector& pos) const;
+	LDOUBLE getEllipseAngle (const RS_Vector& pos) const;
 
     /** @return Copy of data that defines the ellipse. **/
 	const RS_EllipseData& getData() const;
@@ -136,16 +136,16 @@ public:
 	void setReversed(bool r);
 
     /** @return The rotation angle of this ellipse */
-	double getAngle() const;
+	LDOUBLE getAngle() const;
 
     /** @return The start angle of this arc */
-	double getAngle1() const;
+	LDOUBLE getAngle1() const;
     /** Sets new start angle. */
-	void setAngle1(double a1);
+	void setAngle1(LDOUBLE a1);
     /** @return The end angle of this arc */
-	double getAngle2() const;
+	LDOUBLE getAngle2() const;
     /** Sets new end angle. */
-	void setAngle2(double a2);
+	void setAngle2(LDOUBLE a2);
 
 
     /** @return The center point (x) of this arc */
@@ -159,24 +159,24 @@ public:
 	void setMajorP(const RS_Vector& p);
 
     /** @return The ratio of minor to major axis */
-	double getRatio() const;
+	LDOUBLE getRatio() const;
     /** Sets new ratio. */
-	void setRatio(double r);
+	void setRatio(LDOUBLE r);
 
     /**
      * @return Angle length in rad.
      */
-    virtual double getAngleLength() const;
+	virtual LDOUBLE getAngleLength() const;
 
     /** @return The major radius of this ellipse. Same as getRadius() */
-	double getMajorRadius() const;
+	LDOUBLE getMajorRadius() const;
 
     /** @return the point by major minor radius directions */
 	RS_Vector getMajorPoint() const;
 	RS_Vector getMinorPoint() const;
 
     /** @return The minor radius of this ellipse */
-	double getMinorRadius() const;
+	LDOUBLE getMinorRadius() const;
     bool isArc() const; //is the ellipse an Arc, i.e., angle1/angle2 not both 0
     virtual bool isEdge() const {
         return true;
@@ -185,37 +185,37 @@ public:
     bool createFromCenter3Points(const RS_VectorSolutions& sol);
 	//! \{ \brief from quadratic form
 	/** : dn[0] x^2 + dn[1] xy + dn[2] y^2 =1 */
-	bool createFromQuadratic(const std::vector<double>& dn);
+	bool createFromQuadratic(const std::vector<LDOUBLE>& dn);
 	/** : generic quadratic: A x^2 + C xy + B y^2 + D x + E y + F =0 */
 	bool createFromQuadratic(const LC_Quadratic& q);
 	//! \}
 	bool createInscribeQuadrilateral(const std::vector<RS_Line*>& lines);
     virtual RS_Vector getMiddlePoint(void)const;
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-										 double* dist = nullptr) const;
+										 LDOUBLE* dist = nullptr) const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-			bool onEntity = true, double* dist = nullptr, RS_Entity** entity=nullptr) const;
+			bool onEntity = true, LDOUBLE* dist = nullptr, RS_Entity** entity=nullptr) const;
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = nullptr)const;
+									   LDOUBLE* dist = nullptr)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-									   double* dist = nullptr,
+									   LDOUBLE* dist = nullptr,
                                        int middlePoints = 1
                                        )const;
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = nullptr)const;
+									 LDOUBLE* dist = nullptr)const;
     virtual RS_Vector getNearestOrthTan(const RS_Vector& coord,
                                     const RS_Line& normal,
 									 bool onEntity = false) const;
     bool switchMajorMinor(void); //switch major minor axes to keep major the longer ellipse radius
     virtual void correctAngles();//make sure angleLength() is not more than 2*M_PI
     virtual bool isPointOnEntity(const RS_Vector& coord,
-                                 double tolerance=RS_TOLERANCE) const;
+								 LDOUBLE tolerance=RS_TOLERANCE) const;
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const double& angle);
+	virtual void rotate(const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& angleVector);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angle);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -225,8 +225,8 @@ public:
     */
     bool isVisibleInWindow(RS_GraphicView* view) const;
 	//! \{ \brief find visible segments of entity and draw only those visible portion
-    virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
-    virtual void drawVisible(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
+	virtual void drawVisible(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 	//! \}
 
     friend std::ostream& operator << (std::ostream& os, const RS_Ellipse& a);
@@ -235,8 +235,8 @@ public:
     virtual void calculateBorders();
 
     //direction of tangent at endpoints
-    virtual double getDirection1() const;
-    virtual double getDirection2() const;
+	virtual LDOUBLE getDirection1() const;
+	virtual LDOUBLE getDirection2() const;
 
 	/** \brief return the equation of the entity
 	a quadratic contains coefficients for quadratic:
@@ -252,7 +252,7 @@ public:
  * @return line integral \oint x dy along the entity
  * \oint x dy = Cx y + \frac{1}{4}((a^{2}+b^{2})sin(2a)cos^{2}(t)-ab(2sin^{2}(a)sin(2t)-2t-sin(2t)))
  */
-	virtual double areaLineIntegral() const;
+	virtual LDOUBLE areaLineIntegral() const;
 
 protected:
     RS_EllipseData data;

@@ -124,9 +124,9 @@ void QG_DlgHatch::setHatch(RS_Hatch& h, bool isNew) {
         cbSolid->setChecked(hatch->isSolid());
         setPattern(hatch->getPattern());
         QString s;
-        s.setNum(hatch->getScale());
+		s.setNum((double)hatch->getScale());
         leScale->setText(s);
-        s.setNum(RS_Math::rad2deg(hatch->getAngle()));
+		s.setNum((double)RS_Math::rad2deg(hatch->getAngle()));
         leAngle->setText(s);
     }
 }

@@ -27,6 +27,7 @@
 #ifndef RS_H
 #define RS_H
 
+typedef long double LDOUBLE;
 #include <Qt>
 #include <QtGlobal>
 #if QT_VERSION >= 0x050000
@@ -42,14 +43,15 @@
 #endif
 
 // Windoze XP can't handle the original MAX/MINDOUBLE's
-#define RS_MAXDOUBLE 1.0E+10
-#define RS_MINDOUBLE -1.0E+10
+#define RS_MAXDOUBLE 1.0E+10L
+#define RS_MINDOUBLE -1.0E+10L
 //tolerance
-#define RS_TOLERANCE 1.0e-10
+#define RS_TOLERANCE 1.0e-10L
 //squared tolerance
-#define RS_TOLERANCE15 1.5e-15
-#define RS_TOLERANCE2 1.0e-20
-#define RS_TOLERANCE_ANGLE 1.0e-8
+#define RS_TOLERANCE15 1.5e-15L
+#define RS_TOLERANCE2 1.0e-20L
+#define RS_TOLERANCE_ANGLE 1.0e-8L
+#define PI 3.14159265358979323846264338327950288419716939937510L
 
 /**
  * Class namespace for various enums along with some simple

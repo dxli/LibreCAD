@@ -86,7 +86,7 @@ public:
 
         void setFile(const QString& file);
 
-	double getAngle() {
+ LDOUBLE getAngle() {
 		return data.angle;
 	}
 
@@ -94,7 +94,7 @@ public:
 		data.angle = a;
 	}
 
-	double getFactor() {
+ LDOUBLE getFactor() {
 		return data.factor;
 	}
 
@@ -118,7 +118,7 @@ public:
 		data.rows = r;
 	}
 
-	double getColumnSpacing() {
+ LDOUBLE getColumnSpacing() {
 		return data.spacing.x;
 	}
 
@@ -126,7 +126,7 @@ public:
 		data.spacing.x = cs;
 	}
 	
-	double getRowSpacing() {
+ LDOUBLE getRowSpacing() {
 		return data.spacing.y;
 	}
 

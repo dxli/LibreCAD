@@ -106,8 +106,8 @@ void RS_ActionDimRadial::trigger() {
 
 void RS_ActionDimRadial::preparePreview() {
     if (entity) {
-		double angle = data->definitionPoint.angleTo(pos);
-        double radius=0.0;
+	 LDOUBLE angle = data->definitionPoint.angleTo(pos);
+        LDOUBLE radius=0.0;
         if (entity->rtti()==RS2::EntityArc) {
             radius = ((RS_Arc*)entity)->getRadius();
         } else if (entity->rtti()==RS2::EntityCircle) {
@@ -248,7 +248,7 @@ void RS_ActionDimRadial::commandEvent(RS_CommandEvent* e) {
     // setting angle
     if (getStatus()==SetPos) {
         bool ok;
-        double a = RS_Math::eval(c, &ok);
+        LDOUBLE a = RS_Math::eval(c, &ok);
 		if (ok) {
             pos.setPolar(1.0, RS_Math::deg2rad(a));
 			pos += data->definitionPoint;

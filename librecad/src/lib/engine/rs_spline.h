@@ -162,29 +162,29 @@ public:
     //}
 
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-										 double* dist = nullptr)const;
+										 LDOUBLE* dist = nullptr)const;
     //virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-	//        bool onEntity=true, double* dist = nullptr, RS_Entity** entity=nullptr);
+	//        bool onEntity=true, LDOUBLE* dist = nullptr, RS_Entity** entity=nullptr);
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = nullptr)const;
+									   LDOUBLE* dist = nullptr)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-									   double* dist = nullptr,
+									   LDOUBLE* dist = nullptr,
                                        int middlePoints = 1)const;
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = nullptr)const;
+									 LDOUBLE* dist = nullptr)const;
         //virtual RS_Vector getNearestRef(const RS_Vector& coord,
-		//                                 double* dist = nullptr);
-        /*virtual double getDistanceToPoint(const RS_Vector& coord,
+		//                                 LDOUBLE* dist = nullptr);
+		/*virtual LDOUBLE getDistanceToPoint(const RS_Vector& coord,
 									  RS_Entity** entity=nullptr,
                                       RS2::ResolveLevel level=RS2::ResolveNone,
-                                                                          double solidDist = RS_MAXDOUBLE);*/
+																		  LDOUBLE solidDist = RS_MAXDOUBLE);*/
 
         virtual void addControlPoint(const RS_Vector& v);
         virtual void removeLastControlPoint();
 
         virtual void move(const RS_Vector& offset);
-        virtual void rotate(const RS_Vector& center, const double& angle);
+		virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
         virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
         virtual void scale(const RS_Vector& center, const RS_Vector& factor);
         virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -192,22 +192,22 @@ public:
         virtual void moveRef(const RS_Vector& ref, const RS_Vector& offset);
 		virtual void revertDirection();
 
-        virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+		virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 		const std::vector<RS_Vector>& getControlPoints() const;
 
         friend std::ostream& operator << (std::ostream& os, const RS_Spline& l);
 
         virtual void calculateBorders();
 
-		static void rbasis(int c, double t, int npts, const std::vector<int>& x, const std::vector<double>& h, std::vector<double>& r);
+		static void rbasis(int c, LDOUBLE t, int npts, const std::vector<int>& x, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& r);
 
 		static void knot(int num, int order, std::vector<int>& knotVector);
 		static void rbspline(size_t npts, size_t k, size_t p1,
-							 const std::vector<double>& b, const std::vector<double>& h, std::vector<double>& p);
+							 const std::vector<LDOUBLE>& b, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& p);
 
 		static void knotu(int num, int order, std::vector<int>& knotVector);
         static void rbsplinu(int npts, int k, int p1,
-							 const std::vector<double>& b, const std::vector<double>& h, std::vector<double>& p);
+							 const std::vector<LDOUBLE>& b, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& p);
 
 protected:
 		RS_SplineData data;

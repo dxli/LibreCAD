@@ -59,11 +59,11 @@ blockList(true),paperScaleFixed(false)
     RS2::Unit unit = getUnit();
 
     if (unit==RS2::Inch) {
-        addVariable("$DIMASZ", 0.1, 40);
-        addVariable("$DIMEXE", 0.05, 40);
-        addVariable("$DIMEXO", 0.025, 40);
-        addVariable("$DIMGAP", 0.025, 40);
-        addVariable("$DIMTXT", 0.1, 40);
+		addVariable("$DIMASZ", 0.1L, 40);
+		addVariable("$DIMEXE", 0.05L, 40);
+		addVariable("$DIMEXO", 0.025L, 40);
+		addVariable("$DIMGAP", 0.025L, 40);
+		addVariable("$DIMTXT", 0.1L, 40);
     } else {
         addVariable("$DIMASZ",
                     RS_Units::convert(2.5, RS2::Millimeter, unit), 40);
@@ -743,8 +743,8 @@ void RS_Graphic::setPaperInsertionBase(const RS_Vector& p) {
 RS_Vector RS_Graphic::getPaperSize() {
     RS_SETTINGS->beginGroup("/Print");
     bool okX,okY;
-    double sX = RS_SETTINGS->readEntry("/PaperSizeX", "0.0").toDouble(&okX);
-    double sY = RS_SETTINGS->readEntry("/PaperSizeY", "0.0").toDouble(&okY);
+	LDOUBLE sX = RS_SETTINGS->readEntry("/PaperSizeX", "0.0").toDouble(&okX);
+	LDOUBLE sY = RS_SETTINGS->readEntry("/PaperSizeY", "0.0").toDouble(&okY);
 	RS_SETTINGS->endGroup();
     RS_Vector def ;
     if(okX&&okY && sX>RS_TOLERANCE && sY>RS_TOLERANCE) {
@@ -772,8 +772,8 @@ void RS_Graphic::setPaperSize(const RS_Vector& s) {
     RS_Vector def = RS_Units::convert(s,
                                      getUnit(), RS2::Millimeter);
     RS_SETTINGS->beginGroup("/Print");
-    RS_SETTINGS->writeEntry("/PaperSizeX", def.x);
-    RS_SETTINGS->writeEntry("/PaperSizeY", def.y);
+	RS_SETTINGS->writeEntry("/PaperSizeX", def.x);
+	RS_SETTINGS->writeEntry("/PaperSizeY", def.y);
     RS_SETTINGS->endGroup();
 
 }
@@ -817,8 +817,8 @@ void RS_Graphic::setPaperFormat(RS2::PaperFormat f, bool landscape) {
 /**
  * @return Paper space scaling (DXF: $PSVPSCALE).
  */
-double RS_Graphic::getPaperScale() {
-    double ret;
+LDOUBLE RS_Graphic::getPaperScale() {
+	LDOUBLE ret;
 
     ret = getVariableDouble("$PSVPSCALE", 1.0);
 //    if (ret<1.0e-6) {
@@ -833,7 +833,7 @@ double RS_Graphic::getPaperScale() {
 /**
  * Sets a new scale factor for the paper space.
  */
-void RS_Graphic::setPaperScale(double s) {
+void RS_Graphic::setPaperScale(LDOUBLE s) {
     if(paperScaleFixed==false) addVariable("$PSVPSCALE", s, 40);
 }
 
@@ -845,15 +845,15 @@ void RS_Graphic::setPaperScale(double s) {
 void RS_Graphic::centerToPage() {
     RS_Vector size = getPaperSize();
 
-    double scale = getPaperScale();
+	LDOUBLE scale = getPaperScale();
     auto&& s=getSize();
     auto&& sMin=getMin();
     /** avoid zero size, bug#3573158 */
-    if(fabs(s.x)<RS_TOLERANCE) {
+    if(fabsl(s.x)<RS_TOLERANCE) {
         s.x=10.;
         sMin.x=-5.;
     }
-    if(fabs(s.y)<RS_TOLERANCE) {
+    if(fabsl(s.y)<RS_TOLERANCE) {
         s.y=10.;
         sMin.y=-5.;
     }
@@ -870,30 +870,30 @@ void RS_Graphic::centerToPage() {
  */
 bool RS_Graphic::fitToPage() {
     bool ret(true);
-    double border = RS_Units::convert(25.0, RS2::Millimeter, getUnit());
+	LDOUBLE border = RS_Units::convert(25.0, RS2::Millimeter, getUnit());
     RS_Vector ps = getPaperSize();
     if(ps.x>border && ps.y>border) ps -= RS_Vector(border, border);
     RS_Vector s = getSize();
     /** avoid zero size, bug#3573158 */
-    if(fabs(s.x)<RS_TOLERANCE) s.x=10.;
-    if(fabs(s.y)<RS_TOLERANCE) s.y=10.;
-    double fx = RS_MAXDOUBLE;
-    double fy = RS_MAXDOUBLE;
-    double fxy;
+    if(fabsl(s.x)<RS_TOLERANCE) s.x=10.;
+    if(fabsl(s.y)<RS_TOLERANCE) s.y=10.;
+	LDOUBLE fx = RS_MAXDOUBLE;
+	LDOUBLE fy = RS_MAXDOUBLE;
+	LDOUBLE fxy;
     //ps = RS_Units::convert(ps, getUnit(), RS2::Millimeter);
 
     // tin-pot 2011-12-30: TODO: can s.x < 0.0 (==> fx < 0.0) happen?
-    if (fabs(s.x) > 1.0e-10) {
+    if (fabsl(s.x) > 1.0e-10) {
         fx = ps.x / s.x;
         ret=false;
     }
-    if (fabs(s.y) > 1.0e-10) {
+    if (fabsl(s.y) > 1.0e-10) {
         fy = ps.y / s.y;
         ret=false;
     }
 
     fxy = std::min(fx, fy);
-    if (fxy >= RS_MAXDOUBLE || fxy <= 1.0e-10) {
+	if (fxy >= RS_MAXDOUBLE || fxy <= 1.0e-10) {
         setPaperSize(
                     RS_Units::convert(RS_Vector(210.,297.)
                                       , RS2::Millimeter

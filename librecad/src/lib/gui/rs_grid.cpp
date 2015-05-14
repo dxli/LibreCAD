@@ -372,7 +372,7 @@ void RS_Grid::createOrthogonalGrid(QRectF const& rect, RS_Vector const& gridWidt
 	double const top=rect.bottom();
 	double const bottom=rect.top();
 
-	cellV.set(fabs(gridWidth.x),fabs(gridWidth.y));
+	cellV.set(fabsl(gridWidth.x),fabsl(gridWidth.y));
 	int numberX = (RS_Math::round((right-left) / gridWidth.x) + 1);
 	int numberY = (RS_Math::round((top-bottom) / gridWidth.y) + 1);
 	int number = numberX*numberY;
@@ -442,13 +442,13 @@ void RS_Grid::createIsometricGrid(QRectF const& rect, RS_Vector const& gridWidth
 	double const top=rect.bottom();
 	double const bottom=rect.top();
 	int numberY = (RS_Math::round((top-bottom) / gridWidth.y) + 1);
-	double dx=sqrt(3.)*gridWidth.y;
-	cellV.set(fabs(dx),fabs(gridWidth.y));
+	double dx=sqrtl(3.)*gridWidth.y;
+	cellV.set(fabsl(dx),fabsl(gridWidth.y));
 	double hdx=0.5*dx;
 	double hdy=0.5*gridWidth.y;
 	int numberX = (RS_Math::round((right-left) / dx) + 1);
 	int number = 2*numberX*numberY;
-	baseGrid.set(left+remainder(-left,dx),bottom+remainder(-bottom,fabs(gridWidth.y)));
+	baseGrid.set(left+remainder(-left,dx),bottom+remainder(-bottom,fabsl(gridWidth.y)));
 
 	if (number<=0 || number>maxGridPoints) return;
 
@@ -469,8 +469,8 @@ void RS_Grid::createIsometricGrid(QRectF const& rect, RS_Vector const& gridWidth
 	if (metaGridWidth.y>minimumGridWidth &&
 			graphicView->toGuiDY(metaGridWidth.y)>2) {
 
-		metaGridWidth.x=(metaGridWidth.x<0.)?-sqrt(3.)*fabs(metaGridWidth.y):sqrt(3.)*fabs(metaGridWidth.y);
-		RS_Vector baseMetaGrid(left+remainder(-left,metaGridWidth.x)-fabs(metaGridWidth.x),bottom+remainder(-bottom,metaGridWidth.y)-fabs(metaGridWidth.y));
+		metaGridWidth.x=(metaGridWidth.x<0.)?-sqrtl(3.)*fabsl(metaGridWidth.y):sqrtl(3.)*fabsl(metaGridWidth.y);
+		RS_Vector baseMetaGrid(left+remainder(-left,metaGridWidth.x)-fabsl(metaGridWidth.x),bottom+remainder(-bottom,metaGridWidth.y)-fabsl(metaGridWidth.y));
 
 		// calculate number of visible meta grid lines:
 		int numMetaX = (RS_Math::round((right-left) / metaGridWidth.x) + 1);

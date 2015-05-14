@@ -105,14 +105,14 @@ public:
      * @return Direction 1. The angle at which the line starts at
      * the startpoint.
      */
-    double getDirection1() const {
+	LDOUBLE getDirection1() const {
         return getAngle1();
     }
     /**
      * @return Direction 2. The angle at which the line starts at
      * the endpoint.
      */
-    double getDirection2() const {
+	LDOUBLE getDirection2() const {
         return getAngle2();
     }
     virtual RS_Vector getTangentDirection(const RS_Vector& point)const;
@@ -125,12 +125,12 @@ public:
                                   const RS_VectorSolutions& trimSol);
     virtual void reverse();
     /** Sets the y coordinate of the startpoint */
-    void setStartpointY(double val) {
+	void setStartpointY(LDOUBLE val) {
         data.startpoint.y = val;
         calculateBorders();
     }
     /** Sets the y coordinate of the endpoint */
-    void setEndpointY(double val) {
+	void setEndpointY(LDOUBLE val) {
         data.endpoint.y = val;
         calculateBorders();
     }
@@ -139,21 +139,21 @@ public:
     /**
      * @return The length of the line.
      */
-    virtual double getLength() const {
+	virtual LDOUBLE getLength() const {
         return data.startpoint.distanceTo(data.endpoint);
     }
 
     /**
      * @return The angle of the line (from start to endpoint).
      */
-    virtual double getAngle1() const {
+	virtual LDOUBLE getAngle1() const {
         return data.startpoint.angleTo(data.endpoint);
     }
 
     /**
      * @return The angle of the line (from end to startpoint).
      */
-    virtual double getAngle2() const {
+	virtual LDOUBLE getAngle2() const {
         return data.endpoint.angleTo(data.startpoint);
     }
 	virtual bool isTangent(const RS_CircleData&  circleData) const;
@@ -164,33 +164,33 @@ public:
     RS_Vector getNormalVector() const;
     virtual RS_Vector getMiddlePoint()const;
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-										 double* dist = nullptr)const;
+										 LDOUBLE* dist = nullptr)const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-			bool onEntity=true, double* dist = nullptr, RS_Entity** entity=nullptr)const;
+			bool onEntity=true, LDOUBLE* dist = nullptr, RS_Entity** entity=nullptr)const;
 //    virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-//                                       double* dist = nullptr);
+//                                       LDOUBLE* dist = nullptr);
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-									   double* dist = nullptr,
+									   LDOUBLE* dist = nullptr,
                                        int middlePoints = 1
                                        )const;
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = nullptr)const;
-    virtual RS_Vector getNearestDist(double distance,
+									 LDOUBLE* dist = nullptr)const;
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
 									 bool startp)const;
 
     /**
           * implementations must revert the direction of an atomic entity
           */
     virtual void revertDirection();
-	 virtual std::vector<RS_Entity* > offsetTwoSides(const double& distance) const;
+	 virtual std::vector<RS_Entity* > offsetTwoSides(const LDOUBLE& distance) const;
     /**
       * the modify offset action
       */
-    virtual bool offset(const RS_Vector& coord, const double& distance);
+	virtual bool offset(const RS_Vector& coord, const LDOUBLE& distance);
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const double& angle);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const LDOUBLE& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& factor);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
@@ -201,7 +201,7 @@ public:
     virtual void moveRef(const RS_Vector& ref, const RS_Vector& offset);
 
     /** whether the entity's bounding box intersects with visible portion of graphic view */
-    virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 
     friend std::ostream& operator << (std::ostream& os, const RS_Line& l);
 
@@ -222,7 +222,7 @@ m0 x + m1 y + m2 =0
      * @return line integral \oint x dy along the entity
      * \oint x dy = 0.5*(x0+x1)*(y1-y0)
      */
-    virtual double areaLineIntegral() const;
+	virtual LDOUBLE areaLineIntegral() const;
 
 protected:
 	RS_LineData data;

@@ -60,11 +60,11 @@ public:
      */
     LC_Quadratic(const RS_Vector& point0, const RS_Vector& point1);
 
-    LC_Quadratic(std::vector<double> ce);
-    std::vector<double> getCoefficients() const;
+	LC_Quadratic(std::vector<LDOUBLE> ce);
+	std::vector<LDOUBLE> getCoefficients() const;
     LC_Quadratic move(const RS_Vector& v);
-    LC_Quadratic rotate(const double& a);
-    LC_Quadratic rotate(const RS_Vector& center, const double& a);
+	LC_Quadratic rotate(const LDOUBLE& a);
+	LC_Quadratic rotate(const RS_Vector& center, const LDOUBLE& a);
     /** whether it's quadratic or linear
       @return true, if quadratic;
       return false, if linear
@@ -80,19 +80,19 @@ public:
     {
         m_bValid=value;
     }
-    boost::numeric::ublas::vector<double>& getLinear()
+	boost::numeric::ublas::vector<LDOUBLE>& getLinear()
     {
         return m_vLinear;
     }
-     const boost::numeric::ublas::vector<double>& getLinear() const
+	 const boost::numeric::ublas::vector<LDOUBLE>& getLinear() const
      {
          return m_vLinear;
      }
-     boost::numeric::ublas::matrix<double>& getQuad()
+	 boost::numeric::ublas::matrix<LDOUBLE>& getQuad()
      {
          return m_mQuad;
      }
-     const boost::numeric::ublas::matrix<double>& getQuad() const
+	 const boost::numeric::ublas::matrix<LDOUBLE>& getQuad() const
      {
          return m_mQuad;
      }
@@ -100,7 +100,7 @@ public:
     /** switch x,y coordinates */
     LC_Quadratic flipXY(void) const;
     /** the matrix of rotation by angle **/
-    static boost::numeric::ublas::matrix<double> rotationMatrix(const double& angle);
+	static boost::numeric::ublas::matrix<LDOUBLE> rotationMatrix(const LDOUBLE& angle);
 
     static RS_VectorSolutions getIntersection(const LC_Quadratic& l1, const LC_Quadratic& l2);
 
@@ -108,9 +108,9 @@ public:
 
 //    private:
     // the equation form: {x, y}.m_mQuad.{{x},{y}} + m_vLinear.{{x},{y}}+m_dConst=0
-    boost::numeric::ublas::matrix<double> m_mQuad;
-    boost::numeric::ublas::vector<double> m_vLinear;
-    double m_dConst;
+	boost::numeric::ublas::matrix<LDOUBLE> m_mQuad;
+	boost::numeric::ublas::vector<LDOUBLE> m_vLinear;
+	LDOUBLE m_dConst;
     bool m_bIsQuadratic;
     /** whether this quadratic form is valid */
     bool m_bValid;

@@ -197,7 +197,7 @@ void RS_ActionBlocksInsert::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
 				data->angle = RS_Math::deg2rad(a);
             } else {
@@ -210,7 +210,7 @@ void RS_ActionBlocksInsert::commandEvent(RS_CommandEvent* e) {
 
     case SetFactor: {
             bool ok;
-            double f = RS_Math::eval(c, &ok);
+            LDOUBLE f = RS_Math::eval(c, &ok);
             if (ok) {
                 setFactor(f);
             } else {
@@ -249,7 +249,7 @@ void RS_ActionBlocksInsert::commandEvent(RS_CommandEvent* e) {
 
     case SetColumnSpacing: {
             bool ok;
-            double cs = (int)RS_Math::eval(c, &ok);
+            LDOUBLE cs = (int)RS_Math::eval(c, &ok);
             if (ok) {
 				data->spacing.x = cs;
             } else {
@@ -278,7 +278,7 @@ void RS_ActionBlocksInsert::commandEvent(RS_CommandEvent* e) {
     }
 }
 
-double RS_ActionBlocksInsert::getAngle() const {
+ LDOUBLE RS_ActionBlocksInsert::getAngle() const {
 	return data->angle;
 }
 
@@ -286,7 +286,7 @@ void RS_ActionBlocksInsert::setAngle(double a) {
 	data->angle = a;
 }
 
-double RS_ActionBlocksInsert::getFactor() const {
+ LDOUBLE RS_ActionBlocksInsert::getFactor() const {
 	return data->scaleFactor.x;
 }
 
@@ -310,7 +310,7 @@ void RS_ActionBlocksInsert::setRows(int r) {
 	data->rows = r;
 }
 
-double RS_ActionBlocksInsert::getColumnSpacing() const {
+ LDOUBLE RS_ActionBlocksInsert::getColumnSpacing() const {
 	return data->spacing.x;
 }
 
@@ -318,7 +318,7 @@ void RS_ActionBlocksInsert::setColumnSpacing(double cs) {
 	data->spacing.x = cs;
 }
 
-double RS_ActionBlocksInsert::getRowSpacing() const {
+ LDOUBLE RS_ActionBlocksInsert::getRowSpacing() const {
 	return data->spacing.y;
 }
 

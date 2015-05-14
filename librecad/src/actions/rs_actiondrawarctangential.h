@@ -83,12 +83,12 @@ public:
 
 	void setRadius(double r);
 
-	double getRadius() const;
+ LDOUBLE getRadius() const;
     void setAngle(double r) {
         angleLength= r;
     }
 
-    double getAngle() const {
+    LDOUBLE getAngle() const {
         return angleLength;
     }
     virtual void setByRadius(bool status=true);
@@ -114,7 +114,7 @@ protected:
   */
 	std::unique_ptr<RS_ArcData> data;
 private:
-    double angleLength;
+    LDOUBLE angleLength;
     bool byRadius;
 };
 

@@ -37,11 +37,11 @@ public:
     ~QG_SnapDistOptions();
 
 public slots:
-    virtual void setDist( double& d , bool initial=true);
+	virtual void setDist( LDOUBLE& d , bool initial=true);
     virtual void updateDist( const QString & d );
 
 protected:
-    double* dist;
+	LDOUBLE* dist;
 
 protected slots:
     virtual void languageChange();

@@ -69,21 +69,21 @@ RS_Vector RS_AtomicEntity::getStartpoint() const {
 /**
  * Implementation must return the angle in which direction the entity starts.
  */
-double RS_AtomicEntity::getDirection1() const {
-	return 0.0;
+LDOUBLE RS_AtomicEntity::getDirection1() const {
+	return 0.0L;
 }
 
 /**
  * Implementation must return the angle in which direction the entity starts the opposite way.
  */
-double RS_AtomicEntity::getDirection2() const {
-	return 0.0;
+LDOUBLE RS_AtomicEntity::getDirection2() const {
+	return 0.0L;
 }
 RS_Vector RS_AtomicEntity::getCenter() const {
 	return RS_Vector(false);
 }
-double RS_AtomicEntity::getRadius() const {
-	   return 0.;
+LDOUBLE RS_AtomicEntity::getRadius() const {
+	   return 0.L;
    }
 /**
 * return the nearest center for snapping
@@ -96,7 +96,7 @@ double RS_AtomicEntity::getRadius() const {
 * @return The closest center point.
 */
 RS_Vector RS_AtomicEntity::getNearestCenter(const RS_Vector& /*coord*/,
-								  double* /*dist*/) const{
+								  LDOUBLE* /*dist*/) const{
 	return RS_Vector(false);
 }
 
@@ -145,7 +145,7 @@ void RS_AtomicEntity::revertDirection(){}
  * Implementation must create offset of the entity to
  * the given direction and distance
  */
-bool RS_AtomicEntity::offset(const RS_Vector& /*position*/, const double& /*distance*/) {return false;}
+bool RS_AtomicEntity::offset(const RS_Vector& /*position*/, const LDOUBLE& /*distance*/) {return false;}
 
 /**
  * Implementation must move the startpoint of the entity to

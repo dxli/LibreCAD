@@ -96,7 +96,7 @@ public:
         return data.endpoint;
     }
 
-        double getClosingBulge();
+		LDOUBLE getClosingBulge();
 
         void updateEndpoints();
 
@@ -114,18 +114,18 @@ public:
                 }
         }
 
-    void setClosed(bool cl, double bulge);//RLZ: rewrite this:
+	void setClosed(bool cl, LDOUBLE bulge);//RLZ: rewrite this:
 
 	virtual RS_VectorSolutions getRefPoints() const;
     virtual RS_Vector getMiddlePoint(void)const {
             return RS_Vector(false);
 	}
     virtual RS_Entity* addVertex(const RS_Vector& v,
-                double bulge=0.0, bool prepend=false);
+				LDOUBLE bulge=0.0L, bool prepend=false);
 
-    void appendVertexs(const QList< QPair<RS_Vector*, double> > vl);
+	void appendVertexs(const QList< std::pair<RS_Vector*, LDOUBLE> > vl);
 
-        virtual void setNextBulge(double bulge) {
+		virtual void setNextBulge(LDOUBLE bulge) {
                 nextBulge = bulge;
         }
     virtual void addEntity(RS_Entity* entity);
@@ -135,9 +135,9 @@ public:
 
     //virtual void reorder();
 
-    virtual bool offset(const RS_Vector& coord, const double& distance);
+	virtual bool offset(const RS_Vector& coord, const LDOUBLE& distance);
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -150,18 +150,18 @@ public:
 
 
     virtual void draw(RS_Painter* painter, RS_GraphicView* view,
-                      double& patternOffset);
+					  LDOUBLE& patternOffset);
 
     friend std::ostream& operator << (std::ostream& os, const RS_Polyline& l);
 
 protected:
     virtual RS_Entity* createVertex(const RS_Vector& v,
-                double bulge=0.0, bool prepend=false);
+				LDOUBLE bulge=0.0, bool prepend=false);
 
 protected:
     RS_PolylineData data;
     RS_Entity* closingEntity;
-        double nextBulge;
+		LDOUBLE nextBulge;
 };
 
 #endif

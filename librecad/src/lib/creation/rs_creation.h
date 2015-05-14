@@ -54,8 +54,8 @@ class RS_Block;
 struct RS_LibraryInsertData {
         QString file;
 	RS_Vector insertionPoint;
-	double factor;
-	double angle;
+	LDOUBLE factor;
+	LDOUBLE angle;
 };
 
 
@@ -78,29 +78,29 @@ public:
                               RS_Entity* e);
 
     RS_Entity* createParallel(const RS_Vector& coord,
-                              double distance,
+							  LDOUBLE distance,
                               int number,
                               RS_Entity* e);
 
     RS_Line* createParallelLine(const RS_Vector& coord,
-                                double distance, int number,
+								LDOUBLE distance, int number,
                                 RS_Line* e);
 
     RS_Arc* createParallelArc(const RS_Vector& coord,
-                              double distance, int number,
+							  LDOUBLE distance, int number,
                               RS_Arc* e);
 
     RS_Circle* createParallelCircle(const RS_Vector& coord,
-                                    double distance, int number,
+									LDOUBLE distance, int number,
                                     RS_Circle* e);
 
     LC_SplinePoints* createParallelSplinePoints(const RS_Vector& coord,
-                                    double distance, int number,
+									LDOUBLE distance, int number,
                                     LC_SplinePoints* e);
 
     RS_Line* createBisector(const RS_Vector& coord1,
                             const RS_Vector& coord2,
-                            double length,
+							LDOUBLE length,
                             int num,
                             RS_Line* l1,
                             RS_Line* l2);
@@ -126,8 +126,8 @@ public:
 
     RS_Line* createLineRelAngle(const RS_Vector& coord,
                                 RS_Entity* entity,
-                                double angle,
-                                double length);
+								LDOUBLE angle,
+								LDOUBLE length);
 
     RS_Line* createPolygon(const RS_Vector& center,
                            const RS_Vector& corner,

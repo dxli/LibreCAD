@@ -70,11 +70,11 @@ void RS_ActionPolylineEquidistant::init(int status) {
  *
  * @author Rallaz
  */
-RS_Entity* RS_ActionPolylineEquidistant::calculateOffset(RS_Entity* newEntity,RS_Entity* orgEntity, double dist) {
+RS_Entity* RS_ActionPolylineEquidistant::calculateOffset(RS_Entity* newEntity,RS_Entity* orgEntity, LDOUBLE dist) {
     if (orgEntity->rtti()==RS2::EntityArc && newEntity->rtti()==RS2::EntityArc) {
         RS_Arc* arc = (RS_Arc*)newEntity;
-        double r0 = ((RS_Arc*)orgEntity)->getRadius();
-        double r;
+        LDOUBLE r0 = ((RS_Arc*)orgEntity)->getRadius();
+        LDOUBLE r;
         if ( ((RS_Arc*)orgEntity)->isReversed())
             r = r0 + dist;
         else
@@ -142,7 +142,7 @@ bool RS_ActionPolylineEquidistant::makeContour() {
 	if (document) {
         document->startUndoCycle();
     }
-    double neg = 1.0;
+    LDOUBLE neg = 1.0;
     if(bRightSide)
         neg = -1.0;
 
@@ -159,7 +159,7 @@ bool RS_ActionPolylineEquidistant::makeContour() {
 
         bool first = true;
         bool closed = originalPolyline->isClosed();
-        double bulge = 0.0;
+        LDOUBLE bulge = 0.0;
         RS_Entity* en;
         RS_Entity* prevEntity = entities.last();
         RS_Entity* currEntity=NULL;
@@ -199,21 +199,21 @@ bool RS_ActionPolylineEquidistant::makeContour() {
                 v = calculateIntersection(prevEntity, currEntity);
                 if (!v.valid) {
                     v= prevEntity->getEndpoint();
-                    double dess = currEntity->getStartpoint().distanceTo(prevEntity->getEndpoint());
+                    LDOUBLE dess = currEntity->getStartpoint().distanceTo(prevEntity->getEndpoint());
                     if (dess > 1.0e-12) {
                         newPolyline->addVertex(v, bulge);
                         prevEntity = NULL;
                         break;
                     }
                 }
-                double startAngle = prevEntity->getStartpoint().angleTo(prevEntity->getEndpoint());
+                LDOUBLE startAngle = prevEntity->getStartpoint().angleTo(prevEntity->getEndpoint());
                 if (prevEntity->rtti()==RS2::EntityArc) {
                     arcFirst.setAngle2(arcFirst.getCenter().angleTo(v));
                     arcFirst.calculateEndpoints();
                      newPolyline->setNextBulge(arcFirst.getBulge());
                 }
                 //check if the entity are reverted
-                if (fabs(remainder(prevEntity->getStartpoint().angleTo(prevEntity->getEndpoint())- startAngle, 2.*M_PI)) > 0.785){
+                if (fabsl(remainder(prevEntity->getStartpoint().angleTo(prevEntity->getEndpoint())- startAngle, 2.*M_PI)) > 0.785){
                     prevEntity = newPolyline->lastEntity();
                     RS_Vector v0 = calculateIntersection(prevEntity, currEntity);
                     if (prevEntity->rtti()==RS2::EntityArc) {
@@ -316,11 +316,11 @@ void RS_ActionPolylineEquidistant::mouseReleaseEvent(QMouseEvent* e) {
                                 targetPoint = snapFree(e);
                                 originalEntity->setHighlighted(true);
                                 graphicView->drawEntity(originalEntity);
-                                double d = graphicView->toGraphDX(snapRange)*0.9;
+                                LDOUBLE d = graphicView->toGraphDX(snapRange)*0.9;
                                 RS_Entity* Segment =  ((RS_Polyline*)originalEntity)->getNearestEntity( targetPoint, &d, RS2::ResolveNone);
                                 if (Segment->rtti() == RS2::EntityLine) {
-                                double ang = ((RS_Line*)Segment)->getAngle1();
-                                double ang1 = ((RS_Line*)Segment)->getStartpoint().angleTo(RS_Vector(targetPoint));
+                                LDOUBLE ang = ((RS_Line*)Segment)->getAngle1();
+                                LDOUBLE ang1 = ((RS_Line*)Segment)->getStartpoint().angleTo(RS_Vector(targetPoint));
                                 if( ang > ang1 || ang + M_PI < ang1 )
                                         bRightSide = true;
                                 } else {

@@ -74,19 +74,19 @@ void QG_DlgEllipse::setEllipse(RS_Ellipse& e) {
         cbLayer->setLayer(*lay);
     }
     QString s;
-    s.setNum(ellipse->getCenter().x);
+	s.setNum((double)ellipse->getCenter().x);
     leCenterX->setText(s);
-    s.setNum(ellipse->getCenter().y);
+	s.setNum((double)ellipse->getCenter().y);
     leCenterY->setText(s);
-    s.setNum(ellipse->getMajorP().magnitude());
+	s.setNum((double)ellipse->getMajorP().magnitude());
     leMajor->setText(s);
-    s.setNum(ellipse->getMajorP().magnitude()*ellipse->getRatio());
+	s.setNum((double) (ellipse->getMajorP().magnitude()*ellipse->getRatio()));
     leMinor->setText(s);
-    s.setNum(RS_Math::rad2deg(ellipse->getMajorP().angle()));
+	s.setNum((double)RS_Math::rad2deg(ellipse->getMajorP().angle()));
     leRotation->setText(s);
-    s.setNum(RS_Math::rad2deg(ellipse->getAngle1()));
+	s.setNum((double)RS_Math::rad2deg(ellipse->getAngle1()));
     leAngle1->setText(s);
-    s.setNum(RS_Math::rad2deg(ellipse->getAngle2()));
+	s.setNum((double)RS_Math::rad2deg(ellipse->getAngle2()));
     leAngle2->setText(s);
     cbReversed->setChecked(ellipse->isReversed());
 }

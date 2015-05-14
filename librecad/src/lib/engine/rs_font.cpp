@@ -247,10 +247,10 @@ void RS_Font::readCXF(QString path) {
 
                 // Line:
                 if (line.at(0)=='L') {
-                    double x1 = (*it2++).toDouble();
-                    double y1 = (*it2++).toDouble();
-                    double x2 = (*it2++).toDouble();
-                    double y2 = (*it2).toDouble();
+					LDOUBLE x1 = (*it2++).toDouble();
+					LDOUBLE y1 = (*it2++).toDouble();
+					LDOUBLE x2 = (*it2++).toDouble();
+					LDOUBLE y2 = (*it2).toDouble();
 
                     RS_LineData ld(RS_Vector(x1, y1), RS_Vector(x2, y2));
                     RS_Line* line = new RS_Line(letter, ld);
@@ -261,11 +261,11 @@ void RS_Font::readCXF(QString path) {
 
                 // Arc:
                 else if (line.at(0)=='A') {
-                    double cx = (*it2++).toDouble();
-                    double cy = (*it2++).toDouble();
-                    double r = (*it2++).toDouble();
-					double a1 = RS_Math::deg2rad((*it2++).toDouble());
-					double a2 = RS_Math::deg2rad((*it2).toDouble());
+					LDOUBLE cx = (*it2++).toDouble();
+					LDOUBLE cy = (*it2++).toDouble();
+					LDOUBLE r = (*it2++).toDouble();
+					LDOUBLE a1 = RS_Math::deg2rad((*it2++).toDouble());
+					LDOUBLE a2 = RS_Math::deg2rad((*it2).toDouble());
                     bool reversed = (line.at(1)=='R');
 
                     RS_ArcData ad(RS_Vector(cx,cy),
@@ -425,8 +425,8 @@ RS_Block* RS_Font::generateLffFont(const QString& ch){
             pline->setPen(RS_Pen(RS2::FlagInvalid));
             pline->setLayer(NULL);
             for (int i = 0; i < vertex.size(); ++i) {
-                double x1, y1;
-                double bulge = 0;
+				LDOUBLE x1, y1;
+				LDOUBLE bulge = 0;
 
                 coords = vertex.at(i).split(',', QString::SkipEmptyParts);
                 //at least X,Y is required

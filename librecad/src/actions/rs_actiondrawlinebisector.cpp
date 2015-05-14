@@ -58,7 +58,7 @@ void RS_ActionDrawLineBisector::setLength(double l) {
 	length = l;
 }
 
-double RS_ActionDrawLineBisector::getLength() const{
+ LDOUBLE RS_ActionDrawLineBisector::getLength() const{
 	return length;
 }
 
@@ -220,7 +220,7 @@ void RS_ActionDrawLineBisector::commandEvent(RS_CommandEvent* e) {
 
     case SetLength: {
             bool ok;
-            double l = RS_Math::eval(c, &ok);
+            LDOUBLE l = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 length = l;

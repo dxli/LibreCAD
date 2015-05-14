@@ -86,17 +86,17 @@ public:
     virtual void updateMouseCursor();
 //    virtual void updateToolBar();
 
-	double getAngle() const;
+ LDOUBLE getAngle() const;
 
 	void setAngle(double a) const;
 
-	double getFactor() const;
+ LDOUBLE getFactor() const;
 
 	void setFactor(double f) const;
 
-	double dpiToScale(double dpi) const;
+ LDOUBLE dpiToScale(double dpi) const;
 
-	double scaleToDpi(double scale) const;
+ LDOUBLE scaleToDpi(double scale) const;
 
 
 protected:

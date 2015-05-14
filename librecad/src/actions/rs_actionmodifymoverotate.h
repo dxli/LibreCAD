@@ -82,7 +82,7 @@ public:
 	void setAngle(double a) {
 		data.angle = a;
 	}
-	double getAngle() {
+ LDOUBLE getAngle() {
 		return data.angle;
 	}
 

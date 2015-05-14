@@ -47,14 +47,14 @@ struct RS_HatchData {
          * @param pattern Pattern name.
          */
 	RS_HatchData(bool solid,
-				 double scale,
-				 double angle,
+				 LDOUBLE scale,
+				 LDOUBLE angle,
 				 const QString& pattern);
 
 
 	bool solid;
-	double scale;
-	double angle;
+	LDOUBLE scale;
+	LDOUBLE angle;
 	QString pattern;
 };
 
@@ -119,20 +119,20 @@ public:
                 data.pattern = pattern;
         }
 
-        double getScale() {
+		LDOUBLE getScale() const{
                 return data.scale;
         }
-        void setScale(double scale) {
+		void setScale(LDOUBLE scale) {
                 data.scale = scale;
         }
 
-        double getAngle() {
+		LDOUBLE getAngle() const{
                 return data.angle;
         }
-        void setAngle(double angle) {
+		void setAngle(LDOUBLE angle) {
                 data.angle = angle;
         }
-        double getTotalArea();
+		LDOUBLE getTotalArea();
 
         virtual void calculateBorders();
         void update();
@@ -142,20 +142,20 @@ public:
         void activateContour(bool on);
 
         virtual void draw(RS_Painter* painter, RS_GraphicView* view,
-                          double& patternOffset);
+						  LDOUBLE& patternOffset);
 
-        //	virtual double getLength() {
+		//	virtual LDOUBLE getLength() {
         //		return -1.0;
         //	}
 
-        virtual double getDistanceToPoint(const RS_Vector& coord,
+		virtual LDOUBLE getDistanceToPoint(const RS_Vector& coord,
                                           RS_Entity** entity = NULL,
                                           RS2::ResolveLevel level = RS2::ResolveNone,
-                                          double solidDist = RS_MAXDOUBLE) const;
+										  LDOUBLE solidDist = RS_MAXDOUBLE) const;
 
 
         virtual void move(const RS_Vector& offset);
-        virtual void rotate(const RS_Vector& center, const double& angle);
+		virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
         virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
         virtual void scale(const RS_Vector& center, const RS_Vector& factor);
         virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

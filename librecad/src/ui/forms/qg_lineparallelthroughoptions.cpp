@@ -69,7 +69,7 @@ void QG_LineParallelThroughOptions::setAction(RS_ActionInterface* a, bool update
 
         QString sn;
         if (update) {
-            sn = QString("%1").arg(action->getNumber());
+			sn = QString("%1").arg(action->getNumber());
         } else {
             RS_SETTINGS->beginGroup("/Draw");
             sn = RS_SETTINGS->readEntry("/LineParallelNumber", "1");

@@ -204,7 +204,7 @@ void RS_ActionDrawImage::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle: {
         bool ok;
-        double a = RS_Math::eval(c, &ok);
+        LDOUBLE a = RS_Math::eval(c, &ok);
 		if (ok) {
             setAngle(RS_Math::deg2rad(a));
         } else {
@@ -217,7 +217,7 @@ void RS_ActionDrawImage::commandEvent(RS_CommandEvent* e) {
 
     case SetFactor: {
         bool ok;
-        double f = RS_Math::eval(c, &ok);
+        LDOUBLE f = RS_Math::eval(c, &ok);
 		if (ok) {
             setFactor(f);
         } else {
@@ -230,7 +230,7 @@ void RS_ActionDrawImage::commandEvent(RS_CommandEvent* e) {
 
     case SetDPI : {
         bool ok;
-        double dpi = RS_Math::eval(c, &ok);
+        LDOUBLE dpi = RS_Math::eval(c, &ok);
 
 		if(ok) {
             setFactor(RS_Units::dpiToScale(dpi, document->getGraphicUnit()));
@@ -248,33 +248,33 @@ void RS_ActionDrawImage::commandEvent(RS_CommandEvent* e) {
 }
 
 
-double RS_ActionDrawImage::getAngle() const {
+ LDOUBLE RS_ActionDrawImage::getAngle() const {
 	return data->uVector.angle();
 }
 
 void RS_ActionDrawImage::setAngle(double a) const{
-	double l = data->uVector.magnitude();
+ LDOUBLE l = data->uVector.magnitude();
 	data->uVector.setPolar(l, a);
 	data->vVector.setPolar(l, a+M_PI_2);
 }
 
-double RS_ActionDrawImage::getFactor() const {
+ LDOUBLE RS_ActionDrawImage::getFactor() const {
 	return data->uVector.magnitude();
 }
 
 void RS_ActionDrawImage::setFactor(double f) const {
-	double a = data->uVector.angle();
+ LDOUBLE a = data->uVector.angle();
 	data->uVector.setPolar(f, a);
 	data->vVector.setPolar(f, a+M_PI_2);
 }
 
-double RS_ActionDrawImage::dpiToScale(double dpi) const {
+ LDOUBLE RS_ActionDrawImage::dpiToScale(double dpi) const {
 	return RS_Units::dpiToScale(dpi, document->getGraphicUnit());
 }
 
 
 
-double RS_ActionDrawImage::scaleToDpi(double scale) const {
+ LDOUBLE RS_ActionDrawImage::scaleToDpi(double scale) const {
 	return RS_Units::scaleToDpi(scale, document->getGraphicUnit());
 }
 

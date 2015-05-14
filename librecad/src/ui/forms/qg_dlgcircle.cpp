@@ -75,11 +75,11 @@ void QG_DlgCircle::setCircle(RS_Circle& c) {
         cbLayer->setLayer(*lay);
     }
     QString s;
-    s.setNum(circle->getCenter().x);
+	s.setNum((double)circle->getCenter().x);
     leCenterX->setText(s);
-    s.setNum(circle->getCenter().y);
+	s.setNum((double)circle->getCenter().y);
     leCenterY->setText(s);
-    s.setNum(circle->getRadius());
+	s.setNum((double)circle->getRadius());
     leRadius->setText(s);
 }
 

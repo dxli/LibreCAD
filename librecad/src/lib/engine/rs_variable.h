@@ -44,7 +44,7 @@ public:
 	typedef struct {
                 QString s;
 		int i;
-		double d;
+		LDOUBLE d;
 		RS_Vector v;
 	} RS_VariableContents;
 	
@@ -64,7 +64,7 @@ public:
 		setInt(v);
 		code = c;
 	}
-    RS_Variable(double v, int c) {
+	RS_Variable(LDOUBLE v, int c) {
 		setDouble(v);
 		code = c;
 	}
@@ -78,7 +78,7 @@ public:
 		contents.i = i;
 		type = RS2::VariableInt;
 	}
-	void setDouble(double d) {
+	void setDouble(LDOUBLE d) {
 		contents.d = d;
 		type = RS2::VariableDouble;
 	}
@@ -93,7 +93,7 @@ public:
 	int getInt() {
 		return contents.i;
 	}
-	double getDouble() {
+	LDOUBLE getDouble() {
 		return contents.d;
 	}
 	RS_Vector getVector() {

@@ -159,8 +159,8 @@ void RS_ActionDrawArc::mouseMoveEvent(QMouseEvent* e) {
         break;
 
     case SetChordLength: {
-			double x = data->center.distanceTo(mouse);
-			if (fabs(x/(2*data->radius))<=1.0) {
+		 LDOUBLE x = data->center.distanceTo(mouse);
+			if (fabsl(x/(2*data->radius))<=1.0) {
 				data->angle2 = data->angle1 + asin(x/(2*data->radius)) * 2;
                 deletePreview();
 				preview->addEntity(new RS_Arc(preview.get(),
@@ -228,8 +228,8 @@ void RS_ActionDrawArc::coordinateEvent(RS_CoordinateEvent* e) {
         break;
 
     case SetChordLength: {
-			double x = data->center.distanceTo(mouse);
-			if (fabs(x/(2*data->radius))<=1.0) {
+		 LDOUBLE x = data->center.distanceTo(mouse);
+			if (fabsl(x/(2*data->radius))<=1.0) {
 				data->angle2 = data->angle1 + asin(x/(2*data->radius)) * 2;
                 trigger();
             }
@@ -268,7 +268,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
 
     case SetRadius: {
             bool ok;
-            double r = RS_Math::eval(c, &ok);
+            LDOUBLE r = RS_Math::eval(c, &ok);
             if (ok) {
 				data->radius = r;
                 setStatus(SetAngle1);
@@ -283,7 +283,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle1: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
 				data->angle1 = RS_Math::deg2rad(a);
                 e->accept();
@@ -303,7 +303,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
                 setStatus(SetChordLength);
             } else {
                 bool ok;
-                double a = RS_Math::eval(c, &ok);
+                LDOUBLE a = RS_Math::eval(c, &ok);
                 if (ok) {
 					data->angle2 = RS_Math::deg2rad(a);
                     e->accept();
@@ -319,7 +319,7 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
 
     case SetIncAngle: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
 				data->angle2 = data->angle1 + RS_Math::deg2rad(a);
                 e->accept();
@@ -334,9 +334,9 @@ void RS_ActionDrawArc::commandEvent(RS_CommandEvent* e) {
 
     case SetChordLength: {
             bool ok;
-            double l = RS_Math::eval(c, &ok);
+            LDOUBLE l = RS_Math::eval(c, &ok);
             if (ok) {
-				if (fabs(l/(2*data->radius))<=1.0) {
+				if (fabsl(l/(2*data->radius))<=1.0) {
 					data->angle2 = data->angle1 + asin(l/(2*data->radius)) * 2;
                     trigger();
                 } else {

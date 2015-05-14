@@ -38,7 +38,7 @@
 RS_InsertData::RS_InsertData(const QString& _name,
 							 RS_Vector _insertionPoint,
 							 RS_Vector _scaleFactor,
-							 double _angle,
+							 LDOUBLE _angle,
 							 int _cols, int _rows, RS_Vector _spacing,
 							 RS_BlockList* _blockSource ,
 							 RS2::UpdateMode _updateMode ):
@@ -113,7 +113,7 @@ void RS_Insert::update() {
         return;
     }
 
-        if (fabs(data.scaleFactor.x)<1.0e-6 || fabs(data.scaleFactor.y)<1.0e-6) {
+        if (fabsl(data.scaleFactor.x)<1.0e-6 || fabsl(data.scaleFactor.y)<1.0e-6) {
                 RS_DEBUG->print("RS_Insert::update: scale factor is 0");
                 return;
         }
@@ -179,8 +179,8 @@ void RS_Insert::update() {
 
                 // Move:
 //                                RS_DEBUG->print("RS_Insert::update: move 1");
-                if (fabs(data.scaleFactor.x)>1.0e-6 &&
-                        fabs(data.scaleFactor.y)>1.0e-6) {
+                if (fabsl(data.scaleFactor.x)>1.0e-6 &&
+                        fabsl(data.scaleFactor.y)>1.0e-6) {
                     ne->move(data.insertionPoint +
                              RS_Vector(data.spacing.x/data.scaleFactor.x*c,
                                        data.spacing.y/data.scaleFactor.y*r));
@@ -313,7 +313,7 @@ RS_VectorSolutions RS_Insert::getRefPoints() const
 
 
 RS_Vector RS_Insert::getNearestRef(const RS_Vector& coord,
-									 double* dist) const{
+									 LDOUBLE* dist) const{
 
         return getRefPoints().getClosest(coord, dist);
 }
@@ -333,7 +333,7 @@ void RS_Insert::move(const RS_Vector& offset) {
 
 
 
-void RS_Insert::rotate(const RS_Vector& center, const double& angle) {
+void RS_Insert::rotate(const RS_Vector& center, const LDOUBLE& angle) {
         RS_DEBUG->print("RS_Insert::rotate1: insertionPoint: %f/%f "
             "/ center: %f/%f",
                 data.insertionPoint.x, data.insertionPoint.y,

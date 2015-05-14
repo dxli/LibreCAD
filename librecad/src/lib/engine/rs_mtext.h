@@ -95,24 +95,24 @@ struct RS_MTextData {
 	 *    after creating a text entity.
 	 */
 	RS_MTextData(const RS_Vector& insertionPoint,
-				 double height,
-				 double width,
+				 LDOUBLE height,
+				 LDOUBLE width,
 				 VAlign valign,
 				 HAlign halign,
 				 MTextDrawingDirection drawingDirection,
 				 MTextLineSpacingStyle lineSpacingStyle,
-				 double lineSpacingFactor,
+				 LDOUBLE lineSpacingFactor,
 				 const QString& text,
 				 const QString& style,
-				 double angle,
+				 LDOUBLE angle,
 				 RS2::UpdateMode updateMode = RS2::Update);
 
 	/** Insertion point */
 	RS_Vector insertionPoint;
 	/** Nominal (initial) text height */
-	double height;
+	LDOUBLE height;
 	/** Reference rectangle width */
-	double width;
+	LDOUBLE width;
 	/** Vertical alignment */
 	VAlign valign;
 	/** Horizontal alignment */
@@ -122,13 +122,13 @@ struct RS_MTextData {
 	/** Line spacing style */
 	MTextLineSpacingStyle lineSpacingStyle;
 	/** Line spacing factor */
-	double lineSpacingFactor;
+	LDOUBLE lineSpacingFactor;
 	/** Text string */
 	QString text;
 	/** Text style name */
 	QString style;
 	/** Rotation angle */
-	double angle;
+	LDOUBLE angle;
 	/** Update mode */
 	RS2::UpdateMode updateMode;
 };
@@ -170,13 +170,13 @@ public:
     RS_Vector getInsertionPoint() {
         return data.insertionPoint;
     }
-    double getHeight() {
+	LDOUBLE getHeight() {
         return data.height;
     }
-    void setHeight(double h) {
+	void setHeight(LDOUBLE h) {
         data.height = h;
     }
-    double getWidth() {
+	LDOUBLE getWidth() {
         return data.width;
     }
     void setAlignment(int a);
@@ -199,10 +199,10 @@ public:
     RS_MTextData::MTextLineSpacingStyle getLineSpacingStyle() {
         return data.lineSpacingStyle;
     }
-    void setLineSpacingFactor(double f) {
+	void setLineSpacingFactor(LDOUBLE f) {
         data.lineSpacingFactor = f;
     }
-    double getLineSpacingFactor() {
+	LDOUBLE getLineSpacingFactor() {
         return data.lineSpacingFactor;
     }
     void setText(const QString& t);
@@ -215,20 +215,20 @@ public:
     QString getStyle() {
         return data.style;
     }
-    void setAngle(double a) {
+	void setAngle(LDOUBLE a) {
         data.angle = a;
     }
-    double getAngle() {
+	LDOUBLE getAngle() {
         return data.angle;
     }
-    double getUsedTextWidth() {
+	LDOUBLE getUsedTextWidth() {
         return usedTextWidth;
     }
-    double getUsedTextHeight() {
+	LDOUBLE getUsedTextHeight() {
         return usedTextHeight;
     }
 
-//	virtual double getLength() const {
+//	virtual LDOUBLE getLength() const {
 //		return -1.0;
 //	}
 
@@ -236,11 +236,11 @@ public:
      * @return The insertion point as endpoint.
      */
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+										 LDOUBLE* dist = NULL)const;
 	virtual RS_VectorSolutions getRefPoints() const;
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -252,7 +252,7 @@ public:
     friend std::ostream& operator << (std::ostream& os, const RS_Text& p);
 
 private:
-    double updateAddLine(RS_EntityContainer* textLine, int lineCounter);
+	LDOUBLE updateAddLine(RS_EntityContainer* textLine, int lineCounter);
 
 protected:
     RS_MTextData data;
@@ -262,13 +262,13 @@ protected:
      * This property is updated by the update method.
      * @see update
      */
-    double usedTextWidth;
+	LDOUBLE usedTextWidth;
     /**
      * Text height used by the current contents of this text entity.
      * This property is updated by the update method.
      * @see update
      */
-    double usedTextHeight;
+	LDOUBLE usedTextHeight;
 };
 
 #endif

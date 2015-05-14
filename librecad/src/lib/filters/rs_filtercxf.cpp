@@ -160,12 +160,12 @@ bool RS_FilterCXF::fileExport(RS_Graphic& g, const QString& file, RS2::FormatTyp
 
         RS_DEBUG->print("004a");
 
-        fprintf(fp, "# LetterSpacing:     %f\n",
-                g.getVariableDouble("LetterSpacing", 3.0));
+		fprintf(fp, "# LetterSpacing:     %f\n",
+				(double) g.getVariableDouble("LetterSpacing", 3.0L));
         fprintf(fp, "# WordSpacing:       %f\n",
-                g.getVariableDouble("WordSpacing", 6.75));
+				(double) g.getVariableDouble("WordSpacing", 6.75L));
         fprintf(fp, "# LineSpacingFactor: %f\n",
-                g.getVariableDouble("LineSpacingFactor", 1.0));
+				(double) g.getVariableDouble("LineSpacingFactor", 1.0L));
 
         QString sa = g.getVariableString("Authors", "");
         RS_DEBUG->print("authors: %s", sa.toLocal8Bit().data());
@@ -224,10 +224,10 @@ bool RS_FilterCXF::fileExport(RS_Graphic& g, const QString& file, RS2::FormatTyp
                             RS_Line* l = (RS_Line*)e;
 
                             fprintf(fp, "L %f,%f,%f,%f\n",
-                                    l->getStartpoint().x,
-                                    l->getStartpoint().y,
-                                    l->getEndpoint().x,
-                                    l->getEndpoint().y);
+									(double) l->getStartpoint().x,
+									(double) l->getStartpoint().y,
+									(double) l->getEndpoint().x,
+									(double) l->getEndpoint().y);
                         }
 
                         // arcs:
@@ -241,11 +241,11 @@ bool RS_FilterCXF::fileExport(RS_Graphic& g, const QString& file, RS2::FormatTyp
                             }
 
                             fprintf(fp, "%f,%f,%f,%f,%f\n",
-                                    a->getCenter().x,
-                                    a->getCenter().y,
-                                    a->getRadius(),
-									RS_Math::rad2deg(a->getAngle1()),
-									RS_Math::rad2deg(a->getAngle2())
+									(double) a->getCenter().x,
+									(double) a->getCenter().y,
+									(double) a->getRadius(),
+									(double) RS_Math::rad2deg(a->getAngle1()),
+									(double) RS_Math::rad2deg(a->getAngle2())
 													 );
                         }
                         // Ignore entities other than arcs / lines

@@ -108,9 +108,9 @@ void RS_GraphicView::setContainer(RS_EntityContainer* container) {
 /**
  * Sets the zoom factor in X for this visualization of the graphic.
  */
-void RS_GraphicView::setFactorX(double f) {
+void RS_GraphicView::setFactorX(LDOUBLE f) {
 	if (!zoomFrozen) {
-		factor.x = fabs(f);
+		factor.x = fabsl(f);
 	}
 }
 
@@ -119,9 +119,9 @@ void RS_GraphicView::setFactorX(double f) {
 /**
  * Sets the zoom factor in Y for this visualization of the graphic.
  */
-void RS_GraphicView::setFactorY(double f) {
+void RS_GraphicView::setFactorY(LDOUBLE f) {
 	if (!zoomFrozen) {
-		factor.y = fabs(f);
+		factor.y = fabsl(f);
 	}
 }
 
@@ -192,10 +192,10 @@ void RS_GraphicView::centerOffsetY() {
 /**
  * Centers the given coordinate in the view in x-direction.
  */
-void RS_GraphicView::centerX(double v) {
+void RS_GraphicView::centerX(LDOUBLE v) {
 	if (!zoomFrozen) {
 		offsetX = (int)((v*factor.x)
-						- (double)(getWidth()-borderLeft-borderRight)/2.0);
+						- (LDOUBLE)(getWidth()-borderLeft-borderRight)/2.0);
 	}
 }
 
@@ -204,10 +204,10 @@ void RS_GraphicView::centerX(double v) {
 /**
  * Centers the given coordinate in the view in y-direction.
  */
-void RS_GraphicView::centerY(double v) {
+void RS_GraphicView::centerY(LDOUBLE v) {
 	if (!zoomFrozen) {
 		offsetY = (int)((v*factor.y)
-						- (double)(getHeight()-borderTop-borderBottom)/2.0);
+						- (LDOUBLE)(getHeight()-borderTop-borderBottom)/2.0);
 	}
 }
 
@@ -484,7 +484,7 @@ void RS_GraphicView::disableCoordinateInput() {
 /**
  * zooms in by factor f
  */
-void RS_GraphicView::zoomIn(double f, const RS_Vector& center) {
+void RS_GraphicView::zoomIn(LDOUBLE f, const RS_Vector& center) {
 
 	if (f<1.0e-6) {
 		RS_DEBUG->print(RS_Debug::D_WARNING,
@@ -515,7 +515,7 @@ void RS_GraphicView::zoomIn(double f, const RS_Vector& center) {
 /**
  * zooms in by factor f in x
  */
-void RS_GraphicView::zoomInX(double f) {
+void RS_GraphicView::zoomInX(LDOUBLE f) {
 	factor.x*=f;
 	offsetX=(int)((offsetX-getWidth()/2)*f)+getWidth()/2;
 	adjustOffsetControls();
@@ -529,7 +529,7 @@ void RS_GraphicView::zoomInX(double f) {
 /**
  * zooms in by factor f in y
  */
-void RS_GraphicView::zoomInY(double f) {
+void RS_GraphicView::zoomInY(LDOUBLE f) {
 	factor.y*=f;
 	offsetY=(int)((offsetY-getHeight()/2)*f)+getHeight()/2;
 	adjustOffsetControls();
@@ -543,7 +543,7 @@ void RS_GraphicView::zoomInY(double f) {
 /**
  * zooms out by factor f
  */
-void RS_GraphicView::zoomOut(double f, const RS_Vector& center) {
+void RS_GraphicView::zoomOut(LDOUBLE f, const RS_Vector& center) {
 	if (f<1.0e-6) {
 		RS_DEBUG->print(RS_Debug::D_WARNING,
 						"RS_GraphicView::zoomOut: invalid factor");
@@ -557,7 +557,7 @@ void RS_GraphicView::zoomOut(double f, const RS_Vector& center) {
 /**
  * zooms out by factor f in x
  */
-void RS_GraphicView::zoomOutX(double f) {
+void RS_GraphicView::zoomOutX(LDOUBLE f) {
 	if (f<1.0e-6) {
 		RS_DEBUG->print(RS_Debug::D_WARNING,
 						"RS_GraphicView::zoomOutX: invalid factor");
@@ -576,7 +576,7 @@ void RS_GraphicView::zoomOutX(double f) {
 /**
  * zooms out by factor f y
  */
-void RS_GraphicView::zoomOutY(double f) {
+void RS_GraphicView::zoomOutY(LDOUBLE f) {
 	if (f<1.0e-6) {
 		RS_DEBUG->print(RS_Debug::D_WARNING,
 						"RS_GraphicView::zoomOutY: invalid factor");
@@ -605,19 +605,19 @@ void RS_GraphicView::zoomAuto(bool axis, bool keepAspectRatio) {
 	if (container) {
 		container->calculateBorders();
 
-		double sx, sy;
+		LDOUBLE sx, sy;
 		if (axis) {
-			sx = std::max(container->getMax().x, 0.0)
-					- std::min(container->getMin().x, 0.0);
-			sy = std::max(container->getMax().y, 0.0)
-					- std::min(container->getMin().y, 0.0);
+			sx = std::max(container->getMax().x, 0.0L)
+					- std::min(container->getMin().x, 0.0L);
+			sy = std::max(container->getMax().y, 0.0L)
+					- std::min(container->getMin().y, 0.0L);
 		} else {
 			sx = container->getSize().x;
 			sy = container->getSize().y;
 		}
 		//    std::cout<<" RS_GraphicView::zoomAuto("<<axis<<","<<keepAspectRatio<<")"<<std::endl;
 
-		double fx=1., fy=1.;
+		LDOUBLE fx=1., fy=1.;
 		unsigned short fFlags=0;
 
 		if (sx>RS_TOLERANCE) {
@@ -764,21 +764,21 @@ void RS_GraphicView::restoreView() {
 
 void RS_GraphicView::zoomAutoY(bool axis) {
 	if (container) {
-		double visibleHeight = 0.0;
-		double minY = RS_MAXDOUBLE;
-		double maxY = RS_MINDOUBLE;
+		LDOUBLE visibleHeight = 0.0;
+		LDOUBLE minY = RS_MAXDOUBLE;
+		LDOUBLE maxY = RS_MINDOUBLE;
 		bool noChange = false;
 
 		for(auto e: *container){
 
 			if (e->rtti()==RS2::EntityLine) {
 				RS_Line* l = (RS_Line*)e;
-				double x1, x2;
+				LDOUBLE x1, x2;
 				x1 = toGuiX(l->getStartpoint().x);
 				x2 = toGuiX(l->getEndpoint().x);
 
-				if (	((x1 > 0.0) && (x1 < (double) getWidth())) ||
-						((x2 > 0.0) && (x2 < (double) getWidth())))
+				if (	((x1 > 0.0) && (x1 < (LDOUBLE) getWidth())) ||
+						((x2 > 0.0) && (x2 < (LDOUBLE) getWidth())))
 				{
 					minY = std::min(minY, l->getStartpoint().y);
 					minY = std::min(minY, l->getEndpoint().y);
@@ -789,7 +789,7 @@ void RS_GraphicView::zoomAutoY(bool axis) {
 		}
 
 		if (axis) {
-			visibleHeight = std::max(maxY, 0.0) - std::min(minY, 0.0);
+			visibleHeight = std::max(maxY, 0.0L) - std::min(minY, 0.0L);
 		} else {
 			visibleHeight = maxY-minY;
 		}
@@ -798,7 +798,7 @@ void RS_GraphicView::zoomAutoY(bool axis) {
 			noChange = true;
 		}
 
-		double fy = 1.0;
+		LDOUBLE fy = 1.0;
 		if (visibleHeight>1.0e-6) {
 			fy = (getHeight()-borderTop-borderBottom)
 					/ visibleHeight;
@@ -836,8 +836,8 @@ void RS_GraphicView::zoomWindow(RS_Vector v1, RS_Vector v2,
 
 
 
-	double zoomX=480.0;    // Zoom for X-Axis
-	double zoomY=640.0;    // Zoom for Y-Axis   (Set smaller one)
+	LDOUBLE zoomX=480.0;    // Zoom for X-Axis
+	LDOUBLE zoomY=640.0;    // Zoom for Y-Axis   (Set smaller one)
 	int zoomBorder = 0;
 
 	// Switch left/right and top/bottom is necessary:
@@ -860,19 +860,19 @@ void RS_GraphicView::zoomWindow(RS_Vector v1, RS_Vector v2,
 	if (keepAspectRatio) {
 		if(zoomX<zoomY) {
 			if(getWidth()!=0) {
-				zoomX = zoomY = ((double)(getWidth()-2*zoomBorder)) /
-						(double)getWidth()*zoomX;
+				zoomX = zoomY = ((LDOUBLE)(getWidth()-2*zoomBorder)) /
+						(LDOUBLE)getWidth()*zoomX;
 			}
 		} else {
 			if(getHeight()!=0) {
-				zoomX = zoomY = ((double)(getHeight()-2*zoomBorder)) /
-						(double)getHeight()*zoomY;
+				zoomX = zoomY = ((LDOUBLE)(getHeight()-2*zoomBorder)) /
+						(LDOUBLE)getHeight()*zoomY;
 			}
 		}
 	}
 
-	zoomX=fabs(zoomX);
-	zoomY=fabs(zoomY);
+	zoomX=fabsl(zoomX);
+	zoomY=fabsl(zoomY);
 
 	// Borders in pixel after zoom
 	int pixLeft  =(int)(v1.x*zoomX);
@@ -966,7 +966,7 @@ void RS_GraphicView::zoomPage() {
 
 	RS_Vector s = graphic->getPaperSize()/graphic->getPaperScale();
 
-	double fx, fy;
+	LDOUBLE fx, fy;
 
 	if (s.x>RS_TOLERANCE) {
 		fx = (getWidth()-borderLeft-borderRight) / s.x;
@@ -1135,8 +1135,8 @@ void RS_GraphicView::setPenForEntity(RS_Painter *painter,RS_Entity *e)
 	// ------------------------------------------------------------
 	if (!draftMode)
 	{
-		double	uf = 1.0;	// Unit factor.
-		double	wf = 1.0;	// Width factor.
+		LDOUBLE	uf = 1.0;	// Unit factor.
+		LDOUBLE	wf = 1.0;	// Width factor.
 
 		RS_Graphic* graphic = container->getGraphic();
 
@@ -1167,7 +1167,7 @@ void RS_GraphicView::setPenForEntity(RS_Painter *painter,RS_Entity *e)
 	// --------------------------------------------------------
 	if (!draftMode)
 	{
-		double	uf = 1.0;	//	Unit factor.
+		LDOUBLE	uf = 1.0;	//	Unit factor.
 
 		RS_Graphic* graphic = container->getGraphic();
 
@@ -1217,9 +1217,9 @@ void RS_GraphicView::setPenForEntity(RS_Painter *painter,RS_Entity *e)
  *
  * @param patternOffset Offset of line pattern (used for connected
  *        lines e.g. in splines).
- * @param db Double buffering on (recommended) / off
+ * @param db LDOUBLE buffering on (recommended) / off
  */
-void RS_GraphicView::drawEntity(RS_Entity* /*e*/, double& /*patternOffset*/) {
+void RS_GraphicView::drawEntity(RS_Entity* /*e*/, LDOUBLE& /*patternOffset*/) {
 	RS_DEBUG->print("RS_GraphicView::drawEntity(RS_Entity*,patternOffset) not supported anymore");
 	// RVT_PORT this needs to be optimized
 	// ONe way to do is to send a RS2::RedrawSelected, then teh draw routine will onyl draw all selected entities
@@ -1238,10 +1238,10 @@ void RS_GraphicView::drawEntity(RS_Entity* /*e*/ /*patternOffset*/) {
 	redraw(RS2::RedrawDrawing);
 }
 void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e) {
-	double offset(0.);
+	LDOUBLE offset(0.);
 	drawEntity(painter,e,offset);
 }
-void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patternOffset) {
+void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, LDOUBLE& patternOffset) {
 
 	// update is diabled:
 	// given entity is NULL:
@@ -1342,7 +1342,7 @@ void RS_GraphicView::drawEntity(RS_Painter *painter, RS_Entity* e, double& patte
  * Draws an entity.
  * The painter must be initialized and all the attributes (pen) must be set.
  */
-void RS_GraphicView::drawEntityPlain(RS_Painter *painter, RS_Entity* e, double& patternOffset) {
+void RS_GraphicView::drawEntityPlain(RS_Painter *painter, RS_Entity* e, LDOUBLE& patternOffset) {
 	if (e==NULL) {
 		return;
 	}
@@ -1362,7 +1362,7 @@ void RS_GraphicView::drawEntityPlain(RS_Painter *painter, RS_Entity* e) {
 	if (!e->isContainer() && (e->isSelected()!=painter->shouldDrawSelected())) {
 		return;
 	}
-	double patternOffset(0.);
+	LDOUBLE patternOffset(0.);
 	e->draw(painter, this, patternOffset);
 
 }
@@ -1577,7 +1577,7 @@ void RS_GraphicView::drawPaper(RS_Painter *painter) {
 
 	RS_Vector pinsbase = graphic->getPaperInsertionBase();
 	RS_Vector size = graphic->getPaperSize();
-	double scale = graphic->getPaperScale();
+	LDOUBLE scale = graphic->getPaperScale();
 
 	RS_Vector v1 = toGui((RS_Vector(0,0)-pinsbase)/scale);
 	RS_Vector v2 = toGui((size-pinsbase)/scale);
@@ -1663,8 +1663,8 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
 	painter->setPen(pen);
 
 	RS_Vector dv=grid->getMetaGridWidth().scale(factor);
-	double dx=fabs(dv.x);
-	double dy=fabs(dv.y); //potential bug, need to recover metaGrid.width
+	LDOUBLE dx=fabsl(dv.x);
+	LDOUBLE dy=fabsl(dv.y); //potential bug, need to recover metaGrid.width
 	// draw meta grid:
 	auto mx = grid->getMetaX();
 	for(auto const& x: mx){
@@ -1677,8 +1677,8 @@ void RS_GraphicView::drawMetaGrid(RS_Painter *painter) {
 	}
 	auto my = grid->getMetaY();
 	if(grid->isIsometric()){//isometric metaGrid
-		dx=fabs(dx);
-		dy=fabs(dy);
+		dx=fabsl(dx);
+		dy=fabsl(dy);
 		if(!my.size()|| dx<1||dy<1) return;
 		RS_Vector baseMeta(toGui(RS_Vector(mx[0],my[0])));
 		// x-x0=k*dx, x-remainder(x-x0,dx)
@@ -1771,7 +1771,7 @@ RS_Vector RS_GraphicView::toGui(RS_Vector v) const{
  * @param visible Pointer to a boolean which will contain true
  * after the call if the coordinate is within the visible range.
  */
-double RS_GraphicView::toGuiX(double x) const{
+LDOUBLE RS_GraphicView::toGuiX(LDOUBLE x) const{
 	return x*factor.x + offsetX;
 }
 
@@ -1780,7 +1780,7 @@ double RS_GraphicView::toGuiX(double x) const{
 /**
  * Translates a real coordinate in Y to a screen coordinate Y.
  */
-double RS_GraphicView::toGuiY(double y) const{
+LDOUBLE RS_GraphicView::toGuiY(LDOUBLE y) const{
 	return -y*factor.y + getHeight() - offsetY;
 }
 
@@ -1789,7 +1789,7 @@ double RS_GraphicView::toGuiY(double y) const{
 /**
  * Translates a real coordinate distance to a screen coordinate distance.
  */
-double RS_GraphicView::toGuiDX(double d) const{
+LDOUBLE RS_GraphicView::toGuiDX(LDOUBLE d) const{
 	return d*factor.x;
 }
 
@@ -1798,7 +1798,7 @@ double RS_GraphicView::toGuiDX(double d) const{
 /**
  * Translates a real coordinate distance to a screen coordinate distance.
  */
-double RS_GraphicView::toGuiDY(double d) const{
+LDOUBLE RS_GraphicView::toGuiDY(LDOUBLE d) const{
 	return d*factor.y;
 }
 
@@ -1825,7 +1825,7 @@ RS_Vector RS_GraphicView::toGraph(int x, int y) const{
 /**
  * Translates a screen coordinate in X to a real coordinate X.
  */
-double RS_GraphicView::toGraphX(int x) const{
+LDOUBLE RS_GraphicView::toGraphX(int x) const{
 	return (x - offsetX)/factor.x;
 }
 
@@ -1834,7 +1834,7 @@ double RS_GraphicView::toGraphX(int x) const{
 /**
  * Translates a screen coordinate in Y to a real coordinate Y.
  */
-double RS_GraphicView::toGraphY(int y) const{
+LDOUBLE RS_GraphicView::toGraphY(int y) const{
 	return -(y - getHeight() + offsetY)/factor.y;
 }
 
@@ -1843,7 +1843,7 @@ double RS_GraphicView::toGraphY(int y) const{
 /**
  * Translates a screen coordinate distance to a real coordinate distance.
  */
-double RS_GraphicView::toGraphDX(int d) const{
+LDOUBLE RS_GraphicView::toGraphDX(int d) const{
 	return d/factor.x;
 }
 
@@ -1852,7 +1852,7 @@ double RS_GraphicView::toGraphDX(int d) const{
 /**
  * Translates a screen coordinate distance to a real coordinate distance.
  */
-double RS_GraphicView::toGraphDY(int d) const{
+LDOUBLE RS_GraphicView::toGraphDY(int d) const{
 	return d/factor.y;
 }
 
@@ -1931,7 +1931,7 @@ RS_EntityContainer* RS_GraphicView::getContainer() const{
 	return container;
 }
 
-void RS_GraphicView::setFactor(double f) {
+void RS_GraphicView::setFactor(LDOUBLE f) {
 	setFactorX(f);
 	setFactorY(f);
 }

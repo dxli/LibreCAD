@@ -74,13 +74,13 @@ void QG_DlgLine::setLine(RS_Line& l) {
         cbLayer->setLayer(*lay);
     }
     QString s;
-    s.setNum(line->getStartpoint().x);
+	s.setNum((double)line->getStartpoint().x);
     leStartX->setText(s);
-    s.setNum(line->getStartpoint().y);
+	s.setNum((double)line->getStartpoint().y);
     leStartY->setText(s);
-    s.setNum(line->getEndpoint().x);
+	s.setNum((double)line->getEndpoint().x);
     leEndX->setText(s);
-    s.setNum(line->getEndpoint().y);
+	s.setNum((double)line->getEndpoint().y);
     leEndY->setText(s);
 }
 

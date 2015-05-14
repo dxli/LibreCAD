@@ -74,23 +74,23 @@ void QG_DlgInsert::setInsert(RS_Insert& i) {
         cbLayer->setLayer(*lay);
     }
     QString s;
-    s.setNum(insert->getInsertionPoint().x);
+	s.setNum((double)insert->getInsertionPoint().x);
     leInsertionPointX->setText(s);
-    s.setNum(insert->getInsertionPoint().y);
+	s.setNum((double)insert->getInsertionPoint().y);
     leInsertionPointY->setText(s);
-    s.setNum(insert->getScale().x);
+	s.setNum((double)insert->getScale().x);
     leScaleX->setText(s);
-    s.setNum(insert->getScale().y);
+	s.setNum((double)insert->getScale().y);
     leScaleY->setText(s);
-    s.setNum(RS_Math::rad2deg(insert->getAngle()));
+	s.setNum((double)RS_Math::rad2deg(insert->getAngle()));
     leAngle->setText(s);
     s.setNum(insert->getRows());
     leRows->setText(s);
     s.setNum(insert->getCols());
     leCols->setText(s);
-    s.setNum(insert->getSpacing().x);
+	s.setNum((double)insert->getSpacing().x);
     leRowSpacing->setText(s);
-    s.setNum(insert->getSpacing().y);
+	s.setNum((double)insert->getSpacing().y);
     leColSpacing->setText(s);
 }
 

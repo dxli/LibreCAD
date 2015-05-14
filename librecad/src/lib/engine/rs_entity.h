@@ -117,8 +117,8 @@ public:
          * Implementations must return the total length of the entity
          * or a negative number if the entity has no length (e.g. a text or hatch).
          */
-    virtual double getLength() const {
-        return -1.0;
+	virtual LDOUBLE getLength() const {
+		return -1.0L;
     }
 
     /**
@@ -137,7 +137,7 @@ public:
     /** @return The center point (x) of this arc */
     //get center for entities: arc, circle and ellipse
 	virtual RS_Vector getCenter() const;
-	virtual double getRadius() const;
+	virtual LDOUBLE getRadius() const;
 	RS_Graphic* getGraphic() const;
 	RS_Block* getBlock() const;
 	RS_Insert* getInsert() const;
@@ -249,11 +249,11 @@ public:
      */
 	RS_Vector getSize() const;
 
-    void addGraphicVariable(const QString& key, double val, int code);
+	void addGraphicVariable(const QString& key, LDOUBLE val, int code);
     void addGraphicVariable(const QString& key, int val, int code);
     void addGraphicVariable(const QString& key, const QString& val, int code);
 
-    double getGraphicVariableDouble(const QString& key, double def);
+	LDOUBLE getGraphicVariableDouble(const QString& key, LDOUBLE def);
 	int getGraphicVariableInt(const QString& key, int def) const;
     QString getGraphicVariableString(const QString& key,
 									 const QString& def) const;
@@ -261,11 +261,11 @@ public:
 	virtual RS_Vector getEndpoint() const;
     //find the local direction at end points, derived entities
     // must implement this if direction is supported by the entity type
-    virtual double getDirection1() const {
-        return 0.;
+	virtual LDOUBLE getDirection1() const {
+		return 0.L;
     }
-    virtual double getDirection2() const {
-        return 0.;
+	virtual LDOUBLE getDirection2() const {
+		return 0.L;
     }
 
     //find the tangential points seeing from given point
@@ -291,7 +291,7 @@ public:
      * @return The closest endpoint.
      */
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-										 double* dist = nullptr)const = 0;
+										 LDOUBLE* dist = nullptr)const = 0;
 
     /**
      * Must be overwritten to get the closest coordinate to the
@@ -305,7 +305,7 @@ public:
      * @return The closest coordinate.
      */
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& /*coord*/,
-											  bool onEntity = true, double* dist = nullptr,
+											  bool onEntity = true, LDOUBLE* dist = nullptr,
 											  RS_Entity** entity = nullptr) const = 0;
 
     /**
@@ -321,7 +321,7 @@ public:
      * @return The closest center point.
      */
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = nullptr) const= 0;
+									   LDOUBLE* dist = nullptr) const= 0;
 
     /**
      * Must be overwritten to get the (nearest) middle point to the
@@ -339,7 +339,7 @@ public:
         return RS_Vector(false);
     }
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-									   double* dist = nullptr,
+									   LDOUBLE* dist = nullptr,
                                        int middlePoints = 1
             ) const= 0;
 
@@ -356,9 +356,9 @@ public:
      *
      * @return The closest point with the given distance to the endpoint.
      */
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = nullptr) const= 0;
+									 LDOUBLE* dist = nullptr) const= 0;
 
     /**
      * Must be overwritten to get the point with a given
@@ -369,7 +369,7 @@ public:
      *
      * @return The point with the given distance to the start- or endpoint.
      */
-    virtual RS_Vector getNearestDist(double /*distance*/,
+	virtual RS_Vector getNearestDist(LDOUBLE /*distance*/,
 									 bool /*startp*/) const{
         return RS_Vector(false);
     }
@@ -386,7 +386,7 @@ public:
      * @return The closest point with the given distance to the endpoint.
      */
     virtual RS_Vector getNearestRef(const RS_Vector& coord,
-									double* dist = nullptr) const;
+									LDOUBLE* dist = nullptr) const;
 
     /**
      * Gets the nearest reference point of this entity if it is selected.
@@ -402,7 +402,7 @@ public:
      * @return The closest point with the given distance to the endpoint.
      */
     virtual RS_Vector getNearestSelectedRef(const RS_Vector& coord,
-											double* dist = nullptr) const;
+											LDOUBLE* dist = nullptr) const;
 
     /**
      * Must be overwritten to get the shortest distance between this
@@ -421,24 +421,24 @@ public:
     virtual RS_Vector getNearestOrthTan(const RS_Vector& /*coord*/,
                                         const RS_Line& /*normal*/,
 										bool onEntity = false) const;
-    virtual double getDistanceToPoint(const RS_Vector& coord,
+	virtual LDOUBLE getDistanceToPoint(const RS_Vector& coord,
 									  RS_Entity** entity = nullptr,
                                       RS2::ResolveLevel level = RS2::ResolveNone,
-                                      double solidDist = RS_MAXDOUBLE) const;
+									  LDOUBLE solidDist = RS_MAXDOUBLE) const;
 
     virtual bool isPointOnEntity(const RS_Vector& coord,
-                                 double tolerance=20.*RS_TOLERANCE) const;
+								 LDOUBLE tolerance=20.L*RS_TOLERANCE) const;
 
     /**
      * Implementations must offset the entity by the given direction and distance.
      */
-    virtual bool offset(const RS_Vector& /*coord*/, const double& /*distance*/) {return false;}
+	virtual bool offset(const RS_Vector& /*coord*/, const LDOUBLE& /*distance*/) {return false;}
 
     /**
      * Implementations must offset the entity by the distance at both directions
      * used to generate tangential circles
      */
-	virtual std::vector<RS_Entity* > offsetTwoSides(const double& /*distance*/) const
+	virtual std::vector<RS_Entity* > offsetTwoSides(const LDOUBLE& /*distance*/) const
     {
 		return std::vector<RS_Entity* >();
     }
@@ -455,7 +455,7 @@ public:
      * Implementations must rotate the entity by the given angle around
      * the given center.
      */
-    virtual void rotate(const RS_Vector& center, const double& angle) = 0;
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle) = 0;
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector) = 0;
 
     /**
@@ -467,7 +467,7 @@ public:
      * Acts like scale(RS_Vector) but with equal factors.
      * Equal to scale(center, RS_Vector(factor, factor)).
      */
-    virtual void scale(const RS_Vector& center, const double& factor) {
+	virtual void scale(const RS_Vector& center, const LDOUBLE& factor) {
         scale(center, RS_Vector(factor, factor));
     }
     virtual void scale(const RS_Vector& factor) {
@@ -507,9 +507,9 @@ public:
      * Implementations must draw the entity on the given device.
      */
     virtual void draw(RS_Painter* painter, RS_GraphicView* view,
-                      double& patternOffset ) = 0;
+					  LDOUBLE& patternOffset ) = 0;
 
-    double getStyleFactor(RS_GraphicView* view);
+	LDOUBLE getStyleFactor(RS_GraphicView* view);
 
     QString getUserDefVar(const QString& key) const;
 	std::vector<QString> getAllKeys() const;
@@ -540,7 +540,7 @@ m0 x + m1 y + m2 =0
      * Contour Area =\oint x dy
      * @return line integral \oint x dy along the entity
      */
-	virtual double areaLineIntegral() const;
+	virtual LDOUBLE areaLineIntegral() const;
 
     /**
      * @brief trimmable, whether the entity type can be trimmed

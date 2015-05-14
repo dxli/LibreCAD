@@ -223,7 +223,7 @@ protected:
                                      bool on, bool update);
 
 public:
-    virtual void requestSnapDistOptions(double& dist, bool on);
+	virtual void requestSnapDistOptions(LDOUBLE& dist, bool on);
     virtual void requestSnapMiddleOptions(int& middlePoints, bool on);
 
 public:
@@ -243,7 +243,7 @@ public:
     virtual bool requestRotate2Dialog(RS_Rotate2Data& data);
 
     virtual bool requestModifyEntityDialog(RS_Entity* entity);
-    virtual void requestModifyOffsetOptions(double& dist, bool on);
+	virtual void requestModifyOffsetOptions(LDOUBLE& dist, bool on);
     virtual bool requestMTextDialog(RS_MText* text);
     virtual bool requestTextDialog(RS_Text* text);
     virtual bool requestHatchDialog(RS_Hatch* hatch);
@@ -265,12 +265,12 @@ public:
 	 */
 	virtual void updateMouseWidget(const QString& left=QString::null,
 								   const QString& right=QString::null);
-    virtual void updateSelectionWidget(int num, double length);//updated for total number of selected, and total length of selected
+	virtual void updateSelectionWidget(int num, LDOUBLE length);//updated for total number of selected, and total length of selected
     virtual void commandMessage(const QString& message);
         virtual bool isAdapter() { return false; }
 
         static QString extToFormat(const QString& ext);
-        virtual void updateArcTangentialOptions(const double& d, bool byRadius);
+		virtual void updateArcTangentialOptions(const LDOUBLE& d, bool byRadius);
 
 
 

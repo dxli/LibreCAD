@@ -127,7 +127,7 @@ void RS_ActionDefault::mouseMoveEvent(QMouseEvent* e) {
 
         if (graphicView->toGuiDX(v1.distanceTo(v2))>10) {
             // look for reference points to drag:
-            double dist;
+            LDOUBLE dist;
             RS_Vector ref = container->getNearestSelectedRef(v1, &dist);
             if (ref.valid==true && graphicView->toGuiDX(dist)<8) {
                 RS_DEBUG->print("RS_ActionDefault::mouseMoveEvent: "

@@ -355,7 +355,7 @@ void RS_ActionDrawText::setAngle(double a) {
     textChanged = true;
 }
 
-double RS_ActionDrawText::getAngle() const{
+ LDOUBLE RS_ActionDrawText::getAngle() const{
 	return data->angle;
 }
 

@@ -986,7 +986,7 @@ void QG_DialogFactory::requestArcTangentialOptions(RS_ActionInterface* action,
     }
 }
 
-void QG_DialogFactory::updateArcTangentialOptions(const double& d, bool byRadius)
+void QG_DialogFactory::updateArcTangentialOptions(const LDOUBLE& d, bool byRadius)
 {
 	if (arcTangentialOptions==nullptr) return;
     if(byRadius){
@@ -1234,7 +1234,7 @@ void QG_DialogFactory::requestSnapMiddleOptions(int& middlePoints, bool on) {
 /**
  * Shows a widget for 'snap to a point with a given distance' options.
  */
-void QG_DialogFactory::requestSnapDistOptions(double& dist, bool on) {
+void QG_DialogFactory::requestSnapDistOptions(LDOUBLE& dist, bool on) {
     if(!on) {
 		if (snapDistOptions) {
             delete snapDistOptions;
@@ -1351,7 +1351,7 @@ void QG_DialogFactory::requestRoundOptions(RS_ActionInterface* action,
 /**
  * Shows a widget for offset options.
  */
-void QG_DialogFactory::requestModifyOffsetOptions(double& dist, bool on) {
+void QG_DialogFactory::requestModifyOffsetOptions(LDOUBLE& dist, bool on) {
     if(!on) {
 		if (modifyOffsetOptions) {
             delete modifyOffsetOptions;
@@ -1864,7 +1864,7 @@ void QG_DialogFactory::updateMouseWidget(const QString& left,
 /**
  * Called whenever the selection changed.
  */
-void QG_DialogFactory::updateSelectionWidget(int num, double length) {
+void QG_DialogFactory::updateSelectionWidget(int num, LDOUBLE length) {
 	if (selectionWidget) {
         selectionWidget->setNumber(num);
         selectionWidget->setTotalLength(length);

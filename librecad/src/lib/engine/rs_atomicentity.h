@@ -87,15 +87,15 @@ public:
     /**
      * Implementation must return the angle in which direction the entity starts.
      */
-	virtual double getDirection1() const;
+	virtual LDOUBLE getDirection1() const;
 
     /**
      * Implementation must return the angle in which direction the entity starts the opposite way.
      */
-	virtual double getDirection2() const;
+	virtual LDOUBLE getDirection2() const;
 
 	virtual RS_Vector getCenter() const;
-	virtual double getRadius() const;
+	virtual LDOUBLE getRadius() const;
 	/**
     * return the nearest center for snapping
     * @param coord Coordinate (typically a mouse coordinate)
@@ -107,7 +107,7 @@ public:
     * @return The closest center point.
     */
    virtual RS_Vector getNearestCenter(const RS_Vector& /*coord*/,
-									  double* /*dist*/) const;
+									  LDOUBLE* /*dist*/) const;
 
     /**
      * (De-)selects startpoint.
@@ -136,7 +136,7 @@ public:
      * Implementation must create offset of the entity to
      * the given direction and distance
      */
-	virtual bool offset(const RS_Vector& /*position*/, const double& /*distance*/);
+	virtual bool offset(const RS_Vector& /*position*/, const LDOUBLE& /*distance*/);
 
     /**
      * Implementation must move the startpoint of the entity to

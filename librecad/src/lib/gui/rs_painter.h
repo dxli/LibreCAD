@@ -84,31 +84,31 @@ public:
     virtual void drawPoint(const RS_Vector& p) = 0;
     virtual void drawLine(const RS_Vector& p1, const RS_Vector& p2) = 0;
     virtual void drawRect(const RS_Vector& p1, const RS_Vector& p2);
-    virtual void drawArc(const RS_Vector& cp, double radius,
-                         double a1, double a2,
+	virtual void drawArc(const RS_Vector& cp, LDOUBLE radius,
+						 LDOUBLE a1, LDOUBLE a2,
                          const RS_Vector& p1, const RS_Vector& p2,
                          bool reversed) = 0;
-    virtual void drawArc(const RS_Vector& cp, double radius,
-                         double a1, double a2,
+	virtual void drawArc(const RS_Vector& cp, LDOUBLE radius,
+						 LDOUBLE a1, LDOUBLE a2,
                          bool reversed) = 0;
     void createArc(QPolygon& pa,
-                   const RS_Vector& cp, double radius,
-                   double a1, double a2,
+				   const RS_Vector& cp, LDOUBLE radius,
+				   LDOUBLE a1, LDOUBLE a2,
                    bool reversed);
     void createEllipse(QPolygon& pa,
                        const RS_Vector& cp,
-                             double radius1, double radius2,
-                             double angle,
-                             double angle1, double angle2,
+							 LDOUBLE radius1, LDOUBLE radius2,
+							 LDOUBLE angle,
+							 LDOUBLE angle1, LDOUBLE angle2,
                              bool reversed);
-    virtual void drawCircle(const RS_Vector& cp, double radius) = 0;
+	virtual void drawCircle(const RS_Vector& cp, LDOUBLE radius) = 0;
     virtual void drawEllipse(const RS_Vector& cp,
-                             double radius1, double radius2,
-                             double angle,
-                             double angle1, double angle2,
+							 LDOUBLE radius1, LDOUBLE radius2,
+							 LDOUBLE angle,
+							 LDOUBLE angle1, LDOUBLE angle2,
                              bool reversed) = 0;
         virtual void drawImg(QImage& img, const RS_Vector& pos,
-            double angle, const RS_Vector& factor) = 0;
+			LDOUBLE angle, const RS_Vector& factor) = 0;
 
     virtual void drawTextH(int x1, int y1, int x2, int y2,
                            const QString& text) = 0;
@@ -145,10 +145,10 @@ public:
 
     virtual void setClipRect(int x, int y, int w, int h) = 0;
     virtual void resetClipping() = 0;
-    int toScreenX(double x) {
+	int toScreenX(LDOUBLE x) {
         return RS_Math::round(offset.x + x);
     }
-    int toScreenY(double y) {
+	int toScreenY(LDOUBLE y) {
         return RS_Math::round(offset.y + y);
     }
 

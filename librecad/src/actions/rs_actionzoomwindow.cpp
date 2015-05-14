@@ -147,8 +147,8 @@ void RS_ActionZoomWindow::mouseReleaseEvent(QMouseEvent* e) {
     } else if (e->button()==Qt::LeftButton) {
         if (getStatus()==SetSecondCorner) {
             v2 = snapFree(e);
-            if( fabs(v1.x-v2.x) < RS_TOLERANCE
-                    || fabs(v1.y-v2.y) < RS_TOLERANCE ) {//invalid zoom window
+            if( fabsl(v1.x-v2.x) < RS_TOLERANCE
+                    || fabsl(v1.y-v2.y) < RS_TOLERANCE ) {//invalid zoom window
                 deletePreview();
                 init(getStatus()-1);
             }

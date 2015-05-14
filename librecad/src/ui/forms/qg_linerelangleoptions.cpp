@@ -78,8 +78,8 @@ void QG_LineRelAngleOptions::setAction(RS_ActionInterface* a, bool update) {
 
         // settings from action:
         if (update) {
-            sa = QString("%1").arg(RS_Math::rad2deg(action->getAngle()));
-            sl = QString("%1").arg(action->getLength());
+			sa = QString("%1").arg((double)RS_Math::rad2deg(action->getAngle()));
+			sl = QString("%1").arg((double)action->getLength());
         }
         // settings from config file:
         else {
@@ -87,7 +87,7 @@ void QG_LineRelAngleOptions::setAction(RS_ActionInterface* a, bool update) {
             if (!action->hasFixedAngle()) {
                 sa = RS_SETTINGS->readEntry("/LineRelAngleAngle", "30.0");
             } else {
-                sa = QString("%1").arg(RS_Math::rad2deg(action->getAngle()));
+				sa = QString("%1").arg((double)RS_Math::rad2deg(action->getAngle()));
             }
             sl = RS_SETTINGS->readEntry("/LineRelAngleLength", "10.0");
             RS_SETTINGS->endGroup();

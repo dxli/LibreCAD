@@ -39,8 +39,8 @@ struct RS_ArcData {
 	~RS_ArcData() = default;
 
 	RS_ArcData(const RS_Vector& center,
-			   double radius,
-			   double angle1, double angle2,
+			   LDOUBLE radius,
+			   LDOUBLE angle1, LDOUBLE angle2,
 			   bool reversed);
 
 	void reset();
@@ -48,9 +48,9 @@ struct RS_ArcData {
 	bool isValid() const;
 
 	RS_Vector center;
-	double radius;
-	double angle1;
-	double angle2;
+	LDOUBLE radius;
+	LDOUBLE angle1;
+	LDOUBLE angle2;
 	bool reversed;
 };
 
@@ -102,44 +102,44 @@ public:
     }
 
     /** @return The radius of this arc */
-    virtual double getRadius() const {
+	virtual LDOUBLE getRadius() const {
         return data.radius;
     }
     /** Sets new radius. */
-    void setRadius(double r) {
+	void setRadius(LDOUBLE r) {
         data.radius = r;
     }
 
     /** @return The start angle of this arc */
-    double getAngle1() const {
+	LDOUBLE getAngle1() const {
         return data.angle1;
     }
     /** Sets new start angle. */
-    void setAngle1(double a1) {
+	void setAngle1(LDOUBLE a1) {
         data.angle1 = a1;
     }
     /** @return The end angle of this arc */
-    double getAngle2() const {
+	LDOUBLE getAngle2() const {
         return data.angle2;
     }
     /** Sets new end angle. */
-    void setAngle2(double a2) {
+	void setAngle2(LDOUBLE a2) {
         data.angle2 = a2;
     }
     /** get angle relative arc center*/
-    double getArcAngle(const RS_Vector& vp) {
+	LDOUBLE getArcAngle(const RS_Vector& vp) {
         return (vp - data.center).angle();
     }
     /**
      * @return Direction 1. The angle at which the arc starts at
      * the startpoint.
      */
-	double getDirection1() const;
+	LDOUBLE getDirection1() const;
     /**
      * @return Direction 2. The angle at which the arc starts at
      * the endpoint.
      */
-	double getDirection2() const;
+	LDOUBLE getDirection2() const;
 
     /**
      * @retval true if the arc is reversed (clockwise),
@@ -161,7 +161,7 @@ public:
     virtual RS_Vector getEndpoint() const {
         return endpoint;
     }
-	virtual std::vector<RS_Entity* > offsetTwoSides(const double& distance) const;
+	virtual std::vector<RS_Entity* > offsetTwoSides(const LDOUBLE& distance) const;
     /**
           * implementations must revert the direction of an atomic entity
           */
@@ -169,7 +169,7 @@ public:
     virtual void correctAngles();//make sure angleLength() is not more than 2*M_PI
     virtual void moveStartpoint(const RS_Vector& pos);
     virtual void moveEndpoint(const RS_Vector& pos);
-    virtual bool offset(const RS_Vector& position, const double& distance);
+	virtual bool offset(const RS_Vector& position, const LDOUBLE& distance);
 
     virtual void trimStartpoint(const RS_Vector& pos);
     virtual void trimEndpoint(const RS_Vector& pos);
@@ -183,33 +183,33 @@ public:
     virtual void reverse();
 
     virtual RS_Vector getMiddlePoint() const;
-    double getAngleLength() const;
-    virtual double getLength() const;
-    double getBulge() const;
+	LDOUBLE getAngleLength() const;
+	virtual LDOUBLE getLength() const;
+	LDOUBLE getBulge() const;
 
     bool createFrom3P(const RS_Vector& p1, const RS_Vector& p2,
                       const RS_Vector& p3);
     bool createFrom2PDirectionRadius(const RS_Vector& startPoint, const RS_Vector& endPoint,
-                                     double direction1, double radius);
+									 LDOUBLE direction1, LDOUBLE radius);
     bool createFrom2PDirectionAngle(const RS_Vector& startPoint, const RS_Vector& endPoint,
-                                     double direction1, double angleLength);
+									 LDOUBLE direction1, LDOUBLE angleLength);
     bool createFrom2PBulge(const RS_Vector& startPoint, const RS_Vector& endPoint,
-                           double bulge);
+						   LDOUBLE bulge);
 
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+										 LDOUBLE* dist = NULL)const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-            bool onEntity = true, double* dist = NULL, RS_Entity** entity=NULL)const;
+			bool onEntity = true, LDOUBLE* dist = NULL, RS_Entity** entity=NULL)const;
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = NULL) const;
+									   LDOUBLE* dist = NULL) const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-                                       double* dist = NULL,
+									   LDOUBLE* dist = NULL,
                                        int middlePoints = 1
                                        )const;
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = NULL) const;
-    virtual RS_Vector getNearestDist(double distance,
+									 LDOUBLE* dist = NULL) const;
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
 									 bool startp) const;
     virtual RS_Vector getNearestOrthTan(const RS_Vector& coord,
                     const RS_Line& normal,
@@ -217,7 +217,7 @@ public:
     virtual RS_VectorSolutions getTangentPoint(const RS_Vector& point) const;//find the tangential points seeing from given point
     virtual RS_Vector getTangentDirection(const RS_Vector& point)const;
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -227,9 +227,9 @@ public:
                          const RS_Vector& offset);
 
     /** find the visible part of the arc, and call drawVisible() to draw */
-    virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
     /** directly draw the arc, assuming the whole arc is within visible window */
-    virtual void drawVisible(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void drawVisible(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 
     friend std::ostream& operator << (std::ostream& os, const RS_Arc& a);
 
@@ -251,7 +251,7 @@ m0 x + m1 y + m2 =0
      * @return line integral \oint x dy along the entity
      * \oint x dy = c_x r \sin t + \frac{1}{4}r^2\sin 2t +  \frac{1}{2}r^2 t
      */
-    virtual double areaLineIntegral() const;
+	virtual LDOUBLE areaLineIntegral() const;
 
 protected:
     RS_ArcData data;

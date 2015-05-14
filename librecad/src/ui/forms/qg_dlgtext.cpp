@@ -162,11 +162,11 @@ void QG_DlgText::setText(RS_Text& t, bool isNew) {
     } else {
         fon = text->getStyle();
         setFont(fon);
-        height = QString("%1").arg(text->getHeight());
-        widthRelation = QString("%1").arg(text->getWidthRel());
+		height = QString("%1").arg((double)text->getHeight());
+		widthRelation = QString("%1").arg((double)text->getWidthRel());
         alignment = QString("%1").arg(text->getAlignment());
         str = text->getText();
-        angle = QString("%1").arg(RS_Math::rad2deg(text->getAngle()));
+		angle = QString("%1").arg((double)RS_Math::rad2deg(text->getAngle()));
         wPen->setPen(text->getPen(false), true, false, "Pen");
         RS_Graphic* graphic = text->getGraphic();
         if (graphic) {

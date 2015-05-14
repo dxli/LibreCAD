@@ -38,7 +38,7 @@
 RS_ActionDrawLineRelAngle::RS_ActionDrawLineRelAngle(
     RS_EntityContainer& container,
     RS_GraphicView& graphicView,
-    double angle,
+    LDOUBLE angle,
     bool fixedAngle)
         :RS_PreviewActionInterface("Draw Lines with relative angles",
                            container, graphicView) {
@@ -259,7 +259,7 @@ void RS_ActionDrawLineRelAngle::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 angle = RS_Math::deg2rad(a);
@@ -277,7 +277,7 @@ void RS_ActionDrawLineRelAngle::commandEvent(RS_CommandEvent* e) {
 
     case SetLength: {
             bool ok;
-            double l = RS_Math::eval(c, &ok);
+            LDOUBLE l = RS_Math::eval(c, &ok);
             if (ok) {
                 length = l;
             } else {

@@ -64,7 +64,7 @@ void QG_MTextOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sa;
         if (update) {
             st = action->getText();
-            sa = QString("%1").arg(RS_Math::rad2deg(action->getAngle()));
+			sa = QString("%1").arg((double)RS_Math::rad2deg(action->getAngle()));
         } else {
             st = "";
             sa = "0.0";

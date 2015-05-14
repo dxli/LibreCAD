@@ -69,7 +69,7 @@ void QG_CircleOptions::setAction(RS_ActionInterface* a, bool update) {
 
         QString sr;
         if (update) {
-            sr = QString("%1").arg(action->getRadius());
+			sr = QString("%1").arg((double)action->getRadius());
         } else {
             RS_SETTINGS->beginGroup("/Draw");
             sr = RS_SETTINGS->readEntry("/CircleRadius", "1.0");

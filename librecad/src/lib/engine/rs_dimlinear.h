@@ -49,16 +49,16 @@ struct RS_DimLinearData {
      */
     RS_DimLinearData(const RS_Vector& extensionPoint1,
                      const RS_Vector& extensionPoint2,
-					 double angle, double oblique);
+					 LDOUBLE angle, LDOUBLE oblique);
 
     /** Definition point. Startpoint of the first definition line. */
     RS_Vector extensionPoint1;
     /** Definition point. Startpoint of the second definition line. */
     RS_Vector extensionPoint2;
     /** Rotation angle in rad. */
-    double angle;
+	LDOUBLE angle;
     /** Oblique angle in rad. */
-    double oblique;
+	LDOUBLE oblique;
 };
 
 std::ostream& operator << (std::ostream& os,
@@ -105,18 +105,18 @@ public:
         return edata.extensionPoint2;
     }
 
-	double getAngle() const{
+	LDOUBLE getAngle() const{
         return edata.angle;
     }
 
-	void setAngle(double a);
+	void setAngle(LDOUBLE a);
 
-	double getOblique() const{
+	LDOUBLE getOblique() const{
         return edata.oblique;
     }
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

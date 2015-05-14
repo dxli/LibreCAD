@@ -84,7 +84,7 @@ void RS_ActionPrintPreview::mouseMoveEvent(QMouseEvent* e) {
         if (graphic) {
             RS_Vector pinsbase = graphic->getPaperInsertionBase();
 
-            double scale = graphic->getPaperScale();
+            LDOUBLE scale = graphic->getPaperScale();
 
             graphic->setPaperInsertionBase(pinsbase-v2*scale+v1*scale);
         }
@@ -135,10 +135,16 @@ void RS_ActionPrintPreview::coordinateEvent(RS_CoordinateEvent* e) {
 //    qDebug()<<"coordinateEvent= ("<<mouse.x<<", "<<mouse.y<<")";
 
     if(m_bPaperOffset) {
-        RS_DIALOGFACTORY->commandMessage(tr("Printout offset in paper coordinates by (%1, %2)").arg(mouse.x).arg(mouse.y));
+		RS_DIALOGFACTORY->commandMessage(
+					tr("Printout offset in paper coordinates by (%1, %2)")
+					.arg((double)mouse.x)
+					.arg((double)mouse.y));
         mouse *= graphic->getPaperScale();
     }else
-        RS_DIALOGFACTORY->commandMessage(tr("Printout offset in graph coordinates by (%1, %2)").arg(mouse.x).arg(mouse.y));
+		RS_DIALOGFACTORY->commandMessage(
+					tr("Printout offset in graph coordinates by (%1, %2)")
+					.arg((double)mouse.x)
+					.arg((double)mouse.y));
 
 //    RS_DIALOGFACTORY->commandMessage(tr("old insertion base (%1, %2)").arg(pinsbase.x).arg(pinsbase.y));
 //    RS_DIALOGFACTORY->commandMessage(tr("new insertion base (%1, %2)").arg((pinsbase-mouse).x).arg((pinsbase-mouse).y));
@@ -181,8 +187,8 @@ void RS_ActionPrintPreview::commandEvent(RS_CommandEvent*  e) {
 
         const int commaPos = c.indexOf(',');
         bool ok1, ok2;
-        double x = RS_Math::eval(c.left(commaPos), &ok1);
-        double y = RS_Math::eval(c.mid(commaPos+1), &ok2);
+        LDOUBLE x = RS_Math::eval(c.left(commaPos), &ok1);
+        LDOUBLE y = RS_Math::eval(c.mid(commaPos+1), &ok2);
         if (ok1 && ok2) {
             RS_CoordinateEvent ce(RS_Vector(x,y));
             this->coordinateEvent(&ce);
@@ -258,17 +264,17 @@ void RS_ActionPrintPreview::fit() {
         RS_Vector&& paperSize=RS_Units::convert(graphic->getPaperSize(),
                                                 RS2::Millimeter, getUnit());
 
-        if(fabs(paperSize.x)<10.|| fabs(paperSize.y)<10.)
+        if(fabsl(paperSize.x)<10.|| fabsl(paperSize.y)<10.)
             printWarning("Warning:: Paper size less than 10mm."
                          " Paper is too small for fitting to page\n"
                          "Please set paper size by Menu: Edit->Current Drawing Preferences->Paper");
-        //        double f0=graphic->getPaperScale();
+        //        LDOUBLE f0=graphic->getPaperScale();
         if( graphic->fitToPage()==false && RS_DIALOGFACTORY){
             RS_DIALOGFACTORY->commandMessage(
                         tr("RS_ActionPrintPreview::fit(): Invalid paper size")
                         );
         }
-        //        if(fabs(f0-graphic->getPaperScale())>RS_TOLERANCE){
+        //        if(fabsl(f0-graphic->getPaperScale())>RS_TOLERANCE){
         //only zoomPage when scale changed
         //        }
         graphic->centerToPage();
@@ -279,7 +285,7 @@ void RS_ActionPrintPreview::fit() {
 
 bool RS_ActionPrintPreview::setScale(double f, bool autoZoom) {
     if (graphic) {
-        if( fabs(f - graphic->getPaperScale()) < RS_TOLERANCE ) return false;
+        if( fabsl(f - graphic->getPaperScale()) < RS_TOLERANCE ) return false;
         graphic->setPaperScale(f);
 //        graphic->centerToPage();
         if(autoZoom) graphicView->zoomPage();
@@ -291,8 +297,8 @@ bool RS_ActionPrintPreview::setScale(double f, bool autoZoom) {
 
 
 
-double RS_ActionPrintPreview::getScale() {
-    double ret = 1.0;
+ LDOUBLE RS_ActionPrintPreview::getScale() {
+    LDOUBLE ret = 1.0;
     if (graphic) {
         ret = graphic->getPaperScale();
     }

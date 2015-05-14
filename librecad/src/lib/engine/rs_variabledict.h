@@ -42,7 +42,7 @@ class RS_Vector;
 class RS_VariableDict {
 public:
     RS_VariableDict();
-    virtual ~RS_VariableDict() {};
+	virtual ~RS_VariableDict()=default;
 
     void clear();
     /**
@@ -55,12 +55,12 @@ public:
     void add(const QString& key, const RS_Vector& value, int code);
     void add(const QString& key, const QString& value, int code);
     void add(const QString& key, int value, int code);
-    void add(const QString& key, double value, int code);
+	void add(const QString& key, LDOUBLE value, int code);
 
     RS_Vector getVector(const QString& key, const RS_Vector& def);
     QString getString(const QString& key, const QString& def);
     int getInt(const QString& key, int def);
-    double getDouble(const QString& key, double def);
+	LDOUBLE getDouble(const QString& key, LDOUBLE def);
 
     virtual void remove(const QString& key);
 

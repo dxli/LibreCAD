@@ -74,7 +74,7 @@ public:
     virtual void updateMouseCursor();
 //    virtual void updateToolBar();
 
-        double getDistance() {
+        LDOUBLE getDistance() {
                 return distance;
         }
         bool getByTotal() {
@@ -91,7 +91,7 @@ public:
 private:
     RS_Entity* trimEntity;
         RS_Vector trimCoord;
-        double distance;
+        LDOUBLE distance;
     bool byTotal;
         /**
          * Commands

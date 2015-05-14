@@ -43,13 +43,12 @@ RS_ActionInfoDist2::RS_ActionInfoDist2(RS_EntityContainer& container,
 
 
 QAction* RS_ActionInfoDist2::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
-        // (tr("Distance Entity to Point")
 	QAction* action = new QAction(QIcon(":/extui/infodist2.png"), tr("&Distance Entity to Point"), nullptr);
     return action;
 }
 
 RS_ActionInfoDist2::~RS_ActionInfoDist2() {
-    if(graphicView != NULL && graphicView->isCleanUp()==false){
+	if(graphicView && graphicView->isCleanUp()==false){
         if( entity && entity->isHighlighted()){
             entity->setHighlighted(false);
             graphicView->redraw(RS2::RedrawDrawing);
@@ -68,7 +67,7 @@ void RS_ActionInfoDist2::trigger() {
     RS_DEBUG->print("RS_ActionInfoDist2::trigger()");
 
     if (point.valid && entity) {
-        double dist = entity->getDistanceToPoint(point);
+        LDOUBLE dist = entity->getDistanceToPoint(point);
 		QString str = RS_Units::formatLinear(dist, graphic->getUnit(),
 											 graphic->getLinearFormat(), graphic->getLinearPrecision());
         RS_DIALOGFACTORY->commandMessage(tr("Distance: %1").arg(str));
@@ -172,16 +171,5 @@ void RS_ActionInfoDist2::updateMouseButtonHints() {
 void RS_ActionInfoDist2::updateMouseCursor() {
     graphicView->setMouseCursor(RS2::CadCursor);
 }
-
-
-
-//void RS_ActionInfoDist2::updateToolBar() {
-//    if (RS_DIALOGFACTORY) {
-//        if (isFinished()) {
-//            RS_DIALOGFACTORY->resetToolBar();
-//        }
-//    }
-//}
-
 
 // EOF

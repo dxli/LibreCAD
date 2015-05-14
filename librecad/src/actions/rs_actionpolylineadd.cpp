@@ -129,7 +129,7 @@ void RS_ActionPolylineAdd::mouseReleaseEvent(QMouseEvent* e) {
                         } else {
                                 RS_Vector clickCoord = snapPoint(e);
                                 addSegment = NULL;
-                                double dist = graphicView->toGraphDX(snapRange)*0.9;
+                                LDOUBLE dist = graphicView->toGraphDX(snapRange)*0.9;
                                 addSegment =  ((RS_Polyline*)addEntity)->getNearestEntity( clickCoord, &dist, RS2::ResolveNone);
                                 if(addSegment == NULL) {
                                         RS_DIALOGFACTORY->commandMessage(

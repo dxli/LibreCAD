@@ -32,6 +32,7 @@
 #include <map>
 
 class QVariant;
+typedef long double LDOUBLE;
 
 #define RS_SETTINGS RS_Settings::instance()
 
@@ -64,7 +65,7 @@ public:
     void endGroup();
 
     bool writeEntry(const QString& key, int value);
-    bool writeEntry(const QString& key, double value);
+	bool writeEntry(const QString& key, LDOUBLE value);
     bool writeEntry(const QString& key, const QVariant& value);
     bool writeEntry(const QString& key, const QString& value);
     QString readEntry(const QString& key,

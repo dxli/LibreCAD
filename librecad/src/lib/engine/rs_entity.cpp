@@ -102,9 +102,9 @@ void RS_Entity::initId() {
  * Resets the borders of this element.
  */
 void RS_Entity::resetBorders() {
-    // TODO: Check that. windoze XP crashes with MAXDOUBLE
-    double maxd = RS_MAXDOUBLE;
-    double mind = RS_MINDOUBLE;
+	// TODO: Check that. windoze XP crashes with MAXDOUBLE
+	LDOUBLE maxd = RS_MAXDOUBLE;
+	LDOUBLE mind = RS_MINDOUBLE;
 
     minV.set(maxd, maxd);
     maxV.set(mind, mind);
@@ -237,7 +237,7 @@ bool RS_Entity::isUndone() const {
  */
 bool RS_Entity::isInWindow(RS_Vector v1, RS_Vector v2) const
 {
-    double right, left, top, bottom;
+	LDOUBLE right, left, top, bottom;
 
     right = std::max(v1.x, v2.x);
     left = std::min(v1.x, v2.x);
@@ -250,7 +250,7 @@ bool RS_Entity::isInWindow(RS_Vector v1, RS_Vector v2) const
             getMax().y<=top);
 }
 
-double RS_Entity::areaLineIntegral() const
+LDOUBLE RS_Entity::areaLineIntegral() const
 {
 	return 0.;
 }
@@ -295,25 +295,25 @@ bool RS_Entity::isVisibleInWindow(RS_GraphicView* view) const
  * @retval false otherwise
  */
 bool RS_Entity::isPointOnEntity(const RS_Vector& coord,
-                                double tolerance) const {
-    double dist = getDistanceToPoint(coord, NULL, RS2::ResolveNone);
-    return (dist<=fabs(tolerance));
+								LDOUBLE tolerance) const {
+	LDOUBLE dist = getDistanceToPoint(coord, NULL, RS2::ResolveNone);
+    return (dist<=fabsl(tolerance));
 }
 
-double RS_Entity::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_Entity::getDistanceToPoint(const RS_Vector& coord,
                                   RS_Entity** entity,
                                   RS2::ResolveLevel /*level*/,
-                                  double /*solidDist*/) const
+								  LDOUBLE /*solidDist*/) const
 {
     if( entity != NULL) {
         *entity=const_cast<RS_Entity*>(this);
     }
-    double dToEntity = RS_MAXDOUBLE;
+	LDOUBLE dToEntity = RS_MAXDOUBLE;
     (void) getNearestPointOnEntity(coord, true, &dToEntity, entity);
 
     // RVT 6 Jan 2011 : Add selection by center point
     if(getCenter().valid){
-        double dToCenter=getCenter().distanceTo(coord);
+		LDOUBLE dToCenter=getCenter().distanceTo(coord);
         return std::min(dToEntity,dToCenter);
     }else
         return dToEntity;
@@ -464,7 +464,7 @@ RS_Vector RS_Entity::getCenter() const {
 	return RS_Vector(false);
 }
 
-double RS_Entity::getRadius() const {
+LDOUBLE RS_Entity::getRadius() const {
 	return RS_MAXDOUBLE;
 }
 
@@ -577,7 +577,7 @@ RS_Document* RS_Entity::getDocument() const{
  * @param key Variable name (e.g. "$DIMASZ")
  * @param val Default value
  */
-void RS_Entity::addGraphicVariable(const QString& key, double val, int code) {
+void RS_Entity::addGraphicVariable(const QString& key, LDOUBLE val, int code) {
     RS_Graphic* graphic = getGraphic();
     if (graphic) {
         graphic->addVariable(key, val, code);
@@ -626,9 +626,9 @@ void RS_Entity::addGraphicVariable(const QString& key,
  * @return value of variable or default value if the given variable
  *    doesn't exist.
  */
-double RS_Entity::getGraphicVariableDouble(const QString& key, double def) {
+LDOUBLE RS_Entity::getGraphicVariableDouble(const QString& key, LDOUBLE def) {
     RS_Graphic* graphic = getGraphic();
-    double ret=def;
+	LDOUBLE ret=def;
     if (graphic) {
         ret = graphic->getVariableDouble(key, def);
     }
@@ -867,8 +867,8 @@ void RS_Entity::stretch(const RS_Vector& firstCorner,
  * @return Factor for scaling the line styles considering the current
  * paper scaling and the fact that styles are stored in Millimeter.
  */
-double RS_Entity::getStyleFactor(RS_GraphicView* view) {
-    double styleFactor = 1.0;
+LDOUBLE RS_Entity::getStyleFactor(RS_GraphicView* view) {
+	LDOUBLE styleFactor = 1.0L;
 
     if (view) {
         if (view->isPrinting()==false && view->isDraftMode()) {
@@ -887,7 +887,7 @@ double RS_Entity::getStyleFactor(RS_GraphicView* view) {
 
             // the factor caused by the line width:
             if (((int)getPen(true).getWidth())>0) {
-                styleFactor *= ((double)getPen(true).getWidth()/100.0);
+				styleFactor *= ((LDOUBLE)getPen(true).getWidth()/100.0);
             } else if (((int)getPen(true).getWidth())==0) {
                 styleFactor *= 0.01;
             }
@@ -996,14 +996,14 @@ RS_VectorSolutions RS_Entity::getRefPoints() const
 }
 
 RS_Vector RS_Entity::getNearestRef(const RS_Vector& coord,
-								   double* dist) const{
+								   LDOUBLE* dist) const{
 	RS_VectorSolutions const&& s = getRefPoints();
 
 	return s.getClosest(coord, dist);
 }
 
 RS_Vector RS_Entity::getNearestSelectedRef(const RS_Vector& coord,
-										   double* dist) const{
+										   LDOUBLE* dist) const{
 	if (isSelected()) {
 		return getNearestRef(coord, dist);
 	}

@@ -80,7 +80,7 @@ public:
 		data.radius = r;
 	}
 
-	double getRadius() {
+ LDOUBLE getRadius() {
 		return data.radius;
 	}
 

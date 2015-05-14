@@ -58,9 +58,9 @@ public:
 
     /**
      * @return true: because entities made from this class
-	 *         and subclasses are containers for other entities.
+     *         and subclasses are containers for other entities.
      */
-	virtual bool isContainer() const {
+    virtual bool isContainer() const {
         return true;
     }
 
@@ -72,7 +72,7 @@ public:
                 return false;
         }
 
-        virtual double getLength() const;
+		virtual LDOUBLE getLength() const;
 
     virtual void undoStateChanged(bool undone);
     virtual void setVisible(bool v);
@@ -106,15 +106,13 @@ public:
 	virtual bool isEmpty() const{
         return count()==0;
 	}
-    virtual unsigned int count() const;
+	virtual unsigned int count() const;
 	virtual unsigned int countDeep() const;
-	//virtual unsigned long int countLayerEntities(RS_Layer* layer);
 	/** \brief countSelected number of selected
 	* @param deep count sub-containers, if true
 	* @param types if is not empty, only counts by types listed
-	*/
-	virtual unsigned int countSelected(bool deep=true, QList<RS2::EntityType> const& types = {});
-    virtual double totalSelectedLength();
+	*/	virtual unsigned int countSelected(bool deep=true, QList<RS2::EntityType> const& types={});
+	virtual LDOUBLE totalSelectedLength();
 
     /**
      * Enables / disables automatic update of borders on entity removals
@@ -134,46 +132,46 @@ public:
 				const QString& newName);
 
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+										 LDOUBLE* dist = NULL)const;
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist, RS_Entity** pEntity )const;
+										 LDOUBLE* dist, RS_Entity** pEntity )const;
 
     RS_Entity* getNearestEntity(const RS_Vector& point,
-                                double* dist = NULL,
+								LDOUBLE* dist = NULL,
 								RS2::ResolveLevel level=RS2::ResolveAll) const;
 
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
             bool onEntity = true,
-                        double* dist = NULL,
+						LDOUBLE* dist = NULL,
             RS_Entity** entity=NULL)const;
 
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = NULL)const;
+									   LDOUBLE* dist = NULL)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-                                       double* dist = NULL,
+									   LDOUBLE* dist = NULL,
                                        int middlePoints = 1
                                        )const;
-    virtual RS_Vector getNearestDist(double distance,
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
                                      const RS_Vector& coord,
-									 double* dist = NULL) const;
+									 LDOUBLE* dist = NULL) const;
     virtual RS_Vector getNearestIntersection(const RS_Vector& coord,
-            double* dist = NULL);
+			LDOUBLE* dist = NULL);
     virtual RS_Vector getNearestRef(const RS_Vector& coord,
-									 double* dist = NULL) const;
+									 LDOUBLE* dist = NULL) const;
     virtual RS_Vector getNearestSelectedRef(const RS_Vector& coord,
-									 double* dist = NULL) const;
+									 LDOUBLE* dist = NULL) const;
 
-    virtual double getDistanceToPoint(const RS_Vector& coord,
+	virtual LDOUBLE getDistanceToPoint(const RS_Vector& coord,
                                       RS_Entity** entity,
                                       RS2::ResolveLevel level=RS2::ResolveNone,
-                                      double solidDist = RS_MAXDOUBLE) const;
+									  LDOUBLE solidDist = RS_MAXDOUBLE) const;
 
     virtual bool optimizeContours();
 
     virtual bool hasEndpointsWithinWindow(const RS_Vector& v1, const RS_Vector& v2);
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -186,7 +184,7 @@ public:
 	virtual void revertDirection();
 
 
-    virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 
     friend std::ostream& operator << (std::ostream& os, RS_EntityContainer& ec);
 
@@ -198,7 +196,7 @@ public:
      * @return line integral \oint x dy along the entity
      * returns absolute value
      */
-    virtual double areaLineIntegral() const;
+	virtual LDOUBLE areaLineIntegral() const;
     /**
      * @brief ignoreForModification, ignore this entity for entity catch for certain actions
      * like catching circles to create tangent circles

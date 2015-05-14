@@ -29,8 +29,8 @@
 
 
 void RS_Painter::createArc(QPolygon& pa,
-                             const RS_Vector& cp, double radius,
-                             double a1, double a2,
+							 const RS_Vector& cp, LDOUBLE radius,
+							 LDOUBLE a1, LDOUBLE a2,
                              bool reversed) {
 
     if (radius<1.0e-6) {
@@ -39,7 +39,7 @@ void RS_Painter::createArc(QPolygon& pa,
         return;
     }
 
-    double aStep=fabs(2.0/radius);         // Angle Step (rad)
+	LDOUBLE aStep=fabsl(2.0/radius);         // Angle Step (rad)
     if(aStep>=0.5) aStep=0.5;
     if(reversed) {
         if(a1<=a2+RS_TOLERANCE) a1+=2.*M_PI;
@@ -47,7 +47,7 @@ void RS_Painter::createArc(QPolygon& pa,
     }else{
         if(a2<=a1+RS_TOLERANCE) a2+=2.*M_PI;
     }
-    double a;             // Current Angle (rad)
+	LDOUBLE a;             // Current Angle (rad)
 
 //    aStep=aStep/2.0;
     //if (aStep<0.05) {
@@ -62,8 +62,8 @@ void RS_Painter::createArc(QPolygon& pa,
     //QPointArray pa;
     pa.clear();
     //    pa<<QPoint(toScreenX(cp.x+cos(aStart)*radius), toScreenY(cp.y-sin(aStart)*radius));
-    double da=fabs(a2-a1);
-    for(a=a1; fabs(a-a1)<da; a+=aStep) {
+	LDOUBLE da=fabsl(a2-a1);
+    for(a=a1; fabsl(a-a1)<da; a+=aStep) {
         pa<<QPoint(toScreenX(cp.x+cos(a)*radius), toScreenY(cp.y-sin(a)*radius));
     }
 
@@ -74,18 +74,18 @@ void RS_Painter::createArc(QPolygon& pa,
 
 void RS_Painter::createEllipse(QPolygon& pa,
         const RS_Vector& cp,
-                         double radius1, double radius2,
-                         double angle,
-                         double angle1, double angle2,
+						 LDOUBLE radius1, LDOUBLE radius2,
+						 LDOUBLE angle,
+						 LDOUBLE angle1, LDOUBLE angle2,
                          bool reversed)
 {
 
     const RS_Vector vr(radius1,radius2);
     const RS_Vector rvp(radius2,radius1);
-    const double ab=radius1*radius2;
-    double ea1=angle1;
-    double ea2;
-    double dA=RS_Math::getAngleDifference(angle1, angle2, reversed);
+	const LDOUBLE ab=radius1*radius2;
+	LDOUBLE ea1=angle1;
+	LDOUBLE ea2;
+	LDOUBLE dA=RS_Math::getAngleDifference(angle1, angle2, reversed);
     if(dA <= RS_TOLERANCE_ANGLE) {
         dA=2.*M_PI;
         ea2 =ea1 + dA;
@@ -108,15 +108,15 @@ void RS_Painter::createEllipse(QPolygon& pa,
 //               toScreenY(vp.y));
 //    moveTo(toScreenX(vp.x),
 //           toScreenY(vp.y));
-    const double minDea=fabs(ea2-ea1)/2048.;
+	const LDOUBLE minDea=fabsl(ea2-ea1)/2048.;
     // Arc Counterclockwise:
     do {
 
         RS_Vector va(-ea1);
         vp=va;
-        double r2=va.scale(rvp).squared();
+		LDOUBLE r2=va.scale(rvp).squared();
         if( r2<RS_TOLERANCE15) r2=RS_TOLERANCE15;
-        double aStep=ab/(r2*sqrt(r2));
+		LDOUBLE aStep=ab/(r2*sqrtl(r2));
         if(aStep < minDea) aStep=minDea;
         if(aStep > M_PI/4.) aStep=M_PI/4.;
         ea1 += reversed?-aStep:aStep;
@@ -125,7 +125,7 @@ void RS_Painter::createEllipse(QPolygon& pa,
         vp.move(cp);
         pa<<QPoint(toScreenX(vp.x),
                toScreenY(vp.y));
-    } while(fabs(angle1-ea1)<dA);
+    } while(fabsl(angle1-ea1)<dA);
 
     vp.set(cos(ea2)*radius1,
            -sin(ea2)*radius2);

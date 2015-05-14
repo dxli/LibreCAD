@@ -70,10 +70,10 @@ void RS_ActionModifyTrimAmount::trigger() {
     if (trimEntity && trimEntity->isAtomic()) {
 
         RS_Modification m(*container, graphicView);
-        double d;
+        LDOUBLE d;
         if(byTotal) {
             //the distance is taken as the new total length
-            d = fabs(distance) - trimEntity->getLength();
+            d = fabsl(distance) - trimEntity->getLength();
         } else {
             d = distance;
         }
@@ -137,7 +137,7 @@ void RS_ActionModifyTrimAmount::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     case ChooseTrimEntity: {
             bool ok;
-            double d = RS_Math::eval(c, &ok);
+            LDOUBLE d = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 distance = d;

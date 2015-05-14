@@ -106,7 +106,7 @@ public:
         	Radius=r;
 	}
 
-        double getRadius() {
+        LDOUBLE getRadius() {
 		return Radius;
         }
 
@@ -114,7 +114,7 @@ public:
         	Angle=a;
 	}
 
-        double getAngle() {
+        LDOUBLE getAngle() {
         	return Angle;
 	}
 
@@ -132,11 +132,11 @@ public:
 		  return false;
 	}
 
-	double solveBulge(RS_Vector mouse);
+ LDOUBLE solveBulge(RS_Vector mouse);
 
 protected:
-    double Radius;
-    double Angle;
+    LDOUBLE Radius;
+    LDOUBLE Angle;
     SegmentMode Mode;
     int Reversed;
     bool calculatedSegment;

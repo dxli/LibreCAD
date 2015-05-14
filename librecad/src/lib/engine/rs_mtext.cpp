@@ -33,16 +33,16 @@
 #include "rs_math.h"
 
 RS_MTextData::RS_MTextData(const RS_Vector& _insertionPoint,
-			double _height,
-			double _width,
+			LDOUBLE _height,
+			LDOUBLE _width,
 			VAlign _valign,
 			HAlign _halign,
 			MTextDrawingDirection _drawingDirection,
 			MTextLineSpacingStyle _lineSpacingStyle,
-			double _lineSpacingFactor,
+			LDOUBLE _lineSpacingFactor,
 			const QString& _text,
 			const QString& _style,
-			double _angle,
+			LDOUBLE _angle,
 			RS2::UpdateMode _updateMode):
 	insertionPoint(_insertionPoint)
 	,height(_height)
@@ -373,8 +373,8 @@ void RS_MText::update() {
                         upper->calculateBorders();
                         lower->calculateBorders();
 
-                        double w1 = upper->getSize().x;
-                        double w2 = lower->getSize().x;
+						LDOUBLE w1 = upper->getSize().x;
+						LDOUBLE w2 = lower->getSize().x;
 
                         if (w1>w2) {
                             letterPos += RS_Vector(w1, 0.0);
@@ -439,7 +439,7 @@ void RS_MText::update() {
         }
     }
 
-    double tt = updateAddLine(oneLine, lineCounter);
+	LDOUBLE tt = updateAddLine(oneLine, lineCounter);
     if (data.valign == RS_MTextData::VABottom) {
         RS_Vector ot = RS_Vector(0.0,-tt).rotate(data.angle);
         RS_EntityContainer::move(ot);
@@ -463,8 +463,8 @@ void RS_MText::update() {
  *
  * @return  distance over the text base-line
  */
-double RS_MText::updateAddLine(RS_EntityContainer* textLine, int lineCounter) {
-    double ls =5.0/3.0;
+LDOUBLE RS_MText::updateAddLine(RS_EntityContainer* textLine, int lineCounter) {
+	LDOUBLE ls =5.0/3.0;
 
     RS_DEBUG->print("RS_Text::updateAddLine: width: %f", textLine->getSize().x);
 
@@ -499,7 +499,7 @@ double RS_MText::updateAddLine(RS_EntityContainer* textLine, int lineCounter) {
     }
 
     // Vertical Align:
-    double vSize = getNumberOfLines()*9.0*data.lineSpacingFactor*ls
+	LDOUBLE vSize = getNumberOfLines()*9.0*data.lineSpacingFactor*ls
                    - (9.0*data.lineSpacingFactor*ls - 9.0);
 
     switch (data.valign) {
@@ -529,7 +529,7 @@ double RS_MText::updateAddLine(RS_EntityContainer* textLine, int lineCounter) {
     usedTextHeight += data.height*data.lineSpacingFactor*ls;
 
     // Gets the distance over text base-line (before rotating, after scaling!):
-    double textTail = textLine->getMin().y;
+	LDOUBLE textTail = textLine->getMin().y;
 
     // Rotate:
     textLine->rotate(RS_Vector(0.0,0.0), data.angle);
@@ -545,7 +545,7 @@ double RS_MText::updateAddLine(RS_EntityContainer* textLine, int lineCounter) {
 }
 
 
-RS_Vector RS_MText::getNearestEndpoint(const RS_Vector& coord, double* dist)const {
+RS_Vector RS_MText::getNearestEndpoint(const RS_Vector& coord, LDOUBLE* dist)const {
     if (dist) {
         *dist = data.insertionPoint.distanceTo(coord);
     }
@@ -565,7 +565,7 @@ void RS_MText::move(const RS_Vector& offset) {
 
 
 
-void RS_MText::rotate(const RS_Vector& center, const double& angle) {
+void RS_MText::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     RS_EntityContainer::rotate(center, angleVector);
     data.insertionPoint.rotate(center, angleVector);
@@ -592,7 +592,7 @@ void RS_MText::scale(const RS_Vector& center, const RS_Vector& factor) {
 
 void RS_MText::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) {
     data.insertionPoint.mirror(axisPoint1, axisPoint2);
-    //double ang = axisPoint1.angleTo(axisPoint2);
+	//LDOUBLE ang = axisPoint1.angleTo(axisPoint2);
     bool readable = RS_Math::isAngleReadable(data.angle);
 
     RS_Vector vec;

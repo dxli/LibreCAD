@@ -100,18 +100,18 @@ RS_VectorSolutions RS_Line::getRefPoints() const
 
 
 RS_Vector RS_Line::getNearestEndpoint(const RS_Vector& coord,
-                                      double* dist)const {
-    double dist1((data.startpoint-coord).squared());
-    double dist2((data.endpoint-coord).squared());
+									  LDOUBLE* dist)const {
+	LDOUBLE dist1((data.startpoint-coord).squared());
+	LDOUBLE dist2((data.endpoint-coord).squared());
 
     if (dist2<dist1) {
 		if (dist) {
-            *dist = sqrt(dist2);
+			*dist = sqrtl(dist2);
         }
         return data.endpoint;
     } else {
 		if (dist) {
-            *dist = sqrt(dist1);
+			*dist = sqrtl(dist1);
         }
         return data.startpoint;
     }
@@ -121,20 +121,20 @@ RS_Vector RS_Line::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_Line::getNearestPointOnEntity(const RS_Vector& coord,
-                                           bool onEntity, double* dist, RS_Entity** entity)const {
+										   bool onEntity, LDOUBLE* dist, RS_Entity** entity)const {
 
 	if (entity) {
         *entity = const_cast<RS_Line*>(this);
     }
     RS_Vector direction = data.endpoint-data.startpoint;
     RS_Vector vpc=coord-data.startpoint;
-    double a=direction.squared();
+	LDOUBLE a=direction.squared();
     if( a < RS_TOLERANCE2) {
         //line too short
         vpc=getMiddlePoint();
     }else{
         //find projection on line
-        const double t=RS_Vector::dotP(vpc,direction)/a;
+		const LDOUBLE t=RS_Vector::dotP(vpc,direction)/a;
         if( !isConstruction() && onEntity &&
                 ( t<=-RS_TOLERANCE || t>=1.+RS_TOLERANCE )
                 ){
@@ -154,26 +154,26 @@ RS_Vector RS_Line::getNearestPointOnEntity(const RS_Vector& coord,
 
     RS_Vector RS_Line::getMiddlePoint()const
 {
-        return (getStartpoint() + getEndpoint())*0.5;
+		return (getStartpoint() + getEndpoint())*0.5L;
 }
     /** @return the nearest of equidistant middle points of the line. */
     RS_Vector RS_Line::getNearestMiddle(const RS_Vector& coord,
-                                        double* dist,
+										LDOUBLE* dist,
                                         int middlePoints
                                         )const {
 //        RS_DEBUG->print("RS_Line::getNearestMiddle(): begin\n");
         RS_Vector dvp(getEndpoint() - getStartpoint());
-        double l=dvp.magnitude();
+		LDOUBLE l=dvp.magnitude();
         if( l<= RS_TOLERANCE) {
             //line too short
             return const_cast<RS_Line*>(this)->getNearestCenter(coord, dist);
         }
         RS_Vector vp0(getNearestPointOnEntity(coord,true,dist));
         int counts=middlePoints+1;
-        int i( static_cast<int>(vp0.distanceTo(getStartpoint())/l*counts+0.5));
+		int i( static_cast<int>(vp0.distanceTo(getStartpoint())/l*counts+0.5L));
         if(!i) i++; // remove end points
         if(i==counts) i--;
-        vp0=getStartpoint() + dvp*(double(i)/double(counts));
+		vp0=getStartpoint() + dvp*(LDOUBLE(i)/counts);
 
 		if(dist != NULL) {
             *dist=vp0.distanceTo(coord);
@@ -196,9 +196,9 @@ RS_Vector RS_Line::getNearestPointOnEntity(const RS_Vector& coord,
 //}
 
 
-RS_Vector RS_Line::getNearestDist(double distance,
+RS_Vector RS_Line::getNearestDist(LDOUBLE distance,
                                   const RS_Vector& coord,
-								  double* dist) const{
+								  LDOUBLE* dist) const{
 
     RS_Vector dv;
     dv.setPolar(distance, getAngle1());
@@ -219,10 +219,10 @@ RS_Vector RS_Line::getNearestDist(double distance,
 
 
 
-RS_Vector RS_Line::getNearestDist(double distance,
+RS_Vector RS_Line::getNearestDist(LDOUBLE distance,
 								  bool startp) const{
 
-    double a1 = getAngle1();
+	LDOUBLE a1 = getAngle1();
 
     RS_Vector dv;
     dv.setPolar(distance, a1);
@@ -275,7 +275,7 @@ m0 x + m1 y + m2 =0
 **/
 LC_Quadratic RS_Line::getQuadratic() const
 {
-    std::vector<double> ce(3,0.);
+	std::vector<LDOUBLE> ce(3,0.L);
     auto&& dvp=data.endpoint - data.startpoint;
     RS_Vector normal(-dvp.y,dvp.x);
     ce[0]=normal.x;
@@ -284,9 +284,9 @@ LC_Quadratic RS_Line::getQuadratic() const
     return LC_Quadratic(ce);
 }
 
-double RS_Line::areaLineIntegral() const
+LDOUBLE RS_Line::areaLineIntegral() const
 {
-    return 0.5*(data.endpoint.y - data.startpoint.y)*(data.startpoint.x + data.endpoint.x);
+	return 0.5L*(data.endpoint.y - data.startpoint.y)*(data.startpoint.x + data.endpoint.x);
 }
 
 
@@ -315,7 +315,7 @@ RS_Vector RS_Line::prepareTrim(const RS_Vector& trimCoord,
     if ( trimSol.getNumber() == 1 ) return(trimSol.get(0));
     auto&& vp0=trimSol.getClosest(trimCoord,NULL,0);
 
-    double dr2=trimCoord.squaredTo(vp0);
+	LDOUBLE dr2=trimCoord.squaredTo(vp0);
     //the trim point found is closer to mouse location (trimCoord) than both end points, return this trim point
     if(dr2 < trimCoord.squaredTo(getStartpoint()) && dr2 < trimCoord.squaredTo(getEndpoint())) return vp0;
     //the closer endpoint to trimCoord
@@ -370,15 +370,15 @@ bool RS_Line::hasEndpointsWithinWindow(const RS_Vector& firstCorner, const RS_Ve
   *
   *Author: Dongxu Li
   */
-bool RS_Line::offset(const RS_Vector& coord, const double& distance) {
+bool RS_Line::offset(const RS_Vector& coord, const LDOUBLE& distance) {
     RS_Vector direction(getEndpoint()-getStartpoint());
-    double ds(direction.magnitude());
+	LDOUBLE ds(direction.magnitude());
     if(ds< RS_TOLERANCE) return false;
     direction /= ds;
     RS_Vector vp(coord-getStartpoint());
 //    RS_Vector vp1(getStartpoint() + direction*(RS_Vector::dotP(direction,vp))); //projection
     direction.set(-direction.y,direction.x); //rotate pi/2
-    if(RS_Vector::dotP(direction,vp)<0.) {
+	if(RS_Vector::dotP(direction,vp)<0.L) {
         direction *= -1.;
     }
     direction*=distance;
@@ -387,21 +387,21 @@ bool RS_Line::offset(const RS_Vector& coord, const double& distance) {
 }
 
 bool RS_Line::isTangent(const RS_CircleData&  circleData) const{
-    double d;
+	LDOUBLE d;
 	getNearestPointOnEntity(circleData.center,false,&d);
-	if(fabs(d-circleData.radius)<20.*RS_TOLERANCE) return true;
+	if(fabsl(d-circleData.radius)<20.L*RS_TOLERANCE) return true;
     return false;
 }
 
 RS_Vector RS_Line::getNormalVector() const
 {
     RS_Vector vp=data.endpoint  - data.startpoint; //direction vector
-    double&& r=vp.magnitude();
+	LDOUBLE&& r=vp.magnitude();
     if(r< RS_TOLERANCE) return RS_Vector(false);
     return RS_Vector(-vp.y,vp.x)/r;
 }
 
-  std::vector<RS_Entity* > RS_Line::offsetTwoSides(const double& distance) const
+  std::vector<RS_Entity* > RS_Line::offsetTwoSides(const LDOUBLE& distance) const
 {
 	  std::vector<RS_Entity*> ret(0,NULL);
       RS_Vector&& vp=getNormalVector()*distance;
@@ -431,7 +431,7 @@ void RS_Line::move(const RS_Vector& offset) {
 //                    data.endpoint.x, data.endpoint.y);
 }
 
-void RS_Line::rotate(const double& angle) {
+void RS_Line::rotate(const LDOUBLE& angle) {
 //    RS_DEBUG->print("RS_Line::rotate");
 //    RS_DEBUG->print("RS_Line::rotate1: sp: %f/%f, ep: %f/%f",
 //                    data.startpoint.x, data.startpoint.y,
@@ -448,7 +448,7 @@ void RS_Line::rotate(const double& angle) {
 
 
 
-void RS_Line::rotate(const RS_Vector& center, const double& angle) {
+void RS_Line::rotate(const RS_Vector& center, const LDOUBLE& angle) {
 //    RS_DEBUG->print("RS_Line::rotate");
 //    RS_DEBUG->print("RS_Line::rotate1: sp: %f/%f, ep: %f/%f",
 //                    data.startpoint.x, data.startpoint.y,
@@ -527,18 +527,18 @@ void RS_Line::stretch(const RS_Vector& firstCorner,
 
 
 void RS_Line::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
-    if(  fabs(data.startpoint.x -ref.x)<1.0e-4 &&
-         fabs(data.startpoint.y -ref.y)<1.0e-4 ) {
+	if(  fabsl(data.startpoint.x -ref.x)<1.0e-4 &&
+		 fabsl(data.startpoint.y -ref.y)<1.0e-4 ) {
         moveStartpoint(data.startpoint+offset);
     }
-    if(  fabs(data.endpoint.x -ref.x)<1.0e-4 &&
-         fabs(data.endpoint.y -ref.y)<1.0e-4 ) {
+	if(  fabsl(data.endpoint.x -ref.x)<1.0e-4 &&
+		 fabsl(data.endpoint.y -ref.y)<1.0e-4 ) {
         moveEndpoint(data.endpoint+offset);
     }
 }
 
 
-void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset) {
+void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset) {
     if (painter==NULL || view==NULL) {
         return;
     }
@@ -604,7 +604,7 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
         }
         direction=pEnd-pStart;
     }
-    double  length=direction.magnitude();
+	LDOUBLE  length=direction.magnitude();
     patternOffset -= length;
     if (( !isSelected() && (
               getPen().getLineType()==RS2::SolidLine ||
@@ -613,7 +613,7 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
         painter->drawLine(pStart,pEnd);
         return;
     }
-    //    double styleFactor = getStyleFactor(view);
+	//    LDOUBLE styleFactor = getStyleFactor(view);
 
 
     // Pattern:
@@ -647,20 +647,20 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
 	size_t i;
 
     // pattern segment length:
-    double patternSegmentLength = pat->totalLength;
+	LDOUBLE patternSegmentLength = pat->totalLength;
 
     // create pattern:
 	std::vector<RS_Vector> dp(pat->num > 0?pat->num:0);
-	double ds[pat->num > 0?pat->num:0];
+	LDOUBLE ds[pat->num > 0?pat->num:0];
     if (pat->num >0 ){
-        double dpmm=static_cast<RS_PainterQt*>(painter)->getDpmm();
+		LDOUBLE dpmm=static_cast<RS_PainterQt*>(painter)->getDpmm();
         for (i=0; i<pat->num; ++i) {
             //        ds[j]=pat->pattern[i] * styleFactor;
             //fixme, styleFactor support needed
 
             ds[i]=dpmm*pat->pattern[i];
-            if( fabs(ds[i]) < 1. ) ds[i] = (ds[i]>=0.)?1.:-1.;
-            dp[i] = direction*fabs(ds[i]);
+			if( fabsl(ds[i]) < 1.L ) ds[i] = (ds[i]>=0.L)?1.L:-1.L;
+			dp[i] = direction*fabsl(ds[i]);
         }
 	}else {
         RS_DEBUG->print(RS_Debug::D_WARNING,"invalid line pattern for line, draw solid line instread");
@@ -668,22 +668,22 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
                           view->toGui(getEndpoint()));
         return;
     }
-    double total= remainder(patternOffset-0.5*patternSegmentLength,patternSegmentLength) -0.5*patternSegmentLength;
-    //    double total= patternOffset-patternSegmentLength;
+	LDOUBLE total= remainder(patternOffset-0.5L*patternSegmentLength,patternSegmentLength) -0.5L*patternSegmentLength;
+	//    LDOUBLE total= patternOffset-patternSegmentLength;
 
     RS_Vector p1,p2,p3;
     RS_Vector curP(pStart+direction*total);
-    double t2;
+	LDOUBLE t2;
     for(int j=0;total<length;j=(j+1)%i) {
 
         // line segment (otherwise space segment)
-        t2=total+fabs(ds[j]);
+		t2=total+fabsl(ds[j]);
         p3=curP+dp[j];
-        if (ds[j]>0.0 && t2 > 0.0) {
+		if (ds[j]>0.0L && t2 > 0.0L) {
             // drop the whole pattern segment line, for ds[i]<0:
             // trim end points of pattern segment line to line
-            p1 =(total > -0.5)? curP:pStart;
-            p2 =(t2<length+0.5)?p3:pEnd;
+			p1 =(total > -0.5L)? curP:pStart;
+			p2 =(t2<length+0.5L)?p3:pEnd;
             painter->drawLine(p1,p2);
         }
         total=t2;

@@ -189,9 +189,9 @@ public:
 
 	void setContainer(RS_EntityContainer* container);
 	RS_EntityContainer* getContainer() const;
-	void setFactor(double f);
-	void setFactorX(double f);
-	void setFactorY(double f);
+	void setFactor(LDOUBLE f);
+	void setFactorX(LDOUBLE f);
+	void setFactorY(LDOUBLE f);
 	RS_Vector getFactor() const;
 	/**
 	 * @brief setOffset
@@ -205,8 +205,8 @@ public:
 	int getOffsetY() const;
 	void centerOffsetX();
 	void centerOffsetY();
-	void centerX(double x);
-	void centerY(double y);
+	void centerX(LDOUBLE x);
+	void centerY(LDOUBLE y);
 	/**
 	 * Sets a fixed border in pixel around the graphic. This border
 	 * specifies how far the user can scroll outside the graphic
@@ -252,12 +252,12 @@ public:
 	void enableCoordinateInput();
 	void disableCoordinateInput();
 
-	virtual void zoomIn(double f=1.5, const RS_Vector& center=RS_Vector(false));
-	virtual void zoomInX(double f=1.5);
-	virtual void zoomInY(double f=1.5);
-	virtual void zoomOut(double f=1.5, const RS_Vector& center=RS_Vector(false));
-	virtual void zoomOutX(double f=1.5);
-	virtual void zoomOutY(double f=1.5);
+	virtual void zoomIn(LDOUBLE f=1.5, const RS_Vector& center=RS_Vector(false));
+	virtual void zoomInX(LDOUBLE f=1.5);
+	virtual void zoomInY(LDOUBLE f=1.5);
+	virtual void zoomOut(LDOUBLE f=1.5, const RS_Vector& center=RS_Vector(false));
+	virtual void zoomOutX(LDOUBLE f=1.5);
+	virtual void zoomOutY(LDOUBLE f=1.5);
 	virtual void zoomAuto(bool axis=true, bool keepAspectRatio=true);
 	virtual void zoomAutoY(bool axis=true);
 	virtual void zoomPrevious();
@@ -275,12 +275,12 @@ public:
 	virtual void drawLayer2(RS_Painter *painter);
 	virtual void drawLayer3(RS_Painter *painter);
 	virtual void deleteEntity(RS_Entity* e);
-	virtual void drawEntity(RS_Painter *painter, RS_Entity* e, double& patternOffset);
+	virtual void drawEntity(RS_Painter *painter, RS_Entity* e, LDOUBLE& patternOffset);
 	virtual void drawEntity(RS_Painter *painter, RS_Entity* e);
-	virtual void drawEntity(RS_Entity* e, double& patternOffset);
+	virtual void drawEntity(RS_Entity* e, LDOUBLE& patternOffset);
 	virtual void drawEntity(RS_Entity* e);
 	virtual void drawEntityPlain(RS_Painter *painter, RS_Entity* e);
-	virtual void drawEntityPlain(RS_Painter *painter, RS_Entity* e, double& patternOffset);
+	virtual void drawEntityPlain(RS_Painter *painter, RS_Entity* e, LDOUBLE& patternOffset);
 	virtual void setPenForEntity(RS_Painter *painter, RS_Entity* e );
 
 
@@ -307,17 +307,17 @@ public:
 	RS2::CrosshairType getCrosshairType() const;
 
 	RS_Vector toGui(RS_Vector v) const;
-	double toGuiX(double x) const;
-	double toGuiY(double y) const;
-	double toGuiDX(double d) const;
-	double toGuiDY(double d) const;
+	LDOUBLE toGuiX(LDOUBLE x) const;
+	LDOUBLE toGuiY(LDOUBLE y) const;
+	LDOUBLE toGuiDX(LDOUBLE d) const;
+	LDOUBLE toGuiDY(LDOUBLE d) const;
 
 	RS_Vector toGraph(RS_Vector v) const;
 	RS_Vector toGraph(int x, int y) const;
-	double toGraphX(int x) const;
-	double toGraphY(int y) const;
-	double toGraphDX(int d) const;
-	double toGraphDY(int d) const;
+	LDOUBLE toGraphX(int x) const;
+	LDOUBLE toGraphY(int y) const;
+	LDOUBLE toGraphDX(int d) const;
+	LDOUBLE toGraphDY(int d) const;
 
 	/**
 		 * (Un-)Locks the position of the relative zero.

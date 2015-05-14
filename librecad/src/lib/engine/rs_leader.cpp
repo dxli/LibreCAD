@@ -87,7 +87,7 @@ void RS_Leader::update() {
             RS_Solid* s = new RS_Solid(this, RS_SolidData());
             s->shapeArrow(p1,
                           p2.angleTo(p1),
-                          getGraphicVariableDouble("$DIMASZ", 2.5)* getGraphicVariableDouble("$DIMSCALE", 1.0));
+						  getGraphicVariableDouble("$DIMASZ", 2.5)* getGraphicVariableDouble("$DIMSCALE", 1.0L));
             s->setPen(RS_Pen(RS2::FlagInvalid));
             s->setLayer(NULL);
             RS_EntityContainer::addEntity(s);
@@ -161,7 +161,7 @@ void RS_Leader::move(const RS_Vector& offset) {
 
 
 
-void RS_Leader::rotate(const RS_Vector& center, const double& angle) {
+void RS_Leader::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_EntityContainer::rotate(center, angle);
     update();
 }

@@ -60,7 +60,7 @@ public:
     bool useCurrentAttributes;
     bool useCurrentLayer;
     RS_Vector coord;
-    double distance;
+	LDOUBLE distance;
 };
 
 /**
@@ -72,7 +72,7 @@ public:
     bool useCurrentAttributes;
     bool useCurrentLayer;
     RS_Vector center;
-    double angle;
+	LDOUBLE angle;
 };
 
 
@@ -113,7 +113,7 @@ public:
     bool useCurrentLayer;
     RS_Vector referencePoint;
         RS_Vector offset;
-        double angle;
+		LDOUBLE angle;
 };
 
 
@@ -128,8 +128,8 @@ public:
     bool useCurrentLayer;
     RS_Vector center1;
     RS_Vector center2;
-    double angle1;
-    double angle2;
+	LDOUBLE angle1;
+	LDOUBLE angle2;
 };
 
 
@@ -139,8 +139,8 @@ public:
  */
 class RS_BevelData {
 public:
-        double length1;
-        double length2;
+		LDOUBLE length1;
+		LDOUBLE length2;
         bool trim;
 };
 
@@ -152,7 +152,7 @@ public:
  */
 class RS_RoundData {
 public:
-        double radius;
+		LDOUBLE radius;
         bool trim;
 };
 
@@ -188,17 +188,17 @@ public:
 class RS_PasteData {
 public:
         RS_PasteData(RS_Vector insertionPoint,
-                double factor,
-                double angle,
+				LDOUBLE factor,
+				LDOUBLE angle,
                 bool asInsert,
 				const QString& blockName);
 
         //! Insertion point.
         RS_Vector insertionPoint;
         //! Scale factor.
-        double factor;
+		LDOUBLE factor;
         //! Rotation angle.
-        double angle;
+		LDOUBLE angle;
         //! Paste as an insert rather than individual entities.
         bool asInsert;
         //! Name of the block to create or an empty string to assign a new auto name.
@@ -248,7 +248,7 @@ public:
               const RS_Vector& limitCoord, RS_Entity* limitEntity,
               bool both);
     bool trimAmount(const RS_Vector& trimCoord, RS_AtomicEntity* trimEntity,
-                    double dist);
+					LDOUBLE dist);
     bool offset(const RS_OffsetData& data);
     bool cut(const RS_Vector& cutCoord, RS_AtomicEntity* cutEntity);
     bool stretch(const RS_Vector& firstCorner,

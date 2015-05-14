@@ -460,7 +460,7 @@ void dibPunto::calcPos(DPI::VAlign *v, DPI::HAlign *h, double sep,
     DPI::VAlign va;
     DPI::HAlign ha;
     incx = incy = sep;
-    inc = sqrt(incx*incx/2);
+    inc = sqrtl(incx*incx/2);
     switch (sit) {
     case DPT::NO:
         va = DPI::VAlignBottom;

@@ -76,7 +76,7 @@ public:
     virtual RS2::EntityType rtti() const {
         return RS2::EntityOverlayBox;
     }
-    virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 
     /** @return Start point of the entity */
     virtual RS_Vector getCorner1() const {
@@ -93,17 +93,17 @@ public:
 
     /** We should make a seperate drawing meganism for overlays and not use entities */
     virtual void move(const RS_Vector& /*offset*/){}
-    virtual void rotate(const RS_Vector& /*center*/, const double& /*angle*/){}
+	virtual void rotate(const RS_Vector& /*center*/, const LDOUBLE& /*angle*/){}
     virtual void rotate(const RS_Vector& /*center*/, const RS_Vector& /*angleVector*/){}
     virtual void scale(const RS_Vector& /*center*/, const RS_Vector& /*factor*/){}
     virtual void mirror(const RS_Vector& /*axisPoint1*/, const RS_Vector& /*axisPoint2*/){}
     virtual void calculateBorders(){}
-    virtual RS_Vector getNearestEndpoint(const RS_Vector&, double*)const{return RS_Vector(false);}
-    virtual RS_Vector getNearestPointOnEntity(const RS_Vector&, bool, double*, RS_Entity**)const{return RS_Vector();}
-	virtual RS_Vector getNearestCenter(const RS_Vector&, double*)const{return RS_Vector();}
-    virtual RS_Vector getNearestMiddle(const RS_Vector&, double*,int)const{return RS_Vector();}
-	virtual RS_Vector getNearestDist(double, const RS_Vector&, double*)const{return RS_Vector();}
-    virtual double getDistanceToPoint(const RS_Vector&, RS_Entity**, RS2::ResolveLevel, double)const{return -1;}//is -1 right here
+	virtual RS_Vector getNearestEndpoint(const RS_Vector&, LDOUBLE*)const{return RS_Vector(false);}
+	virtual RS_Vector getNearestPointOnEntity(const RS_Vector&, bool, LDOUBLE*, RS_Entity**)const{return RS_Vector();}
+	virtual RS_Vector getNearestCenter(const RS_Vector&, LDOUBLE*)const{return RS_Vector();}
+	virtual RS_Vector getNearestMiddle(const RS_Vector&, LDOUBLE*,int)const{return RS_Vector();}
+	virtual RS_Vector getNearestDist(LDOUBLE, const RS_Vector&, LDOUBLE*)const{return RS_Vector();}
+	virtual LDOUBLE getDistanceToPoint(const RS_Vector&, RS_Entity**, RS2::ResolveLevel, LDOUBLE)const{return -1;}//is -1 right here
 
 protected:
     RS_OverlayBoxData data;

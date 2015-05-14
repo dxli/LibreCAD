@@ -74,8 +74,8 @@ void QG_BevelOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sd2;
                 QString st;
         if (update) {
-            sd1 = QString("%1").arg(action->getLength1());
-            sd2 = QString("%1").arg(action->getLength2());
+			sd1 = QString("%1").arg((double)action->getLength1());
+			sd2 = QString("%1").arg((double)action->getLength2());
             st = QString("%1").arg((int)action->isTrimOn());
         } else {
             RS_SETTINGS->beginGroup("/Modify");

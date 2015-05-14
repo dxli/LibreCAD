@@ -43,7 +43,7 @@ RS_DimDiametricData::RS_DimDiametricData():
  * @param leader Leader length.
  */
 RS_DimDiametricData::RS_DimDiametricData(const RS_Vector& _definitionPoint,
-				 double _leader):
+				 LDOUBLE _leader):
 	definitionPoint(_definitionPoint)
 	,leader(_leader)
 {
@@ -85,7 +85,7 @@ RS_Entity* RS_DimDiametric::clone() const {
 QString RS_DimDiametric::getMeasuredLabel() {
 
     // Definitive dimension line:
-	double dist = data.definitionPoint.distanceTo(edata.definitionPoint) * getGeneralFactor();
+	LDOUBLE dist = data.definitionPoint.distanceTo(edata.definitionPoint) * getGeneralFactor();
 
         RS_Graphic* graphic = getGraphic();
 
@@ -95,7 +95,7 @@ QString RS_DimDiametric::getMeasuredLabel() {
                         graphic->getLinearFormat(), graphic->getLinearPrecision());
         }
         else {
-        ret = QString("%1").arg(dist);
+		ret = QString("%1").arg((double) dist);
         }
 
     return ret;
@@ -144,7 +144,7 @@ void RS_DimDiametric::move(const RS_Vector& offset) {
 
 
 
-void RS_DimDiametric::rotate(const RS_Vector& center, const double& angle) {
+void RS_DimDiametric::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     rotate(center,RS_Vector(angle));
 }
 
@@ -179,8 +179,8 @@ void RS_DimDiametric::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
 
     if (ref.distanceTo(edata.definitionPoint)<1.0e-4) {
 				RS_Vector c = (edata.definitionPoint + data.definitionPoint)/2.0;
-                double d = c.distanceTo(edata.definitionPoint);
-                double a = c.angleTo(edata.definitionPoint + offset);
+				LDOUBLE d = c.distanceTo(edata.definitionPoint);
+				LDOUBLE a = c.angleTo(edata.definitionPoint + offset);
 
                 RS_Vector v;
                 v.setPolar(d, a);
@@ -190,8 +190,8 @@ void RS_DimDiametric::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
     }
 	else if (ref.distanceTo(data.definitionPoint)<1.0e-4) {
 				RS_Vector c = (edata.definitionPoint + data.definitionPoint)/2.0;
-				double d = c.distanceTo(data.definitionPoint);
-				double a = c.angleTo(data.definitionPoint + offset);
+				LDOUBLE d = c.distanceTo(data.definitionPoint);
+				LDOUBLE a = c.angleTo(data.definitionPoint + offset);
 
                 RS_Vector v;
                 v.setPolar(d, a);

@@ -35,6 +35,8 @@
 #include <cmath>
 #include <vector>
 
+typedef long double LDOUBLE;
+
 class RS_Vector;
 class RS_VectorSolutions;
 class QString;
@@ -44,55 +46,55 @@ class QString;
  */
 class RS_Math {
 public:
-    static int round(double v);
-    static double pow(double x, double y);
-    static RS_Vector pow(RS_Vector x, double y);
+	static int round(LDOUBLE v);
+	static LDOUBLE pow(LDOUBLE x, LDOUBLE y);
+	static RS_Vector pow(RS_Vector x, LDOUBLE y);
 
-    static double rad2deg(double a);
-    static double deg2rad(double a);
-    static double rad2gra(double a);
-	static double gra2rad(double a);
+	static LDOUBLE rad2deg(LDOUBLE a);
+	static LDOUBLE deg2rad(LDOUBLE a);
+	static LDOUBLE rad2gra(LDOUBLE a);
+	static LDOUBLE gra2rad(LDOUBLE a);
 	static unsigned findGCD(unsigned a, unsigned b);
-    static bool isAngleBetween(double a,
-                               double a1, double a2,
+	static bool isAngleBetween(LDOUBLE a,
+							   LDOUBLE a1, LDOUBLE a2,
                                bool reversed = false);
 	//! \brief correct angle to be within [0, 2 Pi)
-    static double correctAngle(double a);
+	static LDOUBLE correctAngle(LDOUBLE a);
 	//! \brief correct angle to be undirectional [0, Pi)
-	static double correctAngleU(double a);
+	static LDOUBLE correctAngleU(LDOUBLE a);
 
 	//! \brief angular difference
-	static double getAngleDifference(double a1, double a2, bool reversed = false);
+	static LDOUBLE getAngleDifference(LDOUBLE a1, LDOUBLE a2, bool reversed = false);
 	/**
 	 * @brief getAngleDifferenceU abs of minimum angular differenct, unsigned version of angular difference
 	 * @param a1,a2 angles
 	 * @return the minimum of angular difference a1-a2 and a2-a1
 	 */
-	static double getAngleDifferenceU(double a1, double a2);
-	static double makeAngleReadable(double angle, bool readable=true,
+	static LDOUBLE getAngleDifferenceU(LDOUBLE a1, LDOUBLE a2);
+	static LDOUBLE makeAngleReadable(LDOUBLE angle, bool readable=true,
 									bool* corrected=nullptr);
-    static bool isAngleReadable(double angle);
-    static bool isSameDirection(double dir1, double dir2, double tol);
+	static bool isAngleReadable(LDOUBLE angle);
+	static bool isSameDirection(LDOUBLE dir1, LDOUBLE dir2, LDOUBLE tol);
 
 	//! \{ \brief evaluate a math string
-    static double eval(const QString& expr, double def=0.0);
-    static double eval(const QString& expr, bool* ok);
+	static LDOUBLE eval(const QString& expr, LDOUBLE def=0.0);
+	static LDOUBLE eval(const QString& expr, bool* ok);
 	//! \}
 
-    static std::vector<double> quadraticSolver(const std::vector<double>& ce);
-    static std::vector<double> cubicSolver(const std::vector<double>& ce);
+	static std::vector<LDOUBLE> quadraticSolver(const std::vector<LDOUBLE>& ce);
+	static std::vector<LDOUBLE> cubicSolver(const std::vector<LDOUBLE>& ce);
     /** quartic solver
     * x^4 + ce[0] x^3 + ce[1] x^2 + ce[2] x + ce[3] = 0
     @ce, a vector of size 4 contains the coefficient in order
     @return, a vector contains real roots
     **/
-    static std::vector<double> quarticSolver(const std::vector<double>& ce);
+	static std::vector<LDOUBLE> quarticSolver(const std::vector<LDOUBLE>& ce);
     /** quartic solver
 * ce[4] x^4 + ce[3] x^3 + ce[2] x^2 + ce[1] x + ce[0] = 0
     @ce, a vector of size 5 contains the coefficient in order
     @return, a vector contains real roots
     **/
-    static std::vector<double> quarticSolverFull(const std::vector<double>& ce);
+	static std::vector<LDOUBLE> quarticSolverFull(const std::vector<LDOUBLE>& ce);
     //solver for linear equation set
     /**
       * Solve linear equation set
@@ -102,7 +104,7 @@ public:
       *
 	  *@author: Dongxu Li
       */
-	static bool linearSolver(const std::vector<std::vector<double> >& m, std::vector<double>& sn);
+	static bool linearSolver(const std::vector<std::vector<LDOUBLE> >& m, std::vector<LDOUBLE>& sn);
 
     /** solver quadratic simultaneous equations of a set of two **/
     /* solve the following quadratic simultaneous equations,
@@ -113,7 +115,7 @@ public:
       ma000 ma011 ma100 ma101 ma111 mb10 mb11 mc1
       *@return a RS_VectorSolutions contains real roots (x,y)
       */
-    static RS_VectorSolutions simultaneousQuadraticSolver(const std::vector<double>& m);
+	static RS_VectorSolutions simultaneousQuadraticSolver(const std::vector<LDOUBLE>& m);
 
     /** solver quadratic simultaneous equations of a set of two **/
 	/** solve the following quadratic simultaneous equations,
@@ -125,15 +127,15 @@ public:
   ma100 ma101 ma111 mb10 mb11 mc1
       *@return a RS_VectorSolutions contains real roots (x,y)
       */
-    static RS_VectorSolutions simultaneousQuadraticSolverFull(const std::vector<std::vector<double> >& m);
-    static RS_VectorSolutions simultaneousQuadraticSolverMixed(const std::vector<std::vector<double> >& m);
+	static RS_VectorSolutions simultaneousQuadraticSolverFull(const std::vector<std::vector<LDOUBLE> >& m);
+	static RS_VectorSolutions simultaneousQuadraticSolverMixed(const std::vector<std::vector<LDOUBLE> >& m);
 
 	/** \brief verify simultaneousQuadraticVerify a solution for simultaneousQuadratic
 	  *@param m the coefficient matrix
 	  *@param v a candidate to verify
       *@return true, for a valid solution
       **/
-	static bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
+	static bool simultaneousQuadraticVerify(const std::vector<std::vector<LDOUBLE> >& m, RS_Vector& v);
     /** wrapper for elliptic integral **/
     /**
      * wrapper of elliptic integral of the second type, Legendre form
@@ -142,10 +144,10 @@ public:
      *
 	 *@\author: Dongxu Li
      */
-    static double ellipticIntegral_2(const double& k, const double& phi);
+	static LDOUBLE ellipticIntegral_2(const LDOUBLE& k, const LDOUBLE& phi);
 
-    static QString doubleToString(double value, double prec);
-    static QString doubleToString(double value, int prec);
+	static QString doubleToString(LDOUBLE value, LDOUBLE prec);
+	static QString doubleToString(LDOUBLE value, int prec);
 
     static void test();
     };

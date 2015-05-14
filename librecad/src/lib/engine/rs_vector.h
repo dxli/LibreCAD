@@ -32,6 +32,8 @@
 #include <vector>
 #include "rs.h"
 
+typedef long double LDOUBLE;
+
 /**
  * Represents a 3d vector (x/y/z)
  *
@@ -41,31 +43,30 @@ class RS_Vector {
 public:
     RS_Vector();
 #ifdef  RS_VECTOR2D
-    RS_Vector(double vx, double vy);
+	RS_Vector(LDOUBLE vx, LDOUBLE vy);
 #else
-    RS_Vector(double vx, double vy, double vz=0.0);
+	RS_Vector(LDOUBLE vx, LDOUBLE vy, LDOUBLE vz=0.0L);
 #endif
-    explicit RS_Vector(double angle);
-    //RS_Vector(double v[]);
+	explicit RS_Vector(LDOUBLE angle);
     explicit RS_Vector(bool valid);
 	~RS_Vector()=default;
 
-    void set(double angle); // set to unit vector by the direction of angle
+	void set(LDOUBLE angle); // set to unit vector by the direction of angle
 #ifdef  RS_VECTOR2D
-    void set(double vx, double vy);
+	void set(LDOUBLE vx, LDOUBLE vy);
 #else
-    void set(double vx, double vy, double vz=0.0);
+	void set(LDOUBLE vx, LDOUBLE vy, LDOUBLE vz=0.0L);
 #endif
-    void setPolar(double radius, double angle);
+	void setPolar(LDOUBLE radius, LDOUBLE angle);
 
-    double distanceTo(const RS_Vector& v) const;
-    double angle() const;
-    double angleTo(const RS_Vector& v) const;
-    double angleBetween(const RS_Vector& v1, const RS_Vector& v2) const;
-    double magnitude() const;
-    double squared() const; //return square of length
-    double squaredTo(const RS_Vector& v1) const; //return square of length
-    RS_Vector lerp(const RS_Vector& v, double t) const;
+	LDOUBLE distanceTo(const RS_Vector& v) const;
+	LDOUBLE angle() const;
+	LDOUBLE angleTo(const RS_Vector& v) const;
+	LDOUBLE angleBetween(const RS_Vector& v1, const RS_Vector& v2) const;
+	LDOUBLE magnitude() const;
+	LDOUBLE squared() const; //return square of length
+	LDOUBLE squaredTo(const RS_Vector& v1) const; //return square of length
+	RS_Vector lerp(const RS_Vector& v, LDOUBLE t) const;
 
     bool isInWindow(const RS_Vector& firstCorner, const RS_Vector& secondCorner) const;
     bool isInWindowOrdered(const RS_Vector& vLow, const RS_Vector& vHigh) const;
@@ -73,31 +74,31 @@ public:
     RS_Vector toInteger();
 
     RS_Vector move(const RS_Vector& offset);
-    RS_Vector rotate(const double& ang);
+	RS_Vector rotate(const LDOUBLE& ang);
     RS_Vector rotate(const RS_Vector& angleVector);
-    RS_Vector rotate(const RS_Vector& center, const double& ang);
+	RS_Vector rotate(const RS_Vector& center, const LDOUBLE& ang);
     RS_Vector rotate(const RS_Vector& center, const RS_Vector& angleVector);
-    RS_Vector scale(const double& factor);
+	RS_Vector scale(const LDOUBLE& factor);
     RS_Vector scale(const RS_Vector& factor);
 	RS_Vector scale(const RS_Vector& factor) const;
 	RS_Vector scale(const RS_Vector& center, const RS_Vector& factor);
     RS_Vector mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
-	double dotP(const RS_Vector& v1) const;
+	LDOUBLE dotP(const RS_Vector& v1) const;
 
     RS_Vector operator + (const RS_Vector& v) const;
     RS_Vector operator - (const RS_Vector& v) const;
 	RS_Vector operator * (const RS_Vector& v) const;
 	RS_Vector operator / (const RS_Vector& v) const;
-    RS_Vector operator * (const double& s) const;
-    RS_Vector operator / (const double& s) const;
+	RS_Vector operator * (const LDOUBLE& s) const;
+	RS_Vector operator / (const LDOUBLE& s) const;
     RS_Vector operator - () const;
 
 	RS_Vector operator += (const RS_Vector& v);
 	RS_Vector operator -= (const RS_Vector& v);
 	RS_Vector operator *= (const RS_Vector& v);
 	RS_Vector operator /= (const RS_Vector& v);
-	RS_Vector operator *= (const double& s);
-	RS_Vector operator /= (const double& s);
+	RS_Vector operator *= (const LDOUBLE& s);
+	RS_Vector operator /= (const LDOUBLE& s);
 
     bool operator == (const RS_Vector& v) const;
     bool operator != (const RS_Vector& v) const {
@@ -110,7 +111,7 @@ public:
 //    crossP only defined for 3D
     static RS_Vector crossP(const RS_Vector& v1, const RS_Vector& v2);
 #endif
-    static double dotP(const RS_Vector& v1, const RS_Vector& v2);
+	static LDOUBLE dotP(const RS_Vector& v1, const RS_Vector& v2);
 
     /** switch x,y for all vectors */
     RS_Vector flipXY(void) const;
@@ -123,10 +124,10 @@ public:
 #endif
 
 public:
-    double x;
-    double y;
+	LDOUBLE x;
+	LDOUBLE y;
 #ifndef RS_VECTOR2D
-    double z;
+	LDOUBLE z;
 #endif
     bool valid;
 };
@@ -169,17 +170,17 @@ void set(size_t i, const RS_Vector& v);
     void setTangent(bool t);
     bool isTangent() const;
     RS_Vector getClosest(const RS_Vector& coord,
-						 double* dist=NULL, size_t* index=NULL) const;
-    double getClosestDistance(const RS_Vector& coord,
+						 LDOUBLE* dist=NULL, size_t* index=NULL) const;
+	LDOUBLE getClosestDistance(const RS_Vector& coord,
                               int counts = -1); //default to search all
 	const std::vector<RS_Vector>& getVector() const;
 	std::vector<RS_Vector>::const_iterator begin() const;
 	std::vector<RS_Vector>::const_iterator end() const;
 	std::vector<RS_Vector>::iterator begin();
 	std::vector<RS_Vector>::iterator end();
-	void rotate(const double& ang);
+	void rotate(const LDOUBLE& ang);
     void rotate(const RS_Vector& angleVector);
-    void rotate(const RS_Vector& center, const double& ang);
+	void rotate(const RS_Vector& center, const LDOUBLE& ang);
     void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     void move(const RS_Vector& vp);
     void scale(const RS_Vector& center, const RS_Vector& factor);

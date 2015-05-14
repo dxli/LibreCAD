@@ -51,25 +51,25 @@ public:
     //virtual void drawRect(const RS_Vector& p1, const RS_Vector& p2);
     virtual void fillRect ( const QRectF & rectangle, const RS_Color & color );
     virtual void fillRect ( const QRectF & rectangle, const QBrush & brush );
-    virtual void drawArc(const RS_Vector& cp, double radius,
-                         double a1, double a2,
+	virtual void drawArc(const RS_Vector& cp, LDOUBLE radius,
+						 LDOUBLE a1, LDOUBLE a2,
                          const RS_Vector& p1, const RS_Vector& p2,
                          bool reversed);
 
-    virtual void drawArc(const RS_Vector& cp, double radius,
-                         double a1, double a2,
+	virtual void drawArc(const RS_Vector& cp, LDOUBLE radius,
+						 LDOUBLE a1, LDOUBLE a2,
                          bool reversed);
-    virtual void drawArcMac(const RS_Vector& cp, double radius,
-                         double a1, double a2,
+	virtual void drawArcMac(const RS_Vector& cp, LDOUBLE radius,
+						 LDOUBLE a1, LDOUBLE a2,
                          bool reversed);
-    virtual void drawCircle(const RS_Vector&, double radius);
+	virtual void drawCircle(const RS_Vector&, LDOUBLE radius);
     virtual void drawEllipse(const RS_Vector& cp,
-                             double radius1, double radius2,
-                             double angle,
-                             double a1, double a2,
+							 LDOUBLE radius1, LDOUBLE radius2,
+							 LDOUBLE angle,
+							 LDOUBLE a1, LDOUBLE a2,
                              bool reversed);
         virtual void drawImg(QImage& img, const RS_Vector& pos,
-            double angle, const RS_Vector& factor);
+			LDOUBLE angle, const RS_Vector& factor);
     virtual void drawTextH(int x1, int y1, int x2, int y2,
                            const QString& text);
     virtual void drawTextV(int x1, int y1, int x2, int y2,
@@ -89,7 +89,7 @@ public:
     /** get Density per millimeter on screen/print device
       *@return density per millimeter in pixel/mm
       */
-    virtual double getDpmm();
+	virtual LDOUBLE getDpmm();
     virtual int getHeight();
 
 

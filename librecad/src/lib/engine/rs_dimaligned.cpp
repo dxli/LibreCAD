@@ -104,7 +104,7 @@ RS_VectorSolutions RS_DimAligned::getRefPoints() const
  * measurement of this dimension.
  */
 QString RS_DimAligned::getMeasuredLabel() {
-	double dist = edata.extensionPoint1.distanceTo(edata.extensionPoint2) * getGeneralFactor();
+	LDOUBLE dist = edata.extensionPoint1.distanceTo(edata.extensionPoint2) * getGeneralFactor();
 
         RS_Graphic* graphic = getGraphic();
 
@@ -114,7 +114,7 @@ QString RS_DimAligned::getMeasuredLabel() {
                         graphic->getLinearFormat(), graphic->getLinearPrecision());
         }
         else {
-        ret = QString("%1").arg(dist);
+		ret = QString("%1").arg((double) dist);
         }
     return ret;
 }
@@ -138,20 +138,20 @@ void RS_DimAligned::updateDim(bool autoText) {
     }
 
     // general scale (DIMSCALE)
-    double dimscale = getGeneralScale();
+	LDOUBLE dimscale = getGeneralScale();
     // distance from entities (DIMEXO)
-    double dimexo = getExtensionLineOffset()*dimscale;
+	LDOUBLE dimexo = getExtensionLineOffset()*dimscale;
     // definition line definition (DIMEXE)
-    double dimexe = getExtensionLineExtension()*dimscale;
+	LDOUBLE dimexe = getExtensionLineExtension()*dimscale;
     // text height (DIMTXT)
-    //double dimtxt = getTextHeight();
+	//LDOUBLE dimtxt = getTextHeight();
     // text distance to line (DIMGAP)
-    //double dimgap = getDimensionLineGap();
+	//LDOUBLE dimgap = getDimensionLineGap();
 
     // Angle from extension endpoints towards dimension line
-	double extAngle = edata.extensionPoint2.angleTo(data.definitionPoint);
+	LDOUBLE extAngle = edata.extensionPoint2.angleTo(data.definitionPoint);
     // extension lines length
-	double extLength = edata.extensionPoint2.distanceTo(data.definitionPoint);
+	LDOUBLE extLength = edata.extensionPoint2.distanceTo(data.definitionPoint);
 
     RS_Vector v1, v2, e1;
     RS_LineData ld;
@@ -216,7 +216,7 @@ void RS_DimAligned::move(const RS_Vector& offset) {
 
 
 
-void RS_DimAligned::rotate(const RS_Vector& center, const double& angle) {
+void RS_DimAligned::rotate(const RS_Vector& center, const LDOUBLE& angle) {
    rotate(center,RS_Vector(angle));
 }
 
@@ -258,8 +258,8 @@ void RS_DimAligned::stretch(const RS_Vector& firstCorner,
     }
         else {
                 //RS_Vector v = data.definitionPoint - edata.extensionPoint2;
-				double len = edata.extensionPoint2.distanceTo(data.definitionPoint);
-                double ang1 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
+				LDOUBLE len = edata.extensionPoint2.distanceTo(data.definitionPoint);
+				LDOUBLE ang1 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
 							 + M_PI_2;
 
         if (edata.extensionPoint1.isInWindow(firstCorner,
@@ -271,15 +271,15 @@ void RS_DimAligned::stretch(const RS_Vector& firstCorner,
                 edata.extensionPoint2.move(offset);
         }
 
-                double ang2 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
+				LDOUBLE ang2 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
 							 + M_PI_2;
 
-                double diff = RS_Math::getAngleDifference(ang1, ang2);
+				LDOUBLE diff = RS_Math::getAngleDifference(ang1, ang2);
                 if (diff>M_PI) {
                         diff-=2*M_PI;
                 }
 
-				if (fabs(diff)>M_PI_2) {
+				if (fabsl(diff)>M_PI_2) {
                         ang2 = RS_Math::correctAngle(ang2+M_PI);
                 }
 
@@ -298,12 +298,12 @@ void RS_DimAligned::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
                 RS_ConstructionLine l(NULL,
                         RS_ConstructionLineData(edata.extensionPoint1,
                                 edata.extensionPoint2));
-				double d = l.getDistanceToPoint(data.definitionPoint+offset);
-				double a = edata.extensionPoint2.angleTo(data.definitionPoint);
-                double ad = RS_Math::getAngleDifference(a,
+				LDOUBLE d = l.getDistanceToPoint(data.definitionPoint+offset);
+				LDOUBLE a = edata.extensionPoint2.angleTo(data.definitionPoint);
+				LDOUBLE ad = RS_Math::getAngleDifference(a,
 						edata.extensionPoint2.angleTo(data.definitionPoint+offset));
 
-				if (fabs(ad)>M_PI_2 && fabs(ad)<3.0/2.0*M_PI) {
+				if (fabsl(ad)>M_PI_2 && fabsl(ad)<3.0/2.0*M_PI) {
                         a = RS_Math::correctAngle(a+M_PI);
                 }
 
@@ -317,23 +317,23 @@ void RS_DimAligned::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
                 updateDim(false);
     }
         else if (ref.distanceTo(edata.extensionPoint1)<1.0e-4) {
-                double a1 = edata.extensionPoint2.angleTo(edata.extensionPoint1);
-                double a2 = edata.extensionPoint2.angleTo(edata.extensionPoint1+offset);
-                double d1 = edata.extensionPoint2.distanceTo(edata.extensionPoint1);
-                double d2 = edata.extensionPoint2.distanceTo(edata.extensionPoint1+offset);
+				LDOUBLE a1 = edata.extensionPoint2.angleTo(edata.extensionPoint1);
+				LDOUBLE a2 = edata.extensionPoint2.angleTo(edata.extensionPoint1+offset);
+				LDOUBLE d1 = edata.extensionPoint2.distanceTo(edata.extensionPoint1);
+				LDOUBLE d2 = edata.extensionPoint2.distanceTo(edata.extensionPoint1+offset);
                 rotate(edata.extensionPoint2, a2-a1);
-                if (fabs(d1)>1.0e-4) {
+                if (fabsl(d1)>1.0e-4) {
                         scale(edata.extensionPoint2, RS_Vector(d2/d1, d2/d1));
                 }
                 updateDim(true);
     }
         else if (ref.distanceTo(edata.extensionPoint2)<1.0e-4) {
-                double a1 = edata.extensionPoint1.angleTo(edata.extensionPoint2);
-                double a2 = edata.extensionPoint1.angleTo(edata.extensionPoint2+offset);
-                double d1 = edata.extensionPoint1.distanceTo(edata.extensionPoint2);
-                double d2 = edata.extensionPoint1.distanceTo(edata.extensionPoint2+offset);
+				LDOUBLE a1 = edata.extensionPoint1.angleTo(edata.extensionPoint2);
+				LDOUBLE a2 = edata.extensionPoint1.angleTo(edata.extensionPoint2+offset);
+				LDOUBLE d1 = edata.extensionPoint1.distanceTo(edata.extensionPoint2);
+				LDOUBLE d2 = edata.extensionPoint1.distanceTo(edata.extensionPoint2+offset);
                 rotate(edata.extensionPoint1, a2-a1);
-                if (fabs(d1)>1.0e-4) {
+                if (fabsl(d1)>1.0e-4) {
                         scale(edata.extensionPoint1, RS_Vector(d2/d1, d2/d1));
                 }
                 updateDim(true);

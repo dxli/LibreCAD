@@ -34,14 +34,14 @@
 
 RS_TextData::RS_TextData(const RS_Vector& _insertionPoint,
 						 const RS_Vector& _secondPoint,
-						 double _height,
-						 double _widthRel,
+						 LDOUBLE _height,
+						 LDOUBLE _widthRel,
 						 VAlign _valign,
 						 HAlign _halign,
 						 TextGeneration _textGeneration,
 						 const QString& _text,
 						 const QString& _style,
-						 double _angle,
+						 LDOUBLE _angle,
 						 RS2::UpdateMode _updateMode):
 	insertionPoint(_insertionPoint)
   ,secondPoint(_secondPoint)
@@ -328,7 +328,7 @@ void RS_Text::update() {
     RS_DEBUG->print("RS_Text::updateAddLine: width 2: %f", textSize.x);
 
     // Vertical Align:
-    double vSize = 9.0;
+	LDOUBLE vSize = 9.0;
     //HAAligned, HAFit, HAMiddle require VABaseline
     if (data.halign == RS_TextData::HAAligned
             || data.halign == RS_TextData::HAFit
@@ -378,12 +378,12 @@ void RS_Text::update() {
 
     // Scale:
     if (data.halign==RS_TextData::HAAligned){
-        double dist = data.insertionPoint.distanceTo(data.secondPoint)/textSize.x;
+		LDOUBLE dist = data.insertionPoint.distanceTo(data.secondPoint)/textSize.x;
         data.height = vSize*dist;
         RS_EntityContainer::scale(RS_Vector(0.0,0.0),
                         RS_Vector(dist, dist));
     } else if (data.halign==RS_TextData::HAFit){
-        double dist = data.insertionPoint.distanceTo(data.secondPoint)/textSize.x;
+		LDOUBLE dist = data.insertionPoint.distanceTo(data.secondPoint)/textSize.x;
         RS_EntityContainer::scale(RS_Vector(0.0,0.0),
                         RS_Vector(dist, data.height/9.0));
     } else {
@@ -401,7 +401,7 @@ void RS_Text::update() {
 
     // Rotate:
     if (data.halign==RS_TextData::HAAligned || data.halign==RS_TextData::HAFit){
-        double angle = data.insertionPoint.angleTo(data.secondPoint);
+		LDOUBLE angle = data.insertionPoint.angleTo(data.secondPoint);
         data.angle = angle;
     } else {
         data.secondPoint.rotate(RS_Vector(0.0,0.0), data.angle);
@@ -418,7 +418,7 @@ void RS_Text::update() {
 }
 
 
-RS_Vector RS_Text::getNearestEndpoint(const RS_Vector& coord, double* dist)const {
+RS_Vector RS_Text::getNearestEndpoint(const RS_Vector& coord, LDOUBLE* dist)const {
 	if (dist) {
         *dist = data.insertionPoint.distanceTo(coord);
     }
@@ -439,7 +439,7 @@ void RS_Text::move(const RS_Vector& offset) {
 
 
 
-void RS_Text::rotate(const RS_Vector& center, const double& angle) {
+void RS_Text::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     RS_EntityContainer::rotate(center, angleVector);
     data.insertionPoint.rotate(center, angleVector);
@@ -492,7 +492,7 @@ void RS_Text::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) {
     } else {
         RS_Vector minP = RS_Vector(getMin().x, getMax().y);
         minP = minP.mirror(axisPoint1, axisPoint2);
-        double mirrAngle = axisPoint1.angleTo(axisPoint2)*2.0;
+		LDOUBLE mirrAngle = axisPoint1.angleTo(axisPoint2)*2.0;
         data.insertionPoint.move(minP - getMin());
         data.secondPoint.move(minP - getMin());
         data.insertionPoint.rotate(minP, mirrAngle);

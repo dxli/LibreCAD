@@ -54,7 +54,7 @@ void RS_ActionInfoTotalLength::init(int status) {
 void RS_ActionInfoTotalLength::trigger() {
 
     RS_DEBUG->print("RS_ActionInfoTotalLength::trigger()");
-	double l=container->totalSelectedLength();
+ LDOUBLE l=container->totalSelectedLength();
 
 	if (l>0.0) {
 		QString len= RS_Units::formatLinear(l,

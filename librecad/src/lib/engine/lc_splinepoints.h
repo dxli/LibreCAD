@@ -71,20 +71,20 @@ class LC_SplinePoints : public RS_AtomicEntity // RS_EntityContainer
 {
 private:
 	void drawPattern(RS_Painter* painter, RS_GraphicView* view,
-        double& patternOffset, const RS_LineTypePattern* pat);
+		LDOUBLE& patternOffset, const RS_LineTypePattern* pat);
 	void drawSimple(RS_Painter* painter, RS_GraphicView* view);
 	void UpdateControlPoints();
 	void UpdateQuadExtent(const RS_Vector& x1, const RS_Vector& c1, const RS_Vector& x2);
-	int GetNearestQuad(const RS_Vector& coord, double* dist, double* dt) const;
-	RS_Vector GetSplinePointAtDist(double dDist, int iStartSeg, double dStartT,
-		int *piSeg, double *pdt) const;
+	int GetNearestQuad(const RS_Vector& coord, LDOUBLE* dist, LDOUBLE* dt) const;
+	RS_Vector GetSplinePointAtDist(LDOUBLE dDist, int iStartSeg, LDOUBLE dStartT,
+		int *piSeg, LDOUBLE *pdt) const;
 	int GetQuadPoints(int iSeg, RS_Vector *pvStart, RS_Vector *pvControl,
 		RS_Vector *pvEnd) const;
 
-    bool offsetCut(const RS_Vector& coord, const double& distance);
-    bool offsetSpline(const RS_Vector& coord, const double& distance);
-	std::vector<RS_Entity*> offsetTwoSidesSpline(const double& distance) const;
-	std::vector<RS_Entity*> offsetTwoSidesCut(const double& distance) const;
+	bool offsetCut(const RS_Vector& coord, const LDOUBLE& distance);
+	bool offsetSpline(const RS_Vector& coord, const LDOUBLE& distance);
+	std::vector<RS_Entity*> offsetTwoSidesSpline(const LDOUBLE& distance) const;
+	std::vector<RS_Entity*> offsetTwoSidesCut(const LDOUBLE& distance) const;
 public:
     LC_SplinePointsData data;
 public:
@@ -155,8 +155,8 @@ public:
 	//    calculateBorders();
 	//}
 
-    virtual double getDirection1() const;
-    virtual double getDirection2() const;
+	virtual LDOUBLE getDirection1() const;
+	virtual LDOUBLE getDirection2() const;
 
 	//virtual void moveStartpoint(const RS_Vector& pos);
 	//virtual void moveEndpoint(const RS_Vector& pos);
@@ -172,19 +172,19 @@ public:
 	/**
 	* @return The length of the line.
 	*/
-	virtual double getLength() const;
+	virtual LDOUBLE getLength() const;
 
 	/**
 	* @return The angle of the line (from start to endpoint).
 	*/
-	//virtual double getAngle1() {
+	//virtual LDOUBLE getAngle1() {
 	//    return data.startpoint.angleTo(data.endpoint);
 	//}
 
 	/**
 	* @return The angle of the line (from end to startpoint).
 	*/
-	//virtual double getAngle2() {
+	//virtual LDOUBLE getAngle2() {
 	//    return data.endpoint.angleTo(data.startpoint);
 	//}
 
@@ -192,7 +192,7 @@ public:
 	virtual RS_Vector getTangentDirection(const RS_Vector& point) const;
 
 	virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-		double* dist = NULL) const;
+		LDOUBLE* dist = NULL) const;
     /**
      * @brief getNearestPointOnEntity
      * @param coord
@@ -202,25 +202,25 @@ public:
      * @return
      */
 	virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-		bool onEntity = true, double* dist = NULL, RS_Entity** entity = NULL) const;
+		bool onEntity = true, LDOUBLE* dist = NULL, RS_Entity** entity = NULL) const;
 	virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-		double* dist = NULL) const;
+		LDOUBLE* dist = NULL) const;
 	virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-		double* dist = NULL, int middlePoints = 1) const;
-	virtual RS_Vector getNearestDist(double distance,
-		const RS_Vector& coord, double* dist = NULL) const;
+		LDOUBLE* dist = NULL, int middlePoints = 1) const;
+	virtual RS_Vector getNearestDist(LDOUBLE distance,
+		const RS_Vector& coord, LDOUBLE* dist = NULL) const;
 	//virtual RS_Vector getNearestRef(const RS_Vector& coord,
-	//                                 double* dist = NULL);
-	virtual double getDistanceToPoint(const RS_Vector& coord,
+	//                                 LDOUBLE* dist = NULL);
+	virtual LDOUBLE getDistanceToPoint(const RS_Vector& coord,
 		RS_Entity** entity = NULL, RS2::ResolveLevel level = RS2::ResolveNone,
-		double solidDist = RS_MAXDOUBLE) const;
+		LDOUBLE solidDist = RS_MAXDOUBLE) const;
 
 	bool addPoint(const RS_Vector& v);
 	void removeLastPoint();
 	void addControlPoint(const RS_Vector& v);
 
 	virtual void move(const RS_Vector& offset);
-	virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
 	virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
 	virtual void scale(const RS_Vector& center, const RS_Vector& factor);
 	virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);
@@ -228,7 +228,7 @@ public:
 	virtual void moveRef(const RS_Vector& ref, const RS_Vector& offset);
 	virtual void revertDirection();
 
-	virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
+	virtual void draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& patternOffset);
 	QList<RS_Vector> getPoints();
 	QList<RS_Vector> getControlPoints();
 	QList<RS_Vector> getStrokePoints();
@@ -237,8 +237,8 @@ public:
 
 	virtual void calculateBorders();
 
-    virtual bool offset(const RS_Vector& coord, const double& distance);
-	virtual std::vector<RS_Entity*> offsetTwoSides(const double& distance) const;
+	virtual bool offset(const RS_Vector& coord, const LDOUBLE& distance);
+	virtual std::vector<RS_Entity*> offsetTwoSides(const LDOUBLE& distance) const;
 
 	static RS_VectorSolutions getIntersection(RS_Entity const* e1, RS_Entity const* e2);
 	RS_VectorSolutions getLineIntersect(const RS_Vector& x1, const RS_Vector& x2);

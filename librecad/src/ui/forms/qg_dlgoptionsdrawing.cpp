@@ -168,8 +168,8 @@ void QG_DlgOptionsDrawing::setGraphic(RS_Graphic* g) {
     }
 	if(format==RS2::Custom){
 		RS_Vector s=graphic->getPaperSize();
-		lePaperWidth->setText(QString("%1").setNum(s.x,'g',5));
-		lePaperHeight->setText(QString("%1").setNum(s.y,'g',5));
+		lePaperWidth->setText(QString("%1").setNum((double)s.x,'g',5));
+		lePaperHeight->setText(QString("%1").setNum((double)s.y,'g',5));
 		lePaperWidth->setEnabled(true);
 		lePaperHeight->setEnabled(true);
 	}else{
@@ -217,8 +217,8 @@ void QG_DlgOptionsDrawing::setGraphic(RS_Graphic* g) {
 
     spacing = graphic->getVariableVector("$GRIDUNIT",
                                                    RS_Vector(0.0,0.0));
-    cbXSpacing->setEditText( QString("%1").arg(spacing.x));
-    cbYSpacing->setEditText( QString("%1").arg(spacing.y));
+	cbXSpacing->setEditText( QString("%1").arg((double)spacing.x));
+	cbYSpacing->setEditText( QString("%1").arg((double)spacing.y));
 
     if (cbXSpacing->currentText()=="0") {
         cbXSpacing->setEditText(tr("auto"));
@@ -366,10 +366,10 @@ void QG_DlgOptionsDrawing::validate() {
         bool ok1;
         double oldValue=graphic->getVariableDouble("$DIMTXT",1.);
         double newValue=RS_Math::eval(cbDimTextHeight->currentText(),&ok1);
-        ok1 &= (fabs(oldValue-newValue)>RS_TOLERANCE);
+        ok1 &= (fabsl(oldValue-newValue)>RS_TOLERANCE);
         //only update text height if a valid new position is specified, bug#3470605
         if(ok1){
-            graphic->addVariable("$DIMTXT",newValue, 40);
+			graphic->addVariable("$DIMTXT",(LDOUBLE) newValue, 40);
         }
         graphic->addVariable("$DIMEXE",
                              RS_Math::eval(cbDimExe->currentText()), 40);
@@ -379,18 +379,18 @@ void QG_DlgOptionsDrawing::validate() {
         oldValue=graphic->getVariableDouble("$DIMGAP",1);
         newValue=RS_Math::eval(cbDimGap->currentText(),&ok2);
         //only update text position if a valid new position is specified, bug#3470605
-        ok2 &= (fabs(oldValue-newValue)>RS_TOLERANCE);
+        ok2 &= (fabsl(oldValue-newValue)>RS_TOLERANCE);
         if(ok2){
-            graphic->addVariable("$DIMGAP",newValue , 40);
+			graphic->addVariable("$DIMGAP",(LDOUBLE) newValue , 40);
         }
         ok1 = ok1 || ok2;
         oldValue=graphic->getVariableDouble("$DIMLFAC",1);
         newValue=RS_Math::eval(cbDimFactor->currentText(),&ok2);
-        ok2 &= (fabs(oldValue-newValue)>RS_TOLERANCE);
+        ok2 &= (fabsl(oldValue-newValue)>RS_TOLERANCE);
         ok1 = ok1 || ok2;
         oldValue=graphic->getVariableDouble("$DIMSCALE",1);
         newValue=RS_Math::eval(cbDimScale->currentText(),&ok2);
-        ok2 &= (fabs(oldValue-newValue)>RS_TOLERANCE);
+        ok2 &= (fabsl(oldValue-newValue)>RS_TOLERANCE);
         ok1 = ok1 || ok2;
 
         graphic->addVariable("$DIMASZ",
@@ -407,15 +407,15 @@ void QG_DlgOptionsDrawing::validate() {
         }
         //DIMLFAC, general factor for linear dimensions
         double dimFactor = RS_Math::eval(cbDimFactor->currentText());
-        if( RS_TOLERANCE > fabs(dimFactor)) {
+        if( RS_TOLERANCE > fabsl(dimFactor)) {
             dimFactor = 1.0;
         }
-        graphic->addVariable("$DIMLFAC", dimFactor, 40);
+		graphic->addVariable("$DIMLFAC", (LDOUBLE) dimFactor, 40);
         //DIMSCALE, general scale for dimensions
         double dimScale = RS_Math::eval(cbDimScale->currentText());
         if (dimScale<0 || dimScale == 0)
             dimScale = 1.0;
-        graphic->addVariable("$DIMSCALE", dimScale, 40);
+		graphic->addVariable("$DIMSCALE", (LDOUBLE) dimScale, 40);
         // splines:
         graphic->addVariable("$SPLINESEGS",
                              (int)RS_Math::eval(cbSplineSegs->currentText()), 70);
@@ -627,8 +627,8 @@ void  QG_DlgOptionsDrawing::updatePaperSize() {
 	}
 	graphic->setPaperSize(s);
 
-	lePaperWidth->setText(QString("%1").setNum(s.x,'g',5));
-	lePaperHeight->setText(QString("%1").setNum(s.y,'g',5));
+	lePaperWidth->setText(QString("%1").setNum((double)s.x,'g',5));
+	lePaperHeight->setText(QString("%1").setNum((double)s.y,'g',5));
 
     if (cbPaperFormat->currentIndex()==0) {
         lePaperWidth->setEnabled(true);

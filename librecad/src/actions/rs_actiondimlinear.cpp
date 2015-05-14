@@ -45,7 +45,7 @@
  */
 RS_ActionDimLinear::RS_ActionDimLinear(RS_EntityContainer& container,
                                        RS_GraphicView& graphicView,
-                                       double angle,
+                                       LDOUBLE angle,
 									   bool _fixedAngle, RS2::ActionType type)
         :RS_ActionDimension("Draw linear dimensions",
                     container, graphicView)
@@ -98,7 +98,7 @@ QAction* RS_ActionDimLinear::createGUIAction(RS2::ActionType type, QObject* /*pa
 RS2::ActionType RS_ActionDimLinear::rtti() const{
     return actionType;
 //    if(fixedAngle){
-//        if( fabs(RS_Math::getAngleDifference(0.,data.angle)) < RS_TOLERANCE )
+//        if( fabsl(RS_Math::getAngleDifference(0.,data.angle)) < RS_TOLERANCE )
 //            return RS2::ActionDimLinearHor;
 //        else
 //            return RS2::ActionDimLinearVer;
@@ -247,7 +247,7 @@ void RS_ActionDimLinear::coordinateEvent(RS_CoordinateEvent* e) {
     }
 }
 
-double RS_ActionDimLinear::getAngle() const{
+ LDOUBLE RS_ActionDimLinear::getAngle() const{
 	return edata->angle;
 }
 
@@ -282,7 +282,7 @@ void RS_ActionDimLinear::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
 			if (ok) {
                 setAngle(RS_Math::deg2rad(a));
             } else {

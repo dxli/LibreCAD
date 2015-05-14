@@ -73,7 +73,7 @@ void QG_TrimAmountOptions::setAction(RS_ActionInterface* a, bool update) {
         bool byTotal;
         // settings from action:
         if (update) {
-            sd = QString("%1").arg(action->getDistance());
+			sd = QString("%1").arg((double)action->getDistance());
             byTotal=action->getByTotal();
         }
         // settings from config file:

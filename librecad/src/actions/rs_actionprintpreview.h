@@ -78,7 +78,7 @@ public:
     void center();
     void fit();
     bool setScale(double f, bool autoZoom = true);
-    double getScale();
+    LDOUBLE getScale();
     //print warning message to command widget
     //should we add this as virtual function to rs_actioninterface?
     void printWarning(const QString& s);

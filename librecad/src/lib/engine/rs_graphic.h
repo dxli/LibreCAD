@@ -197,8 +197,8 @@ public:
     void addVariable(const QString& key, int value, int code) {
                 variableDict.add(key, value, code);
         }
-    void addVariable(const QString& key, double value, int code) {
-                variableDict.add(key, value, code);
+	void addVariable(const QString& key, LDOUBLE value, int code) {
+				variableDict.add(key, value, code);
         }
 
     RS_Vector getVariableVector(const QString& key, const RS_Vector& def) {
@@ -210,7 +210,7 @@ public:
     int getVariableInt(const QString& key, int def) {
                 return variableDict.getInt(key, def);
         }
-    double getVariableDouble(const QString& key, double def) {
+	LDOUBLE getVariableDouble(const QString& key, LDOUBLE def) {
                 return variableDict.getDouble(key, def);
         }
 
@@ -236,8 +236,8 @@ public:
         RS2::PaperFormat getPaperFormat(bool* landscape);
         void setPaperFormat(RS2::PaperFormat f, bool landscape);
 
-        double getPaperScale();
-        void setPaperScale(double s);
+		LDOUBLE getPaperScale();
+		void setPaperScale(LDOUBLE s);
 
     virtual void setUnit(RS2::Unit u);
     virtual RS2::Unit getUnit();

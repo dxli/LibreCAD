@@ -45,12 +45,7 @@ RS_ActionInfoArea::RS_ActionInfoArea(RS_EntityContainer& container,
 RS_ActionInfoArea::~RS_ActionInfoArea(){}
 
 QAction* RS_ActionInfoArea::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
-    /*    QAction* action = new QAction(tr("Polygonal Area"),
-                                  tr("&Polygonal Area"),
-                                  QKeySequence(), NULL); */
-    QAction* action = new QAction(tr("Polygonal &Area"), NULL);
-    //action->zetStatusTip(tr("Measures the area of a polygon"));
-    action->setIcon(QIcon(":/extui/infoarea.png"));
+	QAction* action = new QAction(QIcon(":/extui/infoarea.png"), tr("Polygonal &Area"), nullptr);
     return action;
 }
 
@@ -142,7 +137,7 @@ void RS_ActionInfoArea::coordinateEvent(RS_CoordinateEvent* e) {
 	if(ia->duplicated(mouse)) {
 		ia->push_back(mouse);
         RS_DIALOGFACTORY->commandMessage(tr("Closing Point: %1/%2")
-                                         .arg(mouse.x).arg(mouse.y));
+										 .arg((double)mouse.x).arg((double)mouse.y));
         trigger();
         return;
     }
@@ -150,7 +145,7 @@ void RS_ActionInfoArea::coordinateEvent(RS_CoordinateEvent* e) {
 
 	ia->push_back(mouse);
     RS_DIALOGFACTORY->commandMessage(tr("Point: %1/%2")
-                                     .arg(mouse.x).arg(mouse.y));
+									 .arg((double)mouse.x).arg((double)mouse.y));
     switch (getStatus()) {
     case SetFirstPoint:
         setStatus(SetNextPoint);

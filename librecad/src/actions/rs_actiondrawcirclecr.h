@@ -79,7 +79,7 @@ public:
     virtual void updateMouseCursor();
 //    virtual void updateToolBar();
 
-	double getRadius() const;
+ LDOUBLE getRadius() const;
 
     void setRadius(double r);
 

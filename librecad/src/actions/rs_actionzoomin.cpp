@@ -41,7 +41,7 @@ RS_ActionZoomIn::RS_ActionZoomIn(RS_EntityContainer& container,
                                  RS2::ZoomDirection direction,
                                  RS2::Axis axis,
                                  const RS_Vector& center,
-                                 double factor)
+                                 LDOUBLE factor)
         :RS_ActionInterface("Zoom in", container, graphicView) {
 
     this->zoom_factor = factor;

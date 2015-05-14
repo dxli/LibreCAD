@@ -67,7 +67,7 @@ void QG_ModifyOffsetOptions::destroy() {
     RS_SETTINGS->endGroup();
 }
 
-void QG_ModifyOffsetOptions::setDist(double& d, bool initial) {
+void QG_ModifyOffsetOptions::setDist(LDOUBLE& d, bool initial) {
     dist = &d;
         bool ok;
     if(initial) {

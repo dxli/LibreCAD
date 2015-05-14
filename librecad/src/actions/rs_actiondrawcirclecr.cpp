@@ -177,7 +177,7 @@ void RS_ActionDrawCircleCR::commandEvent(RS_CommandEvent* e) {
 
     case SetRadius: {
             bool ok;
-            double r = RS_Math::eval(c, &ok);
+            LDOUBLE r = RS_Math::eval(c, &ok);
 			if (ok) {
 				data->radius = r;
                 e->accept();
@@ -249,7 +249,7 @@ void RS_ActionDrawCircleCR::updateMouseCursor() {
 }
 
 
-double RS_ActionDrawCircleCR::getRadius() const{
+ LDOUBLE RS_ActionDrawCircleCR::getRadius() const{
 	return data->radius;
 }
 

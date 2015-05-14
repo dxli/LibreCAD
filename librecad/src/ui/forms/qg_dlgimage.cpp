@@ -81,15 +81,15 @@ void QG_DlgImage::setImage(RS_Image& e) {
     leScale->setValidator(val);
     leAngle->setValidator(val);
     scale = image->getUVector().magnitude();
-    leInsertX->setText(QString("%1").arg(image->getInsertionPoint().x));
-    leInsertY->setText(QString("%1").arg(image->getInsertionPoint().y));
-    leWidth->setText(QString("%1").arg(image->getImageWidth()));
-    leHeight->setText(QString("%1").arg(image->getImageHeight()));
-    leScale->setText(QString("%1").arg(scale));
-    leAngle->setText(QString("%1").arg( RS_Math::rad2deg(image->getUVector().angle()) ));
+	leInsertX->setText(QString("%1").arg((double)image->getInsertionPoint().x));
+	leInsertY->setText(QString("%1").arg((double)image->getInsertionPoint().y));
+	leWidth->setText(QString("%1").arg((double)image->getImageWidth()));
+	leHeight->setText(QString("%1").arg((double)image->getImageHeight()));
+	leScale->setText(QString("%1").arg(scale));
+	leAngle->setText(QString("%1").arg((double)RS_Math::rad2deg(image->getUVector().angle()) ));
     lePath->setText(image->getFile());
     leSize->setText(QString("%1 x %2").arg(image->getWidth()).arg(image->getHeight()));    
-    leDPI->setText(QString("%1").arg(RS_Units::scaleToDpi(scale,image->getGraphicUnit())));
+	leDPI->setText(QString("%1").arg((double)RS_Units::scaleToDpi(scale,image->getGraphicUnit())));
 }
 
 
@@ -109,7 +109,7 @@ void QG_DlgImage::changeScale() {
     scale = leScale->text().toDouble();
     leWidth->setText(QString("%1").arg(image->getWidth() * scale));
     leHeight->setText(QString("%1").arg(image->getHeight() * scale));
-    leDPI->setText(QString("%1").arg(RS_Units::scaleToDpi(scale, image->getGraphicUnit())));
+	leDPI->setText(QString("%1").arg((double)RS_Units::scaleToDpi(scale, image->getGraphicUnit())));
 }
 
 void QG_DlgImage::changeDPI(){

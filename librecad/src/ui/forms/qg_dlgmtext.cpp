@@ -171,7 +171,7 @@ void QG_DlgMText::setText(RS_MText& t, bool isNew) {
     } else {
         fon = text->getStyle();
         setFont(fon);
-        height = QString("%1").arg(text->getHeight());
+		height = QString("%1").arg((double)text->getHeight());
         if (font) {
             if (font->getLineSpacingFactor()==text->getLineSpacingFactor()) {
                 def = "1";
@@ -182,7 +182,7 @@ void QG_DlgMText::setText(RS_MText& t, bool isNew) {
         alignment = QString("%1").arg(text->getAlignment());
         //QString letterSpacing = RS_SETTINGS->readEntry("/TextLetterSpacing", "0");
         //QString wordSpacing = RS_SETTINGS->readEntry("/TextWordSpacing", "0");
-        lineSpacingFactor = QString("%1").arg(text->getLineSpacingFactor());
+		lineSpacingFactor = QString("%1").arg((double)text->getLineSpacingFactor());
 
 /* // Doesn't make sense. We don't want to show native DXF strings in the Dialog.
 #if defined(OOPL_VERSION) && defined(Q_WS_WIN)
@@ -197,7 +197,7 @@ void QG_DlgMText::setText(RS_MText& t, bool isNew) {
        str = text->getText();
 //#endif
         //QString shape = RS_SETTINGS->readEntry("/TextShape", "0");
-        angle = QString("%1").arg(RS_Math::rad2deg(text->getAngle()));
+		angle = QString("%1").arg((double)RS_Math::rad2deg(text->getAngle()));
         wPen->setPen(text->getPen(false), true, false, "Pen");
         RS_Graphic* graphic = text->getGraphic();
         if (graphic) {
@@ -221,7 +221,7 @@ void QG_DlgMText::setText(RS_MText& t, bool isNew) {
         //leLetterSpacing->setText(font->getLetterSpacing());
         //leWordSpacing->setText(font->getWordSpacing());
         leLineSpacingFactor->setText(
-            QString("%1").arg(font->getLineSpacingFactor()));
+			QString("%1").arg((double)font->getLineSpacingFactor()));
     }
     teText->setText(str);
     //setShape(shape.toInt());
@@ -406,7 +406,7 @@ int QG_DlgText::getShape() {
 void QG_DlgMText::defaultChanged(bool) {
     if (cbDefault->isChecked() && font) {
         leLineSpacingFactor->setText(
-                        QString("%1").arg(font->getLineSpacingFactor()));
+						QString("%1").arg((double)font->getLineSpacingFactor()));
     }
 }
 

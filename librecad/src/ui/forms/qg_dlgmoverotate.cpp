@@ -115,7 +115,7 @@ void QG_DlgMoveRotate::destroy() {
 void QG_DlgMoveRotate::setData(RS_MoveRotateData* d) {
     data = d;
 
-    leAngle->setText(QString("%1").arg(RS_Math::rad2deg(data->angle)));
+	leAngle->setText(QString("%1").arg((double)RS_Math::rad2deg(data->angle)));
 }
 
 void QG_DlgMoveRotate::updateData() {

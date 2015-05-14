@@ -182,7 +182,7 @@ void RS_ActionDrawCircle::commandEvent(RS_CommandEvent* e) {
 
     case SetRadius: {
             bool ok;
-            double r = RS_Math::eval(c, &ok);
+            LDOUBLE r = RS_Math::eval(c, &ok);
             if (ok) {
 				data->radius = r;
                 e->accept();

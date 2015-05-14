@@ -171,7 +171,7 @@ void RS_ActionModifyBevel::commandEvent(RS_CommandEvent* e) {
 
     case SetLength1: {
             bool ok;
-            double l = RS_Math::eval(c, &ok);
+            LDOUBLE l = RS_Math::eval(c, &ok);
             if (ok) {
                 e->accept();
                 data.length1 = l;
@@ -185,7 +185,7 @@ void RS_ActionModifyBevel::commandEvent(RS_CommandEvent* e) {
 
     case SetLength2: {
             bool ok;
-            double l = RS_Math::eval(c, &ok);
+            LDOUBLE l = RS_Math::eval(c, &ok);
             if (ok) {
                 data.length2 = l;
             } else {

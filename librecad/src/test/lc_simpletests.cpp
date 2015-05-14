@@ -712,7 +712,7 @@ void LC_SimpleTests::slotTestInsertEllipse() {
 					  ellipse = new RS_Ellipse(graphic,
 											   v,
 											   RS_Vector((x/5+50.0)/2.0, 0.0),
-										 fabs(x/y),
+										 fabsl(x/y),
 											   0.0, 2*M_PI,
 											   false);
 
@@ -727,7 +727,7 @@ void LC_SimpleTests::slotTestInsertEllipse() {
 				ellipse = new RS_Ellipse(graphic,
 											   v + RS_Vector(750.0, 0.0),
 											   RS_Vector((x/5+50.0)/2.0, 0.0),
-											   fabs(x/y),
+											   fabsl(x/y),
 											   2*M_PI, 0.0,
 											   true);
 

@@ -77,7 +77,7 @@ RS_Vector RS_ActionPolylineSegment::appendPol(RS_Polyline *current, RS_Polyline 
     if (entities.isEmpty())
         return RS_Vector(false);
 
-    double bulge=0.0;
+    LDOUBLE bulge=0.0;
     RS_Entity* e = entities.takeFirst() ;
 
 //First polyline vertex
@@ -179,7 +179,7 @@ bool RS_ActionPolylineSegment::convertPolyline(RS_Entity* selectedEntity) {
         document->startUndoCycle();
 
         bool revert = false;
-        double bulge = 0.0;
+        LDOUBLE bulge = 0.0;
         if (end.distanceTo(start) < 1.0e-4)
             closed = true;
 

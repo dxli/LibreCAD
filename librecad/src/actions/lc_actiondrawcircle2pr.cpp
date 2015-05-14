@@ -83,9 +83,9 @@ void LC_ActionDrawCircle2PR::trigger() {
 
 bool LC_ActionDrawCircle2PR::preparePreview(const RS_Vector& mouse) {
 	const RS_Vector vp=(point1 + point2)*0.5;
-	double const angle=point1.angleTo(point2) + 0.5*M_PI;
-	double const& r0=data->radius;
-	double const r=sqrt(r0*r0-0.25*point1.squaredTo(point2));
+ LDOUBLE const angle=point1.angleTo(point2) + 0.5*M_PI;
+ LDOUBLE const& r0=data->radius;
+ LDOUBLE const r=sqrtl(r0*r0-0.25*point1.squaredTo(point2));
 
 	const RS_Vector dvp=RS_Vector(angle)*r;
 	const RS_Vector&& center1= vp + dvp;
@@ -97,7 +97,7 @@ bool LC_ActionDrawCircle2PR::preparePreview(const RS_Vector& mouse) {
 		return false;
 	}
 
-	const double ds=mouse.squaredTo(center1) - mouse.squaredTo(center2);
+	const LDOUBLE ds=mouse.squaredTo(center1) - mouse.squaredTo(center2);
 	if (ds < 0. ){
 		data->center=center1;
 		return true;
@@ -181,7 +181,9 @@ void LC_ActionDrawCircle2PR::coordinateEvent(RS_CoordinateEvent* e) {
 			setStatus(SelectCenter);
 		}else{
 			RS_DIALOGFACTORY->commandMessage(tr("radius=%1 is too small for points selected\ndistance between points=%2 is larger than diameter=%3").
-											 arg(data->radius).arg(point1.distanceTo(point2)).arg(2.*data->radius));
+											 arg((double)data->radius)
+											 .arg((double) point1.distanceTo(point2))
+											 .arg(2.*(double)data->radius));
 		}
 		break;
 

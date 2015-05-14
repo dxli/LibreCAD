@@ -132,7 +132,7 @@ void RS_ActionDrawCircleTan1_2P::mouseMoveEvent(QMouseEvent* e) {
             if(rvp<RS_TOLERANCE2) break;
 			cData->radius=(circle->getRadius()+rvp)*0.5;
 			cData->center=circle->getCenter()+dvp*(cData->radius/rvp);
-			cData->radius=fabs(circle->getRadius()-cData->radius);
+			cData->radius=fabsl(circle->getRadius()-cData->radius);
         }
             break;
         case RS2::EntityLine:
@@ -179,7 +179,7 @@ void RS_ActionDrawCircleTan1_2P::mouseMoveEvent(QMouseEvent* e) {
             for(size_t i=0; i<centers.size(); ++i)
 				preview->addEntity(new RS_Point(preview.get(), RS_PointData(centers.at(i))));
             preview->addEntity(e);
-//            double r0=cData.radius*0.1;
+//            LDOUBLE r0=cData.radius*0.1;
 //            if(centers.size()>1)
 //                for(unsigned i=0; i< centers.size(); ++i){
 //                    RS_DEBUG->print(RS_Debug::D_ERROR, "center %d: (%g, %g)\n",i,centers.at(i).x,centers.at(i).y);
@@ -218,18 +218,18 @@ bool RS_ActionDrawCircleTan1_2P::getCenters(){
 	for(const RS_Vector& vp: list){
         //when taking the path of center of tangent circle passing a given point,
         // the center is never closer to the circle center than the point, for internal and external tangent circles
-        double ds0=vp.distanceTo(points[0]);
-//        double ds1=vp.distanceTo(points[1]);
-//        if( fabs(ds0 - ds1)> RS_TOLERANCE) continue;
+        LDOUBLE ds0=vp.distanceTo(points[0]);
+//        LDOUBLE ds1=vp.distanceTo(points[1]);
+//        if( fabsl(ds0 - ds1)> RS_TOLERANCE) continue;
         if(circle->rtti()==RS2::EntityCircle||circle->rtti()==RS2::EntityArc){
-            double ds=vp.distanceTo(circle->getCenter());
+            LDOUBLE ds=vp.distanceTo(circle->getCenter());
             //condition for tangential to the given circle
-            if( fabs(ds - (ds0 + circle->getRadius())) > RS_TOLERANCE && fabs(ds - fabs(ds0 - circle->getRadius())) > RS_TOLERANCE ) continue;
+            if( fabsl(ds - (ds0 + circle->getRadius())) > RS_TOLERANCE && fabsl(ds - fabsl(ds0 - circle->getRadius())) > RS_TOLERANCE ) continue;
         }else{
-            double ds=0.;
+            LDOUBLE ds=0.;
             circle->getNearestPointOnEntity(vp, false,&ds);
             //condition for tangential to the given straight line
-            if( fabs(ds - ds0)>RS_TOLERANCE) continue;
+            if( fabsl(ds - ds0)>RS_TOLERANCE) continue;
         }
 
         //avoid counting the same center
@@ -353,7 +353,7 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     case SetFocus1: {
             bool ok;
-            double m = RS_Math::eval(c, &ok);
+            LDOUBLE m = RS_Math::eval(c, &ok);
 			if (ok) {
                 ratio = m / major.magnitude();
                 if (!isArc) {
@@ -371,7 +371,7 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle1: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
 			if (ok) {
                 angle1 = RS_Math::deg2rad(a);
                 setStatus(SetAngle2);
@@ -385,7 +385,7 @@ void RS_ActionDrawCircleTan1_2P::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle2: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
 			if (ok) {
                 angle2 = RS_Math::deg2rad(a);
                 trigger();
@@ -467,7 +467,7 @@ void RS_ActionDrawCircleTan1_2P::updateMouseCursor() {
 }
 
 
-double RS_ActionDrawCircleTan1_2P::getRadius() const{
+ LDOUBLE RS_ActionDrawCircleTan1_2P::getRadius() const{
 	return cData->radius;
 }
 

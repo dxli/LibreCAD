@@ -85,7 +85,7 @@ public:
 		const QString& getText() const;
 
         void setAngle(double a);
-		double getAngle() const;
+	 LDOUBLE getAngle() const;
 
 private:
 	std::unique_ptr<RS_TextData> data;

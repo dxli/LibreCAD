@@ -159,14 +159,14 @@ bool RS_FilterLFF::fileExport(RS_Graphic& g, const QString& file, RS2::FormatTyp
         QString es = g.getVariableString("Encoding", "");
         ts << QString("# Encoding:          UTF-8\n");
         ts << QString("# LetterSpacing:     %1\n").arg(
-                  g.getVariableDouble("LetterSpacing", 3.0));
+				  (double) g.getVariableDouble("LetterSpacing", 3.0));
         ts << QString("# WordSpacing:       %1\n").arg(
-                  g.getVariableDouble("WordSpacing", 6.75));
+				  (double) g.getVariableDouble("WordSpacing", 6.75));
         ts << QString("# LineSpacingFactor: %1\n").arg(
-                  g.getVariableDouble("LineSpacingFactor", 1.0));
+				  (double) g.getVariableDouble("LineSpacingFactor", 1.0));
         QString dateline = QDate::currentDate().toString ("yyyy-MM-dd");
         ts << QString("# Created:           %1\n").arg(
-                  g.getVariableString("Created", dateline));
+				  g.getVariableString("Created", dateline));
         ts << QString("# Last modified:     %1\n").arg(dateline);
 
         QString sa = g.getVariableString("Authors", "");

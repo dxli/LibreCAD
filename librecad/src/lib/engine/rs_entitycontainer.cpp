@@ -180,14 +180,14 @@ void RS_EntityContainer::setVisible(bool v) {
 /**
  * @return Total length of all entities in this container.
  */
-double RS_EntityContainer::getLength() const {
-    double ret = 0.0;
+LDOUBLE RS_EntityContainer::getLength() const {
+	LDOUBLE ret = 0.0L;
 
 	for(auto e: entities){
         if (e->isVisible()) {
-            double l = e->getLength();
-            if (l<0.0) {
-                ret = -1.0;
+			LDOUBLE l = e->getLength();
+			if (l<0.0L) {
+				ret = -1.0L;
                 break;
             } else {
                 ret += l;
@@ -519,13 +519,13 @@ unsigned int RS_EntityContainer::countSelected(bool deep, QList<RS2::EntityType>
 /**
  * Counts the selected entities in this container.
  */
-double RS_EntityContainer::totalSelectedLength() {
-    double ret(0.0);
+LDOUBLE RS_EntityContainer::totalSelectedLength() {
+	LDOUBLE ret(0.0L);
 	for (RS_Entity* e: entities){
 
         if (e->isVisible() && e->isSelected()) {
-            double l = e->getLength();
-            if (l>=0.) {
+			LDOUBLE l = e->getLength();
+			if (l>=0.L) {
                 ret += l;
             }
         }
@@ -582,17 +582,17 @@ void RS_EntityContainer::calculateBorders() {
                     getSize().x, getSize().y);
 
     // needed for correcting corrupt data (PLANS.dxf)
-    if (minV.x>maxV.x || minV.x>RS_MAXDOUBLE || maxV.x>RS_MAXDOUBLE
-            || minV.x<RS_MINDOUBLE || maxV.x<RS_MINDOUBLE) {
+	if (minV.x>maxV.x || minV.x>RS_MAXDOUBLE || maxV.x>RS_MAXDOUBLE
+			|| minV.x<RS_MINDOUBLE || maxV.x<RS_MINDOUBLE) {
 
         minV.x = 0.0;
         maxV.x = 0.0;
     }
-    if (minV.y>maxV.y || minV.y>RS_MAXDOUBLE || maxV.y>RS_MAXDOUBLE
-            || minV.y<RS_MINDOUBLE || maxV.y<RS_MINDOUBLE) {
+	if (minV.y>maxV.y || minV.y>RS_MAXDOUBLE || maxV.y>RS_MAXDOUBLE
+			|| minV.y<RS_MINDOUBLE || maxV.y<RS_MINDOUBLE) {
 
-        minV.y = 0.0;
-        maxV.y = 0.0;
+		minV.y = 0.0L;
+		maxV.y = 0.0L;
     }
 
     RS_DEBUG->print("RS_EntityCotnainer::calculateBorders: size: %f,%f",
@@ -627,17 +627,17 @@ void RS_EntityContainer::forcedCalculateBorders() {
     }
 
     // needed for correcting corrupt data (PLANS.dxf)
-    if (minV.x>maxV.x || minV.x>RS_MAXDOUBLE || maxV.x>RS_MAXDOUBLE
-            || minV.x<RS_MINDOUBLE || maxV.x<RS_MINDOUBLE) {
+	if (minV.x>maxV.x || minV.x>RS_MAXDOUBLE || maxV.x>RS_MAXDOUBLE
+			|| minV.x<RS_MINDOUBLE || maxV.x<RS_MINDOUBLE) {
 
-        minV.x = 0.0;
-        maxV.x = 0.0;
+		minV.x = 0.0L;
+		maxV.x = 0.0L;
     }
-    if (minV.y>maxV.y || minV.y>RS_MAXDOUBLE || maxV.y>RS_MAXDOUBLE
-            || minV.y<RS_MINDOUBLE || maxV.y<RS_MINDOUBLE) {
+	if (minV.y>maxV.y || minV.y>RS_MAXDOUBLE || maxV.y>RS_MAXDOUBLE
+			|| minV.y<RS_MINDOUBLE || maxV.y<RS_MINDOUBLE) {
 
-        minV.y = 0.0;
-        maxV.y = 0.0;
+		minV.y = 0.0L;
+		maxV.y = 0.0L;
     }
 
     //RS_DEBUG->print("  borders: %f/%f %f/%f", minV.x, minV.y, maxV.x, maxV.y);
@@ -1136,10 +1136,10 @@ int RS_EntityContainer::findEntity(RS_Entity const* const entity) {
  * (one of the vertexes)
  */
 RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
-                                                 double* dist  )const {
+												 LDOUBLE* dist  )const {
 
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist;                 // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist;                 // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1169,10 +1169,10 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
  * (one of the vertexes)
  */
 RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
-                                                 double* dist,  RS_Entity** pEntity)const {
+												 LDOUBLE* dist,  RS_Entity** pEntity)const {
 
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist;                 // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist;                 // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1210,7 +1210,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_EntityContainer::getNearestPointOnEntity(const RS_Vector& coord,
-                                                      bool onEntity, double* dist, RS_Entity** entity)const {
+													  bool onEntity, LDOUBLE* dist, RS_Entity** entity)const {
 
     RS_Vector point(false);
 
@@ -1230,9 +1230,9 @@ RS_Vector RS_EntityContainer::getNearestPointOnEntity(const RS_Vector& coord,
 
 
 RS_Vector RS_EntityContainer::getNearestCenter(const RS_Vector& coord,
-											   double* dist) const{
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist = RS_MAXDOUBLE;  // currently measured distance
+											   LDOUBLE* dist) const{
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist = RS_MAXDOUBLE;  // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1258,11 +1258,11 @@ RS_Vector RS_EntityContainer::getNearestCenter(const RS_Vector& coord,
 /** @return the nearest of equidistant middle points of the line. */
 
 RS_Vector RS_EntityContainer::getNearestMiddle(const RS_Vector& coord,
-                                               double* dist,
+											   LDOUBLE* dist,
                                                int middlePoints
                                                ) const{
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist = RS_MAXDOUBLE;  // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist = RS_MAXDOUBLE;  // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1287,9 +1287,9 @@ RS_Vector RS_EntityContainer::getNearestMiddle(const RS_Vector& coord,
 
 
 
-RS_Vector RS_EntityContainer::getNearestDist(double distance,
+RS_Vector RS_EntityContainer::getNearestDist(LDOUBLE distance,
                                              const RS_Vector& coord,
-											 double* dist) const{
+											 LDOUBLE* dist) const{
 
     RS_Vector point(false);
     RS_Entity* closestEntity;
@@ -1309,10 +1309,10 @@ RS_Vector RS_EntityContainer::getNearestDist(double distance,
  * @return The intersection which is closest to 'coord'
  */
 RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
-                                                     double* dist) {
+													 LDOUBLE* dist) {
 
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist = RS_MAXDOUBLE;  // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist = RS_MAXDOUBLE;  // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
     RS_VectorSolutions sol;
@@ -1353,10 +1353,10 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
 
 
 RS_Vector RS_EntityContainer::getNearestRef(const RS_Vector& coord,
-											double* dist) const{
+											LDOUBLE* dist) const{
 
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist;                 // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist;                 // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1379,10 +1379,10 @@ RS_Vector RS_EntityContainer::getNearestRef(const RS_Vector& coord,
 
 
 RS_Vector RS_EntityContainer::getNearestSelectedRef(const RS_Vector& coord,
-													double* dist) const{
+													LDOUBLE* dist) const{
 
-    double minDist = RS_MAXDOUBLE;  // minimum measured distance
-    double curDist;                 // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;  // minimum measured distance
+	LDOUBLE curDist;                 // currently measured distance
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
@@ -1404,16 +1404,16 @@ RS_Vector RS_EntityContainer::getNearestSelectedRef(const RS_Vector& coord,
 }
 
 
-double RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
                                               RS_Entity** entity,
                                               RS2::ResolveLevel level,
-                                              double solidDist) const{
+											  LDOUBLE solidDist) const{
 
     RS_DEBUG->print("RS_EntityContainer::getDistanceToPoint");
 
 
-    double minDist = RS_MAXDOUBLE;      // minimum measured distance
-    double curDist;                     // currently measured distance
+	LDOUBLE minDist = RS_MAXDOUBLE;      // minimum measured distance
+	LDOUBLE curDist;                     // currently measured distance
     RS_Entity* closestEntity = NULL;    // closest entity found
     RS_Entity* subEntity = NULL;
 
@@ -1450,7 +1450,7 @@ double RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
 
 
 RS_Entity* RS_EntityContainer::getNearestEntity(const RS_Vector& coord,
-                                                double* dist,
+												LDOUBLE* dist,
 												RS2::ResolveLevel level) const{
 
     RS_DEBUG->print("RS_EntityContainer::getNearestEntity");
@@ -1458,12 +1458,12 @@ RS_Entity* RS_EntityContainer::getNearestEntity(const RS_Vector& coord,
     RS_Entity* e = NULL;
 
     // distance for points inside solids:
-    double solidDist = RS_MAXDOUBLE;
+	LDOUBLE solidDist = RS_MAXDOUBLE;
 	if (dist) {
         solidDist = *dist;
     }
 
-    double d = getDistanceToPoint(coord, &e, level, solidDist);
+	LDOUBLE d = getDistanceToPoint(coord, &e, level, solidDist);
 
 	if (e && e->isVisible()==false) {
         e = NULL;
@@ -1553,10 +1553,10 @@ bool RS_EntityContainer::optimizeContours() {
     const QString errMsg=QObject::tr("Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)");
 
     while(count()>0){
-        double dist(0.);
+		LDOUBLE dist(0.);
         RS_Vector&& vpTmp=getNearestEndpoint(vpEnd,&dist,&next);
         if(dist>1e-8) {
-            if(vpEnd.squaredTo(vpStart)<1e-8){
+			if(vpEnd.squaredTo(vpStart)<1e-8L){
                 RS_Entity* e2=entityAt(0);
                 tmp.addEntity(e2->clone());
                 vpStart=e2->getStartpoint();
@@ -1564,7 +1564,7 @@ bool RS_EntityContainer::optimizeContours() {
                 removeEntity(e2);
                 continue;
             }
-            QG_DIALOGFACTORY->commandMessage(errMsg.arg(dist).arg(vpTmp.x).arg(vpTmp.y).arg(vpEnd.x).arg(vpEnd.y));
+			QG_DIALOGFACTORY->commandMessage(errMsg.arg((double) dist).arg((double) vpTmp.x).arg((double) vpTmp.y).arg((double) vpEnd.x).arg((double) vpEnd.y));
             closed=false;
         }
         if(next && closed){ 			//workaround if next is NULL
@@ -1584,8 +1584,8 @@ bool RS_EntityContainer::optimizeContours() {
     }
 //    DEBUG_HEADER();
     if(vpEnd.valid && vpEnd.squaredTo(vpStart)>1e-8) {
-        if(closed) QG_DIALOGFACTORY->commandMessage(errMsg.arg(vpEnd.distanceTo(vpStart))
-                                         .arg(vpStart.x).arg(vpStart.y).arg(vpEnd.x).arg(vpEnd.y));
+		if(closed) QG_DIALOGFACTORY->commandMessage(errMsg.arg((double)vpEnd.distanceTo(vpStart))
+										 .arg((double)vpStart.x).arg((double)vpStart.y).arg((double)vpEnd.x).arg((double)vpEnd.y));
         closed=false;
     }
 //    std::cout<<"RS_EntityContainer::optimizeContours: 5"<<std::endl;
@@ -1632,7 +1632,7 @@ void RS_EntityContainer::move(const RS_Vector& offset) {
 
 
 
-void RS_EntityContainer::rotate(const RS_Vector& center, const double& angle) {
+void RS_EntityContainer::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
 
 	for(auto e: entities){
@@ -1656,7 +1656,7 @@ void RS_EntityContainer::rotate(const RS_Vector& center, const RS_Vector& angleV
 
 
 void RS_EntityContainer::scale(const RS_Vector& center, const RS_Vector& factor) {
-    if (fabs(factor.x)>RS_TOLERANCE && fabs(factor.y)>RS_TOLERANCE) {
+	if (fabsl(factor.x)>RS_TOLERANCE && fabsl(factor.y)>RS_TOLERANCE) {
 
 		for(auto e: entities){
             e->scale(center, factor);
@@ -1741,7 +1741,7 @@ void RS_EntityContainer::revertDirection() {
  * @param view
  */
 void RS_EntityContainer::draw(RS_Painter* painter, RS_GraphicView* view,
-                              double& /*patternOffset*/) {
+							  LDOUBLE& /*patternOffset*/) {
 
     if (painter==NULL || view==NULL) {
         return;
@@ -1759,12 +1759,12 @@ void RS_EntityContainer::draw(RS_Painter* painter, RS_GraphicView* view,
  * Contour Area =\oint x dy
  * @return line integral \oint x dy along the entity
  */
-double RS_EntityContainer::areaLineIntegral() const
+LDOUBLE RS_EntityContainer::areaLineIntegral() const
 {
     //TODO make sure all contour integral is by counter-clockwise
-    double contourArea=0.;
+	LDOUBLE contourArea=0.;
     //closed area is always positive
-    double closedArea=0.;
+	LDOUBLE closedArea=0.;
 
     // edges:
 
@@ -1787,7 +1787,7 @@ double RS_EntityContainer::areaLineIntegral() const
             break;
         }
     }
-    return fabs(contourArea)+closedArea;
+	return fabsl(contourArea)+closedArea;
 }
 
 bool RS_EntityContainer::ignoredOnModification() const

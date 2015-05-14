@@ -75,9 +75,9 @@ void QG_DlgPoint::setPoint(RS_Point& p) {
     }
 
     QString s;
-    s.setNum(point->getPos().x);
+	s.setNum((double)point->getPos().x);
     lePosX->setText(s);
-    s.setNum(point->getPos().y);
+	s.setNum((double)point->getPos().y);
     lePosY->setText(s);
 }
 

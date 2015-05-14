@@ -120,7 +120,7 @@ void QG_DlgMove::updateData() {
         data->number = 1;
     } else {
         bool ok;
-        data->number = static_cast<int>(fabs(RS_Math::eval(leNumber->text(),&ok)));
+        data->number = static_cast<int>(fabsl(RS_Math::eval(leNumber->text(),&ok)));
         if ( ok==false || data->number<1 || data->number>100){
             if(ok && data->number > 100) {
                 data->number=-100;//max number of copies set to 100

@@ -108,11 +108,11 @@ RS_Vector RS_Solid::getCorner(int num) {
  * @param arrowSize Size of arrow (length).
  */
 void RS_Solid::shapeArrow(const RS_Vector& point,
-                          double angle,
-                          double arrowSize) {
+						  LDOUBLE angle,
+						  LDOUBLE arrowSize) {
 
-    double cosv1, sinv1, cosv2, sinv2;
-    double arrowSide = arrowSize/cos(0.165);
+	LDOUBLE cosv1, sinv1, cosv2, sinv2;
+	LDOUBLE arrowSide = arrowSize/cos(0.165);
 
     cosv1 = cos(angle+0.165)*arrowSide;
     sinv1 = sin(angle+0.165)*arrowSide;
@@ -142,10 +142,10 @@ void RS_Solid::calculateBorders() {
 
 
 
-RS_Vector RS_Solid::getNearestEndpoint(const RS_Vector& coord, double* dist)const {
+RS_Vector RS_Solid::getNearestEndpoint(const RS_Vector& coord, LDOUBLE* dist)const {
 
-    double minDist = RS_MAXDOUBLE;
-    double curDist;
+	LDOUBLE minDist = RS_MAXDOUBLE;
+	LDOUBLE curDist;
     RS_Vector ret;
 
     for (int i=0; i<4; ++i) {
@@ -243,7 +243,7 @@ bool RS_Solid::isInCrossWindow(const RS_Vector& v1,const RS_Vector& v2)const {
 * @return true if positive o zero, false if negative.
 */
 bool RS_Solid::sign (const RS_Vector v1, const RS_Vector v2, const RS_Vector v3)const {
-    double res = (v1.x-v3.x)*(v2.y-v3.y)-(v2.x-v3.x)*(v1.y-v3.y);
+	LDOUBLE res = (v1.x-v3.x)*(v2.y-v3.y)-(v2.x-v3.x)*(v1.y-v3.y);
     return (res>=0.0);
 }
 
@@ -251,7 +251,7 @@ bool RS_Solid::sign (const RS_Vector v1, const RS_Vector v2, const RS_Vector v3)
  * @todo Implement this.
  */
 RS_Vector RS_Solid::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity)const {
+		bool onEntity, LDOUBLE* dist, RS_Entity** entity)const {
 //first check if point is inside solid
     bool s1 = sign(data.corner[0], data.corner[1], coord);
     bool s2 = sign(data.corner[1], data.corner[2], coord);
@@ -273,8 +273,8 @@ RS_Vector RS_Solid::getNearestPointOnEntity(const RS_Vector& coord,
     }
     //not inside of solid
     RS_Vector ret(false);
-    double currDist = RS_MAXDOUBLE;
-    double tmpDist;
+	LDOUBLE currDist = RS_MAXDOUBLE;
+	LDOUBLE tmpDist;
 	if (entity!=nullptr) {
         *entity = const_cast<RS_Solid*>(this);
     }
@@ -289,7 +289,7 @@ RS_Vector RS_Solid::getNearestPointOnEntity(const RS_Vector& coord,
 
         RS_Vector direction = data.corner[next]-data.corner[i];
         RS_Vector vpc=coord-data.corner[i];
-        double a=direction.squared();
+		LDOUBLE a=direction.squared();
         if( a < RS_TOLERANCE2) {
             //line too short
             vpc=data.corner[i];
@@ -320,10 +320,10 @@ RS_Vector RS_Solid::getNearestPointOnEntity(const RS_Vector& coord,
 
 
 RS_Vector RS_Solid::getNearestCenter(const RS_Vector& /*coord*/,
-									 double* dist) const{
+									 LDOUBLE* dist) const{
 
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
 
     return RS_Vector(false);
@@ -332,21 +332,21 @@ RS_Vector RS_Solid::getNearestCenter(const RS_Vector& /*coord*/,
 
 
 RS_Vector RS_Solid::getNearestMiddle(const RS_Vector& /*coord*/,
-                                     double* dist,
+									 LDOUBLE* dist,
                                      const int /*middlePoints*/)const {
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
     return RS_Vector(false);
 }
 
 
 
-RS_Vector RS_Solid::getNearestDist(double /*distance*/,
+RS_Vector RS_Solid::getNearestDist(LDOUBLE /*distance*/,
                                    const RS_Vector& /*coord*/,
-								   double* dist) const{
+								   LDOUBLE* dist) const{
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
     return RS_Vector(false);
 }
@@ -357,14 +357,14 @@ RS_Vector RS_Solid::getNearestDist(double /*distance*/,
  * @return Distance from one of the boundry lines of this solid to given point.
  *
  */
-double RS_Solid::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_Solid::getDistanceToPoint(const RS_Vector& coord,
                                     RS_Entity** entity,
                                     RS2::ResolveLevel /*level*/,
-                                    double /*solidDist*/)const {
+									LDOUBLE /*solidDist*/)const {
 	if (entity!=nullptr) {
         *entity = const_cast<RS_Solid*>(this);
     }
-    double ret;
+	LDOUBLE ret;
     getNearestPointOnEntity(coord,true,&ret,entity);
     return ret;
 }
@@ -381,7 +381,7 @@ void RS_Solid::move(const RS_Vector& offset) {
 
 
 //rotation
-void RS_Solid::rotate(const RS_Vector& center, const double& angle) {
+void RS_Solid::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     for (int i=0; i<4; ++i) {
         data.corner[i].rotate(center, angleVector);
@@ -416,7 +416,7 @@ void RS_Solid::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) 
 
 
 void RS_Solid::draw(RS_Painter* painter, RS_GraphicView* view,
-        double& /*patternOffset*/) {
+		LDOUBLE& /*patternOffset*/) {
 
 	if (painter==nullptr || view==nullptr) {
         return;

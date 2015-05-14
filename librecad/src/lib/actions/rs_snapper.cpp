@@ -101,7 +101,7 @@ void RS_Snapper::init() {
 //    //middlePoints behaviors weird, add brutal force here
 //    //todo, clean up middlePoints
 //    //middlePoints= RS_SETTINGS->readNumEntry("/MiddlePoints", 1);
-//    //distance=RS_SETTINGS->readEntry("/Distance", QString("1")).toDouble();
+//    //distance=RS_SETTINGS->readEntry("/Distance", QString("1")).toLDOUBLE();
 //    RS_SETTINGS->endGroup();
     RS_SETTINGS->beginGroup("/Appearance");
     showCrosshairs = (bool)RS_SETTINGS->readNumEntry("/ShowCrosshairs", 1);
@@ -153,11 +153,11 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
     }
 
     RS_Vector mouseCoord = graphicView->toGraph(e->x(), e->y());
-    double ds2Min=RS_MAXDOUBLE*RS_MAXDOUBLE;
+	LDOUBLE ds2Min=RS_MAXDOUBLE*RS_MAXDOUBLE;
 
     if (snapMode.snapEndpoint) {
         t = snapEndpoint(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
 
         if (ds2 < ds2Min){
             ds2Min=ds2;
@@ -166,7 +166,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
     }
     if (snapMode.snapCenter) {
         t = snapCenter(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -179,7 +179,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
             RS_DIALOGFACTORY->requestSnapMiddleOptions(middlePoints, snapMode.snapMiddle);
         }
         t = snapMiddle(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -192,7 +192,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
 			RS_DIALOGFACTORY->requestSnapDistOptions(m_SnapDistance, snapMode.snapDistance);
         }
         t = snapDist(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -200,7 +200,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
     }
     if (snapMode.snapIntersection) {
         t = snapIntersection(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -210,7 +210,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
     if (snapMode.snapOnEntity &&
         snapSpot.distanceTo(mouseCoord) > snapMode.distance) {
         t = snapOnEntity(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -219,7 +219,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
 
     if (snapMode.snapGrid) {
         t = snapGrid(mouseCoord);
-        double&& ds2=mouseCoord.squaredTo(t);
+		LDOUBLE&& ds2=mouseCoord.squaredTo(t);
         if (ds2 < ds2Min){
             ds2Min=ds2;
             snapSpot = t;
@@ -236,7 +236,7 @@ RS_Vector RS_Snapper::snapPoint(QMouseEvent* e) {
         if(snapMode.snapFree){
             RS_Vector&& ds=mouseCoord - snapSpot;
             RS_Vector&& grid=graphicView->getGrid()->getCellVector()*0.5;
-            if( fabs(ds.x) > fabs(grid.x) ||  fabs(ds.y) > fabs(grid.y) ) snapSpot = mouseCoord;
+            if( fabsl(ds.x) > fabsl(grid.x) ||  fabsl(ds.y) > fabsl(grid.y) ) snapSpot = mouseCoord;
         }
 
         //another choice is to keep snapRange in GUI coordinates instead of graph coordinates
@@ -289,7 +289,7 @@ RS_Vector RS_Snapper::snapPoint(const RS_Vector& coord, bool setSpot)
     }
     return coord;
 }
-double RS_Snapper::getSnapRange() const
+LDOUBLE RS_Snapper::getSnapRange() const
 {
 	if(graphicView != nullptr)
     return (graphicView->getGrid()->getCellVector()*0.5).magnitude();
@@ -381,7 +381,7 @@ RS_Vector RS_Snapper::snapCenter(const RS_Vector& coord) {
  */
 RS_Vector RS_Snapper::snapMiddle(const RS_Vector& coord) {
 //std::cout<<"RS_Snapper::snapMiddle(): middlePoints="<<middlePoints<<std::endl;
-	return container->getNearestMiddle(coord,static_cast<double *>(nullptr),middlePoints);
+	return container->getNearestMiddle(coord,static_cast<LDOUBLE *>(nullptr),middlePoints);
 }
 
 
@@ -485,7 +485,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos,
     RS_DEBUG->print("RS_Snapper::catchEntity");
 
         // set default distance for points inside solids
-    double dist (0.);
+	LDOUBLE dist (0.);
 //    std::cout<<"getSnapRange()="<<getSnapRange()<<"\tsnap distance = "<<dist<<std::endl;
 
     RS_Entity* entity = container->getNearestEntity(pos, &dist, level);
@@ -546,7 +546,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
         }
     }
 	if (ec.count() == 0 ) return nullptr;
-    double dist(0.);
+	LDOUBLE dist(0.);
 
     RS_Entity* entity = ec.getNearestEntity(pos, &dist, RS2::ResolveNone);
 
@@ -685,19 +685,19 @@ void RS_Snapper::drawSnapper() {
                                 RS2::CrosshairType chType=graphicView->getCrosshairType();
                                 RS_Vector direction1;
                                 RS_Vector direction2(0.,1.);
-                                double l=graphicView->getWidth()+graphicView->getHeight();
+								LDOUBLE l=graphicView->getWidth()+graphicView->getHeight();
                                 switch(chType){
                                 case RS2::RightCrosshair:
-                                    direction1=RS_Vector(M_PI*5./6.)*l;
+									direction1=RS_Vector(PI*5.L/6.L)*l;
                                     direction2*=l;
                                     break;
                                 case RS2::LeftCrosshair:
-                                    direction1=RS_Vector(M_PI*1./6.)*l;
+									direction1=RS_Vector(PI*1.L/6.L)*l;
                                     direction2*=l;
                                     break;
                                 default:
-                                    direction1=RS_Vector(M_PI*1./6.)*l;
-                                    direction2=RS_Vector(M_PI*5./6.)*l;
+									direction1=RS_Vector(PI*1.L/6.L)*l;
+									direction2=RS_Vector(PI*5.L/6.L)*l;
                                 }
                                 RS_Vector center(graphicView->toGui(snapCoord));
 								RS_OverlayLine *line=new RS_OverlayLine(nullptr,RS_LineData(center-direction1,center+direction1));

@@ -99,7 +99,7 @@ QString LC_List::getStrData(Plug_Entity *ent) {
                         arg(d->realToStr(ptB.x())).
                         arg(d->realToStr(ptB.y())));
         ptC = ptB - ptA;
-        numA = sqrt( (ptC.x()*ptC.x())+ (ptC.y()*ptC.y()));
+        numA = sqrtl( (ptC.x()*ptC.x())+ (ptC.y()*ptC.y()));
         strData.append( strSpecific.arg(tr("length")).arg( d->realToStr(numA)));
         numB = asin(ptC.y() / numA);
         numC = numB*180/M_PI;
@@ -237,9 +237,9 @@ QString LC_List::getStrData(Plug_Entity *ent) {
 
 double LC_List::polylineRadius( const Plug_VertexData& ptA, const Plug_VertexData& ptB)
 {
-    double dChord = sqrt( pow(ptA.point.x() - ptB.point.x(), 2) + pow(ptA.point.y() - ptB.point.y(), 2));
+    double dChord = sqrtl( pow(ptA.point.x() - ptB.point.x(), 2) + pow(ptA.point.y() - ptB.point.y(), 2));
 
-    return fabs( 0.5 * dChord / sin( 2.0 * atan(ptA.bulge)));
+    return fabsl( 0.5 * dChord / sin( 2.0 * atan(ptA.bulge)));
 }
 
 /*****************************/

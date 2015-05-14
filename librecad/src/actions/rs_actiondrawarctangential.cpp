@@ -115,7 +115,7 @@ void RS_ActionDrawArcTangential::trigger() {
 void RS_ActionDrawArcTangential::preparePreview() {
     if (baseEntity && point.valid) {
         RS_Vector startPoint;
-        double direction;
+        LDOUBLE direction;
         if (isStartPoint) {
             startPoint = baseEntity->getStartpoint();
             direction = RS_Math::correctAngle(baseEntity->getDirection1()+M_PI);
@@ -297,7 +297,7 @@ void RS_ActionDrawArcTangential::setRadius(double r){
 	data->radius = r;
 }
 
-double RS_ActionDrawArcTangential::getRadius() const {
+ LDOUBLE RS_ActionDrawArcTangential::getRadius() const {
 	return data->radius;
 }
 

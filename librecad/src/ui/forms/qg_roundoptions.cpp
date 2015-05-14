@@ -72,7 +72,7 @@ void QG_RoundOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sr;
 	QString st;
         if (update) {
-            sr = QString("%1").arg(action->getRadius());
+			sr = QString("%1").arg((double)action->getRadius());
             st = QString("%1").arg((int)action->isTrimOn());
         } else {
             RS_SETTINGS->beginGroup("/Modify");

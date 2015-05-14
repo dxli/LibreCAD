@@ -70,7 +70,7 @@ public:
 		dist = d;
 	}
 
-	double getDist() {
+ LDOUBLE getDist() {
 		return dist;
 	}
 
@@ -85,13 +85,13 @@ public:
 	bool makeContour();
 
 private:
-    RS_Entity* calculateOffset(RS_Entity* newEntity,RS_Entity* orgEntity, double dist);
+    RS_Entity* calculateOffset(RS_Entity* newEntity,RS_Entity* orgEntity, LDOUBLE dist);
     RS_Vector calculateIntersection(RS_Entity* first,RS_Entity* last);
 
 private:
 	RS_Entity* originalEntity;
 	RS_Vector targetPoint;
-	double dist;
+ LDOUBLE dist;
 	int number;
 	bool bRightSide;
 };

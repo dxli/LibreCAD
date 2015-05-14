@@ -232,7 +232,7 @@ public:
      *             by the presented widget.
      * @param on true: switch widget on, false: off
      */
-    virtual void requestSnapDistOptions(double& dist, bool on) = 0;
+	virtual void requestSnapDistOptions(LDOUBLE& dist, bool on) = 0;
     virtual void requestSnapMiddleOptions(int& middlePoints, bool on) = 0;
     /**
       *This virtual method must overwritten and must present
@@ -240,7 +240,7 @@ public:
       * @dist, distance of offset
       * @on, to create the widget if true, and to delete the widget if false
       */
-    virtual void requestModifyOffsetOptions(double& dist, bool on) = 0;
+	virtual void requestModifyOffsetOptions(LDOUBLE& dist, bool on) = 0;
 
     /**
      * This virtual method must be overwritten and must present
@@ -412,7 +412,7 @@ public:
 	 */
 	virtual void updateMouseWidget(const QString& = QString::null,
 								   const QString& = QString::null)=0;
-    virtual void updateArcTangentialOptions(const double& d, bool byRadius)=0;
+	virtual void updateArcTangentialOptions(const LDOUBLE& d, bool byRadius)=0;
 
     /**
      * This virtual method must be overwritten if the graphic view has
@@ -423,7 +423,7 @@ public:
      *
      * @param num Number of selected entities
      */
-    virtual void updateSelectionWidget(int num, double length) = 0;
+	virtual void updateSelectionWidget(int num, LDOUBLE length) = 0;
 
     /**
      * This virtual method must be overwritten if the graphic view has

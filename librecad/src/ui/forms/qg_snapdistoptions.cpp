@@ -63,7 +63,7 @@ void QG_SnapDistOptions::destroy() {
     RS_SETTINGS->endGroup();
 }
 
-void QG_SnapDistOptions::setDist(double& d, bool initial) {
+void QG_SnapDistOptions::setDist(LDOUBLE& d, bool initial) {
     dist = &d;
     if(initial) {
         RS_SETTINGS->beginGroup("/Snap");

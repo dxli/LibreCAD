@@ -43,7 +43,7 @@ RS_DimRadialData::RS_DimRadialData():
  * @param leader Leader length.
  */
 RS_DimRadialData::RS_DimRadialData(const RS_Vector& _definitionPoint,
-				 double _leader):
+				 LDOUBLE _leader):
 	definitionPoint(_definitionPoint)
 	,leader(_leader)
 {
@@ -83,7 +83,7 @@ RS_Entity* RS_DimRadial::clone() const {
 QString RS_DimRadial::getMeasuredLabel() {
 
     // Definitive dimension line:
-	double dist = data.definitionPoint.distanceTo(edata.definitionPoint) * getGeneralFactor();
+	LDOUBLE dist = data.definitionPoint.distanceTo(edata.definitionPoint) * getGeneralFactor();
 
     RS_Graphic* graphic = getGraphic();
 
@@ -92,7 +92,7 @@ QString RS_DimRadial::getMeasuredLabel() {
         ret = RS_Units::formatLinear(dist, graphic->getUnit(),
                                      graphic->getLinearFormat(), graphic->getLinearPrecision());
     } else {
-        ret = QString("%1").arg(dist);
+		ret = QString("%1").arg((double)dist);
     }
 
     return ret;
@@ -127,21 +127,21 @@ void RS_DimRadial::updateDim(bool autoText) {
     //false, true);
 
     // general scale (DIMSCALE)
-    double dimscale = getGeneralScale();
+	LDOUBLE dimscale = getGeneralScale();
 
 	RS_Vector p1 = data.definitionPoint;
     RS_Vector p2 = edata.definitionPoint;
-    double angle = p1.angleTo(p2);
+	LDOUBLE angle = p1.angleTo(p2);
 
     // text height (DIMTXT)
-    double dimtxt = getTextHeight()*dimscale;
+	LDOUBLE dimtxt = getTextHeight()*dimscale;
     // text distance to line (DIMGAP)
-    double dimgap = getDimensionLineGap()*dimscale;
+	LDOUBLE dimgap = getDimensionLineGap()*dimscale;
     // arrow size:
-    double arrowSize = getArrowSize()*dimscale;
+	LDOUBLE arrowSize = getArrowSize()*dimscale;
 
     // length of dimension line:
-    double length = p1.distanceTo(p2);
+	LDOUBLE length = p1.distanceTo(p2);
 
     RS_MTextData textData;
 
@@ -157,11 +157,11 @@ void RS_DimRadial::updateDim(bool autoText) {
                            0.0);
 
     RS_MText* text = new RS_MText(this, textData);
-    double textWidth = text->getSize().x;
+	LDOUBLE textWidth = text->getSize().x;
 
     // do we have to put the arrow / text outside of the arc?
     bool outsideArrow = (length<arrowSize*2+textWidth);
-    double arrowAngle;
+	LDOUBLE arrowAngle;
 
     if (outsideArrow) {
         length += arrowSize*2 + textWidth;
@@ -193,7 +193,7 @@ void RS_DimRadial::updateDim(bool autoText) {
     addEntity(dimensionLine);
 
     RS_Vector distV;
-    double textAngle;
+	LDOUBLE textAngle;
 
     // rotate text so it's readable from the bottom or right (ISO)
     // quadrant 1 & 4
@@ -247,7 +247,7 @@ void RS_DimRadial::move(const RS_Vector& offset) {
 
 
 
-void RS_DimRadial::rotate(const RS_Vector& center, const double& angle) {
+void RS_DimRadial::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     rotate(center,RS_Vector(angle));
 }
 
@@ -282,8 +282,8 @@ void RS_DimRadial::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoin
 void RS_DimRadial::moveRef(const RS_Vector& ref, const RS_Vector& offset) {
 
     if (ref.distanceTo(edata.definitionPoint)<1.0e-4) {
-				double d = data.definitionPoint.distanceTo(edata.definitionPoint);
-				double a = data.definitionPoint.angleTo(edata.definitionPoint + offset);
+				LDOUBLE d = data.definitionPoint.distanceTo(edata.definitionPoint);
+				LDOUBLE a = data.definitionPoint.angleTo(edata.definitionPoint + offset);
 
                 RS_Vector v;
                 v.setPolar(d, a);

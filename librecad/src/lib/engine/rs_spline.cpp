@@ -159,14 +159,14 @@ void RS_Spline::update() {
     // resolution:
 	const size_t  p1 = getGraphicVariableInt("$SPLINESEGS", 8) * npts;
 
-	std::vector<double> b(npts*3+2, 0.);
-	std::vector<double> h(npts+2, 1.);
-	std::vector<double> p(3*p1+2, 0.);
+	std::vector<LDOUBLE> b(npts*3+2, 0.);
+	std::vector<LDOUBLE> h(npts+2, 1.);
+	std::vector<LDOUBLE> p(3*p1+2, 0.);
 
     i = 1;
-	for(auto const& vp: tControlPoints){
-		b[i] = vp.x;
-		b[i+1] = vp.y;
+	for (size_t  it = 0; it < tControlPoints.size(); ++it) {
+        b[i] = tControlPoints.at(it).x;
+        b[i+1] = tControlPoints.at(it).y;
 
         RS_DEBUG->print("RS_Spline::update: b[%d]: %f/%f", i, b[i], b[i+1]);
         i+=3;
@@ -206,20 +206,20 @@ RS_Vector RS_Spline::getEndpoint() const {
 
 
 RS_Vector RS_Spline::getNearestEndpoint(const RS_Vector& coord,
-                                        double* dist)const {
-    double minDist = RS_MAXDOUBLE;
+										LDOUBLE* dist)const {
+	LDOUBLE minDist = RS_MAXDOUBLE;
     RS_Vector ret(false);
     if(! data.closed) { // no endpoint for closed spline
        RS_Vector vp1(getStartpoint());
        RS_Vector vp2(getEndpoint());
-       double d1( (coord-vp1).squared());
-       double d2( (coord-vp2).squared());
+	   LDOUBLE d1( (coord-vp1).squared());
+	   LDOUBLE d2( (coord-vp2).squared());
        if( d1<d2){
            ret=vp1;
-           minDist=sqrt(d1);
+           minDist=sqrtl(d1);
        }else{
            ret=vp2;
-           minDist=sqrt(d2);
+           minDist=sqrtl(d2);
        }
 //        for (int i=0; i<data.controlPoints.count(); i++) {
 //            d = (data.controlPoints.at(i)).distanceTo(coord);
@@ -242,17 +242,17 @@ RS_Vector RS_Spline::getNearestEndpoint(const RS_Vector& coord,
 // The default implementation of RS_EntityContainer is inaccurate but
 //   has to do for now..
 RS_Vector RS_Spline::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity) {
+		bool onEntity, LDOUBLE* dist, RS_Entity** entity) {
 }
 */
 
 
 
 RS_Vector RS_Spline::getNearestCenter(const RS_Vector& /*coord*/,
-									  double* dist) const{
+									  LDOUBLE* dist) const{
 
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
 
     return RS_Vector(false);
@@ -261,10 +261,10 @@ RS_Vector RS_Spline::getNearestCenter(const RS_Vector& /*coord*/,
 
 
 RS_Vector RS_Spline::getNearestMiddle(const RS_Vector& /*coord*/,
-                                      double* dist,
+									  LDOUBLE* dist,
                                       int /*middlePoints*/)const {
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
 
     return RS_Vector(false);
@@ -272,11 +272,11 @@ RS_Vector RS_Spline::getNearestMiddle(const RS_Vector& /*coord*/,
 
 
 
-RS_Vector RS_Spline::getNearestDist(double /*distance*/,
+RS_Vector RS_Spline::getNearestDist(LDOUBLE /*distance*/,
                                     const RS_Vector& /*coord*/,
-									double* dist) const{
+									LDOUBLE* dist) const{
 	if (dist!=nullptr) {
-        *dist = RS_MAXDOUBLE;
+		*dist = RS_MAXDOUBLE;
     }
 
     return RS_Vector(false);
@@ -294,7 +294,7 @@ void RS_Spline::move(const RS_Vector& offset) {
 
 
 
-void RS_Spline::rotate(const RS_Vector& center, const double& angle) {
+void RS_Spline::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     rotate(center,RS_Vector(angle));
 }
 
@@ -345,7 +345,7 @@ void RS_Spline::revertDirection() {
 
 
 
-void RS_Spline::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/) {
+void RS_Spline::draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& /*patternOffset*/) {
 
 	if (painter==nullptr || view==nullptr) {
         return;
@@ -356,7 +356,7 @@ void RS_Spline::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patter
 	if (e) {
         RS_Pen p=this->getPen(true);
         e->setPen(p);
-        double patternOffset(0.0);
+		LDOUBLE patternOffset(0.0);
         view->drawEntity(painter, e, patternOffset);
         //RS_DEBUG->print("offset: %f\nlength was: %f", offset, e->getLength());
 
@@ -401,9 +401,9 @@ void RS_Spline::draw(RS_Painter* painter, RS_GraphicView* view) {
    // resolution:
    int p1 = 100;
 
-   double* b = new double[npts*3+1];
-   double* h = new double[npts+1];
-   double* p = new double[p1*3+1];
+   LDOUBLE* b = new LDOUBLE[npts*3+1];
+   LDOUBLE* h = new LDOUBLE[npts+1];
+   LDOUBLE* p = new LDOUBLE[p1*3+1];
 
    QList<RS_Vector>::iterator it;
    i = 1;
@@ -487,18 +487,18 @@ void RS_Spline::knot(int num, int order, std::vector<int>& knotVector) {
 /**
  * Generates rational B-spline basis functions for an open knot vector.
  */
-void RS_Spline::rbasis(int c, double t, int npts,
-					   const std::vector<int>& x, const std::vector<double>& h, std::vector<double>& r) {
+void RS_Spline::rbasis(int c, LDOUBLE t, int npts,
+					   const std::vector<int>& x, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& r) {
 
     int nplusc;
     int i,k;
-    double d,e;
-    double sum;
-    //double temp[36];
+	LDOUBLE d,e;
+	LDOUBLE sum;
+	//LDOUBLE temp[36];
 
     nplusc = npts + c;
 
-    double* temp = new double[nplusc+1];
+	LDOUBLE* temp = new LDOUBLE[nplusc+1];
 
     // calculate the first order nonrational basis functions n[i]
     for (i = 1; i<= nplusc-1; i++) {
@@ -528,7 +528,7 @@ void RS_Spline::rbasis(int c, double t, int npts,
     }
 
     // pick up last point
-    if (t == (double)x[nplusc]) {
+	if (t == (LDOUBLE)x[nplusc]) {
         temp[npts] = 1;
     }
 
@@ -554,22 +554,22 @@ void RS_Spline::rbasis(int c, double t, int npts,
  * Generates a rational B-spline curve using a uniform open knot vector.
  */
 void RS_Spline::rbspline(size_t npts, size_t k, size_t p1,
-						 const std::vector<double>& b, const std::vector<double>& h, std::vector<double>& p) {
+						 const std::vector<LDOUBLE>& b, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& p) {
 
 	size_t i,j,icount,jcount;
 	size_t i1;
     //int x[30]; /* allows for 20 data points with basis function of order 5 */
     int nplusc;
 
-    double step;
-    double t;
-    //double nbasis[20];
-//    double temp;
+	LDOUBLE step;
+	LDOUBLE t;
+	//LDOUBLE nbasis[20];
+//    LDOUBLE temp;
 
     nplusc = npts + k;
 
 	std::vector<int> x(nplusc+1, 0);
-	std::vector<double> nbasis(npts+1, 0.);
+	std::vector<LDOUBLE> nbasis(npts+1, 0.);
 
 
     // generate the uniform open knot vector
@@ -579,12 +579,12 @@ void RS_Spline::rbspline(size_t npts, size_t k, size_t p1,
 
     // calculate the points on the rational B-spline curve
     t = 0;
-    step = ((double)x[nplusc])/((double)(p1-1));
+	step = ((LDOUBLE)x[nplusc])/((LDOUBLE)(p1-1));
 
     for (i1 = 1; i1<= p1; i1++) {
 
-        if ((double)x[nplusc] - t < 5e-6) {
-            t = (double)x[nplusc];
+		if ((LDOUBLE)x[nplusc] - t < 5e-6) {
+			t = (LDOUBLE)x[nplusc];
         }
 
         // generate the basis function for this value of t
@@ -625,23 +625,23 @@ void RS_Spline::knotu(int num, int order, std::vector<int>& knotVector) {
 
 
 void RS_Spline::rbsplinu(int npts, int k, int p1,
-						 const std::vector<double>& b, const std::vector<double>& h, std::vector<double>& p) {
+						 const std::vector<LDOUBLE>& b, const std::vector<LDOUBLE>& h, std::vector<LDOUBLE>& p) {
 
     int i,j,icount,jcount;
     int i1;
     //int x[30];		/* allows for 20 data points with basis function of order 5 */
     int nplusc;
 
-    double step;
-    double t;
-    //double nbasis[20];
-//    double temp;
+	LDOUBLE step;
+	LDOUBLE t;
+	//LDOUBLE nbasis[20];
+//    LDOUBLE temp;
 
 
     nplusc = npts + k;
 
 	std::vector<int> x(nplusc+1, 0);
-	std::vector<double> nbasis(npts+1, 0.);
+	std::vector<LDOUBLE> nbasis(npts+1, 0.);
 
     /* generate the uniform periodic knot vector */
 
@@ -666,12 +666,12 @@ void RS_Spline::rbsplinu(int npts, int k, int p1,
     /*    calculate the points on the rational B-spline curve */
 
     t = k-1;
-    step = ((double)((npts)-(k-1)))/((double)(p1-1));
+	step = ((LDOUBLE)((npts)-(k-1)))/((LDOUBLE)(p1-1));
 
     for (i1 = 1; i1<= p1; i1++) {
 
-        if ((double)x[nplusc] - t < 5e-6) {
-            t = (double)x[nplusc];
+		if ((LDOUBLE)x[nplusc] - t < 5e-6) {
+			t = (LDOUBLE)x[nplusc];
         }
 
         rbasis(k,t,npts,x,h,nbasis);      /* generate the basis function for this value of t */

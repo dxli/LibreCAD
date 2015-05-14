@@ -76,7 +76,7 @@ public:
 //    virtual void showOptions();
 //    virtual void hideOptions();
 //    void setRadius(const double& r);
-	double getRadius() const;
+ LDOUBLE getRadius() const;
 
 
 protected:
@@ -86,7 +86,7 @@ protected:
     private:
 	std::unique_ptr<RS_CircleData> cData;
     RS_Vector coord;
-    double radius;
+    LDOUBLE radius;
     bool valid;
 	const std::vector<RS2::EntityType> enTypeList={RS2::EntityLine, RS2::EntityArc, RS2::EntityCircle};
     //keep a list of centers found

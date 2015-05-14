@@ -72,8 +72,8 @@ void QG_LineBisectorOptions::setAction(RS_ActionInterface* a, bool update) {
         QString sl;
         QString sn;
         if (update) {
-            sl = QString("%1").arg(action->getLength());
-            sn = QString("%1").arg(action->getNumber());
+			sl = QString("%1").arg((double)action->getLength());
+			sn = QString("%1").arg((double)action->getNumber());
         } else {
             RS_SETTINGS->beginGroup("/Draw");
             sl = RS_SETTINGS->readEntry("/LineBisectorLength", "1.0");

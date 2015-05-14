@@ -116,9 +116,9 @@ QString RS_DimAngular::getMeasuredLabel() {
 /**
  * @return Angle of the measured dimension.
  */
-double RS_DimAngular::getAngle() {
-    double ang1 = 0.0;
-    double ang2 = 0.0;
+LDOUBLE RS_DimAngular::getAngle() {
+	LDOUBLE ang1 = 0.0L;
+	LDOUBLE ang2 = 0.0L;
     bool reversed = false;
         RS_Vector p1;
         RS_Vector p2;
@@ -165,7 +165,7 @@ RS_Vector RS_DimAngular::getCenter() const {
  *
  * @return true: on success
  */
-bool RS_DimAngular::getAngles(double& ang1, double& ang2, bool& reversed,
+bool RS_DimAngular::getAngles(LDOUBLE& ang1, LDOUBLE& ang2, bool& reversed,
                               RS_Vector& p1, RS_Vector& p2) {
 
 RS_Vector vp0(edata.definitionPoint4 - getCenter());
@@ -178,13 +178,13 @@ RS_Vector vp2(data.definitionPoint - edata.definitionPoint3);
 // a1 = ( |p2|^2 <p0.p1> - <p1.p2><p0.p2>) /( |p1|^2 |p2|^2 - <p1.p2>^2)
 // a2 = ( |p1|^2 <p0.p2> - <p1.p2><p0.p1>) /( |p1|^2 |p2|^2 - <p1.p2>^2)
 
-double rp1=vp1.squared();
-double rp2=vp2.squared();
-double p0p1=RS_Vector::dotP(vp0,vp1);
-double p0p2=RS_Vector::dotP(vp0,vp2);
-double p1p2=RS_Vector::dotP(vp1,vp2);
-double d= rp1*rp2 - p1p2*p1p2;
-double a1=d*(rp2*p0p1-p1p2*p0p2); // we only need the sign, so, use multiply instead of division to avoid divid by zero;
+LDOUBLE rp1=vp1.squared();
+LDOUBLE rp2=vp2.squared();
+LDOUBLE p0p1=RS_Vector::dotP(vp0,vp1);
+LDOUBLE p0p2=RS_Vector::dotP(vp0,vp2);
+LDOUBLE p1p2=RS_Vector::dotP(vp1,vp2);
+LDOUBLE d= rp1*rp2 - p1p2*p1p2;
+LDOUBLE a1=d*(rp2*p0p1-p1p2*p0p2); // we only need the sign, so, use multiply instead of division to avoid divid by zero;
 if ( a1 >= 0. ) {
             p1 = edata.definitionPoint2;
 } else {
@@ -200,7 +200,7 @@ if ( a1 >= 0. ) {
 }
 
     RS_Vector center = getCenter();
-    double ang = center.angleTo(edata.definitionPoint4);
+	LDOUBLE ang = center.angleTo(edata.definitionPoint4);
 ang1=vp1.angle();
 ang2=vp2.angle();
 if ( ! RS_Math::isAngleBetween(ang, ang1,ang2,false) ) {
@@ -232,7 +232,7 @@ return true;
 //            for (int t=0; t<=1 && !done; ++t) {
 //                reversed = (bool)t;
 //
-//                double angDiff;
+//                LDOUBLE angDiff;
 //
 //                if (!reversed) {
 //                    if (ang2<ang1) {
@@ -281,17 +281,17 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     }
 
     // general scale (DIMSCALE)
-    double dimscale = getGeneralScale();
+	LDOUBLE dimscale = getGeneralScale();
     // distance from entities (DIMEXO)
-    double dimexo = getExtensionLineOffset()*dimscale;
+	LDOUBLE dimexo = getExtensionLineOffset()*dimscale;
     // extension line extension (DIMEXE)
-    double dimexe = getExtensionLineExtension()*dimscale;
+	LDOUBLE dimexe = getExtensionLineExtension()*dimscale;
     // text height (DIMTXT)
-    double dimtxt = getTextHeight()*dimscale;
+	LDOUBLE dimtxt = getTextHeight()*dimscale;
     // text distance to line (DIMGAP)
-    double dimgap = getDimensionLineGap()*dimscale;
+	LDOUBLE dimgap = getDimensionLineGap()*dimscale;
     // arrow size:
-    double arrowSize = getArrowSize()*dimscale;
+	LDOUBLE arrowSize = getArrowSize()*dimscale;
 
     // find out center:
     RS_Vector center = getCenter();
@@ -300,20 +300,20 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
         return;
     }
 
-    double ang1 = 0.0;
-    double ang2 = 0.0;
+	LDOUBLE ang1 = 0.0;
+	LDOUBLE ang2 = 0.0;
     bool reversed = false;
     RS_Vector p1;
     RS_Vector p2;
 
     getAngles(ang1, ang2, reversed, p1, p2);
 
-    double rad = edata.definitionPoint4.distanceTo(center);
+	LDOUBLE rad = edata.definitionPoint4.distanceTo(center);
 
     RS_Line* line;
     RS_Vector dir;
-    double len;
-    double dist;
+	LDOUBLE len;
+	LDOUBLE dist;
 
     // 1st extension line:
     dist = center.distanceTo(p1);
@@ -346,14 +346,14 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     addEntity(arc);
 
     // length of dimension arc:
-    double distance = arc->getLength();
+	LDOUBLE distance = arc->getLength();
 
     // do we have to put the arrows outside of the arc?
     bool outsideArrows = (distance<arrowSize*2);
 
     // arrow angles:
-    double arrowAngle1, arrowAngle2;
-    double arrowAng;
+	LDOUBLE arrowAngle1, arrowAngle2;
+	LDOUBLE arrowAng;
         if (rad>1.0e-6) {
                 arrowAng = arrowSize / rad;
         }
@@ -411,8 +411,8 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     RS_Vector textPos = arc->getMiddlePoint();
 
     RS_Vector distV;
-    double textAngle;
-	double dimAngle1 = textPos.angleTo(arc->getCenter())-M_PI_2;
+	LDOUBLE textAngle;
+	LDOUBLE dimAngle1 = textPos.angleTo(arc->getCenter())-M_PI_2;
 
     // rotate text so it's readable from the bottom or right (ISO)
     // quadrant 1 & 4
@@ -466,7 +466,7 @@ void RS_DimAngular::move(const RS_Vector& offset) {
 
 
 
-void RS_DimAngular::rotate(const RS_Vector& center, const double& angle) {
+void RS_DimAngular::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     rotate(center, RS_Vector(angle));
 }
 

@@ -74,7 +74,7 @@ public:
 	
 	void setLength(double l);
 
-	double getLength() const;
+ LDOUBLE getLength() const;
 	
 	void setNumber(int n);
 
@@ -88,7 +88,7 @@ private:
     /** Second chosen entity */
     RS_Line* line2;
     /** Length of the bisector. */
-    double length;
+    LDOUBLE length;
 	/** Number of bisectors to create. */
 	int number;
 	/** Mouse pos when choosing the 1st line */

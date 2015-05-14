@@ -307,7 +307,7 @@ bool RS_Units::isMetric(RS2::Unit u) {
 /**
  * @return factor to convert the given unit to Millimeters.
  */
-double RS_Units::getFactorToMM(RS2::Unit u) {
+LDOUBLE RS_Units::getFactorToMM(RS2::Unit u) {
     switch (u) {
 	default:
 	case RS2::None:
@@ -359,7 +359,7 @@ double RS_Units::getFactorToMM(RS2::Unit u) {
 /**
  * Converts the given value 'val' from unit 'src' to unit 'dest'.
  */
-double RS_Units::convert(double val, RS2::Unit src, RS2::Unit dest) {
+LDOUBLE RS_Units::convert(LDOUBLE val, RS2::Unit src, RS2::Unit dest) {
     if (getFactorToMM(dest)>0.0) {
         return (val*getFactorToMM(src))/getFactorToMM(dest);
     } else {
@@ -393,7 +393,7 @@ RS_Vector RS_Units::convert(const RS_Vector& val, RS2::Unit src, RS2::Unit dest)
  * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatLinear(double length, RS2::Unit unit,
+QString RS_Units::formatLinear(LDOUBLE length, RS2::Unit unit,
                                  RS2::LinearFormat format,
                                  int prec, bool showUnit) {
     QString ret;
@@ -445,7 +445,7 @@ QString RS_Units::formatLinear(double length, RS2::Unit unit,
  * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatScientific(double length, RS2::Unit unit,
+QString RS_Units::formatScientific(LDOUBLE length, RS2::Unit unit,
                                      int prec, bool showUnit) {
 
 	QString const ret= QString("%1").arg(length,0,'E', prec);
@@ -463,7 +463,7 @@ QString RS_Units::formatScientific(double length, RS2::Unit unit,
  * @param prec Precisision of the value (e.g. 0.001)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatDecimal(double length, RS2::Unit unit,
+QString RS_Units::formatDecimal(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit) {
 	QString const ret=RS_Math::doubleToString(length, prec);
 
@@ -481,13 +481,13 @@ QString RS_Units::formatDecimal(double length, RS2::Unit unit,
  * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatEngineering(double length, RS2::Unit /*unit*/,
+QString RS_Units::formatEngineering(LDOUBLE length, RS2::Unit /*unit*/,
                                       int prec, bool /*showUnit*/) {
     QString ret;
 
     bool sign = (length<0.0);
-    int feet = (int)floor(fabs(length)/12);
-    double inches = fabs(length) - feet*12;
+    int feet = (int)floor(fabsl(length)/12);
+	LDOUBLE inches = fabsl(length) - feet*12;
 
     QString sInches = RS_Math::doubleToString(inches, prec);
 
@@ -518,13 +518,13 @@ QString RS_Units::formatEngineering(double length, RS2::Unit /*unit*/,
  * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatArchitectural(double length, RS2::Unit /*unit*/,
+QString RS_Units::formatArchitectural(LDOUBLE length, RS2::Unit /*unit*/,
                                         int prec, bool showUnit) {
     QString ret;
     bool neg = (length<0.0);
 
-    int feet = (int)floor(fabs(length)/12);
-    double inches = fabs(length) - feet*12;
+    int feet = (int)floor(fabsl(length)/12);
+	LDOUBLE inches = fabsl(length) - feet*12;
 
     QString sInches = formatFractional(inches, RS2::Inch, prec, showUnit);
 
@@ -552,7 +552,7 @@ QString RS_Units::formatArchitectural(double length, RS2::Unit /*unit*/,
  * @param prec Precisision of the value (e.g. 0.001 or 1/128 = 0.0078125)
  & @param showUnit Append unit to the value.
  */
-QString RS_Units::formatFractional(double length, RS2::Unit /*unit*/,
+QString RS_Units::formatFractional(LDOUBLE length, RS2::Unit /*unit*/,
                                      int prec, bool /*showUnit*/) {
 
     QString ret;
@@ -565,7 +565,7 @@ QString RS_Units::formatFractional(double length, RS2::Unit /*unit*/,
     QString neg = "";
     if(length < 0) {
         neg = "-";
-        length = fabs(length);
+        length = fabsl(length);
     }
 
 	num = (unsigned)floor(length);
@@ -620,11 +620,11 @@ QString RS_Units::formatFractional(double length, RS2::Unit /*unit*/,
  *
  * @ret String with the formatted angle.
  */
-QString RS_Units::formatAngle(double angle, RS2::AngleFormat format,
+QString RS_Units::formatAngle(LDOUBLE angle, RS2::AngleFormat format,
                                 int prec) {
 
     QString ret;
-    double value;
+	LDOUBLE value;
 
     switch (format) {
     case RS2::DegreesDecimal:
@@ -659,7 +659,7 @@ QString RS_Units::formatAngle(double angle, RS2::AngleFormat format,
 
     case RS2::DegreesMinutesSeconds: {
             int vDegrees, vMinutes;
-            double vSeconds;
+			LDOUBLE vSeconds;
             QString degrees, minutes, seconds;
 
             vDegrees = (int)floor(value);
@@ -1208,16 +1208,16 @@ RS2::PaperFormat RS_Units::stringToPaperFormat(const QString& p) {
 /**
   * Calculates a scaling factor from given dpi and units.
   */
-double RS_Units::dpiToScale(double dpi, RS2::Unit unit) {
-    double scale = RS_Units::convert(1.0, RS2::Inch, unit) / dpi;
+LDOUBLE RS_Units::dpiToScale(LDOUBLE dpi, RS2::Unit unit) {
+	LDOUBLE scale = RS_Units::convert(1.0, RS2::Inch, unit) / dpi;
     return scale;
 }
 
 /**
   * Calculates a dpi value from given scaling factor and units.
   */
-double RS_Units::scaleToDpi(double scale, RS2::Unit unit) {
-    double dpi = RS_Units::convert(1.0, RS2::Inch, unit) / scale;
+LDOUBLE RS_Units::scaleToDpi(LDOUBLE scale, RS2::Unit unit) {
+	LDOUBLE dpi = RS_Units::convert(1.0, RS2::Inch, unit) / scale;
     return dpi;
 }
 
@@ -1226,7 +1226,7 @@ double RS_Units::scaleToDpi(double scale, RS2::Unit unit) {
  */
 void RS_Units::test() {
     QString s;
-    double v;
+	LDOUBLE v;
 
     /*
        std::cout << "RS_Units::test: formatLinear (decimal):\n";

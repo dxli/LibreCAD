@@ -131,8 +131,8 @@ void RS_PainterQt::drawLine(const RS_Vector& p1, const RS_Vector& p2) {
  * @param y2 endpoint y
  * @param reversed true: clockwise, false: counterclockwise
  */
-void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
-                           double a1, double a2,
+void RS_PainterQt::drawArc(const RS_Vector& cp, LDOUBLE radius,
+						   LDOUBLE a1, LDOUBLE a2,
                            const RS_Vector& p1, const RS_Vector& p2,
                            bool reversed) {
     /*
@@ -149,9 +149,9 @@ void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
 #else
         int   cix;            // Next point on circle
         int   ciy;            //
-        double aStep;         // Angle Step (rad)
-        double a;             // Current Angle (rad)
-        double linStep;       // linear step (pixels)
+		LDOUBLE aStep;         // Angle Step (rad)
+		LDOUBLE a;             // Current Angle (rad)
+		LDOUBLE linStep;       // linear step (pixels)
 
         if (drawingMode==RS2::ModePreview) {
             linStep = 20.0;
@@ -159,7 +159,7 @@ void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
             linStep = 6.0;
         }
 
-        if (fabs(linStep/radius)<=1.0) {
+        if (fabsl(linStep/radius)<=1.0) {
             aStep=asin(linStep/radius);
         } else {
             aStep=1.0;
@@ -228,8 +228,8 @@ void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
  * @param a2 Angle 2 in rad
  * @param reversed true: clockwise, false: counterclockwise
  */
-void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
-                           double a1, double a2,
+void RS_PainterQt::drawArc(const RS_Vector& cp, LDOUBLE radius,
+						   LDOUBLE a1, LDOUBLE a2,
                            bool reversed) {
     if(radius<=0.5) {
         drawGridPoint(cp);
@@ -255,8 +255,8 @@ void RS_PainterQt::drawArc(const RS_Vector& cp, double radius,
  * @param a2 Angle 2 in rad
  * @param reversed true: clockwise, false: counterclockwise
  */
-void RS_PainterQt::drawArcMac(const RS_Vector& cp, double radius,
-                           double a1, double a2,
+void RS_PainterQt::drawArcMac(const RS_Vector& cp, LDOUBLE radius,
+						   LDOUBLE a1, LDOUBLE a2,
                            bool reversed) {
         RS_DEBUG->print("RS_PainterQt::drawArcMac");
     if(radius<=0.5) {
@@ -265,12 +265,12 @@ void RS_PainterQt::drawArcMac(const RS_Vector& cp, double radius,
         //QPointArray pa;
         //createArc(pa, cp, radius, a1, a2, reversed);
 
-              double cix;            // Next point on circle
-              double ciy;            //
-              double aStep;         // Angle Step (rad)
-              double a;             // Current Angle (rad)
-                          double ox;
-                          double oy;
+			  LDOUBLE cix;            // Next point on circle
+			  LDOUBLE ciy;            //
+			  LDOUBLE aStep;         // Angle Step (rad)
+			  LDOUBLE a;             // Current Angle (rad)
+						  LDOUBLE ox;
+						  LDOUBLE oy;
 
               if(2.0/radius<=1.0) {
                   aStep=asin(2.0/radius);
@@ -343,7 +343,7 @@ void RS_PainterQt::drawArcMac(const RS_Vector& cp, double radius,
  * @param cy center in y
  * @param radius Radius
  */
-void RS_PainterQt::drawCircle(const RS_Vector& cp, double radius) {
+void RS_PainterQt::drawCircle(const RS_Vector& cp, LDOUBLE radius) {
 
 // RVT_PORT    if (drawingMode==RS2::ModeXOR && radius<500) {
                 if (radius<500) {
@@ -375,9 +375,9 @@ void RS_PainterQt::drawCircle(const RS_Vector& cp, double radius) {
  * Draws a rotated ellipse arc.
  */
 void RS_PainterQt::drawEllipse(const RS_Vector& cp,
-                               double radius1, double radius2,
-                               double angle,
-                               double a1, double a2,
+							   LDOUBLE radius1, LDOUBLE radius2,
+							   LDOUBLE angle,
+							   LDOUBLE a1, LDOUBLE a2,
                                bool reversed) {
     QPolygon pa;
     createEllipse(pa, cp, radius1, radius2, angle, a1, a2, reversed);
@@ -390,7 +390,7 @@ void RS_PainterQt::drawEllipse(const RS_Vector& cp,
  * Draws image.
  */
 void RS_PainterQt::drawImg(QImage& img, const RS_Vector& pos,
-                           double angle, const RS_Vector& factor) {
+						   LDOUBLE angle, const RS_Vector& factor) {
     save();
 
     // Render smooth only at close zooms
@@ -475,10 +475,10 @@ int RS_PainterQt::getWidth() {
 /** get Density per millimeter on screen/print device
   *@return density per millimeter in pixel/mm
   */
-double RS_PainterQt::getDpmm() {
+LDOUBLE RS_PainterQt::getDpmm() {
     int mm(device()->widthMM());
     if(mm==0) mm=400;
-    return double(device()->width())/mm;
+	return (LDOUBLE)(device()->width())/mm;
 }
 
 
@@ -567,17 +567,17 @@ void RS_PainterQt::resetClipping() {
 
 void RS_PainterQt::fillRect ( const QRectF & rectangle, const RS_Color & color ) {
 
-        double x1=rectangle.left();
-        double x2=rectangle.right();
-        double y1=rectangle.top();
-        double y2=rectangle.bottom();
+		LDOUBLE x1=rectangle.left();
+		LDOUBLE x2=rectangle.right();
+		LDOUBLE y1=rectangle.top();
+		LDOUBLE y2=rectangle.bottom();
 
         QPainter::fillRect(toScreenX(x1),toScreenY(y1),toScreenX(x2)-toScreenX(x1),toScreenY(y2)-toScreenX(y1), color);
 }
 void RS_PainterQt::fillRect ( const QRectF & rectangle, const QBrush & brush ) {
-        double x1=rectangle.left();
-        double x2=rectangle.right();
-        double y1=rectangle.top();
-        double y2=rectangle.bottom();
+		LDOUBLE x1=rectangle.left();
+		LDOUBLE x2=rectangle.right();
+		LDOUBLE y1=rectangle.top();
+		LDOUBLE y2=rectangle.bottom();
         QPainter::fillRect(toScreenX(x1),toScreenY(y1),toScreenX(x2),toScreenY(y2), brush);
 }

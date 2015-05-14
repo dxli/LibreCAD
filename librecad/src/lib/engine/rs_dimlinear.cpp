@@ -43,7 +43,7 @@ RS_DimLinearData::RS_DimLinearData():
 
 RS_DimLinearData::RS_DimLinearData(const RS_Vector& _extensionPoint1,
 				 const RS_Vector& _extensionPoint2,
-				 double _angle, double _oblique):
+				 LDOUBLE _angle, LDOUBLE _oblique):
 	extensionPoint1(_extensionPoint1)
 	,extensionPoint2(_extensionPoint2)
 	,angle(_angle)
@@ -89,7 +89,7 @@ RS_VectorSolutions RS_DimLinear::getRefPoints() const
 		return RS_VectorSolutions({edata.extensionPoint1, edata.extensionPoint2,
 												data.definitionPoint, data.middleOfText});
 }
-void RS_DimLinear::setAngle(double a) {
+void RS_DimLinear::setAngle(LDOUBLE a) {
 	edata.angle = RS_Math::correctAngle(a);
 }
 
@@ -112,7 +112,7 @@ QString RS_DimLinear::getMeasuredLabel() {
     RS_Vector dimP2 = dimLine.getNearestPointOnEntity(edata.extensionPoint2);
 
     // Definitive dimension line:
-    double dist = dimP1.distanceTo(dimP2) * getGeneralFactor();
+	LDOUBLE dist = dimP1.distanceTo(dimP2) * getGeneralFactor();
 
         RS_Graphic* graphic = getGraphic();
 
@@ -122,7 +122,7 @@ QString RS_DimLinear::getMeasuredLabel() {
                         graphic->getLinearFormat(), graphic->getLinearPrecision());
         }
         else {
-        ret = QString("%1").arg(dist);
+		ret = QString("%1").arg((double)dist);
         }
 
     return ret;
@@ -154,11 +154,11 @@ void RS_DimLinear::updateDim(bool autoText) {
     }
 
     // general scale (DIMSCALE)
-    double dimscale = getGeneralScale();
+	LDOUBLE dimscale = getGeneralScale();
     // distance from entities (DIMEXO)
-    double dimexo = getExtensionLineOffset()*dimscale;
+	LDOUBLE dimexo = getExtensionLineOffset()*dimscale;
     // extension line extension (DIMEXE)
-    double dimexe = getExtensionLineExtension()*dimscale;
+	LDOUBLE dimexe = getExtensionLineExtension()*dimscale;
 
     RS_LineData ld;
 
@@ -183,7 +183,7 @@ void RS_DimLinear::updateDim(bool autoText) {
        addEntity(dimensionLine);
     */
 
-    double extAngle1, extAngle2;
+	LDOUBLE extAngle1, extAngle2;
     RS_Vector vDimexo1, vDimexe1, vDimexo2, vDimexe2;
 
     if ((edata.extensionPoint1-dimP1).magnitude()<1e-6) {
@@ -240,7 +240,7 @@ void RS_DimLinear::move(const RS_Vector& offset) {
 
 
 
-void RS_DimLinear::rotate(const RS_Vector& center, const double& angle) {
+void RS_DimLinear::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     RS_Dimension::rotate(center, angleVector);
 
@@ -299,8 +299,8 @@ void RS_DimLinear::stretch(const RS_Vector& firstCorner,
         move(offset);
     } else {
         //RS_Vector v = data.definitionPoint - edata.extensionPoint2;
-        //double len = edata.extensionPoint2.distanceTo(data.definitionPoint);
-        //double ang1 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
+		//LDOUBLE len = edata.extensionPoint2.distanceTo(data.definitionPoint);
+		//LDOUBLE ang1 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
 		//              + M_PI_2;
 
         if (edata.extensionPoint1.isInWindow(firstCorner,
@@ -313,15 +313,15 @@ void RS_DimLinear::stretch(const RS_Vector& firstCorner,
         }
 
                 /*
-        double ang2 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
+		LDOUBLE ang2 = edata.extensionPoint1.angleTo(edata.extensionPoint2)
 					  + M_PI_2;
 
-        double diff = RS_Math::getAngleDifference(ang1, ang2);
+		LDOUBLE diff = RS_Math::getAngleDifference(ang1, ang2);
         if (diff>M_PI) {
             diff-=2*M_PI;
         }
 
-		if (fabs(diff)>M_PI_2) {
+		if (fabsl(diff)>M_PI_2) {
             ang2 = RS_Math::correctAngle(ang2+M_PI);
         }
 

@@ -50,8 +50,7 @@ RS_ActionModifyOffset::RS_ActionModifyOffset(RS_EntityContainer& container,
 RS_ActionModifyOffset::~RS_ActionModifyOffset() {}
 
 QAction* RS_ActionModifyOffset::createGUIAction(RS2::ActionType /*type*/, QObject* /*parent*/) {
-    QAction* action = new QAction(tr("&Offset"),NULL);
-    action->setIcon(QIcon(":/extui/arcspara.png"));//we need a new icon here
+	QAction* action = new QAction(QIcon(":/extui/arcspara.png"), tr("&Offset"),NULL);
     return action;
 }
 
@@ -146,17 +145,6 @@ void RS_ActionModifyOffset::hideOptions() {
 void RS_ActionModifyOffset::updateMouseCursor() {
     graphicView->setMouseCursor(RS2::CadCursor);
 }
-
-
-
-//void RS_ActionModifyOffset::updateToolBar() {
-//    if (RS_DIALOGFACTORY) {
-//        if (isFinished()) {
-//            RS_DIALOGFACTORY->requestToolBar(RS2::ToolBarModify);
-//        }
-//    }
-//}
-
 
 // EOF
 

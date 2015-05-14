@@ -621,5 +621,5 @@ RS_Vector LC_MakerCamSVG::calcEllipsePointDerivative(double majorradius, double 
 
 double LC_MakerCamSVG::calcAlpha(double angle) {
 
-    return sin(angle) * ((sqrt(4.0 + 3.0 * pow(tan(angle / 2), 2.0)) - 1.0) / 3.0);
+    return sin(angle) * ((sqrtl(4.0 + 3.0 * pow(tan(angle / 2), 2.0)) - 1.0) / 3.0);
 }

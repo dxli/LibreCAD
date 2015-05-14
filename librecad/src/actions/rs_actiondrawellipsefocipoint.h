@@ -73,8 +73,8 @@ protected:
     RS_Vector point;
     private:
     RS_Vector center,major;
-    double c; //hold half of distance between foci
-    double d; //hold half of distance
+    LDOUBLE c; //hold half of distance between foci
+    LDOUBLE d; //hold half of distance
 };
 
 #endif

@@ -35,8 +35,8 @@
 
 LC_HyperbolaData::LC_HyperbolaData(const RS_Vector& _center,
 			   const RS_Vector& _majorP,
-			   double _ratio,
-			   double _angle1, double _angle2,
+			   LDOUBLE _ratio,
+			   LDOUBLE _angle1, LDOUBLE _angle2,
 			   bool _reversed):
 	center(_center)
 	,majorP(_majorP)
@@ -84,20 +84,20 @@ LC_HyperbolaData::LC_HyperbolaData(const RS_Vector& focus0,
                  const RS_Vector& point):
     center((focus0+focus1)*0.5)
 {
-    double ds0=focus0.distanceTo(point);
+	LDOUBLE ds0=focus0.distanceTo(point);
     ds0 -= focus1.distanceTo(point);
 
     majorP= (ds0>0.)?focus0-center:focus1-center;
-    double dc=focus0.distanceTo(focus1);
-    double dd=fabs(ds0);
+	LDOUBLE dc=focus0.distanceTo(focus1);
+	LDOUBLE dd=fabsl(ds0);
     //no hyperbola for middle equidistant
     if(dc<RS_TOLERANCE||dd<RS_TOLERANCE) {
-        majorP.set(0.,0.);
+		majorP.set(0.,0.L);
         return;
     }
     ratio= dc/dd;
     majorP /= ratio;
-    ratio=sqrt(ratio*ratio - 1.);
+	ratio=sqrtl(ratio*ratio - 1.L);
 
 }
 
@@ -114,9 +114,9 @@ LC_HyperbolaData::LC_HyperbolaData(const RS_Vector& focus0,
  */
 /*
 void LC_Hyperbola::calculateEndpoints() {
-   double angle = data.majorP.angle();
-   double radius1 = getMajorRadius();
-   double radius2 = getMinorRadius();
+   LDOUBLE angle = data.majorP.angle();
+   LDOUBLE radius1 = getMajorRadius();
+   LDOUBLE radius2 = getMinorRadius();
 
    startpoint.set(data.center.x + cos(data.angle1) * radius1,
                   data.center.y + sin(data.angle1) * radius2);
@@ -147,7 +147,7 @@ RS_Entity* LC_Hyperbola::clone() const {
   */
 
 RS_VectorSolutions LC_Hyperbola::getFoci() const {
-    RS_Vector vp(getMajorP()*sqrt(1.-getRatio()*getRatio()));
+	RS_Vector vp(getMajorP()*sqrtl(1.-getRatio()*getRatio()));
 	return RS_VectorSolutions({getCenter()+vp, getCenter()-vp});
 }
 
@@ -158,27 +158,27 @@ RS_VectorSolutions LC_Hyperbola::getRefPoints() const{
 }
 
 bool LC_Hyperbola::isPointOnEntity(const RS_Vector& coord,
-                             double tolerance) const
+							 LDOUBLE tolerance) const
 {
-    double a=data.majorP.magnitude();
-    double b=a*data.ratio;
-    if(fabs(a)<tolerance || fabs(b)<tolerance) return false;
+	LDOUBLE a=data.majorP.magnitude();
+	LDOUBLE b=a*data.ratio;
+    if(fabsl(a)<tolerance || fabsl(b)<tolerance) return false;
     RS_Vector vp(coord - data.center);
     vp=vp.rotate(-data.majorP.angle());
-    return fabs( vp.x*vp.x/(a*a)- vp.y*vp.y/(b*b) -1.)<tolerance;
+    return fabsl( vp.x*vp.x/(a*a)- vp.y*vp.y/(b*b) -1.)<tolerance;
 }
 
 
 LC_Quadratic LC_Hyperbola::getQuadratic() const
 {
-    std::vector<double> ce(6,0.);
+	std::vector<LDOUBLE> ce(6,0.);
     ce[0]=data.majorP.squared();
     ce[2]=-data.ratio*data.ratio*ce[0];
     if(ce[0]>RS_TOLERANCE2) ce[0]=1./ce[0];
-    if(fabs(ce[2])>RS_TOLERANCE2) ce[2]=1./ce[2];
+    if(fabsl(ce[2])>RS_TOLERANCE2) ce[2]=1./ce[2];
     ce[5]=-1.;
     LC_Quadratic ret(ce);
-    if(ce[0]<RS_TOLERANCE2 || fabs(ce[2])<RS_TOLERANCE2) {
+    if(ce[0]<RS_TOLERANCE2 || fabsl(ce[2])<RS_TOLERANCE2) {
         ret.m_bValid=false;
         return ret;
     }
@@ -188,7 +188,7 @@ LC_Quadratic LC_Hyperbola::getQuadratic() const
 }
 
 //RS_Vector LC_Hyperbola::getNearestEndpoint(const RS_Vector& /*coord*/,
-//                                         double* /*dist*/ = NULL) const
+//                                         LDOUBLE* /*dist*/ = NULL) const
 //{
 //}
 

@@ -235,7 +235,7 @@ void RS_ActionDrawEllipse4Point::commandEvent(RS_CommandEvent* e) {
     switch (getStatus()) {
     case SetFocus1: {
             bool ok;
-            double m = RS_Math::eval(c, &ok);
+            LDOUBLE m = RS_Math::eval(c, &ok);
             if (ok) {
                 ratio = m / major.magnitude();
                 if (!isArc) {
@@ -253,7 +253,7 @@ void RS_ActionDrawEllipse4Point::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle1: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 angle1 = RS_Math::deg2rad(a);
                 setStatus(SetAngle2);
@@ -267,7 +267,7 @@ void RS_ActionDrawEllipse4Point::commandEvent(RS_CommandEvent* e) {
 
     case SetAngle2: {
             bool ok;
-            double a = RS_Math::eval(c, &ok);
+            LDOUBLE a = RS_Math::eval(c, &ok);
             if (ok) {
                 angle2 = RS_Math::deg2rad(a);
                 trigger();

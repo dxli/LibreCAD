@@ -51,7 +51,7 @@ public:
 	
     RS_ActionDrawLineAngle(RS_EntityContainer& container,
                            RS_GraphicView& graphicView,
-                           double angle=0.0,
+                           LDOUBLE angle=0.0,
                            bool fixedAngle=false,
                            RS2::ActionType actionType=RS2::ActionDrawLineAngle);
 	~RS_ActionDrawLineAngle();
@@ -95,7 +95,7 @@ public:
 		angle = a;
 	}
 
-	double getAngle() {
+ LDOUBLE getAngle() {
 		return angle;
 	}
 
@@ -103,7 +103,7 @@ public:
 		length = l;
 	}
 
-	double getLength() {
+ LDOUBLE getLength() {
 		return length;
 	}
 
@@ -129,11 +129,11 @@ protected:
     /**
      * Line angle.
      */
-    double angle;
+    LDOUBLE angle;
 	/**
 	 * Line length.
 	 */
-	double length;
+ LDOUBLE length;
     /**
      * Is the angle fixed?
      */

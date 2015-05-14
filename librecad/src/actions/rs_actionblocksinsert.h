@@ -86,11 +86,11 @@ public:
     virtual void updateMouseButtonHints();
     virtual void updateMouseCursor();
 
-	double getAngle() const;
+ LDOUBLE getAngle() const;
 
 	void setAngle(double a);
 
-	double getFactor() const;
+ LDOUBLE getFactor() const;
 
 	void setFactor(double f);
 
@@ -102,11 +102,11 @@ public:
 
 	void setRows(int r);
 
-	double getColumnSpacing() const;
+ LDOUBLE getColumnSpacing() const;
 
 	void setColumnSpacing(double cs);
 	
-	double getRowSpacing() const;
+ LDOUBLE getRowSpacing() const;
 
 	void setRowSpacing(double rs);
 

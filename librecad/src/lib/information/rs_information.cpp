@@ -150,7 +150,7 @@ bool RS_Information::isTrimmable(RS_Entity* e1, RS_Entity* e2) {
  * container.
  */
 RS_Vector RS_Information::getNearestEndpoint(const RS_Vector& coord,
-        double* dist) const {
+		LDOUBLE* dist) const {
     return container->getNearestEndpoint(coord, dist);
 }
 
@@ -159,7 +159,7 @@ RS_Vector RS_Information::getNearestEndpoint(const RS_Vector& coord,
  * Gets the nearest point to the given coordinate which is on an entity.
  *
  * @param coord Coordinate (typically a mouse coordinate)
- * @param dist Pointer to a double which will contain the
+ * @param dist Pointer to a LDOUBLE which will contain the
  *        measured distance after return or NULL
  * @param entity Pointer to a pointer which will point to the
  *        entity on which the point is or NULL
@@ -170,7 +170,7 @@ RS_Vector RS_Information::getNearestEndpoint(const RS_Vector& coord,
  */
 RS_Vector RS_Information::getNearestPointOnEntity(const RS_Vector& coord,
         bool onEntity,
-        double* dist,
+		LDOUBLE* dist,
         RS_Entity** entity) const {
 
     return container->getNearestPointOnEntity(coord, onEntity, dist, entity);
@@ -181,7 +181,7 @@ RS_Vector RS_Information::getNearestPointOnEntity(const RS_Vector& coord,
  * Gets the nearest entity to the given coordinate.
  *
  * @param coord Coordinate (typically a mouse coordinate)
- * @param dist Pointer to a double which will contain the
+ * @param dist Pointer to a LDOUBLE which will contain the
  *             masured distance after return
  * @param level Level of resolving entities.
  *
@@ -189,7 +189,7 @@ RS_Vector RS_Information::getNearestPointOnEntity(const RS_Vector& coord,
  * at all in this graphics container.
  */
 RS_Entity* RS_Information::getNearestEntity(const RS_Vector& coord,
-        double* dist,
+		LDOUBLE* dist,
         RS2::ResolveLevel level) const {
 
     return container->getNearestEntity(coord, dist, level);
@@ -213,7 +213,7 @@ RS_VectorSolutions RS_Information::getIntersection(RS_Entity const* e1,
 		RS_Entity const* e2, bool onEntities) {
 
     RS_VectorSolutions ret;
-    const double tol = 1.0e-4;
+	const LDOUBLE tol = 1.0e-4;
 
     if (e1==NULL || e2==NULL ) {
         RS_DEBUG->print("RS_Information::getIntersection() for NULL entities");
@@ -284,7 +284,7 @@ RS_VectorSolutions RS_Information::getIntersection(RS_Entity const* e1,
         // need to test whether the intersection is tangential
         RS_Vector&& direction1=e1->getTangentDirection(vp);
         RS_Vector&& direction2=e2->getTangentDirection(vp);
-        if( direction1.valid && direction2.valid && fabs(fabs(direction1.dotP(direction2)) - sqrt(direction1.squared()*direction2.squared())) < sqrt(tol)*tol )
+        if( direction1.valid && direction2.valid && fabsl(fabsl(direction1.dotP(direction2)) - sqrtl(direction1.squared()*direction2.squared())) < sqrtl(tol)*tol )
             ret2.setTangent(true);
         //TODO, make the following tangential test, nearest test work for all entity types
 
@@ -299,11 +299,11 @@ RS_VectorSolutions RS_Information::getIntersection(RS_Entity const* e1,
 //            lpCircle = e1;
 //        }
 //        if( NULL != lpLine && NULL != lpCircle) {
-//            double dist = 0.0;
+//            LDOUBLE dist = 0.0;
 //            RS_Vector nearest = lpLine->getNearestPointOnEntity( lpCircle->getCenter(), false, &dist);
 
 //            // special case: line touches circle tangent
-//            if( nearest.valid && fabs( dist - lpCircle->getRadius()) < tol) {
+//            if( nearest.valid && fabsl( dist - lpCircle->getRadius()) < tol) {
 //                ret.set(i,nearest);
 //                ret2.setTangent(true);
 //            }
@@ -334,15 +334,15 @@ RS_VectorSolutions RS_Information::getIntersectionLineLine(RS_Line* e1,
     RS_Vector p3 = e2->getStartpoint();
     RS_Vector p4 = e2->getEndpoint();
 
-    double num = ((p4.x-p3.x)*(p1.y-p3.y) - (p4.y-p3.y)*(p1.x-p3.x));
-    double div = ((p4.y-p3.y)*(p2.x-p1.x) - (p4.x-p3.x)*(p2.y-p1.y));
+	LDOUBLE num = ((p4.x-p3.x)*(p1.y-p3.y) - (p4.y-p3.y)*(p1.x-p3.x));
+	LDOUBLE div = ((p4.y-p3.y)*(p2.x-p1.x) - (p4.x-p3.x)*(p2.y-p1.y));
 
-	if (fabs(div)>RS_TOLERANCE &&
-			fabs(remainder(e1->getAngle1()-e2->getAngle1(), M_PI))>=RS_TOLERANCE*10.) {
-		double u = num / div;
+	if (fabsl(div)>RS_TOLERANCE &&
+			fabsl(remainder(e1->getAngle1()-e2->getAngle1(), M_PI))>=RS_TOLERANCE*10.) {
+		LDOUBLE u = num / div;
 
-		double xs = p1.x + u * (p2.x-p1.x);
-		double ys = p1.y + u * (p2.y-p1.y);
+		LDOUBLE xs = p1.x + u * (p2.x-p1.x);
+		LDOUBLE ys = p1.y + u * (p2.y-p1.y);
 		ret = RS_VectorSolutions({RS_Vector(xs, ys)});
 	}
 
@@ -368,12 +368,12 @@ RS_VectorSolutions RS_Information::getIntersectionLineArc(RS_Line* line,
         return ret;
     }
 
-    double dist=0.0;
+	LDOUBLE dist=0.0;
     RS_Vector nearest;
     nearest = line->getNearestPointOnEntity(arc->getCenter(), false, &dist);
 
     // special case: arc touches line (tangent):
-    if (nearest.valid && fabs(dist - arc->getRadius()) < 1.0e-4) {
+    if (nearest.valid && fabsl(dist - arc->getRadius()) < 1.0e-4) {
 		ret = RS_VectorSolutions({nearest});
         ret.setTangent(true);
         return ret;
@@ -381,13 +381,13 @@ RS_VectorSolutions RS_Information::getIntersectionLineArc(RS_Line* line,
 
     RS_Vector p = line->getStartpoint();
     RS_Vector d = line->getEndpoint() - line->getStartpoint();
-    double d2=d.squared();
+	LDOUBLE d2=d.squared();
     RS_Vector c = arc->getCenter();
-    double r = arc->getRadius();
+	LDOUBLE r = arc->getRadius();
     RS_Vector delta = p - c;
     if (d2<RS_TOLERANCE2) {
         //line too short, still check the whether the line touches the arc
-        if ( fabs(delta.squared() - r*r) < 2.*RS_TOLERANCE*r ){
+        if ( fabsl(delta.squared() - r*r) < 2.*RS_TOLERANCE*r ){
 			return RS_VectorSolutions({line->getMiddlePoint()});
         }
         return ret;
@@ -398,14 +398,14 @@ RS_VectorSolutions RS_Information::getIntersectionLineArc(RS_Line* line,
     // solution = p + t d;
     //| p -c+ t d|^2 = r^2
     // |d|^2 t^2 + 2 (p-c).d t + |p-c|^2 -r^2 = 0
-    double a1 = RS_Vector::dotP(delta,d);
-    double term1 = a1*a1 - d2*(delta.squared()-r*r);
+	LDOUBLE a1 = RS_Vector::dotP(delta,d);
+	LDOUBLE term1 = a1*a1 - d2*(delta.squared()-r*r);
 //        std::cout<<" discriminant= "<<term1<<std::endl;
     if( term1 < - RS_TOLERANCE) {
 //        std::cout<<"no intersection\n";
     return ret;
     }else{
-        term1=fabs(term1);
+        term1=fabsl(term1);
 //        std::cout<< "term1="<<term1 <<" threshold: "<< RS_TOLERANCE * d2 <<std::endl;
         if( term1 < RS_TOLERANCE * d2 ) {
             //tangential;
@@ -415,14 +415,14 @@ RS_VectorSolutions RS_Information::getIntersectionLineArc(RS_Line* line,
 //        std::cout<<"Tangential point: "<<ret<<std::endl;
             return ret;
         }
-        double t = sqrt(fabs(term1));
+		LDOUBLE t = sqrtl(fabsl(term1));
     //two intersections
 	 return RS_VectorSolutions({ p + d*(t-a1)/d2, p -d*(t+a1)/d2});
     }
 
 //    // root term:
 //    term1 = r*r - delta.squared() + term1*term1/d.squared();
-//    double term = RS_Math::pow(RS_Vector::dotP(d, delta), 2.0)
+//    LDOUBLE term = RS_Math::pow(RS_Vector::dotP(d, delta), 2.0)
 //                  - RS_Math::pow(d.magnitude(), 2.0)
 //                  * (RS_Math::pow(delta.magnitude(), 2.0) - RS_Math::pow(r, 2.0));
 //    std::cout<<"old term= "<<term<<"\tnew term= "<<term1<<std::endl;
@@ -434,20 +434,20 @@ RS_VectorSolutions RS_Information::getIntersectionLineArc(RS_Line* line,
 
 //    // one or two intersections:
 //    else {
-//        double t1 = (- RS_Vector::dotP(d, delta) + sqrt(term))
+//        LDOUBLE t1 = (- RS_Vector::dotP(d, delta) + sqrtl(term))
 //                    / RS_Math::pow(d.magnitude(), 2.0);
-//        double t2;
+//        LDOUBLE t2;
 //        bool tangent = false;
 
 //        // only one intersection:
-//        if (fabs(term)<RS_TOLERANCE) {
+//        if (fabsl(term)<RS_TOLERANCE) {
 //            t2 = t1;
 //            tangent = true;
 //        }
 
 //        // two intersections
 //        else {
-//            t2 = (-RS_Vector::dotP(d, delta) - sqrt(term))
+//            t2 = (-RS_Vector::dotP(d, delta) - sqrtl(term))
 //                 / RS_Math::pow(d.magnitude(), 2.0);
 //        }
 
@@ -485,8 +485,8 @@ RS_VectorSolutions RS_Information::getIntersectionArcArc(RS_Arc* e1,
     RS_Vector c1 = e1->getCenter();
     RS_Vector c2 = e2->getCenter();
 
-    double r1 = e1->getRadius();
-    double r2 = e2->getRadius();
+	LDOUBLE r1 = e1->getRadius();
+	LDOUBLE r2 = e2->getRadius();
 
     RS_Vector u = c2 - c1;
 
@@ -497,7 +497,7 @@ RS_VectorSolutions RS_Information::getIntersectionArcArc(RS_Arc* e1,
 
     RS_Vector v = RS_Vector(u.y, -u.x);
 
-    double s, t1, t2, term;
+	LDOUBLE s, t1, t2, term;
 
     s = 1.0/2.0 * ((r1*r1 - r2*r2)/(RS_Math::pow(u.magnitude(), 2.0)) + 1.0);
 
@@ -510,8 +510,8 @@ RS_VectorSolutions RS_Information::getIntersectionArcArc(RS_Arc* e1,
 
     // one or two intersections:
     else {
-        t1 = sqrt(term);
-        t2 = -sqrt(term);
+        t1 = sqrtl(term);
+        t2 = -sqrtl(term);
         bool tangent = false;
 
         RS_Vector sol1 = c1 + u*s + v*t1;
@@ -545,7 +545,7 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseEllipse(RS_Ellipse* e1,
     if (
         (e1->getCenter() - e2 ->getCenter()).squared() < RS_TOLERANCE2 &&
         (e1->getMajorP() - e2 ->getMajorP()).squared() < RS_TOLERANCE2 &&
-        fabs(e1->getRatio() - e2 ->getRatio()) < RS_TOLERANCE
+        fabsl(e1->getRatio() - e2 ->getRatio()) < RS_TOLERANCE
     ) { // overlapped ellipses, do not do overlap
         return ret;
     }
@@ -558,16 +558,16 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseEllipse(RS_Ellipse* e1,
     if( e02->getMajorRadius() < e02->getMinorRadius() ) e02->switchMajorMinor();
     //transform ellipse2 to ellipse1's coordinates
     RS_Vector shiftc1=- e01->getCenter();
-    double shifta1=-e01->getAngle();
+	LDOUBLE shifta1=-e01->getAngle();
     e02->move(shiftc1);
     e02->rotate(shifta1);
 //    RS_Vector majorP2=e02->getMajorP();
-    double a1=e01->getMajorRadius();
-    double b1=e01->getMinorRadius();
-    double x2=e02->getCenter().x,
+	LDOUBLE a1=e01->getMajorRadius();
+	LDOUBLE b1=e01->getMinorRadius();
+	LDOUBLE x2=e02->getCenter().x,
            y2=e02->getCenter().y;
-    double a2=e02->getMajorRadius();
-    double b2=e02->getMinorRadius();
+	LDOUBLE a2=e02->getMajorRadius();
+	LDOUBLE b2=e02->getMinorRadius();
 
     if( e01->getMinorRadius() < RS_TOLERANCE || e01 -> getRatio()< RS_TOLERANCE) {
         // treate e01 as a line
@@ -592,7 +592,7 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseEllipse(RS_Ellipse* e1,
 
     //ellipse01 equation:
     //	x^2/(a1^2) + y^2/(b1^2) - 1 =0
-    double t2= - e02->getAngle();
+	LDOUBLE t2= - e02->getAngle();
     //ellipse2 equation:
     // ( (x - u) cos(t) - (y - v) sin(t))^2/a^2 + ( (x - u) sin(t) + (y-v) cos(t))^2/b^2 =1
     // ( cos^2/a^2 + sin^2/b^2) x^2 +
@@ -602,13 +602,13 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseEllipse(RS_Ellipse* e1,
     //  ( ( 2 u sin cos - 2 v sin^2)/a^2 - ( 2u sin cos + 2 v cos^2)/b^2) y +
     //  (u cos - v sin)^2/a^2 + (u sin + v cos)^2/b^2 -1 =0
     // detect whether any ellipse radius is zero
-    double cs=cos(t2),si=sin(t2);
-    double ucs=x2*cs,usi=x2*si,
+	LDOUBLE cs=cos(t2),si=sin(t2);
+	LDOUBLE ucs=x2*cs,usi=x2*si,
            vcs=y2*cs,vsi=y2*si;
-    double cs2=cs*cs,si2=1-cs2;
-    double tcssi=2.*cs*si;
-    double ia2=1./(a2*a2),ib2=1./(b2*b2);
-    std::vector<double> m(0,0.);
+	LDOUBLE cs2=cs*cs,si2=1-cs2;
+	LDOUBLE tcssi=2.*cs*si;
+	LDOUBLE ia2=1./(a2*a2),ib2=1./(b2*b2);
+	std::vector<LDOUBLE> m(0,0.);
     m.push_back( 1./(a1*a1)); //ma000
     m.push_back( 1./(b1*b1)); //ma011
     m.push_back(cs2*ia2 + si2*ib2); //ma100
@@ -682,7 +682,7 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseLine(RS_Line* line,
 
     // rotate into normal position:
 
-    double rx = ellipse->getMajorRadius();
+	LDOUBLE rx = ellipse->getMajorRadius();
     if(rx<RS_TOLERANCE) {
         //zero radius ellipse
         RS_Vector vp(line->getNearestPointOnEntity(ellipse->getCenter(), true));
@@ -693,7 +693,7 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseLine(RS_Line* line,
         return ret;
     }
     RS_Vector angleVector = ellipse->getMajorP().scale(RS_Vector(1./rx,-1./rx));
-    double ry = rx*ellipse->getRatio();
+	LDOUBLE ry = rx*ellipse->getRatio();
     RS_Vector center = ellipse->getCenter();
     RS_Vector a1 = line->getStartpoint().rotate(center, angleVector);
     RS_Vector a2 = line->getEndpoint().rotate(center, angleVector);
@@ -703,21 +703,21 @@ RS_VectorSolutions RS_Information::getIntersectionEllipseLine(RS_Line* line,
     RS_Vector mDir = RS_Vector(dir.x/(rx*rx), dir.y/(ry*ry));
     RS_Vector mDiff = RS_Vector(diff.x/(rx*rx), diff.y/(ry*ry));
 
-    double a = RS_Vector::dotP(dir, mDir);
-    double b = RS_Vector::dotP(dir, mDiff);
-    double c = RS_Vector::dotP(diff, mDiff) - 1.0;
-    double d = b*b - a*c;
+	LDOUBLE a = RS_Vector::dotP(dir, mDir);
+	LDOUBLE b = RS_Vector::dotP(dir, mDiff);
+	LDOUBLE c = RS_Vector::dotP(diff, mDiff) - 1.0;
+	LDOUBLE d = b*b - a*c;
 
 //    std::cout<<"RS_Information::getIntersectionEllipseLine(): d="<<d<<std::endl;
-    if (d < - 1.e3*RS_TOLERANCE*sqrt(RS_TOLERANCE)) {
+    if (d < - 1.e3*RS_TOLERANCE*sqrtl(RS_TOLERANCE)) {
         RS_DEBUG->print("RS_Information::getIntersectionLineEllipse: outside 0");
         return ret;
     }
     if( d < 0. ) d=0.;
-    double root = sqrt(d);
-    double t_a = -b/a;
-    double t_b = root/a;
-    //        double t_b = (-b + root) / a;
+	LDOUBLE root = sqrtl(d);
+	LDOUBLE t_a = -b/a;
+	LDOUBLE t_b = root/a;
+	//        LDOUBLE t_b = (-b + root) / a;
 
     ret.push_back(a1.lerp(a2,t_a+t_b));
     RS_Vector vp(a1.lerp(a2,t_a-t_b));
@@ -757,12 +757,12 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
         return false;
     }
 
-    double width = contour->getSize().x+1.0;
+	LDOUBLE width = contour->getSize().x+1.0;
 
     bool sure;
     int counter;
     int tries = 0;
-    double rayAngle = 0.0;
+	LDOUBLE rayAngle = 0.0;
     do {
         sure = true;
 
@@ -819,7 +819,7 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
                             RS_Arc* arc = (RS_Arc*)e;
 
                             if (p.distanceTo(arc->getStartpoint())<1.0e-4) {
-                                double dir = arc->getDirection1();
+								LDOUBLE dir = arc->getDirection1();
                                 if ((dir<M_PI && dir>=1.0e-5) ||
                                         ((dir>2*M_PI-1.0e-5 || dir<1.0e-5) &&
                                          arc->getCenter().y>p.y)) {
@@ -828,7 +828,7 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
                                 }
                             }
                             else if (p.distanceTo(arc->getEndpoint())<1.0e-4) {
-                                double dir = arc->getDirection2();
+								LDOUBLE dir = arc->getDirection2();
                                 if ((dir<M_PI && dir>=1.0e-5) ||
                                         ((dir>2*M_PI-1.0e-5 || dir<1.0e-5) &&
                                          arc->getCenter().y>p.y)) {
@@ -853,7 +853,7 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
                             RS_Ellipse* ellipse=static_cast<RS_Ellipse*>(e);
                             if(ellipse->isArc()){
                                 if (p.distanceTo(ellipse->getStartpoint())<1.0e-4) {
-                                    double dir = ellipse->getDirection1();
+									LDOUBLE dir = ellipse->getDirection1();
                                     if ((dir<M_PI && dir>=1.0e-5) ||
                                             ((dir>2*M_PI-1.0e-5 || dir<1.0e-5) &&
                                              ellipse->getCenter().y>p.y)) {
@@ -862,7 +862,7 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
                                     }
                                 }
                                 else if (p.distanceTo(ellipse->getEndpoint())<1.0e-4) {
-                                    double dir = ellipse->getDirection2();
+									LDOUBLE dir = ellipse->getDirection2();
                                     if ((dir<M_PI && dir>=1.0e-5) ||
                                             ((dir>2*M_PI-1.0e-5 || dir<1.0e-5) &&
                                              ellipse->getCenter().y>p.y)) {
@@ -895,15 +895,15 @@ bool RS_Information::isPointInsideContour(const RS_Vector& point,
     }
     while (!sure && rayAngle<2*M_PI && tries<6);
 
-    // remove double intersections:
+	// remove LDOUBLE intersections:
     /*
        QList<RS_Vector> is2;
        bool done;
     RS_Vector* av;
        do {
            done = true;
-           double minDist = RS_MAXDOUBLE;
-           double dist;
+		   LDOUBLE minDist = RS_MAXLDOUBLE;
+		   LDOUBLE dist;
         av = NULL;
 		   for (RS_Vector* v = is.first(); v; v = is.next()) {
                dist = point.distanceTo(*v);
@@ -957,7 +957,7 @@ RS_VectorSolutions RS_Information::createQuadrilateral(const RS_EntityContainer&
 	case 5:
 	case 6:
 		for(RS_Line* pl: lines){
-			const double a0=pl->getDirection1();
+			const LDOUBLE a0=pl->getDirection1();
 			std::vector<std::vector<RS_Vector>::iterator> left;
 			std::vector<std::vector<RS_Vector>::iterator> right;
 			for(auto it=vertices.begin(); it != vertices.end(); ++it){

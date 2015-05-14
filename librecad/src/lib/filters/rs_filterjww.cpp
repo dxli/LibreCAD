@@ -691,7 +691,7 @@ RS_DimensionData RS_FilterJWW::convDimensionData(
         // middlepoint of text can be 0/0 which is considered to be invalid (!):
         //  0/0 because older QCad versions save the middle of the text as 0/0
         //  althought they didn't suport saving of the middle of the text.
-        if (fabs(data.mpx)<1.0e-6 && fabs(data.mpy)<1.0e-6) {
+        if (fabsl(data.mpx)<1.0e-6 && fabsl(data.mpy)<1.0e-6) {
                 midP = RS_Vector(false);
         }
 
@@ -1191,7 +1191,7 @@ void RS_FilterJWW::setVariableDouble(const char* key, double value, int code) {
         // update document's variable list:
         if (currentContainer->rtti()==RS2::EntityGraphic) {
                 ((RS_Graphic*)currentContainer)->addVariable(QString(key),
-                                value, code);
+							   (LDOUBLE) value, code);
         }
 
 }

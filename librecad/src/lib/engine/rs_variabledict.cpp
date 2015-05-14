@@ -111,7 +111,7 @@ void RS_VariableDict::add(const QString& key, int value, int code)
  * Adds a variable to the variable dictionary. If a variable with the 
  * same name already exists, is will be overwritten.
  */
-void RS_VariableDict::add(const QString& key, double value, int code)
+void RS_VariableDict::add(const QString& key, LDOUBLE value, int code)
 {
     RS_DEBUG->print("RS_VariableDict::addVariable()");
 
@@ -220,7 +220,7 @@ int RS_VariableDict::getInt(const QString& key, int def)
 
 
 /**
- * Gets the value as double for the given variable.
+ * Gets the value as LDOUBLE for the given variable.
  *
  * @param key Key of the variable.
  * @param def Default value.
@@ -228,9 +228,9 @@ int RS_VariableDict::getInt(const QString& key, int def)
  * @return The value for the given variable or the given default value
  * if the variable couldn't be found.
  */
-double RS_VariableDict::getDouble(const QString& key, double def)
+LDOUBLE RS_VariableDict::getDouble(const QString& key, LDOUBLE def)
 {
-    double ret = 0.0;
+	LDOUBLE ret = 0.0;
 
     QHash<QString, RS_Variable>::iterator i = variables.find(key);
      if (variables.end() != i && RS2::VariableDouble == i.value().getType()) {
@@ -289,7 +289,7 @@ std::ostream& operator << (std::ostream& os, RS_VariableDict& d)
             os << "int " << it.value().getInt() << "\n";
             break;
         case RS2::VariableDouble:
-            os << "double " << it.value().getDouble() << "\n";
+			os << "LDOUBLE " << it.value().getDouble() << "\n";
             break;
         case RS2::VariableVector:
             os << "vector " << it.value().getVector() << "\n";

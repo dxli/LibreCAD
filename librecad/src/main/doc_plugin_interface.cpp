@@ -224,46 +224,46 @@ void Plugin_Entity::getData(QHash<int, QVariant> *data){
     case RS2::EntityLine: {
         data->insert(DPI::ETYPE, DPI::LINE);
         RS_LineData d = static_cast<RS_Line*>(entity)->getData();
-        data->insert(DPI::STARTX, d.startpoint.x );
-        data->insert(DPI::STARTY, d.startpoint.y );
-        data->insert(DPI::ENDX, d.endpoint.x );
-        data->insert(DPI::ENDY, d.endpoint.y );
+		data->insert(DPI::STARTX, (double)d.startpoint.x );
+		data->insert(DPI::STARTY, (double)d.startpoint.y );
+		data->insert(DPI::ENDX, (double)d.endpoint.x );
+		data->insert(DPI::ENDY, (double)d.endpoint.y );
         break;}
     case RS2::EntityPoint: {
         data->insert(DPI::ETYPE, DPI::POINT);
         RS_PointData d = static_cast<RS_Point*>(entity)->getData();
-        data->insert(DPI::STARTX, d.pos.x );
-        data->insert(DPI::STARTY, d.pos.y );
+		data->insert(DPI::STARTX, (double)d.pos.x );
+		data->insert(DPI::STARTY, (double)d.pos.y );
         break; }
     case RS2::EntityArc: {
         data->insert(DPI::ETYPE, DPI::ARC);
         RS_ArcData d = static_cast<RS_Arc*>(entity)->getData();
-        data->insert(DPI::STARTX, d.center.x );
-        data->insert(DPI::STARTY, d.center.y );
-        data->insert(DPI::RADIUS, d.radius );
-        data->insert(DPI::STARTANGLE, d.angle1 );
-        data->insert(DPI::ENDANGLE, d.angle2 );
-        data->insert(DPI::REVERSED, d.reversed );
+		data->insert(DPI::STARTX, (double)d.center.x );
+		data->insert(DPI::STARTY, (double)d.center.y );
+		data->insert(DPI::RADIUS, (double)d.radius );
+		data->insert(DPI::STARTANGLE, (double)d.angle1 );
+		data->insert(DPI::ENDANGLE, (double)d.angle2 );
+		data->insert(DPI::REVERSED, (double)d.reversed );
         break;}
     case RS2::EntityCircle: {
         data->insert(DPI::ETYPE, DPI::CIRCLE);
         RS_CircleData d = static_cast<RS_Circle*>(entity)->getData();
-        data->insert(DPI::STARTX, d.center.x );
-        data->insert(DPI::STARTY, d.center.y );
-        data->insert(DPI::RADIUS, d.radius );
+		data->insert(DPI::STARTX, (double)d.center.x );
+		data->insert(DPI::STARTY, (double)d.center.y );
+		data->insert(DPI::RADIUS, (double)d.radius );
         break;}
     case RS2::EntityEllipse: {
         data->insert(DPI::ETYPE, DPI::ELLIPSE);
 //        RS_EllipseData d = static_cast<RS_Ellipse*>(entity)->getData();
         RS_Ellipse *dd = static_cast<RS_Ellipse*>(entity);
-        data->insert(DPI::STARTX, dd->getCenter().x );//10
-        data->insert(DPI::STARTY, dd->getCenter().y );//20
-        data->insert(DPI::ENDX, dd->getMajorP().x );//11 endpoint major axis x
-        data->insert(DPI::ENDY, dd->getMajorP().y );//21 endpoint major axis y
-        data->insert(DPI::HEIGHT, dd->getRatio() );//40 major/minor axis ratio
-        data->insert(DPI::STARTANGLE, dd->getAngle1() );
-        data->insert(DPI::ENDANGLE, dd->getAngle2() );
-        data->insert(DPI::REVERSED, dd->isReversed() );
+		data->insert(DPI::STARTX, (double)dd->getCenter().x );//10
+		data->insert(DPI::STARTY, (double)dd->getCenter().y );//20
+		data->insert(DPI::ENDX, (double)dd->getMajorP().x );//11 endpoint major axis x
+		data->insert(DPI::ENDY, (double)dd->getMajorP().y );//21 endpoint major axis y
+		data->insert(DPI::HEIGHT, (double)dd->getRatio() );//40 major/minor axis ratio
+		data->insert(DPI::STARTANGLE, (double)dd->getAngle1() );
+		data->insert(DPI::ENDANGLE, (double)dd->getAngle2() );
+		data->insert(DPI::REVERSED, dd->isReversed() );
         break;}
     case RS2::EntitySolid: //TODO
         //Only used in dimensions ?
@@ -276,15 +276,15 @@ void Plugin_Entity::getData(QHash<int, QVariant> *data){
     case RS2::EntityImage: {
         data->insert(DPI::ETYPE, DPI::IMAGE);
         RS_ImageData d = static_cast<RS_Image*>(entity)->getData();
-        data->insert(DPI::STARTX, d.insertionPoint.x );
-        data->insert(DPI::STARTY, d.insertionPoint.y );
-        data->insert(DPI::ENDX, d.uVector.x );
-        data->insert(DPI::ENDY, d.uVector.y );
-        data->insert(DPI::VVECTORX, d.vVector.x );
-        data->insert(DPI::VVECTORY, d.vVector.y );
-        data->insert(DPI::SIZEU, d.size.x );
-        data->insert(DPI::SIZEV, d.size.y );
-        data->insert(DPI::BLKNAME, d.file );
+		data->insert(DPI::STARTX, (double)d.insertionPoint.x );
+		data->insert(DPI::STARTY, (double)d.insertionPoint.y );
+		data->insert(DPI::ENDX, (double)d.uVector.x );
+		data->insert(DPI::ENDY, (double)d.uVector.y );
+		data->insert(DPI::VVECTORX, (double)d.vVector.x );
+		data->insert(DPI::VVECTORY, (double)d.vVector.y );
+		data->insert(DPI::SIZEU, (double)d.size.x );
+		data->insert(DPI::SIZEV, (double)d.size.y );
+		data->insert(DPI::BLKNAME, d.file );
         break;}
     case RS2::EntityOverlayBox:
         //Unused ?
@@ -294,29 +294,29 @@ void Plugin_Entity::getData(QHash<int, QVariant> *data){
     case RS2::EntityInsert: {
         data->insert(DPI::ETYPE, DPI::INSERT);
         RS_InsertData d = static_cast<RS_Insert*>(entity)->getData();
-        data->insert(DPI::STARTX, d.insertionPoint.x );
-        data->insert(DPI::STARTY, d.insertionPoint.y );
+		data->insert(DPI::STARTX, (double)d.insertionPoint.x );
+		data->insert(DPI::STARTY, (double)d.insertionPoint.y );
         data->insert(DPI::BLKNAME, d.name );
-        data->insert(DPI::STARTANGLE, d.angle );
-        data->insert(DPI::XSCALE, d.scaleFactor.x );
-        data->insert(DPI::YSCALE, d.scaleFactor.y );
+		data->insert(DPI::STARTANGLE, (double)d.angle );
+		data->insert(DPI::XSCALE, (double)d.scaleFactor.x );
+		data->insert(DPI::YSCALE, (double)d.scaleFactor.y );
         break;}
     case RS2::EntityMText: {
         data->insert(DPI::ETYPE, DPI::MTEXT);
         RS_MTextData d = static_cast<RS_MText*>(entity)->getData();
-        data->insert(DPI::STARTX, d.insertionPoint.x );
-        data->insert(DPI::STARTY, d.insertionPoint.y );
-        data->insert(DPI::STARTANGLE, d.angle );
-        data->insert(DPI::HEIGHT, d.height );
-        data->insert(DPI::TEXTCONTENT, d.text );
+		data->insert(DPI::STARTX, (double)d.insertionPoint.x );
+		data->insert(DPI::STARTY, (double)d.insertionPoint.y );
+		data->insert(DPI::STARTANGLE, (double)d.angle );
+		data->insert(DPI::HEIGHT, (double)d.height );
+		data->insert(DPI::TEXTCONTENT, d.text );
         break;}
     case RS2::EntityText: {
         data->insert(DPI::ETYPE, DPI::TEXT);
         RS_TextData d = static_cast<RS_Text*>(entity)->getData();
-        data->insert(DPI::STARTX, d.insertionPoint.x );
-        data->insert(DPI::STARTY, d.insertionPoint.y );
-        data->insert(DPI::STARTANGLE, d.angle );
-        data->insert(DPI::HEIGHT, d.height );
+		data->insert(DPI::STARTX, (double)d.insertionPoint.x );
+		data->insert(DPI::STARTY, (double)d.insertionPoint.y );
+		data->insert(DPI::STARTANGLE,(double) d.angle );
+		data->insert(DPI::HEIGHT, (double)d.height );
         data->insert(DPI::TEXTCONTENT, d.text );
         break;}
     case RS2::EntityHatch:
@@ -1211,7 +1211,7 @@ bool Doc_plugin_interface::addVariable(const QString& key, int value, int code){
 }
 
 bool Doc_plugin_interface::addVariable(const QString& key, double value, int code){
-   docGr->addVariable(key, value, code);
+   docGr->addVariable(key, (LDOUBLE)value, code);
    if (key.startsWith("$DIM"))
        doc->updateDimensions(true);
    return true;

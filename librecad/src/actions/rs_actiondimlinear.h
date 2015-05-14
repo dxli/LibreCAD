@@ -63,7 +63,7 @@ public:
 public:
     RS_ActionDimLinear(RS_EntityContainer& container,
                        RS_GraphicView& graphicView,
-                       double angle=0.0, bool fixedAngle=false,
+                       LDOUBLE angle=0.0, bool fixedAngle=false,
                        RS2::ActionType type = RS2::ActionDimLinear);
     ~RS_ActionDimLinear();
 	
@@ -88,7 +88,7 @@ public:
 	
     virtual void updateMouseButtonHints();
 
-	double getAngle() const;
+ LDOUBLE getAngle() const;
 
 	void setAngle(double a);
 

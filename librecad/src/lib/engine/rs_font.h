@@ -33,6 +33,8 @@
 #include <QMap>
 #include "rs_blocklist.h"
 
+typedef long double LDOUBLE;
+
 /**
  * Class for representing a font. This is implemented as a RS_Graphic
  * with a name (the font name) and several blocks, one for each letter
@@ -76,17 +78,17 @@ public:
     }
 
     /** @return Default letter spacing for this font */
-    double getLetterSpacing() {
+	LDOUBLE getLetterSpacing() {
         return letterSpacing;
     }
 
     /** @return Default word spacing for this font */
-    double getWordSpacing() {
+	LDOUBLE getWordSpacing() {
         return wordSpacing;
     }
 
     /** @return Default line spacing factor for this font */
-    double getLineSpacingFactor() {
+	LDOUBLE getLineSpacingFactor() {
         return lineSpacingFactor;
     }
 
@@ -147,13 +149,13 @@ private:
     bool loaded;
 
     //! Default letter spacing for this font
-    double letterSpacing;
+	LDOUBLE letterSpacing;
 
     //! Default word spacing for this font
-    double wordSpacing;
+	LDOUBLE wordSpacing;
 
     //! Default line spacing factor for this font
-    double lineSpacingFactor;
+	LDOUBLE lineSpacingFactor;
 };
 
 #endif

@@ -199,7 +199,7 @@ bool RS_Image::containsPoint(const RS_Vector& coord) const{
 }
 
 RS_Vector RS_Image::getNearestEndpoint(const RS_Vector& coord,
-                                       double* dist) const {
+									   LDOUBLE* dist) const {
     RS_VectorSolutions corners =getCorners();
     return corners.getClosest(coord, dist);
 }
@@ -207,7 +207,7 @@ RS_Vector RS_Image::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_Image::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity) const{
+		bool onEntity, LDOUBLE* dist, RS_Entity** entity) const{
 
     if (entity) {
         *entity = const_cast<RS_Image*>(this);
@@ -240,7 +240,7 @@ RS_Vector RS_Image::getNearestPointOnEntity(const RS_Vector& coord,
 
 
 RS_Vector RS_Image::getNearestCenter(const RS_Vector& coord,
-									 double* dist) const{
+									 LDOUBLE* dist) const{
 
     RS_VectorSolutions points;
     RS_VectorSolutions corners = getCorners();
@@ -265,16 +265,16 @@ RS_Vector RS_Image::getNearestCenter(const RS_Vector& coord,
  * ToDo, implement middlePoints
  */
 RS_Vector RS_Image::getNearestMiddle(const RS_Vector& coord,
-                                     double* dist,
+									 LDOUBLE* dist,
                                      const int /*middlePoints*/) const{
 	return getNearestCenter(coord, dist);
 }
 
 
 
-RS_Vector RS_Image::getNearestDist(double distance,
+RS_Vector RS_Image::getNearestDist(LDOUBLE distance,
                                    const RS_Vector& coord,
-								   double* dist) const{
+								   LDOUBLE* dist) const{
 
     RS_VectorSolutions corners = getCorners();
     RS_VectorSolutions points(4);
@@ -296,10 +296,10 @@ RS_Vector RS_Image::getNearestDist(double distance,
 
 
 
-double RS_Image::getDistanceToPoint(const RS_Vector& coord,
+LDOUBLE RS_Image::getDistanceToPoint(const RS_Vector& coord,
                                     RS_Entity** entity,
                                     RS2::ResolveLevel /*level*/,
-                                                                        double /*solidDist*/) const{
+																		LDOUBLE /*solidDist*/) const{
     if (entity) {
         *entity = const_cast<RS_Image*>(this);
     }
@@ -313,11 +313,11 @@ double RS_Image::getDistanceToPoint(const RS_Vector& coord,
 		RS_SETTINGS->beginGroup("/Appearance");
 		bool draftMode = (bool)RS_SETTINGS->readNumEntry("/DraftMode", 0);
 		RS_SETTINGS->endGroup();
-		if(!draftMode) return double(0.);
+		if(!draftMode) return LDOUBLE(0.);
 	}
     //continue to allow selecting by image edges
-    double dist;
-    double minDist = RS_MAXDOUBLE;
+	LDOUBLE dist;
+	LDOUBLE minDist = RS_MAXDOUBLE;
 
     RS_Line l[] =
         {
@@ -346,7 +346,7 @@ void RS_Image::move(const RS_Vector& offset) {
 
 
 
-void RS_Image::rotate(const RS_Vector& center, const double& angle) {
+void RS_Image::rotate(const RS_Vector& center, const LDOUBLE& angle) {
     RS_Vector angleVector(angle);
     data.insertionPoint.rotate(center, angleVector);
     data.uVector.rotate(angleVector);
@@ -382,7 +382,7 @@ void RS_Image::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) 
 
 
 
-void RS_Image::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/) {
+void RS_Image::draw(RS_Painter* painter, RS_GraphicView* view, LDOUBLE& /*patternOffset*/) {
 	if (painter==NULL || view==NULL || !img.get() || img->isNull()) {
         return;
     }
@@ -395,7 +395,7 @@ void RS_Image::draw(RS_Painter* painter, RS_GraphicView* view, double& /*pattern
 
     RS_Vector scale = RS_Vector(view->toGuiDX(data.uVector.magnitude()),
                                 view->toGuiDY(data.vVector.magnitude()));
-    double angle = data.uVector.angle();
+	LDOUBLE angle = data.uVector.angle();
 
 	painter->drawImg(*img,
                      view->toGui(data.insertionPoint),

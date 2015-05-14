@@ -61,10 +61,10 @@ struct RS_DimensionData : public RS_Flags {
                      RS_MTextData::VAlign valign,
                      RS_MTextData::HAlign halign,
                      RS_MTextData::MTextLineSpacingStyle lineSpacingStyle,
-                     double lineSpacingFactor,
+					 LDOUBLE lineSpacingFactor,
                      QString text,
                      QString style,
-					 double angle);
+					 LDOUBLE angle);
 
     /** Definition point */
 	RS_Vector definitionPoint;
@@ -77,7 +77,7 @@ struct RS_DimensionData : public RS_Flags {
     /** Line spacing style */
     RS_MTextData::MTextLineSpacingStyle lineSpacingStyle;
     /** Line spacing factor */
-    double lineSpacingFactor;
+	LDOUBLE lineSpacingFactor;
     /**
     * Text string entered explicitly by user or null
     * or "<>" for the actual measurement or " " (one blank space)
@@ -87,7 +87,7 @@ struct RS_DimensionData : public RS_Flags {
     /** Dimension style name */
     QString style;
     /** Rotation angle of dimension text away from default orientation */
-    double angle;
+	LDOUBLE angle;
 };
 
 std::ostream& operator << (std::ostream& os,
@@ -151,7 +151,7 @@ public:
         return data.lineSpacingStyle;
     }
 
-    double getLineSpacingFactor() {
+	LDOUBLE getLineSpacingFactor() {
         return data.lineSpacingFactor;
     }
 
@@ -163,28 +163,28 @@ public:
         return data.style;
     }
 
-    double getAngle() {
+	LDOUBLE getAngle() {
         return data.angle;
     }
 
-    double getGeneralFactor();
-    double getGeneralScale();
-    double getArrowSize();
-    double getTickSize();
-    double getExtensionLineExtension();
-    double getExtensionLineOffset();
-    double getDimensionLineGap();
-    double getTextHeight();
+	LDOUBLE getGeneralFactor();
+	LDOUBLE getGeneralScale();
+	LDOUBLE getArrowSize();
+	LDOUBLE getTickSize();
+	LDOUBLE getExtensionLineExtension();
+	LDOUBLE getExtensionLineOffset();
+	LDOUBLE getDimensionLineGap();
+	LDOUBLE getTextHeight();
     bool getAlignText();
 
-        double getGraphicVariable(const QString& key, double defMM, int code);
+		LDOUBLE getGraphicVariable(const QString& key, LDOUBLE defMM, int code);
 
-        //	virtual double getLength() {
+		//	virtual LDOUBLE getLength() {
         //		return -1.0;
         //	}
 
         virtual void move(const RS_Vector& offset);
-        virtual void rotate(const RS_Vector& center, const double& angle);
+		virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
         virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
         virtual void scale(const RS_Vector& center, const RS_Vector& factor);
         virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

@@ -52,27 +52,27 @@ public:
     static RS2::Unit stringToUnit(const QString& u);
 
 	static bool isMetric(RS2::Unit u);
-	static double getFactorToMM(RS2::Unit u);
-	static double convert(double val, RS2::Unit src, RS2::Unit dest);
+	static LDOUBLE getFactorToMM(RS2::Unit u);
+	static LDOUBLE convert(LDOUBLE val, RS2::Unit src, RS2::Unit dest);
 	static RS_Vector convert(const RS_Vector& val, RS2::Unit src, RS2::Unit dest);
 	
     static QString unitToSign(RS2::Unit u);
 
-    static QString formatLinear(double length, RS2::Unit unit,
+	static QString formatLinear(LDOUBLE length, RS2::Unit unit,
                                   RS2::LinearFormat format,
                                   int prec, bool showUnit=false);
-    static QString formatScientific(double length, RS2::Unit unit,
+	static QString formatScientific(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit=false);
-    static QString formatDecimal(double length, RS2::Unit unit,
+	static QString formatDecimal(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit=false);
-    static QString formatEngineering(double length, RS2::Unit unit,
+	static QString formatEngineering(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit=false);
-    static QString formatArchitectural(double length, RS2::Unit unit,
+	static QString formatArchitectural(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit=false);
-    static QString formatFractional(double length, RS2::Unit unit,
+	static QString formatFractional(LDOUBLE length, RS2::Unit unit,
                                   int prec, bool showUnit=false);
 
-    static QString formatAngle(double angle, RS2::AngleFormat format,
+	static QString formatAngle(LDOUBLE angle, RS2::AngleFormat format,
                                  int prec);
     static RS2::AngleFormat numberToAngleFormat(int num);
 
@@ -83,8 +83,8 @@ public:
 	static RS2::PaperFormat stringToPaperFormat(const QString& p);
 
 	static void test();
-    static double dpiToScale(double dpi, RS2::Unit unit);
-    static double scaleToDpi(double scale, RS2::Unit unit);
+	static LDOUBLE dpiToScale(LDOUBLE dpi, RS2::Unit unit);
+	static LDOUBLE scaleToDpi(LDOUBLE scale, RS2::Unit unit);
 
 };
 

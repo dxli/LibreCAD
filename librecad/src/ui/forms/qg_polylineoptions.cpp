@@ -77,8 +77,8 @@ void QG_PolylineOptions::setAction(RS_ActionInterface* a, bool update) {
         bool reversed(false);;
 
         if (update) {
-            sd1 = QString("%1").arg(action->getRadius());
-            sd2 = QString("%1").arg(action->getAngle());
+			sd1 = QString("%1").arg((double)action->getRadius());
+			sd2 = QString("%1").arg((double)action->getAngle());
             mode = action->getMode();
         } else {
             RS_SETTINGS->beginGroup("/Draw");

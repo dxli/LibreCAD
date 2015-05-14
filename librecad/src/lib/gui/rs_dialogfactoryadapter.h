@@ -63,9 +63,9 @@ public:
     virtual QString requestImageOpenDialog() { return ""; }
     virtual void requestOptions(RS_ActionInterface* ,
                 bool , bool = false) {}
-    virtual void requestSnapDistOptions(double& , bool ) {}
+	virtual void requestSnapDistOptions(LDOUBLE& , bool ) {}
     virtual void requestSnapMiddleOptions(int& , bool ) {}
-    virtual void requestModifyOffsetOptions(double& , bool ) {}
+	virtual void requestModifyOffsetOptions(LDOUBLE& , bool ) {}
     virtual bool requestAttributesDialog(RS_AttributesData& ,
                 RS_LayerList& ) { return false; }
     virtual bool requestMoveDialog(RS_MoveData& ) { return false; }
@@ -94,8 +94,8 @@ public:
     virtual void updateCoordinateWidget(const RS_Vector& , const RS_Vector& , bool =false) {}
 	virtual void updateMouseWidget(const QString& = QString::null,
 								   const QString& = QString::null){}
-    virtual void updateSelectionWidget(int /*c*/, double /*l*/ ) {}
-    virtual void updateArcTangentialOptions(const double& , bool ){}
+	virtual void updateSelectionWidget(int /*c*/, LDOUBLE /*l*/ ) {}
+	virtual void updateArcTangentialOptions(const LDOUBLE& , bool ){}
     virtual void commandMessage(const QString& ) {}
         virtual bool isAdapter() { return true; }
 };

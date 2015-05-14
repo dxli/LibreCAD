@@ -28,7 +28,7 @@
 #include "rs_dialogfactory.h"
 #include "rs_debug.h"
 
-RS_DialogFactory* RS_DialogFactory::uniqueInstance = NULL;
+RS_DialogFactory* RS_DialogFactory::uniqueInstance = nullptr;
     
 
 

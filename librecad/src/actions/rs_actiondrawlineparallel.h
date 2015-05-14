@@ -72,7 +72,7 @@ public:
     virtual void updateMouseCursor();
 //    virtual void updateToolBar();
 
-	double getDistance() {
+ LDOUBLE getDistance() {
 		return distance;
 	}
 
@@ -92,7 +92,7 @@ private:
     /** Closest parallel. */
     RS_Entity* parallel;
     /** Distance of the parallel. */
-    double distance;
+    LDOUBLE distance;
 	/** Number of parallels. */
 	int number;
 	/** Coordinate of the mouse. */

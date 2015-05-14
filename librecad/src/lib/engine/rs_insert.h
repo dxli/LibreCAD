@@ -63,7 +63,7 @@ struct RS_InsertData {
 	RS_InsertData(const QString& name,
 				  RS_Vector insertionPoint,
 				  RS_Vector scaleFactor,
-				  double angle,
+				  LDOUBLE angle,
 				  int cols, int rows, RS_Vector spacing,
 				  RS_BlockList* blockSource = NULL,
 				  RS2::UpdateMode updateMode = RS2::Update);
@@ -71,7 +71,7 @@ struct RS_InsertData {
 	QString name;
 	RS_Vector insertionPoint;
 	RS_Vector scaleFactor;
-	double angle;
+	LDOUBLE angle;
 	int cols, rows;
 	RS_Vector spacing;
 	RS_BlockList* blockSource;
@@ -143,10 +143,10 @@ public:
                 data.scaleFactor = s;
         }
 
-    double getAngle() const {
+	LDOUBLE getAngle() const {
         return data.angle;
     }
-    void setAngle(double a) {
+	void setAngle(LDOUBLE a) {
         data.angle = a;
     }
 
@@ -178,10 +178,10 @@ public:
             return RS_Vector(false);
     }
     virtual RS_Vector getNearestRef(const RS_Vector& coord,
-									 double* dist = nullptr) const;
+									 LDOUBLE* dist = nullptr) const;
 
     virtual void move(const RS_Vector& offset);
-    virtual void rotate(const RS_Vector& center, const double& angle);
+	virtual void rotate(const RS_Vector& center, const LDOUBLE& angle);
     virtual void rotate(const RS_Vector& center, const RS_Vector& angleVector);
     virtual void scale(const RS_Vector& center, const RS_Vector& factor);
     virtual void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2);

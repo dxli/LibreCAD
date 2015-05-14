@@ -64,8 +64,8 @@ void QG_PolylineEquidistantOptions::setAction(RS_ActionInterface* a, bool update
 
         // settings from action:
         if (update) {
-            sd = QString("%1").arg(action->getDist());
-            sn = QString("%1").arg(action->getNumber());
+			sd = QString("%1").arg((double)action->getDist());
+			sn = QString("%1").arg(action->getNumber());
         }
         // settings from config file:
         else {

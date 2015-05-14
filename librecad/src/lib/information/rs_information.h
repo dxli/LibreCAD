@@ -51,13 +51,13 @@ public:
 	static bool isTrimmable(RS_Entity* e1, RS_Entity* e2);
 
     RS_Vector getNearestEndpoint(const RS_Vector& point,
-                                 double* dist = NULL) const;
+								 LDOUBLE* dist = NULL) const;
     RS_Vector getNearestPointOnEntity(const RS_Vector& point,
 	                                  bool onEntity=true, 
-                                      double* dist = NULL,
+									  LDOUBLE* dist = NULL,
                                       RS_Entity** entity=NULL) const;
     RS_Entity* getNearestEntity(const RS_Vector& point,
-                                double* dist = NULL,
+								LDOUBLE* dist = NULL,
                                 RS2::ResolveLevel level=RS2::ResolveAll) const;
 
 

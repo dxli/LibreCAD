@@ -81,11 +81,11 @@ protected:
     /** Endpoint of major axis */
     RS_Vector major;
     /** Ratio major / minor */
-    double ratio;
+    LDOUBLE ratio;
     /** Start angle */
-    double angle1;
+    LDOUBLE angle1;
     /** End angle */
-    double angle2;
+    LDOUBLE angle2;
     /** Do we produce an arc (true) or full ellipse (false) */
     bool isArc;
 };
