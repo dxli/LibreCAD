@@ -80,10 +80,8 @@ RS_Circle::RS_Circle(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_Circle::clone() const {
-	RS_Circle* c = new RS_Circle(*this);
-//	c->initId();
-	return c;
+std::shared_ptr<RS_Entity> RS_Circle::clone() const {
+    return std::shared_ptr<RS_Entity>(new RS_Circle(*this));
 }
 
 
@@ -559,10 +557,10 @@ RS_Vector RS_Circle::getNearestEndpoint(const RS_Vector& coord, double* dist /*=
 
 
 RS_Vector RS_Circle::getNearestPointOnEntity(const RS_Vector& coord,
-        bool /*onEntity*/, double* dist, RS_Entity** entity)const {
+        bool /*onEntity*/, double* dist, std::shared_ptr<RS_Entity>* entity)const {
 
 	if (entity) {
-        *entity = const_cast<RS_Circle*>(this);
+        entity->reset(const_cast<RS_Circle*>(this));
     }
 	RS_Vector vp(coord - data.center);
     double d(vp.magnitude());

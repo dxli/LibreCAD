@@ -71,7 +71,7 @@ public:
     void init();
     virtual void initId();
 
-	virtual RS_Entity* clone() const = 0;
+    virtual std::shared_ptr<RS_Entity> clone() const = 0;
 
 	virtual void reparent(RS_EntityContainer* parent) {
 		this->parent = parent;
@@ -307,7 +307,7 @@ public:
      */
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& /*coord*/,
 											  bool onEntity = true, double* dist = nullptr,
-											  RS_Entity** entity = nullptr) const = 0;
+                                              std::shared_ptr<RS_Entity>* entity = nullptr) const = 0;
 
     /**
      * Must be overwritten to get the (nearest) center point to the
@@ -423,7 +423,7 @@ public:
                                         const RS_Line& /*normal*/,
 										bool onEntity = false) const;
     virtual double getDistanceToPoint(const RS_Vector& coord,
-									  RS_Entity** entity = nullptr,
+                                      std::shared_ptr<RS_Entity>* entity = nullptr,
                                       RS2::ResolveLevel level = RS2::ResolveNone,
                                       double solidDist = RS_MAXDOUBLE) const;
 

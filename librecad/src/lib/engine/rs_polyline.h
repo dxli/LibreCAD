@@ -61,7 +61,7 @@ public:
                 const RS_PolylineData& d);
 	virtual ~RS_Polyline() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityPolyline */
     virtual RS2::EntityType rtti() const {

@@ -69,7 +69,7 @@ public:
                   const RS_DimAlignedData& ed);
 	virtual ~RS_DimAligned() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityDimAligned */
     virtual RS2::EntityType rtti() const {

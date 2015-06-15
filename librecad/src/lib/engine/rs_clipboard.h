@@ -62,12 +62,12 @@ public:
 
 	void clear();
 
-	void addBlock(RS_Block* b);
+    void addBlock(std::shared_ptr<RS_Entity> const& b);
         bool hasBlock(const QString& name);
 	int  countBlocks() {
 		return graphic.countBlocks();
 	}
-	RS_Block* blockAt(int i) {
+    std::shared_ptr<RS_Entity> blockAt(int i) {
 		return graphic.blockAt(i);
 	}
 	
@@ -80,25 +80,29 @@ public:
 		return graphic.layerAt(i);
 	}
 
-	void addEntity(RS_Entity* e);
+    void addEntity(std::shared_ptr<RS_Entity> const& e);
 
     unsigned count() {
 		return graphic.count();
 	}
-    RS_Entity* entityAt(unsigned i) {
+    std::shared_ptr<RS_Entity> entityAt(unsigned i) {
 		return graphic.entityAt(i);
 	}
-	RS_Entity* firstEntity() {
+    std::shared_ptr<RS_Entity> firstEntity() {
 		return graphic.firstEntity();
 	}
 	
-	RS_Entity* nextEntity() {
+    std::shared_ptr<RS_Entity> nextEntity() {
 		return graphic.nextEntity();
 	}
 
-	RS_Graphic* getGraphic() {
+    RS_Graphic const* getGraphic() const{
 		return &graphic;
 	}
+
+    RS_Graphic * getGraphic() {
+        return &graphic;
+    }
 
     friend std::ostream& operator << (std::ostream& os, RS_Clipboard& cb);
 

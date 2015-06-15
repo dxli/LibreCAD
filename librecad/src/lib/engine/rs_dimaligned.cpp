@@ -86,12 +86,12 @@ RS_DimAligned::RS_DimAligned(RS_EntityContainer* parent,
 //    update();
 //}
 
-RS_Entity* RS_DimAligned::clone() const{
-	RS_DimAligned* d = new RS_DimAligned(*this);
+std::shared_ptr<RS_Entity> RS_DimAligned::clone() const{
+    auto d=new RS_DimAligned(*this);
 	d->setOwner(isOwner());
 //	d->initId();
 	d->detach();
-	return d;
+    return std::shared_ptr<RS_Entity>{d};
 }
 
 RS_VectorSolutions RS_DimAligned::getRefPoints() const
@@ -167,7 +167,7 @@ void RS_DimAligned::updateDim(bool autoText) {
 
     RS_Vector v1, v2, e1;
     RS_LineData ld;
-    RS_Line* line;
+    std::shared_ptr<RS_Entity> line;
 
     v1.setPolar(dimexo, extAngle);
     v2.setPolar(dimexe, extAngle);
@@ -176,7 +176,7 @@ void RS_DimAligned::updateDim(bool autoText) {
     // Extension line 1:
     ld = RS_LineData(edata.extensionPoint1 + v1,
                      edata.extensionPoint1 + e1*extLength + v2);
-    line = new RS_Line(this, ld);
+    line.reset(new RS_Line(this, ld));
     //line->setLayerToActive();
     //line->setPenToActive();
     line->setPen(RS_Pen(RS2::FlagInvalid));
@@ -186,7 +186,7 @@ void RS_DimAligned::updateDim(bool autoText) {
     // Extension line 2:
     ld = RS_LineData(edata.extensionPoint2 + v1,
                      edata.extensionPoint2 + e1*extLength + v2);
-    line = new RS_Line(this, ld);
+    line.reset(new RS_Line(this, ld));
     //line->setLayerToActive();
     //line->setPenToActive();
     line->setPen(RS_Pen(RS2::FlagInvalid));

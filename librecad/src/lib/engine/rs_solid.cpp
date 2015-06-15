@@ -79,7 +79,7 @@ RS_Solid::RS_Solid(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_Solid::clone() const {
+std::shared_ptr<RS_Entity> RS_Solid::clone() const {
 	RS_Solid* s = new RS_Solid(*this);
 //	s->initId();
 	return s;
@@ -251,7 +251,7 @@ bool RS_Solid::sign (const RS_Vector v1, const RS_Vector v2, const RS_Vector v3)
  * @todo Implement this.
  */
 RS_Vector RS_Solid::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity)const {
+        bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity)const {
 //first check if point is inside solid
     bool s1 = sign(data.corner[0], data.corner[1], coord);
     bool s2 = sign(data.corner[1], data.corner[2], coord);
@@ -358,7 +358,7 @@ RS_Vector RS_Solid::getNearestDist(double /*distance*/,
  *
  */
 double RS_Solid::getDistanceToPoint(const RS_Vector& coord,
-                                    RS_Entity** entity,
+                                    std::shared_ptr<RS_Entity>* entity,
                                     RS2::ResolveLevel /*level*/,
                                     double /*solidDist*/)const {
 	if (entity!=nullptr) {

@@ -80,19 +80,6 @@ RS_EntityContainer& RS_EntityContainer::operator = (const RS_EntityContainer& ec
     return *this;
 }
 
-
-/**
- * Copy constructor. Makes a deep copy of all entities.
- */
-/*
-RS_EntityContainer::RS_EntityContainer(const RS_EntityContainer& ec)
- : RS_Entity(ec) {
-
-}
-*/
-
-
-
 /**
  * Destructor.
  */
@@ -100,9 +87,7 @@ RS_EntityContainer::~RS_EntityContainer() {
     clear();
 }
 
-
-
-RS_Entity* RS_EntityContainer::clone() const{
+std::shared_ptr<RS_Entity> RS_EntityContainer::clone() const{
     RS_DEBUG->print("RS_EntityContainer::clone: ori autoDel: %d",
                     autoDelete);
 
@@ -115,17 +100,15 @@ RS_Entity* RS_EntityContainer::clone() const{
     ec->detach();
 //    ec->initId();
 
-    return ec;
+    return std::shared_ptr<RS_Entity>{ec};
 }
-
-
 
 /**
  * Detaches shallow copies and creates deep copies of all subentities.
  * This is called after cloning entity containers.
  */
 void RS_EntityContainer::detach() {
-    QList<RS_Entity*> tmp;
+    QList<std::shared_ptr<RS_Entity>> tmp;
     bool autoDel = isOwner();
     RS_DEBUG->print("RS_EntityContainer::detach: autoDel: %d",
                     (int)autoDel);
@@ -134,19 +117,14 @@ void RS_EntityContainer::detach() {
 	// make deep copies of all entities:
 	for(auto e: entities){
         if (!e->getFlag(RS2::FlagTemp)) {
-            tmp.append(e->clone());
+            std::shared_ptr<RS_Entity> p{e->clone()};
+            p->reparent(this);
+            tmp.append(p);
         }
     }
 
     // clear shared pointers:
-    entities.clear();
-    setOwner(autoDel);
-
-    // point to new deep copies:
-	for(auto e: tmp){
-        entities.append(e);
-        e->reparent(this);
-    }
+    entities=tmp;
 }
 
 
@@ -264,7 +242,7 @@ void RS_EntityContainer::selectWindow(RS_Vector v1, RS_Vector v2,
 
     bool included;
 
-	for(auto e: entities){
+    for(auto& e: entities){
 
         included = false;
 
@@ -283,17 +261,17 @@ void RS_EntityContainer::selectWindow(RS_Vector v1, RS_Vector v2,
                 RS_VectorSolutions sol;
 
                 if (e->isContainer()) {
-                    RS_EntityContainer* ec = (RS_EntityContainer*)e;
-                    for (RS_Entity* se=ec->firstEntity(RS2::ResolveAll);
+                    RS_EntityContainer* ec = (RS_EntityContainer*)e.get();
+                    for (auto se=ec->firstEntity(RS2::ResolveAll);
 						 se && included==false;
                          se=ec->nextEntity(RS2::ResolveAll)) {
 
                         if (se->rtti() == RS2::EntitySolid){
-                            included = ((RS_Solid *)se)->isInCrossWindow(v1,v2);
+                            included = ((RS_Solid *)se.get())->isInCrossWindow(v1,v2);
                         } else {
                             for (int i=0; i<4; ++i) {
                                 sol = RS_Information::getIntersection(
-                                            se, &l[i], true);
+                                            se.get(), &l[i], true);
                                 if (sol.hasValid()) {
                                     included = true;
                                     break;
@@ -302,10 +280,10 @@ void RS_EntityContainer::selectWindow(RS_Vector v1, RS_Vector v2,
                         }
                     }
                 } else if (e->rtti() == RS2::EntitySolid){
-                    included = ((RS_Solid *)e)->isInCrossWindow(v1,v2);
+                    included = ((RS_Solid *)e.get())->isInCrossWindow(v1,v2);
                 } else {
                     for (int i=0; i<4; ++i) {
-                        sol = RS_Information::getIntersection(e, &l[i], true);
+                        sol = RS_Information::getIntersection(e.get(), &l[i], true);
                         if (sol.hasValid()) {
                             included = true;
                             break;
@@ -321,13 +299,16 @@ void RS_EntityContainer::selectWindow(RS_Vector v1, RS_Vector v2,
     }
 }
 
-
+ void RS_EntityContainer::addEntity(RS_Entity* entity)
+ {
+     addEntity(std::shared_ptr<RS_Entity>(entity));
+ }
 
 /**
  * Adds a entity to this container and updates the borders of this
  * entity-container if autoUpdateBorders is true.
  */
-void RS_EntityContainer::addEntity(RS_Entity* entity) {
+void RS_EntityContainer::addEntity(std::shared_ptr<RS_Entity> const& entity) {
     /*
        if (isDocument()) {
            RS_LayerList* lst = getDocument()->getLayerList();
@@ -340,9 +321,7 @@ void RS_EntityContainer::addEntity(RS_Entity* entity) {
        }
     */
 
-    if (entity==NULL) {
-        return;
-    }
+    if (!entity)  return;
 
     if (entity->rtti()==RS2::EntityImage ||
             entity->rtti()==RS2::EntityHatch) {
@@ -360,9 +339,8 @@ void RS_EntityContainer::addEntity(RS_Entity* entity) {
  * Insert a entity at the end of entities list and updates the
  * borders of this entity-container if autoUpdateBorders is true.
  */
-void RS_EntityContainer::appendEntity(RS_Entity* entity){
-    if (entity==NULL)
-        return;
+void RS_EntityContainer::appendEntity(std::shared_ptr<RS_Entity> const& entity){
+    if (!entity) return;
     entities.append(entity);
     if (autoUpdateBorders)
         adjustBorders(entity);
@@ -372,9 +350,8 @@ void RS_EntityContainer::appendEntity(RS_Entity* entity){
  * Insert a entity at the start of entities list and updates the
  * borders of this entity-container if autoUpdateBorders is true.
  */
-void RS_EntityContainer::prependEntity(RS_Entity* entity){
-    if (entity==NULL)
-        return;
+void RS_EntityContainer::prependEntity(std::shared_ptr<RS_Entity> const& entity){
+    if (!entity) return;
     entities.prepend(entity);
     if (autoUpdateBorders)
         adjustBorders(entity);
@@ -384,11 +361,11 @@ void RS_EntityContainer::prependEntity(RS_Entity* entity){
  * Move a entity list in this container at the given position,
  * the borders of this entity-container if autoUpdateBorders is true.
  */
-void RS_EntityContainer::moveEntity(int index, QList<RS_Entity *>& entList){
+void RS_EntityContainer::moveEntity(int index, QList<std::shared_ptr<RS_Entity>>& entList){
     if (entList.isEmpty()) return;
     int ci = 0; //current index for insert without invert order
-    bool ret, into = false;
-    RS_Entity *mid = NULL;
+    bool into = false;
+    std::shared_ptr<RS_Entity> mid;
     if (index < 1) {
         ci = 0;
     } else if (index >= entities.size() ) {
@@ -398,19 +375,15 @@ void RS_EntityContainer::moveEntity(int index, QList<RS_Entity *>& entList){
         mid = entities.at(index);
     }
 
-    for (int i = 0; i < entList.size(); ++i) {
-        RS_Entity *e = entList.at(i);
-        ret = entities.removeOne(e);
-        //if e not exist in entities list remove from entList
-        if (!ret) {
-            entList.removeAt(i);
-        }
+    QList<std::shared_ptr<RS_Entity>> tmpList;
+    for(auto const& e: entList){
+        if(e) tmpList.append(e);
     }
     if (into) {
         ci = entities.indexOf(mid);
     }
 
-	for(auto e: entList){
+    for(auto const& e: tmpList){
             entities.insert(ci++, e);
     }
 }
@@ -419,10 +392,8 @@ void RS_EntityContainer::moveEntity(int index, QList<RS_Entity *>& entList){
  * Inserts a entity to this container at the given position and updates
  * the borders of this entity-container if autoUpdateBorders is true.
  */
-void RS_EntityContainer::insertEntity(int index, RS_Entity* entity) {
-    if (entity==NULL) {
-        return;
-    }
+void RS_EntityContainer::insertEntity(int index, std::shared_ptr<RS_Entity> const& entity) {
+    if (!entity)  return;
 
     entities.insert(index, entity);
 
@@ -431,34 +402,11 @@ void RS_EntityContainer::insertEntity(int index, RS_Entity* entity) {
     }
 }
 
-
-
-/**
- * Replaces the entity at the given index with the given entity
- * and updates the borders of this entity-container if autoUpdateBorders is true.
- */
-/*RLZ unused function
-void RS_EntityContainer::replaceEntity(int index, RS_Entity* entity) {
-//RLZ TODO: is needed to delete the old entity? not documented in Q3PtrList
-//    investigate in qt3support code if reactivate this function.
-    if (entity==NULL) {
-        return;
-    }
-
-    entities.replace(index, entity);
-
-    if (autoUpdateBorders) {
-        adjustBorders(entity);
-    }
-}RLZ*/
-
-
-
 /**
  * Removes an entity from this container and updates the borders of
  * this entity-container if autoUpdateBorders is true.
  */
-bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
+bool RS_EntityContainer::removeEntity(std::shared_ptr<RS_Entity> const& entity) {
     //RLZ TODO: in Q3PtrList if 'entity' is NULL remove the current item-> at.(entIdx)
     //    and sets 'entIdx' in next() or last() if 'entity' is the last item in the list.
     //    in LibreCAD is never called with NULL
@@ -469,9 +417,6 @@ bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
     ret = entities.removeOne(entity);
 #endif
 
-    if (autoDelete && ret) {
-        delete entity;
-    }
     if (autoUpdateBorders) {
         calculateBorders();
     }
@@ -484,11 +429,7 @@ bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
  * Erases all entities in this container and resets the borders..
  */
 void RS_EntityContainer::clear() {
-    if (autoDelete) {
-        while (!entities.isEmpty())
-            delete entities.takeFirst();
-    } else
-        entities.clear();
+    entities.clear();
     resetBorders();
 }
 
@@ -516,7 +457,7 @@ unsigned int RS_EntityContainer::countDeep() const{
 unsigned int RS_EntityContainer::countSelected(bool deep, std::set<RS2::EntityType> const& types) {
     unsigned int c=0;
 
-	for (RS_Entity* t: entities){
+    for (auto const& t: entities){
 
 		if (t->isSelected()) {
 
@@ -524,7 +465,7 @@ unsigned int RS_EntityContainer::countSelected(bool deep, std::set<RS2::EntityTy
 				c++;
         }
 		if(t->isContainer())
-			c += static_cast<RS_EntityContainer*>(t)->countSelected(deep);
+            c += static_cast<RS_EntityContainer*>(t.get())->countSelected(deep);
     }
 
     return c;
@@ -535,7 +476,7 @@ unsigned int RS_EntityContainer::countSelected(bool deep, std::set<RS2::EntityTy
  */
 double RS_EntityContainer::totalSelectedLength() {
     double ret(0.0);
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
 
         if (e->isVisible() && e->isSelected()) {
             double l = e->getLength();
@@ -551,7 +492,7 @@ double RS_EntityContainer::totalSelectedLength() {
 /**
  * Adjusts the borders of this graphic (max/min values)
  */
-void RS_EntityContainer::adjustBorders(RS_Entity* entity) {
+void RS_EntityContainer::adjustBorders(std::shared_ptr<RS_Entity> const& entity) {
     //RS_DEBUG->print("RS_EntityContainer::adjustBorders");
     //resetBorders();
 
@@ -579,7 +520,7 @@ void RS_EntityContainer::calculateBorders() {
     RS_DEBUG->print("RS_EntityContainer::calculateBorders");
 
 	resetBorders();
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
 
         RS_Layer* layer = e->getLayer();
 
@@ -628,12 +569,12 @@ void RS_EntityContainer::forcedCalculateBorders() {
     //RS_DEBUG->print("RS_EntityContainer::calculateBorders");
 
 	resetBorders();
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
 
         //RS_Layer* layer = e->getLayer();
 
         if (e->isContainer()) {
-            ((RS_EntityContainer*)e)->forcedCalculateBorders();
+            ((RS_EntityContainer*)e.get())->forcedCalculateBorders();
         } else {
             e->calculateBorders();
         }
@@ -676,14 +617,14 @@ void RS_EntityContainer::updateDimensions(bool autoText) {
 	//        e;
     //        e=nextEntity(RS2::ResolveNone)) {
 
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
         if (RS_Information::isDimension(e->rtti())) {
             // update and reposition label:
-            ((RS_Dimension*)e)->updateDim(autoText);
+            ((RS_Dimension*)e.get())->updateDim(autoText);
         } else if(e->rtti()==RS2::EntityDimLeader)
             e->update();
         else if (e->isContainer()) {
-            ((RS_EntityContainer*)e)->updateDimensions(autoText);
+            ((RS_EntityContainer*)e.get())->updateDimensions(autoText);
         }
     }
 
@@ -699,12 +640,12 @@ void RS_EntityContainer::updateInserts() {
 
     RS_DEBUG->print("RS_EntityContainer::updateInserts()");
 
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
         //// Only update our own inserts and not inserts of inserts
         if (e->rtti()==RS2::EntityInsert  /*&& e->getParent()==this*/) {
-            ((RS_Insert*)e)->update();
+            ((RS_Insert*)e.get())->update();
         } else if (e->isContainer() && e->rtti()!=RS2::EntityHatch) {
-            ((RS_EntityContainer*)e)->updateInserts();
+            ((RS_EntityContainer*)e.get())->updateInserts();
         }
     }
 
@@ -725,14 +666,14 @@ void RS_EntityContainer::renameInserts(const QString& oldName,
 	//        e;
     //        e=nextEntity(RS2::ResolveNone)) {
 
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
         if (e->rtti()==RS2::EntityInsert) {
-            RS_Insert* i = ((RS_Insert*)e);
+            RS_Insert* i = ((RS_Insert*)e.get());
             if (i->getName()==oldName) {
                 i->setName(newName);
             }
         } else if (e->isContainer()) {
-            ((RS_EntityContainer*)e)->renameInserts(oldName, newName);
+            ((RS_EntityContainer*)e.get())->renameInserts(oldName, newName);
         }
     }
 
@@ -747,12 +688,12 @@ void RS_EntityContainer::updateSplines() {
 
     RS_DEBUG->print("RS_EntityContainer::updateSplines()");
 
-	for (RS_Entity* e: entities){
+    for (auto const& e: entities){
         //// Only update our own inserts and not inserts of inserts
         if (e->rtti()==RS2::EntitySpline  /*&& e->getParent()==this*/) {
-            ((RS_Spline*)e)->update();
+            ((RS_Spline*)e.get())->update();
         } else if (e->isContainer() && e->rtti()!=RS2::EntityHatch) {
-            ((RS_EntityContainer*)e)->updateSplines();
+            ((RS_EntityContainer*)e.get())->updateSplines();
         }
     }
 
@@ -764,7 +705,7 @@ void RS_EntityContainer::updateSplines() {
  * Updates the sub entities of this container.
  */
 void RS_EntityContainer::update() {
-	for (RS_Entity* e: entities){
+    for (auto& e: entities){
 		e->update();
     }
 }
@@ -775,8 +716,8 @@ void RS_EntityContainer::update() {
  * Returns the first entity or NULL if this graphic is empty.
  * @param level
  */
-RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
-    RS_Entity* e = NULL;
+std::shared_ptr<RS_Entity> RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
+    std::shared_ptr<RS_Entity> e;
     entIdx = -1;
     switch (level) {
     case RS2::ResolveNone:
@@ -787,17 +728,17 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
         break;
 
     case RS2::ResolveAllButInserts: {
-        subContainer=NULL;
+        subContainer.reset();
         if (!entities.isEmpty()) {
             entIdx = 0;
             e = entities.first();
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -807,17 +748,17 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
 
     case RS2::ResolveAllButTextImage:
     case RS2::ResolveAllButTexts: {
-        subContainer=NULL;
+        subContainer.reset();
         if (!entities.isEmpty()) {
             entIdx = 0;
             e = entities.first();
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -826,17 +767,17 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
         break;
 
     case RS2::ResolveAll: {
-        subContainer=NULL;
+        subContainer.reset();
         if (!entities.isEmpty()) {
             entIdx = 0;
             e = entities.first();
         }
 		if (e && e->isContainer()) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -845,7 +786,7 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
         break;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 
@@ -857,8 +798,8 @@ RS_Entity* RS_EntityContainer::firstEntity(RS2::ResolveLevel level) {
  *              \li \p 1 (default) only Groups are resolved
  *              \li \p 2 all Entity Containers are resolved
  */
-RS_Entity* RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
-	RS_Entity* e = nullptr;
+std::shared_ptr<RS_Entity> RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
+    std::shared_ptr<RS_Entity> e;
 	if(!entities.size()) return nullptr;
     entIdx = entities.size()-1;
     switch (level) {
@@ -870,10 +811,10 @@ RS_Entity* RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
     case RS2::ResolveAllButInserts: {
         if (!entities.isEmpty())
             e = entities.last();
-        subContainer = NULL;
+        subContainer.reset();
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
         }
         return e;
     }
@@ -882,10 +823,10 @@ RS_Entity* RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
     case RS2::ResolveAllButTexts: {
         if (!entities.isEmpty())
             e = entities.last();
-        subContainer = NULL;
+        subContainer.reset();
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
         }
         return e;
     }
@@ -894,17 +835,17 @@ RS_Entity* RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
     case RS2::ResolveAll: {
         if (!entities.isEmpty())
             e = entities.last();
-        subContainer = NULL;
+        subContainer.reset();
 		if (e && e->isContainer()) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
         }
         return e;
     }
         break;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 
@@ -912,7 +853,7 @@ RS_Entity* RS_EntityContainer::lastEntity(RS2::ResolveLevel level) {
  * Returns the next entity or container or \p NULL if the last entity
  * returned by \p next() was the last entity in the container.
  */
-RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
+std::shared_ptr<RS_Entity> RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
 
     //set entIdx pointing in next entity and check if is out of range
     ++entIdx;
@@ -923,9 +864,9 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
         break;
 
     case RS2::ResolveAllButInserts: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->nextEntity(level);
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
 			if (e) {
                 --entIdx; //return a sub-entity, index not advanced
                 return e;
@@ -938,11 +879,11 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -952,10 +893,10 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
 
     case RS2::ResolveAllButTextImage:
     case RS2::ResolveAllButTexts: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->nextEntity(level);
-			if (e) {
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
+            if (e) {
                 --entIdx; //return a sub-entity, index not advanced
                 return e;
             } else {
@@ -967,11 +908,11 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText ) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -980,10 +921,10 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
         break;
 
     case RS2::ResolveAll: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->nextEntity(level);
-			if (e) {
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
+            if (e) {
                 --entIdx; //return a sub-entity, index not advanced
                 return e;
             } else {
@@ -995,11 +936,11 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer()) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->firstEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->firstEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = nextEntity(level);
             }
         }
@@ -1007,7 +948,7 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
     }
         break;
     }
-    return NULL;
+    return nullptr;
 }
 
 
@@ -1016,7 +957,7 @@ RS_Entity* RS_EntityContainer::nextEntity(RS2::ResolveLevel level) {
  * Returns the prev entity or container or \p NULL if the last entity
  * returned by \p prev() was the first entity in the container.
  */
-RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
+std::shared_ptr<RS_Entity> RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
     //set entIdx pointing in prev entity and check if is out of range
     --entIdx;
     switch (level) {
@@ -1027,10 +968,10 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
         break;
 
     case RS2::ResolveAllButInserts: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->prevEntity(level);
-			if (e) {
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
+            if (e) {
                 return e;
             } else {
                 if (entIdx >= 0)
@@ -1041,11 +982,11 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityInsert) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e){
+                subContainer.reset();
                 e = prevEntity(level);
             }
         }
@@ -1054,10 +995,10 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
 
     case RS2::ResolveAllButTextImage:
     case RS2::ResolveAllButTexts: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->prevEntity(level);
-			if (e) {
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
+            if (e) {
                 return e;
             } else {
                 if (entIdx >= 0)
@@ -1068,11 +1009,11 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer() && e->rtti()!=RS2::EntityText && e->rtti()!=RS2::EntityMText) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = prevEntity(level);
             }
         }
@@ -1080,10 +1021,10 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
     }
 
     case RS2::ResolveAll: {
-        RS_Entity* e=NULL;
+        std::shared_ptr<RS_Entity> e;
 		if (subContainer) {
-            e = subContainer->prevEntity(level);
-			if (e) {
+            e = ((RS_EntityContainer*)subContainer.get())->nextEntity(level);
+            if (e) {
                 ++entIdx; //return a sub-entity, index not advanced
                 return e;
             } else {
@@ -1095,18 +1036,18 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
                 e = entities.at(entIdx);
         }
 		if (e && e->isContainer()) {
-            subContainer = (RS_EntityContainer*)e;
-            e = ((RS_EntityContainer*)e)->lastEntity(level);
+            subContainer = e;
+            e = ((RS_EntityContainer*)e.get())->lastEntity(level);
             // emtpy container:
-            if (e==NULL) {
-                subContainer = NULL;
+            if (!e) {
+                subContainer.reset();
                 e = prevEntity(level);
             }
         }
         return e;
     }
     }
-    return NULL;
+    return nullptr;
 }
 
 
@@ -1114,17 +1055,14 @@ RS_Entity* RS_EntityContainer::prevEntity(RS2::ResolveLevel level) {
 /**
  * @return Entity at the given index or NULL if the index is out of range.
  */
-RS_Entity* RS_EntityContainer::entityAt(int index) {
+std::shared_ptr<RS_Entity> RS_EntityContainer::entityAt(int index) {
     if (entities.size() > index && index >= 0)
         return entities.at(index);
     else
-        return NULL;
+        return nullptr;
 }
 
-void RS_EntityContainer::setEntityAt(int index,RS_Entity* en){
-	if(autoDelete && entities.at(index)) {
-		delete entities.at(index);
-	}
+void RS_EntityContainer::setEntityAt(int index, std::shared_ptr<RS_Entity> const& en){
 	entities[index] = en;
 }
 
@@ -1140,8 +1078,8 @@ int RS_EntityContainer::entityAt() {
 /**
  * Finds the given entity and makes it the current entity if found.
  */
-int RS_EntityContainer::findEntity(RS_Entity const* const entity) {
-	entIdx = entities.indexOf(const_cast<RS_Entity*>(entity));
+int RS_EntityContainer::findEntity(std::shared_ptr<RS_Entity> const& entity) {
+    entIdx = entities.indexOf(entity);
     return entIdx;
 }
 
@@ -1157,7 +1095,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
 
-	for (RS_Entity* en: entities){
+    for(std::shared_ptr<RS_Entity> const& en: entities){
 
 		if (en->isVisible()
 				&& !en->getParent()->ignoredOnModification()
@@ -1183,7 +1121,7 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
  * (one of the vertexes)
  */
 RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
-                                                 double* dist,  RS_Entity** pEntity)const {
+                                                 double* dist, std::shared_ptr<RS_Entity>* pEntity)const {
 
     double minDist = RS_MAXDOUBLE;  // minimum measured distance
     double curDist;                 // currently measured distance
@@ -1224,11 +1162,11 @@ RS_Vector RS_EntityContainer::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_EntityContainer::getNearestPointOnEntity(const RS_Vector& coord,
-                                                      bool onEntity, double* dist, RS_Entity** entity)const {
+                                                      bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity)const {
 
     RS_Vector point(false);
 
-	RS_Entity* en = getNearestEntity(coord, dist, RS2::ResolveNone);
+    std::shared_ptr<RS_Entity> en = getNearestEntity(coord, dist, RS2::ResolveNone);
 
 	if (en) {
         if ( en->isVisible()
@@ -1306,7 +1244,7 @@ RS_Vector RS_EntityContainer::getNearestDist(double distance,
 											 double* dist) const{
 
     RS_Vector point(false);
-    RS_Entity* closestEntity;
+    std::shared_ptr<RS_Entity> closestEntity;
 
     closestEntity = getNearestEntity(coord, NULL, RS2::ResolveNone);
 
@@ -1330,13 +1268,13 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Vector point;                // endpoint found
     RS_VectorSolutions sol;
-    RS_Entity* closestEntity;
+    std::shared_ptr<RS_Entity> closestEntity;
 
     closestEntity = getNearestEntity(coord, NULL, RS2::ResolveAllButTextImage);
 
 	if (closestEntity) {
-        for (RS_Entity* en = firstEntity(RS2::ResolveAllButTextImage);
-             en != NULL;
+        for (auto en = firstEntity(RS2::ResolveAllButTextImage);
+             en;
              en = nextEntity(RS2::ResolveAllButTextImage)) {
             if (
                     !en->isVisible()
@@ -1345,8 +1283,8 @@ RS_Vector RS_EntityContainer::getNearestIntersection(const RS_Vector& coord,
                 continue;
             }
 
-            sol = RS_Information::getIntersection(closestEntity,
-                                                  en,
+            sol = RS_Information::getIntersection(closestEntity.get(),
+                                                  en.get(),
                                                   true);
 
             point=sol.getClosest(coord,&curDist,NULL);
@@ -1419,7 +1357,7 @@ RS_Vector RS_EntityContainer::getNearestSelectedRef(const RS_Vector& coord,
 
 
 double RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
-                                              RS_Entity** entity,
+                                              std::shared_ptr<RS_Entity>* entity,
                                               RS2::ResolveLevel level,
                                               double solidDist) const{
 
@@ -1428,10 +1366,10 @@ double RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
 
     double minDist = RS_MAXDOUBLE;      // minimum measured distance
     double curDist;                     // currently measured distance
-    RS_Entity* closestEntity = NULL;    // closest entity found
-    RS_Entity* subEntity = NULL;
+    std::shared_ptr<RS_Entity> closestEntity;    // closest entity found
+    std::shared_ptr<RS_Entity> subEntity;
 
-	for(auto e: entities){
+    for(auto& e: entities){
 
         if (e->isVisible()) {
             RS_DEBUG->print("entity: getDistanceToPoint");
@@ -1461,15 +1399,13 @@ double RS_EntityContainer::getDistanceToPoint(const RS_Vector& coord,
     return minDist;
 }
 
-
-
-RS_Entity* RS_EntityContainer::getNearestEntity(const RS_Vector& coord,
+std::shared_ptr<RS_Entity> RS_EntityContainer::getNearestEntity(const RS_Vector& coord,
                                                 double* dist,
 												RS2::ResolveLevel level) const{
 
     RS_DEBUG->print("RS_EntityContainer::getNearestEntity");
 
-    RS_Entity* e = NULL;
+    std::shared_ptr<RS_Entity> e;
 
     // distance for points inside solids:
     double solidDist = RS_MAXDOUBLE;
@@ -1516,8 +1452,8 @@ bool RS_EntityContainer::optimizeContours() {
     bool closed=true;
 
     /** accept all full circles **/
-    QList<RS_Entity*> enList;
-	for(auto e1: entities){
+    QList<std::shared_ptr<RS_Entity>> enList;
+    for(auto const& e1: entities){
         if (!e1->isEdge() || e1->isContainer() ) {
             enList<<e1;
             continue;
@@ -1526,7 +1462,7 @@ bool RS_EntityContainer::optimizeContours() {
         //detect circles and whole ellipses
         switch(e1->rtti()){
         case RS2::EntityEllipse:
-			if(static_cast<RS_Ellipse*>(e1)->isEllipticArc())
+            if(static_cast<RS_Ellipse*>(e1.get())->isEllipticArc())
                 continue;
         case RS2::EntityCircle:
             //directly detect circles, bug#3443277
@@ -1540,13 +1476,13 @@ bool RS_EntityContainer::optimizeContours() {
     //    std::cout<<"RS_EntityContainer::optimizeContours: 1"<<std::endl;
 
     /** remove unsupported entities */
-    for(RS_Entity* it: enList)
+    for(auto const& it: enList)
         removeEntity(it);
 
     /** check and form a closed contour **/
 //    std::cout<<"RS_EntityContainer::optimizeContours: 2"<<std::endl;
     /** the first entity **/
-    RS_Entity* current(NULL);
+    std::shared_ptr<RS_Entity> current;
     if(count()>0) {
         current=entityAt(0)->clone();
         tmp.addEntity(current);
@@ -1561,17 +1497,17 @@ bool RS_EntityContainer::optimizeContours() {
         vpStart=current->getStartpoint();
         vpEnd=current->getEndpoint();
     }
-    RS_Entity* next(NULL);
+    std::shared_ptr<RS_Entity> next;
 //    std::cout<<"RS_EntityContainer::optimizeContours: 4"<<std::endl;
     /** connect entities **/
     const QString errMsg=QObject::tr("Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)");
 
     while(count()>0){
         double dist(0.);
-        RS_Vector&& vpTmp=getNearestEndpoint(vpEnd,&dist,&next);
+        RS_Vector vpTmp=getNearestEndpoint(vpEnd,&dist,&next);
         if(dist>1e-8) {
             if(vpEnd.squaredTo(vpStart)<1e-8){
-                RS_Entity* e2=entityAt(0);
+                auto e2=entityAt(0);
                 tmp.addEntity(e2->clone());
                 vpStart=e2->getStartpoint();
                 vpEnd=e2->getEndpoint();
@@ -1583,7 +1519,7 @@ bool RS_EntityContainer::optimizeContours() {
         }
         if(next && closed){ 			//workaround if next is NULL
             next->setProcessed(true);
-            RS_Entity* eTmp = next->clone();
+            std::shared_ptr<RS_Entity> eTmp = next->clone();
             if(vpEnd.squaredTo(eTmp->getStartpoint())>vpEnd.squaredTo(eTmp->getEndpoint()))
                 eTmp->revertDirection();
             vpEnd=eTmp->getEndpoint();
@@ -1620,7 +1556,7 @@ bool RS_EntityContainer::optimizeContours() {
 
 
 bool RS_EntityContainer::hasEndpointsWithinWindow(const RS_Vector& v1, const RS_Vector& v2) {
-	for(auto e: entities){
+    for(auto const& e: entities){
         if (e->hasEndpointsWithinWindow(v1, v2))  {
             return true;
         }
@@ -1631,7 +1567,7 @@ bool RS_EntityContainer::hasEndpointsWithinWindow(const RS_Vector& v1, const RS_
 
 
 void RS_EntityContainer::move(const RS_Vector& offset) {
-	for(auto e: entities){
+    for(auto& e: entities){
 
         e->move(offset);
         if (autoUpdateBorders) {
@@ -1648,7 +1584,7 @@ void RS_EntityContainer::move(const RS_Vector& offset) {
 void RS_EntityContainer::rotate(const RS_Vector& center, const double& angle) {
     RS_Vector angleVector(angle);
 
-	for(auto e: entities){
+    for(auto& e: entities){
         e->rotate(center, angleVector);
     }
     if (autoUpdateBorders) {
@@ -1659,7 +1595,7 @@ void RS_EntityContainer::rotate(const RS_Vector& center, const double& angle) {
 
 void RS_EntityContainer::rotate(const RS_Vector& center, const RS_Vector& angleVector) {
 
-	for(auto e: entities){
+    for(auto& e: entities){
         e->rotate(center, angleVector);
     }
     if (autoUpdateBorders) {
@@ -1671,7 +1607,7 @@ void RS_EntityContainer::rotate(const RS_Vector& center, const RS_Vector& angleV
 void RS_EntityContainer::scale(const RS_Vector& center, const RS_Vector& factor) {
     if (fabs(factor.x)>RS_TOLERANCE && fabs(factor.y)>RS_TOLERANCE) {
 
-		for(auto e: entities){
+        for(auto& e: entities){
             e->scale(center, factor);
         }
     }
@@ -1685,7 +1621,7 @@ void RS_EntityContainer::scale(const RS_Vector& center, const RS_Vector& factor)
 void RS_EntityContainer::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) {
     if (axisPoint1.distanceTo(axisPoint2)>1.0e-6) {
 
-		for(auto e: entities){
+        for(auto& e: entities){
             e->mirror(axisPoint1, axisPoint2);
         }
     }
@@ -1702,7 +1638,7 @@ void RS_EntityContainer::stretch(const RS_Vector& firstCorner,
         move(offset);
     } else {
 
-		for(auto e: entities){
+        for(auto& e: entities){
             e->stretch(firstCorner, secondCorner, offset);
         }
     }
@@ -1717,7 +1653,7 @@ void RS_EntityContainer::moveRef(const RS_Vector& ref,
                                  const RS_Vector& offset) {
 
 
-	for(auto e: entities){
+    for(auto& e: entities){
         e->moveRef(ref, offset);
     }
     if (autoUpdateBorders) {
@@ -1730,7 +1666,7 @@ void RS_EntityContainer::moveSelectedRef(const RS_Vector& ref,
                                          const RS_Vector& offset) {
 
 
-	for(auto e: entities){
+    for(auto& e: entities){
         e->moveSelectedRef(ref, offset);
     }
     if (autoUpdateBorders) {
@@ -1743,7 +1679,7 @@ void RS_EntityContainer::revertDirection() {
 		entities.swap(k, entities.size() - 1 - k);
 	}
 
-	for(RS_Entity*const entity: entities) {
+    for(auto& entity: entities) {
 		entity->revertDirection();
 	}
 }
@@ -1761,9 +1697,9 @@ void RS_EntityContainer::draw(RS_Painter* painter, RS_GraphicView* view,
     }
 
 
-	for(auto e: entities){
+    for(auto const& e: entities){
 
-        view->drawEntity(painter, e);
+        view->drawEntity(painter, e.get());
     }
 }
 
@@ -1781,7 +1717,7 @@ double RS_EntityContainer::areaLineIntegral() const
 
     // edges:
 
-	for(auto e: entities){
+    for(auto& e: entities){
         e->setLayer(getLayer());
         switch (e->rtti()) {
         case RS2::EntityLine:
@@ -1792,7 +1728,7 @@ double RS_EntityContainer::areaLineIntegral() const
             closedArea += e->areaLineIntegral();
             break;
         case RS2::EntityEllipse:
-            if(static_cast<RS_Ellipse*>(e)->isArc())
+            if(static_cast<RS_Ellipse*>(e.get())->isArc())
                 contourArea += e->areaLineIntegral();
             else
                 closedArea += e->areaLineIntegral();
@@ -1822,22 +1758,22 @@ bool RS_EntityContainer::ignoredOnModification() const
     }
 }
 
-QList<RS_Entity *>::const_iterator RS_EntityContainer::begin() const
+QList<std::shared_ptr<RS_Entity>>::const_iterator RS_EntityContainer::begin() const
 {
 	return entities.begin();
 }
 
-QList<RS_Entity *>::const_iterator RS_EntityContainer::end() const
+QList<std::shared_ptr<RS_Entity>>::const_iterator RS_EntityContainer::end() const
 {
 	return entities.end();
 }
 
-QList<RS_Entity *>::iterator RS_EntityContainer::begin()
+QList<std::shared_ptr<RS_Entity>>::iterator RS_EntityContainer::begin()
 {
 	return entities.begin();
 }
 
-QList<RS_Entity *>::iterator RS_EntityContainer::end()
+QList<std::shared_ptr<RS_Entity>>::iterator RS_EntityContainer::end()
 {
 	return entities.end();
 }
@@ -1885,13 +1821,13 @@ std::ostream& operator << (std::ostream& os, RS_EntityContainer& ec) {
 
         switch (t->rtti()) {
         case RS2::EntityInsert:
-            os << tab << *((RS_Insert*)t);
-            os << tab << *((RS_Entity*)t);
-            os << tab << *((RS_EntityContainer*)t);
+            os << tab << *((RS_Insert*)t.get());
+            os << tab << *((RS_Entity*)t.get());
+            os << tab << *((RS_EntityContainer*)t.get());
             break;
         default:
             if (t->isContainer()) {
-                os << tab << *((RS_EntityContainer*)t);
+                os << tab << *((RS_EntityContainer*)t.get());
             } else {
                 os << tab << *t;
             }

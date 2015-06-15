@@ -121,7 +121,7 @@ void RS_PreviewActionInterface::drawPreview() {
 	RS_EntityContainer *container=graphicView->getOverlayContainer(RS2::ActionPreviewEntity);
 	container->clear();
 	container->setOwner(false); // Little hack for now so we don't delete teh preview twice
-	container->addEntity(preview.get());
+    container->addEntity(std::shared_ptr<RS_Entity>(preview.get()));
 	graphicView->redraw(RS2::RedrawOverlay);
 	hasPreview=true;
 }

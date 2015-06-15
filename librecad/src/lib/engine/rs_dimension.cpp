@@ -348,7 +348,8 @@ if(dimtsz < 0.01) {
         //are text intersecting dimensionLine?
         if (sol1.hasValid() && sol2.hasValid()) {
             //yes, split dimension line
-            RS_Line* dimensionLine2 = (RS_Line*)dimensionLine->clone();
+            auto p=dimensionLine->clone();
+            RS_Line* dimensionLine2 = (RS_Line*)p.get();
             v1 = sol1.get(0);
             v2 = sol2.get(0);
             if (p1.distanceTo(v1) < p1.distanceTo(v2)) {
@@ -358,7 +359,7 @@ if(dimtsz < 0.01) {
                 dimensionLine->setEndpoint(v2);
                 dimensionLine2->setStartpoint(v1);
             }
-            addEntity(dimensionLine2);
+            addEntity(p);
         }
     }
 

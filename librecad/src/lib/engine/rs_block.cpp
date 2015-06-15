@@ -55,12 +55,12 @@ RS_Block::RS_Block(RS_EntityContainer* parent,
 }
 
 
-RS_Entity* RS_Block::clone() const {
+std::shared_ptr<RS_Entity> RS_Block::clone() const {
     RS_Block* blk = new RS_Block(*this);
     blk->setOwner(isOwner());
     blk->detach();
 //    blk->initId();
-    return blk;
+    return std::shared_ptr<RS_Entity>(blk);
 }
 
 

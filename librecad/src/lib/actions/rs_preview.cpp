@@ -64,8 +64,8 @@ RS_Preview::~RS_Preview() {
  * Adds an entity to this preview and removes any attributes / layer
  * connectsions before that.
  */
-void RS_Preview::addEntity(RS_Entity* entity) {
-    if (entity==NULL || entity->isUndone()) {
+void RS_Preview::addEntity(std::shared_ptr<RS_Entity> const& entity) {
+    if (!entity || entity->isUndone()) {
         return;
     }
 
@@ -91,36 +91,38 @@ void RS_Preview::addEntity(RS_Entity* entity) {
         RS_Vector min = entity->getMin();
         RS_Vector max = entity->getMax();
 
-        RS_Line* l1 =
+        std::shared_ptr<RS_Entity> l1{
             new RS_Line(this,
                         RS_LineData(RS_Vector(min.x, min.y),
-                                    RS_Vector(max.x, min.y)));
-        RS_Line* l2 =
+                                    RS_Vector(max.x, min.y)))
+        };
+        std::shared_ptr<RS_Entity> l2{
             new RS_Line(this,
                         RS_LineData(RS_Vector(max.x, min.y),
-                                    RS_Vector(max.x, max.y)));
-        RS_Line* l3 =
+                                    RS_Vector(max.x, max.y)))
+        };
+        std::shared_ptr<RS_Entity> l3{
             new RS_Line(this,
                         RS_LineData(RS_Vector(max.x, max.y),
-                                    RS_Vector(min.x, max.y)));
-        RS_Line* l4 =
+                                    RS_Vector(min.x, max.y)))
+        };
+        std::shared_ptr<RS_Entity> l4{
             new RS_Line(this,
                         RS_LineData(RS_Vector(min.x, max.y),
-                                    RS_Vector(min.x, min.y)));
+                                    RS_Vector(min.x, min.y)))
+        };
 
         RS_EntityContainer::addEntity(l1);
         RS_EntityContainer::addEntity(l2);
         RS_EntityContainer::addEntity(l3);
         RS_EntityContainer::addEntity(l4);
-
-        delete entity;
-        entity = NULL;
     } else {
-        entity->setLayer(NULL);
-        entity->setSelected(false);
-        entity->reparent(this);
+        auto p=entity;
+        p->setLayer(nullptr);
+        p->setSelected(false);
+        p->reparent(this);
                 // Don't set this pen, let drawing routines decide entity->setPenToActive();
-        RS_EntityContainer::addEntity(entity);
+        RS_EntityContainer::addEntity(p);
     }
 }
 
@@ -129,12 +131,10 @@ void RS_Preview::addEntity(RS_Entity* entity) {
 /**
  * Clones the given entity and adds the clone to the preview.
  */
-void RS_Preview::addCloneOf(RS_Entity* entity) {
-    if (entity==NULL) {
-        return;
-    }
+void RS_Preview::addCloneOf(std::shared_ptr<RS_Entity> const& entity) {
+    if (!entity) return;
 
-    RS_Entity* clone = entity->clone();
+    auto clone = entity->clone();
     addEntity(clone);
 }
 
@@ -145,10 +145,10 @@ void RS_Preview::addCloneOf(RS_Entity* entity) {
  */
 void RS_Preview::addAllFrom(RS_EntityContainer& container) {
 	int c=0;
-	for(auto e: container){
+    for(auto const& e: container){
 
         if (c<maxEntities) {
-            RS_Entity* clone = e->clone();
+            std::shared_ptr<RS_Entity> clone = e->clone();
             clone->setSelected(false);
             clone->reparent(this);
 
@@ -168,7 +168,7 @@ void RS_Preview::addSelectionFrom(RS_EntityContainer& container) {
 	for(auto e: container){
 
         if (e->isSelected() && c<maxEntities) {
-            RS_Entity* clone = e->clone();
+            std::shared_ptr<RS_Entity> clone = e->clone();
             clone->setSelected(false);
             clone->reparent(this);
 
@@ -198,7 +198,7 @@ void RS_Preview::addStretchablesFrom(RS_EntityContainer& container,
 
                 c<maxEntities) {
 
-            RS_Entity* clone = e->clone();
+            std::shared_ptr<RS_Entity> clone = e->clone();
             //clone->setSelected(false);
             clone->reparent(this);
 

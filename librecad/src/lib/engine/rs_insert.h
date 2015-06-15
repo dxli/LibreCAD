@@ -95,7 +95,7 @@ public:
               const RS_InsertData& d);
 	virtual ~RS_Insert() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /** @return RS2::EntityInsert */
     virtual RS2::EntityType rtti() const {

@@ -41,7 +41,7 @@ RS_OverlayBox::RS_OverlayBox(RS_EntityContainer* parent,
     :RS_AtomicEntity(parent), data(d) {
 }
 
-RS_Entity* RS_OverlayBox::clone() const{
+std::shared_ptr<RS_Entity> RS_OverlayBox::clone() const{
     RS_OverlayBox* l = new RS_OverlayBox(*this);
 //    l->initId();
     return l;

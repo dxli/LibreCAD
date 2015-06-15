@@ -67,7 +67,7 @@ public:
                 const RS_LeaderData& d);
 	virtual ~RS_Leader() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityDimLeader */
     virtual RS2::EntityType rtti() const {

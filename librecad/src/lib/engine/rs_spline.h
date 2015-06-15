@@ -64,8 +64,7 @@ public:
             const RS_SplineData& d);
 	virtual ~RS_Spline() = default;
 
-	virtual RS_Entity* clone() const;
-
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntitySpline */
     virtual RS2::EntityType rtti() const {

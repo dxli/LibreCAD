@@ -62,10 +62,8 @@ RS_ConstructionLine::RS_ConstructionLine(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_ConstructionLine::clone() const {
-    RS_ConstructionLine* c = new RS_ConstructionLine(*this);
-//    c->initId();
-    return c;
+std::shared_ptr<RS_Entity> RS_ConstructionLine::clone() const {
+    return std::shared_ptr<RS_Entity>{new RS_ConstructionLine(*this)};
 }
 
 void RS_ConstructionLine::calculateBorders() {
@@ -94,10 +92,10 @@ RS_Vector RS_ConstructionLine::getNearestEndpoint(const RS_Vector& coord,
 }
 
 RS_Vector RS_ConstructionLine::getNearestPointOnEntity(const RS_Vector& coord,
-        bool /*onEntity*/, double* /*dist*/, RS_Entity** entity) const{
+        bool /*onEntity*/, double* /*dist*/, std::shared_ptr<RS_Entity>* entity) const{
 
 	if (entity) {
-        *entity = const_cast<RS_ConstructionLine*>(this);
+        entity->reset(const_cast<RS_ConstructionLine*>(this));
     }
 
     RS_Vector ae = data.point2-data.point1;
@@ -186,13 +184,13 @@ RS_Vector RS_ConstructionLine::getNearestDist(double /*distance*/,
 
 
 double RS_ConstructionLine::getDistanceToPoint(const RS_Vector& coord,
-        RS_Entity** entity,
+        std::shared_ptr<RS_Entity>* entity,
         RS2::ResolveLevel /*level*/, double /*solidDist*/) const {
 
     RS_DEBUG->print("RS_ConstructionLine::getDistanceToPoint");
 
 	if (entity) {
-        *entity = const_cast<RS_ConstructionLine*>(this);
+        entity->reset(const_cast<RS_ConstructionLine*>(this));
     }
     //double dist = RS_MAXDOUBLE;
     RS_Vector se = data.point2-data.point1;

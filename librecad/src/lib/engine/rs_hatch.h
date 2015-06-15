@@ -82,7 +82,7 @@ public:
             const RS_HatchData& d);
 	virtual ~RS_Hatch() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityHatch */
     virtual RS2::EntityType rtti() const {
@@ -149,7 +149,7 @@ public:
         //	}
 
         virtual double getDistanceToPoint(const RS_Vector& coord,
-                                          RS_Entity** entity = NULL,
+                                          std::shared_ptr<RS_Entity>* entity = NULL,
                                           RS2::ResolveLevel level = RS2::ResolveNone,
                                           double solidDist = RS_MAXDOUBLE) const;
 
@@ -167,7 +167,7 @@ public:
 
 protected:
         RS_HatchData data;
-        RS_EntityContainer* hatch;
+        std::shared_ptr<RS_Entity> hatch;
         bool updateRunning;
         bool needOptimization;
         int  updateError;

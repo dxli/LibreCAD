@@ -122,7 +122,7 @@ void RS_Graphic::removeLayer(RS_Layer* layer) {
 
     if (layer && layer->getName()!="0") {
 
-		std::vector<RS_Entity*> toRemove;
+        std::vector<std::shared_ptr<RS_Entity>> toRemove;
 		//find entities on layer
 		for(auto e: entities){
 			if (e->getLayer() &&
@@ -143,9 +143,9 @@ void RS_Graphic::removeLayer(RS_Layer* layer) {
 
 		toRemove.clear();
         // remove all entities in blocks that are on that layer:
-		for(RS_Block* blk: blockList){
+        for(auto blk: blockList){
 			if(!blk) continue;
-			for(auto e: *blk){
+            for(auto e: *((RS_Block*)blk.get())){
 
 				if (e->getLayer() &&
 						e->getLayer()->getName()==layer->getName()) {
@@ -907,12 +907,12 @@ bool RS_Graphic::fitToPage() {
     return ret;
 }
 
-void RS_Graphic::addEntity(RS_Entity* entity)
+void RS_Graphic::addEntity(std::shared_ptr<RS_Entity> const& entity)
 {
     RS_EntityContainer::addEntity(entity);
     if( entity->rtti() == RS2::EntityBlock ||
             entity->rtti() == RS2::EntityContainer){
-        RS_EntityContainer* e=static_cast<RS_EntityContainer*>(entity);
+        RS_EntityContainer* e=static_cast<RS_EntityContainer*>(entity.get());
 		for(auto e1: *e){
             addEntity(e1);
         }

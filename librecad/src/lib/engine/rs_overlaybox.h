@@ -69,7 +69,7 @@ public:
 class RS_OverlayBox : public RS_AtomicEntity {
 public:
     RS_OverlayBox(RS_EntityContainer* parent, const RS_OverlayBoxData& d);
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 	virtual ~RS_OverlayBox() = default;
 
     /**	@return RS2::EntityLine */
@@ -99,7 +99,7 @@ public:
     virtual void mirror(const RS_Vector& /*axisPoint1*/, const RS_Vector& /*axisPoint2*/){}
     virtual void calculateBorders(){}
     virtual RS_Vector getNearestEndpoint(const RS_Vector&, double*)const{return RS_Vector(false);}
-    virtual RS_Vector getNearestPointOnEntity(const RS_Vector&, bool, double*, RS_Entity**)const{return RS_Vector();}
+    virtual RS_Vector getNearestPointOnEntity(const RS_Vector&, bool, double*, std::shared_ptr<RS_Entity>*)const{return RS_Vector();}
 	virtual RS_Vector getNearestCenter(const RS_Vector&, double*)const{return RS_Vector();}
     virtual RS_Vector getNearestMiddle(const RS_Vector&, double*,int)const{return RS_Vector();}
 	virtual RS_Vector getNearestDist(double, const RS_Vector&, double*)const{return RS_Vector();}

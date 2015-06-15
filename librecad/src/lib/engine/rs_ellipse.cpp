@@ -127,10 +127,8 @@ RS_Ellipse::RS_Ellipse(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_Ellipse::clone() const {
-	RS_Ellipse* e = new RS_Ellipse(*this);
-//	e->initId();
-	return e;
+std::shared_ptr<RS_Entity> RS_Ellipse::clone() const {
+    return std::shared_ptr<RS_Entity>{new RS_Ellipse(*this)};
 }
 
 /**
@@ -462,7 +460,7 @@ RS_Vector  RS_Ellipse::getEllipsePoint(const double& a) const {
 */
 
 RS_Vector RS_Ellipse::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity)const
+        bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity)const
 {
 
     RS_DEBUG->print("RS_Ellipse::getNearestPointOnEntity");
@@ -475,7 +473,7 @@ RS_Vector RS_Ellipse::getNearestPointOnEntity(const RS_Vector& coord,
     }
 
 	if (entity) {
-        *entity = const_cast<RS_Ellipse*>(this);
+        entity->reset(const_cast<RS_Ellipse*>(this));
     }
     ret=coord;
     ret.move(-getCenter());

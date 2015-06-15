@@ -48,7 +48,7 @@ public:
     RS_EntityContainer& operator = (const RS_EntityContainer& ec);
     virtual ~RS_EntityContainer();
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
     virtual void detach();
 
     /** @return RS2::EntityContainer */
@@ -85,21 +85,22 @@ public:
     virtual void selectWindow(RS_Vector v1, RS_Vector v2,
                 bool select=true, bool cross=false);
 
+    virtual void addEntity(std::shared_ptr<RS_Entity> const& entity);
     virtual void addEntity(RS_Entity* entity);
-    virtual void appendEntity(RS_Entity* entity);
-    virtual void prependEntity(RS_Entity* entity);
-	virtual void moveEntity(int index, QList<RS_Entity *>& entList);
-    virtual void insertEntity(int index, RS_Entity* entity);
-//RLZ unused    virtual void replaceEntity(int index, RS_Entity* entity);
-    virtual bool removeEntity(RS_Entity* entity);
-    virtual RS_Entity* firstEntity(RS2::ResolveLevel level=RS2::ResolveNone);
-    virtual RS_Entity* lastEntity(RS2::ResolveLevel level=RS2::ResolveNone);
-    virtual RS_Entity* nextEntity(RS2::ResolveLevel level=RS2::ResolveNone);
-    virtual RS_Entity* prevEntity(RS2::ResolveLevel level=RS2::ResolveNone);
-    virtual RS_Entity* entityAt(int index);
-	virtual void setEntityAt(int index,RS_Entity* en);
+
+    virtual void appendEntity(std::shared_ptr<RS_Entity> const& entity);
+    virtual void prependEntity(std::shared_ptr<RS_Entity> const& entity);
+    virtual void moveEntity(int index, QList<std::shared_ptr<RS_Entity>>& entList);
+    virtual void insertEntity(int index, std::shared_ptr<RS_Entity> const& entity);
+    virtual bool removeEntity(std::shared_ptr<RS_Entity> const& entity);
+    virtual std::shared_ptr<RS_Entity> firstEntity(RS2::ResolveLevel level=RS2::ResolveNone);
+    virtual std::shared_ptr<RS_Entity> lastEntity(RS2::ResolveLevel level=RS2::ResolveNone);
+    virtual std::shared_ptr<RS_Entity> nextEntity(RS2::ResolveLevel level=RS2::ResolveNone);
+    virtual std::shared_ptr<RS_Entity> prevEntity(RS2::ResolveLevel level=RS2::ResolveNone);
+    virtual std::shared_ptr<RS_Entity> entityAt(int index);
+    virtual void setEntityAt(int index,std::shared_ptr<RS_Entity> const& en);
 //RLZ unused	virtual int entityAt();
-		virtual int findEntity(RS_Entity const* const entity);
+    virtual int findEntity(std::shared_ptr<RS_Entity> const& entity);
     virtual void clear();
 
     //virtual unsigned long int count() {
@@ -125,7 +126,7 @@ public:
     virtual void setAutoUpdateBorders(bool enable) {
         autoUpdateBorders = enable;
     }
-    virtual void adjustBorders(RS_Entity* entity);
+    virtual void adjustBorders(std::shared_ptr<RS_Entity> const& entity);
     virtual void calculateBorders();
     virtual void forcedCalculateBorders();
     virtual void updateDimensions( bool autoText=true);
@@ -136,37 +137,37 @@ public:
 				const QString& newName);
 
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+                                         double* dist = nullptr)const;
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist, RS_Entity** pEntity )const;
+                                         double* dist, std::shared_ptr<RS_Entity>* pEntity )const;
 
-    RS_Entity* getNearestEntity(const RS_Vector& point,
-                                double* dist = NULL,
+    std::shared_ptr<RS_Entity> getNearestEntity(const RS_Vector& point,
+                                double* dist = nullptr,
 								RS2::ResolveLevel level=RS2::ResolveAll) const;
 
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
             bool onEntity = true,
-                        double* dist = NULL,
-            RS_Entity** entity=NULL)const;
+                        double* dist = nullptr,
+            std::shared_ptr<RS_Entity>* entity=nullptr)const;
 
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = NULL)const;
+                                       double* dist = nullptr)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-                                       double* dist = NULL,
+                                       double* dist = nullptr,
                                        int middlePoints = 1
                                        )const;
     virtual RS_Vector getNearestDist(double distance,
                                      const RS_Vector& coord,
-									 double* dist = NULL) const;
+                                     double* dist = nullptr) const;
     virtual RS_Vector getNearestIntersection(const RS_Vector& coord,
-            double* dist = NULL);
+            double* dist = nullptr);
     virtual RS_Vector getNearestRef(const RS_Vector& coord,
-									 double* dist = NULL) const;
+                                     double* dist = nullptr) const;
     virtual RS_Vector getNearestSelectedRef(const RS_Vector& coord,
-									 double* dist = NULL) const;
+                                     double* dist = nullptr) const;
 
     virtual double getDistanceToPoint(const RS_Vector& coord,
-                                      RS_Entity** entity,
+                                      std::shared_ptr<RS_Entity>* entity,
                                       RS2::ResolveLevel level=RS2::ResolveNone,
                                       double solidDist = RS_MAXDOUBLE) const;
 
@@ -211,18 +212,18 @@ public:
 	 * @brief begin/end to support range based loop
 	 * @return iterator
 	 */
-	QList<RS_Entity *>::const_iterator begin() const;
-	QList<RS_Entity *>::const_iterator end() const;
-	QList<RS_Entity *>::iterator begin() ;
-	QList<RS_Entity *>::iterator end() ;
+    QList<std::shared_ptr<RS_Entity>>::const_iterator begin() const;
+    QList<std::shared_ptr<RS_Entity>>::const_iterator end() const;
+    QList<std::shared_ptr<RS_Entity>>::iterator begin() ;
+    QList<std::shared_ptr<RS_Entity>>::iterator end() ;
 
 protected:
 
     /** entities in the container */
-    QList<RS_Entity *> entities;
+    QList<std::shared_ptr<RS_Entity>> entities;
 
     /** sub container used only temporarly for iteration. */
-    RS_EntityContainer* subContainer=nullptr;
+    std::shared_ptr<RS_Entity> subContainer;
 
     /**
      * Automatically update the borders of the container when entities

@@ -63,7 +63,7 @@ public:
     RS_Line(RS_EntityContainer* parent, const RS_Vector& pStart, const RS_Vector& pEnd);
     RS_Line(const RS_Vector& pStart, const RS_Vector& pEnd);
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
 	virtual ~RS_Line() = default;
 
@@ -166,7 +166,7 @@ public:
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
 										 double* dist = nullptr)const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-			bool onEntity=true, double* dist = nullptr, RS_Entity** entity=nullptr)const;
+            bool onEntity=true, double* dist = nullptr, std::shared_ptr<RS_Entity>* entity=nullptr)const;
 //    virtual RS_Vector getNearestCenter(const RS_Vector& coord,
 //                                       double* dist = nullptr);
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,

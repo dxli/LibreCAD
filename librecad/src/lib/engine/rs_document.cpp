@@ -94,8 +94,8 @@ bool RS_Document::isDocument() const {
  * Removes an entity from the entiy container. Implementation
  * from RS_Undo.
  */
-void RS_Document::removeUndoable(RS_Undoable* u) {
+void RS_Document::removeUndoable(std::shared_ptr<RS_Entity> const& u) {
     if (u && u->undoRtti()==RS2::UndoableEntity) {
-        removeEntity((RS_Entity*)u);
+        removeEntity(u);
     }
 }

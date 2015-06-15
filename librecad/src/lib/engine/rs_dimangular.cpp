@@ -82,12 +82,12 @@ RS_DimAngular::RS_DimAngular(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_DimAngular::clone() const{
+std::shared_ptr<RS_Entity> RS_DimAngular::clone() const{
 		RS_DimAngular* d = new RS_DimAngular(*this);
 		d->setOwner(isOwner());
 //		d->initId();
 		d->detach();
-		return d;
+        return std::shared_ptr<RS_Entity>{d};
 	}
 
 /**
@@ -311,7 +311,7 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
 
     double rad = edata.definitionPoint4.distanceTo(center);
 
-    RS_Line* line;
+    std::shared_ptr<RS_Entity> line;
     RS_Vector dir;
     double len;
     double dist;
@@ -320,9 +320,9 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     dist = center.distanceTo(p1);
     len = rad - dist + dimexe;
     dir.setPolar(1.0, ang1);
-    line = new RS_Line(this,
+    line.reset(new RS_Line(this,
                        RS_LineData(center + dir*dist + dir*dimexo,
-                                   center + dir*dist + dir*len));
+                                   center + dir*dist + dir*len)));
     line->setPen(RS_Pen(RS2::FlagInvalid));
     line->setLayer(NULL);
     addEntity(line);
@@ -331,20 +331,20 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     dist = center.distanceTo(p2);
     len = rad - dist + dimexe;
     dir.setPolar(1.0, ang2);
-    line = new RS_Line(this,
+    line.reset(new RS_Line(this,
                        RS_LineData(center + dir*dist + dir*dimexo,
-                                   center + dir*dist + dir*len));
+                                   center + dir*dist + dir*len)));
     line->setPen(RS_Pen(RS2::FlagInvalid));
     line->setLayer(NULL);
     addEntity(line);
 
     // Create dimension line (arc):
-    RS_Arc* arc = new RS_Arc(this,
+    auto arc=new RS_Arc(this,
                              RS_ArcData(center,
                                         rad, ang1, ang2, reversed));
     arc->setPen(RS_Pen(RS2::FlagInvalid));
     arc->setLayer(NULL);
-    addEntity(arc);
+    addEntity(std::shared_ptr<RS_Entity>{arc});
 
     // length of dimension arc:
     double distance = arc->getLength();
@@ -395,7 +395,7 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
                       arrowSize);
     arrow->setPen(RS_Pen(RS2::FlagInvalid));
     arrow->setLayer(NULL);
-    addEntity(arrow);
+    addEntity(std::shared_ptr<RS_Entity>(arrow));
 
     // arrow 2:
     arrow = new RS_Solid(this, sd);
@@ -404,7 +404,7 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
                       arrowSize);
     arrow->setPen(RS_Pen(RS2::FlagInvalid));
     arrow->setLayer(NULL);
-    addEntity(arrow);
+    addEntity(std::shared_ptr<RS_Entity>{arrow});
 
 
     // text label:
@@ -448,7 +448,7 @@ void RS_DimAngular::updateDim(bool /*autoText*/) {
     // move text to the side:
     text->setPen(RS_Pen(RS2::FlagInvalid));
     text->setLayer(NULL);
-    addEntity(text);
+    addEntity(std::shared_ptr<RS_Entity>{text});
 
     calculateBorders();
 }

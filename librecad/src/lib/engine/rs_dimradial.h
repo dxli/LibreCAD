@@ -69,7 +69,7 @@ public:
                  const RS_DimRadialData& ed);
 	virtual ~RS_DimRadial() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityDimRadial */
     virtual RS2::EntityType rtti() const {

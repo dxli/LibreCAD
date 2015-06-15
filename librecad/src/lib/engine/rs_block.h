@@ -84,7 +84,7 @@ public:
 
 	virtual ~RS_Block() = default;
 	
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /** @return RS2::EntityBlock */
     virtual RS2::EntityType rtti() const {

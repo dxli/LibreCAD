@@ -57,7 +57,7 @@ RS_Spline::RS_Spline(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_Spline::clone() const{
+std::shared_ptr<RS_Entity> RS_Spline::clone() const{
     RS_Spline* l = new RS_Spline(*this);
     l->setOwner(isOwner());
 //    l->initId();

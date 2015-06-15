@@ -61,7 +61,7 @@ public:
     RS_Point(RS_EntityContainer* parent,
              const RS_PointData& d);
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS_ENTITY_POINT */
     virtual RS2::EntityType rtti() const {
@@ -102,19 +102,20 @@ public:
 
     virtual RS_Vector getMiddlePoint(void)const;
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
-                                         double* dist = NULL)const;
+                                         double* dist = nullptr)const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-            bool onEntity = true, double* dist = NULL, RS_Entity** entity = NULL)const;
+            bool onEntity = true, double* dist = nullptr,
+                                              std::shared_ptr<RS_Entity>* entity = nullptr)const;
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
-									   double* dist = NULL)const;
+                                       double* dist = nullptr)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,
-                                       double* dist = NULL,
+                                       double* dist = nullptr,
                                        int middlePoints = 1)const;
     virtual RS_Vector getNearestDist(double distance,
                                      const RS_Vector& coord,
-									 double* dist = NULL)const;
+                                     double* dist = nullptr)const;
     virtual double getDistanceToPoint(const RS_Vector& coord,
-                                      RS_Entity** entity=NULL,
+                                      std::shared_ptr<RS_Entity>* entity=nullptr,
                                       RS2::ResolveLevel level=RS2::ResolveNone,
                                                                           double solidDist = RS_MAXDOUBLE)const;
 

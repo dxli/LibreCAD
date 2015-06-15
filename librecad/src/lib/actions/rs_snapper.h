@@ -29,6 +29,7 @@
 #define RS_SNAPPER_H
 
 #include <set>
+#include <memory>
 #include "rs.h"
 #include "rs_vector.h"
 
@@ -108,7 +109,7 @@ public:
      * If the snap mode didn't require an entity (e.g. free, grid) this
      * method will return NULL.
      */
-    RS_Entity* getKeyEntity() {
+   std::shared_ptr<RS_Entity> getKeyEntity() {
         return keyEntity;
     }
 
@@ -154,16 +155,16 @@ public:
 
     //RS_Entity* catchLeafEntity(const RS_Vector& pos);
     //RS_Entity* catchLeafEntity(QMouseEvent* e);
-    RS_Entity* catchEntity(const RS_Vector& pos,
+    std::shared_ptr<RS_Entity> catchEntity(const RS_Vector& pos,
                            RS2::ResolveLevel level=RS2::ResolveNone);
-    RS_Entity* catchEntity(QMouseEvent* e,
+    std::shared_ptr<RS_Entity> catchEntity(QMouseEvent* e,
                            RS2::ResolveLevel level=RS2::ResolveNone);
     // catch Entity closest to pos and of the given entity type of enType, only search for a particular entity type
-    RS_Entity* catchEntity(const RS_Vector& pos, RS2::EntityType enType,
+    std::shared_ptr<RS_Entity> catchEntity(const RS_Vector& pos, RS2::EntityType enType,
                            RS2::ResolveLevel level=RS2::ResolveNone);
-    RS_Entity* catchEntity(QMouseEvent* e, RS2::EntityType enType,
+    std::shared_ptr<RS_Entity> catchEntity(QMouseEvent* e, RS2::EntityType enType,
                            RS2::ResolveLevel level=RS2::ResolveNone);
-    RS_Entity* catchEntity(QMouseEvent* e, const std::set<RS2::EntityType>& enTypeList,
+    std::shared_ptr<RS_Entity> catchEntity(QMouseEvent* e, const std::set<RS2::EntityType>& enTypeList,
                            RS2::ResolveLevel level=RS2::ResolveNone);
 
     /**
@@ -194,7 +195,7 @@ protected:
     double getSnapRange() const;
     RS_EntityContainer* container;
     RS_GraphicView* graphicView;
-    RS_Entity* keyEntity;
+    std::shared_ptr<RS_Entity> keyEntity;
     RS_Vector snapCoord;
     RS_Vector snapSpot;
     RS_SnapMode snapMode;

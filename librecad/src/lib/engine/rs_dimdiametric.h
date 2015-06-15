@@ -69,7 +69,7 @@ public:
                  const RS_DimDiametricData& ed);
 	virtual ~RS_DimDiametric() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityDimDiametric */
     virtual RS2::EntityType rtti() const {

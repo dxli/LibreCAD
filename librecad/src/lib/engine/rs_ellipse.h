@@ -75,7 +75,7 @@ public:
                const RS_EllipseData& d);
 	~RS_Ellipse()=default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityEllipse */
     virtual RS2::EntityType rtti() const {
@@ -195,7 +195,7 @@ public:
     virtual RS_Vector getNearestEndpoint(const RS_Vector& coord,
 										 double* dist = nullptr) const;
     virtual RS_Vector getNearestPointOnEntity(const RS_Vector& coord,
-			bool onEntity = true, double* dist = nullptr, RS_Entity** entity=nullptr) const;
+            bool onEntity = true, double* dist = nullptr, std::shared_ptr<RS_Entity>* entity=nullptr) const;
     virtual RS_Vector getNearestCenter(const RS_Vector& coord,
 									   double* dist = nullptr)const;
     virtual RS_Vector getNearestMiddle(const RS_Vector& coord,

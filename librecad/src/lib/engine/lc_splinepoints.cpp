@@ -286,7 +286,7 @@ LC_SplinePoints::LC_SplinePoints(RS_EntityContainer* parent,
 	calculateBorders();
 }
 
-RS_Entity* LC_SplinePoints::clone() const
+std::shared_ptr<RS_Entity> LC_SplinePoints::clone() const
 {
     LC_SplinePoints* l = new LC_SplinePoints(*this);
 //	l->initId();
@@ -788,12 +788,12 @@ RS_Vector LC_SplinePoints::getNearestPointOnEntity(const RS_Vector& coord,
 	else if(n < 3) vRes = vStart*(1.0 - dt) + vEnd*dt;
 	else vRes = GetQuadAtPoint(vStart, vControl, vEnd, dt);
 
-	if(entity) *entity = const_cast<LC_SplinePoints*>(this);
+    if(entity) entity->reset(const_cast<LC_SplinePoints*>(this));
 	return vRes;
 }
 
 double LC_SplinePoints::getDistanceToPoint(const RS_Vector& coord,
-    RS_Entity** entity, RS2::ResolveLevel /*level*/, double /*solidDist*/) const
+    std::shared_ptr<RS_Entity>* entity, RS2::ResolveLevel /*level*/, double /*solidDist*/) const
 {
 	double dDist = RS_MAXDOUBLE;
 	getNearestPointOnEntity(coord, true, &dDist, entity);

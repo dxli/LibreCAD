@@ -342,12 +342,12 @@ bool RS_Entity::isPointOnEntity(const RS_Vector& coord,
 }
 
 double RS_Entity::getDistanceToPoint(const RS_Vector& coord,
-                                  RS_Entity** entity,
+                                  std::shared_ptr<RS_Entity>* entity,
                                   RS2::ResolveLevel /*level*/,
                                   double /*solidDist*/) const
 {
-    if( entity != NULL) {
-        *entity=const_cast<RS_Entity*>(this);
+    if( entity) {
+        entity->reset(const_cast<RS_Entity*>(this));
     }
     double dToEntity = RS_MAXDOUBLE;
     (void) getNearestPointOnEntity(coord, true, &dToEntity, entity);

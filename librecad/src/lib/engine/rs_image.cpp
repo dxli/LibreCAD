@@ -89,7 +89,9 @@ RS_Image RS_Image::operator = (const RS_Image& _image)
 	return *this;
 }
 
-RS_Entity* RS_Image::clone() const {
+RS_Image::~RS_Image(){}
+
+std::shared_ptr<RS_Entity> RS_Image::clone() const {
     RS_Image* i = new RS_Image(*this);
         i->setHandle(getHandle());
 //    i->initId();
@@ -207,7 +209,7 @@ RS_Vector RS_Image::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_Image::getNearestPointOnEntity(const RS_Vector& coord,
-        bool onEntity, double* dist, RS_Entity** entity) const{
+        bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity) const{
 
     if (entity) {
         *entity = const_cast<RS_Image*>(this);
@@ -297,11 +299,11 @@ RS_Vector RS_Image::getNearestDist(double distance,
 
 
 double RS_Image::getDistanceToPoint(const RS_Vector& coord,
-                                    RS_Entity** entity,
+                                    std::shared_ptr<RS_Entity>* entity,
                                     RS2::ResolveLevel /*level*/,
                                                                         double /*solidDist*/) const{
     if (entity) {
-        *entity = const_cast<RS_Image*>(this);
+        entity->reset(const_cast<RS_Image*>(this));
     }
 
     RS_VectorSolutions corners = getCorners();

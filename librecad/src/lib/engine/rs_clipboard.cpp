@@ -45,7 +45,7 @@ void RS_Clipboard::clear() {
 
 
 
-void RS_Clipboard::addBlock(RS_Block* b) {
+void RS_Clipboard::addBlock(std::shared_ptr<RS_Entity> const& b) {
 	if (b) {
 		graphic.addBlock(b, false);
 	}
@@ -53,7 +53,7 @@ void RS_Clipboard::addBlock(RS_Block* b) {
 
 
 bool RS_Clipboard::hasBlock(const QString& name) {
-	return (graphic.findBlock(name));
+    return (bool) (graphic.findBlock(name));
 }
 
 
@@ -72,7 +72,7 @@ bool RS_Clipboard::hasLayer(const QString& name) {
 
 
 
-void RS_Clipboard::addEntity(RS_Entity* e) {
+void RS_Clipboard::addEntity(std::shared_ptr<RS_Entity> const& e) {
 	if (e) {
 		//graphic.addEntity(e->clone());
 		graphic.addEntity(e);

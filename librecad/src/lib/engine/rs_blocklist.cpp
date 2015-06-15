@@ -42,10 +42,9 @@
  *              If so, the blocks will be deleted when the block
  *              list is deleted.
  */
-RS_BlockList::RS_BlockList(bool owner) {
-    this->owner = owner;
+RS_BlockList::RS_BlockList(bool /*owner*/)
+{
     //blocks.setAutoDelete(owner);
-	activeBlock = nullptr;
 	setModified(false);
 }
 
@@ -55,7 +54,7 @@ RS_BlockList::RS_BlockList(bool owner) {
  */
 void RS_BlockList::clear() {
     blocks.clear();
-	activeBlock = nullptr;
+    activeBlock.reset();
 	setModified(true);
 }
 
@@ -74,11 +73,15 @@ void RS_BlockList::activate(const QString& name) {
  * Activates the given block.
  * Listeners are notified.
  */
-void RS_BlockList::activate(RS_Block* block) {
+void RS_BlockList::activate(std::shared_ptr<RS_Entity> const& block) {
     RS_DEBUG->print("RS_BlockList::activateBlock");
 	activeBlock = block;
 }
 
+bool RS_BlockList::add(RS_Entity* block, bool notify)
+{
+    return add(std::shared_ptr<RS_Entity>{block}, notify);
+}
 
 /**
  * Adds a block to the block list. If a block with the same name
@@ -89,16 +92,16 @@ void RS_BlockList::activate(RS_Block* block) {
  *
  * @return false: block already existed and was deleted.
  */
-bool RS_BlockList::add(RS_Block* block, bool notify) {
+bool RS_BlockList::add(std::shared_ptr<RS_Entity> const& block, bool notify) {
     RS_DEBUG->print("RS_BlockList::add()");
 
-	if (block==nullptr) {
-        return false;
-    }
+    if (!block) return false;
+    if (block->rtti()!= RS2::EntityBlock) return false;
 
     // check if block already exists:
-    RS_Block* b = find(block->getName());
-	if (b==nullptr) {
+    RS_Block* blockP=static_cast<RS_Block*>(block.get());
+    std::shared_ptr<RS_Entity> b = find(blockP->getName());
+    if (!b) {
         blocks.append(block);
 
         if (notify) {
@@ -108,10 +111,10 @@ bool RS_BlockList::add(RS_Block* block, bool notify) {
 
 		return true;
     } else {
-        if (owner) {
-            delete block;
-			block = nullptr;
-        }
+//        if (owner) {
+//            delete block;
+//			block = nullptr;
+//        }
 		return false;
     }
 
@@ -137,7 +140,7 @@ void RS_BlockList::addNotification() {
  * Listeners are notified after the block was removed from 
  * the list but before it gets deleted.
  */
-void RS_BlockList::remove(RS_Block* block) {
+void RS_BlockList::remove(std::shared_ptr<RS_Entity> const& block) {
     RS_DEBUG->print("RS_BlockList::removeBlock()");
 
     // here the block is removed from the list but not deleted
@@ -156,14 +159,14 @@ void RS_BlockList::remove(RS_Block* block) {
     // activate an other block if necessary:
     if (activeBlock==block) {
     	//activate(blocks.first());
-		activeBlock = nullptr;
+        activeBlock.reset();
 	}
     // * /
 
     // now it's save to delete the block
-    if (owner) {
-        delete block;
-    }
+//    if (owner) {
+//        delete block;
+//    }
 }
 
 
@@ -175,10 +178,10 @@ void RS_BlockList::remove(RS_Block* block) {
  * @retval true block was successfully renamed.
  * @retval false block couldn't be renamed.
  */
-bool RS_BlockList::rename(RS_Block* block, const QString& name) {
+bool RS_BlockList::rename(std::shared_ptr<RS_Entity>& block, const QString& name) {
 	if (block) {
-		if (find(name)==nullptr) {
-			block->setName(name);
+        if (!find(name)) {
+            static_cast<RS_Block*>(block.get())->setName(name);
 			setModified(true);
 			return true;
 		}
@@ -209,11 +212,11 @@ void RS_BlockList::editBlock(RS_Block* block, const RS_Block& source) {
  * @return Pointer to the block with the given name or
  * \p nullptr if no such block was found.
  */
-RS_Block* RS_BlockList::find(const QString& name) {
+std::shared_ptr<RS_Entity> RS_BlockList::find(const QString& name) {
     //RS_DEBUG->print("RS_BlockList::find");
 	// Todo : reduce this from O(N) to O(log(N)) complexity based on sorted list or hash
-	for(RS_Block* b: blocks){
-		if (b->getName()==name) {
+    for(auto const& b: blocks){
+        if (static_cast<RS_Block*>(b.get())->getName()==name) {
 			return b;
 		}
 	}
@@ -239,12 +242,13 @@ QString RS_BlockList::newName(const QString& suggestion) {
 		name=name.mid(0, index-1);
 	}
 
-	for(RS_Block* b: blocks){
-		index=b->getName().lastIndexOf(rx);
-		if(b->getName().mid(0, index-1) != name) continue;
-		index=b->getName().lastIndexOf(rx);
+    for(auto const& b: blocks){
+        RS_Block* bP=static_cast<RS_Block*>(b.get());
+        index=bP->getName().lastIndexOf(rx);
+        if(bP->getName().mid(0, index-1) != name) continue;
+        index=bP->getName().lastIndexOf(rx);
 		if(index<0) continue;
-		i=std::max(b->getName().mid(index).toInt(),i);
+        i=std::max(bP->getName().mid(index).toInt(),i);
 	}
 //	qDebug()<<QString("%1-%2").arg(name).arg(i+1);
 	return QString("%1-%2").arg(name).arg(i+1);
@@ -262,12 +266,10 @@ void RS_BlockList::toggle(const QString& name) {
  * Switches on / off the given block. 
  * Listeners are notified.
  */
-void RS_BlockList::toggle(RS_Block* block) {
-	if (block==nullptr) {
-        return;
-    }
+void RS_BlockList::toggle(std::shared_ptr<RS_Entity> const& block) {
+    if (!block) return;
 
-    block->toggle();
+    static_cast<RS_Block*>(block.get())->toggle();
     // TODO LordOfBikes: when block attributes are saved, activate this
     //setModified(true);
 
@@ -282,10 +284,10 @@ void RS_BlockList::toggle(RS_Block* block) {
  *
  * @param freeze true: freeze, false: defreeze
  */
-void RS_BlockList::freezeAll(bool freeze) {
-
-    for (int l=0; l<count(); l++) {
-        at(l)->freeze(freeze);
+void RS_BlockList::freezeAll(bool freeze)
+{
+    for(auto& b: blocks){
+        static_cast<RS_Block*>(b.get())->freeze(freeze);
     }
     // TODO LordOfBikes: when block attributes are saved, activate this
     //setModified(true);
@@ -343,34 +345,34 @@ int RS_BlockList::count() const{
 /**
  * @return Block at given position or nullptr if i is out of range.
  */
-RS_Block* RS_BlockList::at(int i) {
+std::shared_ptr<RS_Entity> RS_BlockList::at(int i) {
 	return blocks.at(i);
 }
-RS_Block* RS_BlockList::at(int i) const{
+std::shared_ptr<RS_Entity> RS_BlockList::at(int i) const{
 	return blocks.at(i);
 }
-QList<RS_Block*>::iterator RS_BlockList::begin()
+QList<std::shared_ptr<RS_Entity>>::iterator RS_BlockList::begin()
 {
 	return blocks.begin();
 }
 
-QList<RS_Block*>::iterator RS_BlockList::end()
+QList<std::shared_ptr<RS_Entity>>::iterator RS_BlockList::end()
 {
 	return blocks.end();
 }
 
-QList<RS_Block*>::const_iterator RS_BlockList::begin()const
+QList<std::shared_ptr<RS_Entity>>::const_iterator RS_BlockList::begin()const
 {
 	return blocks.begin();
 }
 
-QList<RS_Block*>::const_iterator RS_BlockList::end()const
+QList<std::shared_ptr<RS_Entity>>::const_iterator RS_BlockList::end()const
 {
 	return blocks.end();
 }
 
 //! @return The active block of nullptr if no block is activated.
-RS_Block* RS_BlockList::getActive() {
+std::shared_ptr<RS_Entity> RS_BlockList::getActive() {
 	return activeBlock;
 }
 
@@ -395,8 +397,8 @@ bool RS_BlockList::isModified() const {
 std::ostream& operator << (std::ostream& os, RS_BlockList& b) {
 
     os << "Blocklist: \n";
-    for (int i=0; i<b.count(); ++i) {
-        RS_Block* blk = b.at(i);
+    for(auto& b: b.blocks){
+        RS_Block* blk = static_cast<RS_Block*>(b.get());
 
         os << *blk << "\n";
     }

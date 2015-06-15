@@ -36,33 +36,33 @@
  */
 class RS_BlockListListener {
 public:
-    RS_BlockListListener() {}
-    virtual ~RS_BlockListListener() {}
+    RS_BlockListListener()=default;
+    virtual ~RS_BlockListListener()=default;
 
     /**
      * Called when the active block changes.
      */
-    virtual void blockActivated(RS_Block*) {}
+    virtual void blockActivated(std::shared_ptr<RS_Entity>) {}
 
     /**
      * Called when a new block is added to the list.
      */
-    virtual void blockAdded(RS_Block*) {}
+    virtual void blockAdded(std::shared_ptr<RS_Entity>) {}
 
     /**
      * Called when a block is removed from the list.
      */
-    virtual void blockRemoved(RS_Block*) {}
+    virtual void blockRemoved(std::shared_ptr<RS_Entity>) {}
 
     /**
      * Called when a block's attributes are modified.
      */
-    virtual void blockEdited(RS_Block*) {}
+    virtual void blockEdited(std::shared_ptr<RS_Entity>) {}
 
     /**
      * Called when a block's visibility is toggled. 
      */
-    virtual void blockToggled(RS_Block*) {}
+    virtual void blockToggled(std::shared_ptr<RS_Entity>) {}
 }
 ;
 

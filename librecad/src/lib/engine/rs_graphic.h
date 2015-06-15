@@ -95,7 +95,7 @@ public:
     virtual void addLayer(RS_Layer* layer) {
                 layerList.add(layer);
         }
-    virtual void addEntity(RS_Entity* entity);
+    virtual void addEntity(std::shared_ptr<RS_Entity> const& entity);
     virtual void removeLayer(RS_Layer* layer);
     virtual void editLayer(RS_Layer* layer, const RS_Layer& source) {
                 layerList.edit(layer, source);
@@ -137,28 +137,28 @@ public:
     unsigned countBlocks() {
         return blockList.count();
     }
-    RS_Block* blockAt(unsigned i) {
+    std::shared_ptr<RS_Entity> blockAt(unsigned i) {
         return blockList.at(i);
     }
     void activateBlock(const QString& name) {
                 blockList.activate(name);
         }
-    void activateBlock(RS_Block* block) {
+    void activateBlock(std::shared_ptr<RS_Entity> const& block) {
                 blockList.activate(block);
         }
-    RS_Block* getActiveBlock() {
+    std::shared_ptr<RS_Entity> getActiveBlock() {
         return blockList.getActive();
     }
-    virtual bool addBlock(RS_Block* block, bool notify=true) {
+    virtual bool addBlock(std::shared_ptr<RS_Entity> const& block, bool notify=true) {
                 return blockList.add(block, notify);
         }
     virtual void addBlockNotification() {
                 blockList.addNotification();
         }
-    virtual void removeBlock(RS_Block* block) {
+    virtual void removeBlock(std::shared_ptr<RS_Entity> const& block) {
                 blockList.remove(block);
         }
-    RS_Block* findBlock(const QString& name) {
+    std::shared_ptr<RS_Entity> findBlock(const QString& name) {
                 return blockList.find(name);
         }
     QString newBlockName() {
@@ -167,7 +167,7 @@ public:
     void toggleBlock(const QString& name) {
                 blockList.toggle(name);
         }
-    void toggleBlock(RS_Block* block) {
+    void toggleBlock(std::shared_ptr<RS_Entity> const& block) {
                 blockList.toggle(block);
         }
     void freezeAllBlocks(bool freeze) {

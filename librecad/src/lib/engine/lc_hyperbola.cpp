@@ -133,7 +133,7 @@ void LC_Hyperbola::calculateEndpoints() {
  */
 
 
-RS_Entity* LC_Hyperbola::clone() const {
+std::shared_ptr<RS_Entity> LC_Hyperbola::clone() const {
 	LC_Hyperbola* e = new LC_Hyperbola(*this);
 //	e->initId();
 	return e;

@@ -150,7 +150,7 @@ public:
             const RS_MTextData& d);
 	virtual ~RS_MText() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityText */
     virtual RS2::EntityType rtti() const {

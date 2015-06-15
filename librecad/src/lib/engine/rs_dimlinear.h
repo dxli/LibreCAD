@@ -76,7 +76,7 @@ public:
                  const RS_DimLinearData& ed);
 	virtual ~RS_DimLinear() = default;
 
-	virtual RS_Entity* clone() const;
+    virtual std::shared_ptr<RS_Entity> clone() const;
 
     /**	@return RS2::EntityDimLinear */
     virtual RS2::EntityType rtti() const {

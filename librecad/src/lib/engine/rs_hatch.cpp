@@ -91,7 +91,7 @@ bool RS_Hatch::validate() {
 		for(auto l: entities){
 
         if (l->rtti()==RS2::EntityContainer) {
-            RS_EntityContainer* loop = (RS_EntityContainer*)l;
+            RS_EntityContainer* loop = (RS_EntityContainer*)l.get();
 
             ret = loop->optimizeContours() && ret;
         }
@@ -102,13 +102,13 @@ bool RS_Hatch::validate() {
 
 
 
-RS_Entity* RS_Hatch::clone() const{
+std::shared_ptr<RS_Entity> RS_Hatch::clone() const{
     RS_Hatch* t = new RS_Hatch(*this);
     t->setOwner(isOwner());
 //    t->initId();
     t->detach();
-        t->hatch = NULL;
-    return t;
+    t->hatch = nullptr;
+    return std::shared_ptr<RS_Entity>{t};
 }
 
 
@@ -173,7 +173,7 @@ void RS_Hatch::update() {
     // delete old hatch:
     if (hatch) {
         removeEntity(hatch);
-        hatch = NULL;
+        hatch.reset();
     }
 
     if (isUndone()) {
@@ -733,7 +733,7 @@ double RS_Hatch::getTotalArea() {
 
 double RS_Hatch::getDistanceToPoint(
     const RS_Vector& coord,
-    RS_Entity** entity,
+    std::shared_ptr<RS_Entity>* entity,
     RS2::ResolveLevel level,
     double solidDist) const {
 

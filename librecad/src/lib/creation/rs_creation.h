@@ -28,6 +28,7 @@
 #ifndef RS_CREATION_H
 #define RS_CREATION_H
 
+#include <memory>
 #include <QString>
 #include "rs_vector.h"
 
@@ -73,79 +74,80 @@ public:
                 bool handleUndo=true);
 	~RS_Creation()=default;
 
-    RS_Entity* createParallelThrough(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallelThrough(const RS_Vector& coord,
                               int number,
-                              RS_Entity* e);
+                              std::shared_ptr<RS_Entity> const& e);
 
-    RS_Entity* createParallel(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallel(const RS_Vector& coord,
                               double distance,
                               int number,
-                              RS_Entity* e);
+                              std::shared_ptr<RS_Entity> const& e);
 
-    RS_Line* createParallelLine(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallelLine(const RS_Vector& coord,
                                 double distance, int number,
-                                RS_Line* e);
+                                std::shared_ptr<RS_Entity> const& e);
 
-    RS_Arc* createParallelArc(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallelArc(const RS_Vector& coord,
                               double distance, int number,
-                              RS_Arc* e);
+                              std::shared_ptr<RS_Entity> const& e);
 
-    RS_Circle* createParallelCircle(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallelCircle(const RS_Vector& coord,
                                     double distance, int number,
-                                    RS_Circle* e);
+                                    std::shared_ptr<RS_Entity> const& e);
 
-    LC_SplinePoints* createParallelSplinePoints(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createParallelSplinePoints(const RS_Vector& coord,
                                     double distance, int number,
-                                    LC_SplinePoints* e);
+                                    std::shared_ptr<RS_Entity> const& e);
 
-    RS_Line* createBisector(const RS_Vector& coord1,
+    std::shared_ptr<RS_Entity> createBisector(const RS_Vector& coord1,
                             const RS_Vector& coord2,
                             double length,
                             int num,
-                            RS_Line* l1,
-                            RS_Line* l2);
+                            std::shared_ptr<RS_Entity> const& l1,
+                            std::shared_ptr<RS_Entity> const& l2);
 
-    RS_Line* createTangent1(const RS_Vector& coord,
+    std::shared_ptr<RS_Entity> createTangent1(const RS_Vector& coord,
                             const RS_Vector& point,
-                            RS_Entity* circle);
+                            std::shared_ptr<RS_Entity> const& circle);
 /**
  * create a tangent line which is orthogonal to the given RS_Line(normal)
  */
-    RS_Line* createLineOrthTan(const RS_Vector& coord,
-                            RS_Line* normal,
-                            RS_Entity* circle);
-    RS_Line* createTangent2(const RS_Vector& coord,
-                            RS_Entity* circle1,
-                            RS_Entity* circle2);
+    std::shared_ptr<RS_Entity> createLineOrthTan(const RS_Vector& coord,
+                            std::shared_ptr<RS_Entity> const& normal,
+                            std::shared_ptr<RS_Entity> const& circle);
+    std::shared_ptr<RS_Entity> createTangent2(const RS_Vector& coord,
+                            std::shared_ptr<RS_Entity> circle1,
+                            std::shared_ptr<RS_Entity> circle2);
     /**
       * create the path of centers of common tangent circles of the two given circles
 	  *@ return nullptr, if failed
       *@ at success return either an ellipse or hyperbola
       */
-    std::vector<RS_Entity*> createCircleTangent2( RS_Entity* circle1,RS_Entity* circle2);
+    std::vector<std::shared_ptr<RS_Entity>> createCircleTangent2(std::shared_ptr<RS_Entity> const& circle1,
+                                                 std::shared_ptr<RS_Entity> const& circle2);
 
-    RS_Line* createLineRelAngle(const RS_Vector& coord,
-                                RS_Entity* entity,
+    std::shared_ptr<RS_Entity> createLineRelAngle(const RS_Vector& coord,
+                                std::shared_ptr<RS_Entity> const& entity,
                                 double angle,
                                 double length);
 
-    RS_Line* createPolygon(const RS_Vector& center,
+    std::shared_ptr<RS_Entity> createPolygon(const RS_Vector& center,
                            const RS_Vector& corner,
                            int number);
 
-    RS_Line* createPolygon2(const RS_Vector& corner1,
+    std::shared_ptr<RS_Entity> createPolygon2(const RS_Vector& corner1,
                             const RS_Vector& corner2,
                             int number);
 
-	RS_Insert* createInsert(const RS_InsertData* pdata);
+    std::shared_ptr<RS_Entity> createInsert(const RS_InsertData* pdata);
 	
-	RS_Image* createImage(const RS_ImageData* pdata);
+    std::shared_ptr<RS_Entity> createImage(const RS_ImageData* pdata);
 
-	RS_Block* createBlock(const RS_BlockData* data,
+    std::shared_ptr<RS_Entity> createBlock(const RS_BlockData* data,
                           const RS_Vector& referencePoint,
                           const bool remove);
 						  
-	RS_Insert* createLibraryInsert(RS_LibraryInsertData& data);
+    std::shared_ptr<RS_Entity> createLibraryInsert(RS_LibraryInsertData& data);
 
 protected:
     RS_EntityContainer* container;
@@ -154,7 +156,7 @@ protected:
     RS_GraphicView* graphicView;
     bool handleUndo;
 private:
-	void setEntity(RS_Entity* en) const;
+    void setEntity(std::shared_ptr<RS_Entity> const& en) const;
 };
 
 #endif

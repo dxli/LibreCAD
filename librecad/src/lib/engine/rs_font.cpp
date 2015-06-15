@@ -88,7 +88,7 @@ bool RS_Font::loadFont() {
         fonts.append(RS_SYSTEM->getFontList());
 #endif
 
-        QFileInfo file;
+//        QFileInfo file;
         for (QStringList::Iterator it = fonts.begin();
              it!=fonts.end();
              it++) {
@@ -131,8 +131,8 @@ bool RS_Font::loadFont() {
     if (path.contains(".lff"))
         readLFF(path);
 
-    RS_Block* bk = letterList.find(QChar(0xfffd));
-    if (bk == NULL) {
+    auto bk = letterList.find(QChar(0xfffd));
+    if (!bk) {
         // create new letter:
         RS_FontChar* letter = new RS_FontChar(NULL, QChar(0xfffd), RS_Vector(0.0, 0.0));
         RS_Polyline* pline = new RS_Polyline(letter, RS_PolylineData());
@@ -377,7 +377,7 @@ void RS_Font::generateAllFonts(){
     }
 }
 
-RS_Block* RS_Font::generateLffFont(const QString& ch){
+std::shared_ptr<RS_Entity> RS_Font::generateLffFont(const QString& ch){
         if(rawLffFontList.contains(ch) == false ){
                 RS_DEBUG->print("RS_Font::generateLffFont(QChar %s ) : can not find the letter in given lff font file",qPrintable(ch));
                 return NULL;
@@ -385,6 +385,7 @@ RS_Block* RS_Font::generateLffFont(const QString& ch){
     // create new letter:
     RS_FontChar* letter =
             new RS_FontChar(NULL, ch, RS_Vector(0.0, 0.0));
+    std::shared_ptr<RS_Entity> l{letter};
 
     // Read entities of this letter:
     QStringList vertex;
@@ -404,13 +405,13 @@ RS_Block* RS_Font::generateLffFont(const QString& ch){
             line.remove(0,1);
             int uCode = line.toInt(NULL, 16);
             QChar ch = QChar(uCode);
-            RS_Block* bk = letterList.find(ch);
-            if (bk == NULL && rawLffFontList.contains(ch) == true) {
+            auto bk = letterList.find(ch);
+            if (!bk && rawLffFontList.contains(ch) == true) {
                 generateLffFont(ch);
                 bk = letterList.find(ch);
             }
-            if (bk != NULL) {
-                RS_Entity* bk2 = bk->clone();
+            if (bk) {
+                auto bk2 = bk->clone();
                 bk2->setPen(RS_Pen(RS2::FlagInvalid));
                 bk2->setLayer(NULL);
                 letter->addEntity(bk2);
@@ -449,18 +450,17 @@ RS_Block* RS_Font::generateLffFont(const QString& ch){
     }
 
     if (letter->isEmpty()) {
-        delete letter;
-            return NULL;
+            return nullptr;
     } else {
-        letter->calculateBorders();
-        letterList.add(letter);
-        return letter;
+        l->calculateBorders();
+        letterList.add(l);
+        return l;
     }
 }
 
-RS_Block* RS_Font::findLetter(const QString& name) {
-    RS_Block* ret= letterList.find(name);
-    if (ret != NULL) return ret;
+std::shared_ptr<RS_Entity> RS_Font::findLetter(const QString& name) {
+    auto ret= letterList.find(name);
+    if (ret) return ret;
     return generateLffFont(name);
 
 }

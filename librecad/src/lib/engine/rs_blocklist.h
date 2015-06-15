@@ -28,12 +28,13 @@
 #ifndef RS_BLOCKLIST_H
 #define RS_BLOCKLIST_H
 
-
+#include<memory>
 #include <QList>
 
 class QString;
 class RS_Block;
 class RS_BlockListListener;
+class RS_Entity;
 
 /**
  * List of blocks.
@@ -57,29 +58,29 @@ public:
     /**
      * @return Block at given position or NULL if i is out of range.
      */
-	RS_Block* at(int i);
-	RS_Block* at(int i) const;
+    std::shared_ptr<RS_Entity> at(int i);
+    std::shared_ptr<RS_Entity> at(int i) const;
 	//! \{ \brief range based loop
-	QList<RS_Block*>::iterator begin();
-	QList<RS_Block*>::iterator end();
-	QList<RS_Block*>::const_iterator begin()const;
-	QList<RS_Block*>::const_iterator end()const;
+    QList<std::shared_ptr<RS_Entity>>::iterator begin();
+    QList<std::shared_ptr<RS_Entity>>::iterator end();
+    QList<std::shared_ptr<RS_Entity>>::const_iterator begin()const;
+    QList<std::shared_ptr<RS_Entity>>::const_iterator end()const;
 	//! \}
 
     void activate(const QString& name);
-    void activate(RS_Block* block);
+    void activate(std::shared_ptr<RS_Entity> const& block);
     //! @return The active block of NULL if no block is activated.
-	RS_Block* getActive();
-
-    virtual bool add(RS_Block* block, bool notify=true);
+    std::shared_ptr<RS_Entity> getActive();
+    virtual bool add(RS_Entity* block, bool notify=true);
+    virtual bool add(std::shared_ptr<RS_Entity> const& block, bool notify=true);
     virtual void addNotification();
-    virtual void remove(RS_Block* block);
-    virtual bool rename(RS_Block* block, const QString& name);
+    virtual void remove(std::shared_ptr<RS_Entity> const& block);
+    virtual bool rename(std::shared_ptr<RS_Entity>& block, const QString& name);
     //virtual void editBlock(RS_Block* block, const RS_Block& source);
-    RS_Block* find(const QString& name);
+    std::shared_ptr<RS_Entity> find(const QString& name);
     QString newName(const QString& suggestion = "");
     void toggle(const QString& name);
-    void toggle(RS_Block* block);
+    void toggle(std::shared_ptr<RS_Entity> const& block);
     void freezeAll(bool freeze);
 
     void addListener(RS_BlockListListener* listener);
@@ -100,13 +101,13 @@ public:
 
 private:
     //! Is the list owning the blocks?
-    bool owner;
+//    bool owner;
     //! Blocks in the graphic
-    QList<RS_Block*> blocks;
+    QList<std::shared_ptr<RS_Entity>> blocks;
     //! List of registered BlockListListeners
     QList<RS_BlockListListener*> blockListListeners;
     //! Currently active block
-    RS_Block* activeBlock;
+    std::shared_ptr<RS_Entity> activeBlock;
     /** Flag set if the layer list was modified and not yet saved. */
     bool modified;
 };

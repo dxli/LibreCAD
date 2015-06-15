@@ -71,7 +71,7 @@ public:
      * Removes an entity from the entiy container. Implementation
      * from RS_Undo.
      */
-    virtual void removeUndoable(RS_Undoable* u);
+    virtual void removeUndoable(std::shared_ptr<RS_Entity> const& u);
 
     /**
      * @return Currently active drawing pen.

@@ -51,7 +51,7 @@ RS_Leader::RS_Leader(RS_EntityContainer* parent,
         :RS_EntityContainer(parent), data(d) {
 }
 
-RS_Entity* RS_Leader::clone() const{
+std::shared_ptr<RS_Entity> RS_Leader::clone() const{
 	RS_Leader* p = new RS_Leader(*this);
 	p->setOwner(isOwner());
 //	p->initId();

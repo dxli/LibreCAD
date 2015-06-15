@@ -98,14 +98,14 @@ public:
 	RS_BlockList* getLetterList() {
 		return &letterList;
 	}
-    RS_Block* findLetter(const QString& name);
+    std::shared_ptr<RS_Entity> findLetter(const QString& name);
 //    RS_Block* findLetter(const QString& name) {
 //		return letterList.find(name);
 //	}
     unsigned countLetters() {
         return letterList.count();
     }
-    RS_Block* letterAt(unsigned i) {
+    std::shared_ptr<RS_Entity> letterAt(unsigned i) const{
 		return letterList.at(i);
 	}
 
@@ -116,7 +116,7 @@ public:
 private:
     void readCXF(QString path);
     void readLFF(QString path);
-    RS_Block* generateLffFont(const QString& ch);
+    std::shared_ptr<RS_Entity> generateLffFont(const QString& ch);
 
 private:
     //raw lff font file list, not processed into blocks yet

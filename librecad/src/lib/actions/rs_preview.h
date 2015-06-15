@@ -48,8 +48,8 @@ public:
     virtual RS2::EntityType rtti() const {
         return RS2::EntityPreview;
     }
-    virtual void addEntity(RS_Entity* entity);
-	void addCloneOf(RS_Entity* entity);
+    virtual void addEntity(std::shared_ptr<RS_Entity> const& entity);
+    void addCloneOf(std::shared_ptr<RS_Entity> const& entity);
     virtual void addSelectionFrom(RS_EntityContainer& container);
     virtual void addAllFrom(RS_EntityContainer& container);
     virtual void addStretchablesFrom(RS_EntityContainer& container,

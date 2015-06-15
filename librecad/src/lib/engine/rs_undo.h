@@ -33,6 +33,7 @@
 
 class RS_UndoCycle;
 class RS_Undoable;
+class RS_Entity;
 
 /**
  * Undo / redo functionality. The internal undo list consists of
@@ -56,7 +57,7 @@ public:
     virtual int countRedoCycles();
 
     virtual void startUndoCycle();
-    virtual void addUndoable(RS_Undoable* u);
+    virtual void addUndoable(std::shared_ptr<RS_Entity> const& u);
     virtual void endUndoCycle();
 
     /**
@@ -64,7 +65,7 @@ public:
      * the given Undoable (unrecoverable). This method is called
      * for Undoables that are no longer in the undo buffer.
      */
-    virtual void removeUndoable(RS_Undoable* u) = 0;
+    virtual void removeUndoable(std::shared_ptr<RS_Entity> const& u) = 0;
 
     /**
 	  *\brief enable/disable redo/undo buttons in main application window
@@ -103,10 +104,7 @@ protected:
  */
 #ifdef RS_TEST
 class RS_UndoStub : public RS_Undo {
-    virtual void removeUndoable(RS_Undoable* u) {
-        delete u;
-        u = NULL;
-    }
+    virtual void removeUndoable(std::shared_ptr<RS_Entity> const& /*u*/) {}
 };
 #endif
 

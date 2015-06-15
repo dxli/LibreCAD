@@ -70,12 +70,12 @@ RS_DimDiametric::RS_DimDiametric(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_DimDiametric::clone() const {
+std::shared_ptr<RS_Entity> RS_DimDiametric::clone() const {
 	RS_DimDiametric* d = new RS_DimDiametric(*this);
 	d->setOwner(isOwner());
 //	d->initId();
 	d->detach();
-	return d;
+    return std::shared_ptr<RS_Entity>{d};
 }
 
 /**

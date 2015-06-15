@@ -40,7 +40,7 @@ RS_Point::RS_Point(RS_EntityContainer* parent,
     calculateBorders ();
 }
 
-RS_Entity* RS_Point::clone() const {
+std::shared_ptr<RS_Entity> RS_Point::clone() const {
 	RS_Point* p = new RS_Point(*this);
 //	p->initId();
 	return p;
@@ -67,7 +67,7 @@ RS_Vector RS_Point::getNearestEndpoint(const RS_Vector& coord, double* dist)cons
 
 
 RS_Vector RS_Point::getNearestPointOnEntity(const RS_Vector& coord,
-        bool /*onEntity*/, double* dist, RS_Entity** entity) const{
+        bool /*onEntity*/, double* dist, std::shared_ptr<RS_Entity>* entity) const{
     if (dist) {
         *dist = data.pos.distanceTo(coord);
     }
@@ -118,11 +118,11 @@ RS_Vector RS_Point::getNearestDist(double /*distance*/,
 
 
 double RS_Point::getDistanceToPoint(const RS_Vector& coord,
-                                    RS_Entity** entity,
+                                    std::shared_ptr<RS_Entity>* entity,
                                     RS2::ResolveLevel /*level*/,
                                                                         double /*solidDist*/)const {
     if (entity) {
-        *entity = const_cast<RS_Point*>(this);
+        *entity = std::shared_ptr<RS_Entity>{this};
     }
     return data.pos.distanceTo(coord);
 }

@@ -77,8 +77,7 @@ RS_Line::RS_Line(const RS_Vector& pStart, const RS_Vector& pEnd)
     calculateBorders();
 }
 
-
-RS_Entity* RS_Line::clone() const {
+std::shared_ptr<RS_Entity> RS_Line::clone() const {
 	RS_Line* l = new RS_Line(*this);
 //	l->initId();
 	return l;
@@ -121,7 +120,7 @@ RS_Vector RS_Line::getNearestEndpoint(const RS_Vector& coord,
 
 
 RS_Vector RS_Line::getNearestPointOnEntity(const RS_Vector& coord,
-                                           bool onEntity, double* dist, RS_Entity** entity)const {
+                                           bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity)const {
 
 	if (entity) {
         *entity = const_cast<RS_Line*>(this);

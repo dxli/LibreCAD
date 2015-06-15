@@ -66,8 +66,8 @@ public:
     virtual void removePattern(RS_Pattern* pattern);
     RS_Pattern* requestPattern(const QString& name);
     //! @return a const iterator for the pattern list.
-    QListIterator<RS_Pattern *> getIteretor(){
-        return QListIterator<RS_Pattern *>(patterns);
+    QListIterator<std::shared_ptr<RS_Entity>> getIteretor(){
+        return QListIterator<std::shared_ptr<RS_Entity>>(patterns);
     }
 
         bool contains(const QString& name);
@@ -83,7 +83,7 @@ protected:
 
 private:
     //! patterns in the graphic
-    QList<RS_Pattern*> patterns;
+    QList<std::shared_ptr<RS_Entity>> patterns;
     //! List of registered PatternListListeners
     //QList<RS_PatternListListener> patternListListeners;
 }

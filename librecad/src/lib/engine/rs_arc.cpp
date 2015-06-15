@@ -85,10 +85,8 @@ RS_Arc::RS_Arc(RS_EntityContainer* parent,
     calculateBorders();
 }
 
-RS_Entity* RS_Arc::clone() const {
-	RS_Arc* a = new RS_Arc(*this);
-//	a->initId();
-	return a;
+std::shared_ptr<RS_Entity> RS_Arc::clone() const {
+    return std::shared_ptr<RS_Entity>(new RS_Arc(*this));
 }
 
 /**
@@ -371,11 +369,11 @@ RS_Vector RS_Arc::getTangentDirection(const RS_Vector& point) const {
 }
 
 RS_Vector RS_Arc::getNearestPointOnEntity(const RS_Vector& coord,
-		bool onEntity, double* dist, RS_Entity** entity) const{
+        bool onEntity, double* dist, std::shared_ptr<RS_Entity>* entity) const{
 
     RS_Vector vec(false);
 	if (entity) {
-        *entity = const_cast<RS_Arc*>(this);
+        entity->reset(const_cast<RS_Arc*>(this));
     }
 
     double angle = (coord-data.center).angle();

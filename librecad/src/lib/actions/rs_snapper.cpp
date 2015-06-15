@@ -93,7 +93,7 @@ RS_Snapper::RS_Snapper(RS_EntityContainer& container,
 void RS_Snapper::init() {
     snapMode = graphicView->getDefaultSnapMode();
     //snapRes = graphicView->getSnapRestriction();
-	keyEntity = nullptr;
+    keyEntity.reset();
     snapSpot = RS_Vector(false);
 	snapCoord = RS_Vector(false);
 	m_SnapDistance = 1.0;
@@ -304,7 +304,7 @@ double RS_Snapper::getSnapRange() const
  * @return The coordinates of the point or an invalid vector.
  */
 RS_Vector RS_Snapper::snapFree(const RS_Vector& coord) {
-	keyEntity = nullptr;
+    keyEntity.reset();
     return coord;
 }
 
@@ -480,7 +480,7 @@ RS_Vector RS_Snapper::restrictVertical(const RS_Vector& coord) {
  *        container
  * @return Pointer to the entity or nullptr.
  */
-RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos,
+std::shared_ptr<RS_Entity> RS_Snapper::catchEntity(const RS_Vector& pos,
                                    RS2::ResolveLevel level) {
 
     RS_DEBUG->print("RS_Snapper::catchEntity");
@@ -489,14 +489,14 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos,
     double dist (0.);
 //    std::cout<<"getSnapRange()="<<getSnapRange()<<"\tsnap distance = "<<dist<<std::endl;
 
-    RS_Entity* entity = container->getNearestEntity(pos, &dist, level);
+    std::shared_ptr<RS_Entity> entity = container->getNearestEntity(pos, &dist, level);
 
         int idx = -1;
-		if (entity!=nullptr && entity->getParent()!=nullptr) {
+        if (entity && entity->getParent()) {
                 idx = entity->getParent()->findEntity(entity);
         }
 
-	if (entity!=nullptr && dist<=getSnapRange()) {
+    if (entity && dist<=getSnapRange()) {
         // highlight:
         RS_DEBUG->print("RS_Snapper::catchEntity: found: %d", idx);
         return entity;
@@ -517,7 +517,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos,
  * @enType, only search for a particular entity type
  * @return Pointer to the entity or nullptr.
  */
-RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
+std::shared_ptr<RS_Entity> RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
                                    RS2::ResolveLevel level) {
 
     RS_DEBUG->print("RS_Snapper::catchEntity");
@@ -525,7 +525,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
 
     // set default distance for points inside solids
 	RS_EntityContainer ec(nullptr,false);
-	for(RS_Entity* en= container->firstEntity(level);en!=nullptr;en=container->nextEntity(level)){
+    for(auto en= container->firstEntity(level);en!=nullptr;en=container->nextEntity(level)){
         if(en->isVisible()==false) continue;
         if(en->rtti() != enType && RS2::isContainer(enType)){
             //whether this entity is a member of member of the type enType
@@ -549,14 +549,14 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
 	if (ec.count() == 0 ) return nullptr;
     double dist(0.);
 
-    RS_Entity* entity = ec.getNearestEntity(pos, &dist, RS2::ResolveNone);
+    std::shared_ptr<RS_Entity> entity = ec.getNearestEntity(pos, &dist, RS2::ResolveNone);
 
         int idx = -1;
-		if (entity!=nullptr && entity->getParent()!=nullptr) {
+        if (entity && entity->getParent()!=nullptr) {
                 idx = entity->getParent()->findEntity(entity);
         }
 
-	if (entity!=nullptr && dist<=getSnapRange()) {
+    if (entity && dist<=getSnapRange()) {
         // highlight:
         RS_DEBUG->print("RS_Snapper::catchEntity: found: %d", idx);
         return entity;
@@ -575,7 +575,7 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
  *        container
  * @return Pointer to the entity or nullptr.
  */
-RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e,
+std::shared_ptr<RS_Entity> RS_Snapper::catchEntity(QMouseEvent* e,
                                    RS2::ResolveLevel level) {
 
     return catchEntity(
@@ -594,7 +594,7 @@ RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e,
  * @enType, only search for a particular entity type
  * @return Pointer to the entity or nullptr.
  */
-RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e, RS2::EntityType enType,
+std::shared_ptr<RS_Entity> RS_Snapper::catchEntity(QMouseEvent* e, RS2::EntityType enType,
                                    RS2::ResolveLevel level) {
     return catchEntity(
                RS_Vector(graphicView->toGraphX(e->x()),
@@ -602,9 +602,9 @@ RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e, RS2::EntityType enType,
                level);
 }
 
-RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e, const std::set<RS2::EntityType>& enTypeList,
+std::shared_ptr<RS_Entity> RS_Snapper::catchEntity(QMouseEvent* e, const std::set<RS2::EntityType>& enTypeList,
                                    RS2::ResolveLevel level) {
-	RS_Entity* pten = nullptr;
+    std::shared_ptr<RS_Entity> pten;
     RS_Vector coord(RS_Vector(graphicView->toGraphX(e->x()), graphicView->toGraphY(e->y())));
     switch(enTypeList.size()) {
     case 0:
@@ -614,7 +614,7 @@ RS_Entity* RS_Snapper::catchEntity(QMouseEvent* e, const std::set<RS2::EntityTyp
 
 		RS_EntityContainer ec(nullptr,false);
 		for( auto t0: enTypeList){
-			RS_Entity* en=catchEntity(coord, t0, level);
+            std::shared_ptr<RS_Entity> en=catchEntity(coord, t0, level);
 			if(en) ec.addEntity(en);
 //			if(en!=nullptr) {
 //            std::cout<<__FILE__<<" : "<<__func__<<" : lines "<<__LINE__<<std::endl;
@@ -675,7 +675,7 @@ void RS_Snapper::drawSnapper() {
                         pen.setScreenWidth(1);
 
                         // Circle to show snap area
-						RS_Circle *circle=new RS_Circle(nullptr, RS_CircleData(snapCoord, 4/graphicView->getFactor().x));
+                        std::shared_ptr<RS_Entity> circle{new RS_Circle(nullptr, RS_CircleData(snapCoord, 4/graphicView->getFactor().x))};
                         circle->setPen(pen);
 
                         container->addEntity(circle);
@@ -701,22 +701,22 @@ void RS_Snapper::drawSnapper() {
                                     direction2=RS_Vector(M_PI*5./6.)*l;
                                 }
                                 RS_Vector center(graphicView->toGui(snapCoord));
-								RS_OverlayLine *line=new RS_OverlayLine(nullptr,RS_LineData(center-direction1,center+direction1));
+                                std::shared_ptr<RS_Entity> line{new RS_OverlayLine(nullptr,RS_LineData(center-direction1,center+direction1))};
                                 line->setPen(crossHairPen);
                                 container->addEntity(line);
-								line=new RS_OverlayLine(nullptr,RS_LineData(center-direction2,center+direction2));
+                                line.reset(new RS_OverlayLine(nullptr,RS_LineData(center-direction2,center+direction2)));
                                 line->setPen(crossHairPen);
                                 container->addEntity(line);
                             }else{//orthogonal crosshair
 
 
-								RS_OverlayLine *line=new RS_OverlayLine(nullptr, RS_LineData(RS_Vector(0, graphicView->toGuiY(snapCoord.y)),
-                                                                                          RS_Vector(graphicView->getWidth(), graphicView->toGuiY(snapCoord.y))));
+                                std::shared_ptr<RS_Entity> line{new RS_OverlayLine(nullptr, RS_LineData(RS_Vector(0, graphicView->toGuiY(snapCoord.y)),
+                                                                                          RS_Vector(graphicView->getWidth(), graphicView->toGuiY(snapCoord.y))))};
                                 line->setPen(crossHairPen);
                                 container->addEntity(line);
 
-								line=new RS_OverlayLine(nullptr, RS_LineData(RS_Vector(graphicView->toGuiX(snapCoord.x),0),
-                                                                          RS_Vector(graphicView->toGuiX(snapCoord.x), graphicView->getHeight())));
+                                line.reset(new RS_OverlayLine(nullptr, RS_LineData(RS_Vector(graphicView->toGuiX(snapCoord.x),0),
+                                                                          RS_Vector(graphicView->toGuiX(snapCoord.x), graphicView->getHeight()))));
                                 line->setPen(crossHairPen);
                                 container->addEntity(line);
                             }
@@ -727,27 +727,26 @@ void RS_Snapper::drawSnapper() {
         }
         if (snapCoord.valid && snapCoord!=snapSpot) {
 
-						RS_OverlayLine *line=new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(-5,0),
-                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(-1,4)));
+                        std::shared_ptr<RS_Entity> line{new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(-5,0),
+                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(-1,4)))};
                         line->setPen(crossHairPen);
                         container->addEntity(line);
-						line=new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(0,5),
-                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(4,1)));
+                        line.reset(new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(0,5),
+                                                                                                                                         graphicView->toGui(snapSpot)+RS_Vector(4,1))));
                         line->setPen(crossHairPen);
                         container->addEntity(line);
-						line=new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(5,0),
-                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(1,-4)));
+                        line.reset(new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(5,0),
+                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(1,-4))));
                         line->setPen(crossHairPen);
                         container->addEntity(line);
-						line=new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(0,-5),
-                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(-4,-1)));
+                        line.reset(new RS_OverlayLine(nullptr, RS_LineData(graphicView->toGui(snapSpot)+RS_Vector(0,-5),
+                                                                                                                                          graphicView->toGui(snapSpot)+RS_Vector(-4,-1))));
                         line->setPen(crossHairPen);
                         container->addEntity(line);
 
                         graphicView->redraw(RS2::RedrawOverlay); // redraw will happen in the mouse movement event
         }
     }
-
 }
 
 /**
@@ -779,6 +778,7 @@ unsigned int RS_Snapper::snapModeToInt(const RS_SnapMode& s)
     ret <<=1;ret |= s.snapIntersection;
    return ret;
 }
+
 /**
   * integer flag to snapMode
   */
