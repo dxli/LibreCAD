@@ -399,7 +399,7 @@ bool QG_GraphicView::event(QEvent *event) {
             QPoint g = mapFromGlobal(nge->globalPos());
             RS_Vector mouse = toGraph(RS_Vector(g.x(), g.y()));
             setCurrentAction(new RS_ActionZoomIn(*container, *this, direction,
-                                                 RS2::Both, mouse, factor));
+												 RS2::Both, &mouse, factor));
         }
 
         return true;
@@ -539,7 +539,7 @@ void QG_GraphicView::wheelEvent(QWheelEvent *e) {
                 }
 
                 setCurrentAction(new RS_ActionZoomIn(*container, *this, direction,
-                                                     RS2::Both, mouse, factor));
+													 RS2::Both, &mouse, factor));
             } else {
                 // otherwise, scroll
 				//scroll by scrollbars: issue #479
@@ -608,15 +608,15 @@ void QG_GraphicView::wheelEvent(QWheelEvent *e) {
 
     // zoom in / out:
     else if (e->modifiers()==0) {
-        if (e->delta()>0) {
-            setCurrentAction(new RS_ActionZoomIn(*container, *this,
-                                                 RS2::In, RS2::Both,
-                                                                                                 mouse));
-        } else {
-            setCurrentAction(new RS_ActionZoomIn(*container, *this,
-                                                 RS2::Out, RS2::Both,
-                                                                                                 mouse));
-        }
+		if (e->delta()>0) {
+			setCurrentAction(new RS_ActionZoomIn(*container, *this,
+												 RS2::In, RS2::Both,
+												 &mouse));
+		} else {
+			setCurrentAction(new RS_ActionZoomIn(*container, *this,
+												 RS2::Out, RS2::Both,
+												 &mouse));
+		}
     }
 
         redraw();
