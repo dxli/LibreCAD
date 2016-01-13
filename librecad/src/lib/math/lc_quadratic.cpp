@@ -567,6 +567,18 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
         std::cout<<*p1<<std::endl;
         std::cout<<*p2<<std::endl;
     }
+#if 1
+		//new intersection algorithm ported from kig
+		RS_VectorSolutions sol;
+		for (short i = -1;i <= 1; i += 2) {
+			auto const lcLine = RS_Math::calcConicRadical(ce, i, 1);
+			auto const sol1 = getIntersection(lcLine, *p1);
+			sol.push_back(sol1);
+		}
+		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
+			for (auto const& vp: sol)
+				std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
+#else
 	auto sol= RS_Math::simultaneousQuadraticSolverFull(ce);
     bool valid= sol.size()>0;
 	for(auto & v: sol){
@@ -575,15 +587,27 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
             break;
         }
     }
+	if (valid && RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
+		for (auto const& vp: sol) {
+			std::cout<<"old: "<<vp<<std::endl;
+		}
     if(valid) return sol;
     ce.clear();
     ce.push_back(p1->flipXY().getCoefficients());
-    ce.push_back(p2->flipXY().getCoefficients());
+	ce.push_back(p2->flipXY().getCoefficients());
     sol=RS_Math::simultaneousQuadraticSolverFull(ce);
+
+	if (valid)
+		for (auto const& vp: sol) {
+			std::cout<<"old: "<<vp<<std::endl;
+		}
+#endif
+
     ret.clear();
 	for(auto const& v: sol){
 		if(v.magnitude()<=RS_MAXDOUBLE){
-			ret.push_back(v);
+			if (ret.size()==0 || ret.getClosestDistance(v) <= RS_TOLERANCE)
+				ret.push_back(v);
 			if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
 				DEBUG_HEADER
 				std::cout<<v<<std::endl;
