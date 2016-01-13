@@ -572,8 +572,10 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 		RS_VectorSolutions sol;
 		for (short i = -1;i <= 1; i += 2) {
 			auto const lcLine = RS_Math::calcConicRadical(ce, i, 1);
-			auto const sol1 = getIntersection(lcLine, *p1);
-			sol.push_back(sol1);
+			for (auto const& q: lcLine) {
+				auto const sol1 = getIntersection(q, *p1);
+				sol.push_back(sol1);
+			}
 		}
 		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
 			for (auto const& vp: sol)
@@ -606,6 +608,7 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
     ret.clear();
 	for(auto const& v: sol){
 		if(v.magnitude()<=RS_MAXDOUBLE){
+			//avoid duplicated intersections
 			if (ret.size()==0 || ret.getClosestDistance(v) <= RS_TOLERANCE)
 				ret.push_back(v);
 			if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
