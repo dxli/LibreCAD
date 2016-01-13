@@ -41,7 +41,7 @@ class RS_AtomicEntity;
  */
 class LC_Quadratic {
 public:
-    explicit LC_Quadratic();
+	LC_Quadratic();
     LC_Quadratic(const LC_Quadratic& lc0);
     LC_Quadratic& operator = (const LC_Quadratic& lc0);
 	/** \brief construct a ellipse or hyperbola as the path of center of tangent circles
