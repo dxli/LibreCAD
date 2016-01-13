@@ -132,7 +132,7 @@ public:
       **/
 	static bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
 	//! find straight lines passing intersections of two conic curves
-	static LC_Quadratic calcConicRadical(const std::vector<std::vector<double> >& m,
+	static std::vector<LC_Quadratic> calcConicRadical(const std::vector<std::vector<double> >& m,
 									 int which, int zeroindex);
 	/** wrapper for elliptic integral **/
     /**

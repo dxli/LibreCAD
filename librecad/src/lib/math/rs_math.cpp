@@ -1138,11 +1138,11 @@ RS_VectorSolutions RS_Math::simultaneousQuadraticSolverMixed(const std::vector<s
 //! step 2. recover linear form by reducing the degenerate quadratic form into a product
 //! of two linear form, which are the radical lines
 //! step 3. find intersection for line-conic, which means solving of quadratic equations
-LC_Quadratic RS_Math::calcConicRadical(const std::vector<std::vector<double> >& m,
+std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vector<double> >& m,
 								 int which, int zeroindex)
 {
-  assert( which == 1 || which == -1 );
-  assert( 0 < zeroindex && zeroindex < 4 );
+//  assert( which == 1 || which == -1 );
+//  assert( 0 < zeroindex && zeroindex < 4 );
 
   auto const& cequation0 = m[0];
   auto const& cequation1 = m[1];
@@ -1190,26 +1190,12 @@ LC_Quadratic RS_Math::calcConicRadical(const std::vector<std::vector<double> >& 
   double p1a = 2*bf*bf - 6*cf;
   double p1b = bf*cf - 9*df;
   double p0a = cf*p1a*p1a + p1b*(3*p1b - 2*bf*p1a);
-  double fval, fpval, lambda;
 
   if (p0a < 0 && p1a < 0)
   {
 	// -+--   ---+
 	return {};
   }
-
-  lambda = -bf/3.0;    //inflection point
-  double displace = 1.0;
-  if (p1a > 0)         // with two stationary points
-  {
-	displace += sqrt(p1a);  // should be enough.  The important
-							// thing is that it is larger than the
-							// semidistance between the stationary points
-  }
-  // compute the value at the inflection point using Horner scheme
-  fval = bf + lambda;              // b + x
-  fval = cf + lambda*fval;         // c + xb + xx
-  fval = df + lambda*fval;         // d + xc + xxb + xxx
 
   if (fabs(p0a) < 1e-7)
   {   // this is the case if we intersect two vertical parabulas!
@@ -1219,7 +1205,7 @@ LC_Quadratic RS_Math::calcConicRadical(const std::vector<std::vector<double> >& 
   {
 	// we have three roots..
 	// we select the one we want ( defined by mzeroindex.. )
-	lambda += ( 2 - zeroindex )* displace;
+//	lambda += ( 2 - zeroindex )* displace;
   }
   else
   {
@@ -1227,13 +1213,6 @@ LC_Quadratic RS_Math::calcConicRadical(const std::vector<std::vector<double> >& 
 	if( zeroindex > 1 )  // cannot find second and third root
 	{
 	  return {};
-	}
-
-	if (fval > 0)      // zero on the left
-	{
-	  lambda -= displace;
-	} else {           // zero on the right
-	  lambda += displace;
 	}
 
 	// p0a = 0 means we have a root with multiplicity two
@@ -1244,179 +1223,170 @@ LC_Quadratic RS_Math::calcConicRadical(const std::vector<std::vector<double> >& 
 // (use a Newton method starting from lambda = 0.  Hope...)
 //
 
-  double delta;
-
-//TODO: replace newton-raphson with the LibreCAD cubic solver
-  int iterations = 0;
-  const int maxiterations = 30;
-  while (iterations++ < maxiterations)   // using Newton, iterations should be very few
-  {
-	// compute value of function and polinomial
-	fval = fpval = af;
-	fval = bf + lambda*fval;         // b + xa
-	fpval = fval + lambda*fpval;     // b + 2xa
-	fval = cf + lambda*fval;         // c + xb + xxa
-	fpval = fval + lambda*fpval;     // c + 2xb + 3xxa
-	fval = df + lambda*fval;         // d + xc + xxb + xxxa
-
-	delta = fval/fpval;
-	lambda -= delta;
-	if (fabs(delta) < 0.1*RS_TOLERANCE) break;
-  }
-  if (iterations >= maxiterations)
+  auto sol = cubicSolver({bf, cf, df});
+  if (sol.size() < 1)
 	  return {};
 
-  // now we have the degenerate conic: a, b, c, d, e, f
+  for(double l: sol)
+  std::cout<<"lambda="<<l<<std::endl;
+  std::vector<LC_Quadratic> ret;
+  for (double lambda: sol) {
+	  if (!std::isnormal(lambda))
+		  continue;
 
-  a += lambda*a2;
-  b += lambda*b2;
-  c += lambda*c2;
-  d += lambda*d2;
-  e += lambda*e2;
-  f += lambda*f2;
+	  // now we have the degenerate conic: a, b, c, d, e, f
 
-  // domi:
-  // this is the determinant of the matrix of the new conic.  It
-  // should be zero, for the new conic to be degenerate.
-  df = 4*a*b*f - a*e*e - b*d*d - c*c*f + c*d*e;
+	  a += lambda*a2;
+	  b += lambda*b2;
+	  c += lambda*c2;
+	  d += lambda*d2;
+	  e += lambda*e2;
+	  f += lambda*f2;
 
-  //lets work in homogeneous coordinates...
+	  // domi:
+	  // this is the determinant of the matrix of the new conic.  It
+	  // should be zero, for the new conic to be degenerate.
+	  df = 4*a*b*f - a*e*e - b*d*d - c*c*f + c*d*e;
 
-  double dis1 = e*e - 4*b*f;
-  double maxval = fabs(dis1);
-  int maxind = 1;
-  double dis2 = d*d - 4*a*f;
-  if (fabs(dis2) > maxval)
-  {
-	maxval = fabs(dis2);
-	maxind = 2;
-  }
-  double dis3 = c*c - 4*a*b;
-  if (fabs(dis3) > maxval)
-  {
-	maxval = fabs(dis3);
-	maxind = 3;
-  }
-  // one of these must be nonzero (otherwise the matrix is ...)
-  // exchange elements so that the largest is the determinant of the
-  // first 2x2 minor
-  double temp;
-  switch (maxind)
-  {
-	case 1:  // exchange 1 <-> 3
-	temp = a; a = f; f = temp;
-	temp = c; c = e; e = temp;
-	temp = dis1; dis1 = dis3; dis3 = temp;
-	break;
+	  //lets work in homogeneous coordinates...
 
-	case 2:  // exchange 2 <-> 3
-	temp = b; b = f; f = temp;
-	temp = c; c = d; d = temp;
-	temp = dis2; dis2 = dis3; dis3 = temp;
-	break;
-  }
+	  double dis1 = e*e - 4*b*f;
+	  double maxval = fabs(dis1);
+	  int maxind = 1;
+	  double dis2 = d*d - 4*a*f;
+	  if (fabs(dis2) > maxval)
+	  {
+		  maxval = fabs(dis2);
+		  maxind = 2;
+	  }
+	  double dis3 = c*c - 4*a*b;
+	  if (fabs(dis3) > maxval)
+	  {
+		  maxval = fabs(dis3);
+		  maxind = 3;
+	  }
+	  // one of these must be nonzero (otherwise the matrix is ...)
+	  // exchange elements so that the largest is the determinant of the
+	  // first 2x2 minor
+	  double temp;
+	  switch (maxind)
+	  {
+	  case 1:  // exchange 1 <-> 3
+		  std::swap(a, f);
+		  std::swap(c, e);
+		  std::swap(dis1, dis3);
+		  break;
 
-  // domi:
-  // this is the negative of the determinant of the top left of the
-  // matrix.  If it is 0, then the conic is a parabola, if it is < 0,
-  // then the conic is an ellipse, if positive, the conic is a
-  // hyperbola.  In this case, it should be positive, since we have a
-  // degenerate conic, which is a degenerate case of a hyperbola..
-  // note that it is negative if there is no valid conic to be
-  // found ( e.g. not enough intersections.. )
-  //  double discrim = c*c - 4*a*b;
+	  case 2:  // exchange 2 <-> 3
+		  std::swap(b, f);
+		  std::swap(c, d);
+		  std::swap(dis2, dis3);
+		  break;
+	  }
 
-  if (dis3 < 0)
-  {
-	// domi:
-	// i would put an assertion here, but well, i guess it doesn't
-	// really matter, and this prevents crashes if the math i still
-	// recall from high school happens to be wrong :)
-	return {};
-  };
+	  // domi:
+	  // this is the negative of the determinant of the top left of the
+	  // matrix.  If it is 0, then the conic is a parabola, if it is < 0,
+	  // then the conic is an ellipse, if positive, the conic is a
+	  // hyperbola.  In this case, it should be positive, since we have a
+	  // degenerate conic, which is a degenerate case of a hyperbola..
+	  // note that it is negative if there is no valid conic to be
+	  // found ( e.g. not enough intersections.. )
+	  //  double discrim = c*c - 4*a*b;
 
-  double r[3];   // direction of the null space
-  r[0] = 2*b*d - c*e;
-  r[1] = 2*a*e - c*d;
-  r[2] = dis3;
+	  if (dis3 < 0)
+	  {
+		  // domi:
+		  // i would put an assertion here, but well, i guess it doesn't
+		  // really matter, and this prevents crashes if the math i still
+		  // recall from high school happens to be wrong :)
+		  return {};
+	  };
 
-  // now remember the switch:
-  switch (maxind)
-  {
-	case 1:  // exchange 1 <-> 3
-	temp = a; a = f; f = temp;
-	temp = c; c = e; e = temp;
-	temp = dis1; dis1 = dis3; dis3 = temp;
-	temp = r[0]; r[0] = r[2]; r[2] = temp;
-	break;
+	  double r[3];   // direction of the null space
+	  r[0] = 2*b*d - c*e;
+	  r[1] = 2*a*e - c*d;
+	  r[2] = dis3;
 
-	case 2:  // exchange 2 <-> 3
-	temp = b; b = f; f = temp;
-	temp = c; c = d; d = temp;
-	temp = dis2; dis2 = dis3; dis3 = temp;
-	temp = r[1]; r[1] = r[2]; r[2] = temp;
-	break;
-  }
+	  // now remember the switch:
+	  switch (maxind)
+	  {
+	  case 1:  // exchange 1 <-> 3
+		  std::swap(a, f);
+		  std::swap(c, e);
+		  std::swap(dis1, dis3);
+		  std::swap(r[0], r[2]);
+		  break;
 
-  // Computing a Householder reflection transformation that
-  // maps r onto [0, 0, k]
+	  case 2:  // exchange 2 <-> 3
+		  std::swap(b, f);
+		  std::swap(c, d);
+		  std::swap(dis2, dis3);
+		  std::swap(r[1], r[2]);
+		  break;
+	  }
 
-  double w[3];
-  double rnormsq = r[0]*r[0] + r[1]*r[1] + r[2]*r[2];
-  double k = sqrt( rnormsq );
-  if ( k*r[2] < 0) k = -k;
-  double wnorm = sqrt( 2*rnormsq + 2*k*r[2] );
-  w[0] = r[0]/wnorm;
-  w[1] = r[1]/wnorm;
-  w[2] = (r[2] + k)/wnorm;
+	  // Computing a Householder reflection transformation that
+	  // maps r onto [0, 0, k]
 
-  // matrix transformation using Householder matrix, the resulting
-  // matrix is zero on third row and column
-  // [q0,q1,q2]^t = A w
-  // alpha = w^t A w
-  double q0 = a*w[0] + c*w[1]/2 + d*w[2]/2;
-  double q1 = b*w[1] + c*w[0]/2 + e*w[2]/2;
-  double alpha = a*w[0]*w[0] + b*w[1]*w[1] + c*w[0]*w[1] +
-				 d*w[0]*w[2] + e*w[1]*w[2] + f*w[2]*w[2];
-  double a00 = a - 4*w[0]*q0 + 4*w[0]*w[0]*alpha;
-  double a11 = b - 4*w[1]*q1 + 4*w[1]*w[1]*alpha;
-  double a01 = c/2 - 2*w[1]*q0 - 2*w[0]*q1 + 4*w[0]*w[1]*alpha;
+	  double w[3];
+	  double rnormsq = r[0]*r[0] + r[1]*r[1] + r[2]*r[2];
+	  double k = sqrt(rnormsq);
+	  if ( k*r[2] < 0) k = -k;
+	  double wnorm = sqrt(2*rnormsq + 2*k*r[2]);
+	  w[0] = r[0]/wnorm;
+	  w[1] = r[1]/wnorm;
+	  w[2] = (r[2] + k)/wnorm;
 
-  double dis = a01*a01 - a00*a11;
-  assert ( dis >= 0 );
-  double sqrtdis = sqrt( dis );
-  double px, py;
-  if ( which*a01 > 0 )
-  {
-	px = a01 + which*sqrtdis;
-	py = a11;
-  } else {
-	px = a00;
-	py = a01 - which*sqrtdis;
-  }
-  double p[3];   // vector orthogonal to one of the two planes
-  double pscalw = w[0]*px + w[1]*py;
-  p[0] = px - 2*pscalw*w[0];
-  p[1] = py - 2*pscalw*w[1];
-  p[2] =    - 2*pscalw*w[2];
+	  // matrix transformation using Householder matrix, the resulting
+	  // matrix is zero on third row and column
+	  // [q0,q1,q2]^t = A w
+	  // alpha = w^t A w
+	  double q0 = a*w[0] + c*w[1]/2 + d*w[2]/2;
+	  double q1 = b*w[1] + c*w[0]/2 + e*w[2]/2;
+	  double alpha = a*w[0]*w[0] + b*w[1]*w[1] + c*w[0]*w[1] +
+			  d*w[0]*w[2] + e*w[1]*w[2] + f*w[2]*w[2];
+	  double a00 = a - 4*w[0]*q0 + 4*w[0]*w[0]*alpha;
+	  double a11 = b - 4*w[1]*q1 + 4*w[1]*w[1]*alpha;
+	  double a01 = c/2 - 2*w[1]*q0 - 2*w[0]*q1 + 4*w[0]*w[1]*alpha;
 
-  // "r" is the solution of the equation A*(x,y,z) = (0,0,0) where
-  // A is the matrix of the degenerate conic.  This is what we
-  // called in the conic theory we saw in high school a "double
-  // point".  It has the unique property that any line going through
-  // it is a "polar line" of the conic at hand.  It only exists for
-  // degenerate conics.  It has another unique property that if you
-  // take any other point on the conic, then the line between it and
-  // the double point is part of the conic.
-  // this is what we use here: we find the double point ( ret.a
-  // ), and then find another points on the conic.
-  /*
+	  double dis = a01*a01 - a00*a11;
+	  assert (dis >= 0);
+	  double sqrtdis = sqrt(dis);
+	  double px, py;
+	  if ( which*a01 > 0 )
+	  {
+		  px = a01 + which*sqrtdis;
+		  py = a11;
+	  } else {
+		  px = a00;
+		  py = a01 - which*sqrtdis;
+	  }
+	  double p[3];   // vector orthogonal to one of the two planes
+	  double pscalw = w[0]*px + w[1]*py;
+	  p[0] = px - 2*pscalw*w[0];
+	  p[1] = py - 2*pscalw*w[1];
+	  p[2] =    - 2*pscalw*w[2];
+
+	  // "r" is the solution of the equation A*(x,y,z) = (0,0,0) where
+	  // A is the matrix of the degenerate conic.  This is what we
+	  // called in the conic theory we saw in high school a "double
+	  // point".  It has the unique property that any line going through
+	  // it is a "polar line" of the conic at hand.  It only exists for
+	  // degenerate conics.  It has another unique property that if you
+	  // take any other point on the conic, then the line between it and
+	  // the double point is part of the conic.
+	  // this is what we use here: we find the double point ( ret.a
+	  // ), and then find another points on the conic.
+	  /*
    *
    * */
-  RS_Vector v0{p[0], p[1]};
-  v0 *= -p[2]/(p[0]*p[0] + p[1]*p[1]);
+	  RS_Vector v0{p[0], p[1]};
+	  v0 *= -p[2]/v0.squared();
+	  ret.push_back(RS_Line{v0, v0 + RS_Vector{-p[1], p[0]}}.getQuadratic());
+  }
 
-  return RS_Line{v0, v0 + RS_Vector{-p[1], p[0]}}.getQuadratic();
+  return ret;
 }
 
 /** verify a solution for simultaneousQuadratic
