@@ -41,6 +41,9 @@
 #include "qc_applicationwindow.h"
 #include "rs_debug.h"
 
+#include "lc_quadratic.h"
+#include "rs_ellipse.h"
+
 #ifndef QC_SPLASH_TXTCOL
     #define QC_SPLASH_TXTCOL Qt::black
 #endif
@@ -53,7 +56,11 @@ extern void QINITIMAGES_LIBRECAD();
  */
 int main(int argc, char** argv)
 {
-    RS_DEBUG->setLevel(RS_Debug::D_WARNING);
+	RS_Ellipse e0{nullptr, {{0., 0.}, {0., 2.}, 0.5, 0., 0., false}};
+	RS_Ellipse e1{nullptr, {{0., 0.}, {2., 0.}, 0.5, 0., 0., false}};
+	LC_Quadratic::getIntersection(e0.getQuadratic(), e1.getQuadratic());
+	return 0;
+	RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 
     QApplication app(argc, argv);
     QCoreApplication::setOrganizationName("LibreCAD");

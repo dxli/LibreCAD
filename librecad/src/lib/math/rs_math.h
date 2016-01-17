@@ -133,7 +133,7 @@ public:
 	static bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
 	//! find straight lines passing intersections of two conic curves
 	static std::vector<LC_Quadratic> calcConicRadical(const std::vector<std::vector<double> >& m,
-									 int which, int zeroindex);
+									 int which);
 	/** wrapper for elliptic integral **/
     /**
      * wrapper of elliptic integral of the second type, Legendre form

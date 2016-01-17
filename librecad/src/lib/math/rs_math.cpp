@@ -1138,7 +1138,7 @@ RS_VectorSolutions RS_Math::simultaneousQuadraticSolverMixed(const std::vector<s
 //! of two linear form, which are the radical lines
 //! step 3. find intersection for line-conic, which means solving of quadratic equations
 std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vector<double> >& m,
-								 int which, int zeroindex)
+								 int which)
 {
 //  assert( which == 1 || which == -1 );
 //  assert( 0 < zeroindex && zeroindex < 4 );
@@ -1206,16 +1206,6 @@ std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vecto
 	// we select the one we want ( defined by mzeroindex.. )
 //	lambda += ( 2 - zeroindex )* displace;
   }
-  else
-  {
-	// we have just one root
-	if( zeroindex > 1 )  // cannot find second and third root
-	{
-	  return {};
-	}
-
-	// p0a = 0 means we have a root with multiplicity two
-  }
 
 //
 // find a root of af*lambda^3 + bf*lambda^2 + cf*lambda + df = 0
@@ -1267,7 +1257,6 @@ std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vecto
 	  // one of these must be nonzero (otherwise the matrix is ...)
 	  // exchange elements so that the largest is the determinant of the
 	  // first 2x2 minor
-	  double temp;
 	  switch (maxind)
 	  {
 	  case 1:  // exchange 1 <-> 3
@@ -1382,6 +1371,7 @@ std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vecto
    * */
 	  RS_Vector v0{p[0], p[1]};
 	  v0 *= -p[2]/v0.squared();
+	  std::cout<<"radical line: "<<RS_Line{v0, v0 + RS_Vector{-p[1], p[0]}}<<std::endl;
 	  ret.push_back(RS_Line{v0, v0 + RS_Vector{-p[1], p[0]}}.getQuadratic());
   }
 

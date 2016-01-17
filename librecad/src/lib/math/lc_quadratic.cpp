@@ -485,7 +485,6 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
         std::swap(p1,p2);
     }
 	if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
-		DEBUG_HEADER
 		std::cout<<*p1<<std::endl;
 		std::cout<<*p2<<std::endl;
 	}
@@ -562,22 +561,28 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
     std::vector<std::vector<double> >  ce(0);
     ce.push_back(p1->getCoefficients());
     ce.push_back(p2->getCoefficients());
-    if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
-        DEBUG_HEADER
-        std::cout<<*p1<<std::endl;
-        std::cout<<*p2<<std::endl;
-    }
+//    if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
+//        DEBUG_HEADER
+//        std::cout<<*p1<<std::endl;
+//        std::cout<<*p2<<std::endl;
+//    }
 #if 1
 		//new intersection algorithm ported from kig
 		RS_VectorSolutions sol;
 		for (short i = -1;i <= 1; i += 2) {
-			auto const lcLine = RS_Math::calcConicRadical(ce, i, 1);
+			auto const lcLine = RS_Math::calcConicRadical(ce, i);
 			for (auto const& q: lcLine) {
+				std::cout<<"critical line: "<<q<<std::endl;
 				auto const sol1 = getIntersection(q, *p1);
-				sol.push_back(sol1);
+				for (auto const& v: sol1) {
+					std::cout<<"sol: "<<v<<std::endl;
+					if (sol.size()==0 || sol.getClosestDistance(v) > RS_TOLERANCE)
+						sol.push_back(v);
+				}
+//				sol.push_back(sol1);
 			}
 		}
-		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
+//		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
 			for (auto const& vp: sol)
 				std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
 #else
