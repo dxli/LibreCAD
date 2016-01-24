@@ -28,7 +28,9 @@
 #define RS_MATH_H
 
 #include <vector>
-
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/vector.hpp>
+#include <boost/math/quaternion.hpp>
 class RS_Vector;
 class RS_VectorSolutions;
 class QString;
@@ -41,6 +43,11 @@ class RS_Math {
 private:
 	RS_Math() = delete;
 public:
+	using boost::numeric::ublas::vector<double> = Vector;
+	using boost::numeric::ublas::matrix<double> = Matrix;
+	using boost::math::quaternion<double> = Quaternion;
+
+
 	static int round(double v);
     static double pow(double x, double y);
     static RS_Vector pow(RS_Vector x, double y);
@@ -134,6 +141,18 @@ public:
 	//! find straight lines passing intersections of two conic curves
 	static std::vector<LC_Quadratic> calcConicRadical(const std::vector<std::vector<double> >& m,
 									 int which);
+	/**
+	 * @brief eigenSystemSym3x3 eigen system of symmetric 3x3 real matrices
+	 * @param m symmetric 3x3 real matrix
+	 * @return a pair of eigen values, and eigen vectors by row vectors
+	 */
+	static std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
+	/**
+	 * @brief qToMatrix quaternion to rotation matrix
+	 * @param q unit quaternion
+	 * @return rotation matrix by Euler-Rodrigues
+	 */
+	static Matrix qToMatrix(Quaternion const& q);
 	/** wrapper for elliptic integral **/
     /**
      * wrapper of elliptic integral of the second type, Legendre form
