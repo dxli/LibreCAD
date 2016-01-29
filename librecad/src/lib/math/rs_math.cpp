@@ -868,8 +868,20 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 using Vector = boost::numeric::ublas::vector<double>;
 using Matrix = boost::numeric::ublas::matrix<double>;
 using Quaternion = boost::math::quaternion<double>;
-std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m)
+
+std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 {
+	auto m = m1;
+	if (m.size1() != 3) {
+		m = Matrix(3, 3);
+		m(0, 0) = 1; m(0,1) = 0; m(0, 2) = 1;
+		m(1, 0) = 0; m(1,1) = -1; m(1, 2) = 0;
+		m(2, 0) = 1; m(2,1) = 0; m(2, 2) = 0;
+	}
+			std::cout<<": "<<std::endl;
+			for (int row=0; row<3; row++) {
+				qDebug()<<QString("%1 %2 %3").arg(m(row, 0)).arg(m(row, 1)).arg(m(row, 2));
+			}
 	// A must be a symmetric matrix.
 		// returns quaternion q such that its corresponding matrix Q
 		// can be used to Diagonalize A
@@ -878,14 +890,16 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m)
 		// As per 'row' convention if std::array<double,3>x3 Q = q.getmatrix(); then v*Q = q*v*conj(q)
 		int maxsteps=48;  // certainly wont need that many.
 		int i;
-		Quaternion q{1, 0,0,0};
+		Quaternion q{1,0,0,0};
 		for(i=0;i < maxsteps; ++i) {
 			Matrix D  = rotate(m, q);  // A = Q^T*D*Q
+			std::cout<<"iteration: "<<i<<std::endl;
 			for (int row=0; row<3; row++) {
-				std::cout<<D(row, 0)<<'\t'<<D(row, 1)<<'\t'<<D(row, 2)<<std::endl;
+				qDebug()<<QString("%1 %2 %3").arg(D(row, 0)).arg(D(row, 1)).arg(D(row, 2));
 			}
-			std::array<double,3> offdiag{D(1, 2),D(0, 2), D(0, 1)}; // elements not on the diagonal
-			std::array<double,3> om{fabs(offdiag[0]),fabs(offdiag[1]),fabs(offdiag[2])}; // mag of each offdiag elem
+			std::cout<<": "<<std::endl;
+			std::array<double,3> offdiag{{D(1, 2),D(0, 2), D(0, 1)}}; // elements not on the diagonal
+			std::array<double,3> om{{fabs(offdiag[0]),fabs(offdiag[1]),fabs(offdiag[2])}}; // mag of each offdiag elem
 			int k = (om[0] > om[1] && om[0] > om[2])?0: (om[1] > om[2])? 1 : 2; // index of largest element of offdiag
 			int k1 = (k+1)%3;
 			int k2 = (k+2)%3;
@@ -893,12 +907,12 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m)
 			double thet = (D(k2, k2) - D(k1, k1))/(2.0*offdiag[k]);
 			double sgn = (thet > 0.0)?1.0:-1.0;
 			thet *= sgn; // make it positive
-			double t = sgn /(thet +((thet < RS_TOLERANCE)?sqrt(thet * thet+1.0):thet)) ; // sign(T)/(|T|+sqrt(T^2+1))
+			double t = sgn /(thet +((thet < RS_TOLERANCE2)?sqrt(thet * thet+1.0):thet)) ; // sign(T)/(|T|+sqrt(T^2+1))
 			double c = 1.0/sqrt(t*t+1.0); //  c= 1/(t^2+1) , t=s/c
 			if(c==1.0) break;  // no room for improvement - reached machine precision.
-			std::array<double, 3> jr{0., 0., 0.};
-			jr[k] = sgn*sqrt((1.0-c)/2.0);  // using 1/2 angle identity sin(a/2) = sqrt((1-cos(a))/2)
-//			jr[k] = - jr[k]; // since our quat-to-matrix convention was for v*M instead of M*v
+			std::array<double, 3> jr{{0., 0., 0.}};
+			jr[k] = -sgn*sqrt((1.0-c)/2.0);  // using 1/2 angle identity sin(a/2) = sqrt((1-cos(a))/2)
+			//jr[k] = - jr[k]; // since our quat-to-matrix convention was for v*M instead of M*v
 			double a  = sqrt(1.0 - jr[k] * jr[k]);
 			if(a==1.0) break; // reached limits of floating point precision
 			q =  q*Quaternion(a, jr[0], jr[1], jr[2]);
@@ -913,11 +927,10 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m)
 }
 
 Matrix RS_Math::rotate(Matrix const& m, Quaternion const& q) {
+	using namespace boost::numeric::ublas;
 	Matrix const Q = qToMatrix(q);
-	Matrix D;
-	boost::numeric::ublas::axpy_prod(m, Q, D, true);
-	boost::numeric::ublas::axpy_prod(trans(Q), D, D, true);
-	return D;
+	Matrix D = prod(m, Q);
+	return prod(trans(Q), D);
 }
 
 Matrix RS_Math::qToMatrix(Quaternion const& q)
@@ -939,7 +952,7 @@ Matrix RS_Math::qToMatrix(Quaternion const& q)
 
 	ret(2, 0) = 2.*(b*d - a*c);
 	ret(2, 1) = 2.*(c*d + a*b);
-	ret(2, 2) = 2.*(a*a + d*d - b*b - c*c);
+	ret(2, 2) = a*a + d*d - b*b - c*c;
 
 	return ret;
 }
