@@ -43,9 +43,9 @@ class RS_Math {
 private:
 	RS_Math() = delete;
 public:
-	using boost::numeric::ublas::vector<double> = Vector;
-	using boost::numeric::ublas::matrix<double> = Matrix;
-	using boost::math::quaternion<double> = Quaternion;
+	using Vector = boost::numeric::ublas::vector<double>;
+	using Matrix = boost::numeric::ublas::matrix<double>;
+	using Quaternion = boost::math::quaternion<double>;
 
 
 	static int round(double v);
@@ -153,6 +153,7 @@ public:
 	 * @return rotation matrix by Euler-Rodrigues
 	 */
 	static Matrix qToMatrix(Quaternion const& q);
+	static Matrix rotate(Matrix const& m, Quaternion const& q);
 	/** wrapper for elliptic integral **/
     /**
      * wrapper of elliptic integral of the second type, Legendre form
