@@ -865,42 +865,59 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 }
 
 
+using Vector = boost::numeric::ublas::vector<double>;
+using Matrix = boost::numeric::ublas::matrix<double>;
+using Quaternion = boost::math::quaternion<double>;
 std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m)
 {
-	using namespace boost::numeric::ublas;
 	// A must be a symmetric matrix.
 		// returns quaternion q such that its corresponding matrix Q
 		// can be used to Diagonalize A
 		// Diagonal matrix D = Q * A * Transpose(Q);  and  A = QT*D*Q
 		// The rows of q are the eigenvectors D's diagonal is the eigenvalues
-		// As per 'row' convention if float3x3 Q = q.getmatrix(); then v*Q = q*v*conj(q)
-		int maxsteps=24;  // certainly wont need that many.
+		// As per 'row' convention if std::array<double,3>x3 Q = q.getmatrix(); then v*Q = q*v*conj(q)
+		int maxsteps=48;  // certainly wont need that many.
 		int i;
-		Quaternion q(1, 0,0,0);
+		Quaternion q{1, 0,0,0};
 		for(i=0;i < maxsteps; ++i) {
-			Matrix Q  = q.getmatrix(); // v*Q == q*v*conj(q)
-			Matrix D  = Q * A * trans(Q);  // A = Q^T*D*Q
-			float3 offdiag(D[1][2],D[0][2],D[0][1]); // elements not on the diagonal
-			float3 om(fabsf(offdiag.x),fabsf(offdiag.y),fabsf(offdiag.z)); // mag of each offdiag elem
-			int k = (om.x > om.y && om.x > om.z)?0: (om.y > om.z)? 1 : 2; // index of largest element of offdiag
+			Matrix D  = rotate(m, q);  // A = Q^T*D*Q
+			for (int row=0; row<3; row++) {
+				std::cout<<D(row, 0)<<'\t'<<D(row, 1)<<'\t'<<D(row, 2)<<std::endl;
+			}
+			std::array<double,3> offdiag{D(1, 2),D(0, 2), D(0, 1)}; // elements not on the diagonal
+			std::array<double,3> om{fabs(offdiag[0]),fabs(offdiag[1]),fabs(offdiag[2])}; // mag of each offdiag elem
+			int k = (om[0] > om[1] && om[0] > om[2])?0: (om[1] > om[2])? 1 : 2; // index of largest element of offdiag
 			int k1 = (k+1)%3;
 			int k2 = (k+2)%3;
-			if(offdiag[k]==0.0f) break;  // diagonal already
-			float thet = (D[k2][k2]-D[k1][k1])/(2.0f*offdiag[k]);
-			float sgn = (thet > 0.0f)?1.0f:-1.0f;
-			thet    *= sgn; // make it positive
-			float t = sgn /(thet +((thet < 1.E6f)?sqrtf(sqr(thet)+1.0f):thet)) ; // sign(T)/(|T|+sqrt(T^2+1))
-			float c = 1.0f/sqrtf(sqr(t)+1.0f); //  c= 1/(t^2+1) , t=s/c
-			if(c==1.0f) break;  // no room for improvement - reached machine precision.
-			Quaternion jr(0,0,0,0); // jacobi rotation for this iteration.
-			jr[k] = sgn*sqrtf((1.0f-c)/2.0f);  // using 1/2 angle identity sin(a/2) = sqrt((1-cos(a))/2)
-			jr[k] *= -1.0f; // since our quat-to-matrix convention was for v*M instead of M*v
-			jr.w  = sqrtf(1.0f - sqr(jr[k]));
-			if(jr.w==1.0f) break; // reached limits of floating point precision
-			q =  q*jr;
-			q.Normalize();
+			if(offdiag[k]==0.0) break;  // diagonal already
+			double thet = (D(k2, k2) - D(k1, k1))/(2.0*offdiag[k]);
+			double sgn = (thet > 0.0)?1.0:-1.0;
+			thet *= sgn; // make it positive
+			double t = sgn /(thet +((thet < RS_TOLERANCE)?sqrt(thet * thet+1.0):thet)) ; // sign(T)/(|T|+sqrt(T^2+1))
+			double c = 1.0/sqrt(t*t+1.0); //  c= 1/(t^2+1) , t=s/c
+			if(c==1.0) break;  // no room for improvement - reached machine precision.
+			std::array<double, 3> jr{0., 0., 0.};
+			jr[k] = sgn*sqrt((1.0-c)/2.0);  // using 1/2 angle identity sin(a/2) = sqrt((1-cos(a))/2)
+//			jr[k] = - jr[k]; // since our quat-to-matrix convention was for v*M instead of M*v
+			double a  = sqrt(1.0 - jr[k] * jr[k]);
+			if(a==1.0) break; // reached limits of floating point precision
+			q =  q*Quaternion(a, jr[0], jr[1], jr[2]);
+			q = q / norm(q);
 		}
-		return q;
+		Matrix D  = rotate(m, q);  // A = Q^T*D*Q
+		Vector ev(3);
+		ev(0)=D(0,0);
+		ev(1)=D(1, 1);
+		ev(2)=D(2, 2);
+		return {ev, D};
+}
+
+Matrix RS_Math::rotate(Matrix const& m, Quaternion const& q) {
+	Matrix const Q = qToMatrix(q);
+	Matrix D;
+	boost::numeric::ublas::axpy_prod(m, Q, D, true);
+	boost::numeric::ublas::axpy_prod(trans(Q), D, D, true);
+	return D;
 }
 
 Matrix RS_Math::qToMatrix(Quaternion const& q)
