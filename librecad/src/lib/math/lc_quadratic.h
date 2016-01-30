@@ -26,10 +26,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define LC_QUADRATIC_H
 
 
-#include "rs_vector.h"
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
+#include <boost/math/quaternion.hpp>
 
+class RS_Vector;
 class RS_VectorSolutions;
 class RS_AtomicEntity;
 
@@ -41,7 +42,12 @@ class RS_AtomicEntity;
  */
 class LC_Quadratic {
 public:
-	LC_Quadratic();
+
+	using Vector = boost::numeric::ublas::vector<double>;
+	using Matrix = boost::numeric::ublas::matrix<double>;
+	using Quaternion = boost::math::quaternion<double>;
+
+	LC_Quadratic() = default;
     LC_Quadratic(const LC_Quadratic& lc0);
     LC_Quadratic& operator = (const LC_Quadratic& lc0);
 	/** \brief construct a ellipse or hyperbola as the path of center of tangent circles
@@ -85,17 +91,18 @@ public:
 	bool operator == (bool valid) const;
 	bool operator != (bool valid) const;
 
-	boost::numeric::ublas::vector<double>& getLinear();
-	 const boost::numeric::ublas::vector<double>& getLinear() const;
-	 boost::numeric::ublas::matrix<double>& getQuad();
-	 const boost::numeric::ublas::matrix<double>& getQuad() const;
+	Vector& getLinear();
+	Vector const& getLinear() const;
+	Matrix& getQuad();
+	Matrix const& getQuad() const;
 	 double const& constTerm()const;
 	 double& constTerm();
+
 
     /** switch x,y coordinates */
     LC_Quadratic flipXY(void) const;
     /** the matrix of rotation by angle **/
-    static boost::numeric::ublas::matrix<double> rotationMatrix(const double& angle);
+	static Matrix rotationMatrix(const double& angle);
 
     static RS_VectorSolutions getIntersection(const LC_Quadratic& l1, const LC_Quadratic& l2);
 
@@ -103,12 +110,12 @@ public:
 
 private:
     // the equation form: {x, y}.m_mQuad.{{x},{y}} + m_vLinear.{{x},{y}}+m_dConst=0
-    boost::numeric::ublas::matrix<double> m_mQuad;
-    boost::numeric::ublas::vector<double> m_vLinear;
+	Matrix m_mQuad{2, 2};
+	Vector m_vLinear{2};
     double m_dConst;
-    bool m_bIsQuadratic;
+	bool m_bIsQuadratic{false};
     /** whether this quadratic form is valid */
-    bool m_bValid;
+	bool m_bValid{false};
 };
 
 
