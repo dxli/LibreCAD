@@ -138,9 +138,14 @@ public:
       *@return true, for a valid solution
       **/
 	static bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
-	//! find straight lines passing intersections of two conic curves
-	static std::vector<LC_Quadratic> calcConicRadical(const std::vector<std::vector<double> >& m,
-									 int which);
+
+	//! find degenerate conic of pencil
+	//! @param m m[0] and m[1] contain (a, b, c, d, e, f) for each quadratic form
+	//! m[0] and m[1] are non-degenerate
+	//! return straight lines passing intersections of two conic curves
+	static std::vector<LC_Quadratic> calcConicRadical(const std::vector<std::vector<double> >& m);
+	//! coefficients to uBlas Matrix
+	static Matrix toBlasMat(std::array<double, 6> const& m);
 	/**
 	 * @brief eigenSystemSym3x3 eigen system of symmetric 3x3 real matrices
 	 * @param m symmetric 3x3 real matrix

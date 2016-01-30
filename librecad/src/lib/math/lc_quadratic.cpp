@@ -26,6 +26,7 @@
 
 #include <cfloat>
 #include <QDebug>
+#include "rs_vector.h"
 #include "rs_math.h"
 #include "rs_information.h"
 #include "lc_quadratic.h"
@@ -42,12 +43,6 @@
 /**
  * Constructor.
  */
-
-LC_Quadratic::LC_Quadratic():
-    m_mQuad(2,2),
-    m_vLinear(2),
-	m_bValid(false)
-{}
 
 LC_Quadratic::LC_Quadratic(const LC_Quadratic& lc0):
   m_bIsQuadratic(lc0.isQuadratic())
@@ -235,22 +230,22 @@ bool LC_Quadratic::operator != (bool valid) const
 	return m_bValid != valid;
 }
 
-boost::numeric::ublas::vector<double>& LC_Quadratic::getLinear()
+LC_Quadratic::Vector& LC_Quadratic::getLinear()
 {
 	return m_vLinear;
 }
 
-const boost::numeric::ublas::vector<double>& LC_Quadratic::getLinear() const
+LC_Quadratic::Vector const& LC_Quadratic::getLinear() const
 {
 	return m_vLinear;
 }
 
-boost::numeric::ublas::matrix<double>& LC_Quadratic::getQuad()
+LC_Quadratic::Matrix& LC_Quadratic::getQuad()
 {
 	return m_mQuad;
 }
 
-const boost::numeric::ublas::matrix<double>& LC_Quadratic::getQuad() const
+LC_Quadratic::Matrix const & LC_Quadratic::getQuad() const
 {
 	return m_mQuad;
 }
@@ -569,8 +564,8 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 #if 1
 		//new intersection algorithm ported from kig
 		RS_VectorSolutions sol;
-		for (short i = -1;i <= 1; i += 2) {
-			auto const lcLine = RS_Math::calcConicRadical(ce, i);
+		{
+			auto const lcLine = RS_Math::calcConicRadical(ce);
 			for (auto const& q: lcLine) {
 				std::cout<<"critical line: "<<q<<std::endl;
 				auto const sol1 = getIntersection(q, *p1);
@@ -631,9 +626,9 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
    cos x, sin x
    -sin x, cos x
    */
-boost::numeric::ublas::matrix<double>  LC_Quadratic::rotationMatrix(const double& angle)
+LC_Quadratic::Matrix  LC_Quadratic::rotationMatrix(const double& angle)
 {
-    boost::numeric::ublas::matrix<double> ret(2,2);
+	Matrix ret(2,2);
     ret(0,0)=cos(angle);
     ret(0,1)=sin(angle);
     ret(1,0)=-ret(0,1);
