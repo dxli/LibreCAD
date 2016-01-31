@@ -471,7 +471,7 @@ std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const rhs) c
 	auto l1 = {a1*c0*f0, a0*c1*f0, -b0*b0*f1, a0*c0*f1 , -c1*d0*d0, -a1*e0*e0};
 	double bf = 2*RS_Math::sum(l0) +RS_Math::sum(l1);
 	auto l2 = {b1*d1*e0, b1*d0*e1, b0*d1*e1, -a1*e0*e1, -c1*d0*d1, -b0*b1*f1};
-	auto l3 = {b1*d1*e0, b1*d0*e1, b0*d1*e1, -a1*e0*e1, -c1*d0*d1, -b0*b1*f1};
+	auto l3 = {a1*c1*f0, a1*c0*f1, a0*c1*f1, -c0*d1*d1, -a0*e1*e1, -b1*b1*f0};
 	double cf = 2*RS_Math::sum(l2) + RS_Math::sum(l3);
 	double df = rhs.getDeterminant();
 
