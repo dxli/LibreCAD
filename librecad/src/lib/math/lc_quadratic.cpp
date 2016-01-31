@@ -449,7 +449,7 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	return {{v0 + v1}, {v0 - v1}};
 }
 
-std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const rhs) const
+std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const& rhs) const
 {
 	double const& a0 = m_mQuad(0, 0);
 	double const& b0 = m_mQuad(0, 1);

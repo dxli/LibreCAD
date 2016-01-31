@@ -112,7 +112,7 @@ public:
 	//! return a degenerate Matrix
 	//! algorithm (Pencil of Conics)[https://en.wikipedia.org/wiki/Conic_section#Pencil_of_conics]
 	//! reduce all solutions into linear forms
-	std::vector<LC_Quadratic> pencilOfConics(LC_Quadratic const rhs) const;
+	std::vector<LC_Quadratic> pencilOfConics(LC_Quadratic const& rhs) const;
 
 
 
