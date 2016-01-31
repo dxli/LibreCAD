@@ -100,6 +100,7 @@ public:
 
 	 //! matrix in homogeneous coordinates
 	Matrix getMat() const;
+	double getDeterminant() const;
 	static double getDeterminant(Matrix const& m);
 	//! detect degenerate quadratic form
 	bool isDegenerate() const;
@@ -107,6 +108,11 @@ public:
 	//! reduce degenerate matrix to product of linear forms
 	//! assume the matrix is m_bIsQuadratic=true
 	static std::vector<LC_Quadratic> linearReduction(Matrix const& m);
+	//! find pencil of conic by linear combination of two non-degenerate quadratic forms
+	//! return a degenerate Matrix
+	//! algorithm (Pencil of Conics)[https://en.wikipedia.org/wiki/Conic_section#Pencil_of_conics]
+	//! reduce all solutions into linear forms
+	std::vector<LC_Quadratic> pencilOfConics(LC_Quadratic const rhs) const;
 
 
 
