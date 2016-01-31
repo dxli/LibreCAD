@@ -48,8 +48,6 @@ public:
 	using Quaternion = boost::math::quaternion<double>;
 
 	LC_Quadratic() = default;
-    LC_Quadratic(const LC_Quadratic& lc0);
-    LC_Quadratic& operator = (const LC_Quadratic& lc0);
 	/** \brief construct a ellipse or hyperbola as the path of center of tangent circles
       passing the point */
     LC_Quadratic(const RS_AtomicEntity* circle, const RS_Vector& point);
@@ -65,6 +63,8 @@ public:
      * @param point1
      */
     LC_Quadratic(const RS_Vector& point0, const RS_Vector& point1);
+	//! from linear form
+	LC_Quadratic(Vector const& v);
 
     LC_Quadratic(std::vector<double> ce);
     std::vector<double> getCoefficients() const;
@@ -98,6 +98,17 @@ public:
 	 double const& constTerm()const;
 	 double& constTerm();
 
+	 //! matrix in homogeneous coordinates
+	Matrix getMat() const;
+	static double getDeterminant(Matrix const& m);
+	//! detect degenerate quadratic form
+	bool isDegenerate() const;
+	static bool isDegenerate(Matrix const& m);
+	//! reduce degenerate matrix to product of linear forms
+	//! assume the matrix is m_bIsQuadratic=true
+	static std::vector<LC_Quadratic> linearReduction(Matrix const& m);
+
+
 
     /** switch x,y coordinates */
     LC_Quadratic flipXY(void) const;
@@ -110,12 +121,13 @@ public:
 
 private:
     // the equation form: {x, y}.m_mQuad.{{x},{y}} + m_vLinear.{{x},{y}}+m_dConst=0
-	Matrix m_mQuad{2, 2};
-	Vector m_vLinear{2};
-    double m_dConst;
-	bool m_bIsQuadratic{false};
-    /** whether this quadratic form is valid */
+	/** whether this quadratic form is valid */
 	bool m_bValid{false};
+	bool m_bIsQuadratic{false};
+	//TODO use homogeneous matrix
+	Matrix m_mQuad = Matrix(2, 2);
+	Vector m_vLinear = Vector(2);
+	double m_dConst;
 };
 
 

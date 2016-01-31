@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 	RS_Ellipse e0{nullptr, {{0., 0.}, {0., 2.}, 0.5, 0., 0., false}};
 	RS_Ellipse e1{nullptr, {{0., 0.}, {2., 0.}, 0.5, 0., 0., false}};
 	LC_Quadratic::getIntersection(e0.getQuadratic(), e1.getQuadratic());
-	return 0;
+//	return 0;
 	RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 
     QApplication app(argc, argv);

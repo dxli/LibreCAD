@@ -1478,8 +1478,23 @@ std::vector<LC_Quadratic> RS_Math::calcConicRadical(const std::vector<std::vecto
 //! coefficients to uBlas Matrix
 Matrix RS_Math::toBlasMat(std::array<double, 6> const& m)
 {
-
+return {};
 }
+
+ double RS_Math::sum(std::initializer_list<double> const& list)
+ {
+	 double sum{0.};
+	 double y,t;
+	 double c{0.};
+	 for (auto const& d: list) {
+		 y = d - c;
+		 t = sum + y;
+		 c = (t - sum) - y;
+		 sum = t;
+	 }
+	 return sum;
+ }
+
 
 /** verify a solution for simultaneousQuadratic
   *@m the coefficient matrix
