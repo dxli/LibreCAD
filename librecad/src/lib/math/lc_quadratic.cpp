@@ -23,7 +23,7 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 #include <cfloat>
 #include <QDebug>
 #include "rs_vector.h"
@@ -39,35 +39,6 @@
 #ifdef EMU_C99
 #include "emu_c99.h" /* C99 math */
 #endif
-
-/**
- * Constructor.
- */
-
-LC_Quadratic::LC_Quadratic(const LC_Quadratic& lc0):
-  m_bIsQuadratic(lc0.isQuadratic())
-  ,m_bValid(lc0)
-{
-    if(m_bValid==false) return;
-  if(m_bIsQuadratic) m_mQuad=lc0.getQuad();
-  m_vLinear=lc0.getLinear();
-  m_dConst=lc0.m_dConst;
-}
-
-LC_Quadratic& LC_Quadratic::operator = (const LC_Quadratic& lc0)
-{
-    if(lc0.isQuadratic()){
-        m_mQuad.resize(2,2,false);
-        m_mQuad=lc0.getQuad();
-    }
-    m_vLinear.resize(2);
-    m_vLinear=lc0.getLinear();
-    m_dConst=lc0.m_dConst;
-    m_bIsQuadratic=lc0.isQuadratic();
-	m_bValid=lc0.m_bValid;
-    return *this;
-}
-
 
 LC_Quadratic::LC_Quadratic(std::vector<double> ce):
     m_mQuad(2,2),
@@ -103,11 +74,11 @@ LC_Quadratic::LC_Quadratic(std::vector<double> ce):
 *@point, a point
 *@return, a path of center tangential circles which pass the point
 */
-LC_Quadratic::LC_Quadratic(const RS_AtomicEntity* circle, const RS_Vector& point)
-    : m_mQuad(2,2)
-    ,m_vLinear(2)
-    ,m_bIsQuadratic(true)
-    ,m_bValid(true)
+LC_Quadratic::LC_Quadratic(const RS_AtomicEntity* circle, const RS_Vector& point):
+	  m_bValid(true)
+	, m_bIsQuadratic(true)
+	, m_mQuad(2,2)
+	, m_vLinear(2)
 {
 	if(circle==nullptr) {
         m_bValid=false;
@@ -265,9 +236,9 @@ double& LC_Quadratic::constTerm()
 LC_Quadratic::LC_Quadratic(const RS_AtomicEntity* circle0,
                            const RS_AtomicEntity* circle1,
                            bool mirror):
-    m_mQuad(2,2)
-    ,m_vLinear(2)
-    ,m_bValid(false)
+	m_bValid{false}
+	, m_mQuad(2,2)
+	, m_vLinear(2)
 {
 //    DEBUG_HEADER
 
@@ -402,6 +373,15 @@ LC_Quadratic::LC_Quadratic(const RS_Vector& point0, const RS_Vector& point1)
     *this=RS_Line(vStart, vEnd).getQuadratic();
 }
 
+LC_Quadratic::LC_Quadratic(Vector const& v):
+	m_bValid{true}
+  , m_bIsQuadratic{false}
+  , m_vLinear{v}
+{
+
+}
+
+
 std::vector<double>  LC_Quadratic::getCoefficients() const
 {
     std::vector<double> ret(0,0.);
@@ -416,6 +396,82 @@ std::vector<double>  LC_Quadratic::getCoefficients() const
     ret.push_back(m_dConst);
     return ret;
 }
+
+LC_Quadratic::Matrix LC_Quadratic::getMat() const
+{
+	Matrix ret(3, 3);
+	if (isValid()==false) return ret;
+	if (m_bIsQuadratic) {
+		ret(0, 0) = m_mQuad(0,0);
+		ret(0, 1) = 0.5 * (m_mQuad(0,1)+m_mQuad(1,0));
+		ret(1, 0) = ret(0, 1);
+		ret(1, 1) = m_mQuad(1,1);
+	}
+	ret(0, 2) = 0.5 * m_vLinear(0);
+	ret(2, 0) = ret(0, 2);
+	ret(1, 2) = 0.5 * m_vLinear(1);
+	ret(2, 1) = ret(1, 2);
+
+	ret(2, 2) = m_dConst;
+	return ret;
+}
+
+/**
+ * @brief LC_Quadratic::linearReduction reduce a degenerate quadratic form to
+ * product of linear forms, *i.e.* (a0 x + b0 y + c0)(a1 x + b1 y + c1)
+ * @param m quadratic form in homogeneous coordinates
+ * @return a vector contains one or two linear LC_Quadratic forms
+ */
+std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
+{
+	using namespace boost::numeric::ublas;
+	assert(isDegenerate(m));
+	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
+	auto const& L = ei_LV.first;
+	assert(L(0) > 0. && L(1) <= 0.);
+	auto const lP = sqrt(L(0));
+	auto const lN = sqrt(-L(1));
+	auto& Q = ei_LV.second;
+	auto v0 = matrix_row<Matrix>(Q, 0);
+	auto v1 = matrix_row<Matrix>(Q, 1);
+	v0 *= lP;
+	v1 *= lN;
+	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
+		return {{v0}};
+	return {{v0 + v1}, {v0 - v1}};
+}
+
+bool LC_Quadratic::isDegenerate(Matrix const& m)
+{
+	return !std::isnormal(getDeterminant(m));
+}
+
+double LC_Quadratic::getDeterminant(Matrix const& m)
+{
+	double const& a = m(0, 0);
+	double const& b = m(0, 1);
+	double const& c = m(1, 1);
+	double const& d = m(0, 2);
+	double const& e = m(1, 2);
+	double const& f = m(2, 2);
+	std::initializer_list<double> list{a*c*f, 2.*b*d*e, - c*d*d, - b*b*f, - a*e*e};
+	double mag = std::max(list, [](double const& u, double const& v) {
+		return fabs(u) < fabs(v);
+	});
+	double ret = RS_Math::sum(list);
+	//rounding off error cleared
+	if (fabs(ret) < RS_TOLERANCE * mag)
+		return 0.;
+	return ret;
+}
+
+bool LC_Quadratic::isDegenerate() const
+{
+	if (!isValid()) return false;
+	if (!m_bIsQuadratic) return true;
+	return isDegenerate(getMat());
+}
+
 
 LC_Quadratic LC_Quadratic::move(const RS_Vector& v)
 {

@@ -172,6 +172,9 @@ public:
     static QString doubleToString(double value, double prec);
     static QString doubleToString(double value, int prec);
 
+	//! Kahan summation
+	static double sum(std::initializer_list<double> const& list);
+
     static void test();
     };
 
