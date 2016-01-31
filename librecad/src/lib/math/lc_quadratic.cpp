@@ -375,10 +375,8 @@ LC_Quadratic::LC_Quadratic(const RS_Vector& point0, const RS_Vector& point1)
 
 LC_Quadratic::LC_Quadratic(Vector const& v):
 	m_bValid{true}
-  , m_bIsQuadratic{false}
   , m_vLinear{v}
 {
-
 }
 
 
@@ -426,9 +424,16 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 {
 	using namespace boost::numeric::ublas;
 	assert(isDegenerate(m));
+	// to reduce
+	// a^2 x^2 - b^ y^2 = (a x + b y) (a x - b y)
+	//
 	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
 	auto const& L = ei_LV.first;
-	assert(L(0) > 0. && L(1) <= 0.);
+
+	//trivial cases, no linear form
+//	assert(L(0) > 0. && L(1) <= 0.);
+	if (L(0) <=0. || L(1) > 0.)
+		return {};
 	auto const lP = sqrt(L(0));
 	auto const lN = sqrt(-L(1));
 	auto& Q = ei_LV.second;
@@ -437,15 +442,64 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	v0 *= lP;
 	v1 *= lN;
 	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
+	//matrix rank is 1 ?
 		return {{v0}};
+
+	// linear forms: a x + b y and a x - b y in eigen vectors
 	return {{v0 + v1}, {v0 - v1}};
+}
+
+std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const rhs) const
+{
+	double const& a0 = m_mQuad(0, 0);
+	double const& b0 = m_mQuad(0, 1);
+	double const& c0 = m_mQuad(1, 1);
+	double const& d0 = 0.5 * m_vLinear(0);
+	double const& e0 = 0.5 * m_vLinear(1);
+	double const& f0 = m_dConst;
+
+	double const&  a1 = rhs.m_mQuad(0, 0);
+	double const&  b1 = rhs.m_mQuad(0, 1);
+	double const&  c1 = rhs.m_mQuad(1, 1);
+	double const&  d1 = 0.5 * rhs.m_vLinear(0);
+	double const&  e1 = 0.5 * rhs.m_vLinear(1);
+	double const&  f1 = rhs.m_dConst;
+
+	//form the linear combination x*C0 + C1, and solve det(x*C0 + C1)=0
+	double af = 1./getDeterminant();
+	auto l0 = {b1*d0*e0, b0*d1*e0, -c0*d0*d1, b0*d0*e1, -a0*e0*e1 , -b0*b1*f0};
+	auto l1 = {a1*c0*f0, a0*c1*f0, -b0*b0*f1, a0*c0*f1 , -c1*d0*d0, -a1*e0*e0};
+	double bf = 2*RS_Math::sum(l0) +RS_Math::sum(l1);
+	auto l2 = {b1*d1*e0, b1*d0*e1, b0*d1*e1, -a1*e0*e1, -c1*d0*d1, -b0*b1*f1};
+	auto l3 = {b1*d1*e0, b1*d0*e1, b0*d1*e1, -a1*e0*e1, -c1*d0*d1, -b0*b1*f1};
+	double cf = 2*RS_Math::sum(l2) + RS_Math::sum(l3);
+	double df = rhs.getDeterminant();
+
+	//cubic solver
+	auto sol = RS_Math::cubicSolver({bf*af, cf*af, df*af});
+	if (sol.size() < 1)
+		return {};
+	std::vector<LC_Quadratic> ret;
+	for (auto const l: sol) {
+		//the degenerate Matrix
+		Matrix const m = getMat()*l + rhs.getMat();
+		auto const lF = linearReduction(m);
+		std::copy(lF.begin(), lF.end(), std::back_inserter(ret));
+	}
+	return ret;
 }
 
 bool LC_Quadratic::isDegenerate(Matrix const& m)
 {
-	return !std::isnormal(getDeterminant(m));
+	return std::isnormal(getDeterminant(m));
 }
 
+double LC_Quadratic::getDeterminant() const
+{
+	return getDeterminant(getMat());
+}
+
+//determinant of 3x3 symmetric matrics
 double LC_Quadratic::getDeterminant(Matrix const& m)
 {
 	double const& a = m(0, 0);
@@ -459,7 +513,8 @@ double LC_Quadratic::getDeterminant(Matrix const& m)
 		return fabs(u) < fabs(v);
 	});
 	double ret = RS_Math::sum(list);
-	//rounding off error cleared
+
+	//rounding off tolerance
 	if (fabs(ret) < RS_TOLERANCE * mag)
 		return 0.;
 	return ret;
@@ -621,7 +676,7 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 		//new intersection algorithm ported from kig
 		RS_VectorSolutions sol;
 		{
-			auto const lcLine = RS_Math::calcConicRadical(ce);
+			auto const lcLine = l1.pencilOfConics(l2);
 			for (auto const& q: lcLine) {
 				std::cout<<"critical line: "<<q<<std::endl;
 				auto const sol1 = getIntersection(q, *p1);
