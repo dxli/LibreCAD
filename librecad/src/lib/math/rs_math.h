@@ -173,7 +173,20 @@ public:
     static QString doubleToString(double value, int prec);
 
 	//! Kahan summation
-	static double sum(std::initializer_list<double> const& list);
+	template<typename T>
+	static T sum(std::initializer_list<T> const& list)
+	{
+		T sum{0.};
+		T y,t;
+		T c{0.};
+		for (auto const& d: list) {
+			y = d + c;
+			t = sum + y;
+			c = y - (t - sum);
+			sum = t;
+		}
+		return sum;
+	}
 
     static void test();
     };
