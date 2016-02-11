@@ -375,8 +375,11 @@ LC_Quadratic::LC_Quadratic(const RS_Vector& point0, const RS_Vector& point1)
 
 LC_Quadratic::LC_Quadratic(Vector const& v):
 	m_bValid{true}
-  , m_vLinear{v}
+  , m_vLinear(2)
 {
+	m_vLinear(0) = v(0);
+	m_vLinear(1) = v(1);
+	m_dConst = -v(2);
 }
 
 
@@ -423,7 +426,8 @@ LC_Quadratic::Matrix LC_Quadratic::getMat() const
 std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 {
 	using namespace boost::numeric::ublas;
-	assert(isDegenerate(m));
+	//std::cout<<"det: "<<getDeterminant(m)<<std::endl;
+	//assert(isDegenerate(m));
 	// to reduce
 	// a^2 x^2 - b^ y^2 = (a x + b y) (a x - b y)
 	//
@@ -491,7 +495,7 @@ std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const& rhs) 
 
 bool LC_Quadratic::isDegenerate(Matrix const& m)
 {
-	return std::isnormal(getDeterminant(m));
+	return fabs(getDeterminant(m))<RS_TOLERANCE15;
 }
 
 double LC_Quadratic::getDeterminant() const
@@ -644,84 +648,57 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 //        }
         return ret;
     }
-    if( fabs(p1->m_mQuad(0,0))<RS_TOLERANCE && fabs(p1->m_mQuad(0,1))<RS_TOLERANCE
-            &&
-            fabs(p2->m_mQuad(0,0))<RS_TOLERANCE && fabs(p2->m_mQuad(0,1))<RS_TOLERANCE
-            ){
-        if(fabs(p1->m_mQuad(1,1))<RS_TOLERANCE && fabs(p2->m_mQuad(1,1))<RS_TOLERANCE){
-            //linear
-            std::vector<double> ce(0);
-            ce.push_back(p1->m_vLinear(0));
-            ce.push_back(p1->m_vLinear(1));
-            ce.push_back(p1->m_dConst);
-            LC_Quadratic lc10(ce);
-            ce.clear();
-            ce.push_back(p2->m_vLinear(0));
-            ce.push_back(p2->m_vLinear(1));
-            ce.push_back(p2->m_dConst);
-            LC_Quadratic lc11(ce);
-            return getIntersection(lc10,lc11);
-        }
-        return getIntersection(p1->flipXY(),p2->flipXY()).flipXY();
-    }
-    std::vector<std::vector<double> >  ce(0);
-    ce.push_back(p1->getCoefficients());
-    ce.push_back(p2->getCoefficients());
-//    if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
-//        DEBUG_HEADER
-//        std::cout<<*p1<<std::endl;
-//        std::cout<<*p2<<std::endl;
-//    }
-#if 1
-		//new intersection algorithm ported from kig
-		RS_VectorSolutions sol;
-		{
-			auto const lcLine = l1.pencilOfConics(l2);
-			for (auto const& q: lcLine) {
-				std::cout<<"critical line: "<<q<<std::endl;
-				auto const sol1 = getIntersection(q, *p1);
-				for (auto const& v: sol1) {
-					std::cout<<"sol: "<<v<<std::endl;
-					if (sol.size()==0 || sol.getClosestDistance(v) > RS_TOLERANCE)
-						sol.push_back(v);
-				}
-//				sol.push_back(sol1);
-			}
-		}
-//		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
-			for (auto const& vp: sol)
-				std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
-#else
-	auto sol= RS_Math::simultaneousQuadraticSolverFull(ce);
-    bool valid= sol.size()>0;
-	for(auto & v: sol){
-		if(v.magnitude()>=RS_MAXDOUBLE){
-            valid=false;
-            break;
-        }
-    }
-	if (valid && RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
-		for (auto const& vp: sol) {
-			std::cout<<"old: "<<vp<<std::endl;
-		}
-    if(valid) return sol;
-    ce.clear();
-	ce.push_back(p1->getCoefficients());
-	ce.push_back(p2->getCoefficients());
-    sol=RS_Math::simultaneousQuadraticSolverFull(ce);
 
-	if (valid)
-		for (auto const& vp: sol) {
-			std::cout<<"old: "<<vp<<std::endl;
+	//handle degenerate quadratic
+	RS_VectorSolutions sol;
+	if (p1->isDegenerate()) {
+		for (auto q: linearReduction(p1->getMat())) {
+			sol.push_back(getIntersection(q, *p2));
 		}
-#endif
+		return ret;
+	} else {
+		//pencile of conics algorithm
+		//https://github.com/LibreCAD/LibreCAD/issues/523
+		auto const lcLine = l1.pencilOfConics(l2);
+		for (auto const& q: lcLine) {
+			std::cout<<"critical line: "<<q<<std::endl;
+			auto const sol1 = getIntersection(q, *p1);
+			for (auto const& v: sol1) {
+				std::cout<<"sol: "<<v<<std::endl;
+				if (sol.size()==0 || sol.getClosestDistance(v) > RS_TOLERANCE)
+					sol.push_back(v);
+			}
+			//				sol.push_back(sol1);
+		}
+	}
+	//		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
+	for (auto const& vp: sol)
+		std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
 
     ret.clear();
+	auto const m1 = l1.getMat();
+	auto const m2 = l2.getMat();
 	for(auto const& v: sol){
 		if(v.magnitude()<=RS_MAXDOUBLE){
 			//avoid duplicated intersections
-			if (ret.size()==0 || ret.getClosestDistance(v) <= RS_TOLERANCE)
-				ret.push_back(v);
+			if (ret.size() && ret.getClosestDistance(v) < RS_TOLERANCE)
+				continue;
+			//verify
+			Vector v1(3);
+			v1(0)=v.x;
+			v1(1)=v.y;
+			v1(2)=1.;
+			bool accept=true;
+			for (auto m: {m1, m2}) {
+				Vector const v1t=prod(m, v1);
+				if (fabs(inner_prod(v1, v1t)) > RS_TOLERANCE) {
+					accept=false;
+					break;
+				}
+			}
+			if (accept==false)
+				continue;
+			ret.push_back(v);
 			if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
 				DEBUG_HEADER
 				std::cout<<v<<std::endl;
