@@ -589,6 +589,9 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 //        std::cout<<l2<<std::endl;
         return ret;
     }
+			DEBUG_HEADER
+			std::cout<<l1<<std::endl;
+			std::cout<<l2<<std::endl;
     auto p1=&l1;
     auto p2=&l2;
     if(p1->isQuadratic()==false){

@@ -43,6 +43,8 @@
 
 #include "lc_quadratic.h"
 #include "rs_ellipse.h"
+#include "rs_circle.h"
+#include "rs_point.h"
 
 #ifndef QC_SPLASH_TXTCOL
     #define QC_SPLASH_TXTCOL Qt::black
@@ -59,9 +61,17 @@ using Matrix = boost::numeric::ublas::matrix<double>;
 int main(int argc, char** argv)
 {
 	RS_Math::eigenSystemSym3x3(Matrix{1,1});
-	RS_Ellipse e0{nullptr, {{0., 0.}, {0., 2.}, 0.5, 0., 0., false}};
+	RS_Ellipse e0{nullptr, {{0., 0.}, {0., 4.}, 0.5, 0., 0., false}};
 	RS_Ellipse e1{nullptr, {{0., 0.}, {2., 0.}, 0.5, 0., 0., false}};
-	auto sol=LC_Quadratic::getIntersection(e0.getQuadratic(), e1.getQuadratic());
+	RS_Circle c0{nullptr, {{0., 0.}, 1,}};
+	RS_Point p0{nullptr, {{1.5, 0.}}};
+	RS_Circle c1{nullptr, {{1., 1.}, 2,}};
+	RS_Point p1{nullptr, {{-0.75, 0.}}};
+//	auto sol=LC_Quadratic::getIntersection({&c0, &p0}, {&c1, &p1});
+	LC_Quadratic l0{&c0, &p0};
+	LC_Quadratic l1=e0.getQuadratic();
+	DEBUG_HEADER
+	auto sol=LC_Quadratic::getIntersection(l0, l1);
 	int iv0=0;
 		std::cout<<"solution: size: "<<sol.size()<<std::endl;
 	for (auto const& v: sol) {
