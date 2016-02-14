@@ -219,15 +219,14 @@ HEADERS += \
     lib/scripting/rs_python_wrappers.h \
     lib/scripting/rs_script.h \
     lib/scripting/rs_scriptlist.h \
-    actions/lc_actiondrawcircle2pr.h \
-    test/lc_simpletests.h \
-    lib/generators/lc_makercamsvg.h \
+	actions/lc_actiondrawcircle2pr.h \
+	lib/generators/lc_makercamsvg.h \
     lib/generators/lc_xmlwriterinterface.h \
     lib/generators/lc_xmlwriterqxmlstreamwriter.h \
     actions/lc_actionfileexportmakercam.h \
     lib/engine/lc_rect.h \
     main/lc_options.h \
-    lib/printing/lc_printing.h
+	lib/printing/lc_printing.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -311,8 +310,8 @@ SOURCES += \
     lib/engine/rs_color.cpp \
     lib/engine/rs_pen.cpp \
     actions/lc_actiondrawcircle2pr.cpp \
-    test/lc_simpletests.cpp \
-    lib/generators/lc_xmlwriterqxmlstreamwriter.cpp \
+	test/lc_quadratictest.cpp \
+	lib/generators/lc_xmlwriterqxmlstreamwriter.cpp \
     lib/generators/lc_makercamsvg.cpp \
     actions/lc_actionfileexportmakercam.cpp \
     lib/engine/rs_atomicentity.cpp \
@@ -320,7 +319,7 @@ SOURCES += \
     lib/engine/rs_flags.cpp \
     lib/engine/lc_rect.cpp \
     lib/engine/rs.cpp \
-    lib/printing/lc_printing.cpp
+	lib/printing/lc_printing.cpp
 
 # ################################################################################
 # Command
@@ -900,6 +899,18 @@ SOURCES += \
     plugins/intern/qc_actiongetent.cpp \
     main/main.cpp \
     main/mainwindowx.cpp
+
+# unit testing
+contains(DEFINES, LC_DEBUGGING) {
+	QT += testlib
+	HEADERS +=  \
+		test/lc_simpletests.h \
+		test/lc_quadratictest.h
+
+	SOURCES +=  \
+		test/lc_simpletests.cpp \
+		test/lc_quadratictest.cpp
+}
 
 # If C99 emulation is needed, add the respective source files.
 contains(DEFINES, EMU_C99) {
