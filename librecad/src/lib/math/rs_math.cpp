@@ -895,11 +895,11 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 	Quaternion q{1,0,0,0};
 	for(i=0;i < maxsteps; ++i) {
 		Matrix D  = rotate(m, q);  // A = Q^T*D*Q
-		std::cout<<"iteration: "<<i<<std::endl;
-		for (int row=0; row<3; row++) {
-			qDebug()<<QString("%1 %2 %3").arg(D(row, 0)).arg(D(row, 1)).arg(D(row, 2));
-		}
-		std::cout<<": "<<std::endl;
+//		std::cout<<"iteration: "<<i<<std::endl;
+//		for (int row=0; row<3; row++) {
+//			qDebug()<<QString("%1 %2 %3").arg(D(row, 0)).arg(D(row, 1)).arg(D(row, 2));
+//		}
+//		std::cout<<": "<<std::endl;
 		std::array<double,3> offdiag{{D(1, 2),D(0, 2), D(0, 1)}}; // elements not on the diagonal
 		std::array<double,3> om{{fabs(offdiag[0]),fabs(offdiag[1]),fabs(offdiag[2])}}; // mag of each offdiag elem
 		int k = (om[0] > om[1] && om[0] > om[2])?0: (om[1] > om[2])? 1 : 2; // index of largest element of offdiag
@@ -944,8 +944,8 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 	Matrix oL{3, 3};
 	for (int i=0; i < 3; i++) {
 		ev(i)=li(il[i]);
-		for (int row=0; row < 3; row++)
-			oL(row, i) = Q(row, il[i]);
+		for (int col=0; col < 3; col++)
+			oL(col, i) = Q(il[i], col);
 	}
 	/* //eigen values in descending order
 		qDebug()<<"eigen values:";

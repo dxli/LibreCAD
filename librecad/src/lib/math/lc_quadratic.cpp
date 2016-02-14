@@ -431,8 +431,23 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	// to reduce
 	// a^2 x^2 - b^ y^2 = (a x + b y) (a x - b y)
 	//
+
+	std::cout<<"matrix is:"<<std::endl;
+	for (int i=0; i<3; i++)
+		std::cout<<m(i,0)<<' '<<m(i, 1)<<' '<<m(i, 2)<<std::endl;
+	std::cout<<"[";
+	for (int i=0; i<3; i++) {
+		std::cout<<"["<<m(i,0)<<", "<<m(i, 1)<<", "<<m(i, 2)<<"]";
+		if (i < 2)
+			std::cout<<", ";
+	}
+	std::cout<<"]"<<std::endl;
+
 	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
 	auto const& L = ei_LV.first;
+	std::cout<<"eigen values :"<<std::endl;
+		std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
+
 
 	//trivial cases, no linear form
 //	assert(L(0) > 0. && L(1) <= 0.);
@@ -440,9 +455,12 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 		return {};
 	auto const lP = sqrt(L(0));
 	auto const lN = sqrt(-L(1));
-	auto& Q = ei_LV.second;
+	auto & Q = ei_LV.second;
 	auto v0 = matrix_row<Matrix>(Q, 0);
 	auto v1 = matrix_row<Matrix>(Q, 1);
+	std::cout<<"eigen vectors :"<<std::endl;
+		std::cout<<v0(0)<<' '<<v0( 1)<<' '<<v0( 2)<<std::endl;
+		std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
 	v0 *= lP;
 	v1 *= lN;
 	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
