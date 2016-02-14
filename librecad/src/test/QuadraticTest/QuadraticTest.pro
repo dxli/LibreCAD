@@ -1,35 +1,23 @@
-# LibreCAD project file
-# (c) Ries van Twisk (librecad@rvt.dds.nl)
+QT += testlib
 TEMPLATE = app
 
-#uncomment to enable a Debugging menu entry for basic unit testing
-#DEFINES += LC_DEBUGGING
-
-DEFINES += DWGSUPPORT
-DEFINES -= JWW_WRITE_SUPPORT
-
-LC_VERSION="2.1.0-beta"
-
-# Store intermedia stuff somewhere else
-GENERATED_DIR = ../../generated/librecad
 # Use common project definitions.
-include(../../common.pri)
-include(./boost.pri)
-include(./muparser.pri)
+LC_SRC_DIR = ../..
+include($$LC_SRC_DIR/../../common.pri)
+include($$LC_SRC_DIR//boost.pri)
+include($$LC_SRC_DIR//muparser.pri)
 
 CONFIG += qt \
-    warn_on \
-    link_prl \
-    verbose \
-    depend_includepath
-
+     warn_on \
+     link_prl \
+     verbose
 
 greaterThan( QT_MAJOR_VERSION, 4 ) {
-    QT += widgets printsupport
-    CONFIG += c++11
-    *-g++ {
-        QMAKE_CXXFLAGS += -fext-numeric-literals
-    }
+    # in Qt5 help is deprecated in CONFIG
+	QT += widgets printsupport help
+	CONFIG += c++11
+} else {
+    CONFIG += help
 }
 
 GEN_LIB_DIR = ../../generated/lib
@@ -40,17 +28,21 @@ DESTDIR = $${INSTALLDIR}
 
 # Make translations at the end of the process
 unix {
-    LC_VERSION=$$system([ "$(which git)x" != "x" -a -d ../../.git ] && echo "$(git describe --tags)" || echo "$${LC_VERSION}")
+    SCMREVISION=$$system([ "$(which git)x" != "x" -a -d ../../.git ] && echo "$(git describe --tags)" || echo "$${SCMREVISION}")
 
+    DEFINES += QC_SCMREVISION=\"$$SCMREVISION\"
     macx {
         TARGET = LibreCAD
         DEFINES += QC_APPDIR="\"LibreCAD\""
+        DEFINES += QINITIMAGES_LIBRECAD="qInitImages_LibreCAD"
         RC_FILE = ../res/main/librecad.icns
         QMAKE_POST_LINK = cd $$_PRO_FILE_PWD_/../.. && scripts/postprocess-osx.sh
+        QT += printsupport
     }
     else {
         TARGET = librecad
         DEFINES += QC_APPDIR="\"librecad\""
+        DEFINES += QINITIMAGES_LIBRECAD="qInitImages_librecad"
         RC_FILE = ../res/main/librecad.icns
         QMAKE_POST_LINK = cd $$_PRO_FILE_PWD_/../.. && scripts/postprocess-unix.sh
     }
@@ -58,24 +50,26 @@ unix {
 win32 {
     TARGET = LibreCAD
     DEFINES += QC_APPDIR="\"LibreCAD\""
+    DEFINES += QINITIMAGES_LIBRECAD="qInitImages_LibreCAD"
 
     # add MSYSGIT_DIR = PathToGitBinFolder (without quotes) in custom.pro file, for commit hash in about dialog
     !isEmpty( MSYSGIT_DIR ) {
-        LC_VERSION = $$system( \"$$MSYSGIT_DIR/git.exe\" describe --tags || echo "$${LC_VERSION}")
+        SCMREVISION = $$system( \"$$MSYSGIT_DIR/git.exe\" describe --tags || echo "$${SCMREVISION}")
+        !isEmpty( SCMREVISION ) {
+            DEFINES += QC_SCMREVISION=\"$$SCMREVISION\"
+        }
     }
 
     RC_FILE = ../res/main/librecad.rc
-    QMAKE_POST_LINK = "$$_PRO_FILE_PWD_/../../scripts/postprocess-win.bat" $$LC_VERSION
+    QMAKE_POST_LINK = "$$_PRO_FILE_PWD_/../../scripts/postprocess-win.bat" $$SCMREVISION
 }
-
-DEFINES += LC_VERSION=\"$$LC_VERSION\"
 
 # Additional libraries to load
 LIBS += -L../../generated/lib  \
     -ldxfrw \
     -ljwwlib
 
-INCLUDEPATH += \
+DEPENDPATH += \
     ../../libraries/libdxfrw/src \
     ../../libraries/jwwlib/src \
     cmd \
@@ -90,17 +84,19 @@ INCLUDEPATH += \
     lib/information \
     lib/math \
     lib/modification \
-    lib/printing \
+    lib/scripting \
     actions \
     main \
-    test \
-    plugins \
-    ui \
+	test \
+	plugins \
+	ui \
     ui/forms \
-    ui/generic \
-    ../res
+	../res
 
 RESOURCES += ../res/extui/extui.qrc
+
+#depends check, bug#3411161
+INCLUDEPATH += $$DEPENDPATH
 
 # ################################################################################
 # Library
@@ -199,14 +195,21 @@ HEADERS += \
     lib/scripting/rs_python_wrappers.h \
     lib/scripting/rs_script.h \
     lib/scripting/rs_scriptlist.h \
-	actions/lc_actiondrawcircle2pr.h \
-	lib/generators/lc_makercamsvg.h \
+    ui/forms/qg_snaptoolbar.h \
+    actions/lc_actiondrawcircle2pr.h \
+    ui/forms/qg_activelayername.h \
+    test/lc_simpletests.h \
+    lib/generators/lc_makercamsvg.h \
     lib/generators/lc_xmlwriterinterface.h \
     lib/generators/lc_xmlwriterqxmlstreamwriter.h \
     actions/lc_actionfileexportmakercam.h \
+    ui/qg_commandhistory.h \
+    ui/lc_customtoolbar.h \
+    ui/lc_dockwidget.h \
     lib/engine/lc_rect.h \
-    main/lc_options.h \
-	lib/printing/lc_printing.h
+    ui/forms/lc_dlgsplinepoints.h \
+    ui/forms/lc_widgetoptionsdialog.h \
+    test/lc_quadratictest.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -282,18 +285,31 @@ SOURCES += \
     lib/math/lc_quadratic.cpp \
     lib/modification/rs_modification.cpp \
     lib/modification/rs_selection.cpp \
+    lib/scripting/rs_python.cpp \
+    lib/scripting/rs_simplepython.cpp \
+    lib/scripting/rs_python_wrappers.cpp \
+    lib/scripting/rs_script.cpp \
+    lib/scripting/rs_scriptlist.cpp \
+    ui/forms/qg_snaptoolbar.cpp \
     lib/engine/rs_color.cpp \
     lib/engine/rs_pen.cpp \
     actions/lc_actiondrawcircle2pr.cpp \
-	lib/generators/lc_xmlwriterqxmlstreamwriter.cpp \
+    ui/forms/qg_activelayername.cpp \
+    test/lc_simpletests.cpp \
+    lib/generators/lc_xmlwriterqxmlstreamwriter.cpp \
     lib/generators/lc_makercamsvg.cpp \
     actions/lc_actionfileexportmakercam.cpp \
     lib/engine/rs_atomicentity.cpp \
     lib/engine/rs_undocycle.cpp \
-    lib/engine/rs_flags.cpp \
+    ui/qg_commandhistory.cpp \
+    ui/lc_customtoolbar.cpp \
+    ui/lc_dockwidget.cpp \
     lib/engine/lc_rect.cpp \
     lib/engine/rs.cpp \
-	lib/printing/lc_printing.cpp
+    ui/forms/lc_dlgsplinepoints.cpp \
+    lib/engine/rs_flags.cpp \
+    ui/forms/lc_widgetoptionsdialog.cpp \
+    test/lc_quadratictest.cpp
 
 # ################################################################################
 # Command
@@ -573,7 +589,7 @@ SOURCES += actions/rs_actionblocksadd.cpp \
     actions/rs_actionzoomwindow.cpp
 
 RESOURCES += ../res/actions/actions.qrc
-RESOURCES += ../res/icons/icons.qrc
+RESOURCES += ../res/tools/tools.qrc
 
 # ################################################################################
 # UI
@@ -663,19 +679,7 @@ HEADERS += ui/lc_actionfactory.h \
     ui/forms/qg_trimamountoptions.h \
     ui/forms/qg_widgetpen.h \
     ui/lc_centralwidget.h \
-    ui/lc_widgetfactory.h \
-    ui/twostackedlabels.h \
-    ui/qg_commandhistory.h \
-    ui/lc_dockwidget.h \
-    ui/forms/lc_dlgsplinepoints.h \
-    ui/forms/lc_widgetoptionsdialog.h \
-    ui/forms/qg_snaptoolbar.h \
-    ui/forms/qg_activelayername.h \
-    ui/lc_deviceoptions.h \
-    ui/generic/comboboxoption.h \
-    ui/generic/actionlist.h \
-    ui/generic/widgetcreator.h \
-    ui/lc_actiongroupmanager.h
+    ui/lc_widgetfactory.h
 
 SOURCES += ui/lc_actionfactory.cpp \
     ui/qg_actionhandler.cpp \
@@ -761,19 +765,7 @@ SOURCES += ui/lc_actionfactory.cpp \
     ui/forms/qg_trimamountoptions.cpp \
     ui/forms/qg_widgetpen.cpp \
     ui/lc_centralwidget.cpp \
-    ui/lc_widgetfactory.cpp \
-    ui/twostackedlabels.cpp \
-    ui/qg_commandhistory.cpp \
-    ui/lc_dockwidget.cpp \
-    ui/forms/lc_dlgsplinepoints.cpp \
-    ui/forms/lc_widgetoptionsdialog.cpp \
-    ui/forms/qg_snaptoolbar.cpp \
-    ui/forms/qg_activelayername.cpp \
-    ui/lc_deviceoptions.cpp \
-    ui/generic/comboboxoption.cpp \
-    ui/generic/actionlist.cpp \
-    ui/generic/widgetcreator.cpp \
-    ui/lc_actiongroupmanager.cpp
+    ui/lc_widgetfactory.cpp
 
 FORMS = ui/forms/qg_commandwidget.ui \
     ui/forms/qg_arcoptions.ui \
@@ -843,10 +835,7 @@ FORMS = ui/forms/qg_commandwidget.ui \
     ui/forms/qg_snaptoolbar.ui \
     ui/forms/qg_activelayername.ui \
     ui/forms/lc_dlgsplinepoints.ui \
-    ui/forms/lc_widgetoptionsdialog.ui \
-    ui/lc_deviceoptions.ui \
-    ui/generic/comboboxoption.ui \
-    ui/generic/widgetcreator.ui
+    ui/forms/lc_widgetoptionsdialog.ui
 
 RESOURCES += ../res/ui/ui.qrc
 
@@ -856,6 +845,7 @@ HEADERS += \
     main/qc_applicationwindow.h \
     main/qc_dialogfactory.h \
     main/qc_mdiwindow.h \
+    main/helpbrowser.h \
     main/doc_plugin_interface.h \
     plugins/document_interface.h \
     plugins/qc_plugininterface.h \
@@ -869,24 +859,13 @@ SOURCES += \
     main/qc_applicationwindow.cpp \
     main/qc_dialogfactory.cpp \
     main/qc_mdiwindow.cpp \
+    main/helpbrowser.cpp \
     main/doc_plugin_interface.cpp \
     plugins/intern/qc_actiongetpoint.cpp \
     plugins/intern/qc_actiongetselect.cpp \
     plugins/intern/qc_actiongetent.cpp \
     main/main.cpp \
     main/mainwindowx.cpp
-
-# unit testing
-contains(DEFINES, LC_DEBUGGING) {
-	QT += testlib
-	HEADERS +=  \
-		test/lc_simpletests.h \
-		test/lc_quadratictest.h
-
-	SOURCES +=  \
-		test/lc_simpletests.cpp \
-		test/lc_quadratictest.cpp
-}
 
 # If C99 emulation is needed, add the respective source files.
 contains(DEFINES, EMU_C99) {
@@ -933,6 +912,7 @@ RESOURCES += ../res/main/main.qrc
 TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_ca.ts \
     ../ts/librecad_cs.ts \
+    ../ts/librecad_et.ts \
     ../ts/librecad_en.ts \
     ../ts/librecad_en_au.ts \
     ../ts/librecad_da.ts \
@@ -958,8 +938,6 @@ TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_es_us.ts \
     ../ts/librecad_es_uy.ts \
     ../ts/librecad_es_ve.ts \
-    ../ts/librecad_et.ts \
-    ../ts/librecad_eu.ts \
     ../ts/librecad_fi.ts \
     ../ts/librecad_fr.ts \
     ../ts/librecad_gl.ts \
