@@ -1,9 +1,11 @@
 #include <algorithm>
+#include <array>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/math/quaternion.hpp>
 #include "lc_quadratictest.h"
 #include "lc_quadratic.h"
+
 
 namespace{
 using namespace boost::numeric::ublas;
@@ -14,9 +16,11 @@ using Quaternion = quaternion<double>;
 constexpr double TEST_TOLERANCE = 1e-8;
 }
 
+LC_QuadraticTest::LC_QuadraticTest(QObject *parent) : QObject(parent)
+{}
+
 void LC_QuadraticTest::testLinearReduction()
 {
-	int const N{5};
 	std::vector<std::array<double, 3>> lineData{
 		{1, 2, 1},
 		{2, 3, 2},
@@ -42,7 +46,7 @@ void LC_QuadraticTest::testLinearReduction()
 		return ret;
 	};
 
-	for (size_t i=0; i + 1< lineData.size(); i++) {
+	for (size_t i=0; i + 1 < lineData.size(); i++) {
 		Vector const va = fl2v(i);
 		for (size_t j=i+1; j < lineData.size(); j++) {
 			Vector const vb = fl2v(j);
@@ -60,5 +64,11 @@ void LC_QuadraticTest::testLinearReduction()
 
 }
 
-//QTEST_MAIN(QuadraticTest)
+void LC_QuadraticTest::test()
+{
+	LC_QuadraticTest testObj;
+	QTest::qExec(&testObj);
+}
+
+//QTEST_MAIN(LC_QuadraticTest)
 //#include "lc_quadratictest.moc"

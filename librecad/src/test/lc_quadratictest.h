@@ -7,6 +7,11 @@
 class LC_QuadraticTest : public QObject
 {
 	Q_OBJECT
+public:
+	LC_QuadraticTest(QObject *parent=nullptr);
+	~LC_QuadraticTest() = default;
+	static void test();
+
 private slots:
 	void initTestCase(){}
 	void testLinearReduction();
