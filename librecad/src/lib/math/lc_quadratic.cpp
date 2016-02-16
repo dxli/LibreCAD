@@ -379,7 +379,7 @@ LC_Quadratic::LC_Quadratic(Vector const& v):
 {
 	m_vLinear(0) = v(0);
 	m_vLinear(1) = v(1);
-	m_dConst = -v(2);
+	m_dConst = v(2);
 }
 
 
@@ -456,8 +456,8 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	auto const lP = sqrt(L(0));
 	auto const lN = sqrt(-L(1));
 	auto & Q = ei_LV.second;
-	auto v0 = matrix_row<Matrix>(Q, 0);
-	auto v1 = matrix_row<Matrix>(Q, 1);
+	auto v0 = column(Q, 0);
+	auto v1 = column(Q, 1);
 	std::cout<<"eigen vectors :"<<std::endl;
 		std::cout<<v0(0)<<' '<<v0( 1)<<' '<<v0( 2)<<std::endl;
 		std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
