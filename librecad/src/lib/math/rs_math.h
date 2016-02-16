@@ -39,149 +39,151 @@ class LC_Quadratic;
 /**
  * Math functions.
  */
-class RS_Math {
-private:
-	RS_Math() = delete;
-public:
-	using Vector = boost::numeric::ublas::vector<double>;
-	using Matrix = boost::numeric::ublas::matrix<double>;
-	using Quaternion = boost::math::quaternion<double>;
+namespace RS_Math {
+using Vector = boost::numeric::ublas::vector<double>;
+using Matrix = boost::numeric::ublas::matrix<double>;
+using Quaternion = boost::math::quaternion<double>;
 
 
-	static int round(double v);
-    static double pow(double x, double y);
-    static RS_Vector pow(RS_Vector x, double y);
+int round(double v);
+double pow(double x, double y);
+RS_Vector pow(RS_Vector x, double y);
 
-    static double rad2deg(double a);
-    static double deg2rad(double a);
-    static double rad2gra(double a);
-	static double gra2rad(double a);
-	static unsigned findGCD(unsigned a, unsigned b);
-    static bool isAngleBetween(double a,
-                               double a1, double a2,
-                               bool reversed = false);
-	//! \brief correct angle to be within [0, 2 Pi)
-    static double correctAngle(double a);
-	//! \brief correct angle to be undirectional [0, Pi)
-	static double correctAngleU(double a);
+double rad2deg(double a);
+double deg2rad(double a);
+double rad2gra(double a);
+double gra2rad(double a);
+unsigned findGCD(unsigned a, unsigned b);
+bool isAngleBetween(double a,
+					double a1, double a2,
+					bool reversed = false);
+//! \brief correct angle to be within [0, 2 Pi)
+double correctAngle(double a);
+//! \brief correct angle to be undirectional [0, Pi)
+double correctAngleU(double a);
 
-	//! \brief angular difference
-	static double getAngleDifference(double a1, double a2, bool reversed = false);
-	/**
+//! \brief angular difference
+double getAngleDifference(double a1, double a2, bool reversed = false);
+/**
 	 * @brief getAngleDifferenceU abs of minimum angular differenct, unsigned version of angular difference
 	 * @param a1,a2 angles
 	 * @return the minimum of angular difference a1-a2 and a2-a1
 	 */
-	static double getAngleDifferenceU(double a1, double a2);
-	static double makeAngleReadable(double angle, bool readable=true,
-									bool* corrected=nullptr);
-    static bool isAngleReadable(double angle);
-    static bool isSameDirection(double dir1, double dir2, double tol);
+double getAngleDifferenceU(double a1, double a2);
+double makeAngleReadable(double angle, bool readable=true,
+						 bool* corrected=nullptr);
+bool isAngleReadable(double angle);
+bool isSameDirection(double dir1, double dir2, double tol);
 
-	//! \{ \brief evaluate a math string
-    static double eval(const QString& expr, double def=0.0);
-    static double eval(const QString& expr, bool* ok);
-	//! \}
+//! \{ \brief evaluate a math string
+double eval(const QString& expr, double def=0.0);
+double eval(const QString& expr, bool* ok);
+//! \}
 
-    static std::vector<double> quadraticSolver(const std::vector<double>& ce);
-    static std::vector<double> cubicSolver(const std::vector<double>& ce);
-    /** quartic solver
-    * x^4 + ce[0] x^3 + ce[1] x^2 + ce[2] x + ce[3] = 0
-    @ce, a vector of size 4 contains the coefficient in order
-    @return, a vector contains real roots
-    **/
-    static std::vector<double> quarticSolver(const std::vector<double>& ce);
-    /** quartic solver
+template<typename T>
+std::vector<T> quadraticSolver(const std::vector<T>& ce);
+template<>
+std::vector<double> quadraticSolver(const std::vector<double>& ce);
+template<>
+std::vector<long double> quadraticSolver(const std::vector<long double>& ce);
+std::vector<double> cubicSolver(const std::vector<double>& ce);
+/** quartic solver
+	* x^4 + ce[0] x^3 + ce[1] x^2 + ce[2] x + ce[3] = 0
+	@ce, a vector of size 4 contains the coefficient in order
+	@return, a vector contains real roots
+	**/
+std::vector<double> quarticSolver(const std::vector<double>& ce);
+/** quartic solver
 * ce[4] x^4 + ce[3] x^3 + ce[2] x^2 + ce[1] x + ce[0] = 0
-    @ce, a vector of size 5 contains the coefficient in order
-    @return, a vector contains real roots
-    **/
-    static std::vector<double> quarticSolverFull(const std::vector<double>& ce);
-    //solver for linear equation set
-    /**
-      * Solve linear equation set
+	@ce, a vector of size 5 contains the coefficient in order
+	@return, a vector contains real roots
+	**/
+std::vector<double> quarticSolverFull(const std::vector<double>& ce);
+//solver for linear equation set
+/**
+	  * Solve linear equation set
 	  *@param mt holds the augmented matrix
 	  *@param sn holds the solution
 	  *@param return true, if the equation set has a unique solution, return false otherwise
-      *
+	  *
 	  *@author: Dongxu Li
-      */
-	static bool linearSolver(const std::vector<std::vector<double> >& m, std::vector<double>& sn);
+	  */
+bool linearSolver(const std::vector<std::vector<double> >& m, std::vector<double>& sn);
 
-    /** solver quadratic simultaneous equations of a set of two **/
-    /* solve the following quadratic simultaneous equations,
-      *  ma000 x^2 + ma011 y^2 - 1 =0
-      * ma100 x^2 + 2 ma101 xy + ma111 y^2 + mb10 x + mb11 y +mc1 =0
-      *
-      *@m, a vector of size 8 contains coefficients in the strict order of:
-      ma000 ma011 ma100 ma101 ma111 mb10 mb11 mc1
-      *@return a RS_VectorSolutions contains real roots (x,y)
-      */
-    static RS_VectorSolutions simultaneousQuadraticSolver(const std::vector<double>& m);
+/** solver quadratic simultaneous equations of a set of two **/
+/* solve the following quadratic simultaneous equations,
+	  *  ma000 x^2 + ma011 y^2 - 1 =0
+	  * ma100 x^2 + 2 ma101 xy + ma111 y^2 + mb10 x + mb11 y +mc1 =0
+	  *
+	  *@m, a vector of size 8 contains coefficients in the strict order of:
+	  ma000 ma011 ma100 ma101 ma111 mb10 mb11 mc1
+	  *@return a RS_VectorSolutions contains real roots (x,y)
+	  */
+RS_VectorSolutions simultaneousQuadraticSolver(const std::vector<double>& m);
 
-    /** solver quadratic simultaneous equations of a set of two **/
-	/** solve the following quadratic simultaneous equations,
-      * ma000 x^2 + ma001 xy + ma011 y^2 + mb00 x + mb01 y + mc0 =0
-      * ma100 x^2 + ma101 xy + ma111 y^2 + mb10 x + mb11 y + mc1 =0
-      *
+/** solver quadratic simultaneous equations of a set of two **/
+/** solve the following quadratic simultaneous equations,
+	  * ma000 x^2 + ma001 xy + ma011 y^2 + mb00 x + mb01 y + mc0 =0
+	  * ma100 x^2 + ma101 xy + ma111 y^2 + mb10 x + mb11 y + mc1 =0
+	  *
   *@param m a vector of size 2 each contains a vector of size 6 coefficients in the strict order of:
   ma000 ma001 ma011 mb00 mb01 mc0
   ma100 ma101 ma111 mb10 mb11 mc1
-      *@return a RS_VectorSolutions contains real roots (x,y)
-      */
-    static RS_VectorSolutions simultaneousQuadraticSolverFull(const std::vector<std::vector<double> >& m);
-    static RS_VectorSolutions simultaneousQuadraticSolverMixed(const std::vector<std::vector<double> >& m);
+	  *@return a RS_VectorSolutions contains real roots (x,y)
+	  */
+RS_VectorSolutions simultaneousQuadraticSolverFull(const std::vector<std::vector<double> >& m);
+RS_VectorSolutions simultaneousQuadraticSolverMixed(const std::vector<std::vector<double> >& m);
 
-	/** \brief verify simultaneousQuadraticVerify a solution for simultaneousQuadratic
+/** \brief verify simultaneousQuadraticVerify a solution for simultaneousQuadratic
 	  *@param m the coefficient matrix
 	  *@param v a candidate to verify
-      *@return true, for a valid solution
-      **/
-	static bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
+	  *@return true, for a valid solution
+	  **/
+bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
 
-	/**
+/**
 	 * @brief eigenSystemSym3x3 eigen system of symmetric 3x3 real matrices
 	 * @param m symmetric 3x3 real matrix
 	 * @return a pair of eigen values, and eigen vectors by row vectors
 	 */
-	static std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
-	/**
+std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
+/**
 	 * @brief qToMatrix quaternion to rotation matrix
 	 * @param q unit quaternion
 	 * @return rotation matrix by Euler-Rodrigues
 	 */
-	static Matrix qToMatrix(Quaternion const& q);
-	static Matrix rotate(Matrix const& m, Quaternion const& q);
-	/** wrapper for elliptic integral **/
-    /**
-     * wrapper of elliptic integral of the second type, Legendre form
-     *@k the elliptic modulus or eccentricity
-     *@phi elliptic angle, must be within range of [0, M_PI]
-     *
+Matrix qToMatrix(Quaternion const& q);
+Matrix rotate(Matrix const& m, Quaternion const& q);
+/** wrapper for elliptic integral **/
+/**
+	 * wrapper of elliptic integral of the second type, Legendre form
+	 *@k the elliptic modulus or eccentricity
+	 *@phi elliptic angle, must be within range of [0, M_PI]
+	 *
 	 *@\author: Dongxu Li
-     */
-    static double ellipticIntegral_2(const double& k, const double& phi);
+	 */
+double ellipticIntegral_2(const double& k, const double& phi);
 
-    static QString doubleToString(double value, double prec);
-    static QString doubleToString(double value, int prec);
+QString doubleToString(double value, double prec);
+QString doubleToString(double value, int prec);
 
-	//! Kahan summation
-	template<typename T>
-	static T sum(std::initializer_list<T> const& list)
-	{
-		T sum{0.};
-		T y,t;
-		T c{0.};
-		for (auto const& d: list) {
-			y = d + c;
-			t = sum + y;
-			c = y - (t - sum);
-			sum = t;
-		}
-		return sum;
+//! Kahan summation
+template<typename T>
+T sum(std::initializer_list<T> const& list)
+{
+	T sum{0.};
+	T y,t;
+	T c{0.};
+	for (auto const& d: list) {
+		y = d + c;
+		t = sum + y;
+		c = y - (t - sum);
+		sum = t;
 	}
+	return sum;
+}
 
-    static void test();
-    };
+void test();
+}
 
 #endif
