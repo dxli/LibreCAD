@@ -416,6 +416,8 @@ void RS_Math::test() {
 // solvers assume arguments are valid, and there's no attempt to verify validity of the argument pointers
 //
 // @author Dongxu Li <dongxuli2011@gmail.com>
+
+template<>
 std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 //quadratic solver for
 // x^2 + ce[0] x + ce[1] =0
@@ -468,19 +470,47 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 	return ans;
 }
 
+template<>
+std::vector<long double> RS_Math::quadraticSolver(const std::vector<long double>& ce)
+//quadratic solver for
+// x^2 + ce[0] x + ce[1] =0
+{
+	using LDouble = long double;
+	std::vector<LDouble> ans(0,0.L);
+	if (ce.size() != 2) return ans;
+	LDouble const a=-0.5L*ce[0];
+	LDouble b=a*a;
+	LDouble const discriminant=b-ce[1];
+	if (discriminant >= - RS_TOLERANCE15*std::max(fabs(b), fabs(ce[1])) ){
+		b = sqrt(fabs(discriminant));
+		if (b >= RS_TOLERANCE*fabs(a)) {
+			if(a>0){
+				ans.push_back(a + b);
+				ans.push_back(ce[1]/ans[0]);
+			}else{
+				ans.push_back(a - b);
+				ans.push_back(ce[1]/ans[0]);
+			}
+		}else
+			ans.push_back(a);
+	}
+	return ans;
+}
 
 std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 //cubic equation solver
 // x^3 + ce[0] x^2 + ce[1] x + ce[2] = 0
 {
 	//    std::cout<<"x^3 + ("<<ce[0]<<")*x^2+("<<ce[1]<<")*x+("<<ce[2]<<")==0"<<std::endl;
-	std::vector<double> ans(0,0.);
-	if (ce.size() != 3) return ans;
+	using LDouble = long double;
+	std::vector<LDouble> ans(0,0.L);
+	if (ce.size() != 3) return {};
 	// depressed cubic, Tschirnhaus transformation, x= t - b/(3a)
 	// t^3 + p t +q =0
-	double shift=(1./3)*ce[0];
-	double p=ce[1] -shift*ce[0];
-	double q=ce[0]*( (2./27)*ce[0]*ce[0]-(1./3)*ce[1])+ce[2];
+	std::array<LDouble, 3> lce{ce[0], ce[1], ce[2]};
+	LDouble shift=(1.L/3)*lce[0];
+	LDouble p=lce[1] -shift*lce[0];
+	LDouble q=lce[0]*( (2.L/27)*lce[0]*lce[0]-(1.L/3)*lce[1])+lce[2];
 	//Cardano's method,
 	//	t=u+v
 	//	u^3 + v^3 + ( 3 uv + p ) (u+v) + q =0
@@ -493,40 +523,38 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 	//		-q/2 \pm sqrt(q^2/4 + p^3/27)
 	//	discriminant= q^2/4 + p^3/27
 	//std::cout<<"p="<<p<<"\tq="<<q<<std::endl;
-	double discriminant= (1./27)*p*p*p+(1./4)*q*q;
-	if ( fabs(p)< 1.0e-75) {
-		ans.push_back((q>0)?-pow(q,(1./3)):pow(-q,(1./3)));
-		ans[0] -= shift;
+	LDouble discriminant= (1.L/27)*p*p*p+ 0.25L*q*q;
+	if ( fabs(p)< 1.0e-75L) {
+		ans.push_back((q>0)?-pow(q,(1.L/3)):pow(-q,(1.L/3)) - shift);
 		//        DEBUG_HEADER
 		//        std::cout<<"cubic: one root: "<<ans[0]<<std::endl;
-		return ans;
+		return {ans[0]};
 	}
 	//std::cout<<"discriminant="<<discriminant<<std::endl;
 	if(discriminant>0) {
-		std::vector<double> ce2(2,0.);
+		std::vector<LDouble> ce2(2,0.L);
 		ce2[0]=q;
-		ce2[1]=-1./27*p*p*p;
+		ce2[1]=-1.L/27*p*p*p;
 		auto r=quadraticSolver(ce2);
         if ( r.size()==0 ) { //should not happen
 			std::cerr<<__FILE__<<" : "<<__func__<<" : line"<<__LINE__<<" :cubicSolver()::Error cubicSolver("<<ce[0]<<' '<<ce[1]<<' '<<ce[2]<<")\n";
         }
-        double u,v;
-        u= (q<=0) ? pow(r[0], 1./3): -pow(-r[1],1./3);
+		LDouble u= (q<=0) ? pow(r[0], 1.L/3): -pow(-r[1],1.L/3);
         //u=(q<=0)?pow(-0.5*q+sqrt(discriminant),1./3):-pow(0.5*q+sqrt(discriminant),1./3);
-        v=(-1./3)*p/u;
+		LDouble v=(-1.L/3)*p/u;
         //std::cout<<"u="<<u<<"\tv="<<v<<std::endl;
         //std::cout<<"u^3="<<u*u*u<<"\tv^3="<<v*v*v<<std::endl;
-        ans.push_back(u+v - shift);
+		ans.push_back(sum({u, v, -shift}));
 
 //        DEBUG_HEADER
 //        std::cout<<"cubic: one root: "<<ans[0]<<std::endl;
 	}else{
-		std::complex<double> u(q,0),rt[3];
-		u=std::pow(-0.5*u-sqrt(0.25*u*u+p*p*p/27),1./3);
-		rt[0]=u-p/(3.*u)-shift;
-		std::complex<double> w(-0.5,sqrt(3.)/2);
-		rt[1]=u*w-p/(3.*u*w)-shift;
-		rt[2]=u/w-p*w/(3.*u)-shift;
+		std::complex<LDouble> u{q, 0.L},rt[3];
+		u=std::pow(-0.5L*u-sqrt(0.25L*u*u+p*p*p/27), 1.L/3);
+		rt[0]=u-p/(3.L*u)-shift;
+		std::complex<LDouble> w(-0.5L, sqrt(3.L)/2);
+		rt[1]=u*w-p/(3.L*u*w)-shift;
+		rt[2]=u/w-p*w/(3.L*u)-shift;
 		//        DEBUG_HEADER
 		//        std::cout<<"Roots:\n";
 		//        std::cout<<rt[0]<<std::endl;
@@ -537,20 +565,22 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 		ans.push_back(rt[2].real());
 	}
 	// newton-raphson
-	for(double& x0: ans){
-		double dx=0.;
+	for(LDouble& x: ans){
+		LDouble const x2 = x*x;
+		LDouble const x3 = x2*x;
+		LDouble fm=0;
 		for(size_t i=0; i<20; ++i){
-			double f=( (x0 + ce[0])*x0 + ce[1])*x0 +ce[2];
-			double df=(3.*x0+2.*ce[0])*x0 +ce[1];
-			if(fabs(df)>fabs(f)+RS_TOLERANCE){
-				dx=f/df;
-				x0 -= dx;
-			}else
+			LDouble f= sum({x3, lce[0]*x2, lce[1]*x, lce[2]});
+			LDouble df=sum({3.L*x2, 2.L*lce[0]*x, lce[1]});
+			if (!std::isnormal(f)||(std::isnormal(fm) && fabs(f) > fm))
 				break;
+			fm = fabs(f);
+			LDouble const dx=f/df;
+			x -= dx;
 		}
 	}
 
-    return ans;
+	return {ans[0], ans[1], ans[2]};
 }
 
 /** quartic solver
