@@ -873,16 +873,16 @@ using Quaternion = boost::math::quaternion<double>;
 std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 {
 	auto m = m1;
-	if (m.size1() != 3) {
-		m = Matrix(3, 3);
-		m(0, 0) = 1; m(0,1) = 0; m(0, 2) = 1;
-		m(1, 0) = 0; m(1,1) = -1; m(1, 2) = 0;
-		m(2, 0) = 1; m(2,1) = 0; m(2, 2) = 0;
-	}
-	std::cout<<": "<<std::endl;
-	for (int row=0; row<3; row++) {
-		qDebug()<<QString("%1 %2 %3").arg(m(row, 0)).arg(m(row, 1)).arg(m(row, 2));
-	}
+//	if (m.size1() != 3) {
+//		m = Matrix(3, 3);
+//		m(0, 0) = 1; m(0,1) = 0; m(0, 2) = 1;
+//		m(1, 0) = 0; m(1,1) = -1; m(1, 2) = 0;
+//		m(2, 0) = 1; m(2,1) = 0; m(2, 2) = 0;
+//	}
+//	std::cout<<": "<<std::endl;
+//	for (int row=0; row<3; row++) {
+//		qDebug()<<QString("%1 %2 %3").arg(m(row, 0)).arg(m(row, 1)).arg(m(row, 2));
+//	}
 	// A must be a symmetric matrix.
 	// returns quaternion q such that its corresponding matrix Q
 	// can be used to Diagonalize A
