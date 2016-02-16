@@ -944,7 +944,7 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 	for (int i=0; i < 3; i++) {
 		ev(i)=li(il[i]);
 		for (int col=0; col < 3; col++)
-			oL(col, i) = Q(il[i], col);
+			oL(col, i) = Q(col, il[i]);
 	}
 	/* //eigen values in descending order
 		qDebug()<<"eigen values:";
