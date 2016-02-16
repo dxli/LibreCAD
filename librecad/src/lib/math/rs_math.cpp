@@ -1000,17 +1000,17 @@ Matrix RS_Math::qToMatrix(Quaternion const& q)
 	double const d = q.R_component_4();
 	//Euler-rodrigues, matrix for left multiply
 	// M v
-	ret(0, 0) = a*a + b*b - c*c - d*d;
+	ret(0, 0) = sum({a*a, b*b, - c*c, - d*d});
 	ret(0, 1) = 2.*(b*c - a*d);
 	ret(0, 2) = 2.*(b*d + a*c);
 
 	ret(1, 0) = 2.*(b*c + a*d);
-	ret(1, 1) = a*a + c*c - b*b - d*d;
+	ret(1, 1) = sum({a*a, c*c, - b*b, - d*d});
 	ret(1, 2) = 2.*(c*d - a*b);
 
 	ret(2, 0) = 2.*(b*d - a*c);
 	ret(2, 1) = 2.*(c*d + a*b);
-	ret(2, 2) = a*a + d*d - b*b - c*c;
+	ret(2, 2) = sum({a*a, d*d, - b*b, - c*c});
 
 	return ret;
 }
