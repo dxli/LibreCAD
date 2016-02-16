@@ -14,11 +14,16 @@ using namespace boost::math;
 using Vector = vector<double>;
 using Matrix = matrix<double>;
 using Quaternion = quaternion<double>;
-constexpr double TEST_TOLERANCE = 1e-8;
+constexpr double TEST_TOLERANCE = 1e-6;
 }
 
 LC_QuadraticTest::LC_QuadraticTest(QObject *parent) : QObject(parent)
 {}
+
+void LC_QuadraticTest::initTestCase()
+{
+	qDebug()<<"Begin testing: Linear Reduction of quadratic forms";
+}
 
 void LC_QuadraticTest::testLinearReduction()
 {
@@ -68,7 +73,7 @@ void LC_QuadraticTest::testLinearReduction()
 				qDebug()<<va1(0)<<va1(1)<<va1(2);
 				qDebug()<<vb1(0)<<vb1(1)<<vb1(2);
 			qDebug()<<"diff = "<<diff;
-//			QCOMPARE(norm_inf(va - va1), TEST_TOLERANCE);
+			QVERIFY(norm_inf(va - va1) <= TEST_TOLERANCE);
 		}
 	}
 

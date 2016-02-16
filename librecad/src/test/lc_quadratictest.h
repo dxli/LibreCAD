@@ -13,7 +13,7 @@ public:
 	static void test();
 
 private slots:
-	void initTestCase(){}
+	void initTestCase();
 	void testLinearReduction();
 };
 

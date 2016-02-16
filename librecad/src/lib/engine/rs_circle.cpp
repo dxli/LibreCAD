@@ -130,8 +130,8 @@ bool RS_Circle::isTangent(const RS_CircleData&  circleData) const{
 	const double r0=fabs(circleData.radius);
 	const double r1=fabs(data.radius);
 //    std::cout<<fabs(d-fabs(r0-r1))<<" : "<<fabs(d-fabs(r0+r1))<<std::endl;
-    if( fabs(d-fabs(r0-r1))<20.*RS_TOLERANCE ||
-            fabs(d-fabs(r0+r1))<20.*RS_TOLERANCE ) return true;
+	if( fabs(d-fabs(r0-r1))<1e5*RS_TOLERANCE ||
+			fabs(d-fabs(r0+r1))<1e5*RS_TOLERANCE ) return true;
     return false;
 }
 

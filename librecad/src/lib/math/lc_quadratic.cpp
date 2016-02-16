@@ -432,21 +432,21 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	// a^2 x^2 - b^ y^2 = (a x + b y) (a x - b y)
 	//
 
-	std::cout<<"matrix is:"<<std::endl;
-	for (int i=0; i<3; i++)
-		std::cout<<m(i,0)<<' '<<m(i, 1)<<' '<<m(i, 2)<<std::endl;
-	std::cout<<"[";
-	for (int i=0; i<3; i++) {
-		std::cout<<"["<<m(i,0)<<", "<<m(i, 1)<<", "<<m(i, 2)<<"]";
-		if (i < 2)
-			std::cout<<", ";
-	}
-	std::cout<<"]"<<std::endl;
+//	std::cout<<"matrix is:"<<std::endl;
+//	for (int i=0; i<3; i++)
+//		std::cout<<m(i,0)<<' '<<m(i, 1)<<' '<<m(i, 2)<<std::endl;
+//	std::cout<<"[";
+//	for (int i=0; i<3; i++) {
+//		std::cout<<"["<<m(i,0)<<", "<<m(i, 1)<<", "<<m(i, 2)<<"]";
+//		if (i < 2)
+//			std::cout<<", ";
+//	}
+//	std::cout<<"]"<<std::endl;
 
 	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
 	auto const& L = ei_LV.first;
-	std::cout<<"eigen values :"<<std::endl;
-		std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
+//	std::cout<<"eigen values :"<<std::endl;
+//		std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
 
 
 	//trivial cases, no linear form
@@ -458,9 +458,9 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	auto & Q = ei_LV.second;
 	auto v0 = column(Q, 0);
 	auto v1 = column(Q, 1);
-	std::cout<<"eigen vectors :"<<std::endl;
-		std::cout<<v0(0)<<' '<<v0( 1)<<' '<<v0( 2)<<std::endl;
-		std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
+//	std::cout<<"eigen vectors :"<<std::endl;
+//		std::cout<<v0(0)<<' '<<v0( 1)<<' '<<v0( 2)<<std::endl;
+//		std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
 	v0 *= lP;
 	v1 *= lN;
 	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
@@ -601,15 +601,12 @@ LC_Quadratic LC_Quadratic::flipXY(void) const
 RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const LC_Quadratic& l2)
 {
     RS_VectorSolutions ret;
-	if( l1 == false || l2 == false ) {
 //        DEBUG_HEADER
 //        std::cout<<l1<<std::endl;
 //        std::cout<<l2<<std::endl;
+	if( l1 == false || l2 == false ) {
         return ret;
     }
-			DEBUG_HEADER
-			std::cout<<l1<<std::endl;
-			std::cout<<l2<<std::endl;
     auto p1=&l1;
     auto p2=&l2;
     if(p1->isQuadratic()==false){
@@ -682,10 +679,10 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 		//https://github.com/LibreCAD/LibreCAD/issues/523
 		auto const lcLine = l1.pencilOfConics(l2);
 		for (auto const& q: lcLine) {
-			std::cout<<"critical line: "<<q<<std::endl;
+//			std::cout<<"critical line: "<<q<<std::endl;
 			auto const sol1 = getIntersection(q, *p1);
 			for (auto const& v: sol1) {
-				std::cout<<"sol: "<<v<<std::endl;
+//				std::cout<<"sol: "<<v<<std::endl;
 				if (sol.size()==0 || sol.getClosestDistance(v) > RS_TOLERANCE)
 					sol.push_back(v);
 			}
@@ -693,8 +690,8 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 		}
 	}
 	//		if (RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL)
-	for (auto const& vp: sol)
-		std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
+//	for (auto const& vp: sol)
+//		std::cout<<__func__<<": line "<<__LINE__<<' '<<vp<<std::endl;
 
     ret.clear();
 	auto const m1 = l1.getMat();
@@ -712,7 +709,10 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
 			bool accept=true;
 			for (auto m: {m1, m2}) {
 				Vector const v1t=prod(m, v1);
-				if (fabs(inner_prod(v1, v1t)) > RS_TOLERANCE) {
+				double const errors = fabs(inner_prod(v1, v1t));
+				if (errors > 1e-4*norm_2(v1)) {
+//					DEBUG_HEADER
+//					std::cout<<"errors "<<errors<<"\tignoring "<<v<<' '<<norm_2(v1)<<std::endl;
 					accept=false;
 					break;
 				}

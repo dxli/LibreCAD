@@ -20,6 +20,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **********************************************************************/
 #include<vector>
+#include<algorithm>
 #include <QAction>
 #include <QMouseEvent>
 #include "rs_actiondrawcircletan2_1p.h"
@@ -33,6 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "rs_coordinateevent.h"
 #include "rs_point.h"
 #include "rs_preview.h"
+#include "rs_point.h"
 #include "rs_debug.h"
 
 namespace {
@@ -135,17 +137,21 @@ bool RS_ActionDrawCircleTan2_1P::getCenters()
 	auto const& list=LC_Quadratic::getIntersection(lc0,lc1);
 	pPoints->centers.clear();
 	for(const RS_Vector& vp: list){
-		auto ds=vp.distanceTo(pPoints->point)-RS_TOLERANCE;
-        bool validBranch(true);
-        for(int j=0;j<2;j++){
-            if(pPoints->circles[j]->rtti()==RS2::EntityCircle||pPoints->circles[j]->rtti()==RS2::EntityArc){
-                if( vp.distanceTo(pPoints->circles[j]->getCenter()) <= ds) {
-                    validBranch=false;
-                    break;
-                }
-            }
-        }
-		if(validBranch)  pPoints->centers.push_back(vp);
+		auto const ds=vp.distanceTo(pPoints->point);
+		RS_CircleData d{vp, ds};
+		bool validBranch(true);
+		for (auto c: pPoints->circles) {
+			if (!c->isTangent(d)) {
+				validBranch=false;
+				break;
+			}
+
+		}
+		if (validBranch) {
+			//std::cout<<"accept: "<<vp<<std::endl;
+			pPoints->centers.push_back(vp);
+		}
+		//else std::cout<<"reject: "<<vp<<std::endl;
     }
 	return pPoints->centers.size()>0;
 }
@@ -166,6 +172,8 @@ void RS_ActionDrawCircleTan2_1P::mouseMoveEvent(QMouseEvent* e) {
     }
     deletePreview();
     if(preparePreview()){
+		for (auto const& vp: pPoints->centers)
+			preview->addEntity(new RS_Point{preview.get(), vp});
 		RS_Circle* e=new RS_Circle(preview.get(), pPoints->cData);
 		for (auto const& vp: pPoints->centers)
 			preview->addEntity(new RS_Point(preview.get(), vp));
