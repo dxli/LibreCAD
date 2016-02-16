@@ -27,12 +27,25 @@ void LC_QuadraticTest::initTestCase()
 
 void LC_QuadraticTest::testLinearReduction()
 {
+	//test cases of lines
 	std::vector<std::array<double, 3>> lineData{
-		{1, 2, 1},
+		{1, 2, 1}, // 1*x + 2*y + 1 = 0, the array holds coefficients in order
 		{2, 3, 2},
 		{1, 4, 5},
+		{4, 1, 7},
 		{3, 1, 3},
-		{1, 1, 4}
+		{1, 1, 4},
+		{1, 1e4, 1},
+		{1, 1e4 + 1, 1},
+		{1, 1e4 + 1, 1e4},
+		{1e4, 1e4, 1e4+1},
+		{1e4+1, 1e4, 1e4},
+		{10, 1, 11},
+		//		{2, -3, 2},
+		//		{1, -4, 5},
+		//		{4, -1, 7},
+		{4, 0, 7},
+		//		{10, -1, 11}
 	};
 	//form Vector from line data
 	// normalized
@@ -51,6 +64,18 @@ void LC_QuadraticTest::testLinearReduction()
 		ret = ret * (1./norm_2(ret));
 		return ret;
 	};
+	//format linear form
+	auto toStr = [&lineData](size_t i){
+		return QString("%1*x %2 %3*y %4 %5 = 0")
+				.arg(lineData[i][0])
+				.arg(lineData[i][1]>=0?'+':'-')
+				.arg(fabs(lineData[i][1]))
+				.arg(lineData[i][2]>=0?'+':'-')
+				.arg(fabs(lineData[i][2])).toStdString();
+	};
+
+	double maxErr=0.;
+	size_t maxI=0, maxJ=0;
 
 	for (size_t i=0; i + 1 < lineData.size(); i++) {
 		Vector const va = fl2v(i);
@@ -66,16 +91,28 @@ void LC_QuadraticTest::testLinearReduction()
 				swap(va1, vb1);
 
 			auto const diff = norm_inf(va - va1);
-			qDebug()<<"expected: ";
-				qDebug()<<va(0)<<va(1)<<va(2);
-				qDebug()<<vb(0)<<vb(1)<<vb(2);
-			qDebug()<<"found: ";
-				qDebug()<<va1(0)<<va1(1)<<va1(2);
-				qDebug()<<vb1(0)<<vb1(1)<<vb1(2);
-			qDebug()<<"diff = "<<diff;
+			if (diff>maxErr) {
+				maxErr=diff;
+				maxI=i;
+				maxJ=j;
+			}
+
+
+
+			std::cout<<toStr(i)<<' '<<toStr(j)<<" err = "<<diff<<std::endl;
+			//			qDebug()<<"expected: ";
+			//				qDebug()<<va(0)<<va(1)<<va(2);
+			//				qDebug()<<vb(0)<<vb(1)<<vb(2);
+			//			qDebug()<<"found: ";
+			//				qDebug()<<va1(0)<<va1(1)<<va1(2);
+			//				qDebug()<<vb1(0)<<vb1(1)<<vb1(2);
+			//qDebug()<<"diff = "<<diff;
 			QVERIFY(norm_inf(va - va1) <= TEST_TOLERANCE);
+			//qDebug()<<"testcase "<<i<<j<<'\n';
 		}
 	}
+	std::cout<<"maximum error: "<<maxErr<<'\n'
+			<<toStr(maxI)<<' '<<toStr(maxJ)<<std::endl;
 
 }
 
