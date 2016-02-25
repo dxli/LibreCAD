@@ -528,7 +528,7 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 		ans.push_back((q>0)?-pow(q,(1.L/3)):pow(-q,(1.L/3)) - shift);
 		//        DEBUG_HEADER
 		//        std::cout<<"cubic: one root: "<<ans[0]<<std::endl;
-		return {ans[0]};
+		return {double(ans[0])};
 	}
 	//std::cout<<"discriminant="<<discriminant<<std::endl;
 	if(discriminant>0) {
@@ -580,7 +580,7 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 		}
 	}
 
-	return {ans[0], ans[1], ans[2]};
+	return {double(ans[0]), double(ans[1]), double(ans[2])};
 }
 
 /** quartic solver
