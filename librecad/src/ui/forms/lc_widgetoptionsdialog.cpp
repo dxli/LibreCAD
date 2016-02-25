@@ -31,10 +31,10 @@ LC_WidgetOptionsDialog::LC_WidgetOptionsDialog(QWidget* parent)
     setupUi(this);
 
     connect(stylesheet_button, SIGNAL(released()),
-            this, SLOT(chooseStyleSheet()));
+			this, SLOT(slotChooseStyleSheet()));
 }
 
-void LC_WidgetOptionsDialog::chooseStyleSheet()
+void LC_WidgetOptionsDialog::slotChooseStyleSheet()
 {
     QString path = QFileDialog::getOpenFileName(this);
     if (!path.isEmpty())

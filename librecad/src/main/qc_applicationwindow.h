@@ -57,7 +57,7 @@ class QG_ActionHandler;
 class RS_GraphicView;
 class RS_Document;
 class TwoStackedLabels;
-class LC_Options;
+struct LC_Options;
 
 struct DockAreas
 {

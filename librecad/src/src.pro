@@ -235,7 +235,8 @@ SOURCES += \
     lib/actions/rs_snapper.cpp \
     lib/creation/rs_creation.cpp \
     lib/debug/rs_debug.cpp \
-    lib/engine/rs_arc.cpp \
+	lib/engine/rs.cpp \
+	lib/engine/rs_arc.cpp \
     lib/engine/rs_block.cpp \
     lib/engine/rs_blocklist.cpp \
     lib/engine/rs_clipboard.cpp \
@@ -272,7 +273,7 @@ SOURCES += \
     lib/engine/rs_settings.cpp \
     lib/engine/rs_solid.cpp \
     lib/engine/rs_spline.cpp \
-    lib/engine/lc_splinepoints.cpp \
+	lib/engine/lc_splinepoints.cpp \
     lib/engine/rs_system.cpp \
     lib/engine/rs_text.cpp \
     lib/engine/rs_undo.cpp \
@@ -317,7 +318,6 @@ SOURCES += \
     lib/engine/rs_undocycle.cpp \
     lib/engine/rs_flags.cpp \
     lib/engine/lc_rect.cpp \
-    lib/engine/rs.cpp \
 	lib/printing/lc_printing.cpp
 
 # ################################################################################

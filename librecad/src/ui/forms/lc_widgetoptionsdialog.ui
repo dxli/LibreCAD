@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LC_WidgetOptionsDialog</class>
- <widget class="QDialog" name="LC_WidgetOptionsDialog">
+ <class>QG_WidgetOptionsDialog</class>
+ <widget class="QDialog" name="QG_WidgetOptionsDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>318</width>
-    <height>319</height>
+    <height>392</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -186,7 +186,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>LC_WidgetOptionsDialog</receiver>
+   <receiver>QG_WidgetOptionsDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -202,7 +202,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>LC_WidgetOptionsDialog</receiver>
+   <receiver>QG_WidgetOptionsDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

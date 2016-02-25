@@ -37,7 +37,7 @@ class QAction;
 class QMouseEvent;
 class QKeyEvent;
 class RS_CommandEvent;
-class RS_SnapMode;
+struct RS_SnapMode;
 class RS_Vector;
 
 /**

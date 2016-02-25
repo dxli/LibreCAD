@@ -54,7 +54,7 @@ extern void QINITIMAGES_LIBRECAD();
  */
 int main(int argc, char** argv)
 {
-//	LC_QuadraticTest::test();
+	LC_QuadraticTest::test();
 
 	RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 

@@ -9,15 +9,15 @@
  */
 class LC_WidgetOptionsDialog
         : public QDialog
-        , public Ui::LC_WidgetOptionsDialog
+		, public Ui::QG_WidgetOptionsDialog
 {
     Q_OBJECT
 
 public:
-    explicit LC_WidgetOptionsDialog(QWidget* parent = 0);
+	explicit LC_WidgetOptionsDialog(QWidget* parent = nullptr);
 
 public slots:
-    void chooseStyleSheet();
+	void slotChooseStyleSheet();
 };
 
 #endif // LC_WIDGETOPTIONSDIALOG_H
