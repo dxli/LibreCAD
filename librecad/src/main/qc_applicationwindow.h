@@ -301,7 +301,7 @@ private:
     QMenu *findMenu(const QString &searchMenu, const QObjectList thisMenuList, const QString& currentEntry);
 
     #ifdef LC_DEBUGGING
-        LC_SimpleTests* m_pSimpleTest;
+		std::unique_ptr<LC_SimpleTests> m_pSimpleTest;
     #endif
 
     /** Pointer to the application window (this). */

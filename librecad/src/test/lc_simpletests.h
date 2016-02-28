@@ -42,5 +42,8 @@ public slots:
 	void slotTestResize800();
 	/** resizes window to 640x480 for screen shots */
 	void slotTestResize1024();
+
+private:
+	void doTests();
 };
 #endif // LC_SIMPLETESTS_H

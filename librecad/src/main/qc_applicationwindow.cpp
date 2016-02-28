@@ -87,7 +87,10 @@
 #include "qc_plugininterface.h"
 #include "rs_commands.h"
 
+#ifdef LC_DEBUGGING
 #include "lc_simpletests.h"
+#endif
+
 #include "rs_debug.h"
 
 #include "lc_widgetoptionsdialog.h"
@@ -331,6 +334,18 @@ QC_ApplicationWindow::QC_ApplicationWindow()
     RS_COMMANDS->updateAlias();
     //plugin load
     loadPlugins();
+
+    //accept drop events to open files
+    setAcceptDrops(true);
+
+    setCorner(Qt::TopLeftCorner, Qt::LeftDockWidgetArea);
+    setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
+    setCorner(Qt::TopRightCorner, Qt::RightDockWidgetArea);
+    setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
+
+#ifdef LC_DEBUGGING
+	m_pSimpleTest.reset(new LC_SimpleTests(this));
+#endif
 
     statusBar()->showMessage(qApp->applicationName() + " Ready", 2000);
 }

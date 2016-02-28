@@ -26,6 +26,7 @@
 #include "rs_layer.h"
 #include "rs_graphicview.h"
 #include "rs_debug.h"
+#include "lc_quadratictest.h"
 
 LC_SimpleTests::LC_SimpleTests(QWidget *parent):
 	QObject(parent)
@@ -109,6 +110,9 @@ LC_SimpleTests::LC_SimpleTests(QWidget *parent):
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestResize1024()));
 		testMenu->addAction(action);
+
+		// add unit tests here
+		doTests();
 }
 
 /**
@@ -1102,4 +1106,11 @@ void LC_SimpleTests::slotTestResize1024() {
 	QC_ApplicationWindow::getAppWindow()->resize(1024, 768);
 	QC_ApplicationWindow::getAppWindow()->update();
 	RS_DEBUG->print("%s\n: end\n", __func__);
+}
+
+
+void LC_SimpleTests::doTests()
+{
+	//unit tests for lc_quadratic
+	LC_QuadraticTest::test();
 }
