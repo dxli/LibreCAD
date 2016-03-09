@@ -271,8 +271,8 @@ void RS_Hatch::update() {
     // adding array of patterns to tmp:
     RS_DEBUG->print("RS_Hatch::update: creating pattern carpet");
 
-    for (int px=px1; px<px2; px++) {
-		for (int py=py1; py<py2; py++) {
+	for (int px=px1; px<=px2; px++) {
+		for (int py=py1; py<=py2; py++) {
 			for(auto e: *pat){
                 RS_Entity* te=e->clone();
                 te->move(dvx*px + dvy*py);
@@ -295,172 +295,6 @@ void RS_Hatch::update() {
 	RS_Arc* arc = nullptr;
 	RS_Circle* circle = nullptr;
 	RS_Ellipse* ellipse = nullptr;
-	for(auto e: tmp){
-
-		line = nullptr;
-		arc = nullptr;
-		circle = nullptr;
-		ellipse = nullptr;
-
-        RS_Vector startPoint;
-        RS_Vector endPoint;
-        RS_Vector center = RS_Vector(false);
-        bool reversed=false;
-
-        switch(e->rtti()){
-        case RS2::EntityLine:
-            line=static_cast<RS_Line*>(e);
-            startPoint = line->getStartpoint();
-            endPoint = line->getEndpoint();
-            break;
-        case RS2::EntityArc:
-            arc=static_cast<RS_Arc*>(e);
-            startPoint = arc->getStartpoint();
-            endPoint = arc->getEndpoint();
-            center = arc->getCenter();
-            reversed = arc->isReversed();
-            break;
-        case RS2::EntityCircle:
-            circle=static_cast<RS_Circle*>(e);
-            startPoint = circle->getCenter()
-                    + RS_Vector(circle->getRadius(), 0.0);
-            endPoint = startPoint;
-            center = circle->getCenter();
-            break;
-        case RS2::EntityEllipse:
-            ellipse = static_cast<RS_Ellipse*>(e);
-            startPoint = ellipse->getStartpoint();
-            endPoint = ellipse->getEndpoint();
-            center = ellipse->getCenter();
-            reversed = ellipse->isReversed();
-            break;
-        default:
-            continue;
-        }
-
-        // getting all intersections of this pattern line with the contour:
-        QList<std::shared_ptr<RS_Vector> > is;
-
-		for(auto loop: entities){
-
-            if (loop->isContainer()) {
-				for(auto p: * static_cast<RS_EntityContainer*>(loop)){
-
-                    RS_VectorSolutions sol =
-                        RS_Information::getIntersection(e, p, true);
-
-					for (const RS_Vector& vp: sol){
-						if (vp.valid) {
-							is.append(std::shared_ptr<RS_Vector>(
-										  new RS_Vector(vp)
-										  ));
-							RS_DEBUG->print("  pattern line intersection: %f/%f",
-											vp.x, vp.y);
-						}
-					}
-				}
-			}
-		}
-
-
-        QList<std::shared_ptr<RS_Vector> > is2;//to be filled with sorted intersections
-        is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(startPoint)));
-
-        // sort the intersection points into is2 (only if there are intersections):
-        if(is.size() == 1)
-        {//only one intersection
-            is2.append(is.first());
-        }
-        else if(is.size() > 1)
-        {
-            RS_Vector sp = startPoint;
-            double sa = center.angleTo(sp);
-			if(ellipse ) sa=ellipse->getEllipseAngle(sp);
-            bool done;
-            double minDist;
-            double dist = 0.0;
-            std::shared_ptr<RS_Vector> av;
-            std::shared_ptr<RS_Vector> v;
-            RS_Vector last = RS_Vector(false);
-            do {
-                done = true;
-                minDist = RS_MAXDOUBLE;
-                av.reset();
-                for (int i = 0; i < is.size(); ++i) {
-                    v = is.at(i);
-                    double a;
-                    switch(e->rtti()){
-                    case RS2::EntityLine:
-                        dist = sp.distanceTo(*v);
-                        break;
-                    case RS2::EntityArc:
-                    case RS2::EntityCircle:
-                        a = center.angleTo(*v);
-                        dist = reversed?
-                                    fmod(sa - a + 2.*M_PI,2.*M_PI):
-                                    fmod(a - sa + 2.*M_PI,2.*M_PI);
-                        break;
-                    case RS2::EntityEllipse:
-                        a = ellipse->getEllipseAngle(*v);
-                        dist = reversed?
-                                    fmod(sa - a + 2.*M_PI,2.*M_PI):
-                                    fmod(a - sa + 2.*M_PI,2.*M_PI);
-                        break;
-                    default:
-                        break;
-
-                    }
-
-                    if (dist<minDist) {
-                        minDist = dist;
-                        done = false;
-                        av = v;
-                    }
-                }
-
-                // copy to sorted list, removing double points
-                if (!done && av.get()) {
-                    if (last.valid==false || last.distanceTo(*av)>RS_TOLERANCE) {
-                        is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(*av)));
-                        last = *av;
-                    }
-#if QT_VERSION < 0x040400
-                    emu_qt44_removeOne(is, av);
-#else
-                    is.removeOne(av);
-#endif
-
-                    av.reset();
-                }
-            } while(!done);
-        }
-
-is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(endPoint)));
-
-        // add small cut lines / arcs to tmp2:
-            for (int i = 1; i < is2.size(); ++i) {
-                auto v1 = is2.at(i-1);
-                auto v2 = is2.at(i);
-
-
-                if (line) {
-
-					tmp2.addEntity(new RS_Line{&tmp2, *v1, *v2});
-                } else if (arc || circle) {
-                    if(fabs(center.angleTo(*v2)-center.angleTo(*v1)) > RS_TOLERANCE_ANGLE)
-                    {//don't create an arc with a too small angle
-                        tmp2.addEntity(new RS_Arc(&tmp2,
-                                                  RS_ArcData(center,
-                                                             center.distanceTo(*v1),
-                                                             center.angleTo(*v1),
-                                                             center.angleTo(*v2),
-                                                             reversed)));
-                    }
-
-                }
-            }
-
-    }
 
     // updating hatch / adding entities that are inside
     RS_DEBUG->print("RS_Hatch::update: cutting pattern carpet: OK");
@@ -473,43 +307,19 @@ is2.append(std::shared_ptr<RS_Vector>(new RS_Vector(endPoint)));
 	hatch->setLayer(nullptr);
     hatch->setFlag(RS2::FlagTemp);
 
-    //calculateBorders();
-
-	for(auto e: tmp2){
-
-        RS_Vector middlePoint;
-        RS_Vector middlePoint2;
-        if (e->rtti()==RS2::EntityLine) {
-			RS_Line* line = static_cast<RS_Line*>(e);
-            middlePoint = line->getMiddlePoint();
-            middlePoint2 = line->getNearestDist(line->getLength()/2.1,
-                                                line->getStartpoint());
-        } else if (e->rtti()==RS2::EntityArc) {
-			RS_Arc* arc = static_cast<RS_Arc*>(e);
-            middlePoint = arc->getMiddlePoint();
-            middlePoint2 = arc->getNearestDist(arc->getLength()/2.1,
-                                               arc->getStartpoint());
-        } else {
-			middlePoint = RS_Vector{false};
-			middlePoint2 = RS_Vector{false};
-        }
-
-        if (middlePoint.valid) {
-            bool onContour=false;
-
-            if (RS_Information::isPointInsideContour(
-                        middlePoint,
-                        this, &onContour) ||
-                    RS_Information::isPointInsideContour(middlePoint2, this)) {
-
-                RS_Entity* te = e->clone();
-				te->setPen(RS2::FlagInvalid);
-				te->setLayer(nullptr);
-                te->reparent(hatch);
-                hatch->addEntity(te);
-            }
-        }
-    }
+	calculateBorders();
+	for(auto e: tmp) {
+		for(RS_Entity* loop: entities){
+			if (!loop->isContainer()) continue;
+			RS_EntityContainer ec = e->hatchTrim(*static_cast<RS_EntityContainer*>(loop));
+			for (auto e0: ec) {
+				e0->setPen(RS2::FlagInvalid);
+				e0->setLayer(nullptr);
+				e0->reparent(hatch);
+				hatch->addEntity(e0->clone());
+			}
+		}
+	}
 
     addEntity(hatch);
     //getGraphic()->addEntity(rubbish);

@@ -1740,7 +1740,7 @@ bool RS_EntityContainer::contourContains(RS_Vector const point)
 
 	// single ray algorithm, the ray from the point intersects with the contour
 	// odd time(s), if the point is enclosed in the contour
-	RS_Line const line{point, {maxV.x  + 0.5 * (maxV.x - point.x), point.y}};
+	RS_Line const line{nullptr, point, {maxV.x  + 0.5 * (maxV.x - point.x), point.y}};
 	RS_VectorSolutions sols;
 	unsigned cts = 0;
 	for (RS_Entity* se=firstEntity(RS2::ResolveAll);
