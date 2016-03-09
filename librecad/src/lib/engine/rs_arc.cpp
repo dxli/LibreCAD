@@ -1183,6 +1183,39 @@ double RS_Arc::areaLineIntegral() const
     return (isReversed()?fStart-fEnd:fEnd-fStart) + 2.*r2*getAngleLength();
 }
 
+RS_EntityContainer RS_Arc::hatchTrim(RS_EntityContainer & loop) const
+{
+	RS_EntityContainer ec{nullptr, true};
+
+	RS_VectorSolutions const sol = loop.getIntersections(this, true);
+	if (sol.size()==0) {
+		if (loop.contourContains(getStartpoint()))
+			ec.addEntity(clone());
+		return ec;
+	}
+	double a1 = data.angle1;
+	double a2 = data.angle2;
+	if (data.reversed) std::swap(a1, a2);
+
+	std::vector<double> vs{a1};
+	for (auto const& vp: sol)
+		vs.push_back(data.center.angleTo(vp));
+
+
+	std::sort(vs.begin()+1, vs.end(), [a1](double const& a, double const& b)
+	{return RS_Math::getAngleDifference(a1, a) < RS_Math::getAngleDifference(a1, b);});
+
+	vs.push_back(a2);
+
+	for (size_t i=1; i<vs.size(); ++i) {
+		if (loop.contourContains(data.center +
+								 RS_Vector::polar(data.radius, vs[i-1] + vs[i]*0.5)))
+			ec.addEntity(new RS_Arc{&ec,
+									{data.center, data.radius, vs[i-1], vs[i], false}});
+	}
+	return ec;
+}
+
 /**
  * Dumps the point's data to stdout.
  */

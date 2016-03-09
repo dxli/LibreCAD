@@ -271,18 +271,24 @@ bool RS_Entity::isArc() const
 	}
 }
 
- bool RS_Entity::isArcCircleLine() const
- {
-	 switch (rtti()) {
-	 case RS2::EntityArc:
-	 case RS2::EntityCircle:
-	 case RS2::EntityLine:
-     case RS2::EntityPoint:
-         return true;
-	 default:
-		 return false;
-	 }
- }
+bool RS_Entity::isArcCircleLine() const
+{
+	switch (rtti()) {
+	case RS2::EntityArc:
+	case RS2::EntityCircle:
+	case RS2::EntityLine:
+	case RS2::EntityPoint:
+		return true;
+	default:
+		return false;
+	}
+}
+
+RS_EntityContainer RS_Entity::hatchTrim(RS_EntityContainer & /*loop*/) const
+{
+	return {};
+}
+
 
 /** whether the entity's bounding box intersects with visible portion of graphic view */
 bool RS_Entity::isVisibleInWindow(RS_GraphicView* view) const

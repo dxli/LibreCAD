@@ -562,6 +562,13 @@ m0 x + m1 y + m2 =0
 	 */
 	virtual bool isArcCircleLine() const;
 
+	//! \{
+	//! @brief hatchTrim generate entities by intersection within a contour
+	//! @param loop must be a simple closed contour
+	//! @return trimmed entities within contour
+	virtual RS_EntityContainer hatchTrim(RS_EntityContainer& loop) const;
+	//! \}
+
 protected:
 	//! Entity's parent entity or nullptr is this entity has no parent.
 	RS_EntityContainer* parent = nullptr;

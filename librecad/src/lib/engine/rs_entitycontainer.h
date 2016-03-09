@@ -191,6 +191,10 @@ public:
         virtual void moveRef(const RS_Vector& ref, const RS_Vector& offset);
         virtual void moveSelectedRef(const RS_Vector& ref, const RS_Vector& offset);
 	virtual void revertDirection();
+	//! @brief inContour for a closed contour, whether the contour contains a point
+	//! @return true if the point is within contour, the contour is assumed to
+	//! closed
+	bool contourContains(RS_Vector const point);
 
 
     virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);
@@ -227,6 +231,9 @@ public:
 	RS_Entity* last() const;
 	RS_Entity* first() const;
 	//! \}
+
+	//! @brief get all intersections with an entity
+	RS_VectorSolutions getIntersections(RS_Entity const* e, bool onEntity);
 
 protected:
 

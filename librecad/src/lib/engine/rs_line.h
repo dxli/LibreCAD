@@ -216,6 +216,15 @@ m0 x + m1 y + m2 =0
      */
     virtual double areaLineIntegral() const override;
 
+
+	//! \{
+	//! @brief hatchTrim generate entities by intersection within a contour
+	//! @param loop must be a simple closed contour
+	//! @return trimmed entities within contour
+	RS_EntityContainer hatchTrim(RS_EntityContainer & loop) const override;
+	//! \}
+
+
 protected:
 	RS_LineData data;
 };

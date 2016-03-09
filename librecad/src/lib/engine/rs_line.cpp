@@ -280,6 +280,30 @@ double RS_Line::areaLineIntegral() const
     return 0.5*(data.endpoint.y - data.startpoint.y)*(data.startpoint.x + data.endpoint.x);
 }
 
+RS_EntityContainer RS_Line::hatchTrim(RS_EntityContainer & loop) const
+{
+	RS_EntityContainer ec{nullptr, true};
+
+	RS_VectorSolutions const sol = loop.getIntersections(this, true);
+	if (sol.size()==0) {
+		if (loop.contourContains(data.startpoint))
+			ec.addEntity(clone());
+		return ec;
+	}
+	std::vector<RS_Vector> vs{data.startpoint};
+	std::copy(sol.begin(), sol.end(), std::back_inserter(vs));
+	std::sort(vs.begin()+1, vs.end(), [this](RS_Vector const& a, RS_Vector const& b)
+	{return this->data.startpoint.squaredTo(a) < this->data.startpoint.squaredTo(b);});
+
+	vs.push_back(data.endpoint);
+
+	for (size_t i=1; i<vs.size(); ++i) {
+		if (loop.contourContains(vs[i-1] + vs[i])*0.5)
+			ec.addEntity(new RS_Line{&ec, {vs[i-1], vs[i]}});
+	}
+	return ec;
+}
+
 
 RS_Vector  RS_Line::getTangentDirection(const RS_Vector& /*point*/)const{
         return getEndpoint() - getStartpoint();

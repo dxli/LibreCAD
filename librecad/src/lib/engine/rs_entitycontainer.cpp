@@ -1733,6 +1733,41 @@ void RS_EntityContainer::revertDirection() {
 	}
 }
 
+
+bool RS_EntityContainer::contourContains(RS_Vector const point)
+{
+	if (!point.isInWindowOrdered(minV, maxV)) return false;
+
+	// single ray algorithm, the ray from the point intersects with the contour
+	// odd time(s), if the point is enclosed in the contour
+	RS_Line const line{point, {maxV.x  + 0.5 * (maxV.x - point.x), point.y}};
+	RS_VectorSolutions sols;
+	unsigned cts = 0;
+	for (RS_Entity* se=firstEntity(RS2::ResolveAll);
+		 se;
+		 se=nextEntity(RS2::ResolveAll)) {
+		auto const s = RS_Information::getIntersection(se, &line, true);
+		for (auto vp: s) {
+			if (vp.x < point.x) continue;
+			cts++;
+		}
+	}
+	return cts%2;
+}
+
+RS_VectorSolutions RS_EntityContainer::getIntersections(RS_Entity const* e, bool onEntity)
+{
+	RS_VectorSolutions sol;
+	for (RS_Entity* se=firstEntity(RS2::ResolveAll);
+		 se;
+		 se=nextEntity(RS2::ResolveAll)) {
+		auto const s = RS_Information::getIntersection(se, e, onEntity);
+		sol.push_back(s);
+	}
+	return sol;
+}
+
+
 /**
  * @brief RS_EntityContainer::draw() draw entities in order
  * @param painter
