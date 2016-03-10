@@ -194,7 +194,7 @@ public:
 	//! @brief inContour for a closed contour, whether the contour contains a point
 	//! @return true if the point is within contour, the contour is assumed to
 	//! closed
-	bool contourContains(RS_Vector const point);
+	bool contourContains(RS_Vector const& point);
 
 
     virtual void draw(RS_Painter* painter, RS_GraphicView* view, double& patternOffset);

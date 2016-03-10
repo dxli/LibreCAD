@@ -311,7 +311,9 @@ void RS_Hatch::update() {
 	for(auto e: tmp) {
 		for(RS_Entity* loop: entities){
 			if (!loop->isContainer()) continue;
-			RS_EntityContainer ec = e->hatchTrim(*static_cast<RS_EntityContainer*>(loop));
+			RS_EntityContainer* pc = static_cast<RS_EntityContainer*>(loop);
+			pc->forcedCalculateBorders();
+			RS_EntityContainer ec = e->hatchTrim(*pc);
 			for (auto e0: ec) {
 				e0->setPen(RS2::FlagInvalid);
 				e0->setLayer(nullptr);

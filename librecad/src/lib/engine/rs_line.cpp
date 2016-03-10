@@ -288,7 +288,7 @@ RS_EntityContainer RS_Line::hatchTrim(RS_EntityContainer & loop) const
 	if (sol.size()==0) {
 		if (loop.contourContains(data.startpoint))
 			ec.addEntity(clone());
-		DEBUG_HEADER
+		//DEBUG_HEADER
 		return ec;
 	}
 	std::vector<RS_Vector> vs{data.startpoint, data.endpoint};
@@ -301,13 +301,17 @@ RS_EntityContainer RS_Line::hatchTrim(RS_EntityContainer & loop) const
 		return a.y < b.y;
 	});
 
-	vs.push_back(data.endpoint);
+	DEBUG_HEADER
+	for (auto const& v: vs)
+		std::cout<<v<<std::endl;
+	DEBUG_HEADER
 
 	for (size_t i=1; i<vs.size(); ++i) {
-		if (loop.contourContains(vs[i-1] + vs[i])*0.5)
+		if (loop.contourContains((vs[i-1] + vs[i])*0.5)) {
+			std::cout<<"adding line: "<<vs[i-1]<<" : "<<vs[i]<<std::endl;
 			ec.addEntity(new RS_Line{&ec, {vs[i-1], vs[i]}});
+		}
 	}
-	DEBUG_HEADER
 	return ec;
 }
 

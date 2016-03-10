@@ -1734,25 +1734,34 @@ void RS_EntityContainer::revertDirection() {
 }
 
 
-bool RS_EntityContainer::contourContains(RS_Vector const point)
+bool RS_EntityContainer::contourContains(RS_Vector const& point)
 {
+	std::cout<<"detects: "<<point<<std::endl;
+	std::cout<<minV<<" "<<maxV<<std::endl;
 	if (!point.isInWindowOrdered(minV, maxV)) return false;
 
 	// single ray algorithm, the ray from the point intersects with the contour
 	// odd time(s), if the point is enclosed in the contour
 	RS_Line const line{nullptr, point, {maxV.x  + 0.5 * (maxV.x - point.x), point.y}};
 	RS_VectorSolutions sols;
-	unsigned cts = 0;
+	auto cmp = [](RS_Vector const& a, RS_Vector const& b) -> bool {
+		if (a.x + RS_TOLERANCE < b.x) return true;
+		if (a.x - RS_TOLERANCE > b.x) return false;
+		if (a.y + RS_TOLERANCE < b.y) return true;
+		return false;
+	};
+	std::set<RS_Vector, decltype(cmp)> points(cmp);
 	for (RS_Entity* se=firstEntity(RS2::ResolveAll);
 		 se;
 		 se=nextEntity(RS2::ResolveAll)) {
 		auto const s = RS_Information::getIntersection(se, &line, true);
 		for (auto vp: s) {
 			if (vp.x < point.x) continue;
-			cts++;
+			points.insert(vp);
 		}
 	}
-	return cts%2;
+	std::cout<<"intersection counts: "<<points.size()<<std::endl;
+	return points.size()%2;
 }
 
 RS_VectorSolutions RS_EntityContainer::getIntersections(RS_Entity const* e, bool onEntity)
