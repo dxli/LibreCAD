@@ -900,69 +900,33 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 using Vector = boost::numeric::ublas::vector<double>;
 using Matrix = boost::numeric::ublas::matrix<double>;
 using Quaternion = boost::math::quaternion<double>;
-
+#include <eigen3/Eigen/Dense>
 std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 {
-	auto m = m1;
-//	if (m.size1() != 3) {
-//		m = Matrix(3, 3);
-//		m(0, 0) = 1; m(0,1) = 0; m(0, 2) = 1;
-//		m(1, 0) = 0; m(1,1) = -1; m(1, 2) = 0;
-//		m(2, 0) = 1; m(2,1) = 0; m(2, 2) = 0;
-//	}
-//	std::cout<<": "<<std::endl;
-//	for (int row=0; row<3; row++) {
-//		qDebug()<<QString("%1 %2 %3").arg(m(row, 0)).arg(m(row, 1)).arg(m(row, 2));
-//	}
-	// A must be a symmetric matrix.
-	// returns quaternion q such that its corresponding matrix Q
-	// can be used to Diagonalize A
-	// Diagonal matrix D = Q * A * Transpose(Q);  and  A = QT*D*Q
-	// The rows of q are the eigenvectors D's diagonal is the eigenvalues
-	// As per 'row' convention if std::array<double,3>x3 Q = q.getmatrix(); then v*Q = q*v*conj(q)
-	int maxsteps=48;
-	int i;
-	Quaternion q{1,0,0,0};
-	for(i=0;i < maxsteps; ++i) {
-		Matrix D  = rotate(m, q);  // A = Q^T*D*Q
-//		std::cout<<"iteration: "<<i<<std::endl;
-//		for (int row=0; row<3; row++) {
-//			qDebug()<<QString("%1 %2 %3").arg(D(row, 0)).arg(D(row, 1)).arg(D(row, 2));
-//		}
-//		std::cout<<": "<<std::endl;
-		std::array<double,3> offdiag{{D(1, 2),D(0, 2), D(0, 1)}}; // elements not on the diagonal
-		std::array<double,3> om{{fabs(offdiag[0]),fabs(offdiag[1]),fabs(offdiag[2])}}; // mag of each offdiag elem
-		int k = (om[0] > om[1] && om[0] > om[2])?0: (om[1] > om[2])? 1 : 2; // index of largest element of offdiag
-		int k1 = (k+1)%3;
-		int k2 = (k+2)%3;
-		if(offdiag[k]==0.0) break;  // diagonal already
-		double thet = (D(k2, k2) - D(k1, k1))/(2.0*offdiag[k]);
-		double sgn = (thet > 0.0)?1.0:-1.0;
-		thet *= sgn; // make it positive
-		double t = sgn /(thet +((thet < RS_TOLERANCE2)?sqrt(thet * thet+1.0):thet)) ; // sign(T)/(|T|+sqrt(T^2+1))
-		double c = 1.0/sqrt(t*t+1.0); //  c= 1/(t^2+1) , t=s/c
-		if(c==1.0) break;  // no room for improvement - reached machine precision.
-		std::array<double, 3> jr{{0., 0., 0.}};
-		jr[k] = -sgn*sqrt((1.0-c)/2.0);  // using 1/2 angle identity sin(a/2) = sqrt((1-cos(a))/2)
-		//jr[k] = - jr[k]; // since our quat-to-matrix convention was for v*M instead of M*v
-		double a  = sqrt(1.0 - jr[k] * jr[k]);
-		if(a==1.0) break; // reached limits of floating point precision
-		q =  q*Quaternion(a, jr[0], jr[1], jr[2]);
-		q = q / norm(q);
+	using Eigen::MatrixXd;
+	MatrixXd em(3, 3);
+	for (int i=0; i<3; i++)
+		for (int j=0; j<3; j++)
+			em(i, j) = m1(i, j);
+
+	Eigen::SelfAdjointEigenSolver<MatrixXd> es(em);
+	if (false) {
+		using namespace  std;
+
+		cout << "matrix is : \n"<<em << std::endl;
+		for (int i=0; i<3; i++)
+		cout <<es.eigenvalues()(i) << endl;
+
+		for (int i=0; i<3; i++) {
+			cout<<es.eigenvectors().col(i)<<endl;
+			for (int j=0; j<3; j++)
+				cout<<es.eigenvectors().col(i)(j)<<' ';
+			cout<<endl;
+		}
 	}
-	Matrix const Q = qToMatrix(q);
-	Matrix const L0 = prod(m, Q);
-	// diagonalized
-	Matrix L = prod(trans(Q), L0);
-
-	//sort by eigen values, minimum absolute eigenvalue to the last one
-	//largest eigen value as the first one
-
-	// helper function to get eigen values
-	auto li = [&L](int i)->double{return L(i, i);};
-
 	//indices to be sorted
-	std::array<int, 3> il{0, 1, 2};
+	auto const& li = es.eigenvalues();
+	std::array<int, 3> il{{0, 1, 2}};
 	if (fabs(li(0)) < fabs(li(1)))
 		std::swap(il[0], il[1]);
 	if (fabs(li(il[1])) < fabs(li(il[2])))
@@ -973,9 +937,9 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 	Vector ev(3);
 	Matrix oL{3, 3};
 	for (int i=0; i < 3; i++) {
-		ev(i)=li(il[i]);
-		for (int col=0; col < 3; col++)
-			oL(col, i) = Q(col, il[i]);
+		ev(i)=es.eigenvalues()(il[i]);
+		for(int j=0; j<3; j++)
+			oL(j, i) = es.eigenvectors().col(il[i])(j);
 	}
 	/* //eigen values in descending order
 		qDebug()<<"eigen values:";

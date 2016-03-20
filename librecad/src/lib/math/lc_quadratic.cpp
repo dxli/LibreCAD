@@ -445,13 +445,13 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 
 	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
 	auto const& L = ei_LV.first;
-//	std::cout<<"eigen values :"<<std::endl;
-//		std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
+	std::cout<<"eigen values :"<<std::endl;
+	std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
 
 
 	//trivial cases, no linear form
 //	assert(L(0) > 0. && L(1) <= 0.);
-	if (L(0) <=0. || L(1) > 0.)
+	if (L(0) <=0 || L(1) > 0)
 		return {};
 	auto const lP = sqrt(L(0));
 	auto const lN = sqrt(-L(1));
@@ -459,8 +459,8 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	auto v0 = column(Q, 0);
 	auto v1 = column(Q, 1);
 //	std::cout<<"eigen vectors :"<<std::endl;
-//		std::cout<<v0(0)<<' '<<v0( 1)<<' '<<v0( 2)<<std::endl;
-//		std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
+//	std::cout<<v0(0)<<' '<<v0(1)<<' '<<v0(2)<<std::endl;
+//	std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
 	v0 *= lP;
 	v1 *= lN;
 	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
