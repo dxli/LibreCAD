@@ -147,13 +147,6 @@ bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_
 	 * @return a pair of eigen values, and eigen vectors by row vectors
 	 */
 std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
-/**
-	 * @brief qToMatrix quaternion to rotation matrix
-	 * @param q unit quaternion
-	 * @return rotation matrix by Euler-Rodrigues
-	 */
-Matrix qToMatrix(Quaternion const& q);
-Matrix rotate(Matrix const& m, Quaternion const& q);
 /** wrapper for elliptic integral **/
 /**
 	 * wrapper of elliptic integral of the second type, Legendre form
