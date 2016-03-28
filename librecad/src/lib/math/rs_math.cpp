@@ -858,34 +858,30 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 }))
 		return false;
 	sn.resize(mSize);//to hold the solution
-	//#ifdef	HAS_BOOST
-#if false
-	boost::numeric::ublas::matrix<double> bm (mSize, mSize);
-	boost::numeric::ublas::vector<double> bs(mSize);
+#if 1
+	using namespace boost::numeric::ublas;
+	Matrix bm(mSize, mSize);
+	for (size_t i=0; i < mSize; i++)
+		for (size_t j=0; j < mSize; j++)
+			bm(i, j) = mt[i][j];
 
-	for(int i=0;i<mSize;i++) {
-		for(int j=0;j<mSize;j++) {
-			bm(i,j)=mt[i][j];
-		}
-		bs(i)=mt[i][mSize];
-	}
+	Vector bs(mSize);
+	for (size_t i=0; i < mSize; i++)
+		bs(i) = mt[i].back();
+
+	//householder decomposition, M = QR
+	Matrix Q, R;
+	HouseholderQR(bm, Q, R);
+	std::cout<<"Q=\n"<<toString(Q)<<std::endl;
+	std::cout<<"R=\n"<<toString(R)<<std::endl;
+	bs = prod(Q, bs); // Q is Hermitan and unitary, Q = Q^-1
 	//solve the linear equation set by LU decomposition in boost ublas
+	auto const um = triangular_adaptor<Matrix, upper>(R);
+	std::cout<<"um=\n"<<um<<std::endl;
 
-	if (boost::numeric::ublas::lu_factorize<boost::numeric::ublas::matrix<double> >(bm) ) {
-		std::cout<<__FILE__<<" : "<<__func__<<" : line "<<__LINE__<<std::endl;
-		std::cout<<" linear solver failed"<<std::endl;
-		//        RS_DEBUG->print(RS_Debug::D_WARNING, "linear solver failed");
-		return false;
-	}
 
-	boost::numeric::ublas:: triangular_matrix<double, boost::numeric::ublas::unit_lower>
-			lm = boost::numeric::ublas::triangular_adaptor< boost::numeric::ublas::matrix<double>,  boost::numeric::ublas::unit_lower>(bm);
-	boost::numeric::ublas:: triangular_matrix<double,  boost::numeric::ublas::upper>
-			um =  boost::numeric::ublas::triangular_adaptor< boost::numeric::ublas::matrix<double>,  boost::numeric::ublas::upper>(bm);
-	;
-	boost::numeric::ublas::inplace_solve(lm,bs, boost::numeric::ublas::lower_tag());
-	boost::numeric::ublas::inplace_solve(um,bs, boost::numeric::ublas::upper_tag());
-	for(int i=0;i<mSize;i++){
+	boost::numeric::ublas::inplace_solve(um, bs, boost::numeric::ublas::upper_tag());
+	for(size_t i=0; i< mSize; i++){
 		sn[i]=bs(i);
 	}
 	//    std::cout<<"dn="<<dn<<std::endl;
