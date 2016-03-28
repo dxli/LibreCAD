@@ -27,6 +27,8 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/lu.hpp>
 #include <boost/math/special_functions/ellint_2.hpp>
+#include <boost/numeric/ublas/matrix_proxy.hpp>
+#include <boost/numeric/ublas/vector_proxy.hpp>
 
 #include <cmath>
 #include <muParser.h>
@@ -46,6 +48,39 @@
 
 namespace {
 constexpr double m_piX2 = M_PI*2; //2*PI
+
+using Vector = RS_Math::Vector;
+using Matrix = RS_Math::Matrix;
+void TransposeMultiply (Vector const& vector,
+						Matrix& result)
+{
+	auto const size = vector.size();
+	result.resize (size,size);
+	result.clear ();
+	for(size_t row=0; row< vector.size(); ++row)
+		for(size_t col=0; col < vector.size(); ++col)
+			result(row, col) = vector(col) * vector(row);
+}
+
+void HouseholderCornerSubstraction (Matrix& LeftLarge,
+									Matrix const& RightSmall)
+{
+	if(
+		!(
+			(LeftLarge.size1() >= RightSmall.size1())
+			&& (LeftLarge.size2() >= RightSmall.size2())
+		)
+	)
+	{
+		std::cerr << "invalid matrix dimensions" << std::endl;
+		return;
+	}
+	size_t const offset = LeftLarge.size1() - RightSmall.size1();
+	for(size_t row = 0; row < RightSmall.size2(); ++row )
+		for(size_t col = 0; col < RightSmall.size1(); ++col )
+			LeftLarge(offset+col, offset+row) -= RightSmall(col,row);
+}
+
 }
 
 /**
@@ -895,6 +930,58 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 
 	return true;
 }
+
+void RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
+{
+	using namespace boost::numeric::ublas;
+	using T = Matrix::value_type;
+
+	if(!(M.size1() == M.size2())) {
+		std::cerr << "invalid matrix dimensions" << std::endl;
+		return;
+	}
+	size_t size = M.size1();
+
+	// init Matrices
+	Matrix H, HTemp;
+	HTemp = identity_matrix<T>(size);
+	Q = identity_matrix<T>(size);
+	R = M;
+
+	// find Householder reflection matrices
+	for(unsigned int col = 0; col < size-1; ++col)
+	{
+		// create X vector
+		Vector RowView = column(R,col);
+		vector_range<Vector> X2 (RowView, range (col, size));
+		Vector X = X2;
+		T const n2 = inner_prod(X,X);
+		if (n2 < RS_TOLERANCE2) break;
+
+		// X -> U~
+		if(X(0) >= 0)
+			X(0) += norm_2(X);
+		else
+			X(0) += -1*norm_2(X);
+
+		HTemp.resize(X.size(),X.size(),true);
+
+		TransposeMultiply(X, HTemp);
+
+		// HTemp = the 2UUt part of H
+		HTemp *= ( 2 / n2 );
+
+		// H = I - 2UUt
+		H = identity_matrix<T>(size);
+		HouseholderCornerSubstraction(H, HTemp);
+
+		// add H to Q and R
+		Q = prod(Q,H);
+		R = prod(H,R);
+	}
+}
+
+
 
 
 using Vector = boost::numeric::ublas::vector<double>;

@@ -99,6 +99,11 @@ std::vector<double> quarticSolver(const std::vector<double>& ce);
 	@return, a vector contains real roots
 	**/
 std::vector<double> quarticSolverFull(const std::vector<double>& ce);
+//! @brief Householder decomposition
+//! @param M input square matrix
+//! @param Q,R the orthogonal and upper triangular matrics
+void HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R);
+
 //solver for linear equation set
 /**
 	  * Solve linear equation set
