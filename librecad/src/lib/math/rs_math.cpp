@@ -31,6 +31,8 @@
 #include <boost/numeric/ublas/vector_proxy.hpp>
 
 #include <cmath>
+#include <sstream>
+#include <string>
 #include <muParser.h>
 #include <QString>
 #include <QDebug>
@@ -49,6 +51,7 @@
 namespace {
 constexpr double m_piX2 = M_PI*2; //2*PI
 
+using namespace boost::numeric::ublas;
 using Vector = RS_Math::Vector;
 using Matrix = RS_Math::Matrix;
 void TransposeMultiply (Vector const& vector,
@@ -79,6 +82,19 @@ void HouseholderCornerSubstraction (Matrix& LeftLarge,
 	for(size_t row = 0; row < RightSmall.size2(); ++row )
 		for(size_t col = 0; col < RightSmall.size1(); ++col )
 			LeftLarge(offset+col, offset+row) -= RightSmall(col,row);
+}
+
+template<typename T>
+std::string toString(matrix<T> const& mat)
+{
+	std::ostringstream oss;
+	oss<<mat.size1()<<"x"<<mat.size2()<<'\n';
+	for (size_t i=0; i < mat.size1(); i++) {
+		for (size_t j=0; j < mat.size2(); j++)
+			oss<< std::fixed << std::setw(6) << std::setprecision(4)<<mat(i, j)<<'\t';
+		oss<<'\n';
+	}
+	return oss.str();
 }
 
 }
@@ -934,51 +950,52 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 void RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 {
 	using namespace boost::numeric::ublas;
-	using T = Matrix::value_type;
+	using T = double;
 
-	if(!(M.size1() == M.size2())) {
-		std::cerr << "invalid matrix dimensions" << std::endl;
-		return;
-	}
-	size_t size = M.size1();
+	 if(
+		!(
+			  (M.size1() == M.size2())
+		 )
+	   )
+	   {
+		 std::cerr << "invalid matrix dimensions" << std::endl;
+		 return;
+	   }
+	 size_t size = M.size1();
 
-	// init Matrices
-	Matrix H, HTemp;
-	HTemp = identity_matrix<T>(size);
-	Q = identity_matrix<T>(size);
-	R = M;
+	 // init Matrices
+	 matrix<T> H, HTemp;
+	 HTemp = identity_matrix<T>(size);
+	 Q = identity_matrix<T>(size);
+	 R = M;
 
-	// find Householder reflection matrices
-	for(unsigned int col = 0; col < size-1; ++col)
-	{
-		// create X vector
-		Vector RowView = column(R,col);
-		vector_range<Vector> X2 (RowView, range (col, size));
-		Vector X = X2;
-		T const n2 = inner_prod(X,X);
-		if (n2 < RS_TOLERANCE2) break;
+	 // find Householder reflection matrices
+	 for(unsigned int col = 0; col < size-1; ++col)
+	   {
+		 // create X vector
+		 vector<T> RowView = column(R,col);
+		 vector_range<vector<T> > X2 (RowView, range (col, size));
+		 vector<T> X = X2;
 
-		// X -> U~
-		if(X(0) >= 0)
-			X(0) += norm_2(X);
-		else
-			X(0) += -1*norm_2(X);
+		 // X -> U~
+		 X(0) += copysign(norm_2(X), X(0));
 
-		HTemp.resize(X.size(),X.size(),true);
+		 HTemp.resize(X.size(),X.size(),true);
 
-		TransposeMultiply(X, HTemp);
+		 TransposeMultiply(X, HTemp);
 
-		// HTemp = the 2UUt part of H
-		HTemp *= ( 2 / n2 );
+		 // HTemp = the 2UUt part of H
+		 HTemp *= ( 2 / inner_prod(X,X) );
 
-		// H = I - 2UUt
-		H = identity_matrix<T>(size);
-		HouseholderCornerSubstraction(H, HTemp);
+		 // H = I - 2UUt
+		 H = identity_matrix<T>(size);
+		 HouseholderCornerSubstraction(H, HTemp);
 
-		// add H to Q and R
-		Q = prod(Q,H);
-		R = prod(H,R);
-	}
+		 // add H to Q and R
+		 Q = prod(Q,H);
+		 R = prod(H,R);
+	   }
+
 }
 
 
