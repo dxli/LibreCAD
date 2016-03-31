@@ -147,11 +147,16 @@ RS_VectorSolutions simultaneousQuadraticSolverMixed(const std::vector<std::vecto
 bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_Vector& v);
 
 /**
-	 * @brief eigenSystemSym3x3 eigen system of symmetric 3x3 real matrices
-	 * @param m symmetric 3x3 real matrix
+	 * @brief eigenSystemSym2x2 eigen system of symmetric 2x2 real matrices
+	 * @param m symmetric 2x2 real matrix
 	 * @return a pair of eigen values, and eigen vectors by row vectors
 	 */
+std::pair<Vector, Matrix> eigenSystemSym2x2(Matrix const& m);
+#ifdef LC_DEBUGGING
+std::pair<Vector, Matrix> eigenSystemSym2x2_0(Matrix const& m);
 std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
+#endif
+
 /** wrapper for elliptic integral **/
 /**
 	 * wrapper of elliptic integral of the second type, Legendre form

@@ -994,14 +994,9 @@ void RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 
 }
 
-
-
-
-using Vector = boost::numeric::ublas::vector<double>;
-using Matrix = boost::numeric::ublas::matrix<double>;
-using Quaternion = boost::math::quaternion<double>;
+#ifdef LC_DEBUGGING
 #include <eigen3/Eigen/Dense>
-std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
+std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 {
 	using Eigen::MatrixXd;
 	MatrixXd em(3, 3);
@@ -1047,6 +1042,66 @@ std::pair<Vector, Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 			qDebug()<<ev(i);
 		*/
 	return {ev, oL};
+}
+
+std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym2x2_0(Matrix const& m)
+{
+	using Eigen::MatrixXd;
+	MatrixXd em(2, 2);
+
+	for (int i=0; i<2; i++)
+		for (int j=0; j<2; j++)
+			em(i, j) = m(i, j);
+
+	Eigen::SelfAdjointEigenSolver<MatrixXd> es(em);
+	Vector E(2);
+	Matrix V(2, 2);
+	auto const& e = es.eigenvalues();
+	auto const& v = es.eigenvectors();
+	int offset = (e(0) < e(1)) ? 1 : 0;
+	for (int i = 0; i < 2; i++) {
+		int const i2 = (i + offset) % 2;
+		E(i) = e(i2);
+		V(0, i) = v.col(i2)(0);
+		V(1, i) = v.col(i2)(1);
+	}
+	return {E, V};
+}
+#endif
+
+std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym2x2(Matrix const& m)
+{
+	double a=m(0, 0);
+	const double c=2. * m(0, 1);
+	double b=m(1, 1);
+
+	//Eigen system
+	const double d = a - b;
+	const double s=hypot(d,c);
+	// { a>b, d>0
+	// eigenvalue: ( a+b - s)/2, eigenvector: ( -c, d + s)
+	// eigenvalue: ( a+b + s)/2, eigenvector: ( d + s, c)
+	// }
+	// { a<b, d<0
+	// eigenvalue: ( a+b - s)/2, eigenvector: ( s-d,-c)
+	// eigenvalue: ( a+b + s)/2, eigenvector: ( c, s-d)
+	// }
+	Vector E(2);
+	Matrix V(2, 2);
+	E(0) = sum({a, b, s}) * 0.5;
+	E(1) = E(0) - s;
+	if (d >= 0.) {
+		V(0, 0) = d + s;
+		V(1, 0) = c;
+		V(0, 1) = -c;
+		V(1, 1) = d + s;
+	} else {
+		V(0, 0) = c;
+		V(1, 0) = s - d;
+		V(0, 1) = s - d,
+		V(1, 1) = -c;
+	}
+	return {E, V};
 }
 
 /**

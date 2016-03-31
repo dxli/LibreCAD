@@ -1,12 +1,13 @@
 #include <algorithm>
 #include <array>
+#include <random>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/math/quaternion.hpp>
 #include <QDebug>
 #include "lc_quadratictest.h"
 #include "lc_quadratic.h"
-
+#include "rs_math.h"
 
 namespace{
 using namespace boost::numeric::ublas;
@@ -27,24 +28,26 @@ void LC_QuadraticTest::initTestCase()
 
 void LC_QuadraticTest::testLinearReduction()
 {
+	testEigen2x2();
+	return;
 	//test cases of lines
 	std::vector<std::array<double, 3>> lineData{
-		{1, 2, 1}, // 1*x + 2*y + 1 = 0, the array holds coefficients in order
-		{2, 3, 2},
-		{1, 4, 5},
-		{4, 1, 7},
-		{3, 1, 3},
-		{1, 1, 4},
-		{1, 1e4, 1},
-		{1, 1e4 + 1, 1},
-		{1, 1e4 + 1, 1e4},
-		{1e4, 1e4, 1e4+1},
-		{1e4+1, 1e4, 1e4},
-		{10, 1, 11},
-		//		{2, -3, 2},
-		//		{1, -4, 5},
-		//		{4, -1, 7},
-		{4, 0, 7},
+		{{1, 2, 1}}, // 1*x + 2*y + 1 = 0, the array holds coefficients in order
+		{{2, 3, 2}},
+		{{1, 4, 5}},
+		{{4, 1, 7}},
+		{{3, 1, 3}},
+		{{1, 1, 4}},
+		{{1, 1e4, 1}},
+		{{1, 1e4 + 1, 1}},
+		{{1, 1e4 + 1, 1e4}},
+		{{1e4, 1e4, 1e4+1}},
+		{{1e4+1, 1e4, 1e4}},
+		{{10, 1, 11}},
+		//		{{2, -3, 2}},
+		//		{{1, -4, 5}},
+		//		{{4, -1, 7}},
+		{{4, 0, 7}},
 		//		{10, -1, 11}
 	};
 	//form Vector from line data
@@ -115,6 +118,52 @@ void LC_QuadraticTest::testLinearReduction()
 			<<toStr(maxI)<<' '<<toStr(maxJ)<<std::endl;
 
 }
+
+#include <eigen3/Eigen/Dense>
+
+void LC_QuadraticTest::testEigen2x2()
+{
+	// Seed with a real random value, if available
+	   std::random_device r;
+
+	   // Choose a random mean between 1 and 6
+	   std::default_random_engine e1(r());
+	   std::uniform_real_distribution<> dis(-100., 100.);
+	   Matrix M(2, 2);
+	   int const N = 1000;
+	   int cts=0;
+	   for (int i=0; i < N; i++) {
+		   M(0, 0) = dis(e1);
+		   M(1, 0) = dis(e1);
+		   M(0, 1) = M(1, 0);
+		   M(1, 1) = dis(e1);
+
+		   auto const& ev0 = RS_Math::eigenSystemSym2x2_0(M);
+		   auto const& ev1 = RS_Math::eigenSystemSym2x2(M);
+		   auto const& E0 = ev0.first;
+		   auto const& E1 = ev1.first;
+		   auto const& V0 = ev0.second;
+		   auto const& V1 = ev1.second;
+//		   std::cout<<"V0:\t"<<V0<<std::endl;
+//		   std::cout<<"V1:\t"<<V1<<std::endl;
+		   double de = std::max(std::abs(E0(0) - E1(0)), std::abs(E0(1) - E1(1)));
+		   auto dv2 = prod(trans(V0), V1);
+		   auto dv20 = prod(trans(V0), V0);
+		   auto dv21 = prod(trans(V1), V1);
+		   double dv = std::max(
+					   std::sqrt(dv20(0, 0)*dv21(0, 0)) - std::abs(dv2(0, 0)),
+					   std::sqrt(dv20(1, 1)*dv21(1, 1)) - std::abs(dv2(1, 1))
+					   );
+		   constexpr double TOL = 1e-13;
+		   bool successE = de < TOL;
+		   bool successV = std::max(de, dv) < TOL;
+		   bool success = successE && successV;
+		   QVERIFY(success);
+		   if(success) cts++;
+	   }
+	   qDebug()<<cts<<" of "<<N<<" passed";
+}
+
 
 void LC_QuadraticTest::test()
 {

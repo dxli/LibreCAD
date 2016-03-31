@@ -3,7 +3,7 @@
 TEMPLATE = app
 
 #uncomment to enable a Debugging menu entry for basic unit testing
-#DEFINES += LC_DEBUGGING
+DEFINES += LC_DEBUGGING
 
 DEFINES += DWGSUPPORT
 DEFINES -= JWW_WRITE_SUPPORT

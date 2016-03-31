@@ -12,6 +12,9 @@ public:
 	~LC_QuadraticTest() = default;
 	static void test();
 
+private:
+	static void testEigen2x2();
+
 private slots:
 	void initTestCase();
 	void testLinearReduction();
