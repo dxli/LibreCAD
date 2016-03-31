@@ -1077,7 +1077,7 @@ std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym2x2(Matrix co
 
 	//Eigen system
 	const double d = a - b;
-	const double s=hypot(d,c);
+	const double s=hypot(d, c);
 	// { a>b, d>0
 	// eigenvalue: ( a+b - s)/2, eigenvector: ( -c, d + s)
 	// eigenvalue: ( a+b + s)/2, eigenvector: ( d + s, c)

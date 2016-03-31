@@ -149,7 +149,8 @@ bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_
 /**
 	 * @brief eigenSystemSym2x2 eigen system of symmetric 2x2 real matrices
 	 * @param m symmetric 2x2 real matrix
-	 * @return a pair of eigen values, and eigen vectors by row vectors
+	 * @return a pair of eigen values in descending order, and eigen vectors by
+	 *  col vectors
 	 */
 std::pair<Vector, Matrix> eigenSystemSym2x2(Matrix const& m);
 #ifdef LC_DEBUGGING
