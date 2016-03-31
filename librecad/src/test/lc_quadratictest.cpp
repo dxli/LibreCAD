@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <array>
 #include <random>
+#include <iomanip>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/math/quaternion.hpp>
@@ -29,7 +30,6 @@ void LC_QuadraticTest::initTestCase()
 void LC_QuadraticTest::testLinearReduction()
 {
 	testEigen2x2();
-	return;
 	//test cases of lines
 	std::vector<std::array<double, 3>> lineData{
 		{{1, 2, 1}}, // 1*x + 2*y + 1 = 0, the array holds coefficients in order
@@ -90,14 +90,33 @@ void LC_QuadraticTest::testLinearReduction()
 			assert(sol.size()==2);
 			Vector va1 = fq2v(sol[0]);
 			Vector vb1 = fq2v(sol[1]);
-			if (inner_prod(va, va1) < inner_prod(vb, va1))
+			if (std::abs(inner_prod(va, va1)) < std::abs(inner_prod(vb, va1)))
 				swap(va1, vb1);
 
+			if (inner_prod(va, va1) < 0.)
+				va1 = - va1;
 			auto const diff = norm_inf(va - va1);
 			if (diff>maxErr) {
 				maxErr=diff;
 				maxI=i;
 				maxJ=j;
+			}
+
+			if (diff > 1e-10) {
+				auto fmt = [](Matrix const& m) {
+					std::cout<<"[";
+					for (int i0=0; i0 < 3; i0++) {
+						for (int j0=0; j0 < 3; j0++)
+							std::cout<<std::setprecision(16) << m(i0, j0)<<' ';
+						if (i0 < 2) std::cout<<"; ";
+					}
+					std::cout<<"]\n";
+				};
+
+				std::cout<<"Q\n";
+				fmt(Q);
+				std::cout<<va1<<std::endl;
+				std::cout<<vb1<<std::endl;
 			}
 
 

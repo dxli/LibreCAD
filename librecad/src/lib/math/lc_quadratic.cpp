@@ -426,49 +426,39 @@ LC_Quadratic::Matrix LC_Quadratic::getMat() const
 std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 {
 	using namespace boost::numeric::ublas;
-	//std::cout<<"det: "<<getDeterminant(m)<<std::endl;
-	//assert(isDegenerate(m));
-	// to reduce
-	// a^2 x^2 - b^ y^2 = (a x + b y) (a x - b y)
-	//
+	//3x3 symmetric matrix
+	//std::cout<<"("<<m.size1()<<" , "<<m.size2()<<")"<<std::endl;
+	assert(m.size1() == m.size2() && m.size1() == 3);
+	Matrix Q, R;
+	RS_Math::HouseholderQR(m, Q, R);
 
-//	std::cout<<"matrix is:"<<std::endl;
-//	for (int i=0; i<3; i++)
-//		std::cout<<m(i,0)<<' '<<m(i, 1)<<' '<<m(i, 2)<<std::endl;
-//	std::cout<<"[";
-//	for (int i=0; i<3; i++) {
-//		std::cout<<"["<<m(i,0)<<", "<<m(i, 1)<<", "<<m(i, 2)<<"]";
-//		if (i < 2)
-//			std::cout<<", ";
-//	}
-//	std::cout<<"]"<<std::endl;
+	// find norm or R
+	Matrix nR = prod(R, trans(R));
+	if (nR(1, 1) < RS_TOLERANCE15 * nR(0, 0)) {
+		// rank(M) = 1, the linear form is the null space of M
+		return {{column(Q, 2)}};
+	}
 
-	std::pair<Vector, Matrix> ei_LV = RS_Math::eigenSystemSym3x3(m);
-	auto const& L = ei_LV.first;
-	std::cout<<"eigen values :"<<std::endl;
-	std::cout<<L(0)<<' '<<L( 1)<<' '<<L( 2)<<std::endl;
+	// the range space of Q
+	Matrix const Qp = subrange(Q, 0, 3, 0, 2);
+	// the non-zero part of R*Q
+	Matrix const RQ = subrange(prod(R, Q), 0, 2, 0, 2);
 
+	// linear reduction of the 2x2 symmetric sub-matrix
+	auto const EV = RS_Math::eigenSystemSym2x2(RQ);
 
-	//trivial cases, no linear form
-//	assert(L(0) > 0. && L(1) <= 0.);
-	if (L(0) <=0 || L(1) > 0)
-		return {};
-	auto const lP = sqrt(L(0));
-	auto const lN = sqrt(-L(1));
-	auto & Q = ei_LV.second;
-	auto v0 = column(Q, 0);
-	auto v1 = column(Q, 1);
-//	std::cout<<"eigen vectors :"<<std::endl;
-//	std::cout<<v0(0)<<' '<<v0(1)<<' '<<v0(2)<<std::endl;
-//	std::cout<<v1(0)<<' '<<v1( 1)<<' '<<v1( 2)<<std::endl;
-	v0 *= lP;
-	v1 *= lN;
-	if (fabs(lN) < RS_TOLERANCE * fabs(lP))
-	//matrix rank is 1 ?
-		return {{v0}};
+	// M = Q R = Q (RQ) Q, since Q is from householder, Q = Q', and Q = Q^-1
+	// the overall transform
+	Matrix ML = prod(Qp, EV.second);
 
-	// linear forms: a x + b y and a x - b y in eigen vectors
-	return {{v0 + v1}, {v0 - v1}};
+	Vector ce(2);
+	ce(0) = std::sqrt(EV.first(0));
+	ce(1) = std::sqrt(std::abs(EV.first(1)));
+
+	Vector const LF0 = prod(ML, ce);
+	ce(1) = - ce(1);
+	Vector const LF1 = prod(ML, ce);
+	return {{LF0, LF1}};
 }
 
 std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const& rhs) const
