@@ -430,7 +430,27 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	//std::cout<<"("<<m.size1()<<" , "<<m.size2()<<")"<<std::endl;
 	assert(m.size1() == m.size2() && m.size1() == 3);
 	Matrix Q, R;
-	RS_Math::HouseholderQR(m, Q, R);
+	Matrix T;
+
+	// QR decomposition might fail to find the rank, due to all zero sub-columns
+	// switching rows of (x, y, z) = (x', y', z')*T
+	// and (x, y, z) M (x, y, z)' = (x', y', z')*T * M' T (x, y, z)'
+	for (int i = 0; i < 3; i++) {
+		Matrix m1 = m;
+		T = identity_matrix<Matrix::value_type>(3);
+		if (i) {
+			//switch rows, T*T = I, T = T'
+			T(0, 0) = 0;
+			T(i, i) = 0;
+			T(0, i) = 1;
+			T(i, 0) = 1;
+			m1 = prod(m1, T);
+			m1 = prod(T, m1);
+		}
+		DEBUG_HEADER;
+		std::cout<<"i = "<<i<<std::endl;
+		if (RS_Math::HouseholderQR(m1, Q, R)) break;
+	}
 
 	// find norm or R
 	Matrix nR = prod(R, trans(R));
@@ -440,7 +460,7 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	}
 
 	// the range space of Q
-	Matrix const Qp = subrange(Q, 0, 3, 0, 2);
+	Matrix const Qp = prod(T, subrange(Q, 0, 3, 0, 2));
 	// the non-zero part of R*Q
 	Matrix const RQ = subrange(prod(R, Q), 0, 2, 0, 2);
 

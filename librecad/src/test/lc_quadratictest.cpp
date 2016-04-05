@@ -87,9 +87,8 @@ void LC_QuadraticTest::testLinearReduction()
 			Matrix Q = outer_prod(va, vb);
 			Q = (trans(Q) + Q) * 0.5;
 			auto const sol = LC_Quadratic::linearReduction(Q);
-			assert(sol.size()==2);
 			Vector va1 = fq2v(sol[0]);
-			Vector vb1 = fq2v(sol[1]);
+			Vector vb1 = (sol.size()<2)?fq2v(sol[0]):fq2v(sol[1]);
 			if (std::abs(inner_prod(va, va1)) < std::abs(inner_prod(vb, va1)))
 				swap(va1, vb1);
 

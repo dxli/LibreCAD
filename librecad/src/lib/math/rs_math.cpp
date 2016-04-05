@@ -943,55 +943,57 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 	return true;
 }
 
-void RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
+bool RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 {
 	using namespace boost::numeric::ublas;
 	using T = double;
+	assert(M.size1() == M.size2());
+	size_t size = M.size1();
 
-	 if(
-		!(
-			  (M.size1() == M.size2())
-		 )
-	   )
-	   {
-		 std::cerr << "invalid matrix dimensions" << std::endl;
-		 return;
-	   }
-	 size_t size = M.size1();
+	// init Matrices
+	matrix<T> H, HTemp;
+	HTemp = identity_matrix<T>(size);
+	Q = identity_matrix<T>(size);
+	R = M;
 
-	 // init Matrices
-	 matrix<T> H, HTemp;
-	 HTemp = identity_matrix<T>(size);
-	 Q = identity_matrix<T>(size);
-	 R = M;
+	// find Householder reflection matrices
+	for(unsigned int col = 0; col < size-1; ++col)
+	{
+		// create X vector
+		vector<T> RowView = column(R,col);
+		vector_range<vector<T> > X2 (RowView, range (col, size));
+		vector<T> X = X2;
+		if (inner_prod(X,X) < RS_TOLERANCE15 * std::abs(R(0, 0))) {
+			//all zero in the rest of column
+			continue;
+		}
 
-	 // find Householder reflection matrices
-	 for(unsigned int col = 0; col < size-1; ++col)
-	   {
-		 // create X vector
-		 vector<T> RowView = column(R,col);
-		 vector_range<vector<T> > X2 (RowView, range (col, size));
-		 vector<T> X = X2;
+		// X -> U~
+		X(0) += copysign(norm_2(X), X(0));
 
-		 // X -> U~
-		 X(0) += copysign(norm_2(X), X(0));
+		HTemp.resize(X.size(),X.size(),true);
 
-		 HTemp.resize(X.size(),X.size(),true);
+		TransposeMultiply(X, HTemp);
 
-		 TransposeMultiply(X, HTemp);
+		// HTemp = the 2UUt part of H
+		std::cout<<std::endl;
+		DEBUG_HEADER
+		qDebug()<<"Length: "<<inner_prod(X,X);
 
-		 // HTemp = the 2UUt part of H
-		 HTemp *= ( 2 / inner_prod(X,X) );
+		std::cout<<R<<std::endl;
 
-		 // H = I - 2UUt
-		 H = identity_matrix<T>(size);
-		 HouseholderCornerSubstraction(H, HTemp);
+		HTemp *= ( 2 / inner_prod(X,X) );
 
-		 // add H to Q and R
-		 Q = prod(Q,H);
-		 R = prod(H,R);
-	   }
+		// H = I - 2UUt
+		H = identity_matrix<T>(size);
+		HouseholderCornerSubstraction(H, HTemp);
 
+		// add H to Q and R
+		Q = prod(Q,H);
+		R = prod(H,R);
+	}
+	// the bottom-right element is non-zero, HR failed due to an all-zero sub-column
+	return std::abs(R(2, 2)) < RS_TOLERANCE*0.01 * std::abs(R(0, 0));
 }
 
 #ifdef LC_DEBUGGING
