@@ -79,6 +79,7 @@ void LC_QuadraticTest::testLinearReduction()
 
 	double maxErr=0.;
 	size_t maxI=0, maxJ=0;
+	size_t cts = 0;
 
 	for (size_t i=0; i + 1 < lineData.size(); i++) {
 		Vector const va = fl2v(i);
@@ -121,14 +122,15 @@ void LC_QuadraticTest::testLinearReduction()
 
 
 			std::cout<<toStr(i)<<' '<<toStr(j)<<" err = "<<diff<<std::endl;
-			//			qDebug()<<"expected: ";
-			//				qDebug()<<va(0)<<va(1)<<va(2);
-			//				qDebug()<<vb(0)<<vb(1)<<vb(2);
-			//			qDebug()<<"found: ";
-			//				qDebug()<<va1(0)<<va1(1)<<va1(2);
-			//				qDebug()<<vb1(0)<<vb1(1)<<vb1(2);
+						qDebug()<<"expected: ";
+							qDebug()<<va(0)<<va(1)<<va(2);
+							qDebug()<<vb(0)<<vb(1)<<vb(2);
+						qDebug()<<"found: ";
+							qDebug()<<va1(0)<<va1(1)<<va1(2);
+							qDebug()<<vb1(0)<<vb1(1)<<vb1(2);
 			//qDebug()<<"diff = "<<diff;
 			QVERIFY(norm_inf(va - va1) <= TEST_TOLERANCE);
+			qDebug()<<(++cts)<<" passed";
 			//qDebug()<<"testcase "<<i<<j<<'\n';
 		}
 	}

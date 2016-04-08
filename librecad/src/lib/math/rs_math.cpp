@@ -917,7 +917,7 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 		for(size_t k=i+1;k<=mSize;++k) { //normalize the i-th row
 			mt0[i][k] /= mt0[i][i];
 		}
-		mt0[i][i]=1.;
+		mt0[i][i]=1;
 		for(size_t j=0;j<mSize;++j) {//Gauss-Jordan
 			if(j != i ) {
 				double& a = mt0[j][i];
@@ -963,7 +963,10 @@ bool RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 		vector<T> RowView = column(R,col);
 		vector_range<vector<T> > X2 (RowView, range (col, size));
 		vector<T> X = X2;
-		if (inner_prod(X,X) < RS_TOLERANCE15 * std::abs(R(0, 0))) {
+			DEBUG_HEADER
+		std::cout<<"HH: R: "<<toString(R)<<std::endl;
+
+		if (inner_prod(X,X) < RS_TOLERANCE2*1e4 * std::abs(R(0, 0))) {
 			//all zero in the rest of column
 			continue;
 		}
@@ -991,6 +994,8 @@ bool RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 		// add H to Q and R
 		Q = prod(Q,H);
 		R = prod(H,R);
+		DEBUG_HEADER
+		std::cout<<"HH: R: "<<toString(R)<<std::endl;
 	}
 	// the bottom-right element is non-zero, HR failed due to an all-zero sub-column
 	return std::abs(R(2, 2)) < RS_TOLERANCE*0.01 * std::abs(R(0, 0));

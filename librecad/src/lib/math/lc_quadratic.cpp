@@ -34,11 +34,16 @@
 #include "rs_circle.h"
 #include "rs_ellipse.h"
 #include "rs_line.h"
+#include "lc_conic.h"
 #include "rs_debug.h"
 
 #ifdef EMU_C99
 #include "emu_c99.h" /* C99 math */
 #endif
+
+namespace {
+using namespace boost::numeric::ublas;
+}
 
 LC_Quadratic::LC_Quadratic(std::vector<double> ce):
     m_mQuad(2,2),
@@ -430,39 +435,47 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	//std::cout<<"("<<m.size1()<<" , "<<m.size2()<<")"<<std::endl;
 	assert(m.size1() == m.size2() && m.size1() == 3);
 	Matrix Q, R;
-	Matrix T;
 
-	// QR decomposition might fail to find the rank, due to all zero sub-columns
-	// switching rows of (x, y, z) = (x', y', z')*T
-	// and (x, y, z) M (x, y, z)' = (x', y', z')*T * M' T (x, y, z)'
-	for (int i = 0; i < 3; i++) {
-		Matrix m1 = m;
-		T = identity_matrix<Matrix::value_type>(3);
-		if (i) {
-			//switch rows, T*T = I, T = T'
-			T(0, 0) = 0;
-			T(i, i) = 0;
-			T(0, i) = 1;
-			T(i, 0) = 1;
-			m1 = prod(m1, T);
-			m1 = prod(T, m1);
-		}
-		DEBUG_HEADER;
-		std::cout<<"i = "<<i<<std::endl;
-		if (RS_Math::HouseholderQR(m1, Q, R)) break;
+	bool success;
+	Matrix m1 = m;
+	Matrix T = identity_matrix<double>(3);
+	for (int i = 2; i >= 0; i--) {
+		success = RS_Math::HouseholderQR(m1, Q, R);
+		if (success) break;
+		T = identity_matrix<double>(3);
+		T(0, 0) = 0;
+		T(i, i) = 0;
+		T(0, i) = 1;
+		T(i, 0) = 1;
+		m1 = prod(m, T);
+		m1 = prod(T, m1);
 	}
+	DEBUG_HEADER
+	std::cout<<"T="<<T<<std::endl;
+	std::cout<<"m1="<<m1<<std::endl;
+
+	std::cout<<"success= "<<success<<"\tR = "<<R<<std::endl;
+	auto qr = prod(Q, R);
+	std::cout<<"QR err: = "<< (qr - m1)<<std::endl;
+	auto rq = prod(R, Q);
+	std::cout<<"RQ : = "<< rq<<std::endl;
+
+	if (!success)
+		return LC_Conic::splitLines(m);
 
 	// find norm or R
 	Matrix nR = prod(R, trans(R));
 	if (nR(1, 1) < RS_TOLERANCE15 * nR(0, 0)) {
 		// rank(M) = 1, the linear form is the null space of M
-		return {{column(Q, 2)}};
+		DEBUG_HEADER;
+		return LC_Conic::splitLines(m);
 	}
 
 	// the range space of Q
 	Matrix const Qp = prod(T, subrange(Q, 0, 3, 0, 2));
 	// the non-zero part of R*Q
 	Matrix const RQ = subrange(prod(R, Q), 0, 2, 0, 2);
+	std::cout<<"RQ="<<prod(R, Q)<<std::endl;
 
 	// linear reduction of the 2x2 symmetric sub-matrix
 	auto const EV = RS_Math::eigenSystemSym2x2(RQ);
@@ -478,6 +491,7 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	Vector const LF0 = prod(ML, ce);
 	ce(1) = - ce(1);
 	Vector const LF1 = prod(ML, ce);
+	DEBUG_HEADER
 	return {{LF0, LF1}};
 }
 
@@ -778,4 +792,5 @@ std::ostream& operator << (std::ostream& os, const LC_Quadratic& q) {
                                                                               <<std::endl;
     return os;
 }
+
 //EOF
