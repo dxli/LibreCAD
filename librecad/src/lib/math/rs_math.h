@@ -99,10 +99,19 @@ std::vector<double> quarticSolver(const std::vector<double>& ce);
 	@return, a vector contains real roots
 	**/
 std::vector<double> quarticSolverFull(const std::vector<double>& ce);
-//! @brief Householder decomposition
+//! @brief Householder QR decomposition
 //! @param M input square matrix
 //! @param Q,R the orthogonal and upper triangular matrics
 bool HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R);
+/**
+ * @brief HouseholderTridiagonal tridiagonalization of sysmmetric matrix
+ * @param M input symmetric 3x3
+ * @param T transform matrix
+ * @param D tridiagonal matrix after transform
+ * @return whether tridiagonalization is needed. returns true unless the input is
+ * already tridiagonal, and M(0, 0) is non-zero
+ */
+bool HouseholderTridiagonal(Matrix const& M, Matrix& T, Matrix& D);
 
 //solver for linear equation set
 /**

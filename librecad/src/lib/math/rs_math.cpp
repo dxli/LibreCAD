@@ -998,7 +998,60 @@ bool RS_Math::HouseholderQR(Matrix const& M, Matrix& Q, Matrix& R)
 		std::cout<<"HH: R: "<<toString(R)<<std::endl;
 	}
 	// the bottom-right element is non-zero, HR failed due to an all-zero sub-column
-	return std::abs(R(2, 2)) < RS_TOLERANCE*0.01 * std::abs(R(0, 0));
+	std::cout<<"R(2, 2)/R(0, 0) = "<<R(2, 2)/(R(0, 0) + DBL_EPSILON)<<std::endl;
+	return std::abs(R(2, 2)) < RS_TOLERANCE * 10 * std::abs(R(0, 0));
+}
+
+/**
+ * @brief HouseholderTridiagonal tridiagonalization of sysmmetric matrix
+ * @param M input symmetric 3x3
+ * @param T transform matrix
+ * @param D tridiagonal matrix after transform
+ */
+bool RS_Math::HouseholderTridiagonal(Matrix const& M, Matrix& T, Matrix& D)
+{
+	T = identity_matrix<double>(3);
+	DEBUG_HEADER
+	if (std::abs(M(0, 0)) < RS_TOLERANCE2) {
+		DEBUG_HEADER
+		//reorder to avoid zero first column
+		int j = std::abs(M(1, 1)) > std::abs(M(2, 2)) ? 1: 2;
+		T(0, 0) = 0;
+		T(j, j) = 0;
+		T(0, j) = 1;
+		T(j, 0) = 1;
+		Matrix M1 = prod(T, M);
+		M1 = prod(M1, T);
+		Matrix T0;
+		bool ret = HouseholderTridiagonal(M1, T0, D);
+		// M = T M1 T = T T0 D T0 T = (T0 T)' D (T0 T)
+		T = prod(T0, T);
+		return ret;
+	}
+
+	D = M;
+	// whether matrix is already tridiagonal
+	if (std::abs(M(2, 0)) < RS_TOLERANCE15)
+		return false;
+	// form the sub-vector for HH reflection
+	Vector c(2);
+	c(0) = M(1, 0);
+	c(1) = M(2, 0);
+	double const s = std::hypot(c(0), c(1));
+	if (s <= RS_TOLERANCE15)
+		return false;
+	double sg = std::copysign(1., M(1, 0));
+	double z = (1 + sg * M(1, 0)/s)/2;
+	double vk1 = std::sqrt(z);
+	Vector v(3);
+	v(0) = 0;
+	v(1) = vk1;
+	v(2) = sg * M(2,0)/(2 * vk1 *s);
+	// HH reflection matrix
+	T = T - outer_prod(v, v) * 2;
+	D = prod(T, M);
+	D = prod(D, T);
+	return true;
 }
 
 #ifdef LC_DEBUGGING

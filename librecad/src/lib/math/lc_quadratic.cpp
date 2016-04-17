@@ -23,8 +23,10 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-#include <boost/numeric/ublas/matrix_proxy.hpp>
 #include <cfloat>
+#include <string>
+#include <iomanip>
+#include <boost/numeric/ublas/matrix_proxy.hpp>
 #include <QDebug>
 #include "rs_vector.h"
 #include "rs_math.h"
@@ -43,6 +45,19 @@
 
 namespace {
 using namespace boost::numeric::ublas;
+
+template<typename T>
+std::string toString(matrix<T> const& mat)
+{
+	std::ostringstream oss;
+	oss<<mat.size1()<<"x"<<mat.size2()<<'\n';
+	for (size_t i=0; i < mat.size1(); i++) {
+		for (size_t j=0; j < mat.size2(); j++)
+			oss<< std::fixed << std::setw(6) << std::setprecision(4)<<mat(i, j)<<'\t';
+		oss<<'\n';
+	}
+	return oss.str();
+}
 }
 
 LC_Quadratic::LC_Quadratic(std::vector<double> ce):
@@ -434,55 +449,77 @@ std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 	//3x3 symmetric matrix
 	//std::cout<<"("<<m.size1()<<" , "<<m.size2()<<")"<<std::endl;
 	assert(m.size1() == m.size2() && m.size1() == 3);
+	std::cout<<"m=[";
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			std::cout<<m(i, j)<<' ';
+		}
+		if (i < 2) std::cout<<"; ";
+	}
+	std::cout<<"]"<<std::endl;
+
+	// tridiagonal
+	Matrix T, D;
+	bool const needTD = RS_Math::HouseholderTridiagonal(m, T, D);
+	if (!needTD) D = m;
+
+	{
+		//verify tridiagonal
+		std::cout<<"m="<<toString(m)<<std::endl;
+
+		Matrix M = prod(T, D);
+		M = prod(M, T) - m;
+		std::cout<<"verify tridiagonal:\nT="<<toString(T)<<std::endl;
+		std::cout<<"D="<<toString(D)<<std::endl;
+		std::cout<<"err="<<toString(M)<<std::endl;
+	}
+
 	Matrix Q, R;
+	bool const success = RS_Math::HouseholderQR(D, Q, R);
 
-	bool success;
-	Matrix m1 = m;
-	Matrix T = identity_matrix<double>(3);
-	for (int i = 2; i >= 0; i--) {
-		success = RS_Math::HouseholderQR(m1, Q, R);
-		if (success) break;
-		T = identity_matrix<double>(3);
-		T(0, 0) = 0;
-		T(i, i) = 0;
-		T(0, i) = 1;
-		T(i, 0) = 1;
-		m1 = prod(m, T);
-		m1 = prod(T, m1);
-	}
+	assert(success); // detect Householder QR failure
+
 	DEBUG_HEADER
-	std::cout<<"T="<<T<<std::endl;
-	std::cout<<"m1="<<m1<<std::endl;
+	std::cout<<"D="<<toString(D)<<std::endl;
+	std::cout<<"Q="<<toString(Q)<<std::endl;
+	std::cout<<"R="<<toString(R)<<std::endl;
 
-	std::cout<<"success= "<<success<<"\tR = "<<R<<std::endl;
-	auto qr = prod(Q, R);
-	std::cout<<"QR err: = "<< (qr - m1)<<std::endl;
-	auto rq = prod(R, Q);
-	std::cout<<"RQ : = "<< rq<<std::endl;
+//	std::cout<<"success= "<<success<<"\tR = "<<toString(R)<<std::endl;
+//	auto qr = prod(Q, R);
+//	std::cout<<"QR err: = "<< (qr - D)<<std::endl;
+//	Matrix rq = prod(R, Q);
+//	std::cout<<"RQ : = "<< toString(rq)<<std::endl;
 
-	if (!success)
-		return LC_Conic::splitLines(m);
+	// find norm of R
+//	Matrix nR = prod(R, trans(R));
+//	if (nR(1, 1) < RS_TOLERANCE15 * nR(0, 0)) {
+//		// rank(M) = 1, the linear form is the null space of M
+//		DEBUG_HEADER;
+//		std::cout<<"one linear form"<<std::endl;
+//		return LC_Conic::splitLines(m);
+//	}
 
-	// find norm or R
-	Matrix nR = prod(R, trans(R));
-	if (nR(1, 1) < RS_TOLERANCE15 * nR(0, 0)) {
-		// rank(M) = 1, the linear form is the null space of M
-		DEBUG_HEADER;
-		return LC_Conic::splitLines(m);
-	}
-
-	// the range space of Q
-	Matrix const Qp = prod(T, subrange(Q, 0, 3, 0, 2));
 	// the non-zero part of R*Q
-	Matrix const RQ = subrange(prod(R, Q), 0, 2, 0, 2);
-	std::cout<<"RQ="<<prod(R, Q)<<std::endl;
+	Matrix RQ = prod(R, Q);
+	std::cout<<"RQ="<<toString(RQ)<<std::endl;
+	RQ = subrange(RQ, 0, 2, 0, 2);
 
 	// linear reduction of the 2x2 symmetric sub-matrix
 	auto const EV = RS_Math::eigenSystemSym2x2(RQ);
+	std::cout<<"Eigen values: \n"<<EV.first(0)<<'\n'<<EV.first(1)<<std::endl;
+	std::cout<<"Eigen vectors: \n"<<EV.second(0, 0)<<' '<< EV.second(0, 1)<<'\n'
+			<<EV.second(1, 0)<<' '<< EV.second(1, 1)<<std::endl;
 
 	// M = Q R = Q (RQ) Q, since Q is from householder, Q = Q', and Q = Q^-1
-	// the overall transform
+	// M = Q' V' L V Q = (VQ)' L VQ
+
+	// the range space of Q
+	Matrix const Qp = subrange(Q, 0, 3, 0, 2);
+	std::cout<<"Qp="<<toString(Qp)<<std::endl;
 	Matrix ML = prod(Qp, EV.second);
+	std::cout<<"ML="<<toString(ML)<<std::endl;
+
+	if (needTD) ML = prod(T, ML);
 
 	Vector ce(2);
 	ce(0) = std::sqrt(EV.first(0));
