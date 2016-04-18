@@ -445,91 +445,28 @@ LC_Quadratic::Matrix LC_Quadratic::getMat() const
  */
 std::vector<LC_Quadratic> LC_Quadratic::linearReduction(Matrix const& m)
 {
-	using namespace boost::numeric::ublas;
-	//3x3 symmetric matrix
-	//std::cout<<"("<<m.size1()<<" , "<<m.size2()<<")"<<std::endl;
-	assert(m.size1() == m.size2() && m.size1() == 3);
-	std::cout<<"m=[";
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			std::cout<<m(i, j)<<' ';
-		}
-		if (i < 2) std::cout<<"; ";
-	}
-	std::cout<<"]"<<std::endl;
 
-	// tridiagonal
-	Matrix T, D;
-	bool const needTD = RS_Math::HouseholderTridiagonal(m, T, D);
-	if (!needTD) D = m;
+	auto ei_LV = RS_Math::eigenSystemSym3x3(m);
+	auto const& L = ei_LV.first;
 
-	{
-		//verify tridiagonal
-		std::cout<<"m="<<toString(m)<<std::endl;
+	//trivial cases, no linear form
+	if (L(0) <=0 || L(1) > 0)
+		return {};
+	auto const lP = std::sqrt(L(0));
+	auto const lN = std::sqrt(-L(1));
+	auto& Q = ei_LV.second;
+	auto v0 = column(Q, 0);
+	auto v1 = column(Q, 1);
 
-		Matrix M = prod(T, D);
-		M = prod(M, T) - m;
-		std::cout<<"verify tridiagonal:\nT="<<toString(T)<<std::endl;
-		std::cout<<"D="<<toString(D)<<std::endl;
-		std::cout<<"err="<<toString(M)<<std::endl;
+	v0 *= lP;
+	v1 *= lN;
+	if (fabs(lN) < RS_TOLERANCE * fabs(lP)) {
+		//matrix rank is 1 ?
+		return {{v0}};
 	}
 
-	Matrix Q, R;
-	bool const success = RS_Math::HouseholderQR(D, Q, R);
-
-	assert(success); // detect Householder QR failure
-
-	DEBUG_HEADER
-	std::cout<<"D="<<toString(D)<<std::endl;
-	std::cout<<"Q="<<toString(Q)<<std::endl;
-	std::cout<<"R="<<toString(R)<<std::endl;
-
-//	std::cout<<"success= "<<success<<"\tR = "<<toString(R)<<std::endl;
-//	auto qr = prod(Q, R);
-//	std::cout<<"QR err: = "<< (qr - D)<<std::endl;
-//	Matrix rq = prod(R, Q);
-//	std::cout<<"RQ : = "<< toString(rq)<<std::endl;
-
-	// find norm of R
-//	Matrix nR = prod(R, trans(R));
-//	if (nR(1, 1) < RS_TOLERANCE15 * nR(0, 0)) {
-//		// rank(M) = 1, the linear form is the null space of M
-//		DEBUG_HEADER;
-//		std::cout<<"one linear form"<<std::endl;
-//		return LC_Conic::splitLines(m);
-//	}
-
-	// the non-zero part of R*Q
-	Matrix RQ = prod(R, Q);
-	std::cout<<"RQ="<<toString(RQ)<<std::endl;
-	RQ = subrange(RQ, 0, 2, 0, 2);
-
-	// linear reduction of the 2x2 symmetric sub-matrix
-	auto const EV = RS_Math::eigenSystemSym2x2(RQ);
-	std::cout<<"Eigen values: \n"<<EV.first(0)<<'\n'<<EV.first(1)<<std::endl;
-	std::cout<<"Eigen vectors: \n"<<EV.second(0, 0)<<' '<< EV.second(0, 1)<<'\n'
-			<<EV.second(1, 0)<<' '<< EV.second(1, 1)<<std::endl;
-
-	// M = Q R = Q (RQ) Q, since Q is from householder, Q = Q', and Q = Q^-1
-	// M = Q' V' L V Q = (VQ)' L VQ
-
-	// the range space of Q
-	Matrix const Qp = subrange(Q, 0, 3, 0, 2);
-	std::cout<<"Qp="<<toString(Qp)<<std::endl;
-	Matrix ML = prod(Qp, EV.second);
-	std::cout<<"ML="<<toString(ML)<<std::endl;
-
-	if (needTD) ML = prod(T, ML);
-
-	Vector ce(2);
-	ce(0) = std::sqrt(EV.first(0));
-	ce(1) = std::sqrt(std::abs(EV.first(1)));
-
-	Vector const LF0 = prod(ML, ce);
-	ce(1) = - ce(1);
-	Vector const LF1 = prod(ML, ce);
-	DEBUG_HEADER
-	return {{LF0, LF1}};
+	// linear forms: a x + b y and a x - b y in eigen vectors
+	return {{v0 + v1}, {v0 - v1}};
 }
 
 std::vector<LC_Quadratic> LC_Quadratic::pencilOfConics(LC_Quadratic const& rhs) const
