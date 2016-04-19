@@ -554,8 +554,8 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 {
 	//    std::cout<<"x^3 + ("<<ce[0]<<")*x^2+("<<ce[1]<<")*x+("<<ce[2]<<")==0"<<std::endl;
 	using LDouble = long double;
-	std::vector<LDouble> ans(0,0.L);
 	if (ce.size() != 3) return {};
+	std::vector<LDouble> ans(0, 0.L);
 	// depressed cubic, Tschirnhaus transformation, x= t - b/(3a)
 	// t^3 + p t +q =0
 	std::array<LDouble, 3> lce{{ce[0], ce[1], ce[2]}};
@@ -575,7 +575,7 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 	//	discriminant= q^2/4 + p^3/27
 	//std::cout<<"p="<<p<<"\tq="<<q<<std::endl;
 	LDouble discriminant= (1.L/27)*p*p*p+ 0.25L*q*q;
-	if (std::abs(p)< 1.0e-75L) {
+	if (std::abs(p) < 1.0e-75L) {
 		ans.push_back((q>0)?-pow(q,(1.L/3)):pow(-q,(1.L/3)) - shift);
 		//        DEBUG_HEADER
 		//        std::cout<<"cubic: one root: "<<ans[0]<<std::endl;
@@ -631,7 +631,7 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 		}
 	}
 
-	return {double(ans[0]), double(ans[1]), double(ans[2])};
+	return std::vector<double>(ans.begin(), ans.end());
 }
 
 /** quartic solver
