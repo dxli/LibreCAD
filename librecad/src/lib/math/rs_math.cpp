@@ -858,7 +858,7 @@ bool RS_Math::linearSolver(const std::vector<std::vector<double> >& mt, std::vec
 }))
 		return false;
 	sn.resize(mSize);//to hold the solution
-#if 1
+#if 0
 	using namespace boost::numeric::ublas;
 	Matrix bm(mSize, mSize);
 	for (size_t i=0; i < mSize; i++)
