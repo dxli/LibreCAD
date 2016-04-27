@@ -46,6 +46,27 @@
 namespace {
 using namespace boost::numeric::ublas;
 
+RS_VectorSolutions getIntersectionLinearQuad(const LC_Quadratic& l1, const LC_Quadratic& l2)
+{
+	auto const& v1 = l1.getLinear();
+
+	if (fabs(v1(0))+DBL_EPSILON<fabs(v1(1)))
+		return getIntersectionLinearQuad(l1.flipXY(), l2.flipXY()).flipXY();
+
+	std::vector<std::vector<double>>  ce(0);
+
+	if (fabs(v1(1))<RS_TOLERANCE){
+		constexpr double angle=0.25*M_PI;
+		LC_Quadratic p11(l1);
+		LC_Quadratic p22(l2);
+		return getIntersectionLinearQuad(p11.rotate(angle), p22.rotate(angle)).rotate(-angle);
+	}
+
+	ce.push_back(l1.getCoefficients());
+	ce.push_back(l2.getCoefficients());
+	return RS_Math::simultaneousQuadraticSolverMixed(ce);
+}
+
 template<typename T>
 std::string toString(matrix<T> const& mat)
 {
@@ -629,40 +650,10 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
         }
         return ret;
     }
-    if(p2->isQuadratic()==false){
+	if (!p2->isQuadratic()) {
         //one line, one quadratic
         //avoid division by zero
-        if(fabs(p2->m_vLinear(0))+DBL_EPSILON<fabs(p2->m_vLinear(1))){
-            ret=getIntersection(p1->flipXY(),p2->flipXY()).flipXY();
-//            for(size_t j=0;j<ret.size();j++){
-//                DEBUG_HEADER
-//                std::cout<<j<<": ("<<ret[j].x<<", "<< ret[j].y<<")"<<std::endl;
-//            }
-            return ret;
-        }
-        std::vector<std::vector<double> >  ce(0);
-		if(fabs(p2->m_vLinear(1))<RS_TOLERANCE){
-            const double angle=0.25*M_PI;
-            LC_Quadratic p11(*p1);
-            LC_Quadratic p22(*p2);
-            ce.push_back(p11.rotate(angle).getCoefficients());
-            ce.push_back(p22.rotate(angle).getCoefficients());
-            ret=RS_Math::simultaneousQuadraticSolverMixed(ce);
-            ret.rotate(-angle);
-//            for(size_t j=0;j<ret.size();j++){
-//                DEBUG_HEADER
-//                std::cout<<j<<": ("<<ret[j].x<<", "<< ret[j].y<<")"<<std::endl;
-//            }
-            return ret;
-        }
-        ce.push_back(p1->getCoefficients());
-        ce.push_back(p2->getCoefficients());
-        ret=RS_Math::simultaneousQuadraticSolverMixed(ce);
-//        for(size_t j=0;j<ret.size();j++){
-//            DEBUG_HEADER
-//            std::cout<<j<<": ("<<ret[j].x<<", "<< ret[j].y<<")"<<std::endl;
-//        }
-        return ret;
+		return getIntersectionLinearQuad(*p2, *p1);
     }
 
 	//handle degenerate quadratic

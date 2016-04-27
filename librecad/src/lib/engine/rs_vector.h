@@ -182,7 +182,7 @@ void set(size_t i, const RS_Vector& v);
 	std::vector<RS_Vector>::const_iterator end() const;
 	std::vector<RS_Vector>::iterator begin();
 	std::vector<RS_Vector>::iterator end();
-	void rotate(double ang);
+	RS_VectorSolutions rotate(double ang);
     void rotate(const RS_Vector& angleVector);
 	void rotate(const RS_Vector& center, double ang);
     void rotate(const RS_Vector& center, const RS_Vector& angleVector);

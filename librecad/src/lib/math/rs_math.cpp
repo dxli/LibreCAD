@@ -473,7 +473,7 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 //quadratic solver for
 // x^2 + ce[0] x + ce[1] =0
 {
-    std::vector<double> ans(0,0.);
+	std::vector<double> ans(0, 0.);
 	if (ce.size() != 2) return ans;
 	using LDouble = long double;
 	LDouble const b = -0.5L * ce[0];
@@ -487,11 +487,11 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 	LDouble const fc = std::abs(c);
 
 	//TODO, fine tune to tolerance level
-	LDouble const TOL = 1e-24L;
 
-	if (discriminant < 0.L)
+	if (discriminant < -10 * RS_TOLERANCE) {
 		//negative discriminant, no real root
 		return ans;
+	}
 
 	//find the radical
 	LDouble r;
@@ -502,8 +502,9 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 		r = std::abs(b) * std::sqrt(1.L - c/b2);
 	else
 		// c is negative, because b2 - c is non-negative
-		r = std::sqrt(fc) * std::sqrt(1.L + b2/fc);
+		r = std::sqrt(fc) * std::sqrt((c - b2)/fc);
 
+	constexpr LDouble TOL = 1e-24L;
 	if (r >= TOL*std::abs(b)) {
 		//two roots
 		if (b >= 0.L)
@@ -527,24 +528,51 @@ std::vector<long double> RS_Math::quadraticSolver(const std::vector<long double>
 // x^2 + ce[0] x + ce[1] =0
 {
 	using LDouble = long double;
-	std::vector<LDouble> ans(0,0.L);
+	std::vector<LDouble> ans(0, 0.L);
 	if (ce.size() != 2) return ans;
-	LDouble const a=-0.5L*ce[0];
-	LDouble b=a*a;
-	LDouble const discriminant=b-ce[1];
-	if (discriminant >= - RS_TOLERANCE15*std::max(std::abs(b), std::abs(ce[1])) ){
-		b = sqrt(std::abs(discriminant));
-		if (b >= RS_TOLERANCE*std::abs(a)) {
-			if(a>0){
-				ans.push_back(a + b);
-				ans.push_back(ce[1]/ans[0]);
-			}else{
-				ans.push_back(a - b);
-				ans.push_back(ce[1]/ans[0]);
-			}
-		}else
-			ans.push_back(a);
+	LDouble const b = -0.5L * ce[0];
+	LDouble const c = ce[1];
+	// x^2 -2 b x + c=0
+	// (x - b)^2 = b^2 - c
+	// b^2 >= std::abs(c)
+	// x = b \pm b sqrt(1. - c/(b^2))
+	LDouble const b2= b * b;
+	LDouble const discriminant= b2 - c;
+	LDouble const fc = std::abs(c);
+
+	//TODO, fine tune to tolerance level
+
+	if (discriminant < -10 * RS_TOLERANCE) {
+		std::cout<<__LINE__<<" discriminant="<<discriminant<<std::endl;
+		return ans;
 	}
+
+	//find the radical
+	LDouble r;
+
+	// given |p| >= |q|
+	// sqrt(p^2 \pm q^2) = p sqrt(1 \pm q^2/p^2)
+	if (b2 >= fc)
+		r = std::abs(b) * std::sqrt(1.L - c/b2);
+	else
+		// c is negative, because b2 - c is non-negative
+		r = std::sqrt(fc) * std::sqrt((c - b2)/fc);
+
+	constexpr LDouble TOL = 1e-24L;
+	if (r >= TOL*std::abs(b)) {
+		//two roots
+		if (b >= 0.L)
+			//since both (b,r)>=0, avoid (b - r) loss of significance
+			ans.push_back(b + r);
+		else
+			//since b<0, r>=0, avoid (b + r) loss of significance
+			ans.push_back(b - r);
+
+		//Vieta's formulas for the second root
+		ans.push_back(c/ans.front());
+	} else
+		//multiple roots
+		ans.push_back(b);
 	return ans;
 }
 
@@ -1398,13 +1426,13 @@ RS_VectorSolutions RS_Math::simultaneousQuadraticSolverMixed(const std::vector<s
 	const double& a2=a*a;
 	const double& b2=b*b;
 	const double& c2=c*c;
-	ce[0]= -f*a2+a*b*e-b2*d;
-	ce[1]=a*b*g-a2*h- (2*b*c*d-a*c*e);
-	ce[2]=a*c*g-c2*d-a2*i;
+	ce[0]= RS_Math::sum({-f*a2, a*b*e, -b2*d});
+	ce[1]= RS_Math::sum({a*b*g, -a2*h, -2*b*c*d, a*c*e});
+	ce[2]= RS_Math::sum({a*c*g, -c2*d, -a2*i});
 	//    DEBUG_HEADER
-	//    std::cout<<"("<<ce[0]<<") y^2 + ("<<ce[1]<<") y + ("<<ce[2]<<")==0"<<std::endl;
-	std::vector<double> roots(0,0.);
-	if(std::abs(ce[1])>RS_TOLERANCE15 && std::abs(ce[0]/ce[1])<RS_TOLERANCE15){
+		std::cout<<"("<<ce[0]<<") y^2 + ("<<ce[1]<<") y + ("<<ce[2]<<")==0"<<std::endl;
+	std::vector<double> roots(0, 0.);
+	if (std::abs(ce[1])>RS_TOLERANCE15 && std::abs(ce[0]/ce[1])<RS_TOLERANCE15){
 		roots.push_back(- ce[2]/ce[1]);
 	}else{
 		std::vector<double> ce2(2,0.);
@@ -1417,13 +1445,11 @@ RS_VectorSolutions RS_Math::simultaneousQuadraticSolverMixed(const std::vector<s
 	//    }
 
 
-	if(roots.size()==0)  {
-		return RS_VectorSolutions();
-	}
-	for(size_t i=0;i<roots.size();i++){
-		ret.push_back(RS_Vector(-(b*roots.at(i)+c)/a,roots.at(i)));
-		//        std::cout<<ret.at(ret.size()-1).x<<", "<<ret.at(ret.size()-1).y<<std::endl;
-	}
+	if(roots.size()==0)
+		return {};
+
+	for(auto const r: roots)
+		ret.push_back({-(b*r + c)/a, r});
 
 	return ret;
 

@@ -677,13 +677,13 @@ bool RS_VectorSolutions::isTangent() const {
 /**
  * Rotates all vectors around (0,0) by the given angle.
  */
-void RS_VectorSolutions::rotate(double ang) {
-    RS_Vector angleVector(ang);
-	for (auto& vp: vector) {
-		if (vp.valid) {
+RS_VectorSolutions RS_VectorSolutions::rotate(double ang) {
+	RS_Vector const angleVector(ang);
+	for (auto& vp: vector)
+		if (vp.valid)
 			vp.rotate(angleVector);
-		}
-	}
+
+	return *this;
 }
 
 /**
