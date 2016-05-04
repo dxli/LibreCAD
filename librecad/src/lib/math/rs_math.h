@@ -162,10 +162,8 @@ bool simultaneousQuadraticVerify(const std::vector<std::vector<double> >& m, RS_
 	 *  col vectors
 	 */
 std::pair<Vector, Matrix> eigenSystemSym2x2(Matrix const& m);
-#ifdef LC_DEBUGGING
 std::pair<Vector, Matrix> eigenSystemSym2x2_0(Matrix const& m);
 std::pair<Vector, Matrix> eigenSystemSym3x3(Matrix const& m);
-#endif
 
 /** wrapper for elliptic integral **/
 /**

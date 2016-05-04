@@ -23,16 +23,17 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+
+#include <cmath>
+#include <sstream>
+#include <string>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/lu.hpp>
 #include <boost/math/special_functions/ellint_2.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
-
-#include <cmath>
-#include <sstream>
-#include <string>
+#include <eigen3/Eigen/Dense>
 #include <muParser.h>
 #include <QString>
 #include <QDebug>
@@ -499,10 +500,10 @@ std::vector<double> RS_Math::quadraticSolver(const std::vector<double>& ce)
 	// given |p| >= |q|
 	// sqrt(p^2 \pm q^2) = p sqrt(1 \pm q^2/p^2)
 	if (b2 >= fc)
-		r = std::abs(b) * std::sqrt(1.L - c/b2);
+		r = std::abs(b) * std::sqrt(1 - c/b2);
 	else
 		// c is negative, because b2 - c is non-negative
-		r = std::sqrt(fc) * std::sqrt((c - b2)/fc);
+		r = std::sqrt(fc) * std::sqrt(b2/fc - c/fc);
 
 	constexpr LDouble TOL = 1e-24L;
 	if (r >= TOL*std::abs(b)) {
@@ -556,7 +557,7 @@ std::vector<long double> RS_Math::quadraticSolver(const std::vector<long double>
 		r = std::abs(b) * std::sqrt(1.L - c/b2);
 	else
 		// c is negative, because b2 - c is non-negative
-		r = std::sqrt(fc) * std::sqrt((c - b2)/fc);
+		r = std::sqrt(fc) * std::sqrt(b2/fc - c/fc);
 
 	constexpr LDouble TOL = 1e-24L;
 	if (r >= TOL*std::abs(b)) {
@@ -1082,8 +1083,6 @@ bool RS_Math::HouseholderTridiagonal(Matrix const& M, Matrix& T, Matrix& D)
 	return true;
 }
 
-#ifdef LC_DEBUGGING
-#include <eigen3/Eigen/Dense>
 std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym3x3(Matrix const& m1)
 {
 	using Eigen::MatrixXd;
@@ -1155,7 +1154,6 @@ std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym2x2_0(Matrix 
 	}
 	return {E, V};
 }
-#endif
 
 std::pair<RS_Math::Vector, RS_Math::Matrix> RS_Math::eigenSystemSym2x2(Matrix const& m)
 {
@@ -1430,7 +1428,7 @@ RS_VectorSolutions RS_Math::simultaneousQuadraticSolverMixed(const std::vector<s
 	ce[1]= RS_Math::sum({a*b*g, -a2*h, -2*b*c*d, a*c*e});
 	ce[2]= RS_Math::sum({a*c*g, -c2*d, -a2*i});
 	//    DEBUG_HEADER
-		std::cout<<"("<<ce[0]<<") y^2 + ("<<ce[1]<<") y + ("<<ce[2]<<")==0"<<std::endl;
+//		std::cout<<"("<<ce[0]<<") y^2 + ("<<ce[1]<<") y + ("<<ce[2]<<")==0"<<std::endl;
 	std::vector<double> roots(0, 0.);
 	if (std::abs(ce[1])>RS_TOLERANCE15 && std::abs(ce[0]/ce[1])<RS_TOLERANCE15){
 		roots.push_back(- ce[2]/ce[1]);
