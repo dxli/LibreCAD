@@ -2,6 +2,7 @@
 #include <array>
 #include <random>
 #include <iomanip>
+#include <Eigen/Dense>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/math/quaternion.hpp>
@@ -138,8 +139,6 @@ void LC_QuadraticTest::testLinearReduction()
 			<<toStr(maxI)<<' '<<toStr(maxJ)<<std::endl;
 
 }
-
-#include <eigen3/Eigen/Dense>
 
 void LC_QuadraticTest::testEigen2x2()
 {

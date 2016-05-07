@@ -33,7 +33,7 @@
 #include <boost/math/special_functions/ellint_2.hpp>
 #include <boost/numeric/ublas/matrix_proxy.hpp>
 #include <boost/numeric/ublas/vector_proxy.hpp>
-#include <eigen3/Eigen/Dense>
+#include <Eigen/Dense>
 #include <muParser.h>
 #include <QString>
 #include <QDebug>

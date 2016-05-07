@@ -76,3 +76,7 @@ greaterThan( QT_MAJOR_VERSION, 4) {
 #    QMAKE_CXXFLAGS_DEBUG += -mmacosx-version-min=10.8
 #    QMAKE_CXXFLAGS += -mmacosx-version-min=10.8
 #}
+
+DISTFILES += \
+    $$PWD/librecad/src/eigen.pri \
+    $$PWD/librecad/tmp

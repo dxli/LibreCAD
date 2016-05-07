@@ -3,7 +3,7 @@
 TEMPLATE = app
 
 #uncomment to enable a Debugging menu entry for basic unit testing
-DEFINES += LC_DEBUGGING
+#DEFINES += LC_DEBUGGING
 
 DEFINES += DWGSUPPORT
 DEFINES -= JWW_WRITE_SUPPORT
@@ -15,6 +15,7 @@ GENERATED_DIR = ../../generated/librecad
 # Use common project definitions.
 include(../../common.pri)
 include(./boost.pri)
+include(./eigen.pri)
 include(./muparser.pri)
 
 CONFIG += qt \
@@ -989,3 +990,5 @@ TRANSLATIONS = ../ts/librecad_ar.ts \
     ../ts/librecad_uk.ts \
     ../ts/librecad_zh_cn.ts \
     ../ts/librecad_zh_tw.ts
+
+DISTFILES +=
