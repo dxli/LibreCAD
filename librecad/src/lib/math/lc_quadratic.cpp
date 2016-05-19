@@ -36,7 +36,6 @@
 #include "rs_circle.h"
 #include "rs_ellipse.h"
 #include "rs_line.h"
-#include "lc_conic.h"
 #include "rs_debug.h"
 
 #ifdef EMU_C99
@@ -50,12 +49,15 @@ RS_VectorSolutions getIntersectionLinearQuad(const LC_Quadratic& l1, const LC_Qu
 {
 	auto const& v1 = l1.getLinear();
 
-	if (fabs(v1(0))+DBL_EPSILON<fabs(v1(1)))
+	if (std::abs(v1(0))+DBL_EPSILON < std::abs(v1(1)))
 		return getIntersectionLinearQuad(l1.flipXY(), l2.flipXY()).flipXY();
 
-	std::vector<std::vector<double>>  ce(0);
+	std::vector<std::vector<double>> ce(0);
 
-	if (fabs(v1(1))<RS_TOLERANCE){
+	if (!std::isnormal(v1(1)) ||
+	        (std::abs(v1(1)) < RS_TOLERANCE2 && std::abs(v1(1)) < std::abs(v1(0)))
+	        ){
+		if (!std::isnormal(v1(0))) return {};
 		constexpr double angle=0.25*M_PI;
 		LC_Quadratic p11(l1);
 		LC_Quadratic p22(l2);
@@ -591,7 +593,7 @@ LC_Quadratic LC_Quadratic::rotate(const double& angle)
 	auto t=trans(m);
     m_vLinear = prod(t, m_vLinear);
     if(m_bIsQuadratic){
-        m_mQuad=prod(m_mQuad,m);
+		m_mQuad=prod(m_mQuad, m);
         m_mQuad=prod(t, m_mQuad);
     }
     return *this;
@@ -652,7 +654,6 @@ RS_VectorSolutions LC_Quadratic::getIntersection(const LC_Quadratic& l1, const L
     }
 	if (!p2->isQuadratic()) {
         //one line, one quadratic
-        //avoid division by zero
 		return getIntersectionLinearQuad(*p2, *p1);
     }
 

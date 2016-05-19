@@ -207,8 +207,7 @@ HEADERS += \
     actions/lc_actionfileexportmakercam.h \
     lib/engine/lc_rect.h \
     main/lc_options.h \
-	lib/printing/lc_printing.h \
-    lib/math/lc_conic.h
+	lib/printing/lc_printing.h
 
 SOURCES += \
     lib/actions/rs_actioninterface.cpp \
@@ -295,8 +294,7 @@ SOURCES += \
     lib/engine/rs_undocycle.cpp \
     lib/engine/rs_flags.cpp \
     lib/engine/lc_rect.cpp \
-	lib/printing/lc_printing.cpp \
-    lib/math/lc_conic.cpp
+	lib/printing/lc_printing.cpp
 
 # ################################################################################
 # Command
