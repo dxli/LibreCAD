@@ -127,8 +127,10 @@ RS_Commands* RS_Commands::instance() {
  *           ...
  *           etc.
  */
- 
-RS_Commands::RS_Commands() {
+RS_Commands::RS_Commands()
+{
+    RS_SYSTEM->switchTranslation();
+
     std::initializer_list<LC_CommandItem> commandList={
 
 //      draw entity command template
@@ -994,9 +996,12 @@ RS_Commands::RS_Commands() {
 		{QObject::tr("paperoffset"),"paperoffset"},
         {QObject::tr("graphoffset"),"graphoffset"}
     };
+
     for(auto const& p: transList){
        cmdTranslation[p.first] = p.second;
     }
+
+    RS_SYSTEM->switchTranslation();
 }
 
 /**
@@ -1085,7 +1090,10 @@ QStringList RS_Commands::complete(const QString& cmd) const {
  *
  * @return The translated command.
  */
-RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) const {
+RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) const
+{
+    RS_SYSTEM->switchTranslation();
+
     QString full = cmd.toLower();
     RS2::ActionType ret = RS2::ActionNone;
 
@@ -1097,10 +1105,11 @@ RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) const
             break;
         }
     }
-    if (ret==RS2::ActionNone)
+    if (ret==RS2::ActionNone || !verbose) {
+        RS_SYSTEM->switchTranslation();
         return ret;
+    }
 
-    if (!verbose) return ret;
     // find full command to confirm to user:
     for(auto const& p: mainCommands){
         if(p.second==ret){
@@ -1109,9 +1118,11 @@ RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) const
             //                                        RS_DialogFactory::instance()->commandMessage( QObject::tr("Command: %1").arg(full));
             RS_DEBUG->print("RS_Commands::cmdToAction: "
                             "commandMessage: ok");
+            RS_SYSTEM->switchTranslation();
             return ret;
         }
     }
+    RS_SYSTEM->switchTranslation();
     RS_DEBUG->print(QObject::tr("RS_Commands:: command not found: %1").arg(full).toStdString().c_str());
     return ret;
 }
@@ -1120,9 +1131,15 @@ RS2::ActionType RS_Commands::cmdToAction(const QString& cmd, bool verbose) const
  * Gets the action for the given keycode. A keycode is a sequence
  * of key-strokes that is entered like hotkeys.
  */
-RS2::ActionType RS_Commands::keycodeToAction(const QString& code) const {
+RS2::ActionType RS_Commands::keycodeToAction(const QString& code) const
+{
+    RS_SYSTEM->switchTranslation();
+
 	if(code.size() < 1)
+    {
+        RS_SYSTEM->switchTranslation();
 		return RS2::ActionNone;
+    }
 
 	QString c;
 
@@ -1130,7 +1147,10 @@ RS2::ActionType RS_Commands::keycodeToAction(const QString& code) const {
          code.startsWith(AltPrefix) ||
          code.startsWith(MetaPrefix))) {
     	if(code.size() < 1 || code.contains(QRegExp("^[a-z].*",Qt::CaseInsensitive)) == false )
-			 return RS2::ActionNone;
+        {
+            RS_SYSTEM->switchTranslation();
+			return RS2::ActionNone;
+        }
 	    c = code.toLower();
 	} else {
 		c = code;
@@ -1148,11 +1168,15 @@ RS2::ActionType RS_Commands::keycodeToAction(const QString& code) const {
         it = mainCommands.find(c);
         if( it == mainCommands.end() ){
 //			RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(c));
+            RS_SYSTEM->switchTranslation();
             return RS2::ActionNone;
         }
     }
     //found
 	RS_DIALOGFACTORY->commandMessage(QObject::tr("Accepted keycode: %1").arg(c));
+
+    RS_SYSTEM->switchTranslation();
+
     //fixme, need to handle multiple hits
     return it->second;
 }
@@ -1161,14 +1185,22 @@ RS2::ActionType RS_Commands::keycodeToAction(const QString& code) const {
 /**
  * @return translated command for the given English command.
  */
-QString RS_Commands::command(const QString& cmd) {
+QString RS_Commands::command(const QString& cmd)
+{
+    RS_SYSTEM->switchTranslation();
+
     auto it= instance()->cmdTranslation.find(cmd);
-    if(it != instance()->cmdTranslation.end()){
+    if(it != instance()->cmdTranslation.end())
+    {
+        RS_SYSTEM->switchTranslation();
         return instance()->cmdTranslation[cmd];
     }
 	RS_DIALOGFACTORY->commandMessage(QObject::tr("Command not found: %1").arg(cmd));
     RS_DEBUG->print(RS_Debug::D_WARNING,
                 "RS_Commands::command: command '%s' unknown", cmd.toLatin1().data());
+
+    RS_SYSTEM->switchTranslation();
+
     return "";
 }
 
@@ -1182,21 +1214,31 @@ QString RS_Commands::command(const QString& cmd) {
  * @param action The action which wants to know.
  * @param str The string typically entered by the user.
  */
-bool RS_Commands::checkCommand(const QString& cmd, const QString& str,
-                               RS2::ActionType /*action*/) {
+bool RS_Commands::checkCommand(const QString& cmd, const QString& str, RS2::ActionType /*action*/)
+{
+    RS_SYSTEM->switchTranslation();
 
 	QString const& strl = str.toLower();
 	QString const& cmdLower = cmd.toLower();
     auto it = instance()->cmdTranslation.find(cmdLower);
     if(it != instance()->cmdTranslation.end()){
 		RS2::ActionType type0=instance()->cmdToAction(it->second, false);
-        if( type0  != RS2::ActionNone ) {
-            return  type0 ==instance()->cmdToAction(strl);
+        if (type0 != RS2::ActionNone)
+        {
+            RS_SYSTEM->switchTranslation();
+            return (type0 == instance()->cmdToAction(strl));
         }
     }
 
     it =  instance()->cmdTranslation.find(strl);
-    if(it !=  instance()->cmdTranslation.end()) return it->second == cmdLower;
+    if (it != instance()->cmdTranslation.end())
+    {
+        RS_SYSTEM->switchTranslation();
+        return it->second == cmdLower;
+    }
+
+    RS_SYSTEM->switchTranslation();
+
     return false;
 }
 
@@ -1204,8 +1246,13 @@ bool RS_Commands::checkCommand(const QString& cmd, const QString& str,
 /**
  * @return the local translation for "Commands available:".
  */
-QString RS_Commands::msgAvailableCommands() {
+QString RS_Commands::msgAvailableCommands()
+{
+    RS_SYSTEM->switchTranslation();
+
     return QObject::tr("Available commands:");
+
+    RS_SYSTEM->switchTranslation();
 }
 
 /**
@@ -1215,13 +1262,16 @@ QString RS_Commands::msgAvailableCommands() {
  */
 QString RS_Commands::filterCliCal(const QString& cmd)
 {
+    RS_SYSTEM->switchTranslation();
 
     QString str=cmd.trimmed();
     const QRegExp calCmd(R"(^(cal|calculate))");
     if(!(str.contains(calCmd)
          || str.startsWith(QObject::tr("cal","command to trigger cli calculator"), Qt::CaseInsensitive)
          || str.startsWith(QObject::tr("calculate","command to trigger cli calculator"), Qt::CaseInsensitive)
+
                            )) {
+        RS_SYSTEM->switchTranslation();
         return QString();
     }
     int index=str.indexOf(QRegExp(R"(\s)"));
@@ -1230,6 +1280,9 @@ QString RS_Commands::filterCliCal(const QString& cmd)
     index=str.indexOf(QRegExp(R"(\S)"));
     if(!(spaceFound && index>=0)) return QString();
     str=str.mid(index);
+
+    RS_SYSTEM->switchTranslation();
+
     return str;
 }
 

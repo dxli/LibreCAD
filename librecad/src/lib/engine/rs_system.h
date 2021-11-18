@@ -31,6 +31,8 @@
 
 #include <QDir>
 #include <QList>
+#include <QVector>
+#include <QTranslator>
 #include <QSharedPointer>
 
 #include "rs_locale.h"
@@ -177,6 +179,8 @@ public:
      */
     static QByteArray localeToISO(const QByteArray& locale);
 
+        void switchTranslation();
+
 private:
     RS_System() = default;
     void addLocale(RS_Locale *locale);
@@ -188,10 +192,17 @@ protected:
     QString appDirName;
     QString appDir;
 
+    /* List of available translations */
+    QVector<QTranslator*> trFiles_lang;
+    QVector<QTranslator*> trFiles_langCmd;
+
+    /* Its opposite is isQTranslatorLangCmd. */
+    bool isQTranslatorLang;
+    QList<QSharedPointer<RS_Locale> > allKnownLocales;
+
     QStringList languageList;   //< List of available translations
     bool initialized {false};
     bool externalAppDir {false};
-    QList<QSharedPointer<RS_Locale> > allKnownLocales;
 };
 
 #endif
