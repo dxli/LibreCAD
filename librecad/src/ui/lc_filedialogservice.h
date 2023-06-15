@@ -22,42 +22,46 @@
 **
 **********************************************************************/
 
+#ifndef LC_FILEDIALOGSERVICE_H
+#define LC_FILEDIALOGSERVICE_H
 
+
+#if defined(_MSC_VER) && _MSC_VER > 1000
 #pragma once
+#endif // _MSC_VER > 1000
 
+#include "rs.h"
+
+class QString;
 
 /*
     This service class centralizes the file I/O user interface.
 */
 
 
-class LC_FileDialogService
+namespace LC_FileDialogService
 {
-    public:
-
         enum FileDialogMode
         {
             /* List of open modes. */
 
 
             /* List of save modes.*/
-            SaveDrawing, 
-            ExportLayersSelected, 
-            ExportLayersVisible 
+            SaveDrawing = 0,
+            ExportLayersSelected = 1,
+            ExportLayersVisible = 2
         };
 
-        typedef struct
+        struct FileDialogResult
         {
-            int checkState;
-
             QString dirPath;
             QString filePath;
             QString fileName;
             QString fileExtension;
             RS2::FormatType fileType;
+            int checkState = 0;
+        };
 
-        } FileDialogResult;
-
-        static LC_FileDialogService::FileDialogResult getFileDetails (FileDialogMode const& fileDialogMode);
-};
-
+        LC_FileDialogService::FileDialogResult getFileDetails(FileDialogMode const& fileDialogMode);
+}
+#endif // LC_FILEDIALOGSERVICE_H

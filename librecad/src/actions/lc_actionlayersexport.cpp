@@ -22,27 +22,40 @@
 **
 **********************************************************************/
 
+#include <algorithm>
 
-#include <QDir>
-#include <QStatusBar>
-#include <QFileDialog>
 #include <QApplication>
+#include <QDir>
+#include <QFileDialog>
+#include <QStatusBar>
 
-#include "rs_debug.h"
-#include "rs_layer.h"
-#include "rs_graphic.h"
-#include "rs_layerlist.h"
-#include "qc_applicationwindow.h"
 #include "lc_filedialogservice.h"
+#include "qc_applicationwindow.h"
+#include "rs_debug.h"
+#include "rs_graphic.h"
+#include "rs_layer.h"
+#include "rs_layerlist.h"
 
 #include "lc_actionlayersexport.h"
 
+namespace {
+
+bool isSelected(RS_Layer* layer)
+{
+    return layer != nullptr && layer->isSelectedInLayerList();
+}
+
+
+bool isNotFrozen(RS_Layer* layer)
+{
+    return layer != nullptr && !layer->isFrozen();
+}
+}
 
 /*
     This action class exports the current selected layers as a drawing file, 
     either as individual files, or combined within a single file.
 */
-
 
 LC_ActionLayersExport::LC_ActionLayersExport( RS_EntityContainer& document, 
                                               RS_GraphicView& graphicView, 
@@ -70,47 +83,34 @@ void LC_ActionLayersExport::trigger()
 {
     RS_DEBUG->print("LC_ActionLayersExport::trigger");
 
-    QString exportModeString = "visible";
-    if (exportMode == LC_ActionLayersExport::SelectedMode) exportModeString = "selected";
+    QString exportModeString = (exportMode == SelectedMode) ? "selected" : "visible";
 
 
     RS_LayerList *originalLayersList = document->getLayerList();
+    // layers to use: by selected or not frozen
+    std::vector<RS_Layer*> layersToUse;
+    std::copy_if(originalLayersList->begin(), originalLayersList->end(),
+                 std::back_inserter(layersToUse),
+                 (exportMode == SelectedMode) ? isSelected : isNotFrozen);
 
-    const int totalNumberOfLayers = originalLayersList->count();
-
-    QStringList layersToExport;
-
-    for (int i = 0; i < totalNumberOfLayers; i++)
+    if (layersToUse.empty())
     {
-        if ((   originalLayersList->at(i)->isSelectedInLayerList() && (exportMode == LC_ActionLayersExport::SelectedMode)) 
-        ||  ( ! originalLayersList->at(i)->isFrozen()              && (exportMode == LC_ActionLayersExport::VisibleMode)))
-        {
-            layersToExport.append(originalLayersList->at(i)->getName());
-        }
-    }
-
     /* No export layer found. */
-    if (layersToExport.isEmpty())
-    {
-        QC_ApplicationWindow::getAppWindow()->statusBar()->showMessage( QObject::tr("No %1 layers found").arg(exportModeString), 
+        QC_ApplicationWindow::getAppWindow()->statusBar()->showMessage( QObject::tr("No %1 layers found").arg(exportModeString),
                                                                         QC_ApplicationWindow::DEFAULT_STATUS_BAR_MESSAGE_TIMEOUT);
         RS_DEBUG->print(RS_Debug::D_NOTICE, "LC_ActionLayersExport::trigger: No %1 layers found", exportModeString);
         finish();
         return;
     }
 
+    // Find layer names
+    QStringList layersToExport;
+    std::transform(layersToUse.begin(), layersToUse.end(), std::back_inserter(layersToExport), [](RS_Layer* layer) {return layer->getName();});
 
-    LC_FileDialogService::FileDialogResult result;
-
-    if (exportMode == LC_ActionLayersExport::SelectedMode)
-    {
-        result = LC_FileDialogService::getFileDetails (LC_FileDialogService::ExportLayersSelected);
-    }
-    else
-    {
-        result = LC_FileDialogService::getFileDetails (LC_FileDialogService::ExportLayersVisible);
-    }
-
+    // Show file dialog for saving
+    using namespace LC_FileDialogService;
+    FileDialogMode dialogMode = (exportMode == SelectedMode) ? ExportLayersSelected : ExportLayersVisible;
+    FileDialogResult result = LC_FileDialogService::getFileDetails (dialogMode);
     if (result.filePath.isEmpty())
     {
         RS_DEBUG->print(RS_Debug::D_NOTICE, "LC_ActionLayersExport::trigger: User cancelled");
@@ -256,16 +256,9 @@ void LC_ActionLayersExport::trigger()
 }
 
 
-QString LC_ActionLayersExport::paddedIndex(int const& index, int const& totalNumber)
+QString LC_ActionLayersExport::paddedIndex(int index, int totalNumber)
 {
-    if (totalNumber == 1) return "";
-
-    const int minimumPaddingDigits  = 2;
-    const int numberOfindexDigits   = QString::number(index).length();
-          int numberOfPaddingDigits = QString::number(totalNumber).length();
-
-    if (numberOfPaddingDigits < minimumPaddingDigits) numberOfPaddingDigits = minimumPaddingDigits;
-
-    return QString("0").repeated(numberOfPaddingDigits - numberOfindexDigits).append(QString::number(index));
+    if (totalNumber <= 1 || totalNumber > 10) return "";
+    return QString("%1").arg(index, totalNumber, 10, '0');
 }
 

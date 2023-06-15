@@ -22,13 +22,17 @@
 **
 **********************************************************************/
 
+#ifndef LC_ACTIONLAYERSEXPORT_H
+#define LC_ACTIONLAYERSEXPORT_H
 
+#if defined(_MSC_VER) && _MSC_VER > 1000
 #pragma once
-
+#endif // _MSC_VER > 1000
 
 #include "rs_actioninterface.h"
 
 
+class QString;
 class RS_LayerList;
 
 
@@ -46,7 +50,7 @@ class LC_ActionLayersExport : public RS_ActionInterface
 
         enum Mode
         {
-            SelectedMode, 
+            SelectedMode = 0,
             VisibleMode 
         };
 
@@ -61,10 +65,10 @@ class LC_ActionLayersExport : public RS_ActionInterface
 
     private:
 
-        RS_LayerList* layersList;
+        static QString paddedIndex(int index, int totalNumber);
 
-        Mode exportMode;
+        RS_LayerList* layersList = nullptr;
 
-        QString paddedIndex(int const& index, int const& totalNumber);
+        Mode exportMode = SelectedMode;
 };
-
+#endif // LC_ACTIONLAYERSEXPORT_H

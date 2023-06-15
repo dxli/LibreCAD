@@ -22,9 +22,12 @@
 **
 **********************************************************************/
 
+#ifndef LC_ACTIONDIMARC_H
+#define LC_ACTIONDIMARC_H
 
+#if defined(_MSC_VER) && _MSC_VER > 1000
 #pragma once
-
+#endif // _MSC_VER > 1000
 
 #include "lc_dimarc.h"
 #include "rs_actiondimension.h"
@@ -73,4 +76,4 @@ class LC_ActionDimArc : public RS_ActionDimension
 
         void setRadius(const RS_Vector& selectedPosition);
 };
-
+#endif //LC_ACTIONDIMARC_H
