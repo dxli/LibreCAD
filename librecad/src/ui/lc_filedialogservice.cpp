@@ -21,8 +21,8 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-#include<iostream>
 
+#include <QDebug>
 #include <QDir>
 #include <QLayout>
 #include <QCheckBox>
@@ -240,8 +240,15 @@ LC_FileDialogService::FileDialogResult LC_FileDialogService::getFileDetails (Fil
                 saveFileExtension.chop(1);
 
                 result.fileExtension = saveFileExtension;
+                RS_DEBUG->print("saveFileExtension=" + saveFileExtension);
+                RS_DEBUG->print("result.fileName=" + result.fileName);
+                RS_DEBUG->print("result.filePath=" + result.filePath);
 
-                if (!result.fileName.contains (saveFileExtension)) result.filePath += saveFileExtension;
+                if (!result.fileName.endsWith(saveFileExtension, Qt::CaseInsensitive))
+                    result.filePath += saveFileExtension;
+                if (result.fileName.endsWith(saveFileExtension))
+                    result.fileName.resize(result.fileName.size() - saveFileExtension.size());
+                RS_DEBUG->print("result.filePath=" + result.filePath);
 
                 #if !defined (_WIN32) && !defined (__APPLE__)
                     /* Confirm if the user wants to overwrite an existing file. */

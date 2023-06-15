@@ -23,10 +23,12 @@
 **********************************************************************/
 
 #include <algorithm>
+#include <memory>
 
 #include <QApplication>
 #include <QDir>
 #include <QFileDialog>
+#include <QHash>
 #include <QStatusBar>
 
 #include "lc_filedialogservice.h"
@@ -50,6 +52,41 @@ bool isNotFrozen(RS_Layer* layer)
 {
     return layer != nullptr && !layer->isFrozen();
 }
+
+class ScopedLayerList
+{
+public:
+    ScopedLayerList(RS_LayerList* list) : m_list{list}{}
+    void add(RS_Layer* layer)
+    {
+        if (layer == nullptr)
+            return;
+
+        m_layers.emplace_back(layer);
+        m_lookUp[layer->getName()] = layer;
+    }
+
+    size_t count() const
+    {
+        return m_layers.size();
+    }
+
+    const std::unique_ptr<RS_Layer>& at(size_t i) const
+    {
+        return m_layers.at(i);
+    }
+
+    RS_Layer* find(QString name) const
+    {
+        return (m_lookUp.contains(name)) ? m_lookUp[name] : nullptr;
+    }
+
+private:
+    RS_LayerList* m_list=nullptr;
+    std::vector<std::unique_ptr<RS_Layer>> m_layers;
+    QHash<QString, RS_Layer*> m_lookUp;
+
+};
 }
 
 /*
@@ -126,13 +163,13 @@ void LC_ActionLayersExport::trigger()
 
     while (currentExportLayerIndex < layersToExport.size())
     {
-        RS_Graphic *documentDeepCopy = new RS_Graphic();
+        RS_Graphic documentDeepCopy;
 
-        documentDeepCopy->newDoc();
+        documentDeepCopy.newDoc();
 
-        RS_LayerList *duplicateLayersList = documentDeepCopy->getLayerList();
+        ScopedLayerList duplicateLayersList = documentDeepCopy.getLayerList();
 
-        documentDeepCopy->setVariableDictObject(document->getGraphic()->getVariableDictObject());
+        documentDeepCopy.setVariableDictObject(document->getGraphic()->getVariableDictObject());
 
         QString modifiedFilePath;
 
@@ -155,7 +192,7 @@ void LC_ActionLayersExport::trigger()
                 /* It does a 'new' internally. */
                 RS_Layer *duplicateLayer = originalLayersList->find (layersToExport.at (i))->clone();
 
-                duplicateLayersList->add(duplicateLayer);
+                duplicateLayersList.add(duplicateLayer);
             }
         }
         /* Individualize all layers. */
@@ -165,7 +202,7 @@ void LC_ActionLayersExport::trigger()
 
             RS_Layer *duplicateLayer = originalLayersList->find (layersToExport.at (currentExportLayerIndex))->clone();
 
-            duplicateLayersList->add(duplicateLayer);
+            duplicateLayersList.add(duplicateLayer);
 
             /* Note that the QString::append() function causes a bug; hence the '+' overload operator. */
             modifiedFilePath = QDir::toNativeSeparators (
@@ -179,7 +216,7 @@ void LC_ActionLayersExport::trigger()
 
 
 
-        const int totalNumberOfLayers = duplicateLayersList->count();
+        const int totalNumberOfLayers = duplicateLayersList.count();
 
         int i = 0;
 
@@ -193,16 +230,17 @@ void LC_ActionLayersExport::trigger()
 
             for (int j = 0; j < totalNumberOfLayers; j++)
             {
-                if (entityLayerName.compare(duplicateLayersList->at(j)->getName()) == 0)
+                if (entityLayerName.compare(duplicateLayersList.at(j)->getName()) == 0)
                 {
-                    if ((duplicateLayersList->at(j)->getName().compare("0") == 0) && !exportLayer0) continue;
+                    if ((duplicateLayersList.at(j)->getName().compare("0") == 0) && !exportLayer0) continue;
 
                     /* It does a 'new' internally. */
                     RS_Entity *duplicateEntity = entity->clone();
 
-                    documentDeepCopy->addEntity(duplicateEntity);
+                    documentDeepCopy.addEntity(duplicateEntity);
+                    duplicateEntity->reparent(&documentDeepCopy);
 
-                    duplicateEntity->setLayer(duplicateLayersList->find (entityLayerName));
+                    duplicateEntity->setLayer(duplicateLayersList.find (entityLayerName));
                 }
             }
         }
@@ -210,29 +248,15 @@ void LC_ActionLayersExport::trigger()
 
 
         /* Saving. */
-        documentDeepCopy->setGraphicView(graphicView);
+        documentDeepCopy.setGraphicView(graphicView);
 
-        const bool saveWasSuccessful = documentDeepCopy->saveAs(modifiedFilePath, result.fileType, true);
+        const bool saveWasSuccessful = documentDeepCopy.saveAs(modifiedFilePath, result.fileType, true);
 
-
-
-        /* Cleaning up. */
-        for (int j = 0; j < totalNumberOfLayers; j++)
-        {
-            delete duplicateLayersList->at(j);
-        }
-
-        documentDeepCopy->setGraphicView(nullptr);
-        documentDeepCopy->setParent(nullptr);
-        documentDeepCopy->newDoc();
-
-        delete documentDeepCopy;
-
-
+        documentDeepCopy.setGraphicView(nullptr);
+        documentDeepCopy.setParent(nullptr);
+        documentDeepCopy.newDoc();
 
         currentExportLayerIndex++;
-
-
 
         if (!saveWasSuccessful)
         {
@@ -245,7 +269,6 @@ void LC_ActionLayersExport::trigger()
             return;
         }
     }
-
 
 
     QApplication::restoreOverrideCursor();
