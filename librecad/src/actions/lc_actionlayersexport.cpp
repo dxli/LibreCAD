@@ -149,22 +149,19 @@ void LC_ActionLayersExport::trigger()
 {
     RS_DEBUG->print("LC_ActionLayersExport::trigger");
 
-    QString exportModeString = (exportMode == SelectedMode) ? "selected" : "visible";
-
-
     RS_LayerList *originalLayersList = document->getLayerList();
     // layers to use: by selected or not frozen
     std::vector<RS_Layer*> layersToUse;
-    std::copy_if(originalLayersList->begin(), originalLayersList->end(),
-                 std::back_inserter(layersToUse),
+    std::copy_if(originalLayersList->begin(), originalLayersList->end(), std::back_inserter(layersToUse),
                  (exportMode == SelectedMode) ? isSelected : isNotFrozen);
 
     if (layersToUse.empty())
     {
     /* No export layer found. */
+        QString exportModeString = (exportMode == SelectedMode) ? "selected" : "visible";
         QC_ApplicationWindow::getAppWindow()->statusBar()->showMessage( QObject::tr("No %1 layers found").arg(exportModeString),
                                                                         QC_ApplicationWindow::DEFAULT_STATUS_BAR_MESSAGE_TIMEOUT);
-        RS_DEBUG->print(RS_Debug::D_NOTICE, "LC_ActionLayersExport::trigger: No %1 layers found", exportModeString);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "LC_ActionLayersExport::trigger: No %1 layers found", exportModeString);
         finish();
         return;
     }
@@ -307,9 +304,7 @@ QString paddedIndex(int index, int totalNumber)
     if (totalNumber <= 1 || totalNumber > 10) return "";
     // the maximum string size needed
     int fieldWidth=QString::number(totalNumber).size();
-    RS_DEBUG->print(QString("Padding: index=%1, totalNumber=%2").arg(index).arg(fieldWidth));
-    auto str = QString("%1").arg(index, fieldWidth, 10, QChar{'0'});
-    RS_DEBUG->print(QString("%1(): line %2*.").arg(__func__).arg(__LINE__) + str);
+    auto str = QString("%1").arg(index, fieldWidth, 10, '0');
     return str;
 }
 }
