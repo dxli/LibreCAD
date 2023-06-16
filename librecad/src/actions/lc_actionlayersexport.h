@@ -65,8 +65,6 @@ class LC_ActionLayersExport : public RS_ActionInterface
 
     private:
 
-        static QString paddedIndex(int index, int totalNumber);
-
         RS_LayerList* layersList = nullptr;
 
         Mode exportMode = SelectedMode;

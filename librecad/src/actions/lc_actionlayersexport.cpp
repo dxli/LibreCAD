@@ -34,6 +34,7 @@
 #include "lc_filedialogservice.h"
 #include "qc_applicationwindow.h"
 #include "rs_debug.h"
+#include "rs_dialogfactory.h"
 #include "rs_graphic.h"
 #include "rs_layer.h"
 #include "rs_layerlist.h"
@@ -42,11 +43,39 @@
 
 namespace {
 
+// Convert export mode (to export layers : Selected or Visible)
+LC_FileDialogService::FileDialogMode convertDialogMode(LC_ActionLayersExport::Mode exportMode);
+
+/**
+ * @brief format all indices to strings of the same width with padding of '0'
+ * for example, for total of 10 and up but less than 100 (exclusive), the formatted indices would be: "01", "02", "03", etc.
+ * @param index - a index to format; the indices are 1 based
+ * @param totalNumber - total number of indices
+ * @return the formatted string
+ */
+QString paddedIndex(int index, int totalNumber);
+
+// Whether the layer is selected
+bool isSelected(RS_Layer* layer);
+
+// Whether the layer is frozen(i.e invisible)
+bool isNotFrozen(RS_Layer* layer);
+
+// a RAII style layer list. All layers are owned by the list.
+// The layers are automatically deleted at the end of the lifetime of the list
+class ScopedLayerList;
+
+/* definitions starts */
+LC_FileDialogService::FileDialogMode convertDialogMode(LC_ActionLayersExport::Mode exportMode)
+{
+
+using namespace LC_FileDialogService;
+return (exportMode == LC_ActionLayersExport::SelectedMode) ? ExportLayersSelected : ExportLayersVisible;
+}
 bool isSelected(RS_Layer* layer)
 {
     return layer != nullptr && layer->isSelectedInLayerList();
 }
-
 
 bool isNotFrozen(RS_Layer* layer)
 {
@@ -145,9 +174,7 @@ void LC_ActionLayersExport::trigger()
     std::transform(layersToUse.begin(), layersToUse.end(), std::back_inserter(layersToExport), [](RS_Layer* layer) {return layer->getName();});
 
     // Show file dialog for saving
-    using namespace LC_FileDialogService;
-    FileDialogMode dialogMode = (exportMode == SelectedMode) ? ExportLayersSelected : ExportLayersVisible;
-    FileDialogResult result = LC_FileDialogService::getFileDetails (dialogMode);
+    LC_FileDialogService::FileDialogResult result = LC_FileDialogService::getFileDetails (convertDialogMode(exportMode));
     if (result.filePath.isEmpty())
     {
         RS_DEBUG->print(RS_Debug::D_NOTICE, "LC_ActionLayersExport::trigger: User cancelled");
@@ -155,9 +182,7 @@ void LC_ActionLayersExport::trigger()
         return;
     }
 
-
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-
 
     int currentExportLayerIndex = 0;
 
@@ -175,8 +200,6 @@ void LC_ActionLayersExport::trigger()
 
         bool exportLayer0 = false;
 
-
-
         /* Combine all layers. */
         if (result.checkState == Qt::Checked)
         {
@@ -185,15 +208,16 @@ void LC_ActionLayersExport::trigger()
 
             modifiedFilePath = result.filePath;
 
-            for (int i = 0; i < layersToExport.size(); i++)
+            for (QString& layerName: layersToExport)
             {
-                if (layersToExport.at (i).compare("0") == 0) exportLayer0 = true;
+                if (layerName.compare("0") == 0) exportLayer0 = true;
 
                 /* It does a 'new' internally. */
-                RS_Layer *duplicateLayer = originalLayersList->find (layersToExport.at (i))->clone();
+                RS_Layer *duplicateLayer = originalLayersList->find (layerName)->clone();
 
                 duplicateLayersList.add(duplicateLayer);
             }
+            RS_DEBUG->print(QString("line: %1 ").arg(__LINE__)+" modifiedFilePath=" + modifiedFilePath);
         }
         /* Individualize all layers. */
         else
@@ -206,15 +230,12 @@ void LC_ActionLayersExport::trigger()
 
             /* Note that the QString::append() function causes a bug; hence the '+' overload operator. */
             modifiedFilePath = QDir::toNativeSeparators (
-
                                     result.dirPath + "/" 
                                                    + result.fileName 
                                                    + paddedIndex(currentExportLayerIndex + 1, layersToExport.size()) 
                                                    + result.fileExtension 
                                );
         }
-
-
 
         const int totalNumberOfLayers = duplicateLayersList.count();
 
@@ -245,12 +266,13 @@ void LC_ActionLayersExport::trigger()
             }
         }
 
-
-
         /* Saving. */
         documentDeepCopy.setGraphicView(graphicView);
 
         const bool saveWasSuccessful = documentDeepCopy.saveAs(modifiedFilePath, result.fileType, true);
+        RS_DIALOGFACTORY->commandMessage(tr(R"(Saving layer "%1" as "%2" )")
+                                         .arg(layersToExport.at(currentExportLayerIndex))
+                                         .arg(modifiedFilePath));
 
         documentDeepCopy.setGraphicView(nullptr);
         documentDeepCopy.setParent(nullptr);
@@ -278,10 +300,16 @@ void LC_ActionLayersExport::trigger()
     RS_DEBUG->print("LC_ActionLayersExport::trigger: OK");
 }
 
+namespace {
 
-QString LC_ActionLayersExport::paddedIndex(int index, int totalNumber)
+QString paddedIndex(int index, int totalNumber)
 {
     if (totalNumber <= 1 || totalNumber > 10) return "";
-    return QString("%1").arg(index, totalNumber, 10, '0');
+    // the maximum string size needed
+    int fieldWidth=QString::number(totalNumber).size();
+    RS_DEBUG->print(QString("Padding: index=%1, totalNumber=%2").arg(index).arg(fieldWidth));
+    auto str = QString("%1").arg(index, fieldWidth, 10, QChar{'0'});
+    RS_DEBUG->print(QString("%1(): line %2*.").arg(__func__).arg(__LINE__) + str);
+    return str;
 }
-
+}
