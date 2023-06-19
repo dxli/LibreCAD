@@ -1818,6 +1818,7 @@ void RS_EntityContainer::moveSelectedRef(const RS_Vector& ref,
 }
 
 void RS_EntityContainer::revertDirection() {
+    // revert entity order in the container
     for(int k = 0; k < entities.size() / 2; ++k) {
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 13, 0))
         entities.swapItemsAt(k, entities.size() - 1 - k);
@@ -1826,9 +1827,9 @@ void RS_EntityContainer::revertDirection() {
 #endif
     }
 
-    for(RS_Entity*const entity: entities) {
+    // revert each entity itself
+    for(RS_Entity* entity: entities)
         entity->revertDirection();
-    }
 }
 
 /**
@@ -1839,14 +1840,15 @@ void RS_EntityContainer::revertDirection() {
 void RS_EntityContainer::draw(RS_Painter* painter, RS_GraphicView* view, double& /*patternOffset*/)
 {
 
-    if (painter == nullptr || view == nullptr)) {
+    if (painter == nullptr || view == nullptr)
         return;
-    }
-    const bool entityIsHovered = isHovered() && (rtti() != RS2::EntityGraphic);
 
-    foreach (auto e, entities)
+    bool entityIsHovered = isHovered() && (rtti() != RS2::EntityGraphic);
+
+    foreach (auto* e, entities)
     {
-        if (entityIsHovered) e->setPen(getPen());
+        if (entityIsHovered)
+            e->setPen(getPen());
         view->drawEntity(painter, e);
     }
 }
