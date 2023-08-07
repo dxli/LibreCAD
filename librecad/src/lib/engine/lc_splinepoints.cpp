@@ -1907,10 +1907,12 @@ void LC_SplinePoints::draw(RS_Painter* painter, RS_GraphicView* view, double& pa
 
     update();
 
-    // Adjust dash offset
-    updateDashOffset(*painter, *view, patternOffset);
+    RS_Pen rsPen = painter->getPen();
+    rsPen.setDashOffset(patternOffset);
+    painter->setPen(rsPen);
 
     painter->drawSplinePoints(mapDataToGui(*view));
+    painter->updateDashOffset(*this, *view, patternOffset);
 }
 
 LC_SplinePointsData LC_SplinePoints::mapDataToGui(RS_GraphicView& view) const

@@ -949,8 +949,9 @@ void RS_Arc::drawVisible(RS_Painter* painter, RS_GraphicView* view,
     if(!isVisibleInWindow(view))
         return;
 
-    // Adjust dash offset
-    updateDashOffset(*painter, *view, patternOffset);
+    RS_Pen rsPen = painter->getPen();
+    rsPen.setDashOffset(patternOffset);
+    painter->setPen(rsPen);
 
     RS_Vector cp=view->toGui(getCenter());
     double ra=getRadius()*view->getFactor().x;
@@ -959,6 +960,9 @@ void RS_Arc::drawVisible(RS_Painter* painter, RS_GraphicView* view,
                      ra,
                      getAngle1(), getAngle2(),
                      isReversed());
+
+    // Adjust dash offset
+    painter->updateDashOffset(*this, *view, patternOffset);
 }
 
 

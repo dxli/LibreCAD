@@ -605,11 +605,13 @@ void RS_Line::draw(RS_Painter* painter, RS_GraphicView* view, double& patternOff
 	if (! (painter && view)) {
         return;
     }
-
-    // Adjust dash offset
-    updateDashOffset(*painter, *view, patternOffset);
+    RS_Pen rsPen = painter->getPen();
+    rsPen.setDashOffset(patternOffset);
+    painter->setPen(rsPen);
 
     painter->drawLine(view->toGui(getStartpoint()), view->toGui(getEndpoint()));
+    // Adjust dash offset
+    painter->updateDashOffset(*this, *view, patternOffset);
 }
 
 /**

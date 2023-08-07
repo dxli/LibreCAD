@@ -31,6 +31,7 @@
 #include "rs.h"
 #include "rs_vector.h"
 
+class RS_AtomicEntity;
 class RS_Color;
 class RS_GraphicView;
 class RS_Pen;
@@ -158,6 +159,14 @@ public:
     virtual void resetClipping() = 0;
 	int toScreenX(double x) const;
 	int toScreenY(double y) const;
+
+    /**
+     * @brief updateDashOffset update dash offset for rendering line styles
+     * @param painter - painter
+     * @param view - graphic view
+     * @param patternOffset - dash pattern offset
+     */
+    virtual void updateDashOffset(const RS_AtomicEntity& entity, RS_GraphicView& view, double& patternOffset) = 0;
 
 protected:
     /**

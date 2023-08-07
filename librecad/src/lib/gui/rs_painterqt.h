@@ -114,6 +114,7 @@ public:
     void resetClipping() override;
 
     RS_Pen& getRsPen();
+    void updateDashOffset(const RS_AtomicEntity& entity, RS_GraphicView& view, double& patternOffset) override;
 
 protected:
 

@@ -1844,6 +1844,10 @@ void RS_Ellipse::drawVisible(RS_Painter* painter, RS_GraphicView* view, double& 
     if(!isVisibleInWindow(view))
         return;
 
+    RS_Pen rsPen = painter->getPen();
+    rsPen.setDashOffset(patternOffset);
+    painter->setPen(rsPen);
+
     double ra = getMajorRadius()*view->getFactor().x;
     double rb = getRatio()*ra;
 	if(std::min(ra, rb) < RS_TOLERANCE) {//ellipse too small
@@ -1851,14 +1855,14 @@ void RS_Ellipse::drawVisible(RS_Painter* painter, RS_GraphicView* view, double& 
         return;
     }
 
-    // Adjust dash offset
-    updateDashOffset(*painter, *view, patternOffset);
-
     painter->drawEllipse(view->toGui(getCenter()),
                          ra, rb,
                          getAngle(),
                          getAngle1(), getAngle2(),
                          isReversed());
+
+    // Adjust dash offset
+    painter->updateDashOffset(*this, *view, patternOffset);
 }
 
 

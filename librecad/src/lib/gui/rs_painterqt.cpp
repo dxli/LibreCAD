@@ -23,7 +23,7 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-
+#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <memory>
@@ -54,6 +54,8 @@ QVector<qreal> rsToQDashPattern(RS2::LineType t, double screenWidth, double dpmm
         return std::max(k * std::abs(d), 1.);
     });
     dashPattern.resize(dashPattern.size() - dashPattern.size() % 2);
+    double sum = std::accumulate(dashPattern.cbegin(), dashPattern.cend(), 0.);
+    LC_ERR<<"pattern length = "<<sum;
     return dashPattern;
 }
 
@@ -164,9 +166,8 @@ public:
             if (!dashPattern.isEmpty()) {
                 qPen.setDashPattern(std::move(dashPattern));
 
-                double dpmm = std::max(painter.getDpmm(), 1e-6);
-                double k = dpmm / std::max(rsPen.getScreenWidth(), 1.);
-                qPen.setDashOffset(rsPen.dashOffset() * k);
+                LC_ERR<<":: offset="<<rsPen.dashOffset();
+                qPen.setDashOffset(rsPen.dashOffset());
             } else {
                 qPen.setStyle(Qt::SolidLine);
             }
@@ -184,7 +185,7 @@ public:
     }
 
 private:
-    QPainter& m_painter;
+    RS_PainterQt& m_painter;
 };
 }
 
@@ -314,6 +315,9 @@ void RS_PainterQt::drawPoint(const RS_Vector& p, int pdmode, int pdsize) {
 void RS_PainterQt::drawLine(const RS_Vector& p1, const RS_Vector& p2)
 {
     PainterGuard painterGuard{*this};
+    double dl = std::hypot(p2.x - p1.x, p2.y - p1.y);
+    auto tp = std::max(1., lpen.getScreenWidth());
+    LC_ERR<<"line: tp="<<tp<<" dl/tp="<<dl/tp;
     QPainter::drawLine(toScreenX(p1.x), toScreenY(p1.y),
                        toScreenX(p2.x), toScreenY(p2.y));
 }
@@ -1005,3 +1009,16 @@ QPainterPath RS_PainterQt::createSpline(const RS_Spline& spline, const RS_Graphi
     } while ((e = spline.nextEntity(RS2::ResolveNone)) != nullptr);
     return path;
 }
+
+void RS_PainterQt::updateDashOffset(const RS_AtomicEntity& entity, RS_GraphicView& view, double& patternOffset)
+{
+    QPen qpen = pen();
+    double w0 = qpen.widthF();
+    auto tp = std::max(1., qpen.widthF());
+    double penWidth = std::max(1.0, tp);
+    double length = (view.toGui(entity.getMin()) - view.toGui(entity.getMax())).magnitude();
+
+    patternOffset -= length/penWidth;
+    getRsPen().setDashOffset(patternOffset*0.82);
+}
+
