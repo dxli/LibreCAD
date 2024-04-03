@@ -16,7 +16,7 @@ jobs:
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.5.*'
+          version: '6.6.*'
 
       - name: Install Qt and dependencies
         run: |
@@ -62,6 +62,11 @@ jobs:
           find unix/
           ./CI/build-appimg.sh
 
+      - name: List files
+        run: |
+          echo ${{ github.workspace }} && ls ${{ github.workspace }}
+        shell: bash
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -90,7 +95,7 @@ jobs:
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.5.*'
+          version: '6.6.*'
 
       - name: Install boost dependencies
         run: |
@@ -102,7 +107,7 @@ jobs:
           mv LibreCAD.dmg LibreCAD-`git describe --always`.dmg
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: assets
           path: LibreCAD*.dmg
@@ -112,7 +117,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
         with:
           fetch-depth: 0
 
@@ -129,7 +134,7 @@ jobs:
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.5.3'
+          version: '6.6.2'
           host: 'windows'
           arch: 'win64_mingw'
           target: 'desktop'
@@ -145,9 +150,9 @@ jobs:
       - name: Install boost
         shell: bash
         run: |
-          curl -# -L -o boost.7z https://boostorg.jfrog.io/artifactory/main/release/1.75.0/source/boost_1_75_0.7z
+          curl -# -L -o boost.7z https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
           7z x -o. -y boost.7z
-          mv boost_1_75_0 ../boost
+          mv boost_1_83_0 ../boost
           rm boost.7z
 
       - name: Debugging
@@ -170,11 +175,11 @@ jobs:
           echo.
           dir ..\Qt
           echo.
-          dir ..\Qt\6.5.3\
+          dir ..\Qt\6.6.2\
           echo.
-          dir ..\Qt\6.5.3\mingw_64\
+          dir ..\Qt\6.6.2\mingw_64\
           echo.
-          dir ..\Qt\6.5.3\mingw_64\bin
+          dir ..\Qt\6.6.2\mingw_64\bin
 
       - name: Build
         run: |
@@ -192,11 +197,17 @@ jobs:
           mv generated/LibreCAD-Installer.exe LibreCAD-Installer-x64-`git describe --always`.exe
         shell: bash
 
+      - name: List files
+        run: |
+            echo "${{ github.workspace }}"
+            dir "${{ github.workspace }}"
+        shell: cmd
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: assets
-          path: LibreCAD-Installer*.exe
+          path: LibreCAD*.exe
           retention-days: 2
 
   UpdateAssets:
@@ -205,12 +216,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
         with:
           fetch-depth: 0
 
       - name: Fetch artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@main
 
       - name: Upload latest pre-release
         uses: "marvinpinto/action-automatic-releases@latest"
