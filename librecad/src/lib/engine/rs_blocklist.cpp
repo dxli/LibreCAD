@@ -241,8 +241,8 @@ QString RS_BlockList::newName(const QString& suggestion) {
 		return suggestion;
 
 	QString name=suggestion;
-	const QRegularExpression rx(R"(-\d+$)");
-	int index=name.lastIndexOf(rx);
+    QRegularExpression const rx(R"(-\d+$)");
+    int index=rx.match(name).lastCapturedIndex();
 	int i=-1;
 	if(index>0){
 		i=name.mid(index+1).toInt();
