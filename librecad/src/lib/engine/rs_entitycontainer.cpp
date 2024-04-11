@@ -2038,12 +2038,12 @@ const QList<RS_Entity*>& RS_EntityContainer::getEntityList()
     return entities;
 }
 
-std::vector<std::unique_ptr<RS_EntityContainer>> RS_EntityContainer::getLoops() const
+std::vector<std::shared_ptr<RS_EntityContainer>> RS_EntityContainer::getLoops() const
 {
     if (entities.empty())
         return {};
 
-    std::vector<std::unique_ptr<RS_EntityContainer>> loops;
+    std::vector<std::shared_ptr<RS_EntityContainer>> loops;
     RS_EntityContainer edges(nullptr, false);
     for(auto* e1: entities){
         if (e1 != nullptr && e1->isContainer())
@@ -2069,7 +2069,7 @@ std::vector<std::unique_ptr<RS_EntityContainer>> RS_EntityContainer::getLoops() 
         [[fallthrough]];
         case RS2::EntityCircle:
         {
-        auto ec = std::make_unique<RS_EntityContainer>(nullptr, false);
+        auto ec = std::make_shared<RS_EntityContainer>(nullptr, false);
         ec->addEntity(e1);
         loops.push_back(std::move(ec));
         break;

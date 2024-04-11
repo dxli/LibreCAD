@@ -811,6 +811,13 @@ void RS_Hatch::stretch(const RS_Vector& firstCorner,
     update();
 }
 
+std::vector<std::shared_ptr<RS_EntityContainer>> RS_Hatch::getLoops() const
+{
+    if (m_loops.empty())
+        m_loops = RS_EntityContainer::getLoops();
+    return m_loops;
+}
+
 /**
  * Dumps the point's data to stdout.
  */
