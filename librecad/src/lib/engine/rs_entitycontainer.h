@@ -246,7 +246,7 @@ protected:
      * @return std::vector<std::unique_ptr<RS_EntityContainer>> - each container contains edge entities of a single
      * closed loop. Each loop is assumed to be simply closed, and loops never cross each other.
      */
-    virtual std::vector<std::shared_ptr<RS_EntityContainer>> getLoops() const;
+    virtual std::vector<std::unique_ptr<RS_EntityContainer>> getLoops() const;
 
     /** entities in the container */
     QList<RS_Entity *> entities;
