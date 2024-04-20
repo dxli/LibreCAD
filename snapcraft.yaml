@@ -37,6 +37,8 @@ parts:
                         - libbz2-dev
 
                 stage-packages:
+                        - glibc-tools
+                        - glibc-tools
                         - qtbase5-dev
                         - qt5-qmake
                         - libfreetype6
