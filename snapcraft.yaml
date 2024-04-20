@@ -42,7 +42,7 @@ parts:
                         - libfreetype6
                         - libcairo2
                         - librsvg2-bin
-                        - libicu
+                        - libicu70
                         - libboost
                 override-stage: |
                         echo "1"
