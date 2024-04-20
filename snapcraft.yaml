@@ -43,7 +43,6 @@ parts:
                         - libcairo2
                         - librsvg2-bin
                         - libicu70
-                        - libboost
                 override-stage: |
                         echo "1"
                         echo $PWD 
