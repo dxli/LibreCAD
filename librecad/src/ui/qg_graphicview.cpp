@@ -38,9 +38,11 @@
 #include "qc_applicationwindow.h"
 
 #include "qg_graphicview.h"
+#include "qg_blockwidget.h"
 
 #include "qg_dialogfactory.h"
 #include "qg_scrollbar.h"
+#include "rs_actionblocksedit.h"
 #include "rs_actiondefault.h"
 #include "rs_actionmodifydelete.h"
 #include "rs_actionmodifyentity.h"
@@ -49,9 +51,11 @@
 #include "rs_actionzoomin.h"
 #include "rs_actionzoompan.h"
 #include "rs_actionzoomscroll.h"
+#include "rs_blocklist.h"
 #include "rs_debug.h"
 #include "rs_eventhandler.h"
 #include "rs_graphic.h"
+#include "rs_insert.h"
 #include "rs_math.h"
 #include "rs_modification.h"
 #include "rs_painterqt.h"
@@ -108,18 +112,56 @@ RS_Entity* snapEntity(const QG_GraphicView& view, const QMouseEvent* event)
     return (view.toGuiDX(distance) <= CURSOR_SIZE) ? entity : nullptr;
 }
 
+void editAction(QG_GraphicView& view, RS_Entity& entity)
+{
+    RS_EntityContainer* container = view.getContainer();
+    if (container==nullptr)
+        return;
+
+    switch(entity.rtti()) {
+    case RS2::EntityInsert:
+    {
+        auto& appWindow = QC_ApplicationWindow::getAppWindow();
+        RS_BlockList* blockList = appWindow->getBlockWidget()->getBlockList();
+        RS_Block* active = (blockList != nullptr) ? blockList->getActive() : nullptr;
+        auto* insert = static_cast<RS_Insert*>(&entity);
+        RS_Block* current = insert->getBlockForInsert();
+        if (current == active)
+            active=nullptr;
+        else
+            blockList->activate(current);
+        std::shared_ptr<RS_Block*> scoped{&active, [blockList](RS_Block** pointer) {
+                if (pointer && *pointer != nullptr)
+                    blockList->activate(*pointer);
+            }};
+        auto* action = new RS_ActionBlocksEdit(*container, view);
+        if (action == nullptr)
+            return;
+        view.setCurrentAction(action);
+        action->trigger();
+        action->finish(false);
+    }
+        break;
+    default:
+    {
+        auto* action = new RS_ActionModifyEntity(*container, view);
+        if (action == nullptr)
+            return;
+        action->setEntity(&entity);
+        view.setCurrentAction(action);
+        action->trigger();
+        action->finish(false);
+    }
+    }
+}
+
 void launchEditProperty(QG_GraphicView& view, RS_Entity* entity)
 {
     RS_EntityContainer* container = view.getContainer();
     if (entity == nullptr || container == nullptr)
         return;
-    auto* action = new RS_ActionModifyEntity(*container, view);
-    if (action == nullptr)
-        return;
-    action->setEntity(entity);
-    view.setCurrentAction(action);
-    action->trigger();
-    action->finish(false);
+
+    editAction(view, *entity);
 
     //container->removeEntity(entity);
     auto* doc = dynamic_cast<RS_Document*>(container);
@@ -481,12 +523,27 @@ void QG_GraphicView::addEditEntityEntry(QMouseEvent* event, QMenu& contextMenu)
     return;
     if (container==nullptr)
         return;
-    auto* action = new QAction(QIcon(":/extui/modifyentity.png"),
-                               tr("Edit Properties"), &contextMenu);
-    contextMenu.addAction(action);
-    connect(action, &QAction::triggered, this, [this, entity](){
-        launchEditProperty(*this, entity);
-    });
+    switch (entity->rtti()) {
+    case RS2::EntityInsert:
+    {
+        auto* action = new QAction(QIcon(":/ui/blockedit.png"),
+                                   tr("Edit Block in a Separate Window"), &contextMenu);
+        contextMenu.addAction(action);
+        connect(action, &QAction::triggered, this, [this, entity](){
+            launchEditProperty(*this, entity);
+        });
+    }
+        break;
+    default:
+    {
+        auto* action = new QAction(QIcon(":/extui/modifyentity.png"),
+                                   tr("Edit Properties"), &contextMenu);
+        contextMenu.addAction(action);
+        connect(action, &QAction::triggered, this, [this, entity](){
+            launchEditProperty(*this, entity);
+        });
+    }
+    }
 }
 
 void QG_GraphicView::mouseMoveEvent(QMouseEvent* event)
