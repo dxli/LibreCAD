@@ -43,12 +43,13 @@ parts:
 
                 stage-packages:
                         - glibc-tools
-                        - qtbase5-dev
-                        - qt5-qmake
-                        - libfreetype6
+                        - libc6-amd64
                         - libcairo2
-                        - librsvg2-bin
+                        - libfreetype6
                         - libicu70
+                        - librsvg2-bin
+                        - qt5-qmake
+                        - qtbase5-dev
                 override-stage: |
                         echo "1"
                         echo $PWD 
