@@ -1,7 +1,7 @@
 name: librecad
 version: '2.2.1-beta'
 grade: stable
-base: core20
+base: core22
 confinement: strict
 license: GPL-2.0
 summary: "librecad: is a 2D open source CAD"
