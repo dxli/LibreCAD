@@ -25,12 +25,13 @@
 **********************************************************************/
 #include "qg_dimlinearoptions.h"
 
-#include "rs_settings.h"
-#include "rs_math.h"
+#include "rs_actiondimlinear.h"
 #include "rs_debug.h"
+#include "rs_dimension.h"
+#include "rs_math.h"
+#include "rs_settings.h"
 
 #include "ui_qg_dimlinearoptions.h"
-#include "rs_actiondimlinear.h"
 
 /*
  *  Constructs a QG_DimLinearOptions as a child of 'parent', with the
@@ -38,7 +39,7 @@
  */
 QG_DimLinearOptions::QG_DimLinearOptions(QWidget* parent, Qt::WindowFlags fl)
     : QWidget(parent, fl)
-	, ui(new Ui::Ui_DimLinearOptions{})
+    , ui(std::make_unique<Ui::Ui_DimLinearOptions>())
 {
 	ui->setupUi(this);
 }
@@ -64,7 +65,7 @@ void QG_DimLinearOptions::saveSettings() {
 }
 
 void QG_DimLinearOptions::setAction(RS_ActionInterface* a, bool update) {
-    if (a && a->rtti()==RS2::ActionDimLinear) {
+    if (a != nullptr && a->rtti()==RS2::ActionDimLinear) {
 		action = static_cast<RS_ActionDimLinear*>(a);
 
         QString sa;
@@ -75,7 +76,7 @@ void QG_DimLinearOptions::setAction(RS_ActionInterface* a, bool update) {
             sa = RS_SETTINGS->readEntry("/Angle", "0.0");
             RS_SETTINGS->endGroup();
         }
-		ui->leAngle->setText(sa);
+        updateAngle(sa);
     } else {
         RS_DEBUG->print(RS_Debug::D_ERROR,
                         "QG_DimLinearOptions::setAction: wrong action type");
@@ -83,10 +84,18 @@ void QG_DimLinearOptions::setAction(RS_ActionInterface* a, bool update) {
     }
 }
 
-void QG_DimLinearOptions::updateAngle(const QString & a) {
-    if (action) {
-        action->setAngle(RS_Math::deg2rad(RS_Math::eval(a)));
-        saveSettings();
+void QG_DimLinearOptions::updateAngle(const QString& sa) {
+    if (action == nullptr)
+        return;
+    bool okay=false;
+    double angle = RS_Math::eval(sa, &okay);
+    if (action != nullptr && okay) {
+        action->setAngle(RS_Math::deg2rad(angle));
+        int dimazin = action->getGraphicVariableInt(QStringLiteral( "$DIMADEC"), 0);
+        LC_ERR<<"dimazin:"<<dimazin;
+        QString angleText = QString("%1").arg(angle, 0, 'f', dimazin);
+        RS_Dimension::stripZerosAngle(angleText, 3);
+        ui->leAngle->setText(angleText);
     }
 }
 
