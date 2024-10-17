@@ -70,7 +70,7 @@ jobs:
           ./CI/build-appimg.sh
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
           path: LibreCAD*.AppImage
@@ -88,18 +88,14 @@ jobs:
       - name: install snap
         uses: samuelmeuli/action-snapcraft@v2
         with:
-          name: snap
-          path: ${{ steps.snapcraft.outputs.snap }}
+          use_lxd: ${{ matrix.os == 'ubuntu-22.04' }}
           
       - name: Create snapcraft
         run: |
-          pwd
-          ls
-          ls scripts
-          bash ./scripts/createSnap.sh
+          sg lxd -c 'snapcraft --use-lxd'
 
       - name: Uploading snap
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v4
         with:
           path: ${{ github.workspace }}/librecad**snap
           name: LibreCAD.snap
@@ -332,7 +328,7 @@ jobs:
         shell: bash
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
           path: LibreCAD*.exe
