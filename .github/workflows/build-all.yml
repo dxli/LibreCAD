@@ -73,7 +73,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: assets
-          path: LibreCAD*.AppImage
+          path: ${{ github.workspace }}/LibreCAD**.AppImage
+          overwrite: true
           retention-days: 2
 
   BuildSnap:
@@ -100,6 +101,8 @@ jobs:
         with:
           name: assets
           path: ${{ github.workspace }}/librecad**snap
+          overwrite: true
+          retention-days: 2
 
   BuildMacOS:
     runs-on: macos-13
@@ -153,6 +156,7 @@ jobs:
         with:
           name: assets
           path: ${{ github.workspace }}/LibreCAD*.dmg
+          overwrite: true
           retention-days: 2
 
   BuildWindows:
@@ -239,10 +243,11 @@ jobs:
         shell: bash
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
           path: ${{ github.workspace }}/LibreCAD**exe
+          overwrite: true
           retention-days: 2
 
   BuildWindows64:
@@ -333,6 +338,7 @@ jobs:
         with:
           name: assets
           path: ${{ github.workspace }}/LibreCAD**exe
+          overwrite: true
           retention-days: 2
 
   UpdateAssets:
