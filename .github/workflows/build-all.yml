@@ -98,8 +98,8 @@ jobs:
       - name: Uploading snap
         uses: actions/upload-artifact@v4
         with:
+          name: assets
           path: ${{ github.workspace }}/librecad**snap
-          name: LibreCAD.snap
 
   BuildMacOS:
     runs-on: macos-13
@@ -149,10 +149,10 @@ jobs:
           mv LibreCAD.dmg LibreCAD-`git describe --always`.dmg
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
-          path: LibreCAD*.dmg
+          path: ${{ github.workspace }}/LibreCAD*.dmg
           retention-days: 2
 
   BuildWindows:
@@ -242,7 +242,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: assets
-          path: LibreCAD*.exe
+          path: ${{ github.workspace }}/LibreCAD**exe
           retention-days: 2
 
   BuildWindows64:
@@ -332,7 +332,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: assets
-          path: LibreCAD*.exe
+          path: ${{ github.workspace }}/LibreCAD**exe
           retention-days: 2
 
   UpdateAssets:
