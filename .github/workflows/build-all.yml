@@ -15,12 +15,6 @@ jobs:
           fetch-depth: 0
           ref: 2.2.1
 
-      - name: install snap
-        uses: samuelmeuli/action-snapcraft@v2
-        with:
-          name: snap
-          path: ${{ steps.snapcraft.outputs.snap }}
-
       - name: Install Qt5
         uses: jurplel/install-qt-action@v3
         with:
@@ -112,12 +106,6 @@ jobs:
         with:
           fetch-depth: 0
           ref: 2.2.1
-          
-      - name: qt50
-        run: |
-          pip install -U pip
-          pip install aqtinstall
-          aqt list-qt mac desktop --arch 5.15.2
           
       - name: Install Qt5
         uses: jurplel/install-qt-action@v3
