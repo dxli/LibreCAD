@@ -92,7 +92,10 @@ jobs:
           
       - name: Create snapcraft
         run: |
-          sg lxd -c 'snapcraft --use-lxd'
+          pwd
+          ls
+          ls scripts
+          bash ./scripts/createSnap.sh
 
       - name: Uploading snap
         uses: actions/upload-artifact@v4
