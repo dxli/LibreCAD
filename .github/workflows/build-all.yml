@@ -66,7 +66,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: assets
           path: ${{ github.workspace }}/LibreCAD**.AppImage
           overwrite: true
           retention-days: 2
@@ -93,7 +92,6 @@ jobs:
       - name: Uploading snap
         uses: actions/upload-artifact@v4
         with:
-          name: assets
           path: ${{ github.workspace }}/librecad**snap
           overwrite: true
           retention-days: 2
@@ -142,7 +140,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: assets
           path: ${{ github.workspace }}/LibreCAD*.dmg
           overwrite: true
           retention-days: 2
@@ -233,7 +230,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: assets
           path: ${{ github.workspace }}/LibreCAD**exe
           overwrite: true
           retention-days: 2
@@ -324,7 +320,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: assets
           path: ${{ github.workspace }}/LibreCAD**exe
           overwrite: true
           retention-days: 2
