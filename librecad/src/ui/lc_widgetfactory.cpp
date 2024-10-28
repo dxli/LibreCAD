@@ -40,6 +40,8 @@
 #include "qg_actionhandler.h"
 #include "qg_blockwidget.h"
 #include "qg_commandwidget.h"
+#include "qg_lsp_commandwidget.h"
+#include "qg_py_commandwidget.h"
 #include "qg_layerwidget.h"
 #include "qg_librarywidget.h"
 #include "qg_pentoolbar.h"
@@ -253,7 +255,7 @@ LC_WidgetFactory::LC_WidgetFactory(QC_ApplicationWindow* main_win,
         "InfoArea",
         "EntityInfo"
     });
-    
+
     fillActionsList(layer_actions, {
         "LayersDefreezeAll",
         "LayersFreezeAll",
@@ -450,6 +452,28 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler){
     connect(dock_command, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             main_window, SLOT(modifyCommandTitleBar(Qt::DockWidgetArea)));
 
+    auto* lsp_dock_command = new QDockWidget(tr("Lisp Command line"), main_window);
+    lsp_dock_command->setObjectName("lsp_command_dockwidget");
+    lsp_command_widget = new QG_Lsp_CommandWidget(lsp_dock_command, "Lisp Command");
+    lsp_command_widget->setActionHandler(action_handler);
+
+    connect(lsp_command_widget->leCommand, SIGNAL(escape()), main_window, SLOT(setFocus()));
+    lsp_dock_command->setWidget(lsp_command_widget);
+
+    connect(lsp_dock_command, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
+            main_window, SLOT(modifyLspCommandTitleBar(Qt::DockWidgetArea)));
+
+    auto* py_dock_command = new QDockWidget(tr("Python Command line"), main_window);
+    py_dock_command->setObjectName("py_command_dockwidget");
+    py_command_widget = new QG_Py_CommandWidget(py_dock_command, "Python Command");
+    py_command_widget->setActionHandler(action_handler);
+
+    connect(py_command_widget->leCommand, SIGNAL(escape()), main_window, SLOT(setFocus()));
+    py_dock_command->setWidget(py_command_widget);
+
+    connect(py_dock_command, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
+            main_window, SLOT(modifyPyCommandTitleBar(Qt::DockWidgetArea)));
+
     main_window->setDockOptions(QMainWindow::AnimatedDocks
                                 | QMainWindow::AllowTabbedDocks );
 
@@ -463,6 +487,12 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler){
     }
     main_window->addDockWidget(Qt::RightDockWidgetArea, dock_command);
     command_widget->getDockingAction()->setText(dock_command->isFloating() ? tr("Dock") : tr("Float"));
+
+    main_window->addDockWidget(Qt::RightDockWidgetArea, lsp_dock_command);
+    lsp_command_widget->getDockingAction()->setText(lsp_dock_command->isFloating() ? tr("Dock") : tr("Float"));
+
+    main_window->addDockWidget(Qt::RightDockWidgetArea, py_dock_command);
+    py_command_widget->getDockingAction()->setText(py_dock_command->isFloating() ? tr("Dock") : tr("Float"));
 }
 
 void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler){
@@ -495,7 +525,7 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler){
 
     action_handler->set_snap_toolbar(snap_toolbar);
 
-    connect( main_window,  &QC_ApplicationWindow::signalEnableRelativeZeroSnaps, 
+    connect( main_window,  &QC_ApplicationWindow::signalEnableRelativeZeroSnaps,
              snap_toolbar, &QG_SnapToolBar::slotEnableRelativeZeroSnaps);
 
     pen_toolbar = new QG_PenToolBar(tr("Pen"), main_window);
@@ -505,12 +535,12 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler){
     pen_toolbar->setProperty("_group", 0);
 
     options_toolbar = createGenericToolbar(tr("Tool Options"), "Tool Options", tbPolicy, {});
-    
+
     auto *dockareas = createGenericToolbar(tr("Dock Areas"), "Dock Areas", tbPolicy, {
         "LeftDockAreaToggle", "RightDockAreaToggle", "TopDockAreaToggle",
         "BottomDockAreaToggle", "FloatingDockwidgetsToggle"
     });
-    
+
     auto *creators = createGenericToolbar(tr("Creators"), "Creators", tbPolicy, {
         "InvokeMenuCreator", "InvokeToolbarCreator"
     });
@@ -593,7 +623,14 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
         "FileSaveAll",
         ""
     });
-
+#if 0
+    script_menu = menu(tr("&Script"),"script", menu_bar, {
+        "LispLoad",
+        "",
+        "PythonLoad",
+        ""
+    });
+#endif
     subMenu(file_menu, tr("Import"),"import", ":/icons/import.svg", {
         "DrawImage",
         "BlocksImport"
@@ -737,6 +774,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
 
     QList<QDockWidget*> dockwidgetsList = main_window->findChildren<QDockWidget*>();
     main_window->sortWidgetsByTitle(dockwidgetsList);
+    main_window->sortCommandLines(dockwidgetsList);
 
     for (QDockWidget* dw: dockwidgetsList){
         if (main_window->dockWidgetArea(dw) == Qt::RightDockWidgetArea)
@@ -763,8 +801,8 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
     LC_ERR <<  "____";*/
 
     main_window->sortWidgetsByGroupAndTitle(toolbarsList);
-    
-    int previousGroup = -100; 
+
+    int previousGroup = -100;
 
     for (QToolBar* tb: toolbarsList){
         const QVariant &variant = tb->property("_group");
@@ -791,6 +829,9 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
     menu_bar->addMenu(view);
     menu_bar->addMenu(plugins);
     menu_bar->addMenu(tools);
+#if 0
+    menu_bar->addMenu(script);
+#endif
     menu_bar->addMenu(widgets);
     menu_bar->addMenu(windows_menu);
     menu_bar->addMenu(help);

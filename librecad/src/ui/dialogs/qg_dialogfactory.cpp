@@ -44,6 +44,8 @@
 #include "qc_applicationwindow.h"
 #include "qg_blockdialog.h"
 #include "qg_commandwidget.h"
+#include "qg_lsp_commandwidget.h"
+#include "qg_py_commandwidget.h"
 #include "qg_coordinatewidget.h"
 #include "qg_dlgarc.h"
 #include "qg_dlgattributes.h"
@@ -1081,6 +1083,14 @@ void QG_DialogFactory::updateMouseWidget(const QString& left,
        commandWidget->setCommand(left);
     }
 
+    if (lsp_commandWidget != nullptr) {
+       lsp_commandWidget->setCommand(left);
+    }
+
+    if (py_commandWidget != nullptr) {
+       py_commandWidget->setCommand(left);
+    }
+
     if (statusBarManager != nullptr){
         statusBarManager->setActionHelp(left, right, modifiers);
     }
@@ -1123,6 +1133,12 @@ void QG_DialogFactory::commandMessage(const QString& message) {
     if (commandWidget) {
         commandWidget->appendHistory(message);
     }
+    if (lsp_commandWidget) {
+        lsp_commandWidget->appendHistory(message);
+    }
+        if (py_commandWidget) {
+        py_commandWidget->appendHistory(message);
+    }
     RS_DEBUG->print("QG_DialogFactory::commandMessage: OK");
 
 }
@@ -1130,6 +1146,12 @@ void QG_DialogFactory::command(const QString& message) {
     RS_DEBUG->print("QG_DialogFactory::command");
     if (commandWidget) {
         commandWidget->setInput(message);
+    }
+    if (lsp_commandWidget) {
+        lsp_commandWidget->setInput(message);
+    }
+    if (py_commandWidget) {
+        py_commandWidget->setInput(message);
     }
     RS_DEBUG->print("QG_DialogFactory::command: OK");
 }

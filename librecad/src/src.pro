@@ -192,6 +192,8 @@ INCLUDEPATH += \
     ui/dock_widgets \
     ui/dock_widgets/block_widget \
     ui/dock_widgets/command_line \
+    ui/dock_widgets/lsp_command_line \
+    ui/dock_widgets/py_command_line \
     ui/dock_widgets/entity_info \
     ui/dock_widgets/layer_widget \
     ui/dock_widgets/layers_tree \
@@ -324,7 +326,7 @@ HEADERS += \
     lib/gui/rs_grid.h \
     lib/gui/rs_linetypepattern.h \
     lib/gui/rs_mainwindowinterface.h \
-    lib/gui/rs_painter.h \    
+    lib/gui/rs_painter.h \
     lib/gui/rs_staticgraphicview.h \
     lib/information/rs_locale.h \
     lib/information/rs_information.h \
@@ -350,7 +352,6 @@ HEADERS += \
     ui/components/status_bar/lc_relzerocoordinateswidget.h \
     ui/dialogs/lc_dialog.h \
     ui/main/lc_mdiapplicationwindow.h
-    
 SOURCES += \
     actions/drawing/draw/dimensions/lc_actioncircledimbase.cpp \
     actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp \
@@ -442,7 +443,7 @@ SOURCES += \
     lib/gui/rs_graphicview.cpp \
     lib/gui/rs_grid.cpp \
     lib/gui/rs_linetypepattern.cpp \
-    lib/gui/rs_painter.cpp \    
+    lib/gui/rs_painter.cpp \
     lib/gui/rs_staticgraphicview.cpp \
     lib/information/rs_locale.cpp \
     lib/information/rs_information.cpp \
@@ -588,7 +589,7 @@ HEADERS += actions/dock_widgets/block/rs_actionblocksadd.h \
     actions/drawing/info/rs_actioninfoarea.h \
     actions/drawing/info/rs_actioninfodist.h \
     actions/drawing/info/rs_actioninfodist2.h \
-    actions/drawing/info/rs_actioninfototallength.h \    
+    actions/drawing/info/rs_actioninfototallength.h \
     actions/drawing/info/rs_actioninfoinside.h \
     actions/drawing/lc_abstractactionwithpreview.h \
     actions/drawing/modify/lc_actionmodifybase.h \
@@ -964,6 +965,12 @@ HEADERS += ui/action_options/circle/lc_circlebyarcoptions.h \
     ui/dock_widgets/command_line/qg_commandedit.h \
     ui/dock_widgets/command_line/qg_commandhistory.h \
     ui/dock_widgets/command_line/qg_commandwidget.h \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandedit.h \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandhistory.h \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandwidget.h \
+    ui/dock_widgets/py_command_line/qg_py_commandedit.h \
+    ui/dock_widgets/py_command_line/qg_py_commandhistory.h \
+    ui/dock_widgets/py_command_line/qg_py_commandwidget.h \
     ui/dock_widgets/entity_info/lc_quickinfobasedata.h \
     ui/dock_widgets/entity_info/lc_quickinfoentitydata.h \
     ui/dock_widgets/entity_info/lc_quickinfopointsdata.h \
@@ -1150,6 +1157,12 @@ SOURCES += ui/action_options/circle/lc_circlebyarcoptions.cpp \
     ui/dock_widgets/command_line/qg_commandedit.cpp \
     ui/dock_widgets/command_line/qg_commandhistory.cpp \
     ui/dock_widgets/command_line/qg_commandwidget.cpp \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandedit.cpp \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandhistory.cpp \
+    ui/dock_widgets/lsp_command_line/qg_lsp_commandwidget.cpp \
+    ui/dock_widgets/py_command_line/qg_py_commandedit.cpp \
+    ui/dock_widgets/py_command_line/qg_py_commandhistory.cpp \
+    ui/dock_widgets/py_command_line/qg_py_commandwidget.cpp \
     ui/dock_widgets/entity_info/lc_quickinfobasedata.cpp \
     ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp \
     ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp \
@@ -1311,6 +1324,8 @@ FORMS = ui/action_options/circle/lc_circlebyarcoptions.ui \
        ui/dialogs/settings/options_widget/lc_widgetoptionsdialog.ui \
        ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui \
        ui/dock_widgets/command_line/qg_commandwidget.ui \
+       ui/dock_widgets/lsp_command_line/qg_lsp_commandwidget.ui \
+       ui/dock_widgets/py_command_line/qg_py_commandwidget.ui \
        ui/dock_widgets/entity_info/lc_quickinfowidget.ui \
        ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui \
        ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui \
@@ -1328,14 +1343,14 @@ FORMS = ui/action_options/circle/lc_circlebyarcoptions.ui \
 # ################################################################################
 # Main
 HEADERS += \
-    main/qc_dialogfactory.h \    
+    main/qc_dialogfactory.h \
     main/doc_plugin_interface.h \
     plugins/document_interface.h \
     plugins/qc_plugininterface.h \
     plugins/intern/qc_actiongetpoint.h \
     plugins/intern/qc_actiongetselect.h \
     plugins/intern/qc_actiongetent.h \
-    main/main.h \    
+    main/main.h \
     main/console_dxf2pdf/console_dxf2pdf.h \
     main/console_dxf2pdf/pdf_print_loop.h
 
@@ -1345,7 +1360,7 @@ SOURCES += \
     plugins/intern/qc_actiongetpoint.cpp \
     plugins/intern/qc_actiongetselect.cpp \
     plugins/intern/qc_actiongetent.cpp \
-    main/main.cpp \    
+    main/main.cpp \
     main/console_dxf2pdf/console_dxf2pdf.cpp \
     main/console_dxf2pdf/pdf_print_loop.cpp
 

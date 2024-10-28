@@ -57,6 +57,8 @@ class QG_ActiveLayerName;
 class QG_BlockWidget;
 class QG_CadToolBar;
 class QG_CommandWidget;
+class QG_Lsp_CommandWidget;
+class QG_Py_CommandWidget;
 class QG_CoordinateWidget;
 class QG_LayerWidget;
 class LC_LayerTreeWidget;
@@ -122,6 +124,8 @@ public slots:
     void slotKillAllActions();
     void slotEnter();
     void slotFocusCommandLine();
+    void slotFocusLspCommandLine();
+    void slotFocusPyCommandLine();
     void slotFocusOptionsWidget();
     void slotError(const QString& msg);
     void slotShowDrawingOptions();
@@ -217,6 +221,8 @@ public slots:
     void widgetOptionsDialog();
 
     void modifyCommandTitleBar(Qt::DockWidgetArea area);
+    void modifyLspCommandTitleBar(Qt::DockWidgetArea area);
+    void modifyPyCommandTitleBar(Qt::DockWidgetArea area);
     void reloadStyleSheet();
 
     void updateGridStatus(const QString&);
@@ -283,7 +289,7 @@ public:
 
     RS_Vector getMouseAbsolutePosition();
     RS_Vector getMouseRelativePosition();
-    
+
     // Highlight the active block in the block widget
     void showBlockActivated(const RS_Block* block);
 
@@ -367,6 +373,10 @@ private:
     QG_LibraryWidget* libraryWidget {nullptr};
     /** Command line */
     QG_CommandWidget* commandWidget {nullptr};
+    /** Lips Command line */
+    QG_Lsp_CommandWidget* lsp_commandWidget {nullptr};
+    /** Python Command line */
+    QG_Py_CommandWidget* py_commandWidget {nullptr};
 
     LC_PenWizard* pen_wiz {nullptr};
     LC_PenPaletteWidget* penPaletteWidget {nullptr};
