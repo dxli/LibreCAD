@@ -81,6 +81,7 @@ void LC_ActionFactory::fillActionContainer(LC_ActionGroupManager* agm, bool useT
     createOptionsActionsUncheckable(a_map, agm->options);
     createSelectActionsUncheckable(a_map, agm->select);
     createFileActionsUncheckable(a_map, agm->file);
+    createLoadScriptActionsUncheckable(a_map, agm->developer);
     createViewActionsUncheckable(a_map, agm->view);
     createWidgetActionsUncheckable(a_map, agm->widgets);
     createEditActionsUncheckable(a_map, agm->edit);
@@ -449,6 +450,13 @@ void LC_ActionFactory::createFileActionsUncheckable(QMap<QString, QAction *> &ma
     });
 
     createAction_AH("FileExportMakerCam",RS2::ActionFileExportMakerCam,  tr("Export as CA&M/plain SVG..."), nullptr, nullptr, group, map);
+}
+
+void LC_ActionFactory::createLoadScriptActionsUncheckable(QMap<QString, QAction *> &map, QActionGroup *group) {
+    createMainWindowActions(map, group, {
+        {"LoadLisp",       SLOT(slotLoadLisp()),       tr("&Load Lisp"),              ":/icons/open.svg", "load-lisp"},
+        {"LoadPython",     SLOT(slotLoadPython()),     tr("Load &Python"),            ":/icons/open.svg", "load-python"},// fixme - check
+    });
 }
 
 void LC_ActionFactory::createWidgetActions(QMap<QString, QAction *> &map, QActionGroup *group) {

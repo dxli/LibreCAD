@@ -246,6 +246,10 @@ public slots:
     void checkForNewVersion();
     void forceCheckForNewVersion();
     void slotRedockWidgets();
+#ifdef DEVELOPER
+    void slotLoadLisp();
+    void slotLoadPython();
+#endif
 signals:
     void gridChanged(bool on);
     void draftChanged(bool on);

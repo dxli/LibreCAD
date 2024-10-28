@@ -1565,8 +1565,6 @@ void QC_ApplicationWindow::slotFileOpen() {
     slotFileOpen(fileName, type);
     RS_DEBUG->print("QC_ApplicationWindow::slotFileOpen(): OK");
 }
-
-
 /**
  *
  *	\brief	- Format a string that hold a file name path
@@ -3221,3 +3219,27 @@ void QC_ApplicationWindow::slotRedockWidgets() {
     for (auto *dockwidget: dockwidgets)
         dockwidget->setFloating(false);
 }
+#ifdef DEVELOPER
+/**
+ * Menu Developer -> load LISP.
+ */
+void QC_ApplicationWindow::slotLoadLisp() {
+    RS_DEBUG->print("QC_ApplicationWindow::slotLoadLisp()");
+
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Lisp File"),
+                                                    "",
+                                                    tr("Lisp files (*lsp *.mal)"));
+
+}
+
+/**
+ * Menu Developer -> load Python.
+ */
+void QC_ApplicationWindow::slotLoadPython() {
+    RS_DEBUG->print("QC_ApplicationWindow::slotLoadPython()");
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Python File"),
+                                                    "",
+                                                    tr("Python files (*.py *.pyc)"));
+
+}
+#endif

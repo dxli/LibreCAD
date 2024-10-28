@@ -67,6 +67,9 @@ public:
     QG_Py_CommandWidget* py_command_widget = nullptr;
 
     QMenu* file_menu = nullptr;
+#ifdef DEVELOPER
+    QMenu* dev_menu = nullptr;
+#endif
     QMenu* windows_menu = nullptr;
     QList<QAction*> actionsToDisableInPrintPreview;
 

@@ -623,13 +623,11 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
         "FileSaveAll",
         ""
     });
-#if 0
-    script_menu = menu(tr("&Script"),"script", menu_bar, {
-        "LispLoad",
-        "",
-        "PythonLoad",
-        ""
-    });
+#if DEVELOPER
+    dev_menu = menu(tr("&Developer"),"developer", menu_bar);
+    dev_menu->addSeparator();
+    dev_menu->addAction(ag_manager->getActionByName("LoadLisp"));
+    dev_menu->addAction(ag_manager->getActionByName("LoadPython"));
 #endif
     subMenu(file_menu, tr("Import"),"import", ":/icons/import.svg", {
         "DrawImage",
@@ -829,8 +827,8 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
     menu_bar->addMenu(view);
     menu_bar->addMenu(plugins);
     menu_bar->addMenu(tools);
-#if 0
-    menu_bar->addMenu(script);
+#if DEVELOPER
+    menu_bar->addMenu(dev_menu);
 #endif
     menu_bar->addMenu(widgets);
     menu_bar->addMenu(windows_menu);
