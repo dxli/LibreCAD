@@ -29,7 +29,10 @@
 
 #include <QLineEdit>
 #include <QMap>
+#include <QFile>
 #include <QString>
+
+#ifdef DEVELOPER
 
 /**
  * A python command line edit with some typical console features
@@ -40,19 +43,12 @@ class QG_Py_CommandEdit: public QLineEdit {
 
 public:
     QG_Py_CommandEdit(QWidget* parent=nullptr);
-    virtual ~QG_Py_CommandEdit() = default;
+    virtual ~QG_Py_CommandEdit() { writeHistoryFile(); }
+
+     virtual QString text() const ;
 
     void readCommandFile(const QString& path);
 
-    virtual QString text() { QString str = QLineEdit::text();
-        return (QLineEdit::text().size() > prombtSize()) ? str.remove(0, prombtSize()) : QLineEdit::text(); }
-#if 0
-    virtual int size() const { int i = QLineEdit::text().size();
-        return (QLineEdit::text().size() >= i ? i - prombtSize() : i); }
-
-    virtual void setText(const QString & str)
-        { QLineEdit::setText(prom + str); }
-#endif
     bool keycode_mode = false;
 
 protected:
@@ -91,11 +87,19 @@ private:
     int prombtSize() const { return (int) prom.size(); }
     const QString prom = ">>> ";
     void prombt() { QLineEdit::setText(prom); }
+    /*save history for next session*/
+    QString m_path;
+    QFile m_histFile;
+    QTextStream  m_histFileStream;
+    void readHistoryFile();
+    void writeHistoryFile();
 
 public slots:
     void modifiedPaste();
 
 };
 
-#endif
+#endif // DEVELOPER
+
+#endif // QG_PY_COMMANDEDIT_H
 

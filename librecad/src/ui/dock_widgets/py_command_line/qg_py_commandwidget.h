@@ -27,6 +27,9 @@
 #define QG_PY_COMMANDWIDGET_H
 
 #include "ui_qg_py_commandwidget.h"
+
+#ifdef DEVELOPER
+
 class QG_ActionHandler;
 class QAction;
 
@@ -72,5 +75,7 @@ private:
     QAction* m_docking = nullptr;
 
 };
+
+#endif // DEVELOPER
 
 #endif // QG_PY_COMMANDWIDGET_H

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Librepad</class>
+ <widget class="QMainWindow" name="Librepad">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Librepad</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="actionReload"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionCopy"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>&amp;About</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuSearch">
+    <property name="title">
+     <string>&amp;Search</string>
+    </property>
+    <addaction name="actionNext"/>
+    <addaction name="actionPrevious"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Se&amp;ttings</string>
+    </property>
+    <addaction name="actionFont"/>
+   </widget>
+   <widget class="QMenu" name="menuBuild">
+    <property name="title">
+     <string>&amp;Build</string>
+    </property>
+    <addaction name="actionRun"/>
+    <addaction name="actionLoadScript"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuSearch"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuBuild"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSave_as"/>
+   <addaction name="separator"/>
+   <addaction name="actionPrint"/>
+   <addaction name="separator"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionCut"/>
+   <addaction name="actionPaste"/>
+   <addaction name="separator"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+   <addaction name="separator"/>
+   <addaction name="actionFont"/>
+   <addaction name="actionAbout"/>
+   <addaction name="separator"/>
+   <addaction name="actionExit"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="scriptToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>85</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionRun"/>
+   <addaction name="actionLoadScript"/>
+  </widget>
+  <widget class="QToolBar" name="searchToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>356</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPrevious"/>
+   <addaction name="actionNext"/>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/new.png</normaloff>:/editor/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="toolTip">
+    <string>New text document</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/open.png</normaloff>:/editor/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/save.png</normaloff>:/editor/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/save_as.png</normaloff>:/editor/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save &amp;as</string>
+   </property>
+   <property name="toolTip">
+    <string>Save file as</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/print.png</normaloff>:/editor/print.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print</string>
+   </property>
+   <property name="toolTip">
+    <string>Print file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/exit.png</normaloff>:/editor/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit librepad</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/copy.png</normaloff>:/editor/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/cut.png</normaloff>:/editor/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/paste.png</normaloff>:/editor/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/edit_undo.png</normaloff>:/editor/edit_undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/edit_redo.png</normaloff>:/editor/edit_redo.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/info.png</normaloff>:/editor/info.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Info</string>
+   </property>
+   <property name="toolTip">
+    <string>About Librepad</string>
+   </property>
+  </action>
+  <action name="actionPrevious">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/previous.png</normaloff>:/editor/previous.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Previous</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;previous search result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/font.png</normaloff>:/editor/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Font</string>
+   </property>
+  </action>
+  <action name="actionNext">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/next.png</normaloff>:/editor/next.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Next</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;next search result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/run.png</normaloff>:/editor/run.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run</string>
+   </property>
+   <property name="toolTip">
+    <string>run script</string>
+   </property>
+  </action>
+  <action name="actionLoadScript">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/load.png</normaloff>:/editor/load.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Load Script</string>
+   </property>
+   <property name="toolTip">
+    <string>load a script from file</string>
+   </property>
+  </action>
+  <action name="actionReload">
+   <property name="icon">
+    <iconset resource="../../../res/editor/librepad.qrc">
+     <normaloff>:/editor/reload.png</normaloff>:/editor/reload.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Reload</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../../../res/editor/librepad.qrc"/>
+ </resources>
+ <connections/>
+</ui>

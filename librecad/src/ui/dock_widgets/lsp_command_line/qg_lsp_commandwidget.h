@@ -27,6 +27,9 @@
 #define QG_LSP_COMMANDWIDGET_H
 
 #include "ui_qg_lsp_commandwidget.h"
+
+#ifdef DEVELOPER
+
 class QG_ActionHandler;
 class QAction;
 
@@ -72,5 +75,7 @@ private:
     QAction* m_docking = nullptr;
 
 };
+
+#endif // DEVELOPER
 
 #endif // QG_LSP_COMMANDWIDGET_H

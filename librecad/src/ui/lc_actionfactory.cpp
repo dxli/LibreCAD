@@ -452,12 +452,16 @@ void LC_ActionFactory::createFileActionsUncheckable(QMap<QString, QAction *> &ma
     createAction_AH("FileExportMakerCam",RS2::ActionFileExportMakerCam,  tr("Export as CA&M/plain SVG..."), nullptr, nullptr, group, map);
 }
 
+#ifdef DEVELOPER
 void LC_ActionFactory::createLoadScriptActionsUncheckable(QMap<QString, QAction *> &map, QActionGroup *group) {
     createMainWindowActions(map, group, {
-        {"LoadLisp",       SLOT(slotLoadLisp()),       tr("&Load Lisp"),              ":/icons/open.svg", "load-lisp"},
-        {"LoadPython",     SLOT(slotLoadPython()),     tr("Load &Python"),            ":/icons/open.svg", "load-python"},// fixme - check
+        {"LoadLisp",        SLOT(slotLoadLisp()),          tr("Load &Lisp"),          ":/icons/open.svg", "load-lisp"},
+        {"LibreLisp",       SLOT(slotLibreLisp()),         tr("LibreL&isp Editor"),   ":/editor/new.png", "libre-lisp"},
+        {"LoadPython",      SLOT(slotLoadPython()),        tr("Load &Python"),        ":/icons/open.svg", "load-python"},
+        {"LibrePython",     SLOT(slotLibrePython()),       tr("LibreP&ython Editor"), ":/editor/new.png", "libre-python"},
     });
 }
+#endif // DEVELOPER
 
 void LC_ActionFactory::createWidgetActions(QMap<QString, QAction *> &map, QActionGroup *group) {
     createMainWindowActions(map, group, {
@@ -479,8 +483,10 @@ void LC_ActionFactory::createWidgetActionsUncheckable(QMap<QString, QAction *> &
 
 void LC_ActionFactory::createViewActionsUncheckable(QMap<QString, QAction *> &map, QActionGroup *group) {
     createAction_MW("FocusCommand",SLOT(slotFocusCommandLine()), tr("Focus on &Command Line"), ":/main/editclear.png", nullptr, group, map);
+#ifdef DEVELOPER
     createAction_MW("FocusLispCommand",SLOT(slotFocusLspCommandLine()), tr("Focus on &Lisp Command Line"), ":/main/editclear.png", nullptr, group, map);
     createAction_MW("FocusPyCommand",SLOT(slotFocusPyCommandLine()), tr("Focus on &Python Command Line"), ":/main/editclear.png", nullptr, group, map);
+#endif // DEVELOPER
     createAction_MW("FocusOptions",SLOT(slotFocusOptionsWidget()), tr("Focus on &Options Widget"), ":/main/contents.png", nullptr, group, map);
 
     createActionHandlerActions(map, group, {

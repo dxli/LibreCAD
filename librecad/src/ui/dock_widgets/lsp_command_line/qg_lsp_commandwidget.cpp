@@ -23,6 +23,7 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+#include "rs_lisp.h"
 #include "qg_lsp_commandwidget.h"
 
 #include <algorithm>
@@ -42,6 +43,8 @@
 #include "rs_settings.h"
 #include "rs_system.h"
 #include "rs_utility.h"
+
+#ifdef DEVELOPER
 
 /*
  *  Constructs a QG_Lsp_CommandWidget as a child of 'parent', with the
@@ -94,6 +97,7 @@ QG_Lsp_CommandWidget::QG_Lsp_CommandWidget(QWidget* parent, const char* name, Qt
     connect(m_docking, &QAction::triggered, this, &QG_Lsp_CommandWidget::dockingButtonTriggered);
 
     options_button->addAction(m_docking);
+    teHistory->setText(RS_LISP->Lisp_GetVersionString());
 }
 
 /*
@@ -124,6 +128,7 @@ bool QG_Lsp_CommandWidget::eventFilter(QObject */*obj*/, QEvent *event)
         switch(key) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
+            teHistory->ensureCursorVisible();
             if(!leCommand->text().size())
                 return false;
             else
@@ -340,3 +345,5 @@ void QG_Lsp_CommandWidget::dockingButtonTriggered(bool /*docked*/)
     m_docking->setText(cmd_dockwidget->isFloating() ? tr("Dock") : tr("Float"));
     setWindowTitle(cmd_dockwidget->isFloating() ? tr("Lisp Command line") : tr("Lisp Cmd"));
 }
+
+#endif // DEVELOPER

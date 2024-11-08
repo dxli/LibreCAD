@@ -23,20 +23,30 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-
+#include "rs_lisp.h"
 #include "qg_lsp_commandedit.h"
 
 #include <QApplication>
 #include <QClipboard>
 #include <QFile>
+#include <QDir>
 #include <QKeyEvent>
 #include <QRegularExpression>
 #include <QTextStream>
+#include <QDebug>
 
 #include "rs_commands.h"
 #include "rs_dialogfactory.h"
 #include "rs_math.h"
 #include "rs_settings.h"
+
+#include <iostream>
+#include <fstream>
+#include <cstdio>
+#include <stdio.h>
+#include <unistd.h>
+
+#ifdef DEVELOPER
 
 namespace {
 // Limits for command file reading
@@ -44,7 +54,6 @@ namespace {
 constexpr unsigned g_maxLinesToRead = 10240;
 // the maximum line length allowed
 constexpr unsigned g_maxLineLength = 4096;
-
 }
 
 /**
@@ -56,13 +65,12 @@ QG_Lsp_CommandEdit::QG_Lsp_CommandEdit(QWidget* parent)
     , keycode_mode(false)
     , relative_ray("none")
     , calculator_mode(false)
-
+    , m_path(QDir(QDir::homePath() + QDir::separator() + ".lisp-history-librecad").absolutePath())
 {
     setStyleSheet("selection-color: white; selection-background-color: green;");
     setFrame(false);
     setFocusPolicy(Qt::StrongFocus);
     prombt();
-    //connect(this, SIGNAL(selectionChanged()), this, SLOT(positionChanged()));
 
     QObject::connect(
         this,
@@ -74,6 +82,46 @@ QG_Lsp_CommandEdit::QG_Lsp_CommandEdit(QWidget* parent)
                 setCursorPosition(prombtSize());
             }
         });
+    readHistoryFile();
+}
+
+void QG_Lsp_CommandEdit::readHistoryFile()
+{
+    m_histFile.setFileName(m_path);
+
+    if (m_histFile.open(QIODevice::ReadOnly | QIODevice::Text | QIODevice::ReadWrite))
+    {
+        m_histFileStream.setDevice(&m_histFile);
+        while (!m_histFileStream.atEnd())
+        {
+            historyList.append(m_histFileStream.readLine());
+        }
+        it = historyList.end();
+    }
+    m_histFile.close();
+}
+
+void QG_Lsp_CommandEdit::writeHistoryFile()
+{
+
+    m_histFile.setFileName(m_path);
+
+    if (m_histFile.open(QIODevice::ReadWrite)) {
+
+        m_histFileStream.setDevice(&m_histFile);
+
+        for (const auto& i : historyList) {
+            m_histFileStream << i << "\n";
+        }
+        //m_histFile.flush();
+        m_histFile.close();
+    }
+}
+
+QString QG_Lsp_CommandEdit::text() const
+{
+    QString str = QLineEdit::text();
+    return (QLineEdit::text().size() >= prombtSize()) ? str.remove(0, prombtSize()) : QLineEdit::text();
 }
 
 /**
@@ -94,7 +142,7 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
         if (!historyList.isEmpty() && it > historyList.begin())
         {
             it--;
-            setText(*it);
+            setText(prom + *it);
         }
         break;
 
@@ -103,12 +151,18 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
         {
             it++;
             if (it<historyList.end()) {
-                setText(*it);
+                setText(prom + *it);
             }
             else {
-                setText("");
-                //prombt();
+                prombt();
             }
+        }
+        break;
+
+    case Qt::Key_Backspace:
+        if (QLineEdit::text().size() > prombtSize())
+        {
+            QLineEdit::keyPressEvent(e);
         }
         break;
 
@@ -121,7 +175,7 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
             emit escape();
         }
         else {
-            setText("");
+            prombt();
         }
         break;
     default:
@@ -138,11 +192,9 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
             emit keycode(input);
         }
     }
-
 }
 
 void QG_Lsp_CommandEdit::focusInEvent(QFocusEvent *e) {
-    qDebug() << __func__;
     emit focusIn();
     QLineEdit::focusInEvent(e);
 }
@@ -154,18 +206,25 @@ void QG_Lsp_CommandEdit::focusOutEvent(QFocusEvent *e) {
 
 void QG_Lsp_CommandEdit::processInput(QString input)
 {
-    if (input != "")
+    if (input.size() == 0)
     {
-        historyList.append(input);
         it = historyList.end();
-        emit message(input);
+        emit message(prom);
         prombt();
     }
-    else
-    {
-        historyList.append("\n");
+    else {
+        QString buffer_out = "";
+        //QString buffer_err = "";
+
+        buffer_out += RS_LISP->runCommand(input).c_str();
+        historyList.append(input);
+
         it = historyList.end();
-        emit message("\n");
+        emit message(prom + input);
+        if (buffer_out.compare("") != 0) {
+            const QString out = buffer_out;
+            emit message(out);
+        }
         prombt();
     }
     //return cmd;
@@ -218,3 +277,5 @@ void QG_Lsp_CommandEdit::modifiedPaste()
     txt.replace("\n", ";");
     setText(txt);
 }
+
+#endif // DEVELOPER

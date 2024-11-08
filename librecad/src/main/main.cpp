@@ -26,6 +26,10 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+//#define PYBIND11_NO_KEYWORDS
+//#define PY_SSIZE_T_CLEAN
+//#include <Python.h>
+//#include "rs_python.h"
 #include <clocale>
 
 #include <QApplication>
@@ -86,6 +90,9 @@ int main(int argc, char** argv)
             return console_dxf2png(argc, argv);
         }
     }
+    //RS_PYTHON->runString("print('Hello, LibreCAD!')");
+    //RS_PYTHON->runString("from librecad import RS_Line, RS_Vector\nRS_Line(RS_Vector(0,0),RS_Vector(100,100))");
+    //RS_PYTHON->fflush("stdout");
 
     RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 
@@ -387,6 +394,9 @@ int main(int argc, char** argv)
     QCoreApplication::processEvents();
 
     int return_code = app.exec();
+
+    //RS_PYTHON->runString("print('Bye, bye LibreCAD...')");
+    //RS_PYTHON->fflush("stdout");
 
     RS_DEBUG->print("main: exited Qt event loop");
 

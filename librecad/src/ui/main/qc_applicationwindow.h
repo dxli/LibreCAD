@@ -57,8 +57,10 @@ class QG_ActiveLayerName;
 class QG_BlockWidget;
 class QG_CadToolBar;
 class QG_CommandWidget;
+#ifdef DEVELOPER // DEVELOPER
 class QG_Lsp_CommandWidget;
 class QG_Py_CommandWidget;
+#endif // DEVELOPER
 class QG_CoordinateWidget;
 class QG_LayerWidget;
 class LC_LayerTreeWidget;
@@ -124,8 +126,10 @@ public slots:
     void slotKillAllActions();
     void slotEnter();
     void slotFocusCommandLine();
+#ifdef DEVELOPER
     void slotFocusLspCommandLine();
     void slotFocusPyCommandLine();
+#endif // DEVELOPER
     void slotFocusOptionsWidget();
     void slotError(const QString& msg);
     void slotShowDrawingOptions();
@@ -221,8 +225,10 @@ public slots:
     void widgetOptionsDialog();
 
     void modifyCommandTitleBar(Qt::DockWidgetArea area);
+#ifdef DEVELOPER
     void modifyLspCommandTitleBar(Qt::DockWidgetArea area);
     void modifyPyCommandTitleBar(Qt::DockWidgetArea area);
+#endif
     void reloadStyleSheet();
 
     void updateGridStatus(const QString&);
@@ -249,6 +255,8 @@ public slots:
 #ifdef DEVELOPER
     void slotLoadLisp();
     void slotLoadPython();
+    void slotLibreLisp();
+    void slotLibrePython();
 #endif
 signals:
     void gridChanged(bool on);
@@ -378,10 +386,11 @@ private:
     /** Command line */
     QG_CommandWidget* commandWidget {nullptr};
     /** Lips Command line */
+#ifdef DEVELOPER
     QG_Lsp_CommandWidget* lsp_commandWidget {nullptr};
     /** Python Command line */
     QG_Py_CommandWidget* py_commandWidget {nullptr};
-
+#endif // DEVELOPER
     LC_PenWizard* pen_wiz {nullptr};
     LC_PenPaletteWidget* penPaletteWidget {nullptr};
 

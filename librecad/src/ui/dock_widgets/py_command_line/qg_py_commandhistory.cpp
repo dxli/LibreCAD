@@ -23,15 +23,17 @@
 */
 
 // -- https://github.com/LibreCAD/LibreCAD --
-
 #include "qg_py_commandhistory.h"
 #include <QAction>
 #include <QMouseEvent>
+#include <QTextBlock>
+
+#ifdef DEVELOPER
 
 // -- commandline history (output) widget --
 
-QG_Py_CommandHistory::QG_Py_CommandHistory(QWidget* parent) :
-    QTextEdit(parent){
+QG_Py_CommandHistory::QG_Py_CommandHistory(QWidget* parent) : QTextEdit(parent)
+{
     setContextMenuPolicy(Qt::ActionsContextMenu);
 
     m_pCopy = new QAction(tr("&Copy"), this);
@@ -65,3 +67,28 @@ void QG_Py_CommandHistory::slotTextChanged(){
     m_pSelectAll->setVisible(! toPlainText().isEmpty());
 }
 
+void QG_Py_CommandHistory::paintEvent(QPaintEvent *e)
+{
+    int height = this->height();
+    height -= 2 * document()->documentMargin();
+    height -= contentsMargins().top();
+    height -= contentsMargins().bottom();
+
+    QTextBlock block=document()->begin();
+    while(block.isValid())
+    {
+        auto rect=block.layout()->boundingRect();
+        height -= rect.height();
+        block=block.next();
+    }
+
+    if (height > 0) {
+        setViewportMargins(0, height, 0, 0);
+    }
+    else {
+        setViewportMargins(0, 0, 0, 0);
+    }
+    QTextEdit::paintEvent(e);
+}
+
+#endif // DEVELOPER

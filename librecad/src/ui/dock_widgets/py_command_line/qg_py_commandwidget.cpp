@@ -23,6 +23,7 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
+#include "rs_python.h"
 #include "qg_py_commandwidget.h"
 
 #include <algorithm>
@@ -32,6 +33,7 @@
 #include <QKeyEvent>
 #include <QFileDialog>
 #include <QSettings>
+#include <QTextBlock>
 
 #include "lc_application.h"
 #include "qc_applicationwindow.h"
@@ -42,6 +44,8 @@
 #include "rs_settings.h"
 #include "rs_system.h"
 #include "rs_utility.h"
+
+#ifdef DEVELOPER
 
 /*
  *  Constructs a QG_Py_CommandWidget as a child of 'parent', with the
@@ -94,6 +98,7 @@ QG_Py_CommandWidget::QG_Py_CommandWidget(QWidget* parent, const char* name, Qt::
     connect(m_docking, &QAction::triggered, this, &QG_Py_CommandWidget::dockingButtonTriggered);
 
     options_button->addAction(m_docking);
+    teHistory->setText(RS_PYTHON->Py_GetVersionString());
 }
 
 /*
@@ -124,6 +129,7 @@ bool QG_Py_CommandWidget::eventFilter(QObject */*obj*/, QEvent *event)
         switch(key) {
         case Qt::Key_Return:
         case Qt::Key_Enter:
+            teHistory->ensureCursorVisible();
             if(!leCommand->text().size())
                 return false;
             else
@@ -340,3 +346,5 @@ void QG_Py_CommandWidget::dockingButtonTriggered(bool /*docked*/)
     m_docking->setText(cmd_dockwidget->isFloating() ? tr("Dock") : tr("Float"));
     setWindowTitle(cmd_dockwidget->isFloating() ? tr("Python Command line") : tr("Python Cmd"));
 }
+
+#endif // DEVELOPER

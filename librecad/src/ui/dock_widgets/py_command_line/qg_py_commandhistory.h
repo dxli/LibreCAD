@@ -28,6 +28,8 @@
 #define QG_PY_COMMANDHISTORY_H
 #include <QTextEdit>
 
+#ifdef DEVELOPER
+
 /**
  * @brief The QG_Py_CommandHistory class holds commands and messages.
  * It's a read only textedit widget.
@@ -41,9 +43,11 @@ public:
     explicit QG_Py_CommandHistory(QWidget* parent);
 
 private slots:
-
     void mouseReleaseEvent(QMouseEvent* event) override;
 	void slotTextChanged();
+
+protected:
+    void paintEvent(QPaintEvent *e) override;
 
 private:
 	/*menu item for Copy*/
@@ -51,5 +55,7 @@ private:
 	/*menu item for Select All*/
     QAction* m_pSelectAll = nullptr;
 };
+
+#endif // DEVELOPER
 
 #endif // QG_PY_COMMANDHISTORY_H

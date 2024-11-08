@@ -40,8 +40,10 @@
 #include "qg_actionhandler.h"
 #include "qg_blockwidget.h"
 #include "qg_commandwidget.h"
+#ifdef DEVELOPER
 #include "qg_lsp_commandwidget.h"
 #include "qg_py_commandwidget.h"
+#endif // DEVELOPER
 #include "qg_layerwidget.h"
 #include "qg_librarywidget.h"
 #include "qg_pentoolbar.h"
@@ -451,7 +453,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler){
 
     connect(dock_command, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             main_window, SLOT(modifyCommandTitleBar(Qt::DockWidgetArea)));
-
+#ifdef DEVELOPER
     auto* lsp_dock_command = new QDockWidget(tr("Lisp Command line"), main_window);
     lsp_dock_command->setObjectName("lsp_command_dockwidget");
     lsp_command_widget = new QG_Lsp_CommandWidget(lsp_dock_command, "Lisp Command");
@@ -473,7 +475,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler){
 
     connect(py_dock_command, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             main_window, SLOT(modifyPyCommandTitleBar(Qt::DockWidgetArea)));
-
+#endif // DEVELOPER
     main_window->setDockOptions(QMainWindow::AnimatedDocks
                                 | QMainWindow::AllowTabbedDocks );
 
@@ -487,12 +489,13 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler){
     }
     main_window->addDockWidget(Qt::RightDockWidgetArea, dock_command);
     command_widget->getDockingAction()->setText(dock_command->isFloating() ? tr("Dock") : tr("Float"));
-
+#ifdef DEVELOPER
     main_window->addDockWidget(Qt::RightDockWidgetArea, lsp_dock_command);
     lsp_command_widget->getDockingAction()->setText(lsp_dock_command->isFloating() ? tr("Dock") : tr("Float"));
 
     main_window->addDockWidget(Qt::RightDockWidgetArea, py_dock_command);
     py_command_widget->getDockingAction()->setText(py_dock_command->isFloating() ? tr("Dock") : tr("Float"));
+#endif // DEVELOPER
 }
 
 void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler){
@@ -627,8 +630,11 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar){
     dev_menu = menu(tr("&Developer"),"developer", menu_bar);
     dev_menu->addSeparator();
     dev_menu->addAction(ag_manager->getActionByName("LoadLisp"));
+    dev_menu->addAction(ag_manager->getActionByName("LibreLisp"));
+    dev_menu->addSeparator();
     dev_menu->addAction(ag_manager->getActionByName("LoadPython"));
-#endif
+    dev_menu->addAction(ag_manager->getActionByName("LibrePython"));
+#endif // DEVELOPER
     subMenu(file_menu, tr("Import"),"import", ":/icons/import.svg", {
         "DrawImage",
         "BlocksImport"

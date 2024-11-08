@@ -23,20 +23,30 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-
+#include "rs_python.h"
 #include "qg_py_commandedit.h"
 
 #include <QApplication>
 #include <QClipboard>
 #include <QFile>
+#include <QDir>
 #include <QKeyEvent>
 #include <QRegularExpression>
 #include <QTextStream>
+#include <QDebug>
 
 #include "rs_commands.h"
 #include "rs_dialogfactory.h"
 #include "rs_math.h"
 #include "rs_settings.h"
+
+#include <iostream>
+#include <fstream>
+#include <cstdio>
+#include <stdio.h>
+#include <unistd.h>
+
+#ifdef DEVELOPER
 
 namespace {
 // Limits for command file reading
@@ -44,7 +54,6 @@ namespace {
 constexpr unsigned g_maxLinesToRead = 10240;
 // the maximum line length allowed
 constexpr unsigned g_maxLineLength = 4096;
-
 }
 
 /**
@@ -56,13 +65,12 @@ QG_Py_CommandEdit::QG_Py_CommandEdit(QWidget* parent)
     , keycode_mode(false)
     , relative_ray("none")
     , calculator_mode(false)
-
+    , m_path(QDir(QDir::homePath() + QDir::separator() + ".py-history-librecad").absolutePath())
 {
     setStyleSheet("selection-color: white; selection-background-color: green;");
     setFrame(false);
     setFocusPolicy(Qt::StrongFocus);
     prombt();
-    //connect(this, SIGNAL(selectionChanged()), this, SLOT(positionChanged()));
 
     QObject::connect(
         this,
@@ -74,6 +82,45 @@ QG_Py_CommandEdit::QG_Py_CommandEdit(QWidget* parent)
                 setCursorPosition(prombtSize());
             }
         });
+    readHistoryFile();
+}
+
+void QG_Py_CommandEdit::readHistoryFile()
+{
+    m_histFile.setFileName(m_path);
+
+    if (m_histFile.open(QIODevice::ReadOnly | QIODevice::Text | QIODevice::ReadWrite))
+    {
+        m_histFileStream.setDevice(&m_histFile);
+        while (!m_histFileStream.atEnd())
+        {
+            historyList.append(m_histFileStream.readLine());
+        }
+        it = historyList.end();
+    }
+    m_histFile.close();
+}
+
+void QG_Py_CommandEdit::writeHistoryFile()
+{
+    m_histFile.setFileName(m_path);
+
+    if (m_histFile.open(QIODevice::ReadWrite)) {
+
+        m_histFileStream.setDevice(&m_histFile);
+
+        for (const auto& i : historyList) {
+            m_histFileStream << i << "\n";
+        }
+        m_histFile.flush();
+        m_histFile.close();
+    }
+}
+
+QString QG_Py_CommandEdit::text() const
+{
+    QString str = QLineEdit::text();
+    return (QLineEdit::text().size() >= prombtSize()) ? str.remove(0, prombtSize()) : QLineEdit::text();
 }
 
 /**
@@ -94,7 +141,7 @@ void QG_Py_CommandEdit::keyPressEvent(QKeyEvent* e)
         if (!historyList.isEmpty() && it > historyList.begin())
         {
             it--;
-            setText(*it);
+            setText(prom + *it);
         }
         break;
 
@@ -103,12 +150,18 @@ void QG_Py_CommandEdit::keyPressEvent(QKeyEvent* e)
         {
             it++;
             if (it<historyList.end()) {
-                setText(*it);
+                setText(prom + *it);
             }
             else {
-                setText("");
-                //prombt();
+                prombt();
             }
+        }
+        break;
+
+    case Qt::Key_Backspace:
+        if (QLineEdit::text().size() > prombtSize())
+        {
+            QLineEdit::keyPressEvent(e);
         }
         break;
 
@@ -121,7 +174,7 @@ void QG_Py_CommandEdit::keyPressEvent(QKeyEvent* e)
             emit escape();
         }
         else {
-            setText("");
+            prombt();
         }
         break;
     default:
@@ -138,11 +191,9 @@ void QG_Py_CommandEdit::keyPressEvent(QKeyEvent* e)
             emit keycode(input);
         }
     }
-
 }
 
 void QG_Py_CommandEdit::focusInEvent(QFocusEvent *e) {
-    qDebug() << __func__;
     emit focusIn();
     QLineEdit::focusInEvent(e);
 }
@@ -154,18 +205,32 @@ void QG_Py_CommandEdit::focusOutEvent(QFocusEvent *e) {
 
 void QG_Py_CommandEdit::processInput(QString input)
 {
-    if (input != "")
+    if (input.size() == 0)
     {
-        historyList.append(input);
         it = historyList.end();
-        emit message(input);
+        emit message(prom);
         prombt();
     }
-    else
-    {
-        historyList.append("\n");
+    else {
+        QString buffer_out = "";
+        QString buffer_err = "";
+
+        RS_PYTHON->runCommand(input, buffer_out, buffer_err);
+        historyList.append(input);
+
         it = historyList.end();
-        emit message("\n");
+        emit message(prom + input);
+        qInfo() << qUtf8Printable(prom + input);
+        if (buffer_out.compare("") != 0) {
+            const QString out = buffer_out.remove(buffer_out.size()-1,1);
+            emit message(out);
+            qInfo() << qUtf8Printable(out);
+        }
+        if (buffer_err.compare("") != 0) {
+            const QString err = buffer_err.remove(buffer_err.size()-1,1);
+            emit message(err);
+            qInfo() << qUtf8Printable(err);
+        }
         prombt();
     }
     //return cmd;
@@ -218,3 +283,5 @@ void QG_Py_CommandEdit::modifiedPaste()
     txt.replace("\n", ";");
     setText(txt);
 }
+
+#endif // DEVELOPER

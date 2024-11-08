@@ -28,7 +28,7 @@
 **********************************************************************/
 
 // Changes: https://github.com/LibreCAD/LibreCAD/commits/master/librecad/src/main/qc_applicationwindow.cpp
-
+#include "rs_python.h"
 #include "qc_applicationwindow.h"
 
 #include <QByteArray>
@@ -88,8 +88,10 @@
 #include "qg_activelayername.h"
 #include "qg_blockwidget.h"
 #include "qg_commandwidget.h"
+#ifdef DEVELOPER
 #include "qg_lsp_commandwidget.h"
 #include "qg_py_commandwidget.h"
+#endif // DEVELOPER
 #include "qg_coordinatewidget.h"
 #include "qg_dlgimageoptions.h"
 #include "qg_exitdialog.h"
@@ -106,6 +108,10 @@
 #include "lc_releasechecker.h"
 #include "lc_dlgnewversionavailable.h"
 #include "lc_dlgabout.h"
+#ifdef DEVELOPER
+#include "librelisp.h"
+#include "librepython.h"
+#endif
 
 #ifndef QC_APP_ICON
 # define QC_APP_ICON ":/main/librecad.png"
@@ -2767,7 +2773,7 @@ void QC_ApplicationWindow::modifyCommandTitleBar(Qt::DockWidgetArea area) {
     if (docked) features |= QDockWidget::DockWidgetVerticalTitleBar;
     cmdDockWidget->setFeatures(features);
 }
-
+#ifdef DEVELOPER
 void QC_ApplicationWindow::modifyLspCommandTitleBar(Qt::DockWidgetArea area) {
 
     auto *lsp_cmdDockWidget = findChild<QDockWidget *>("lsp_command_dockwidget");
@@ -2803,7 +2809,7 @@ void QC_ApplicationWindow::modifyPyCommandTitleBar(Qt::DockWidgetArea area) {
     if (docked) features |= QDockWidget::DockWidgetVerticalTitleBar;
     py_cmdDockWidget->setFeatures(features);
 }
-
+#endif // DEVELOPER
 bool QC_ApplicationWindow::loadStyleSheet(QString path) {
     // author: ravas
 
@@ -3224,7 +3230,7 @@ void QC_ApplicationWindow::slotRedockWidgets() {
  * Menu Developer -> load LISP.
  */
 void QC_ApplicationWindow::slotLoadLisp() {
-    RS_DEBUG->print("QC_ApplicationWindow::slotLoadLisp()");
+    RS_DEBUG->print(__func__);
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Lisp File"),
                                                     "",
@@ -3233,13 +3239,34 @@ void QC_ApplicationWindow::slotLoadLisp() {
 }
 
 /**
+ * Menu Developer -> LibreLisp Editor.
+ */
+void QC_ApplicationWindow::slotLibreLisp() {
+    RS_DEBUG->print(__func__);
+    LibreLisp *l = new LibreLisp(this);
+    l->show();
+}
+
+/**
  * Menu Developer -> load Python.
  */
 void QC_ApplicationWindow::slotLoadPython() {
-    RS_DEBUG->print("QC_ApplicationWindow::slotLoadPython()");
+    RS_DEBUG->print(__func__);
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Python File"),
                                                     "",
                                                     tr("Python files (*.py *.pyc)"));
 
+    if (fileName.compare("") != 0) {
+        RS_PYTHON->runFile(fileName);
+    }
 }
-#endif
+
+/**
+ * Menu Developer -> LibrePython Editor.
+ */
+void QC_ApplicationWindow::slotLibrePython() {
+    RS_DEBUG->print(__func__);
+    LibrePython *p = new LibrePython(this);
+    p->show();
+}
+#endif // DEVELOPER

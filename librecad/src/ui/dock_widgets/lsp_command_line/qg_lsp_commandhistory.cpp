@@ -27,6 +27,9 @@
 #include "qg_lsp_commandhistory.h"
 #include <QAction>
 #include <QMouseEvent>
+#include <QTextBlock>
+
+#ifdef DEVELOPER
 
 // -- commandline history (output) widget --
 
@@ -65,3 +68,28 @@ void QG_Lsp_CommandHistory::slotTextChanged(){
     m_pSelectAll->setVisible(! toPlainText().isEmpty());
 }
 
+void QG_Lsp_CommandHistory::paintEvent(QPaintEvent *e)
+{
+    int height = this->height();
+    height -= 2 * document()->documentMargin();
+    height -= contentsMargins().top();
+    height -= contentsMargins().bottom();
+
+    QTextBlock block=document()->begin();
+    while(block.isValid())
+    {
+        auto rect=block.layout()->boundingRect();
+        height -= rect.height();
+        block=block.next();
+    }
+
+    if (height > 0) {
+        setViewportMargins(0, height, 0, 0);
+    }
+    else {
+        setViewportMargins(0, 0, 0, 0);
+    }
+    QTextEdit::paintEvent(e);
+}
+
+#endif // DEVELOPER
