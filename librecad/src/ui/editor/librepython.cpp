@@ -32,14 +32,13 @@ void LibrePython::closeEvent(QCloseEvent *event)
 
 void LibrePython::docVisibilityChanged(bool visible)
 {
-    qDebug() << __func__ << visible;
     setCmdWidgetChecked(visible);
 }
 
 void LibrePython::run()
 {
-    save();
-    RS_PYTHON->runFile(path());
+    QString code = toPlainText();
+    commandWidget->processInput(code);
 }
 
 void LibrePython::loadScript()

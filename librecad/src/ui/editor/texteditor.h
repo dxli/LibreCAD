@@ -27,6 +27,7 @@ public:
     void save();
     void saveAs();
     void printer();
+    bool firstSave() const { return m_firstSave; }
 
     QString path() const { return m_fileName; }
 
@@ -64,7 +65,6 @@ private:
     void removeHighlighter();
 
     void setFirstSave(bool state) { m_firstSave = state; }
-    bool firstSave() const { return m_firstSave; }
     void saveFileContent(const QByteArray &fileContent, const QString &fileNameHint);
 };
 

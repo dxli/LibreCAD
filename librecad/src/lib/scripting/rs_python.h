@@ -79,17 +79,18 @@ public:
 
     QString Py_GetVersionString() const { return QString("LibrePython ") + QString(Py_GetVersion()) + QString(" ") + QString(ONHOST); }
 
+    int addSysPath(const QString& path);
     int runCommand(const QString& command, QString& buf_out, QString& buf_err);
     int runFile(const QString& name);
-    int execute(const QString& pythonfile, const QString& funcname);
     int evalString(const QString& command, QString& result);
     int evalInteger(const QString& command, int& result);
     int evalFloat(const QString& command, double& result);
     int evalVector(const QString& command, v3_t& vec);
     int runString(const QString& str);
     int fflush(const QString& stream);
-    int runModulFunc(const QString& mod, const QString& func);
-    int execModule(const QString& module, const QString& func);
+    int runModulFunc(const QString& module, const QString& func);
+    int execFileFunc(const QString& file, const QString& func);
+    int execModuleFunc(const QString& module, const QString& func);
 
 private:
     RS_Python();
@@ -97,10 +98,8 @@ private:
     RS_Graphic* graphic;
     PyObject* m_pGlobalMain;
     PyObject* m_pGlobalDict;
-    PyObject* m_pSyspath;
     PyObject* globalMain() { return m_pGlobalMain; }
-    PyObject* globalDict() { return m_pGlobalDict; }
-    PyObject* Py_SysPath() { return m_pSyspath; }
+    PyObject* Py_GlobalDict() { return m_pGlobalDict; }
 };
 
 #endif // RS_OPT_PYTHON

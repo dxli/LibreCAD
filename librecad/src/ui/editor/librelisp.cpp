@@ -38,8 +38,8 @@ void LibreLisp::docVisibilityChanged(bool visible)
 
 void LibreLisp::run()
 {
-    save();
-    RS_LISP->runFile(path());
+    QString code = toPlainText();
+    commandWidget->processInput(code);
 }
 
 void LibreLisp::loadScript()

@@ -155,6 +155,16 @@ void Librepad::setCmdWidgetChecked(bool val)
     ui->actionCmdDock->setChecked(val);
 }
 
+QString Librepad::toPlainText() const
+{
+    TextEditor *editor = dynamic_cast<TextEditor *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
+    if (editor == nullptr)
+    {
+        return "";
+    }
+    return editor->toPlainText();
+}
+
 void Librepad::reload()
 {
     TextEditor *editor = dynamic_cast<TextEditor *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
@@ -164,6 +174,7 @@ void Librepad::reload()
     }
     editor->reload();
 }
+
 
 void Librepad::redo()
 {
@@ -376,6 +387,8 @@ void Librepad::saveAs()
         return;
     }
     editor->saveAs();
+    qDebug() << __func__ << editor->path();
+    m_fileName = editor->path();
     writeRecentSettings(editor->path());
     setWindowTitle(editor->fileName());
 }
@@ -405,6 +418,17 @@ void Librepad::setFont()
         writeFontSettings();
         editor->setFont(font);
     }
+}
+
+bool Librepad::firstSave() const
+{
+    TextEditor *editor = dynamic_cast<TextEditor *>(ui->tabWidget->widget(ui->tabWidget->currentIndex()));
+    if (editor == nullptr)
+    {
+        return false;
+    }
+
+    return editor->firstSave();
 }
 
 void Librepad::about()

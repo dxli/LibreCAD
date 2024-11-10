@@ -367,12 +367,11 @@ RS_Python::RS_Python()
 
     Py_Initialize();
 
-    //PyImport_ImportModule("sys");
+    addSysPath(".");
+
     PyImport_ImportModule("emb");
-    //PyRun_SimpleString("sys.path.append(\".\")");
     m_pGlobalMain = PyImport_AddModule("__main__");
     PyModule_AddStringConstant(globalMain(), "__file__", "");
-    //m_pSyspath = PySys_GetObject((char*)"path");
     m_pGlobalDict = PyModule_GetDict(globalMain());
     Py_INCREF(m_pGlobalDict);
 
@@ -382,25 +381,51 @@ RS_Python::RS_Python()
 RS_Python::~RS_Python()
 {
     qInfo() << "[RS_Python::~RS_Python] Py_FinalizeEx";
+    Py_XDECREF(m_pGlobalDict);
     Py_FinalizeEx();
 }
-# if 0
-void RS_Python::addToSyspath(const QString& path)
-{
-    PyObject* pyPathString = PyBytes_FromString(path.toStdString());
-    PyList_Append(Py_SysPath(), pyPathString);
 
-    // We must decrement because, unlike PyList_SetItem, PyList_Append
-    // does not "steal" the reference we pass to it. So this:
-    //
-    // PyList_Append(this->pySysPath, PyBytes_FromString(path.c_str()));
-    //
-    // leaks memory. So we need to save the reference as above and
-    // decrement it, as below.
-    //
-    Py_DECREF(pyPathString);
+int RS_Python::addSysPath(const QString& path)
+{
+    // ADD ME TO runFile
+    PyObject *pSysModule = PyImport_ImportModule("sys");
+    if (!pSysModule) {
+        PyErr_Print();
+        PyErr_Clear();
+        return -1;
+    }
+
+    PyObject *pPyPath = PyObject_GetAttrString(pSysModule, "path");
+    if (!pPyPath) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pSysModule);
+        return -1;
+    }
+    Py_XDECREF(pSysModule);
+
+    PyObject *pFunc = PyObject_GetAttrString(pPyPath, "append");
+    if (!pFunc) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pPyPath);
+        return -1;
+    }
+    Py_XDECREF(pPyPath);
+
+    PyObject *pRes = PyObject_CallFunction(pFunc, "s", qUtf8Printable(path));
+    if (!pRes)
+    {
+        Py_XDECREF(pFunc);
+        PyErr_Print();
+        PyErr_Clear();
+        return -1;
+    }
+    Py_XDECREF(pFunc);
+    Py_XDECREF(pRes);
+
+    return 0;
 }
-#endif
 
 /**
  * to fflush print to stdout.
@@ -411,11 +436,10 @@ int RS_Python::fflush(const QString& stream)
     QString com = "sys." + stream + ".flush()";
     int ret = PyRun_SimpleString(qUtf8Printable(com));
 
-    if (PyErr_Occurred())
-    {
+    if (PyErr_Occurred()) {
         PyErr_Print();
         PyErr_Clear();
-        return 1;
+        return -1;
     }
 
     return ret;
@@ -434,13 +458,11 @@ int RS_Python::runFile(const QString& name)
         return -1;
     }
 
-    if (globalDict() == NULL) {
+    if (Py_GlobalDict() == NULL) {
         qCritical() << "[RS_Python::runCommand] can not load dict of __main__";
         return -1;
     }
 
-    PyObject* pLocalDict = PyDict_New();
-    PyObject* pRes;
     std::string buffer_err;
     std::string buffer_out;
     {
@@ -450,10 +472,10 @@ int RS_Python::runFile(const QString& name)
         emb::stderr_write_type write_err = [&buffer_err] (std::string s) { buffer_err += s; };
         emb::set_stderr(write_err);
 
-        pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, globalDict(), pLocalDict);
+        PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, Py_GlobalDict(), Py_GlobalDict());
         PyRun_SimpleString("\n");
 
-        if(pRes == nullptr) {
+        if(!pRes) {
             PyErr_Print();
             PyErr_Clear(); //and clear them !
 
@@ -473,10 +495,10 @@ int RS_Python::runFile(const QString& name)
             qCritical() << buffer_err.c_str();
             return -1;
         }
+        Py_XDECREF(pRes);
     }
 
     fclose(fp);
-    Py_XDECREF(pRes);
 
     emb::reset_stdout();
     emb::reset_stderr();
@@ -489,11 +511,9 @@ int RS_Python::runFile(const QString& name)
 /**
  * Launches the a function from a module.
  */
-int RS_Python::runModulFunc(const QString& mod, const QString& func)
+int RS_Python::runModulFunc(const QString& module, const QString& func)
 {
-    QString com = mod + "." + func + "()";
-
-    return runString(com);
+    return runString(module + "." + func + "()");
 }
 
 /**
@@ -508,7 +528,7 @@ int RS_Python::runString(const QString& str)
     {
         PyErr_Print();
         PyErr_Clear();
-        return 1;
+        return -1;
     }
 
     fflush("stdout");
@@ -523,13 +543,12 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
 {
     //qDebug() << "[RS_Python::runCommand]" << command;
 
-    if (globalDict() == NULL) {
+    if (Py_GlobalDict() == NULL) {
         qCritical() << "[RS_Python::runCommand] can not load dict of __main__";
         return -1;
     }
 
-    PyObject* pLocalDict = PyDict_New();
-    PyObject* pRes;
+    QString result = "";
     std::string buffer_err;
     std::string buffer_out;
     {
@@ -539,10 +558,13 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
         emb::stderr_write_type write_err = [&buffer_err] (std::string s) { buffer_err += s; };
         emb::set_stderr(write_err);
 
-        pRes = PyRun_String(qUtf8Printable(command), Py_single_input, globalDict(), pLocalDict);
+#if 0
+        // Run as string
+        PyObject* pRes = PyRun_String(qUtf8Printable(command), Py_single_input, Py_GlobalDict(), Py_GlobalDict());
         PyRun_SimpleString("\n");
 
-        if(pRes == nullptr) {
+        if(!pRes)
+        {
             PyErr_Print();
             PyErr_Clear(); //and clear them !
 
@@ -553,15 +575,58 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
             buf_err = buffer_err.c_str();
             return -1;
         }
-    }
+        Py_XDECREF(pRes);
+#else
+        // Compile as an expression
+        //PyObject* pCode = Py_CompileStringExFlags(qUtf8Printable(command), "<string>", Py_eval_input, nullptr, -1);
+        PyObject* pCode = Py_CompileString(qUtf8Printable(command), "<stdin>", Py_single_input);
+        if(!pCode || PyErr_Occurred())
+        {
+            PyErr_Clear(); //and clear them !
+            PyRun_SimpleString(qUtf8Printable(command));
+            qDebug() << "!pCode || PyErr_Occurred() PyRun_SimpleString";
+        }
 
-    Py_XDECREF(pRes);
+        else
+        {
+            PyObject* pRes = PyEval_EvalCode(pCode, Py_GlobalDict(), Py_GlobalDict());
+            if (!pRes)
+            {
+                PyErr_Print();
+                PyErr_Clear(); //and clear them !
+                Py_XDECREF(pCode);
+                return -1;
+            }
+            if (PyErr_Occurred()) //-V560 is always false: PyErr_Occurred()
+            {
+                PyErr_Print();
+                PyErr_Clear(); //and clear them !
+            }
+            Py_XDECREF(pCode);
+
+            if (pRes != Py_None)
+            {
+                if(PyUnicode_Check(pRes))
+                {
+                    result = QString::fromUtf8(PyUnicode_AsUTF8(pRes));
+                }
+            }
+            else
+            {
+                result = QString("None");
+            }
+             Py_XDECREF(pRes);
+        }
+#endif
+    }
 
     emb::reset_stdout();
     emb::reset_stderr();
 
     buf_out = buffer_out.c_str();
     buf_err = buffer_err.c_str();
+
+    //qDebug() << __func__ << "result:" << result;
 
     return 0;
 }
@@ -571,37 +636,40 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
  */
 int RS_Python::evalString(const QString& command, QString& result)
 {
-    PyObject *pLocalDict = PyDict_New();
-    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, globalDict(), pLocalDict);
-    if (PyErr_Occurred())
+    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, Py_GlobalDict(), PyDict_New());
+    if (!pRes)
     {
         PyErr_Print();
         PyErr_Clear();
         return -1;
     }
 
-    const bool success = nullptr != pRes;
-
-    if (success) {
-        // is it None?
-        if (pRes == Py_None)
-        {
-            result = QString("None");
-            Py_XDECREF(pRes);
-            return 0;
-        }
-        // check whether the object is already a unicode string
-        if(PyUnicode_Check(pRes))
-        {
-            result = QString::fromUtf8(PyUnicode_AsUTF8(pRes));
-            Py_XDECREF(pRes);
-            return 0;
-        }
-        result = QStringLiteral( "(conversion error)" );
+    if (PyErr_Occurred())
+    {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pRes);
+        return -1;
     }
+
+    if (pRes == Py_None)
+    {
+        result = QString("None");
+        Py_XDECREF(pRes);
+        return 0;
+    }
+
+    // check whether the object is already a unicode string
+    if(PyUnicode_Check(pRes))
+    {
+        result = QString::fromUtf8(PyUnicode_AsUTF8(pRes));
+        Py_XDECREF(pRes);
+        return 0;
+    }
+    result = QStringLiteral( "< conversion error >" );
     Py_XDECREF(pRes);
 
-    return success ? 0 : -1;
+    return -1;
 }
 
 /**
@@ -609,36 +677,38 @@ int RS_Python::evalString(const QString& command, QString& result)
  */
 int RS_Python::evalInteger(const QString& command, int& result)
 {
-    PyObject *pLocalDict = PyDict_New();
-    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, globalDict(), pLocalDict);
-    if (PyErr_Occurred())
+    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, Py_GlobalDict(), PyDict_New());
+    if (!pRes)
     {
         PyErr_Print();
         PyErr_Clear();
         return -1;
     }
-    const bool success = nullptr != pRes;
 
-    if (success) {
-        // is it None?
-        if (pRes == Py_None)
-        {
-            Py_XDECREF(pRes);
-            return -1;
-        }
-        // check whether the object is already a long
-        if(PyLong_Check(pRes))
-        {
-            result = PyLong_AsLong(pRes);
-            Py_XDECREF(pRes);
-            return 0;
-        }
+    if (PyErr_Occurred())
+    {
+        PyErr_Print();
+        PyErr_Clear();
         Py_XDECREF(pRes);
         return -1;
     }
+
+    if (pRes == Py_None)
+    {
+        Py_XDECREF(pRes);
+        return -1;
+    }
+
+    // check whether the object is already a long
+    if(PyLong_Check(pRes))
+    {
+        result = PyLong_AsLong(pRes);
+        Py_XDECREF(pRes);
+        return 0;
+    }
     Py_XDECREF(pRes);
 
-    return success ? 0 : -1;
+    return -1;
 }
 
 /**
@@ -646,37 +716,38 @@ int RS_Python::evalInteger(const QString& command, int& result)
  */
 int RS_Python::evalFloat(const QString& command, double& result)
 {
-    PyObject *pLocalDict = PyDict_New();
-    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, globalDict(), pLocalDict);
-    if (PyErr_Occurred())
+    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, Py_GlobalDict(), PyDict_New());
+    if (!pRes)
     {
         PyErr_Print();
         PyErr_Clear();
         return -1;
     }
 
-    const bool success = nullptr != pRes;
-
-    if (success) {
-        // is it None?
-        if (pRes == Py_None)
-        {
-            Py_XDECREF(pRes);
-            return -1;
-        }
-        // check whether the object is already a long
-        if(PyFloat_Check(pRes))
-        {
-            result = PyFloat_AsDouble(pRes);
-            Py_XDECREF(pRes);
-            return 0;
-        }
+    if (PyErr_Occurred())
+    {
+        PyErr_Print();
+        PyErr_Clear();
         Py_XDECREF(pRes);
         return -1;
     }
+
+    if (pRes == Py_None)
+    {
+        Py_XDECREF(pRes);
+        return -1;
+    }
+
+    // check whether the object is already a long
+    if(PyFloat_Check(pRes))
+    {
+        result = PyFloat_AsDouble(pRes);
+        Py_XDECREF(pRes);
+        return 0;
+    }
     Py_XDECREF(pRes);
 
-    return success ? 0 : -1;
+    return -1;
 }
 
 /**
@@ -684,192 +755,245 @@ int RS_Python::evalFloat(const QString& command, double& result)
  */
 int RS_Python::evalVector(const QString& command, v3_t& vec)
 {
-    PyObject *pLocalDict = PyDict_New();
-    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, globalDict(), pLocalDict);
-    const bool success = nullptr != pRes;
-
-    if (success) {
-        // is it None?
-        if (pRes == Py_None)
-        {
-            Py_XDECREF(pRes);
-            return -1;
-        }
-        // check whether the object is already a long
-        if(PyTuple_Check(pRes) && PyTuple_CheckExact(pRes))
-        {
-            if (PyTuple_Size(pRes) >= 2)
-            {
-                PyObject *pResX = PySequence_GetItem(pRes, 0);
-                if(PyFloat_Check(pResX))
-                {
-                    vec.x = PyFloat_AsDouble(pResX);
-                    Py_XDECREF(pResX);
-                }
-                else {
-                    Py_XDECREF(pRes);
-                    Py_XDECREF(pResX);
-                    return -1;
-                }
-
-                PyObject *pResY = PySequence_GetItem(pRes, 1);
-                if(PyFloat_Check(pResY))
-                {
-                    vec.y = PyFloat_AsDouble(pResY);
-                    Py_XDECREF(pResY);
-                }
-                else {
-                    Py_XDECREF(pRes);
-                    Py_XDECREF(pResY);
-                    return -1;
-                }
-            }
-            if (PyTuple_Size(pRes) == 3)
-            {
-                PyObject *pResZ = PySequence_GetItem(pRes, 2);
-                if(PyFloat_Check(pResZ))
-                {
-                    vec.z = PyFloat_AsDouble(pResZ);
-                    Py_XDECREF(pResZ);
-                }
-                else {
-                    Py_XDECREF(pRes);
-                    Py_XDECREF(pResZ);
-                    return -1;
-                }
-            }
-        }
+    PyObject *pRes = PyRun_String(command.toUtf8().constData(), Py_eval_input, Py_GlobalDict(), PyDict_New());
+    if (!pRes)
+    {
+        PyErr_Print();
+        PyErr_Clear();
+        return -1;
     }
-    Py_XDECREF(pRes);
 
     if (PyErr_Occurred())
     {
         PyErr_Print();
         PyErr_Clear();
+        Py_XDECREF(pRes);
         return -1;
     }
 
-    return success ? 0 : -1;
-}
-
-int RS_Python::execute(const QString& pythonfile, const QString& funcname)
-{
-    PyObject *pName, *pModule, *pFunc, *pArgs, *pValue;
-
-    pName = PyUnicode_FromString(qUtf8Printable(pythonfile));
-    pModule = PyImport_Import(pName);
-    Py_DECREF(pName);
-
-    if (pModule)
+    if (pRes == Py_None)
     {
-        pFunc = PyObject_GetAttrString(pModule, qUtf8Printable(funcname));
+        Py_XDECREF(pRes);
+        return -1;
+    }
 
-        if (pFunc && PyCallable_Check(pFunc))
+    // check whether the object is already a tuple
+    if(PyTuple_Check(pRes) && PyTuple_CheckExact(pRes))
+    {
+        if (PyTuple_Size(pRes) >= 2)
         {
-            qDebug() << "[RS_Python::execute] file:" << pythonfile << "func:" <<funcname;
-            pArgs = PyTuple_New(0);
-            //pValue = PyEval_CallObject(pFunc, pArgs);
-            pValue = PyObject_CallObject(pFunc, pArgs);
-            Py_DECREF(pArgs);
-
-            if (pValue)
-            {
-                qInfo() << "[RS_Python::execute] result of call:" << PyLong_AsLong(pValue);
-                Py_DECREF(pValue);
-            }
-            else
+            PyObject *pResX = PySequence_GetItem(pRes, 0);
+            if (!pResX)
             {
                 PyErr_Print();
                 PyErr_Clear();
-                return 1;
+                Py_XDECREF(pRes);
+                return -1;
             }
-            Py_DECREF(pFunc);
+            if (PyErr_Occurred())
+            {
+                PyErr_Print();
+                PyErr_Clear();
+                Py_XDECREF(pResX);
+                return -1;
+            }
+            if(PyFloat_Check(pResX))
+            {
+                vec.x = PyFloat_AsDouble(pResX);
+                Py_XDECREF(pResX);
+            }
+            else {
+                Py_XDECREF(pRes);
+                Py_XDECREF(pResX);
+                return -1;
+            }
+
+            PyObject *pResY = PySequence_GetItem(pRes, 1);
+            if (!pResY)
+            {
+                PyErr_Print();
+                PyErr_Clear();
+                Py_XDECREF(pRes);
+                return -1;
+            }
+            if (PyErr_Occurred())
+            {
+                PyErr_Print();
+                PyErr_Clear();
+                Py_XDECREF(pResY);
+                return -1;
+            }
+            if(PyFloat_Check(pResY))
+            {
+                vec.y = PyFloat_AsDouble(pResY);
+                Py_XDECREF(pResY);
+            }
+            else {
+                Py_XDECREF(pRes);
+                Py_XDECREF(pResY);
+                return -1;
+            }
         }
-        else
+        if (PyTuple_Size(pRes) == 3)
         {
-            PyErr_Print();
-            PyErr_Clear();
-            return -1;
+            PyObject *pResZ = PySequence_GetItem(pRes, 2);
+            if (!pResZ)
+            {
+                PyErr_Print();
+                PyErr_Clear();
+                Py_XDECREF(pRes);
+                return -1;
+            }
+            if (PyErr_Occurred())
+            {
+                PyErr_Print();
+                PyErr_Clear();
+                Py_XDECREF(pResZ);
+                return -1;
+            }
+            if(PyFloat_Check(pResZ))
+            {
+                vec.z = PyFloat_AsDouble(pResZ);
+                Py_XDECREF(pResZ);
+            }
+            else {
+                Py_XDECREF(pRes);
+                Py_XDECREF(pResZ);
+                return -1;
+            }
         }
-        Py_DECREF(pModule);
     }
-    else
-    {
+
+    Py_XDECREF(pRes);
+    return -1;
+}
+
+int RS_Python::execFileFunc(const QString& file, const QString& func)
+{
+    qDebug() << "[RS_Python::execFileFunc] file:" << file << "func:" << func;
+
+    PyObject *pName = PyUnicode_FromString(qUtf8Printable(file));
+    if (!pName) {
         PyErr_Print();
         PyErr_Clear();
         return -1;
     }
+
+    PyObject *pModule = PyImport_Import(pName);
+    if (!pModule) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pName);
+        return -1;
+    }
+    Py_XDECREF(pName);
+
+    PyObject *pFunc = PyObject_GetAttrString(pModule, qUtf8Printable(func));
+    if (!pFunc) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pModule);
+        return -1;
+    }
+    Py_XDECREF(pModule);
+
+    if (PyCallable_Check(pFunc) == 0) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        return -1;
+    }
+
+    PyObject *pArgs = PyTuple_New(0);
+    PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
+    if (!pValue) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        Py_XDECREF(pArgs);
+        return -1;
+    }
+    if (PyErr_Occurred())
+    {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        Py_XDECREF(pArgs);
+        Py_XDECREF(pValue);
+        return -1;
+    }
+
+    Py_XDECREF(pFunc);
+    Py_XDECREF(pArgs);
+
+    qInfo() << "[RS_Python::execFileFunc] result of call:" << PyLong_AsLong(pValue);
+
+    Py_XDECREF(pValue);
 
     return 0;
 }
 
-int RS_Python::execModule(const QString& module, const QString& func)
+int RS_Python::execModuleFunc(const QString& module, const QString& func)
 {
-    qDebug() << "[RS_Python::execModule] module:" << module << "func:" << func;
-    PyObject *pModule, *pDict, *pFunc, *pArgs, *pValue;
-#if 1
-    pModule = PyImport_ImportModule(qUtf8Printable(module));
+    qDebug() << "[RS_Python::execModuleFunc] module:" << module << "func:" << func;
 
-    if (pModule)
-    {
-        pDict = PyModule_GetDict(pModule);
-
-        if (pDict)
-        {
-            pFunc = PyDict_GetItemString(pDict, qUtf8Printable(func));
-            //Py_XDECREF(pDict);
-
-            if (pFunc && PyCallable_Check(pFunc))
-            {
-                qInfo() << "[RS_Python::execModule] pFunc && PyCallable_Check(pFunc)";
-
-                pArgs = Py_BuildValue("(ss)", "spam", "eggs");
-                //pValue = PyEval_CallObjectWithKeywords(pFunc, pArgs, (PyObject*) NULL);
-                pValue = PyObject_CallObject(pFunc, pArgs);
-                Py_XDECREF(pFunc);
-                Py_XDECREF(pArgs);
-
-                if (pValue)
-                {
-                    Py_XINCREF(pValue);
-                    char str[1024];
-                    //int rc = PyArg_Parse(pValue, "s", &str);
-                    Py_XDECREF(pValue);
-                    Py_XDECREF(pModule);
-
-                    qInfo() << "RS_Python::execModule Result of call:" << str;
-                }
-                else
-                {
-                    Py_XDECREF(pModule);
-                    PyErr_Print();
-                    PyErr_Clear();
-                    return -1;
-                }
-            }
-            else
-            {
-                PyErr_Print();
-                PyErr_Clear();
-                return -1;
-            }
-        }
-        else
-        {
-            Py_XDECREF(pModule);
-            PyErr_Print();
-            PyErr_Clear();
-            return -1;
-        }
-        Py_XDECREF(pModule);
-    }
-    else
-    {
+    PyObject *pModule = PyImport_ImportModule(qUtf8Printable(module));
+    if (!pModule) {
         PyErr_Print();
         PyErr_Clear();
         return -1;
     }
-#endif
+
+    PyObject *pDict = PyModule_GetDict(pModule);
+    if (!pDict) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pModule);
+        return -1;
+    }
+    Py_XDECREF(pModule);
+
+    PyObject *pFunc = PyDict_GetItemString(pDict, qUtf8Printable(func));
+    if (!pFunc) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pDict);
+        return -1;
+    }
+    Py_XDECREF(pDict);
+
+    if (!PyCallable_Check(pFunc)) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        return -1;
+    }
+
+    PyObject *pArgs = Py_BuildValue("(ss)", "spam", "eggs");
+    PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
+    if (!pValue) {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        Py_XDECREF(pArgs);
+        return -1;
+    }
+    if (PyErr_Occurred())
+    {
+        PyErr_Print();
+        PyErr_Clear();
+        Py_XDECREF(pFunc);
+        Py_XDECREF(pArgs);
+        Py_XDECREF(pValue);
+        return -1;
+    }
+    Py_XDECREF(pFunc);
+    Py_XDECREF(pArgs);
+
+    qInfo() << "[RS_Python::execModuleFunc] result of call:" << PyLong_AsLong(pValue);
+
+    Py_XDECREF(pValue);
+
     return 0;
 }
 

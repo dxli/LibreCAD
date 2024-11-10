@@ -45,8 +45,6 @@ void TextEditor::keyPressEvent(QKeyEvent *event)
             int pos = textCursor().position();
 
             QString currentLine = text.mid(text.lastIndexOf("\n", pos)+1, text.indexOf("\n", pos));
-            qDebug() << "text.at(pos-1)" << text.at(pos-1);
-            qDebug() << "currentLine" << currentLine;
 
             QPlainTextEdit::keyPressEvent(event);
 

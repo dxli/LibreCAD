@@ -29,6 +29,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
     const QString keywordPatterns[] = {
         QStringLiteral("\\babs\\b"),
         QStringLiteral("\\band\\b"),
+        QStringLiteral("\\balert\\b"),
         QStringLiteral("\\bappend\\b"),
         QStringLiteral("\\bapply\\b"),
         QStringLiteral("\\bascii\\b"),

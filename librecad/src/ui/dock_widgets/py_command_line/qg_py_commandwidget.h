@@ -46,7 +46,9 @@ public:
         return m_docking;
     }
 
+    void runFile(const QString &path) { leCommand->runFile(path); }
     void setInput(const QString &cmd);
+    void processInput(QString input) { leCommand->processInput(input); }
 
 public slots:
     virtual void setFocus();

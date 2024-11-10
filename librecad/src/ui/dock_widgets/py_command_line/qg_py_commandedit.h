@@ -48,6 +48,7 @@ public:
      virtual QString text() const ;
 
     void runFile(const QString& path);
+    void processInput(QString input);
 
     bool keycode_mode = false;
 
@@ -59,8 +60,6 @@ protected:
 
     QString relative_ray;
     QMap<QString, QString> variables;
-
-    void processInput(QString input);
 
 signals:
     void spacePressed();

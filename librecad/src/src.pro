@@ -218,6 +218,7 @@ INCLUDEPATH += \
     plugins \
     ../res
 
+RESOURCES +=
 RESOURCES += ../res/extui/extui.qrc
 RESOURCES += ../res/actions/actions.qrc
 RESOURCES += ../res/icons/icons.qrc

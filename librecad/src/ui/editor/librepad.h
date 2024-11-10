@@ -31,6 +31,7 @@ public:
     void setCmdWidgetChecked(bool val);
 
     QString path() const { return m_fileName; }
+    QString toPlainText() const;
     QString editorNametolower() const { return m_editorName.toLower(); }
     QString editorName() const { return m_editorName; }
 
@@ -40,6 +41,7 @@ public slots:
     virtual void loadScript() {}
     virtual void cmdDock() {}
     virtual void help();
+
 
 private slots:
     void slotTabChanged(int index);
@@ -81,6 +83,7 @@ private:
     void recentMenu();
     void writeRecentSettings(const QString &filePath);
     void updateRecentActionList();
+    bool firstSave() const;
 };
 
 #endif // DEVELOPER
