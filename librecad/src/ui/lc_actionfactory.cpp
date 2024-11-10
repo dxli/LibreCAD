@@ -455,10 +455,10 @@ void LC_ActionFactory::createFileActionsUncheckable(QMap<QString, QAction *> &ma
 #ifdef DEVELOPER
 void LC_ActionFactory::createLoadScriptActionsUncheckable(QMap<QString, QAction *> &map, QActionGroup *group) {
     createMainWindowActions(map, group, {
-        {"LoadLisp",        SLOT(slotLoadLisp()),          tr("Load &Lisp"),          ":/icons/open.svg", "load-lisp"},
-        {"LibreLisp",       SLOT(slotLibreLisp()),         tr("LibreL&isp Editor"),   ":/editor/new.png", "libre-lisp"},
-        {"LoadPython",      SLOT(slotLoadPython()),        tr("Load &Python"),        ":/icons/open.svg", "load-python"},
-        {"LibrePython",     SLOT(slotLibrePython()),       tr("LibreP&ython Editor"), ":/editor/new.png", "libre-python"},
+        {"LoadLisp",        SLOT(slotLoadLisp()),          tr("Load &Lisp"),          ":/icons/open_script.svg",  "load-lisp"},
+        {"LibreLisp",       SLOT(slotLibreLisp()),         tr("LibreL&isp IDE"),      ":/main/librecad.png",      "libre-lisp"},
+        {"LoadPython",      SLOT(slotLoadPython()),        tr("Load &Python"),        ":/icons/open_script.svg",  "load-python"},
+        {"LibrePython",     SLOT(slotLibrePython()),       tr("LibreP&ython IDE"),    ":/main/librecad.png",      "libre-python"},
     });
 }
 #endif // DEVELOPER

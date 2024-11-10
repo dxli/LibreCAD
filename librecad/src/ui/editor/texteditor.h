@@ -6,6 +6,7 @@
 
 #include <QPlainTextEdit>
 #include <QFileInfo>
+#include "dclhighlighter.h"
 #include "lisphighlighter.h"
 #include "pythonhighlighter.h"
 
@@ -43,6 +44,7 @@ public slots:
 
 protected:
     void resizeEvent(QResizeEvent *e) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
     void highlightCurrentLine();
@@ -54,6 +56,7 @@ private:
     QString m_fileName;
     bool m_firstSave;
 
+    DclHighlighter *m_dclHighlighter = nullptr;
     LispHighlighter *m_lispHighlighter = nullptr;
     PythonHighlighter *m_pythonHighlighter = nullptr;
 

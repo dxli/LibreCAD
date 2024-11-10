@@ -29,6 +29,7 @@
 
 // Changes: https://github.com/LibreCAD/LibreCAD/commits/master/librecad/src/main/qc_applicationwindow.cpp
 #include "rs_python.h"
+#include "rs_lisp.h"
 #include "qc_applicationwindow.h"
 
 #include <QByteArray>
@@ -41,6 +42,7 @@
 #include <QPagedPaintDevice>
 #include <QPluginLoader>
 #include <QRegularExpression>
+#include <QSplashScreen>
 #include <QStatusBar>
 #include <QStyleFactory>
 #include <QSysInfo>
@@ -347,11 +349,11 @@ QC_ApplicationWindow::QC_ApplicationWindow():
 
     auto lsp_command_file = settings.value("Paths/VariableFile", "").toString();
     if (!lsp_command_file.isEmpty())
-        lsp_commandWidget->leCommand->readCommandFile(lsp_command_file);
+        lsp_commandWidget->leCommand->runFile(lsp_command_file);
 
     auto py_command_file = settings.value("Paths/VariableFile", "").toString();
     if (!py_command_file.isEmpty())
-        py_commandWidget->leCommand->readCommandFile(py_command_file);
+        py_commandWidget->leCommand->runFile(py_command_file);
 
     // Activate autosave timer
     bool allowAutoSave = settings.value("Defaults/AutoBackupDocument", 1).toBool();
@@ -3227,15 +3229,23 @@ void QC_ApplicationWindow::slotRedockWidgets() {
 }
 #ifdef DEVELOPER
 /**
- * Menu Developer -> load LISP.
+ * Menu Developer -> load LISP script.
  */
 void QC_ApplicationWindow::slotLoadLisp() {
     RS_DEBUG->print(__func__);
 
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Lisp File"),
-                                                    "",
-                                                    tr("Lisp files (*lsp *.mal)"));
+    QString selfilter = tr("AutoLisp (*.lsp)");
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        tr("Run file"),
+        QApplication::applicationDirPath(),
+        tr("Lisp files (*.lsp *.lisp *.mal);;AutoLisp (*.lsp);;Mal (*.mal)" ),
+        &selfilter
+    );
 
+    if (!path.isEmpty()) {
+        RS_LISP->runFile(path);
+    }
 }
 
 /**
@@ -3243,21 +3253,35 @@ void QC_ApplicationWindow::slotLoadLisp() {
  */
 void QC_ApplicationWindow::slotLibreLisp() {
     RS_DEBUG->print(__func__);
+    QSplashScreen *splash = new QSplashScreen;
+    splash->setPixmap(QPixmap(":/main/librelisp.png"));
+    splash->show();
+    qApp->processEvents();
+    splash->showMessage(QObject::tr("Loading LibreLisp IDE..."),
+                        Qt::AlignRight|Qt::AlignBottom, Qt::black);
+
     LibreLisp *l = new LibreLisp(this);
-    l->show();
+    QTimer::singleShot(1000, l, SLOT(show()));
+    QTimer::singleShot(2000, splash, SLOT(close()));
 }
 
 /**
- * Menu Developer -> load Python.
+ * Menu Developer -> load Python script.
  */
 void QC_ApplicationWindow::slotLoadPython() {
     RS_DEBUG->print(__func__);
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Python File"),
-                                                    "",
-                                                    tr("Python files (*.py *.pyc)"));
 
-    if (fileName.compare("") != 0) {
-        RS_PYTHON->runFile(fileName);
+    QString selfilter = tr("Python Script (*.py)");
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        tr("Run file"),
+        QApplication::applicationDirPath(),
+        tr("Python files (*.py *.pyc);;Python Script (*.py);;Python compiled Script (*.pyc)" ),
+        &selfilter
+    );
+
+    if (!path.isEmpty()) {
+        RS_PYTHON->runFile(path);
     }
 }
 
@@ -3266,7 +3290,15 @@ void QC_ApplicationWindow::slotLoadPython() {
  */
 void QC_ApplicationWindow::slotLibrePython() {
     RS_DEBUG->print(__func__);
+    QSplashScreen *splash = new QSplashScreen;
+    splash->setPixmap(QPixmap(":/main/librepython.png"));
+    splash->show();
+    qApp->processEvents();
+    splash->showMessage(QObject::tr("Loading LibrePython IDE..."),
+                        Qt::AlignRight|Qt::AlignBottom, Qt::black);
+
     LibrePython *p = new LibrePython(this);
-    p->show();
+    QTimer::singleShot(1000, p, SLOT(show()));
+    QTimer::singleShot(2000, splash, SLOT(close()));
 }
 #endif // DEVELOPER

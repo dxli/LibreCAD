@@ -47,7 +47,7 @@ public:
 
      virtual QString text() const ;
 
-    void readCommandFile(const QString& path);
+    void runFile(const QString& path);
 
     bool keycode_mode = false;
 

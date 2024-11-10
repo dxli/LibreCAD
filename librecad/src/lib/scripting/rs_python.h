@@ -77,7 +77,7 @@ public:
         return graphic;
     }
 
-    QString Py_GetVersionString() const { return QString("Python ") + QString(Py_GetVersion()) + QString(" ") + QString(ONHOST); }
+    QString Py_GetVersionString() const { return QString("LibrePython ") + QString(Py_GetVersion()) + QString(" ") + QString(ONHOST); }
 
     int runCommand(const QString& command, QString& buf_out, QString& buf_err);
     int runFile(const QString& name);

@@ -80,7 +80,7 @@ QG_Py_CommandWidget::QG_Py_CommandWidget(QWidget* parent, const char* name, Qt::
         a1->setChecked(true);
     }
 
-    auto a2 = new QAction(QObject::tr("Load command file"), this);
+    auto a2 = new QAction(QObject::tr("Load python file"), this);
     connect(a2, &QAction::triggered, this, &QG_Py_CommandWidget::chooseCommandFile);
     options_button->addAction(a2);
 
@@ -318,10 +318,18 @@ QString QG_Py_CommandWidget::getRootCommand( const QStringList & cmdList, const 
 
 void QG_Py_CommandWidget::chooseCommandFile()
 {
-    QString path = QFileDialog::getOpenFileName(this);
+    QString selfilter = tr("Python Script (*.py)");
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        tr("Run file"),
+        QApplication::applicationDirPath(),
+        tr("Python files (*.py *.pyc);;Python Script (*.py);;Python compiled Script (*.pyc)" ),
+        &selfilter
+    );
+
     if (!path.isEmpty())
     {
-        leCommand->readCommandFile(path);
+        leCommand->runFile(path);
     }
 }
 

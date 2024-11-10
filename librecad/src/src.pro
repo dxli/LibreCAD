@@ -218,7 +218,6 @@ INCLUDEPATH += \
     plugins \
     ../res
 
-RESOURCES += ../res/editor/librepad.qrc
 RESOURCES += ../res/extui/extui.qrc
 RESOURCES += ../res/actions/actions.qrc
 RESOURCES += ../res/icons/icons.qrc
@@ -1038,6 +1037,7 @@ HEADERS += ui/action_options/circle/lc_circlebyarcoptions.h \
     ui/editor/librelisp.h \
     ui/editor/librepad.h \
     ui/editor/librepython.h \
+    ui/editor/dclhighlighter.h \
     ui/editor/lisphighlighter.h \
     ui/editor/pythonhighlighter.h \
     ui/editor/texteditor.h \
@@ -1236,6 +1236,7 @@ SOURCES += ui/action_options/circle/lc_circlebyarcoptions.cpp \
     ui/editor/librelisp.cpp \
     ui/editor/librepad.cpp \
     ui/editor/librepython.cpp \
+    ui/editor/dclhighlighter.cpp \
     ui/editor/lisphighlighter.cpp \
     ui/editor/pythonhighlighter.cpp \
     ui/editor/texteditor.cpp \

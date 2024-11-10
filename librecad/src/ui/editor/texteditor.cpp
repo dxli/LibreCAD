@@ -33,10 +33,92 @@ TextEditor::TextEditor(QWidget *parent, const QString& fileName)
     load(m_fileName);
 }
 
+void TextEditor::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_Return:
+    {
+        QString text = document()->toPlainText();
+
+        if(text.length())
+        {
+            int pos = textCursor().position();
+
+            QString currentLine = text.mid(text.lastIndexOf("\n", pos)+1, text.indexOf("\n", pos));
+            qDebug() << "text.at(pos-1)" << text.at(pos-1);
+            qDebug() << "currentLine" << currentLine;
+
+            QPlainTextEdit::keyPressEvent(event);
+
+            if(m_fileName.endsWith(".py") && text.at(pos-1) == ':')
+            {
+                insertPlainText("    ");
+            }
+
+            if(m_fileName.endsWith(".lsp") ||
+                m_fileName.endsWith(".lisp") ||
+                m_fileName.endsWith(".mal"))
+            {
+                int itto = 0;
+                int ittc = 0;
+                for (auto& c : currentLine)
+                {
+                    if (c == '(')
+                    {
+                        itto++;
+                    }
+                    if (c == ')')
+                    {
+                        ittc++;
+                    }
+                }
+                itto -= ittc;
+                if (itto > 0)
+                {
+                    for (int i = 0; i < itto; i++)
+                    {
+                        insertPlainText("    ");
+                    }
+                }
+            }
+
+            if(m_fileName.endsWith(".py") ||
+                m_fileName.endsWith(".lsp") ||
+                m_fileName.endsWith(".lisp") ||
+                m_fileName.endsWith(".mal") ||
+                m_fileName.endsWith(".dcl"))
+            {
+                for (auto& c : currentLine)
+                {
+                    if (c == ' ')
+                    {
+                        insertPlainText(" ");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            return;
+        }
+        QPlainTextEdit::keyPressEvent(event);
+    }
+        break;
+    case Qt::Key_Tab:
+    {
+        insertPlainText("    ");
+        return;
+    }
+        break;
+    default:
+        QPlainTextEdit::keyPressEvent(event);
+    }
+}
+
+
 TextEditor::~TextEditor()
 {
-    delete m_lineNumberWidget;
-    m_lineNumberWidget = nullptr;
     removeHighlighter();
 }
 
@@ -50,8 +132,6 @@ void TextEditor::lineNumberPaintEvent(QPaintEvent *e)
     int top    = blockBoundingGeometry(block).translated(contentOffset()).top() + 1;
     int bottom = top + blockBoundingGeometry(block).height();
 
-    // qDebug() << "start " << top;
-
     while (block.isValid() && top <= e->rect().bottom())
     {
         int lineNumber = block.blockNumber();
@@ -60,8 +140,6 @@ void TextEditor::lineNumberPaintEvent(QPaintEvent *e)
         {
             lineHeight -= 4;
         }
-
-        // qDebug() << "lineNumbe" << lineNumber << "top " << top << "bottom " << bottom;
         QRect rect(0, top, getLineNumberWidth() - 2, lineHeight);
         QFont font = painter.font();
         font.setPointSize(9);
@@ -76,9 +154,30 @@ void TextEditor::lineNumberPaintEvent(QPaintEvent *e)
 
 void TextEditor::load(QString fileName)
 {
-    if(fileName == "") {
+    if(fileName == "*librepad") {
         m_fileName = tr("newfile.txt");
         setFont(QFont("Monospace", 10));
+        setPlainText("");
+        document()->setModified(false);
+        emit documentChanged();
+        return;
+    }
+
+    if(fileName == "*librelisp") {
+        m_fileName = tr("newfile.lsp");
+        setFont(QFont("Monospace", 10));
+        setPlainText("");
+        initHighlighter();
+        document()->setModified(false);
+        emit documentChanged();
+        return;
+    }
+
+    if(fileName == "*librepython") {
+        m_fileName = tr("newfile.py");
+        setFont(QFont("Monospace", 10));
+        setPlainText("");
+        initHighlighter();
         document()->setModified(false);
         emit documentChanged();
         return;
@@ -240,32 +339,44 @@ LineNumberWidget::LineNumberWidget(TextEditor *editor)
 
 void TextEditor::initHighlighter()
 {
+    if(m_fileName.endsWith(".lsp") ||
+        m_fileName.endsWith(".mal"))
+    {
+        m_lispHighlighter = new LispHighlighter(document());
+        m_lispHighlighter->rehighlight();
+    }
+
+    if(m_fileName.endsWith(".dcl"))
+    {
+        m_dclHighlighter = new DclHighlighter(document());
+        m_dclHighlighter->rehighlight();
+    }
+
     if(m_fileName.endsWith(".py"))
     {
         m_pythonHighlighter = new PythonHighlighter(document());
         m_pythonHighlighter->rehighlight();
     }
-
-    if(m_fileName.endsWith(".lsp") ||
-       m_fileName.endsWith(".mal"))
-    {
-        m_lispHighlighter = new LispHighlighter(document());
-        m_lispHighlighter->rehighlight();
-    }
 }
 
 void TextEditor::removeHighlighter()
 {
-    if(m_pythonHighlighter != nullptr)
-    {
-        delete m_pythonHighlighter;
-        m_pythonHighlighter = nullptr;
-    }
-
     if(m_lispHighlighter != nullptr)
     {
         delete m_lispHighlighter;
         m_lispHighlighter = nullptr;
+    }
+
+    if(m_dclHighlighter != nullptr)
+    {
+        delete m_dclHighlighter;
+        m_dclHighlighter = nullptr;
+    }
+
+    if(m_pythonHighlighter != nullptr)
+    {
+        delete m_pythonHighlighter;
+        m_pythonHighlighter = nullptr;
     }
 }
 

@@ -7,7 +7,7 @@
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QCloseEvent>
-#include <QSettings>
+#include <QToolBar>
 
 #ifdef DEVELOPER
 
@@ -21,18 +21,25 @@ class Librepad : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit Librepad(QWidget *parent = nullptr, const QString& fileName="");
+    QString m_editorName;
+
+    explicit Librepad(QWidget *parent = nullptr, const QString& name="Librepad", const QString& fileName="");
     ~Librepad();
 
-    void showScriptToolBar();
-    void hideScriptToolBar();
-    virtual void run() {}
-    virtual void loadScript() {}
+    void writeSettings();
+    void enableIDETools();
+    void setCmdWidgetChecked(bool val);
 
     QString path() const { return m_fileName; }
+    QString editorNametolower() const { return m_editorName.toLower(); }
+    QString editorName() const { return m_editorName; }
 
 public slots:
     void save();
+    virtual void run() {}
+    virtual void loadScript() {}
+    virtual void cmdDock() {}
+    virtual void help();
 
 private slots:
     void slotTabChanged(int index);
@@ -40,6 +47,7 @@ private slots:
     void slotTabClose(int index);
     void newDocument();
     void open();
+    void openRecent();
     void saveAs();
     void reload();
     void print();
@@ -49,6 +57,9 @@ private slots:
     void paste();
     void setFont();
     void about();
+    void toolBarMain();
+    void toolBarSearch();
+    void toolBarBuild();
 
 protected:
     void closeEvent(QCloseEvent *event) override;
@@ -57,14 +68,19 @@ private:
     QString m_fileName;
     QFont m_font;
     Ui::Librepad *ui;
-    QLineEdit* m_searchLineEdit;
+    QLineEdit *m_searchLineEdit;
 
-    void addNewTab(QString fileName = "");
+    const unsigned int m_maxFileNr;
+    QList<QAction*> m_recentFileActionList;
+
+    void addNewTab(const QString& path);
     QFont font() const { return m_font; }
 
-    void writeSettings();
     void writeFontSettings();
     void readSettings();
+    void recentMenu();
+    void writeRecentSettings(const QString &filePath);
+    void updateRecentActionList();
 };
 
 #endif // DEVELOPER

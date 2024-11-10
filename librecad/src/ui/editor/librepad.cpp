@@ -2,6 +2,7 @@
 // GPLv2
 
 #include <QFile>
+#include <QSettings>
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
@@ -13,6 +14,7 @@
 #include <QPainter>
 #include <QTabBar>
 #include <QToolBar>
+#include <QAction>
 
 #include "librepad.h"
 #include "texteditor.h"
@@ -20,11 +22,13 @@
 
 #ifdef DEVELOPER
 
-Librepad::Librepad(QWidget *parent, const QString& fileName)
+Librepad::Librepad(QWidget *parent, const QString& name, const QString& fileName)
     : QMainWindow(parent)
+    , m_editorName(name)
     , m_fileName(fileName)
     , m_font(QFont("Monospace",10))
     , ui(new Ui::Librepad)
+    , m_maxFileNr(5)
 {
     this->hide();
     ui->setupUi(this);
@@ -34,6 +38,18 @@ Librepad::Librepad(QWidget *parent, const QString& fileName)
     m_searchLineEdit = new QLineEdit;
     m_searchLineEdit->setMaximumWidth(180);
     ui->searchToolBar->addWidget(m_searchLineEdit);
+
+    QAction* recentFileAction = 0;
+    for(unsigned int i = 0; i < m_maxFileNr; ++i){
+        recentFileAction = new QAction(this);
+        recentFileAction->setVisible(false);
+        QObject::connect(recentFileAction, &QAction::triggered,
+                         this, &Librepad::openRecent);
+        m_recentFileActionList.append(recentFileAction);
+        ui->menuOpen_Recent->addAction(recentFileAction);
+    }
+
+    updateRecentActionList();
 
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &Librepad::slotTabClose);
     connect(ui->actionNew, &QAction::triggered, this, &Librepad::newDocument);
@@ -47,6 +63,14 @@ Librepad::Librepad(QWidget *parent, const QString& fileName)
     connect(ui->actionRedo, &QAction::triggered, this, &Librepad::redo);
     connect(ui->actionFont, &QAction::triggered, this, &Librepad::setFont);
     connect(ui->actionAbout, &QAction::triggered, this, &Librepad::about);
+    connect(ui->actionHelp, &QAction::triggered, this, &Librepad::help);
+
+    connect(ui->actionCmdDock, &QAction::triggered, this, &Librepad::cmdDock);
+
+    connect(ui->actionToolBarMain, &QAction::triggered, this, &Librepad::toolBarMain);
+    connect(ui->actionToolBarSearch, &QAction::triggered, this, &Librepad::toolBarSearch);
+    connect(ui->actionToolBarBuild, &QAction::triggered, this, &Librepad::toolBarBuild);
+
     connect(ui->actionRun, &QAction::triggered, this, &Librepad::run);
     connect(ui->actionLoadScript, &QAction::triggered, this, &Librepad::loadScript);
     connect(ui->actionPrevious, &QAction::triggered, this, [=]() {
@@ -62,7 +86,14 @@ Librepad::Librepad(QWidget *parent, const QString& fileName)
     connect(ui->actionPaste, &QAction::triggered, this, &Librepad::paste);
 
     readSettings();
-    addNewTab(m_fileName);
+
+    if(m_fileName.isEmpty()) {
+        addNewTab("*" + editorNametolower());
+    }
+    else {
+        addNewTab(m_fileName);
+    }
+
 }
 
 void Librepad::slotTabChanged(int index) {
@@ -112,13 +143,16 @@ void Librepad::closeEvent(QCloseEvent *event)
     }
 }
 
-void Librepad::showScriptToolBar()
+void Librepad::enableIDETools()
 {
-    ui->scriptToolBar->show();
+    ui->buildToolBar->show();
+    ui->actionCmdDock->setVisible(true);
+    ui->actionCmdDock->setEnabled(true);
 }
-void Librepad::hideScriptToolBar()
+
+void Librepad::setCmdWidgetChecked(bool val)
 {
-    ui->scriptToolBar->hide();
+    ui->actionCmdDock->setChecked(val);
 }
 
 void Librepad::reload()
@@ -264,14 +298,12 @@ void Librepad::slotTabClose(int index)
     delete editor;
 }
 
-void Librepad::addNewTab(QString fileName)
+void Librepad::addNewTab(const QString& path)
 {
-    QFileInfo info(fileName);
-    TextEditor *editor = new TextEditor(this, fileName);
-
+    TextEditor *editor = new TextEditor(this, path);
     editor->setFont(m_font);
 
-    ui->tabWidget->addTab(editor, info.fileName());
+    ui->tabWidget->addTab(editor, editor->fileName());
     int index = ui->tabWidget->count() - 1;
     ui->tabWidget->setCurrentIndex(index);
     ui->tabWidget->tabBar()->setTabText(index, editor->fileName());
@@ -284,6 +316,11 @@ void Librepad::addNewTab(QString fileName)
         ui->tabWidget->tabBar()->setTabToolTip(index, editor->fileName());
     });
     editor->setFocus();
+
+    if (path.at(0) != '*')
+    {
+        writeRecentSettings(path);
+    }
 }
 
 Librepad::~Librepad()
@@ -293,7 +330,7 @@ Librepad::~Librepad()
 
 void Librepad::newDocument()
 {
-    addNewTab();
+    addNewTab("*" + editorNametolower());
 }
 
 void Librepad::open()
@@ -310,6 +347,15 @@ void Librepad::open()
     setWindowTitle(fileName);
 
     addNewTab(fileName);
+}
+
+void Librepad::openRecent()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action)
+    {
+        addNewTab(action->data().toString());
+    }
 }
 
 void Librepad::save()
@@ -330,6 +376,8 @@ void Librepad::saveAs()
         return;
     }
     editor->saveAs();
+    writeRecentSettings(editor->path());
+    setWindowTitle(editor->fileName());
 }
 
 void Librepad::print()
@@ -362,9 +410,53 @@ void Librepad::setFont()
 void Librepad::about()
 {
     QMessageBox::about(this,
-                       tr("About Librepad"),
-                       tr("<b>Librepad</b> is a code Editor<br>Emanuel Strobel GPLv2 (c) 2024</br>")
+                       tr("About ") + editorName(),
+                       QString("<b>" + editorName() + "</b>") + tr("<br>LibreCAD embedded IDE</br><br>by Emanuel GPLv2 (c) 2024</br>")
                       );
+}
+
+void Librepad::help()
+{
+    QMessageBox::about(this,
+                       editorName(),
+                       QString("<b>Help</b>") + tr("<br>not implemented yet!</br><br>X-(</br>")
+                       );
+}
+
+void Librepad::toolBarMain()
+{
+    if (ui->mainToolBar->isHidden())
+    {
+        ui->mainToolBar->show();
+    }
+    else
+    {
+        ui->mainToolBar->hide();
+    }
+}
+
+void Librepad::toolBarSearch()
+{
+    if (ui->searchToolBar->isHidden())
+    {
+        ui->searchToolBar->show();
+    }
+    else
+    {
+        ui->searchToolBar->hide();
+    }
+}
+
+void Librepad::toolBarBuild()
+{
+    if (ui->buildToolBar->isHidden())
+    {
+        ui->buildToolBar->show();
+    }
+    else
+    {
+        ui->buildToolBar->hide();
+    }
 }
 
 void Librepad::writeSettings()
@@ -372,7 +464,13 @@ void Librepad::writeSettings()
     QSettings settings("Librepad", "Librepad");
 
     settings.beginGroup("MainWindow");
-    settings.setValue("geometry", saveGeometry());
+    settings.setValue(editorNametolower() + "/geometry", saveGeometry());
+    settings.endGroup();
+
+    settings.beginGroup("Toolbars");
+    settings.setValue(editorNametolower() + "/mainToolBar", ui->mainToolBar->isHidden());
+    settings.setValue(editorNametolower() + "/searchToolBar", ui->searchToolBar->isHidden());
+    settings.setValue(editorNametolower() + "/scriptToolBar", ui->buildToolBar->isHidden());
     settings.endGroup();
 }
 
@@ -381,11 +479,28 @@ void Librepad::writeFontSettings()
     QSettings settings("Librepad", "Librepad");
 
     settings.beginGroup("Font");
-    settings.setValue("librepad/fontpointsize", m_font.pointSize());
-    settings.setValue("librepad/fontfamily", m_font.family());
-    settings.setValue("librepad/fontbold", m_font.bold());
-    settings.setValue("librepad/fontitalic", m_font.italic());
+    settings.setValue(editorNametolower() + "/fontpointsize", m_font.pointSize());
+    settings.setValue(editorNametolower() + "/fontfamily", m_font.family());
+    settings.setValue(editorNametolower() + "/fontbold", m_font.bold());
+    settings.setValue(editorNametolower() + "/fontitalic", m_font.italic());
     settings.endGroup();
+}
+
+void Librepad::writeRecentSettings(const QString &filePath)
+{
+    QSettings settings("Librepad", "Librepad");
+
+    settings.beginGroup("Files");
+    QStringList recentFilePaths =
+        settings.value(editorNametolower() + "/recentFiles").toStringList();
+    recentFilePaths.removeAll(filePath);
+    recentFilePaths.prepend(filePath);
+    while (recentFilePaths.size() > m_maxFileNr)
+        recentFilePaths.removeLast();
+    settings.setValue(editorNametolower() + "/recentFiles", recentFilePaths);
+    settings.endGroup();
+
+    updateRecentActionList();
 }
 
 void Librepad::readSettings()
@@ -393,46 +508,128 @@ void Librepad::readSettings()
     QSettings settings("Librepad", "Librepad");
 
     settings.beginGroup("MainWindow");
-    const auto geometry = settings.value("geometry", QByteArray()).toByteArray();
+    const auto geometry = settings.value(editorNametolower() + "/geometry", QByteArray()).toByteArray();
     if (geometry.isEmpty())
+    {
         setGeometry(320, 280, 1280, 720);
+    }
     else
+    {
         restoreGeometry(geometry);
+    }
     settings.endGroup();
 
     settings.beginGroup("Font");
-    const auto pointsize = settings.value("librepad/fontpointsize").toInt();
-    if (settings.contains("librepad/fontpointsize")) {
+    const auto pointsize = settings.value(editorNametolower() + "/fontpointsize").toInt();
+    if (settings.contains(editorNametolower() + "/fontpointsize")) {
         m_font.setPointSize(pointsize);
     }
     else {
         m_font.setPointSize(10);
     }
 
-    if (settings.contains("librepad/fontfamily")) {
-        const auto family = settings.value("librepad/fontfamily").toString();
+    if (settings.contains(editorNametolower() + "/fontfamily")) {
+        const auto family = settings.value(editorNametolower() + "/fontfamily").toString();
         m_font.setFamily(family);
     }
     else {
         m_font.setFamily("Monospace");
     }
 
-    if (settings.contains("librepad/fontbold")) {
-        const bool bold = settings.value("librepad/fontbold").toBool();
+    if (settings.contains(editorNametolower() + "/fontbold")) {
+        const bool bold = settings.value(editorNametolower() + "/fontbold").toBool();
         m_font.setBold(bold);
     }
     else {
         m_font.setBold(false);
     }
 
-    if (settings.contains("librepad/fontitalic")) {
-        const bool italic = settings.value("librepad/fontitalic").toBool();
+    if (settings.contains(editorNametolower() + "/fontitalic")) {
+        const bool italic = settings.value(editorNametolower() + "/fontitalic").toBool();
         m_font.setItalic(italic);
     }
     else {
         m_font.setItalic(false);
     }
     settings.endGroup();
+
+
+
+    settings.beginGroup("Toolbars");
+
+    if (settings.contains(editorNametolower() + "/mainToolBar")) {
+        const bool isHidden = settings.value(editorNametolower() + "/mainToolBar").toBool();
+        if (!isHidden)
+        {
+            ui->actionToolBarMain->setChecked(true);
+            ui->mainToolBar->show();
+        }
+        else
+        {
+            ui->actionToolBarMain->setChecked(false);
+            ui->mainToolBar->hide();
+        }
+    }
+
+    if (settings.contains(editorNametolower() + "/searchToolBar")) {
+        const bool isHidden = settings.value(editorNametolower() + "/searchToolBar").toBool();
+        if (!isHidden)
+        {
+            ui->actionToolBarSearch->setChecked(true);
+            ui->searchToolBar->show();
+        }
+        else
+        {
+            ui->actionToolBarSearch->setChecked(false);
+            ui->searchToolBar->hide();
+        }
+    }
+
+    if (settings.contains(editorNametolower() + "/scriptToolBar")) {
+        const bool isHidden = settings.value(editorNametolower() + "/scriptToolBar").toBool();
+        if (!isHidden)
+        {
+            ui->actionToolBarBuild->setChecked(true);
+            ui->buildToolBar->show();
+        }
+        else
+        {
+            ui->actionToolBarBuild->setChecked(false);
+            ui->buildToolBar->hide();
+        }
+    }
+
+    settings.endGroup();
+}
+
+void Librepad::updateRecentActionList()
+{
+    QSettings settings("Librepad", "Librepad");
+    settings.beginGroup("Files");
+    QStringList recentFilePaths =
+        settings.value(editorNametolower() + "/recentFiles").toStringList();
+    settings.endGroup();
+
+    auto itEnd = 0u;
+    if(recentFilePaths.size() <= m_maxFileNr)
+    {
+        itEnd = recentFilePaths.size();
+    }
+    else
+    {
+        itEnd = m_maxFileNr;
+    }
+
+    for (auto i = 0u; i < itEnd; ++i) {
+        QString strippedName = QFileInfo(recentFilePaths.at(i)).fileName();
+        m_recentFileActionList.at(i)->setText(strippedName);
+        m_recentFileActionList.at(i)->setData(recentFilePaths.at(i));
+        m_recentFileActionList.at(i)->setVisible(true);
+    }
+
+    for (auto i = itEnd; i < m_maxFileNr; ++i)
+        m_recentFileActionList.at(i)->setVisible(false);
+
 }
 
 #endif // DEVELOPER

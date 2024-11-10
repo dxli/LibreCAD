@@ -79,7 +79,7 @@ QG_Lsp_CommandWidget::QG_Lsp_CommandWidget(QWidget* parent, const char* name, Qt
         a1->setChecked(true);
     }
 
-    auto a2 = new QAction(QObject::tr("Load command file"), this);
+    auto a2 = new QAction(QObject::tr("Load lisp file"), this);
     connect(a2, &QAction::triggered, this, &QG_Lsp_CommandWidget::chooseCommandFile);
     options_button->addAction(a2);
 
@@ -317,10 +317,18 @@ QString QG_Lsp_CommandWidget::getRootCommand( const QStringList & cmdList, const
 
 void QG_Lsp_CommandWidget::chooseCommandFile()
 {
-    QString path = QFileDialog::getOpenFileName(this);
+    QString selfilter = tr("AutoLisp (*.lsp)");
+    QString path = QFileDialog::getOpenFileName(
+        this,
+        tr("Run file"),
+        QApplication::applicationDirPath(),
+        tr("Lisp files (*.lsp *.lisp *.mal);;AutoLisp (*.lsp);;Mal (*.mal)" ),
+        &selfilter
+    );
+
     if (!path.isEmpty())
     {
-        leCommand->readCommandFile(path);
+        leCommand->runFile(path);
     }
 }
 

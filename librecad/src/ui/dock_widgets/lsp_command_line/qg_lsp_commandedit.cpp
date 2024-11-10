@@ -230,45 +230,9 @@ void QG_Lsp_CommandEdit::processInput(QString input)
     //return cmd;
 }
 
-void QG_Lsp_CommandEdit::readCommandFile(const QString& path)
+void QG_Lsp_CommandEdit::runFile(const QString& path)
 {
-    // author: ravas
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    // keep the pos of the read part
-    size_t pos = 0;
-    bool ended = false;
-    while (!ended) {
-        if (!file.isOpen())
-        {
-            if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-                break;
-            file.skip(pos);
-        }
-
-        // read lines to buffer and close the file immediately
-        QTextStream txt_stream(&file);
-        QStringList lines;
-        for(unsigned i=0; i < g_maxLinesToRead; ++i) {
-            if (txt_stream.atEnd())
-                break;
-            lines << txt_stream.readLine(g_maxLineLength);
-        }
-        ended = txt_stream.atEnd();
-        pos = txt_stream.pos();
-
-        // Issue #1803: close the file to avoid blocking command loading
-        file.close();
-
-        // Process the commands while the file is closed
-        for (QString line: lines) {
-            line.remove(" ");
-            if (!line.startsWith("#"))
-                processInput(line);
-        }
-    }
+    RS_LISP->runFile(path);
 }
 
 void QG_Lsp_CommandEdit::modifiedPaste()

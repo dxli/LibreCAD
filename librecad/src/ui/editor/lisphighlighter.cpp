@@ -103,8 +103,8 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\blogand\\b"),
         QStringLiteral("\\bmacro\\b([?])"),
         QStringLiteral("\\bmap\\b"),
-        QStringLiteral("\\bmap\\b"),
         QStringLiteral("\\bmap\\b([?])"),
+        QStringLiteral("\\bmapcar\\b"),
         QStringLiteral("\\bmax\\b"),
         QStringLiteral("\\bmember\\b([?])"),
         QStringLiteral("\\bmeta\\b"),
@@ -209,16 +209,16 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
     highlightingRules.append(rule);
 
 //! [4]
-    quotationFormat.setForeground(QColor(191,3,3));
-    rule.pattern = QRegularExpression(QStringLiteral("\"([^\"]*)\""));
-    rule.format = quotationFormat;
-    highlightingRules.append(rule);
-
-//! [5]
     bracketFormat.setForeground(QColor(0, 87, 174));
     bracketFormat.setFontWeight(QFont::Bold);
     rule.pattern = QRegularExpression(QStringLiteral("[()]|[)]"));
     rule.format = bracketFormat;
+    highlightingRules.append(rule);
+
+//! [5]
+    quotationFormat.setForeground(QColor(191,3,3));
+    rule.pattern = QRegularExpression(QStringLiteral("\"([^\"]*)\""));
+    rule.format = quotationFormat;
     highlightingRules.append(rule);
 }
 

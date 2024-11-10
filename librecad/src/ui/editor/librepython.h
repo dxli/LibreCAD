@@ -15,11 +15,25 @@ class LibrePython : public Librepad
 public:
     LibrePython(QWidget *parent = nullptr, const QString& fileName="");
 
-    void run();
-    void loadScript();
+    void run() override;
+    void loadScript() override;
+    void cmdDock() override;
+
+private slots:
+    void docVisibilityChanged(bool visible);
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     QG_Py_CommandWidget* commandWidget {nullptr};
+    int m_commandLineHeight;
+    QDockWidget *m_dock;
+
+    void setCommandWidgetHeight(int height);
+    void writeSettings();
+    void readSettings();
+
 };
 
 #endif // DEVELOPER

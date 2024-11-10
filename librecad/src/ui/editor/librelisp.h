@@ -15,11 +15,23 @@ class LibreLisp : public Librepad
 public:
     LibreLisp(QWidget *parent = nullptr, const QString& fileName="");
 
-    void run();
-    void loadScript();
+    void run() override;
+    void loadScript() override;
+    void cmdDock() override;
+
+private slots:
+    void docVisibilityChanged(bool visible);
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     QG_Lsp_CommandWidget* commandWidget {nullptr};
+    QDockWidget *m_dock;
+
+    void setCommandWidgetHeight(int height);
+    void writeSettings();
+    void readSettings();
 };
 
 #endif // DEVELOPER

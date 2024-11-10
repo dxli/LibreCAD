@@ -37,8 +37,18 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <widget class="QMenu" name="menuOpen_Recent">
+     <property name="title">
+      <string>Open &amp;Recent</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../../res/icons/icons.qrc">
+       <normaloff>:/icons/open.svg</normaloff>:/icons/open.svg</iconset>
+     </property>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
+    <addaction name="menuOpen_Recent"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
     <addaction name="actionReload"/>
@@ -57,10 +67,12 @@
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
    </widget>
-   <widget class="QMenu" name="menuAbout">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>&amp;About</string>
+     <string>&amp;Help</string>
     </property>
+    <addaction name="actionHelp"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuSearch">
@@ -83,12 +95,32 @@
     <addaction name="actionRun"/>
     <addaction name="actionLoadScript"/>
    </widget>
+   <widget class="QMenu" name="menu_Widgets">
+    <property name="title">
+     <string>&amp;Widgets</string>
+    </property>
+    <widget class="QMenu" name="menu_Toolbars">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="title">
+      <string>&amp;Toolbars</string>
+     </property>
+     <addaction name="actionToolBarMain"/>
+     <addaction name="actionToolBarSearch"/>
+     <addaction name="actionToolBarBuild"/>
+    </widget>
+    <addaction name="menu_Toolbars"/>
+    <addaction name="separator"/>
+    <addaction name="actionCmdDock"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuSearch"/>
    <addaction name="menuSettings"/>
    <addaction name="menuBuild"/>
-   <addaction name="menuAbout"/>
+   <addaction name="menu_Widgets"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="sizePolicy">
@@ -129,7 +161,7 @@
    <addaction name="actionExit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QToolBar" name="scriptToolBar">
+  <widget class="QToolBar" name="buildToolBar">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
      <horstretch>0</horstretch>
@@ -187,8 +219,8 @@
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/new.png</normaloff>:/editor/new.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/new.svg</normaloff>:/icons/new.svg</iconset>
    </property>
    <property name="text">
     <string>New</string>
@@ -202,8 +234,8 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/open.png</normaloff>:/editor/open.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/open.svg</normaloff>:/icons/open.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -217,8 +249,8 @@
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/save.png</normaloff>:/editor/save.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/save.svg</normaloff>:/icons/save.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -232,8 +264,8 @@
   </action>
   <action name="actionSave_as">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/save_as.png</normaloff>:/editor/save_as.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/save_as.svg</normaloff>:/icons/save_as.svg</iconset>
    </property>
    <property name="text">
     <string>Save &amp;as</string>
@@ -247,8 +279,8 @@
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/print.png</normaloff>:/editor/print.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/print.svg</normaloff>:/icons/print.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Print</string>
@@ -262,8 +294,8 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/exit.png</normaloff>:/editor/exit.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/quit.svg</normaloff>:/icons/quit.svg</iconset>
    </property>
    <property name="text">
     <string>E&amp;xit</string>
@@ -274,8 +306,8 @@
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/copy.png</normaloff>:/editor/copy.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/copy.svg</normaloff>:/icons/copy.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Copy</string>
@@ -286,11 +318,11 @@
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/cut.png</normaloff>:/editor/cut.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/cut.svg</normaloff>:/icons/cut.svg</iconset>
    </property>
    <property name="text">
-    <string>&amp;Cut</string>
+    <string>C&amp;ut</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -298,8 +330,8 @@
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/paste.png</normaloff>:/editor/paste.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/paste.svg</normaloff>:/icons/paste.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Paste</string>
@@ -310,8 +342,8 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/edit_undo.png</normaloff>:/editor/edit_undo.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/undo.svg</normaloff>:/icons/undo.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Undo</string>
@@ -322,8 +354,8 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/edit_redo.png</normaloff>:/editor/edit_redo.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/redo.svg</normaloff>:/icons/redo.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Redo</string>
@@ -334,8 +366,8 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/info.png</normaloff>:/editor/info.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/info.svg</normaloff>:/icons/info.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Info</string>
@@ -346,8 +378,8 @@
   </action>
   <action name="actionPrevious">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/previous.png</normaloff>:/editor/previous.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/search_previous.svg</normaloff>:/icons/search_previous.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Previous</string>
@@ -358,8 +390,8 @@
   </action>
   <action name="actionFont">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/font.png</normaloff>:/editor/font.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/text.svg</normaloff>:/icons/text.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Font</string>
@@ -367,8 +399,8 @@
   </action>
   <action name="actionNext">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/next.png</normaloff>:/editor/next.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/search_next.svg</normaloff>:/icons/search_next.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Next</string>
@@ -379,8 +411,8 @@
   </action>
   <action name="actionRun">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/run.png</normaloff>:/editor/run.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/run.svg</normaloff>:/icons/run.svg</iconset>
    </property>
    <property name="text">
     <string>Run</string>
@@ -391,8 +423,8 @@
   </action>
   <action name="actionLoadScript">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/load.png</normaloff>:/editor/load.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/open_script.svg</normaloff>:/icons/open_script.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Load Script</string>
@@ -403,8 +435,8 @@
   </action>
   <action name="actionReload">
    <property name="icon">
-    <iconset resource="../../../res/editor/librepad.qrc">
-     <normaloff>:/editor/reload.png</normaloff>:/editor/reload.png</iconset>
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/reload.svg</normaloff>:/icons/reload.svg</iconset>
    </property>
    <property name="text">
     <string>&amp;Reload</string>
@@ -413,10 +445,70 @@
     <string>Ctrl+R</string>
    </property>
   </action>
+  <action name="actionCmdDock">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Cmd</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionToolBarMain">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;File</string>
+   </property>
+  </action>
+  <action name="actionToolBarSearch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Search</string>
+   </property>
+  </action>
+  <action name="actionToolBarBuild">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Build</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="../../../res/icons/icons.qrc">
+     <normaloff>:/icons/help.svg</normaloff>:/icons/help.svg</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Help</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../../../res/editor/librepad.qrc"/>
+  <include location="../../../res/icons/icons.qrc"/>
+  <include location="../../../res/icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
