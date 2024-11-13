@@ -48,6 +48,11 @@ void TextEditor::keyPressEvent(QKeyEvent *event)
 
             QPlainTextEdit::keyPressEvent(event);
 
+            if (currentLine.isEmpty())
+            {
+                return;
+            }
+
             if(m_fileName.endsWith(".py") && text.at(pos-1) == ':')
             {
                 insertPlainText("    ");
@@ -153,7 +158,7 @@ void TextEditor::lineNumberPaintEvent(QPaintEvent *e)
 void TextEditor::load(QString fileName)
 {
     if(fileName == "*librepad") {
-        m_fileName = tr("newfile.txt");
+        m_fileName = tr("unnamed.txt");
         setFont(QFont("Monospace", 10));
         setPlainText("");
         document()->setModified(false);
@@ -162,7 +167,7 @@ void TextEditor::load(QString fileName)
     }
 
     if(fileName == "*librelisp") {
-        m_fileName = tr("newfile.lsp");
+        m_fileName = tr("unnamed.lsp");
         setFont(QFont("Monospace", 10));
         setPlainText("");
         initHighlighter();
@@ -172,7 +177,7 @@ void TextEditor::load(QString fileName)
     }
 
     if(fileName == "*librepython") {
-        m_fileName = tr("newfile.py");
+        m_fileName = tr("unnamed.py");
         setFont(QFont("Monospace", 10));
         setPlainText("");
         initHighlighter();
@@ -214,6 +219,9 @@ void TextEditor::save()
         return;
     }
     else {
+        if (!toPlainText().endsWith("\n")) {
+            appendPlainText("\n");
+        }
         file.write(toPlainText().toUtf8());
         file.close();
         document()->setModified(false);
@@ -223,6 +231,9 @@ void TextEditor::save()
 
 void TextEditor::saveAs()
 {
+    if (!toPlainText().endsWith("\n")) {
+        appendPlainText("\n");
+    }
     saveFileContent(toPlainText().toUtf8(), fileName());
 }
 

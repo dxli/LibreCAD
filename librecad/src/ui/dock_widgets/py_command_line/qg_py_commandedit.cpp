@@ -48,13 +48,13 @@
 
 #ifdef DEVELOPER
 
-namespace {
+//namespace {
 // Limits for command file reading
 // limit for the number of lines read together
-constexpr unsigned g_maxLinesToRead = 10240;
+//constexpr unsigned g_maxLinesToRead = 10240;
 // the maximum line length allowed
-constexpr unsigned g_maxLineLength = 4096;
-}
+//constexpr unsigned g_maxLineLength = 4096;
+//}
 
 /**
  * Default Constructor. You must call init manually if you choose
@@ -238,7 +238,20 @@ void QG_Py_CommandEdit::processInput(QString input)
 
 void QG_Py_CommandEdit::runFile(const QString& path)
 {
-    RS_PYTHON->runFile(path);
+    QString buffer_out = "";
+    QString buffer_err = "";
+
+    RS_PYTHON->runFileCmd(path, buffer_out, buffer_err);
+    if (buffer_out.compare("") != 0) {
+        const QString out = buffer_out.remove(buffer_out.size()-1,1);
+        emit message(out);
+        qInfo() << qUtf8Printable(out);
+    }
+    if (buffer_err.compare("") != 0) {
+        const QString err = buffer_err.remove(buffer_err.size()-1,1);
+        emit message(err);
+        qInfo() << qUtf8Printable(err);
+    }
 }
 
 void QG_Py_CommandEdit::modifiedPaste()

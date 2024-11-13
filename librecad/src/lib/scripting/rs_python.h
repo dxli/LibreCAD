@@ -81,6 +81,7 @@ public:
 
     int addSysPath(const QString& path);
     int runCommand(const QString& command, QString& buf_out, QString& buf_err);
+    int runFileCmd(const QString& name, QString& buf_out, QString& buf_err);
     int runFile(const QString& name);
     int evalString(const QString& command, QString& result);
     int evalInteger(const QString& command, int& result);

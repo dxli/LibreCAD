@@ -97,6 +97,11 @@ int LispRun_SimpleFile(const char *filename)
     return EXIT_FAILURE;
 }
 
+std::string Lisp_EvalFile(const char *filename)
+{
+    return safeRep(STRF("(load-file \"%s\")", filename), replEnv);
+}
+
 std::string Lisp_EvalString(const String& input)
 {
 #if 0
@@ -107,14 +112,12 @@ std::string Lisp_EvalString(const String& input)
     lispOut.str("");
     return out;
 #else
-    return safeRep(input, replEnv);
+    return safeRep(input.c_str(), replEnv);
 #endif
 }
 
 int Lisp_Initialize(int argc, char* argv[])
 {
-    String prompt = "user> ";
-    String input;
     installCore(replEnv);
     installEvalCore(replEnv);
     installFunctions(replEnv);

@@ -48,13 +48,13 @@
 
 #ifdef DEVELOPER
 
-namespace {
+//namespace {
 // Limits for command file reading
 // limit for the number of lines read together
-constexpr unsigned g_maxLinesToRead = 10240;
+//constexpr unsigned g_maxLinesToRead = 10240;
 // the maximum line length allowed
-constexpr unsigned g_maxLineLength = 4096;
-}
+//constexpr unsigned g_maxLineLength = 4096;
+//}
 
 /**
  * Default Constructor. You must call init manually if you choose
@@ -227,12 +227,11 @@ void QG_Lsp_CommandEdit::processInput(QString input)
         }
         prombt();
     }
-    //return cmd;
 }
 
 void QG_Lsp_CommandEdit::runFile(const QString& path)
 {
-    RS_LISP->runFile(path);
+    emit message(RS_LISP->runFileCmd(path).c_str());
 }
 
 void QG_Lsp_CommandEdit::modifiedPaste()

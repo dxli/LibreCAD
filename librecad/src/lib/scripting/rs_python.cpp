@@ -448,7 +448,7 @@ int RS_Python::fflush(const QString& stream)
 /**
  * Launches the given script.
  */
-int RS_Python::runFile(const QString& name)
+int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_err)
 {
     //qDebug() << "[RS_Python::runFile]" << name;
 
@@ -472,13 +472,14 @@ int RS_Python::runFile(const QString& name)
         emb::stderr_write_type write_err = [&buffer_err] (std::string s) { buffer_err += s; };
         emb::set_stderr(write_err);
 
+        //PyGILState_STATE gil_state = PyGILState_Ensure();
         PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, Py_GlobalDict(), Py_GlobalDict());
-        PyRun_SimpleString("\n");
+        //PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, PyDict_New(), PyDict_New());
+
 
         if(!pRes) {
             PyErr_Print();
             PyErr_Clear(); //and clear them !
-
             fclose(fp);
 
             emb::reset_stdout();
@@ -491,22 +492,53 @@ int RS_Python::runFile(const QString& name)
             msgBox.setIcon(QMessageBox::Critical);
 
             msgBox.exec();
-
             qCritical() << buffer_err.c_str();
             return -1;
         }
         Py_XDECREF(pRes);
+        //PyGILState_Release(gil_state);
     }
 
     fclose(fp);
 
-    emb::reset_stdout();
-    emb::reset_stderr();
+    buf_out = buffer_out.c_str();
+    buf_err = buffer_err.c_str();
 
     qInfo() << buffer_out.c_str();
 
     return 0;
 }
+
+/**
+ * Launches the a function from a module.
+ */
+int RS_Python::runFile(const QString& name)
+{
+    FILE *fp = fopen(qUtf8Printable(name), "r");
+    if (!fp) {
+
+        return -1;
+    }
+
+    if (Py_GlobalDict() == NULL) {
+        qCritical() << "[RS_Python::runFile] can not load dict of __main__";
+        return -1;
+    }
+
+    PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, Py_GlobalDict(), Py_GlobalDict());
+
+    if(!pRes) {
+        PyErr_Print();
+        PyErr_Clear(); //and clear them !
+        fclose(fp);
+    }
+    Py_XDECREF(pRes);
+
+    fclose(fp);
+
+    return 0;
+}
+
 
 /**
  * Launches the a function from a module.
@@ -542,6 +574,8 @@ int RS_Python::runString(const QString& str)
 int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf_err)
 {
     //qDebug() << "[RS_Python::runCommand]" << command;
+
+    //Py_BEGIN_ALLOW_THREADS
 
     if (Py_GlobalDict() == NULL) {
         qCritical() << "[RS_Python::runCommand] can not load dict of __main__";
@@ -579,6 +613,9 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
 #else
         // Compile as an expression
         //PyObject* pCode = Py_CompileStringExFlags(qUtf8Printable(command), "<string>", Py_eval_input, nullptr, -1);
+
+        //PyGILState_STATE gil_state = PyGILState_Ensure();
+
         PyObject* pCode = Py_CompileString(qUtf8Printable(command), "<stdin>", Py_single_input);
         if(!pCode || PyErr_Occurred())
         {
@@ -617,6 +654,7 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
             }
              Py_XDECREF(pRes);
         }
+        //PyGILState_Release(gil_state);
 #endif
     }
 
@@ -626,7 +664,7 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
     buf_out = buffer_out.c_str();
     buf_err = buffer_err.c_str();
 
-    //qDebug() << __func__ << "result:" << result;
+    qDebug() << __func__ << "result:" << result;
 
     return 0;
 }

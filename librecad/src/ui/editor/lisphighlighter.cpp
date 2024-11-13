@@ -113,6 +113,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\bminus\\b([?])"),
         QStringLiteral("\\bminusp\\b"),
         QStringLiteral("\\bnew_dialog\\b"),
+        QStringLiteral("\\bnil\\b"),
         QStringLiteral("\\bnil\\b([?])"),
         QStringLiteral("\\bnot\\b"),
         QStringLiteral("\\bnth\\b"),
@@ -127,6 +128,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\bprint\\b"),
         QStringLiteral("\\bprintln\\b"),
         QStringLiteral("\\bprn\\b"),
+        QStringLiteral("\\bprogn\\b"),
         QStringLiteral("\\bprompt\\b"),
         QStringLiteral("\\bpr-str\\b"),
         QStringLiteral("\\bquasiquote\\b"),
@@ -160,6 +162,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\bsymbol\\b"),
         QStringLiteral("\\bsymbol\\b"),
         QStringLiteral("\\bsymbol\\b([?])"),
+        QStringLiteral("\\bT\\b"),
         QStringLiteral("\\btan\\b"),
         QStringLiteral("\\bterpri\\b"),
         QStringLiteral("\\bthrow\\b"),
@@ -204,22 +207,22 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
     }
 
 //! [3]
-    singleLineCommentFormat.setForeground(QColor(137,136,135));
-    rule.pattern = QRegularExpression(QStringLiteral(";[^\n]*"));
-    rule.format = singleLineCommentFormat;
-    highlightingRules.append(rule);
-
-//! [4]
-    bracketFormat.setForeground(QColor(0, 87, 174));
+    bracketFormat.setForeground(QColor(0, 0, 255));
     bracketFormat.setFontWeight(QFont::Bold);
     rule.pattern = QRegularExpression(QStringLiteral("[()]|[)]"));
     rule.format = bracketFormat;
     highlightingRules.append(rule);
 
-//! [5]
+//! [4]
     quotationFormat.setForeground(QColor(191,3,3));
     rule.pattern = QRegularExpression(QStringLiteral("\"([^\"]*)\""));
     rule.format = quotationFormat;
+    highlightingRules.append(rule);
+
+//! [5]
+    singleLineCommentFormat.setForeground(QColor(137,136,135));
+    rule.pattern = QRegularExpression(QStringLiteral("(;.*)"));
+    rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 }
 

@@ -110,7 +110,7 @@ void Librepad::slotTabChanged(int index) {
         ui->tabWidget->tabBar()->setTabToolTip(index, editor->fileName());
     });
 
-    setWindowTitle(editor->fileName());
+    setWindowTitle(editorName() + " - [ " + editor->fileName() + " ]");
     ui->tabWidget->tabBar()->setTabText(index, editor->fileName());
 }
 
@@ -305,7 +305,7 @@ void Librepad::slotTabClose(int index)
         }
     }
     ui->tabWidget->removeTab(index);
-    setWindowTitle("Librepad");
+    setWindowTitle(editorName());
     delete editor;
 }
 
@@ -319,10 +319,10 @@ void Librepad::addNewTab(const QString& path)
     ui->tabWidget->setCurrentIndex(index);
     ui->tabWidget->tabBar()->setTabText(index, editor->fileName());
     ui->tabWidget->tabBar()->setTabToolTip(index, editor->fileName());
-    setWindowTitle(editor->fileName());
+    setWindowTitle(editorName() + " - [ " + editor->fileName() + " ]");
 
     connect(editor, &TextEditor::documentChanged, this, [=]() {
-        setWindowTitle(editor->fileName());
+        setWindowTitle(editorName() + " - [ " + editor->fileName() + " ]");
         ui->tabWidget->tabBar()->setTabText(index, editor->fileName());
         ui->tabWidget->tabBar()->setTabToolTip(index, editor->fileName());
     });
@@ -355,8 +355,6 @@ void Librepad::open()
         QMessageBox::warning(this, "Warning", "Cannot open file: " + file.errorString());
         return;
     }
-    setWindowTitle(fileName);
-
     addNewTab(fileName);
 }
 
@@ -390,7 +388,7 @@ void Librepad::saveAs()
     qDebug() << __func__ << editor->path();
     m_fileName = editor->path();
     writeRecentSettings(editor->path());
-    setWindowTitle(editor->fileName());
+    setWindowTitle(editorName() + " - [ " + editor->fileName() + " ]");
 }
 
 void Librepad::print()

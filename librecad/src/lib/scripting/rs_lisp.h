@@ -61,6 +61,7 @@ public:
     QString Lisp_GetVersionString() const { return LISP_VERSION; }
 
     std::string runCommand(const QString& command);
+    std::string runFileCmd(const QString& name);
     int runFile(const QString& name);
     int runString(const QString& str);
 private:

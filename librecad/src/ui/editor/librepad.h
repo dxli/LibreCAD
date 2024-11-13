@@ -26,7 +26,6 @@ public:
     explicit Librepad(QWidget *parent = nullptr, const QString& name="Librepad", const QString& fileName="");
     ~Librepad();
 
-    void writeSettings();
     void enableIDETools();
     void setCmdWidgetChecked(bool val);
 
@@ -34,6 +33,8 @@ public:
     QString toPlainText() const;
     QString editorNametolower() const { return m_editorName.toLower(); }
     QString editorName() const { return m_editorName; }
+
+    void closeEvent(QCloseEvent *event) override;
 
 public slots:
     void save();
@@ -63,9 +64,6 @@ private slots:
     void toolBarSearch();
     void toolBarBuild();
 
-protected:
-    void closeEvent(QCloseEvent *event) override;
-
 private:
     QString m_fileName;
     QFont m_font;
@@ -78,6 +76,7 @@ private:
     void addNewTab(const QString& path);
     QFont font() const { return m_font; }
 
+    void writeSettings();
     void writeFontSettings();
     void readSettings();
     void recentMenu();

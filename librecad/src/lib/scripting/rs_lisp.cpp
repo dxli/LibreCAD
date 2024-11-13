@@ -112,4 +112,29 @@ std::string RS_Lisp::runCommand(const QString& command)
     return lispOut.str();
 }
 
+/**
+ * Launches the given script in command line.
+ */
+std::string RS_Lisp::runFileCmd(const QString& name)
+{
+    std::ostringstream lispOut;
+    // save pointer to old std::cout buffer
+    auto cout_buff = std::cout.rdbuf();
+    // substitute internal std::cout buffer with
+    std::cout.rdbuf(lispOut.rdbuf());
+
+    // now std::cout work with 'lispOut' buffer
+    std::string lispValue = Lisp_EvalFile(qUtf8Printable(name));
+    std::cout.flush();
+
+    // go back to old buffer
+    std::cout.rdbuf(cout_buff);
+    // add Lisp exec value to Lisp prombt
+    lispOut << lispValue;
+    // print 'lispOut' content
+    std::cout << lispOut.str() << std::endl;
+
+    return lispOut.str();
+}
+
 #endif // DEVELOPER

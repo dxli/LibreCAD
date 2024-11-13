@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QApplication>
 #include <QMessageBox>
+#include <QTemporaryFile>
 #include "qg_lsp_commandwidget.h"
 
 #ifdef DEVELOPER
@@ -26,20 +27,34 @@ LibreLisp::LibreLisp(QWidget *parent, const QString& fileName)
 void LibreLisp::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
-    Librepad::writeSettings();
     writeSettings();
+    Librepad::closeEvent(event);
 }
 
 void LibreLisp::docVisibilityChanged(bool visible)
 {
-    qDebug() << __func__ << visible;
     setCmdWidgetChecked(visible);
 }
 
 void LibreLisp::run()
 {
-    QString code = toPlainText();
-    commandWidget->processInput(code);
+    QTemporaryFile file;
+    if (file.open())
+    {
+        QTextStream stream(&file);
+        if (toPlainText().endsWith("\n")) {
+            stream << toPlainText();
+            stream.flush();
+        }
+        else
+        {
+            stream << toPlainText() << "\n";
+            stream.flush();
+        }
+        file.close();
+        commandWidget->runFile(file.fileName());
+        file.remove();
+    }
 }
 
 void LibreLisp::loadScript()
@@ -54,7 +69,9 @@ void LibreLisp::loadScript()
         );
 
     if (fileName.isEmpty())
+    {
         return;
+    }
 
     RS_LISP->runFile(fileName);
 }

@@ -26,8 +26,8 @@ LibrePython::LibrePython(QWidget *parent, const QString& fileName)
 void LibrePython::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
-    Librepad::writeSettings();
     writeSettings();
+    Librepad::closeEvent(event);
 }
 
 void LibrePython::docVisibilityChanged(bool visible)
@@ -37,8 +37,23 @@ void LibrePython::docVisibilityChanged(bool visible)
 
 void LibrePython::run()
 {
-    QString code = toPlainText();
-    commandWidget->processInput(code);
+    QTemporaryFile file;
+    if (file.open())
+    {
+        QTextStream stream(&file);
+        if (toPlainText().endsWith("\n")) {
+            stream << toPlainText();
+            stream.flush();
+        }
+        else
+        {
+            stream << toPlainText() << "\n";
+            stream.flush();
+        }
+        file.close();
+        commandWidget->runFile(file.fileName());
+        file.remove();
+    }
 }
 
 void LibrePython::loadScript()

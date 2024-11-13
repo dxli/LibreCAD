@@ -67,6 +67,7 @@ PythonHighlighter::PythonHighlighter(QTextDocument *parent)
         QStringLiteral("\\belse\\b"),
         QStringLiteral("\\belif\\b"),
         QStringLiteral("\\bfinally\\b"),
+        QStringLiteral("\\bglobal\\b"),
         QStringLiteral("\\bexcept\\b"),
         QStringLiteral("\\bfor\\b"),
         QStringLiteral("\\bif\\b"),
@@ -75,19 +76,19 @@ PythonHighlighter::PythonHighlighter(QTextDocument *parent)
         QStringLiteral("\\bnot\\b"),
         QStringLiteral("\\bor\\b"),
         QStringLiteral("\\bpass\\b"),
-        QStringLiteral("\\breturn\\b"),
+        QStringLiteral("\\braise\\b"),
         QStringLiteral("\\brepeat\\b"),
+        QStringLiteral("\\breturn\\b"),
         QStringLiteral("\\bsuper\\b"),
         QStringLiteral("\\bwith\\b"),
         QStringLiteral("\\bwhile\\b"),
         QStringLiteral("\\blambda\\b"),
         QStringLiteral("\\bmatch\\b"),
-        QStringLiteral("\\braise\\b"),
         QStringLiteral("\\btry\\b"),
         QStringLiteral("\\byield\\b"),
     };
 
-    statementFormat.setFontWeight(QFont::Bold); //#1f1c1b
+    statementFormat.setFontWeight(QFont::Bold);
     statementFormat.setForeground(QColor(31, 28, 27));
     for (const QString &pattern : keywordPatternsStatement) {
         rule.expression = QRegExp(pattern);
