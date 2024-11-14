@@ -446,7 +446,7 @@ int RS_Python::fflush(const QString& stream)
 }
 
 /**
- * Launches the given script.
+ * Launches the given script in command line.
  */
 int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_err)
 {
@@ -510,7 +510,7 @@ int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_er
 }
 
 /**
- * Launches the a function from a module.
+ * Launches the given script.
  */
 int RS_Python::runFile(const QString& name)
 {

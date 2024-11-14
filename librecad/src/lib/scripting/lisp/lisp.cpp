@@ -9,6 +9,10 @@
 #include <filesystem>
 #include <algorithm>
 #include <QDebug>
+#include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #define MAX_FUNC 33
 
@@ -48,13 +52,11 @@ static const char* malEvalFunctionTable[MAX_FUNC] = {
     "zerop"
 };
 
-namespace emb
-{
-std::stringstream cout;
-}
-
 int64_t malGuiId = 0;
 bool traceDebug = false;
+
+QWidget *dclDialog = nullptr;
+QVBoxLayout *vLayout = nullptr;
 
 malValuePtr READ(const String& input);
 String PRINT(malValuePtr ast);
@@ -63,7 +65,7 @@ static void installFunctions(malEnvPtr env);
 //  Installs functions, macros and constants implemented in MAL.
 static void installEvalCore(malEnvPtr env);
 //  Installs functions from EVAL, implemented in MAL.
-static void openTile(const malGui* tile) ;
+static void openTile(const malGui* tile);
 
 static void makeArgv(malEnvPtr env, int argc, char* argv[]);
 static String safeRep(const String& input, malEnvPtr env);
@@ -572,6 +574,11 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
             if (special == "start_dialog") {
                 checkArgsIs("setvar", 0, argCount);
 
+                if (dclDialog != nullptr)
+                {
+                    dclDialog->show();
+                }
+
                 return mal::integer(0);
             }
 
@@ -579,6 +586,19 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 checkArgsIs("trace", 1, argCount);
                 shadowEnv->set(strToUpper(list->item(1)->print(true)), mal::trueValue());
                 return mal::symbol(list->item(1)->print(true));
+            }
+
+            if (special == "unload_dialog") {
+                checkArgsIs("unload_dialog", 1, argCount);
+                const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(1), env));
+
+                if (dclDialog != nullptr)
+                {
+                    delete dclDialog;
+                    dclDialog = nullptr;
+                }
+
+                return mal::integer(0);
             }
 
             if (special == "untrace") {
@@ -786,6 +806,82 @@ static void installEvalCore(malEnvPtr env) {
 static void openTile(const malGui* tile)
 {
     std::cout << "Name: "<< tile->value().name << std::endl;
+
+    switch (tile->value().id) {
+        case DIALOG:
+        {
+            std::cout << "add Dialog: " << tile->value().label.c_str() << std::endl;
+            dclDialog = new QWidget;
+            dclDialog->setWindowTitle(QString(tile->value().label.c_str()));
+            vLayout = new QVBoxLayout(dclDialog);
+        }
+            break;
+        case TEXT:
+        {
+            if (dclDialog != nullptr)
+            {
+                QLabel *label = new QLabel;
+                std::cout << "add Label: " << tile->value().label.c_str() << std::endl;
+                //label->setText(QString(tile->value().label.c_str()));
+                label->setText("*bla*");
+                switch (tile->value().alignment) {
+                case LEFT:
+                    label->setAlignment(Qt::AlignLeft);
+                    break;
+                case RIGHT:
+                    label->setAlignment(Qt::AlignRight);
+                    break;
+                case TOP:
+                    label->setAlignment(Qt::AlignTop);
+                    break;
+                case BOTTOM:
+                    label->setAlignment(Qt::AlignBottom);
+                    break;
+                case CENTERED:
+                    label->setAlignment(Qt::AlignCenter);
+                    break;
+                default: {}
+                    break;
+                }
+                vLayout->addWidget(label);
+            }
+            break;
+        }
+        case BUTTON:
+        {
+            if (dclDialog != nullptr)
+            {
+                QPushButton *button = new QPushButton;
+                button->setText(QString(tile->value().label.c_str()));
+                std::cout << "add Button: " << tile->value().label.c_str() << std::endl;
+#if 0
+                switch (tile->value().alignment) {
+                case LEFT:
+                    button->setAlignment(Qt::AlignLeft);
+                    break;
+                case RIGHT:
+                    button->setAlignment(Qt::AlignRight);
+                    break;
+                case TOP:
+                    button->setAlignment(Qt::AlignTop);
+                    break;
+                case BOTTOM:
+                    button->setAlignment(Qt::AlignBottom);
+                    break;
+                case CENTERED:
+                    button->setAlignment(Qt::AlignCenter);
+                    break;
+                default:
+                    break;
+                }
+#endif
+                vLayout->addWidget(button);
+            }
+        }
+            break;
+        default:
+            break;
+    }
 
     malValueVec* tiles = new malValueVec(tile->value().tiles->size());
     std::copy(tile->value().tiles->begin(), tile->value().tiles->end(), tiles->begin());

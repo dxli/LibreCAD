@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <string.h>
+#include <QDebug>
 
 typedef std::regex              Regex;
 
@@ -204,7 +205,7 @@ malValuePtr readStr(const String& input)
     return readForm(tokeniser);
 }
 
-static void readTile(Tokeniser& tokeniser, tile_t tile);
+static void readTile(Tokeniser& tokeniser, tile_t& tile);
 static void copyTile(const tile_t &a, tile_t &b);
 static bool ends_with(const std::string& str, const std::string& suffix);
 static bool getDclBool(const String& str);
@@ -400,6 +401,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 token = tokeniser.peek();
                 tokeniser.next();
                 readTile(tokeniser, tile);
+                //qDebug() << "Debug" << tile.label.c_str();
                 return addTile(tile);
             }
             if (token == it.name) {
@@ -454,7 +456,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
     return NULL;
 }
 
-static void readTile(Tokeniser& tokeniser, tile_t tile)
+static void readTile(Tokeniser& tokeniser, tile_t& tile)
 {
     //std::cout << "readTile() token: " << tokeniser.peek() << std::endl;
     String token;
@@ -745,6 +747,7 @@ static void copyTile(const tile_t &a, tile_t &b)
 
 static malValuePtr addTile(tile_t tile)
 {
+    qDebug() << __func__ << tile.label.c_str();
     switch(tile.id) {
 #if 0
     case BOXED_COLUMN:

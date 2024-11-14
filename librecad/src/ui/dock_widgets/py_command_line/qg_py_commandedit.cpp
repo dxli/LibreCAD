@@ -78,7 +78,6 @@ QG_Py_CommandEdit::QG_Py_CommandEdit(QWidget* parent)
         this,
         [this](){
             if (cursorPosition() < prombtSize()) {
-                prombt();
                 setCursorPosition(prombtSize());
             }
         });
@@ -157,14 +156,14 @@ void QG_Py_CommandEdit::keyPressEvent(QKeyEvent* e)
             }
         }
         break;
-
+#if 0
     case Qt::Key_Backspace:
         if (QLineEdit::text().size() > prombtSize())
         {
             QLineEdit::keyPressEvent(e);
         }
         break;
-
+#endif
     case Qt::Key_Enter:
     case Qt::Key_Return:
         processInput(text());
