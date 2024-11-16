@@ -14,9 +14,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#define MAX_FUNC 33
+#define MAX_FUNC 36
 
 static const char* malEvalFunctionTable[MAX_FUNC] = {
+    "action_tile",
     "and",
     "bound?",
     "boundp",
@@ -24,6 +25,7 @@ static const char* malEvalFunctionTable[MAX_FUNC] = {
     "defun",
     "defmacro!",
     "do",
+    "done_dialog",
     "fn*",
     "getkword",
     "getvar",
@@ -46,6 +48,7 @@ static const char* malEvalFunctionTable[MAX_FUNC] = {
     "start_dialog",
     "trace",
     "try*",
+    "unload_dialog",
     "untrace",
     "while",
     "zero?",
@@ -61,6 +64,7 @@ QVBoxLayout *vLayout = nullptr;
 malValuePtr READ(const String& input);
 String PRINT(malValuePtr ast);
 String strToUpper(String s);
+
 static void installFunctions(malEnvPtr env);
 //  Installs functions, macros and constants implemented in MAL.
 static void installEvalCore(malEnvPtr env);
@@ -70,12 +74,6 @@ static void openTile(const malGui* tile);
 static void makeArgv(malEnvPtr env, int argc, char* argv[]);
 static String safeRep(const String& input, malEnvPtr env);
 static malValuePtr quasiquote(malValuePtr obj);
-
-//static ReadLine s_readLine("~/.mal-history");
-
-static malEnvPtr replEnv(new malEnv);
-
-static malEnvPtr shadowEnv(new malEnv);
 
 int LispRun_SimpleString(const char *command)
 {
@@ -200,6 +198,19 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 std::cout << "TRACE: " << PRINT(ast) << std::endl;
             }
             int argCount = list->count() - 1;
+
+            if (special == "action_tile") {
+                checkArgsAtLeast("action_tile", 2, argCount);
+                const malString* id = VALUE_CAST(malString, list->item(1));
+                const malString* action = VALUE_CAST(malString, list->item(2));
+
+                malValuePtr value = dclEnv->get(id->value().c_str());
+                if (value->print(true).compare("nil") == 0) {
+                    dclEnv->set(list->item(1)->print(true), mal::string(action->value().c_str()));
+                    return mal::trueValue();
+                }
+                return mal::nilValue();
+            }
 
             if (special == "and") {
                 checkArgsAtLeast("and", 2, argCount);
@@ -329,6 +340,18 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 }
                 ast = list->item(argCount);
                 continue; // TCO
+            }
+
+            if (special == "done_dialog") {
+                checkArgsBetween("done_dialog", 0, 1, argCount);
+                if (dclDialog != nullptr)
+                {
+                    malValueVec* items = new malValueVec(2);
+                    items->at(0) = mal::integer(dclDialog->x());
+                    items->at(1) = mal::integer(dclDialog->y());
+                    dclDialog->close();
+                    return mal::list(items);
+                }
             }
 
             if (special == "fn*" || special == "lambda") {
@@ -463,7 +486,7 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 malValuePtr dcl = loadDcl(path);
                 if (dcl) {
                     int uniq = ++malGuiId;
-                    env->set(STRF("#builtin-gui(%d)", uniq), dcl);
+                    dclEnv->set(STRF("#builtin-gui(%d)", uniq), dcl);
                     return mal::integer(uniq);
                 }
                 return mal::integer(-1);
@@ -498,7 +521,7 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 checkArgsAtLeast("new_dialog", 2, argCount);
                 const malString* dlgName = DYNAMIC_CAST(malString, list->item(1));
                 const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(2), env));
-                const malGui*    gui = DYNAMIC_CAST(malGui, env->get(STRF("#builtin-gui(%d)", id->value())));
+                const malGui*     gui = DYNAMIC_CAST(malGui, dclEnv->get(STRF("#builtin-gui(%d)", id->value())));
                 malValueVec* items = new malValueVec(gui->value().tiles->size());
                 std::copy(gui->value().tiles->begin(), gui->value().tiles->end(), items->begin());
 
@@ -590,7 +613,7 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "unload_dialog") {
                 checkArgsIs("unload_dialog", 1, argCount);
-                const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(1), env));
+                //const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(1), env));
 
                 if (dclDialog != nullptr)
                 {
@@ -787,8 +810,7 @@ static const char* malFunctionTable[] = {
     "(def! load load-file)",
     "(def! strcat str)",
     "(def! type type?)",
-    "(def! EOF -1)",
-    "(def! *DCL* '())",
+    "(def! EOF -1)"
 };
 
 static void installFunctions(malEnvPtr env) {
@@ -810,74 +832,48 @@ static void openTile(const malGui* tile)
     switch (tile->value().id) {
         case DIALOG:
         {
-            std::cout << "add Dialog: " << tile->value().label.c_str() << std::endl;
-            dclDialog = new QWidget;
-            dclDialog->setWindowTitle(QString(tile->value().label.c_str()));
+            const malWidget* dlg = static_cast<const malWidget*>(tile);
+            dclDialog = dlg->widget();
             vLayout = new QVBoxLayout(dclDialog);
         }
             break;
         case TEXT:
         {
-            if (dclDialog != nullptr)
-            {
-                QLabel *label = new QLabel;
-                std::cout << "add Label: " << tile->value().label.c_str() << std::endl;
-                //label->setText(QString(tile->value().label.c_str()));
-                label->setText("*bla*");
-                switch (tile->value().alignment) {
-                case LEFT:
-                    label->setAlignment(Qt::AlignLeft);
-                    break;
-                case RIGHT:
-                    label->setAlignment(Qt::AlignRight);
-                    break;
-                case TOP:
-                    label->setAlignment(Qt::AlignTop);
-                    break;
-                case BOTTOM:
-                    label->setAlignment(Qt::AlignBottom);
-                    break;
-                case CENTERED:
-                    label->setAlignment(Qt::AlignCenter);
-                    break;
-                default: {}
-                    break;
-                }
-                vLayout->addWidget(label);
-            }
-            break;
+            const malLabel* l = static_cast<const malLabel*>(tile);
+            vLayout->addWidget(l->label());
         }
+            break;
         case BUTTON:
         {
-            if (dclDialog != nullptr)
+            const malButton* b = static_cast<const malButton*>(tile);
+            if (tile->value().key != "")
             {
-                QPushButton *button = new QPushButton;
-                button->setText(QString(tile->value().label.c_str()));
-                std::cout << "add Button: " << tile->value().label.c_str() << std::endl;
-#if 0
-                switch (tile->value().alignment) {
-                case LEFT:
-                    button->setAlignment(Qt::AlignLeft);
-                    break;
-                case RIGHT:
-                    button->setAlignment(Qt::AlignRight);
-                    break;
-                case TOP:
-                    button->setAlignment(Qt::AlignTop);
-                    break;
-                case BOTTOM:
-                    button->setAlignment(Qt::AlignBottom);
-                    break;
-                case CENTERED:
-                    button->setAlignment(Qt::AlignCenter);
-                    break;
-                default:
-                    break;
-                }
-#endif
-                vLayout->addWidget(button);
+                dclEnv->set(noQuotes(tile->value().key).c_str(), mal::nilValue());
             }
+#if 0
+            switch (tile->value().alignment) {
+            case LEFT:
+                vLayout->
+                break;
+            case RIGHT:
+
+                break;
+            case TOP:
+
+                break;
+            case BOTTOM:
+
+                break;
+            case CENTERED:
+
+                break;
+            default:
+                break;
+            }
+#endif
+            vLayout->addWidget(b->button());
         }
+
             break;
         default:
             break;
@@ -901,3 +897,7 @@ String strToUpper(String s)
     return s;
 }
 
+String noQuotes(const String& s)
+{
+    return s.substr(1, s.size() - 2);
+}

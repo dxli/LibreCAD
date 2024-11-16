@@ -23,11 +23,6 @@
 #define VERSION_STR(rel, build, date, time) "LibreLisp " rel " (" build ", " date ", " time ") [" COMPILER " " __VERSION__ "] on " HOST
 #define LISP_VERSION VERSION_STR(REL,BUILD_TYPE,__DATE__,__TIME__)
 
-namespace emb
-{
-extern std::stringstream cout;
-}
-
 class malValue;
 typedef RefCountedPtr<malValue>  malValuePtr;
 typedef std::vector<malValuePtr> malValueVec;
@@ -45,6 +40,7 @@ extern String rep(const String& input, malEnvPtr env);
 
 // Core.cpp
 extern void installCore(malEnvPtr env);
+extern String noQuotes(const String& s);
 
 // Reader.cpp
 extern malValuePtr readStr(const String& input);

@@ -31,4 +31,10 @@ private:
     bool m_isLamda = false;
 };
 
+extern malEnvPtr replEnv;
+
+extern malEnvPtr shadowEnv;
+
+extern malEnvPtr dclEnv;
+
 #endif // INCLUDE_ENVIRONMENT_H

@@ -1,12 +1,14 @@
 #include "Debug.h"
 #include "Environment.h"
 #include "Types.h"
+#include "lisp.h"
 
 #include <iostream>
 #include <algorithm>
 #include <memory>
 #include <typeinfo>
 #include <math.h>
+#include <QObject>
 
 namespace mal {
     malValuePtr atom(malValuePtr value) {
@@ -233,6 +235,7 @@ namespace mal {
     malValuePtr label(const tile_t& tile) {
         return malValuePtr(new malLabel(tile));
     };
+
 };
 
 malValuePtr malBuiltIn::apply(malValueIter argsBegin,
@@ -758,41 +761,133 @@ malWidget::malWidget(const tile_t& tile)
     : malGui(tile)
     , m_widget(new QWidget)
 {
-
-}
-
-void malWidget::add([[maybe_unused]] QWidget *parent)
-{
-    m_widget = new QWidget(parent);
-    m_widget->setWindowTitle(value().label.c_str());
-    m_widget->show();
+    m_widget->setWindowTitle(noQuotes(tile.label).c_str());
+    m_widget->setWindowFlags(Qt::Tool | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint); //FIXME
 }
 
 malButton::malButton(const tile_t& tile)
     : malGui(tile)
-    //, m_button(new QPushButton)
+    , m_button(new QPushButton)
 {
+    m_button->setText(noQuotes(tile.label).c_str());
+    m_button->setDefault(tile.is_default);
 
+    if(int(tile.width))
+    {
+        m_button->setMinimumWidth(int(tile.width));
+    }
+
+    if(int(tile.height))
+    {
+        m_button->setMinimumHeight(int(tile.height));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_button->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_button->setFixedWidth(80);
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_button->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_button->setFixedWidth(32);
+        }
+    }
+
+    QObject::connect(m_button, QOverload<bool>::of(&QPushButton::clicked), [&](bool newValue) { clicked(newValue); });
 }
 
-void malButton::add(QWidget *parent)
+void malButton::clicked(bool checked)
 {
-    m_button = new QPushButton(parent);
-    m_button->setDefault(value().is_default);
-    m_button->setText(value().label.c_str());
-    m_button->show();
+    Q_UNUSED(checked)
+    //qDebug() << "malButton::clicked is checked:" << checked;
+    malValuePtr value = dclEnv->get(this->value().key.c_str());
+    qDebug() << "malButton::clicked action:" << value->print(true).c_str();
+    if (value->print(true).compare("nil") != 0) {
+        String action = "(do";
+        action += noQuotes(value->print(true)).c_str();
+        action += ")";
+        malValuePtr action_expr = mal::string(action);
+        qDebug() << "malButton::clicked action_expr:" << action_expr->print(true).c_str();
+        LispRun_SimpleString(action.c_str());
+    }
 }
 
 malLabel::malLabel(const tile_t& tile)
     : malGui(tile)
-    //, m_label(new QLabel)
+    , m_label(new QLabel)
 {
+    m_label->setText(noQuotes(tile.label).c_str());
+    if (tile.fixed_width)
+    {
+        m_label->setFixedWidth(int(tile.width));
+    }
 
+    if(int(tile.width))
+    {
+        m_label->setMinimumWidth(int(tile.width));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_label->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_label->setFixedWidth(m_label->width());
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_label->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_label->setFixedWidth(m_label->height());
+        }
+    }
+
+    if (tile.is_bold)
+    {
+        m_label->setStyleSheet("font-weight: bold");
+    }
+
+    switch (tile.alignment)
+    {
+        case LEFT:
+            m_label->setAlignment(Qt::AlignLeft);
+            break;
+        case RIGHT:
+            m_label->setAlignment(Qt::AlignRight);
+            break;
+        case TOP:
+            m_label->setAlignment(Qt::AlignTop);
+            break;
+        case BOTTOM:
+            m_label->setAlignment(Qt::AlignBottom);
+            break;
+        case CENTERED:
+            m_label->setAlignment(Qt::AlignCenter);
+            break;
+        default: {}
+            break;
+    }
 }
 
-void malLabel::add(QWidget *parent)
-{
-    m_label = new QLabel(parent);
-    m_label->setText(value().label.c_str());
-    m_label->show();
-}

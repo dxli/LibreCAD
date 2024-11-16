@@ -28,6 +28,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
     keywordFormat.setFontWeight(QFont::Bold);
     const QString keywordPatterns[] = {
         QStringLiteral("\\babs\\b"),
+        QStringLiteral("\\baction_tile\\b"),
         QStringLiteral("\\band\\b"),
         QStringLiteral("\\balert\\b"),
         QStringLiteral("\\bappend\\b"),
@@ -62,7 +63,8 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\bdefun\\b"),
         QStringLiteral("\\bderef\\b"),
         QStringLiteral("\\bdissoc\\b"),
-        QStringLiteral("\\bdoprogn\\b"),
+        QStringLiteral("\\bdo\\b"),
+        QStringLiteral("\\bdone_dialog\\b"),
         QStringLiteral("\\bdouble\\b([?])"),
         QStringLiteral("\\bempty\\b([?])"),
         QStringLiteral("\\beval\\b"),
@@ -150,6 +152,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\bsin\\b"),
         QStringLiteral("\\bslurp\\b"),
         QStringLiteral("\\bsqrt\\b"),
+        QStringLiteral("\\bstart_dialog\\b"),
         QStringLiteral("\\bstartapp\\b"),
         QStringLiteral("\\bstr\\b"),
         QStringLiteral("\\bstrcase\\b"),
@@ -172,6 +175,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
         QStringLiteral("\\btry*\\b"),
         QStringLiteral("\\btype\\b"),
         QStringLiteral("\\btype\\b([?])"),
+        QStringLiteral("\\bunload_dialog\\b"),
         QStringLiteral("\\buntrace\\b"),
         QStringLiteral("\\bvals\\b"),
         QStringLiteral("\\bvec\\b"),
@@ -209,7 +213,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
 //! [3]
     bracketFormat.setForeground(QColor(0, 0, 255));
     bracketFormat.setFontWeight(QFont::Bold);
-    rule.pattern = QRegularExpression(QStringLiteral("[()]|[)]"));
+    rule.pattern = QRegularExpression(QStringLiteral("[()]"));
     rule.format = bracketFormat;
     highlightingRules.append(rule);
 
@@ -221,7 +225,7 @@ LispHighlighter::LispHighlighter(QTextDocument *parent)
 
 //! [5]
     singleLineCommentFormat.setForeground(QColor(137,136,135));
-    rule.pattern = QRegularExpression(QStringLiteral("(;.*)"));
+    rule.pattern = QRegularExpression(QStringLiteral(";(?=[^\"]*(?:(?:\"[^\"]*){2})*$).*"));
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 }

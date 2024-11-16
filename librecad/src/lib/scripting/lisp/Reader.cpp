@@ -748,6 +748,7 @@ static void copyTile(const tile_t &a, tile_t &b)
 static malValuePtr addTile(tile_t tile)
 {
     qDebug() << __func__ << tile.label.c_str();
+
     switch(tile.id) {
 #if 0
     case BOXED_COLUMN:

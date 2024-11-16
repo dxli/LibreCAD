@@ -686,8 +686,6 @@ public:
 
     WITH_META(malGui);
 
-    virtual void add([[maybe_unused]]QWidget *parent=nullptr) {}
-
 private:
     const tile_t m_value;
 };
@@ -703,13 +701,13 @@ public:
     WITH_META(malWidget);
 
     QWidget* widget() const { return m_widget; }
-    void add(QWidget *parent=nullptr);
 
 private:
     QWidget* m_widget;
 };
 
 class malButton : public malGui {
+
 public:
     malButton(const tile_t& tile);
     malButton(const malButton& that, malValuePtr meta)
@@ -720,13 +718,15 @@ public:
     WITH_META(malButton);
 
     QPushButton* button() const { return m_button; }
-    void add(QWidget *parent=nullptr);
+
+    void clicked(bool checked);
 
 private:
     QPushButton* m_button;
 };
 
 class malLabel : public malGui {
+
 public:
     malLabel(const tile_t& tile);
     malLabel(const malLabel& that, malValuePtr meta)
@@ -737,7 +737,6 @@ public:
     WITH_META(malLabel);
 
     QLabel* label() const { return m_label; }
-    void add(QWidget *parent=nullptr);
 
 private:
     QLabel* m_label;
@@ -787,9 +786,11 @@ namespace mal {
     malValuePtr piValue();
     malValuePtr vector(malValueVec* items);
     malValuePtr vector(malValueIter begin, malValueIter end);
+
     malValuePtr widget(const tile_t& tile);
     malValuePtr button(const tile_t& tile);
     malValuePtr label(const tile_t& tile);
+
 };
 
 #endif // INCLUDE_TYPES_H

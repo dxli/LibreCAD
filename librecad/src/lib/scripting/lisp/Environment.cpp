@@ -4,6 +4,13 @@
 #include <iostream>
 #include <algorithm>
 
+malEnvPtr replEnv(new malEnv);
+
+malEnvPtr shadowEnv(new malEnv);
+
+malEnvPtr dclEnv(new malEnv);
+
+
 malEnv::malEnv(malEnvPtr outer)
 : m_outer(outer)
 {
