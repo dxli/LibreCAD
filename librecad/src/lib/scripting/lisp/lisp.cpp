@@ -205,8 +205,9 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 const malString* action = VALUE_CAST(malString, list->item(2));
 
                 malValuePtr value = dclEnv->get(id->value().c_str());
+                qDebug() << "value->print(true)" << value->print(true).c_str();
                 if (value->print(true).compare("nil") == 0) {
-                    dclEnv->set(list->item(1)->print(true), mal::string(action->value().c_str()));
+                    dclEnv->set(id->value().c_str(), mal::string(action->value().c_str()));
                     return mal::trueValue();
                 }
                 return mal::nilValue();
@@ -872,6 +873,7 @@ static void openTile(const malGui* tile)
             }
 #endif
             vLayout->addWidget(b->button());
+
         }
 
             break;

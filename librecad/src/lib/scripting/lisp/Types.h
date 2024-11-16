@@ -14,6 +14,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QHBoxLayout>
 
 class malEmptyInputException : public std::exception { };
 
@@ -93,7 +94,7 @@ public:
         return this == rhs; // these are singletons
     }
 
-    WITH_META(malConstant);
+    WITH_META(malConstant)
 
 private:
     const String m_name;
@@ -115,7 +116,7 @@ public:
 
     virtual bool doIsEqualTo(const malValue* rhs) const;
 
-    WITH_META(malInteger);
+    WITH_META(malInteger)
 
 private:
     const int64_t m_value;
@@ -138,7 +139,7 @@ public:
 
     virtual bool doIsEqualTo(const malValue* rhs) const;
 
-    WITH_META(malDouble);
+    WITH_META(malDouble)
 
 private:
     const double m_value;
@@ -169,7 +170,7 @@ public:
 
     ::FILE *value() const { return m_value; }
 
-    WITH_META(malFile);
+    WITH_META(malFile)
 
     malValuePtr close();
     malValuePtr open();
@@ -215,7 +216,7 @@ public:
         return value() == static_cast<const malString*>(rhs)->value();
     }
 
-    WITH_META(malString);
+    WITH_META(malString)
 };
 
 class malKeyword : public malStringBase {
@@ -231,7 +232,7 @@ public:
 
     virtual MALTYPE type() const { return MALTYPE::KEYW; }
 
-    WITH_META(malKeyword);
+    WITH_META(malKeyword)
 };
 
 class malSymbol : public malStringBase {
@@ -249,7 +250,7 @@ public:
 
     virtual MALTYPE type() const { return MALTYPE::SYM; }
 
-    WITH_META(malSymbol);
+    WITH_META(malSymbol)
 };
 
 class malSequence : public malValue {
@@ -305,7 +306,7 @@ public:
     virtual malValuePtr conj(malValueIter argsBegin,
                              malValueIter argsEnd) const;
 
-    WITH_META(malList);
+    WITH_META(malList)
 };
 
 class malVector : public malSequence {
@@ -323,7 +324,7 @@ public:
     virtual malValuePtr conj(malValueIter argsBegin,
                              malValueIter argsEnd) const;
 
-    WITH_META(malVector);
+    WITH_META(malVector)
 };
 
 class malApplicable : public malValue {
@@ -358,7 +359,7 @@ public:
 
     virtual MALTYPE type() const { return MALTYPE::MAP; }
 
-    WITH_META(malHash);
+    WITH_META(malHash)
 
 private:
     const Map m_map;
@@ -395,7 +396,7 @@ public:
 
     virtual MALTYPE type() const { return MALTYPE::BUILTIN; }
 
-    WITH_META(malBuiltIn);
+    WITH_META(malBuiltIn)
 
 private:
     [[maybe_unused]] bool m_inEval;
@@ -454,7 +455,7 @@ public:
 
     malValuePtr reset(malValuePtr value) { return m_value = value; }
 
-    WITH_META(malAtom);
+    WITH_META(malAtom)
 
 private:
     malValuePtr m_value;
@@ -684,7 +685,7 @@ public:
     virtual malValuePtr conj(malValueIter argsBegin,
                              malValueIter argsEnd) const;
 
-    WITH_META(malGui);
+    WITH_META(malGui)
 
 private:
     const tile_t m_value;
@@ -698,7 +699,7 @@ public:
 
     virtual ~malWidget() { delete m_widget; }
 
-    WITH_META(malWidget);
+    WITH_META(malWidget)
 
     QWidget* widget() const { return m_widget; }
 
@@ -715,7 +716,7 @@ public:
 
     virtual ~malButton() { delete m_button; }
 
-    WITH_META(malButton);
+    WITH_META(malButton)
 
     QPushButton* button() const { return m_button; }
 
@@ -734,12 +735,28 @@ public:
 
     virtual ~malLabel() { delete m_label; }
 
-    WITH_META(malLabel);
+    WITH_META(malLabel)
 
     QLabel* label() const { return m_label; }
 
 private:
     QLabel* m_label;
+};
+
+class malRow : public malGui {
+public:
+    malRow(const tile_t& tile);
+    malRow(const malRow& that, malValuePtr meta)
+        : malGui(that, meta) { }
+
+    virtual ~malRow() { delete m_row; }
+
+    WITH_META(malRow)
+
+    QHBoxLayout* row() const { return m_row; }
+
+private:
+    QHBoxLayout* m_row;
 };
 
 namespace mal {
@@ -790,7 +807,8 @@ namespace mal {
     malValuePtr widget(const tile_t& tile);
     malValuePtr button(const tile_t& tile);
     malValuePtr label(const tile_t& tile);
+    malValuePtr row(const tile_t& tile);
 
-};
+}
 
 #endif // INCLUDE_TYPES_H

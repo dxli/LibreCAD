@@ -801,8 +801,10 @@ static malValuePtr addTile(tile_t tile)
         return mal::radio_column(tile);
     case RADIO_ROW:
         return mal::radio_row(tile);
+#endif
     case ROW:
         return mal::row(tile);
+#if 0
     case SLIDER:
         return mal::slider(tile);
     case SPACER:

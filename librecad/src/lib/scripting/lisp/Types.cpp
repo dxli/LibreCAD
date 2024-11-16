@@ -13,7 +13,7 @@
 namespace mal {
     malValuePtr atom(malValuePtr value) {
         return malValuePtr(new malAtom(value));
-    };
+    }
 
     malValuePtr boolean(bool value) {
         return value ? trueValue() : falseValue();
@@ -50,25 +50,25 @@ namespace mal {
 
     malValuePtr builtin(const String& name, malBuiltIn::ApplyFunc handler) {
         return malValuePtr(new malBuiltIn(name, handler));
-    };
+    }
 
     malValuePtr builtin(bool eval, const String& name) {
         return malValuePtr(new malBuiltIn(eval, name));
-    };
+    }
 
     malValuePtr falseValue() {
         static malValuePtr c(new malConstant("false"));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr file(const char *path, const char &mode)
     {
         return malValuePtr(new malFile(path, mode));
-    };
+    }
 
     malValuePtr gui(const tile_t& tile) {
         return malValuePtr(new malGui(tile));
-    };
+    }
 
     malValuePtr hash(const malHash::Map& map) {
         return malValuePtr(new malHash(map));
@@ -85,11 +85,11 @@ namespace mal {
 
     malValuePtr integer(const String& token) {
         return integer(std::stoi(token));
-    };
+    }
 
     malValuePtr keyword(const String& token) {
         return malValuePtr(new malKeyword(token));
-    };
+    }
 
     malValuePtr lambda(const StringVec& bindings,
                        malValuePtr body, malEnvPtr env) {
@@ -98,11 +98,11 @@ namespace mal {
 
     malValuePtr list(malValueVec* items) {
         return malValuePtr(new malList(items));
-    };
+    }
 
     malValuePtr list(malValueIter begin, malValueIter end) {
         return malValuePtr(new malList(begin, end));
-    };
+    }
 
     malValuePtr list(malValuePtr a) {
         malValueVec* items = new malValueVec(1);
@@ -127,32 +127,32 @@ namespace mal {
 
     malValuePtr macro(const malLambda& lambda) {
         return malValuePtr(new malLambda(lambda, true));
-    };
+    }
 
     malValuePtr nilValue() {
         static malValuePtr c(new malConstant("nil"));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr nullValue() {
         static malValuePtr c(new malConstant(""));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr mdouble(double value)
     {
         return malValuePtr(new malDouble(value));
-    };
+    }
 
     malValuePtr mdouble(const String& token)
     {
         return mdouble(std::stof(token));
-    };
+    }
 
     malValuePtr piValue() {
         static malValuePtr c(new malDouble(M_PI));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr string(const String& token) {
         return malValuePtr(new malString(token));
@@ -160,37 +160,43 @@ namespace mal {
 
     malValuePtr symbol(const String& token) {
         return malValuePtr(new malSymbol(token));
-    };
+    }
 
     malValuePtr trueValue() {
         static malValuePtr c(new malConstant("true"));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr typeAtom() {
         static malValuePtr c(new malConstant("ATOM"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeBuiltin() {
         static malValuePtr c(new malConstant("SUBR"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeFile() {
         static malValuePtr c(new malConstant("FILE"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeInteger() {
         static malValuePtr c(new malConstant("INT"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeList() {
         static malValuePtr c(new malConstant("LIST"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeMap() {
         static malValuePtr c(new malConstant("MAP"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeReal() {
         static malValuePtr c(new malConstant("REAL"));
         return malValuePtr(c);
@@ -198,45 +204,53 @@ namespace mal {
     malValuePtr typeString() {
         static malValuePtr c(new malConstant("STR"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeSymbol() {
         static malValuePtr c(new malConstant("SYM"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeUndef() {
         static malValuePtr c(new malConstant("UNDEF"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeVector() {
         static malValuePtr c(new malConstant("VEC"));
         return malValuePtr(c);
-    };
+    }
+
     malValuePtr typeKeword() {
         static malValuePtr c(new malConstant("KEYW"));
         return malValuePtr(c);
-    };
+    }
 
     malValuePtr vector(malValueVec* items) {
         return malValuePtr(new malVector(items));
-    };
+    }
 
     malValuePtr vector(malValueIter begin, malValueIter end) {
         return malValuePtr(new malVector(begin, end));
-    };
+    }
 
     malValuePtr widget(const tile_t& tile) {
         return malValuePtr(new malWidget(tile));
-    };
+    }
 
     malValuePtr button(const tile_t& tile) {
         return malValuePtr(new malButton(tile));
-    };
+    }
 
     malValuePtr label(const tile_t& tile) {
         return malValuePtr(new malLabel(tile));
-    };
+    }
 
-};
+    malValuePtr row(const tile_t& tile) {
+        return malValuePtr(new malRow(tile));
+    }
+
+}
 
 malValuePtr malBuiltIn::apply(malValueIter argsBegin,
                               malValueIter argsEnd) const
@@ -809,15 +823,57 @@ malButton::malButton(const tile_t& tile)
     QObject::connect(m_button, QOverload<bool>::of(&QPushButton::clicked), [&](bool newValue) { clicked(newValue); });
 }
 
+malRow::malRow(const tile_t& tile)
+    : malGui(tile)
+    , m_row(new QHBoxLayout)
+{
+#if 0
+    if(int(tile.width))
+    {
+        m_row->setMinimumWidth(int(tile.width));
+    }
+
+    if(int(tile.height))
+    {
+        m_row->setMinimumHeight(int(tile.height));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_row->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_row->setFixedWidth(80);
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_row->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_row->setFixedWidth(32);
+        }
+    }
+#endif
+}
+
 void malButton::clicked(bool checked)
 {
     Q_UNUSED(checked)
-    //qDebug() << "malButton::clicked is checked:" << checked;
-    malValuePtr value = dclEnv->get(this->value().key.c_str());
-    qDebug() << "malButton::clicked action:" << value->print(true).c_str();
-    if (value->print(true).compare("nil") != 0) {
+    qDebug() << "malButton::clicked key:" << this->value().key.c_str();
+    qDebug() << "malButton::clicked key:" << noQuotes(this->value().key).c_str();
+    malValuePtr val = dclEnv->get(noQuotes(this->value().key).c_str());
+    qDebug() << "malButton::clicked val:" << val->print(true).c_str();
+    if (val->print(true).compare("nil") != 0) {
         String action = "(do";
-        action += noQuotes(value->print(true)).c_str();
+        action += noQuotes(val->print(true)).c_str();
         action += ")";
         malValuePtr action_expr = mal::string(action);
         qDebug() << "malButton::clicked action_expr:" << action_expr->print(true).c_str();
