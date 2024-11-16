@@ -280,6 +280,8 @@
         <file>spline_points_add.svg</file>
         <file>spline_points_remove.svg</file>
         <file>spline_points_insert.svg</file>
+        <file>nview_visible.svg</file>
+        <file>nview_add.svg</file>
         <file>run.svg</file>
         <file>open_script.svg</file>
         <file>search_next.svg</file>

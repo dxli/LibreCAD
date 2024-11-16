@@ -89,6 +89,7 @@ public:
  void hideSnapOptions() override {};
  void removeOptionsWidget([[maybe_unused]]QWidget *options) override {}
  void addOptionsWidget([[maybe_unused]]QWidget * options) override {}
+ void setCurrentQAction(QAction *action) override{};
 };
 
 #endif
