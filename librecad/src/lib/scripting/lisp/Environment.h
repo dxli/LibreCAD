@@ -1,40 +1,40 @@
 #ifndef INCLUDE_ENVIRONMENT_H
 #define INCLUDE_ENVIRONMENT_H
 
-#include "MAL.h"
+#include "LCL.h"
 
 #include <map>
 
-class malEnv : public RefCounted {
+class lclEnv : public RefCounted {
 public:
-    malEnv(malEnvPtr outer = NULL);
-    malEnv(malEnvPtr outer,
+    lclEnv(lclEnvPtr outer = NULL);
+    lclEnv(lclEnvPtr outer,
            const StringVec& bindings,
-           malValueIter argsBegin,
-           malValueIter argsEnd);
+           lclValueIter argsBegin,
+           lclValueIter argsEnd);
 
-    ~malEnv();
+    ~lclEnv();
 
     void setLamdaMode(bool mode) { m_isLamda = mode; }
     bool isLamda() const { return m_isLamda; }
 
-    malValuePtr get(const String& symbol);
-    malEnvPtr   find(const String& symbol);
-    malValuePtr set(const String& symbol, malValuePtr value);
-    malEnvPtr   getRoot();
+    lclValuePtr get(const String& symbol);
+    lclEnvPtr   find(const String& symbol);
+    lclValuePtr set(const String& symbol, lclValuePtr value);
+    lclEnvPtr   getRoot();
 
 private:
-    typedef std::map<String, malValuePtr> Map;
+    typedef std::map<String, lclValuePtr> Map;
     Map m_map;
-    malEnvPtr m_outer;
+    lclEnvPtr m_outer;
     StringVec m_bindings;
     bool m_isLamda = false;
 };
 
-extern malEnvPtr replEnv;
+extern lclEnvPtr replEnv;
 
-extern malEnvPtr shadowEnv;
+extern lclEnvPtr shadowEnv;
 
-extern malEnvPtr dclEnv;
+extern lclEnvPtr dclEnv;
 
 #endif // INCLUDE_ENVIRONMENT_H

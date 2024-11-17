@@ -1,5 +1,5 @@
 #include "lisp.h"
-#include "MAL.h"
+#include "LCL.h"
 
 #include "Environment.h"
 //#include "ReadLine.h"
@@ -16,7 +16,7 @@
 
 #define MAX_FUNC 36
 
-static const char* malEvalFunctionTable[MAX_FUNC] = {
+static const char* lclEvalFunctionTable[MAX_FUNC] = {
     "action_tile",
     "and",
     "bound?",
@@ -55,25 +55,25 @@ static const char* malEvalFunctionTable[MAX_FUNC] = {
     "zerop"
 };
 
-int64_t malGuiId = 0;
+int64_t lclGuiId = 0;
 bool traceDebug = false;
 
 QWidget *dclDialog = nullptr;
 QVBoxLayout *vLayout = nullptr;
 
-malValuePtr READ(const String& input);
-String PRINT(malValuePtr ast);
+lclValuePtr READ(const String& input);
+String PRINT(lclValuePtr ast);
 String strToUpper(String s);
 
-static void installFunctions(malEnvPtr env);
-//  Installs functions, macros and constants implemented in MAL.
-static void installEvalCore(malEnvPtr env);
-//  Installs functions from EVAL, implemented in MAL.
-static void openTile(const malGui* tile);
+static void installFunctions(lclEnvPtr env);
+//  Installs functions, macros and constants implemented in LCL.
+static void installEvalCore(lclEnvPtr env);
+//  Installs functions from EVAL, implemented in LCL.
+static void openTile(const lclGui* tile);
 
-static void makeArgv(malEnvPtr env, int argc, char* argv[]);
-static String safeRep(const String& input, malEnvPtr env);
-static malValuePtr quasiquote(malValuePtr obj);
+static void makeArgv(lclEnvPtr env, int argc, char* argv[]);
+static String safeRep(const String& input, lclEnvPtr env);
+static lclValuePtr quasiquote(lclValuePtr obj);
 
 int LispRun_SimpleString(const char *command)
 {
@@ -131,15 +131,15 @@ int Lisp_Initialize(int argc, char* argv[])
     return 0;
 }
 
-static String safeRep(const String& input, malEnvPtr env)
+static String safeRep(const String& input, lclEnvPtr env)
 {
     try {
         return rep(input, env);
     }
-    catch (malEmptyInputException&) {
+    catch (lclEmptyInputException&) {
         return String();
     }
-    catch (malValuePtr& mv) {
+    catch (lclValuePtr& mv) {
         return "Error: " + mv->print(true);
     }
     catch (String& s) {
@@ -147,33 +147,33 @@ static String safeRep(const String& input, malEnvPtr env)
     };
 }
 
-static void makeArgv(malEnvPtr env, int argc, char* argv[])
+static void makeArgv(lclEnvPtr env, int argc, char* argv[])
 {
-    malValueVec* args = new malValueVec();
+    lclValueVec* args = new lclValueVec();
     for (int i = 0; i < argc; i++) {
-        args->push_back(mal::string(argv[i]));
+        args->push_back(lcl::string(argv[i]));
     }
-    env->set("*ARGV*", mal::list(args));
+    env->set("*ARGV*", lcl::list(args));
 }
 
-String rep(const String& input, malEnvPtr env)
+String rep(const String& input, lclEnvPtr env)
 {
     return PRINT(EVAL(READ(input), env));
 }
 
-malValuePtr READ(const String& input)
+lclValuePtr READ(const String& input)
 {
     return readStr(input);
 }
 
-malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
+lclValuePtr EVAL(lclValuePtr ast, lclEnvPtr env)
 {
     if (!env) {
         env = replEnv;
     }
     while (1) {
 
-        const malEnvPtr dbgenv = env->find("DEBUG-EVAL");
+        const lclEnvPtr dbgenv = env->find("DEBUG-EVAL");
         if (dbgenv && dbgenv->get("DEBUG-EVAL")->isTrue()) {
             std::cout << "EVAL: " << PRINT(ast) << "\n";
         }
@@ -182,17 +182,17 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
             std::cout << "TRACE: " << PRINT(ast) << std::endl;
         }
 
-        const malList* list = DYNAMIC_CAST(malList, ast);
+        const lclList* list = DYNAMIC_CAST(lclList, ast);
         if (!list || (list->count() == 0)) {
             return ast->eval(env);
         }
 
         // From here on down we are evaluating a non-empty list.
         // First handle the special forms.
-        if (const malSymbol* symbol = DYNAMIC_CAST(malSymbol, list->item(0))) {
+        if (const lclSymbol* symbol = DYNAMIC_CAST(lclSymbol, list->item(0))) {
             String special = symbol->value();
 
-            const malEnvPtr traceEnv = shadowEnv->find(strToUpper(special));
+            const lclEnvPtr traceEnv = shadowEnv->find(strToUpper(special));
             if (traceEnv && traceEnv->get(strToUpper(special))->print(true) != "nil") {
                 traceDebug = true;
                 std::cout << "TRACE: " << PRINT(ast) << std::endl;
@@ -201,16 +201,16 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "action_tile") {
                 checkArgsAtLeast("action_tile", 2, argCount);
-                const malString* id = VALUE_CAST(malString, list->item(1));
-                const malString* action = VALUE_CAST(malString, list->item(2));
+                const lclString* id = VALUE_CAST(lclString, list->item(1));
+                const lclString* action = VALUE_CAST(lclString, list->item(2));
 
-                malValuePtr value = dclEnv->get(id->value().c_str());
+                lclValuePtr value = dclEnv->get(id->value().c_str());
                 qDebug() << "value->print(true)" << value->print(true).c_str();
                 if (value->print(true).compare("nil") == 0) {
-                    dclEnv->set(id->value().c_str(), mal::string(action->value().c_str()));
-                    return mal::trueValue();
+                    dclEnv->set(id->value().c_str(), lcl::string(action->value().c_str()));
+                    return lcl::trueValue();
                 }
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 
             if (special == "and") {
@@ -224,95 +224,95 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                         value |= 2;
                     }
                 }
-                return value == 3 ? mal::falseValue() : mal::trueValue();
+                return value == 3 ? lcl::falseValue() : lcl::trueValue();
             }
 #if 0
             if (special == "bla") {
                 checkArgsIs(special.c_str(), 1, argCount);
                 std::cout << "bla da" << std::endl;
-                malValuePtr foo = list->item(1);
-                shadowEnv->set("TRACE", mal::string(list->item(1)->print(true)));
-                return mal::symbol(list->item(1)->print(true));
+                lclValuePtr foo = list->item(1);
+                shadowEnv->set("TRACE", lcl::string(list->item(1)->print(true)));
+                return lcl::symbol(list->item(1)->print(true));
 
 
 
 #if 0
-                malValueVec *items = new malValueVec(2);
-                const malSymbol* bla = new malSymbol("do");
+                lclValueVec *items = new lclValueVec(2);
+                const lclSymbol* bla = new lclSymbol("do");
                 //bla = EVAL(bla, env);
 
                 std::cout << "bla: " << bla->print(true) << std::endl;
-                items->at(0) = READ("do");  //mal::symbol("do");
+                items->at(0) = READ("do");  //lcl::symbol("do");
                 items->at(0) = list->item(1);
-                malValuePtr exec = new malList(items);
+                lclValuePtr exec = new lclList(items);
                 exec->eval(env);
 
 
 
-                //std::cout << "bla da 3" << mal::list(items)->print(true) << std::endl;
-                //EVAL(mal::list(items), env);
+                //std::cout << "bla da 3" << lcl::list(items)->print(true) << std::endl;
+                //EVAL(lcl::list(items), env);
 #endif
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 #endif
             if (special == "bound?" || special == "boundp") {
                 checkArgsIs(special.c_str(), 1, argCount);
                 if (EVAL(list->item(1), env)->print(true).compare("nil") == 0) {
-                    return special == "bound?" ? mal::falseValue() : mal::nilValue();
+                    return special == "bound?" ? lcl::falseValue() : lcl::nilValue();
                 }
                 else {
-                    const malEnvPtr sym = env->find(EVAL(list->item(1), env)->print(true));
+                    const lclEnvPtr sym = env->find(EVAL(list->item(1), env)->print(true));
 
                     if(!sym) {
-                        return special == "bound?" ? mal::falseValue() : mal::nilValue();
+                        return special == "bound?" ? lcl::falseValue() : lcl::nilValue();
                     }
                     else {
-                        if (env->get(EVAL(list->item(1), env)->print(true)) == mal::nilValue()) {
-                            return special == "bound?" ? mal::falseValue() : mal::nilValue();
+                        if (env->get(EVAL(list->item(1), env)->print(true)) == lcl::nilValue()) {
+                            return special == "bound?" ? lcl::falseValue() : lcl::nilValue();
                         }
                     }
                 }
-                return mal::trueValue();
+                return lcl::trueValue();
             }
 
             if (special == "debug-eval") {
                 checkArgsIs("debug-eval", 1, argCount);
-                if (list->item(1) == mal::trueValue()) {
-                    env->set("DEBUG-EVAL", mal::trueValue());
-                    return mal::trueValue();
+                if (list->item(1) == lcl::trueValue()) {
+                    env->set("DEBUG-EVAL", lcl::trueValue());
+                    return lcl::trueValue();
                 }
                 else {
-                    env->set("DEBUG-EVAL", mal::falseValue());
-                    return mal::falseValue();
+                    env->set("DEBUG-EVAL", lcl::falseValue());
+                    return lcl::falseValue();
                 }
             }
 
             if (special == "def!") {
                 checkArgsIs("def!", 2, argCount);
-                const malSymbol* id = VALUE_CAST(malSymbol, list->item(1));
+                const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(1));
                 return env->set(id->value(), EVAL(list->item(2), env));
             }
 
             if (special == "defmacro!") {
                 checkArgsIs("defmacro!", 2, argCount);
 
-                const malSymbol* id = VALUE_CAST(malSymbol, list->item(1));
-                malValuePtr body = EVAL(list->item(2), env);
-                const malLambda* lambda = VALUE_CAST(malLambda, body);
-                return env->set(id->value(), mal::macro(*lambda));
+                const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(1));
+                lclValuePtr body = EVAL(list->item(2), env);
+                const lclLambda* lambda = VALUE_CAST(lclLambda, body);
+                return env->set(id->value(), lcl::macro(*lambda));
             }
 
             if (special == "defun") {
                 checkArgsAtLeast("defun", 3, argCount);
 
                 String macro = "(do";
-                const malSymbol* id = VALUE_CAST(malSymbol, list->item(1));
-                const malSequence* bindings =
-                    VALUE_CAST(malSequence, list->item(2));
+                const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(1));
+                const lclSequence* bindings =
+                    VALUE_CAST(lclSequence, list->item(2));
                 StringVec params;
                 for (int i = 0; i < bindings->count(); i++) {
-                    const malSymbol* sym =
-                        VALUE_CAST(malSymbol, bindings->item(i));
+                    const lclSymbol* sym =
+                        VALUE_CAST(lclSymbol, bindings->item(i));
                     params.push_back(sym->value());
                 }
 
@@ -328,9 +328,9 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 #endif
                 }
                 macro += ")";
-                malValuePtr body = READ(macro);
-                const malLambda* lambda = new malLambda(params, body, env);
-                return env->set(id->value(), new malLambda(*lambda, true));
+                lclValuePtr body = READ(macro);
+                const lclLambda* lambda = new lclLambda(params, body, env);
+                return env->set(id->value(), new lclLambda(*lambda, true));
             }
 
             if (special == "do" || special == "progn") {
@@ -347,40 +347,40 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 checkArgsBetween("done_dialog", 0, 1, argCount);
                 if (dclDialog != nullptr)
                 {
-                    malValueVec* items = new malValueVec(2);
-                    items->at(0) = mal::integer(dclDialog->x());
-                    items->at(1) = mal::integer(dclDialog->y());
+                    lclValueVec* items = new lclValueVec(2);
+                    items->at(0) = lcl::integer(dclDialog->x());
+                    items->at(1) = lcl::integer(dclDialog->y());
                     dclDialog->close();
-                    return mal::list(items);
+                    return lcl::list(items);
                 }
             }
 
             if (special == "fn*" || special == "lambda") {
                 checkArgsIs(special.c_str(), 2, argCount);
 
-                const malSequence* bindings =
-                    VALUE_CAST(malSequence, list->item(1));
+                const lclSequence* bindings =
+                    VALUE_CAST(lclSequence, list->item(1));
                 StringVec params;
                 for (int i = 0; i < bindings->count(); i++) {
-                    const malSymbol* sym =
-                        VALUE_CAST(malSymbol, bindings->item(i));
+                    const lclSymbol* sym =
+                        VALUE_CAST(lclSymbol, bindings->item(i));
                     params.push_back(sym->value());
                 }
 
-                return mal::lambda(params, list->item(2), env);
+                return lcl::lambda(params, list->item(2), env);
             }
 
             if (special == "foreach") {
                 checkArgsIs("foreach", 3, argCount);
-                const malSymbol* sym =
-                        VALUE_CAST(malSymbol, list->item(1));
-                malSequence* each =
-                    VALUE_CAST(malSequence, EVAL(list->item(2), env));
+                const lclSymbol* sym =
+                        VALUE_CAST(lclSymbol, list->item(1));
+                lclSequence* each =
+                    VALUE_CAST(lclSequence, EVAL(list->item(2), env));
 
-                malEnvPtr inner(new malEnv(env));
-                inner->set(sym->value(), mal::nilValue());
+                lclEnvPtr inner(new lclEnv(env));
+                inner->set(sym->value(), lcl::nilValue());
                 int count = each->count();
-                malValuePtr result = NULL;
+                lclValuePtr result = NULL;
                 for (int i=0; i < count; i++) {
                     inner->set(sym->value(), each->item(i));
                     result = EVAL(list->item(3), inner);
@@ -388,16 +388,16 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 if (result) {
                     return result;
                 }
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 
             if (special == "getkword") {
                 checkArgsIs("getkword", 1, argCount);
-                const malString* msg = VALUE_CAST(malString, list->item(1));
+                const lclString* msg = VALUE_CAST(lclString, list->item(1));
                 std::cout << msg->value();
 
-                const malString* pat = VALUE_CAST(malString, shadowEnv->get("INITGET-STR"));
-                const malInteger* bit = VALUE_CAST(malInteger, shadowEnv->get("INITGET-BIT"));
+                const lclString* pat = VALUE_CAST(lclString, shadowEnv->get("INITGET-STR"));
+                const lclInteger* bit = VALUE_CAST(lclInteger, shadowEnv->get("INITGET-BIT"));
                 std::vector<String> StringList;
                 String del = " ";
                 String result;
@@ -414,11 +414,11 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 while (getline (std::cin, result)) {
                     for (auto &it : StringList) {
                         if (it == result) {
-                            return mal::string(result);
+                            return lcl::string(result);
                         }
                     }
                     if ((bit->value() & 1) != 1) {
-                        return mal::nilValue();
+                        return lcl::nilValue();
                     }
                     std::cout << msg->value();
                 }
@@ -426,11 +426,11 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "getvar") {
                 checkArgsIs("getvar", 1, argCount);
-                malValuePtr value = shadowEnv->get(EVAL(list->item(1), NULL)->print(true));
+                lclValuePtr value = shadowEnv->get(EVAL(list->item(1), NULL)->print(true));
                 if (value) {
                     return value;
                 }
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 
             if (special == "if") {
@@ -438,33 +438,33 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
                 bool isTrue = EVAL(list->item(1), env)->isTrue();
                 if (!isTrue && (argCount == 2)) {
-                    return mal::nilValue();
+                    return lcl::nilValue();
                 }
                 ast = list->item(isTrue ? 2 : 3);
                 continue; // TCO
             }
             if (special == "initget") {
                 checkArgsBetween("initget",1, 2, argCount);
-                if (list->item(1)->type() == MALTYPE::INT && argCount == 2) {
+                if (list->item(1)->type() == LCLTYPE::INT && argCount == 2) {
                     shadowEnv->set("INITGET-BIT", EVAL(list->item(1), env));
                     shadowEnv->set("INITGET-STR", EVAL(list->item(2), env));
                 }
                 else {
-                    shadowEnv->set("INITGET-BIT", mal::integer(0));
+                    shadowEnv->set("INITGET-BIT", lcl::integer(0));
                     shadowEnv->set("INITGET-STR", EVAL(list->item(1), env));
                 }
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 
             if (special == "let*") {
                 checkArgsIs("let*", 2, argCount);
-                const malSequence* bindings =
-                    VALUE_CAST(malSequence, list->item(1));
+                const lclSequence* bindings =
+                    VALUE_CAST(lclSequence, list->item(1));
                 int count = checkArgsEven("let*", bindings->count());
-                malEnvPtr inner(new malEnv(env));
+                lclEnvPtr inner(new lclEnv(env));
                 for (int i = 0; i < count; i += 2) {
-                    const malSymbol* var =
-                        VALUE_CAST(malSymbol, bindings->item(i));
+                    const lclSymbol* var =
+                        VALUE_CAST(lclSymbol, bindings->item(i));
                     inner->set(var->value(), EVAL(bindings->item(i+1), inner));
                 }
                 ast = list->item(2);
@@ -474,67 +474,67 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "load_dialog") {
                 checkArgsIs("load_dialog", 1, argCount);
-                const malString* arg = DYNAMIC_CAST(malString, list->item(1));
+                const lclString* arg = DYNAMIC_CAST(lclString, list->item(1));
                 String path = arg->value();
                 const std::filesystem::path p(path.c_str());
                 if (!p.has_extension()) {
                     path += ".dcl";
                 }
                 if (!std::filesystem::exists(path.c_str())) {
-                    return mal::integer(-1);
+                    return lcl::integer(-1);
                 }
 
-                malValuePtr dcl = loadDcl(path);
+                lclValuePtr dcl = loadDcl(path);
                 if (dcl) {
-                    int uniq = ++malGuiId;
+                    int uniq = ++lclGuiId;
                     dclEnv->set(STRF("#builtin-gui(%d)", uniq), dcl);
-                    return mal::integer(uniq);
+                    return lcl::integer(uniq);
                 }
-                return mal::integer(-1);
+                return lcl::integer(-1);
             }
 
             if (special == "minus?" || special == "minusp" ) {
                 checkArgsIs(special.c_str(), 1, argCount);
-                if (EVAL(list->item(1), env)->type() == MALTYPE::REAL) {
-                    malDouble* val = VALUE_CAST(malDouble, EVAL(list->item(1), env));
+                if (EVAL(list->item(1), env)->type() == LCLTYPE::REAL) {
+                    lclDouble* val = VALUE_CAST(lclDouble, EVAL(list->item(1), env));
                     if (special == "minus?") {
-                        return mal::boolean(val->value() < 0.0);
+                        return lcl::boolean(val->value() < 0.0);
                     }
                     else {
-                        return val->value() < 0 ? mal::trueValue() : mal::nilValue();
+                        return val->value() < 0 ? lcl::trueValue() : lcl::nilValue();
                     }
                 }
-                else if (EVAL(list->item(1), env)->type() == MALTYPE::INT) {
-                    malInteger* val = VALUE_CAST(malInteger, EVAL(list->item(1), env));
+                else if (EVAL(list->item(1), env)->type() == LCLTYPE::INT) {
+                    lclInteger* val = VALUE_CAST(lclInteger, EVAL(list->item(1), env));
                     if (special == "minus?") {
-                        return mal::boolean(val->value() < 0);
+                        return lcl::boolean(val->value() < 0);
                     }
                     else {
-                        return val->value() < 0 ? mal::trueValue() : mal::nilValue();
+                        return val->value() < 0 ? lcl::trueValue() : lcl::nilValue();
                     }
                 }
                 else {
-                        return special == "minus?" ? mal::falseValue() : mal::nilValue();
+                        return special == "minus?" ? lcl::falseValue() : lcl::nilValue();
                 }
             }
 
             if (special == "new_dialog") {
                 checkArgsAtLeast("new_dialog", 2, argCount);
-                const malString* dlgName = DYNAMIC_CAST(malString, list->item(1));
-                const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(2), env));
-                const malGui*     gui = DYNAMIC_CAST(malGui, dclEnv->get(STRF("#builtin-gui(%d)", id->value())));
-                malValueVec* items = new malValueVec(gui->value().tiles->size());
+                const lclString* dlgName = DYNAMIC_CAST(lclString, list->item(1));
+                const lclInteger* id = DYNAMIC_CAST(lclInteger, EVAL(list->item(2), env));
+                const lclGui*     gui = DYNAMIC_CAST(lclGui, dclEnv->get(STRF("#builtin-gui(%d)", id->value())));
+                lclValueVec* items = new lclValueVec(gui->value().tiles->size());
                 std::copy(gui->value().tiles->begin(), gui->value().tiles->end(), items->begin());
 
                 for (auto it = items->begin(), end = items->end(); it != end; it++) {
-                    const malGui* dlg = DYNAMIC_CAST(malGui, *it);
+                    const lclGui* dlg = DYNAMIC_CAST(lclGui, *it);
                     std::cout << "Dialog: " << dlg->value().name << std::endl;
                     if (dlg->value().name == dlgName->value()) {
                         openTile(dlg);
-                        return mal::trueValue();
+                        return lcl::trueValue();
                     }
                 }
-                return mal::nilValue();
+                return lcl::nilValue();
             }
 
             if (special == "or") {
@@ -548,7 +548,7 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                         value |= 2;
                     }
                 }
-                return value == 3 ? mal::trueValue() : mal::falseValue();
+                return value == 3 ? lcl::trueValue() : lcl::falseValue();
             }
 
             if (special == "quasiquote") {
@@ -564,8 +564,8 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "repeat") {
                 checkArgsAtLeast("repeat", 2, argCount);
-                const malInteger* loop = VALUE_CAST(malInteger, list->item(1));
-                malValuePtr loopBody;
+                const lclInteger* loop = VALUE_CAST(lclInteger, list->item(1));
+                lclValuePtr loopBody;
 
                 for (int i = 0; i < loop->value(); i++) {
                     for (int j = 1; j < argCount; j++)
@@ -579,24 +579,24 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "set") {
                 checkArgsIs("set", 2, argCount);
-                const malSymbol* id = new malSymbol(list->item(1)->print(true));
+                const lclSymbol* id = new lclSymbol(list->item(1)->print(true));
                 return env->set(id->value(), EVAL(list->item(2), env));
             }
 
             if (special == "setq") {
-                MAL_CHECK(checkArgsAtLeast(special.c_str(), 2, argCount) % 2 == 0, "setq: missing odd number");
+                LCL_CHECK(checkArgsAtLeast(special.c_str(), 2, argCount) % 2 == 0, "setq: missing odd number");
                 int i;
                 for (i = 1; i < argCount - 2; i += 2) {
-                    const malSymbol* id = VALUE_CAST(malSymbol, list->item(i));
+                    const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(i));
                     env->set(id->value(), EVAL(list->item(i+1), env));
                 }
-                const malSymbol* id = VALUE_CAST(malSymbol, list->item(i));
+                const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(i));
                 return env->set(id->value(), EVAL(list->item(i+1), env));
             }
 
             if (special == "setvar") {
                 checkArgsIs("setvar", 2, argCount);
-                const malSymbol* id = VALUE_CAST(malSymbol, list->item(1));
+                const lclSymbol* id = VALUE_CAST(lclSymbol, list->item(1));
                 return shadowEnv->set(id->value(), EVAL(list->item(2), env));
             }
 
@@ -608,18 +608,18 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                     dclDialog->show();
                 }
 
-                return mal::integer(0);
+                return lcl::integer(0);
             }
 
             if (special == "trace") {
                 checkArgsIs("trace", 1, argCount);
-                shadowEnv->set(strToUpper(list->item(1)->print(true)), mal::trueValue());
-                return mal::symbol(list->item(1)->print(true));
+                shadowEnv->set(strToUpper(list->item(1)->print(true)), lcl::trueValue());
+                return lcl::symbol(list->item(1)->print(true));
             }
 
             if (special == "unload_dialog") {
                 checkArgsIs("unload_dialog", 1, argCount);
-                //const malInteger* id = DYNAMIC_CAST(malInteger, EVAL(list->item(1), env));
+                //const lclInteger* id = DYNAMIC_CAST(lclInteger, EVAL(list->item(1), env));
 
                 if (dclDialog != nullptr)
                 {
@@ -627,55 +627,55 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                     dclDialog = nullptr;
                 }
 
-                return mal::integer(0);
+                return lcl::integer(0);
             }
 
             if (special == "untrace") {
                 checkArgsIs("untrace", 1, argCount);
-                shadowEnv->set(strToUpper(list->item(1)->print(true)), mal::nilValue());
-                return mal::symbol(strToUpper(list->item(1)->print(true)));
+                shadowEnv->set(strToUpper(list->item(1)->print(true)), lcl::nilValue());
+                return lcl::symbol(strToUpper(list->item(1)->print(true)));
             }
 
             if (special == "try*") {
-                malValuePtr tryBody = list->item(1);
+                lclValuePtr tryBody = list->item(1);
 
                 if (argCount == 1) {
                     ast = tryBody;
                     continue; // TCO
                 }
                 checkArgsIs("try*", 2, argCount);
-                const malList* catchBlock = VALUE_CAST(malList, list->item(2));
+                const lclList* catchBlock = VALUE_CAST(lclList, list->item(2));
 
                 checkArgsIs("catch*", 2, catchBlock->count() - 1);
-                MAL_CHECK(VALUE_CAST(malSymbol,
+                LCL_CHECK(VALUE_CAST(lclSymbol,
                     catchBlock->item(0))->value() == "catch*",
                     "catch block must begin with catch*");
 
                 // We don't need excSym at this scope, but we want to check
                 // that the catch block is valid always, not just in case of
                 // an exception.
-                const malSymbol* excSym =
-                    VALUE_CAST(malSymbol, catchBlock->item(1));
+                const lclSymbol* excSym =
+                    VALUE_CAST(lclSymbol, catchBlock->item(1));
 
-                malValuePtr excVal;
+                lclValuePtr excVal;
 
                 try {
                     return EVAL(tryBody, env);
                 }
                 catch(String& s) {
-                    excVal = mal::string(s);
+                    excVal = lcl::string(s);
                 }
-                catch (malEmptyInputException&) {
+                catch (lclEmptyInputException&) {
                     // Not an error, continue as if we got nil
-                    ast = mal::nilValue();
+                    ast = lcl::nilValue();
                 }
-                catch(malValuePtr& o) {
+                catch(lclValuePtr& o) {
                     excVal = o;
                 };
 
                 if (excVal) {
                     // we got some exception
-                    env = malEnvPtr(new malEnv(env));
+                    env = lclEnvPtr(new lclEnv(env));
                     env->set(excSym->value(), excVal);
                     ast = catchBlock->item(2);
                 }
@@ -684,8 +684,8 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "while") {
                 checkArgsAtLeast("while", 2, argCount);
-                malValuePtr loop = list->item(1);
-                malValuePtr loopBody;
+                lclValuePtr loop = list->item(1);
+                lclValuePtr loopBody;
 
                 while (1) {
                     for (int i = 1; i < argCount; i++)
@@ -708,109 +708,109 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
 
             if (special == "zero?" || special == "zerop") {
                                 checkArgsIs(special.c_str(), 1, argCount);
-                if (EVAL(list->item(1), env)->type() == MALTYPE::REAL) {
-                    malDouble* val = VALUE_CAST(malDouble, EVAL(list->item(1), env));
+                if (EVAL(list->item(1), env)->type() == LCLTYPE::REAL) {
+                    lclDouble* val = VALUE_CAST(lclDouble, EVAL(list->item(1), env));
                     if (special == "zero?") {
-                        return mal::boolean(val->value() == 0.0);
+                        return lcl::boolean(val->value() == 0.0);
                     }
                     else {
-                        return val->value() == 0 ? mal::trueValue() : mal::nilValue();
+                        return val->value() == 0 ? lcl::trueValue() : lcl::nilValue();
                     }
                 }
-                else if (EVAL(list->item(1), env)->type() == MALTYPE::INT) {
-                    malInteger* val = VALUE_CAST(malInteger, EVAL(list->item(1), env));
+                else if (EVAL(list->item(1), env)->type() == LCLTYPE::INT) {
+                    lclInteger* val = VALUE_CAST(lclInteger, EVAL(list->item(1), env));
                     if (special == "zero?") {
-                        return mal::boolean(val->value() == 0);
+                        return lcl::boolean(val->value() == 0);
                     }
                     else {
-                        return val->value() == 0 ? mal::trueValue() : mal::nilValue();
+                        return val->value() == 0 ? lcl::trueValue() : lcl::nilValue();
                     }
                 }
                 else {
-                        return special == "zero?" ? mal::falseValue() : mal::nilValue();
+                        return special == "zero?" ? lcl::falseValue() : lcl::nilValue();
                 }
             }
         }
 
         // Now we're left with the case of a regular list to be evaluated.
-        malValuePtr op = EVAL(list->item(0), env);
-        if (const malLambda* lambda = DYNAMIC_CAST(malLambda, op)) {
+        lclValuePtr op = EVAL(list->item(0), env);
+        if (const lclLambda* lambda = DYNAMIC_CAST(lclLambda, op)) {
             if (lambda->isMacro()) {
                 ast = lambda->apply(list->begin()+1, list->end());
                 traceDebug = false;
                 continue; // TCO
             }
-            malValueVec* items = STATIC_CAST(malList, list->rest())->evalItems(env);
+            lclValueVec* items = STATIC_CAST(lclList, list->rest())->evalItems(env);
             ast = lambda->getBody();
             env = lambda->makeEnv(items->begin(), items->end());
             traceDebug = false;
             continue; // TCO
         }
         else {
-            malValueVec* items = STATIC_CAST(malList, list->rest())->evalItems(env);
+            lclValueVec* items = STATIC_CAST(lclList, list->rest())->evalItems(env);
             return APPLY(op, items->begin(), items->end());
         }
     }
 }
 
-String PRINT(malValuePtr ast)
+String PRINT(lclValuePtr ast)
 {
     return ast->print(true);
 }
 
-malValuePtr APPLY(malValuePtr op, malValueIter argsBegin, malValueIter argsEnd)
+lclValuePtr APPLY(lclValuePtr op, lclValueIter argsBegin, lclValueIter argsEnd)
 {
-    const malApplicable* handler = DYNAMIC_CAST(malApplicable, op);
-    MAL_CHECK(handler != NULL,
+    const lclApplicable* handler = DYNAMIC_CAST(lclApplicable, op);
+    LCL_CHECK(handler != NULL,
               "'%s' is not applicable", op->print(true).c_str());
 
     return handler->apply(argsBegin, argsEnd);
 }
 
-static bool isSymbol(malValuePtr obj, const String& text)
+static bool isSymbol(lclValuePtr obj, const String& text)
 {
-    const malSymbol* sym = DYNAMIC_CAST(malSymbol, obj);
+    const lclSymbol* sym = DYNAMIC_CAST(lclSymbol, obj);
     return sym && (sym->value() == text);
 }
 
 //  Return arg when ast matches ('sym, arg), else NULL.
-static malValuePtr starts_with(const malValuePtr ast, const char* sym)
+static lclValuePtr starts_with(const lclValuePtr ast, const char* sym)
 {
-    const malList* list = DYNAMIC_CAST(malList, ast);
+    const lclList* list = DYNAMIC_CAST(lclList, ast);
     if (!list || list->isEmpty() || !isSymbol(list->item(0), sym))
         return NULL;
     checkArgsIs(sym, 1, list->count() - 1);
     return list->item(1);
 }
 
-static malValuePtr quasiquote(malValuePtr obj)
+static lclValuePtr quasiquote(lclValuePtr obj)
 {
-    if (DYNAMIC_CAST(malSymbol, obj) || DYNAMIC_CAST(malHash, obj))
-        return mal::list(mal::symbol("quote"), obj);
+    if (DYNAMIC_CAST(lclSymbol, obj) || DYNAMIC_CAST(lclHash, obj))
+        return lcl::list(lcl::symbol("quote"), obj);
 
-    const malSequence* seq = DYNAMIC_CAST(malSequence, obj);
+    const lclSequence* seq = DYNAMIC_CAST(lclSequence, obj);
     if (!seq)
         return obj;
 
-    const malValuePtr unquoted = starts_with(obj, "unquote");
+    const lclValuePtr unquoted = starts_with(obj, "unquote");
     if (unquoted)
         return unquoted;
 
-    malValuePtr res = mal::list(new malValueVec(0));
+    lclValuePtr res = lcl::list(new lclValueVec(0));
     for (int i=seq->count()-1; 0<=i; i--) {
-        const malValuePtr elt     = seq->item(i);
-        const malValuePtr spl_unq = starts_with(elt, "splice-unquote");
+        const lclValuePtr elt     = seq->item(i);
+        const lclValuePtr spl_unq = starts_with(elt, "splice-unquote");
         if (spl_unq)
-            res = mal::list(mal::symbol("concat"), spl_unq, res);
+            res = lcl::list(lcl::symbol("concat"), spl_unq, res);
          else
-            res = mal::list(mal::symbol("cons"), quasiquote(elt), res);
+            res = lcl::list(lcl::symbol("cons"), quasiquote(elt), res);
     }
-    if (DYNAMIC_CAST(malVector, obj))
-        res = mal::list(mal::symbol("vec"), res);
+    if (DYNAMIC_CAST(lclVector, obj))
+        res = lcl::list(lcl::symbol("vec"), res);
     return res;
 }
 
-static const char* malFunctionTable[] = {
+static const char* lclFunctionTable[] = {
     "(defmacro! cond (fn* (& xs) (if (> (count xs) 0) (list 'if (first xs) (if (> (count xs) 1) (nth xs 1) (throw \"odd number of forms to cond\")) (cons 'cond (rest (rest xs)))))))",
     "(defmacro! 2+ (fn* (zahl)(+ zahl 2)))",
     "(def! not (fn* (cond) (if cond false true)))",
@@ -826,54 +826,54 @@ static const char* malFunctionTable[] = {
     "(def! EOF -1)"
 };
 
-static void installFunctions(malEnvPtr env) {
-    for (auto &function : malFunctionTable) {
+static void installFunctions(lclEnvPtr env) {
+    for (auto &function : lclFunctionTable) {
         rep(function, env);
     }
 }
 
-static void installEvalCore(malEnvPtr env) {
-    for (auto &function : malEvalFunctionTable) {
-        env->set(function, mal::builtin(true, function));
+static void installEvalCore(lclEnvPtr env) {
+    for (auto &function : lclEvalFunctionTable) {
+        env->set(function, lcl::builtin(true, function));
     }
 }
 
-static void openTile(const malGui* tile)
+static void openTile(const lclGui* tile)
 {
     std::cout << "Name: "<< tile->value().name << std::endl;
 
     switch (tile->value().id) {
         case DIALOG:
         {
-            const malWidget* dlg = static_cast<const malWidget*>(tile);
+            const lclWidget* dlg = static_cast<const lclWidget*>(tile);
             dclDialog = dlg->widget();
             vLayout = new QVBoxLayout(dclDialog);
         }
             break;
         case ROW:
         {
-            const malRow* r = static_cast<const malRow*>(tile);
+            const lclRow* r = static_cast<const lclRow*>(tile);
             vLayout->addLayout(r->layout());
         }
             break;
         case COLUMN:
         {
-            const malColumn* c = static_cast<const malColumn*>(tile);
+            const lclColumn* c = static_cast<const lclColumn*>(tile);
             vLayout->addLayout(c->layout());
         }
             break;
         case TEXT:
         {
-            const malLabel* l = static_cast<const malLabel*>(tile);
+            const lclLabel* l = static_cast<const lclLabel*>(tile);
             vLayout->addWidget(l->label());
         }
             break;
         case BUTTON:
         {
-            const malButton* b = static_cast<const malButton*>(tile);
+            const lclButton* b = static_cast<const lclButton*>(tile);
             if (tile->value().key != "")
             {
-                dclEnv->set(noQuotes(tile->value().key).c_str(), mal::nilValue());
+                dclEnv->set(noQuotes(tile->value().key).c_str(), lcl::nilValue());
             }
 #if 0
             switch (tile->value().alignment) {
@@ -901,10 +901,10 @@ static void openTile(const malGui* tile)
             break;
         case RADIO_BUTTON:
         {
-            const malRadioButton* b = static_cast<const malRadioButton*>(tile);
+            const lclRadioButton* b = static_cast<const lclRadioButton*>(tile);
             if (tile->value().key != "")
             {
-                dclEnv->set(noQuotes(tile->value().key).c_str(), mal::nilValue());
+                dclEnv->set(noQuotes(tile->value().key).c_str(), lcl::nilValue());
             }
 #if 0
             switch (tile->value().alignment) {
@@ -935,11 +935,11 @@ static void openTile(const malGui* tile)
             break;
     }
 
-    malValueVec* tiles = new malValueVec(tile->value().tiles->size());
+    lclValueVec* tiles = new lclValueVec(tile->value().tiles->size());
     std::copy(tile->value().tiles->begin(), tile->value().tiles->end(), tiles->begin());
 
     for (auto it = tiles->begin(), end = tiles->end(); it != end; it++) {
-        const malGui* tile = DYNAMIC_CAST(malGui, *it);
+        const lclGui* tile = DYNAMIC_CAST(lclGui, *it);
         std::cout << "found: " << tile->value().name << std::endl;
         openTile(tile);
     }

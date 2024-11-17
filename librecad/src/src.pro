@@ -383,8 +383,8 @@ HEADERS += \
     lib/printing/lc_printing.h \
     lib/scripting/lisp/Debug.h \
     lib/scripting/lisp/Environment.h \
+    lib/scripting/lisp/LCL.h \
     lib/scripting/lisp/lisp.h \
-    lib/scripting/lisp/MAL.h \
     lib/scripting/lisp/RefCountedPtr.h \
     lib/scripting/lisp/StaticList.h \
     lib/scripting/lisp/String.h \

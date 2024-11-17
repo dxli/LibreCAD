@@ -1,5 +1,5 @@
 #include "rs_python.h"
-#include "MAL.h"
+#include "LCL.h"
 #include "Environment.h"
 #include "StaticList.h"
 #include "Types.h"
@@ -44,10 +44,10 @@ static const Regex floatPointRegex("[.]{1}\\d+$");
                         std::distance(argsBegin, argsEnd))
 
 #define FLOAT_PTR \
-    (argsBegin->ptr()->type() == MALTYPE::REAL)
+    (argsBegin->ptr()->type() == LCLTYPE::REAL)
 
 #define INT_PTR \
-    (argsBegin->ptr()->type() == MALTYPE::INT)
+    (argsBegin->ptr()->type() == LCLTYPE::INT)
 
 #define NIL_PTR \
     (argsBegin->ptr()->print(true).compare("nil") == 0)
@@ -61,10 +61,10 @@ static const Regex floatPointRegex("[.]{1}\\d+$");
 #define FALSE_PTR \
     (argsBegin->ptr()->print(true).compare("false") == 0)
 
-bool argsHasFloat(malValueIter argsBegin, malValueIter argsEnd)
+bool argsHasFloat(lclValueIter argsBegin, lclValueIter argsEnd)
 {
     for (auto it = argsBegin; it != argsEnd; ++it) {
-        if (it->ptr()->type() == MALTYPE::REAL) {
+        if (it->ptr()->type() == LCLTYPE::REAL) {
             return true;
         }
     }
@@ -76,24 +76,24 @@ bool argsHasFloat(malValueIter argsBegin, malValueIter argsEnd)
 
 #define AG_INT(name) \
     CHECK_IS_NUMBER(argsBegin->ptr()) \
-    malInteger* name = VALUE_CAST(malInteger, *argsBegin++)
+    lclInteger* name = VALUE_CAST(lclInteger, *argsBegin++)
 
 #define ADD_INT_VAL(val) \
     CHECK_IS_NUMBER(argsBegin->ptr()) \
-    malInteger val = dynamic_cast<malInteger*>(argsBegin->ptr());
+    lclInteger val = dynamic_cast<lclInteger*>(argsBegin->ptr());
 
 #define ADD_FLOAT_VAL(val) \
     CHECK_IS_NUMBER(argsBegin->ptr()) \
-    malDouble val = dynamic_cast<malDouble*>(argsBegin->ptr());
+    lclDouble val = dynamic_cast<lclDouble*>(argsBegin->ptr());
 
 #define ADD_LIST_VAL(val) \
-    malList val = dynamic_cast<malList*>(argsBegin->ptr());
+    lclList val = dynamic_cast<lclList*>(argsBegin->ptr());
 
 #define SET_INT_VAL(opr, checkDivByZero) \
     ADD_INT_VAL(*intVal) \
     intValue = intValue opr intVal->value(); \
     if (checkDivByZero) { \
-        MAL_CHECK(intVal->value() != 0, "Division by zero"); }
+        LCL_CHECK(intVal->value() != 0, "Division by zero"); }
 
 #define SET_FLOAT_VAL(opr, checkDivByZero) \
     if (FLOAT_PTR) \
@@ -101,33 +101,33 @@ bool argsHasFloat(malValueIter argsBegin, malValueIter argsEnd)
         ADD_FLOAT_VAL(*floatVal) \
         floatValue = floatValue opr floatVal->value(); \
         if (checkDivByZero) { \
-            MAL_CHECK(floatVal->value() != 0.0, "Division by zero"); } \
+            LCL_CHECK(floatVal->value() != 0.0, "Division by zero"); } \
     } \
     else \
     { \
         ADD_INT_VAL(*intVal) \
         floatValue = floatValue opr double(intVal->value()); \
         if (checkDivByZero) { \
-            MAL_CHECK(intVal->value() != 0, "Division by zero"); } \
+            LCL_CHECK(intVal->value() != 0, "Division by zero"); } \
     }
 
-static String printValues(malValueIter begin, malValueIter end,
+static String printValues(lclValueIter begin, lclValueIter end,
                            const String& sep, bool readably);
 
-static int countValues(malValueIter begin, malValueIter end);
+static int countValues(lclValueIter begin, lclValueIter end);
 
-static StaticList<malBuiltIn*> handlers;
+static StaticList<lclBuiltIn*> handlers;
 
 #define ARG(type, name) type* name = VALUE_CAST(type, *argsBegin++)
 
 #define FUNCNAME(uniq) builtIn ## uniq
 #define HRECNAME(uniq) handler ## uniq
 #define BUILTIN_DEF(uniq, symbol) \
-    static malBuiltIn::ApplyFunc FUNCNAME(uniq); \
-    static StaticList<malBuiltIn*>::Node HRECNAME(uniq) \
-        (handlers, new malBuiltIn(symbol, FUNCNAME(uniq))); \
-    malValuePtr FUNCNAME(uniq)(const String& name, \
-        malValueIter argsBegin, malValueIter argsEnd)
+    static lclBuiltIn::ApplyFunc FUNCNAME(uniq); \
+    static StaticList<lclBuiltIn*>::Node HRECNAME(uniq) \
+        (handlers, new lclBuiltIn(symbol, FUNCNAME(uniq))); \
+    lclValuePtr FUNCNAME(uniq)(const String& name, \
+        lclValueIter argsBegin, lclValueIter argsEnd)
 
 #define BUILTIN(symbol)  BUILTIN_DEF(__LINE__, symbol)
 
@@ -137,13 +137,13 @@ static StaticList<malBuiltIn*> handlers;
 #define BUILTIN_ISA(symbol, type) \
     BUILTIN(symbol) { \
         CHECK_ARGS_IS(1); \
-        return mal::boolean(DYNAMIC_CAST(type, *argsBegin)); \
+        return lcl::boolean(DYNAMIC_CAST(type, *argsBegin)); \
     }
 
 #define BUILTIN_IS(op, constant) \
     BUILTIN(op) { \
         CHECK_ARGS_IS(1); \
-        return mal::boolean(*argsBegin == mal::constant()); \
+        return lcl::boolean(*argsBegin == lcl::constant()); \
     }
 
 #define BUILTIN_INTOP(op, checkDivByZero) \
@@ -167,7 +167,7 @@ static StaticList<malBuiltIn*> handlers;
         SET_FLOAT_VAL(opr, checkDivByZero); \
         argsBegin++; \
     } while (argsBegin != argsEnd); \
-    return mal::mdouble(floatValue);
+    return lcl::mdouble(floatValue);
 
 #define BUILTIN_INT_VAL(opr, checkDivByZero) \
     [[maybe_unused]] int64_t intValue = 0; \
@@ -177,44 +177,44 @@ static StaticList<malBuiltIn*> handlers;
         SET_INT_VAL(opr, checkDivByZero); \
         argsBegin++; \
     } while (argsBegin != argsEnd); \
-    return mal::integer(intValue);
+    return lcl::integer(intValue);
 
 #define BUILTIN_FUNCTION(foo) \
     CHECK_ARGS_IS(1); \
     if (FLOAT_PTR) { \
         ADD_FLOAT_VAL(*lhs) \
-        return mal::mdouble(foo(lhs->value())); } \
+        return lcl::mdouble(foo(lhs->value())); } \
     else { \
         ADD_INT_VAL(*lhs) \
-        return mal::mdouble(foo(lhs->value())); }
+        return lcl::mdouble(foo(lhs->value())); }
 
 #define BUILTIN_OP_COMPARE(opr) \
     CHECK_ARGS_IS(2); \
-    if (((argsBegin->ptr()->type() == MALTYPE::LIST) && ((argsBegin + 1)->ptr()->type() == MALTYPE::LIST)) || \
-        ((argsBegin->ptr()->type() == MALTYPE::VEC) && ((argsBegin + 1)->ptr()->type() == MALTYPE::VEC))) { \
-        ARG(malSequence, lhs); \
-        ARG(malSequence, rhs); \
-        return mal::boolean(lhs->count() opr rhs->count()); } \
+    if (((argsBegin->ptr()->type() == LCLTYPE::LIST) && ((argsBegin + 1)->ptr()->type() == LCLTYPE::LIST)) || \
+        ((argsBegin->ptr()->type() == LCLTYPE::VEC) && ((argsBegin + 1)->ptr()->type() == LCLTYPE::VEC))) { \
+        ARG(lclSequence, lhs); \
+        ARG(lclSequence, rhs); \
+        return lcl::boolean(lhs->count() opr rhs->count()); } \
     if (ARGS_HAS_FLOAT) { \
         if (FLOAT_PTR) { \
             ADD_FLOAT_VAL(*floatLhs) \
             argsBegin++; \
             if (FLOAT_PTR) { \
                 ADD_FLOAT_VAL(*floatRhs) \
-                return mal::boolean(floatLhs->value() opr floatRhs->value()); } \
+                return lcl::boolean(floatLhs->value() opr floatRhs->value()); } \
             else { \
                ADD_INT_VAL(*intRhs) \
-               return mal::boolean(floatLhs->value() opr double(intRhs->value())); } } \
+               return lcl::boolean(floatLhs->value() opr double(intRhs->value())); } } \
         else { \
             ADD_INT_VAL(*intLhs) \
             argsBegin++; \
             ADD_FLOAT_VAL(*floatRhs) \
-            return mal::boolean(double(intLhs->value()) opr floatRhs->value()); } } \
+            return lcl::boolean(double(intLhs->value()) opr floatRhs->value()); } } \
     else { \
         ADD_INT_VAL(*intLhs) \
         argsBegin++; \
         ADD_INT_VAL(*intRhs) \
-        return mal::boolean(intLhs->value() opr intRhs->value()); }
+        return lcl::boolean(intLhs->value() opr intRhs->value()); }
 
 // helper foo to cast integer (64 bit) type to char (8 bit) type
 unsigned char itoa64(const int64_t &sign)
@@ -314,17 +314,17 @@ std::time_t to_time_t(TP tp)
     return system_clock::to_time_t(sctp);
 }
 
-BUILTIN_ISA("atom?",        malAtom);
-BUILTIN_ISA("double?",      malDouble);
-BUILTIN_ISA("file?",        malFile);
-BUILTIN_ISA("integer?",     malInteger);
-BUILTIN_ISA("keyword?",     malKeyword);
-BUILTIN_ISA("list?",        malList);
-BUILTIN_ISA("map?",         malHash);
-BUILTIN_ISA("sequential?",  malSequence);
-BUILTIN_ISA("string?",      malString);
-BUILTIN_ISA("symbol?",      malSymbol);
-BUILTIN_ISA("vector?",      malVector);
+BUILTIN_ISA("atom?",        lclAtom);
+BUILTIN_ISA("double?",      lclDouble);
+BUILTIN_ISA("file?",        lclFile);
+BUILTIN_ISA("integer?",     lclInteger);
+BUILTIN_ISA("keyword?",     lclKeyword);
+BUILTIN_ISA("list?",        lclList);
+BUILTIN_ISA("map?",         lclHash);
+BUILTIN_ISA("sequential?",  lclSequence);
+BUILTIN_ISA("string?",      lclString);
+BUILTIN_ISA("symbol?",      lclSymbol);
+BUILTIN_ISA("vector?",      lclVector);
 
 BUILTIN_INTOP(+,            false);
 BUILTIN_INTOP(/,            true);
@@ -341,12 +341,12 @@ BUILTIN("-")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*lhs)
-            return mal::mdouble(-lhs->value());
+            return lcl::mdouble(-lhs->value());
         }
         else
         {
             ADD_INT_VAL(*lhs)
-            return mal::integer(-lhs->value());
+            return lcl::integer(-lhs->value());
         }
     }
     CHECK_ARGS_AT_LEAST(2);
@@ -361,7 +361,7 @@ BUILTIN("%")
 {
     CHECK_ARGS_AT_LEAST(2);
     if (ARGS_HAS_FLOAT) {
-        return mal::nilValue();
+        return lcl::nilValue();
     } else {
         BUILTIN_INT_VAL(%, false);
     }
@@ -390,19 +390,19 @@ BUILTIN(">")
 BUILTIN("=")
 {
     CHECK_ARGS_IS(2);
-    const malValue* lhs = (*argsBegin++).ptr();
-    const malValue* rhs = (*argsBegin++).ptr();
+    const lclValue* lhs = (*argsBegin++).ptr();
+    const lclValue* rhs = (*argsBegin++).ptr();
 
-    return mal::boolean(lhs->isEqualTo(rhs));
+    return lcl::boolean(lhs->isEqualTo(rhs));
 }
 
 BUILTIN("/=")
 {
     CHECK_ARGS_IS(2);
-    const malValue* lhs = (*argsBegin++).ptr();
-    const malValue* rhs = (*argsBegin++).ptr();
+    const lclValue* lhs = (*argsBegin++).ptr();
+    const lclValue* rhs = (*argsBegin++).ptr();
 
-    return mal::boolean(!lhs->isEqualTo(rhs));
+    return lcl::boolean(!lhs->isEqualTo(rhs));
 }
 
 BUILTIN("~ ")
@@ -411,12 +411,12 @@ BUILTIN("~ ")
     Q_UNUSED(name);
     if (FLOAT_PTR)
     {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::integer(~lhs->value());
+        return lcl::integer(~lhs->value());
     }
 }
 
@@ -426,12 +426,12 @@ BUILTIN("1+")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return mal::mdouble(lhs->value()+1);
+        return lcl::mdouble(lhs->value()+1);
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::integer(lhs->value()+1);
+        return lcl::integer(lhs->value()+1);
     }
 }
 
@@ -441,12 +441,12 @@ BUILTIN("1-")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return mal::mdouble(lhs->value()-1);
+        return lcl::mdouble(lhs->value()-1);
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::integer(lhs->value()-1);
+        return lcl::integer(lhs->value()-1);
     }
 }
 
@@ -456,19 +456,19 @@ BUILTIN("abs")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return mal::mdouble(abs(lhs->value()));
+        return lcl::mdouble(abs(lhs->value()));
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::integer(abs(lhs->value()));
+        return lcl::integer(abs(lhs->value()));
     }
 }
 
 BUILTIN("alert")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, str);
+    ARG(lclString, str);
 
     QMessageBox msgBox;
     msgBox.setWindowTitle("LibreCAD");
@@ -476,25 +476,25 @@ BUILTIN("alert")
     msgBox.setIcon(QMessageBox::Information);
     msgBox.exec();
 
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("apply")
 {
     CHECK_ARGS_AT_LEAST(2);
-    malValuePtr op = *argsBegin++; // this gets checked in APPLY
+    lclValuePtr op = *argsBegin++; // this gets checked in APPLY
 
     // both LISPs
-    if (op->type() == MALTYPE::SYM ||
-        op->type() == MALTYPE::LIST) {
+    if (op->type() == LCLTYPE::SYM ||
+        op->type() == LCLTYPE::LIST) {
         op = EVAL(op, NULL);
     }
 
     // Copy the first N-1 arguments in.
-    malValueVec args(argsBegin, argsEnd-1);
+    lclValueVec args(argsBegin, argsEnd-1);
 
     // Then append the argument as a list.
-    const malSequence* lastArg = VALUE_CAST(malSequence, *(argsEnd-1));
+    const lclSequence* lastArg = VALUE_CAST(lclSequence, *(argsEnd-1));
     for (int i = 0; i < lastArg->count(); i++) {
         args.push_back(lastArg->item(i));
     }
@@ -505,40 +505,40 @@ BUILTIN("apply")
 BUILTIN("ascii")
 {
     CHECK_ARGS_IS(1);
-    const malValuePtr arg = *argsBegin++;
+    const lclValuePtr arg = *argsBegin++;
 
-    if (const malString* s = DYNAMIC_CAST(malString, arg))
+    if (const lclString* s = DYNAMIC_CAST(lclString, arg))
     {
-        return mal::integer(int(s->value().c_str()[0]));
+        return lcl::integer(int(s->value().c_str()[0]));
     }
 
-    return mal::integer(0);
+    return lcl::integer(0);
 }
 
 BUILTIN("assoc")
 {
     CHECK_ARGS_AT_LEAST(1);
     //both LISPs
-    if (!(argsBegin->ptr()->type() == MALTYPE::MAP)) {
-        malValuePtr op = *argsBegin++;
-        ARG(malSequence, seq);
+    if (!(argsBegin->ptr()->type() == LCLTYPE::MAP)) {
+        lclValuePtr op = *argsBegin++;
+        ARG(lclSequence, seq);
 
         const int length = seq->count();
-        malValueVec* items = new malValueVec(length);
+        lclValueVec* items = new lclValueVec(length);
         std::copy(seq->begin(), seq->end(), items->begin());
 
         for (int i = 0; i < length; i++) {
-            if (items->at(i)->type() == MALTYPE::LIST) {
-                malList* list = VALUE_CAST(malList, items->at(i));
+            if (items->at(i)->type() == LCLTYPE::LIST) {
+                lclList* list = VALUE_CAST(lclList, items->at(i));
                 if (list->count() == 2) {
-                    malValueVec* duo = new malValueVec(2);
+                    lclValueVec* duo = new lclValueVec(2);
                     std::copy(list->begin(), list->end(), duo->begin());
                     if (duo->begin()->ptr()->print(true).compare(op->print(true)) == 0) {
                         return list;
                     }
                 }
                 if (list->count() == 3) {
-                    malValueVec* dotted = new malValueVec(3);
+                    lclValueVec* dotted = new lclValueVec(3);
                     std::copy(list->begin(), list->end(), dotted->begin());
                     if (dotted->begin()->ptr()->print(true).compare(op->print(true)) == 0
                         && (dotted->at(1)->print(true).compare(".") == 0)
@@ -548,9 +548,9 @@ BUILTIN("assoc")
                 }
             }
         }
-        return mal::nilValue();
+        return lcl::nilValue();
     }
-    ARG(malHash, hash);
+    ARG(lclHash, hash);
 
     return hash->assoc(argsBegin, argsEnd);
 }
@@ -563,51 +563,51 @@ BUILTIN("atan")
 BUILTIN("atof")
 {
     CHECK_ARGS_IS(1);
-    const malValuePtr arg = *argsBegin++;
+    const lclValuePtr arg = *argsBegin++;
 
-    if (const malString* s = DYNAMIC_CAST(malString, arg))
+    if (const lclString* s = DYNAMIC_CAST(lclString, arg))
     {
         if(std::regex_match(s->value().c_str(), intRegex) ||
             std::regex_match(s->value().c_str(), floatRegex))
             {
-                return mal::mdouble(atof(s->value().c_str()));
+                return lcl::mdouble(atof(s->value().c_str()));
             }
     }
-    return mal::mdouble(0);
+    return lcl::mdouble(0);
 }
 
 BUILTIN("atoi")
 {
     CHECK_ARGS_IS(1);
-    const malValuePtr arg = *argsBegin++;
+    const lclValuePtr arg = *argsBegin++;
 
-    if (const malString* s = DYNAMIC_CAST(malString, arg))
+    if (const lclString* s = DYNAMIC_CAST(lclString, arg))
     {
         if (std::regex_match(s->value().c_str(), intRegex))
         {
-            return mal::integer(atoi(s->value().c_str()));
+            return lcl::integer(atoi(s->value().c_str()));
         }
         if (std::regex_match(s->value().c_str(), floatRegex))
         {
-            return mal::integer(atoi(std::regex_replace(s->value().c_str(),
+            return lcl::integer(atoi(std::regex_replace(s->value().c_str(),
                                                         floatPointRegex, "").c_str()));
         }
     }
-    return mal::integer(0);
+    return lcl::integer(0);
 }
 
 BUILTIN("atom")
 {
     CHECK_ARGS_IS(1);
 
-    return mal::atom(*argsBegin);
+    return lcl::atom(*argsBegin);
 }
 
 BUILTIN("boolean?")
 {
     CHECK_ARGS_IS(1);
     {
-        return mal::boolean(argsBegin->ptr()->type() == MALTYPE::BOOLEAN);
+        return lcl::boolean(argsBegin->ptr()->type() == LCLTYPE::BOOLEAN);
     }
 }
 
@@ -615,9 +615,9 @@ BUILTIN("boolean?")
 BUILTIN("car")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
-    MAL_CHECK(0 < seq->count(), "Index out of range");
+    LCL_CHECK(0 < seq->count(), "Index out of range");
 
     return seq->first();
 }
@@ -625,9 +625,9 @@ BUILTIN("car")
 BUILTIN("cadr")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
-    MAL_CHECK(1 < seq->count(), "Index out of range");
+    LCL_CHECK(1 < seq->count(), "Index out of range");
 
     return seq->item(1);
 }
@@ -635,9 +635,9 @@ BUILTIN("cadr")
 BUILTIN("caddr")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
-    MAL_CHECK(2 < seq->count(), "Index out of range");
+    LCL_CHECK(2 < seq->count(), "Index out of range");
 
     return seq->item(2);
 }
@@ -645,10 +645,10 @@ BUILTIN("caddr")
 BUILTIN("cdr")
 {
     CHECK_ARGS_IS(1);
-    if (*argsBegin == mal::nilValue()) {
-        return mal::list(new malValueVec(0));
+    if (*argsBegin == lcl::nilValue()) {
+        return lcl::list(new lclValueVec(0));
     }
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
     if (seq->isDotted()) {
             return seq->dotted();
     }
@@ -673,13 +673,13 @@ BUILTIN("chr")
         sign = itoa64(lhs->value());
     }
 
-    return mal::string(String(1 , sign));
+    return lcl::string(String(1 , sign));
 }
 
 BUILTIN("close")
 {
     CHECK_ARGS_IS(1);
-    ARG(malFile, pf);
+    ARG(lclFile, pf);
 
     return pf->close();
 }
@@ -688,11 +688,11 @@ BUILTIN("command")
 {
     CHECK_ARGS_AT_LEAST(1);
     for (auto it = argsBegin; it != argsEnd; ++it) {
-        const malValuePtr arg = *it;
+        const lclValuePtr arg = *it;
         std::cout << "parameter: " << it->ptr()->print(true) << "type: " << (int)it->ptr()->type() << std::endl;
     }
 
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("concat")
@@ -700,19 +700,19 @@ BUILTIN("concat")
     Q_UNUSED(name);
     int count = 0;
     for (auto it = argsBegin; it != argsEnd; ++it) {
-        const malSequence* seq = VALUE_CAST(malSequence, *it);
+        const lclSequence* seq = VALUE_CAST(lclSequence, *it);
         count += seq->count();
     }
 
-    malValueVec* items = new malValueVec(count);
+    lclValueVec* items = new lclValueVec(count);
     int offset = 0;
     for (auto it = argsBegin; it != argsEnd; ++it) {
-        const malSequence* seq = STATIC_CAST(malSequence, *it);
+        const lclSequence* seq = STATIC_CAST(lclSequence, *it);
         std::copy(seq->begin(), seq->end(), items->begin() + offset);
         offset += seq->count();
     }
 
-    return mal::list(items);
+    return lcl::list(items);
 }
 #if 0
 BUILTIN("bla")
@@ -724,7 +724,7 @@ BUILTIN("bla")
 BUILTIN("conj")
 {
     CHECK_ARGS_AT_LEAST(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
     return seq->conj(argsBegin, argsEnd);
 }
@@ -732,37 +732,37 @@ BUILTIN("conj")
 BUILTIN("cons")
 {
     CHECK_ARGS_IS(2);
-    malValuePtr first = *argsBegin++;
-    malValuePtr second = *argsBegin;
+    lclValuePtr first = *argsBegin++;
+    lclValuePtr second = *argsBegin;
 
-    if (second->type() == MALTYPE::INT ||
-        second->type() == MALTYPE::REAL ||
-        second->type() == MALTYPE::STR)
+    if (second->type() == LCLTYPE::INT ||
+        second->type() == LCLTYPE::REAL ||
+        second->type() == LCLTYPE::STR)
     {
-        malValueVec* items = new malValueVec(3);
+        lclValueVec* items = new lclValueVec(3);
         items->at(0) = first;
-        items->at(1) = new malSymbol(".");
+        items->at(1) = new lclSymbol(".");
         items->at(2) = second;
-        return mal::list(items);
+        return lcl::list(items);
     }
 
-    ARG(malSequence, rest);
+    ARG(lclSequence, rest);
 
-    malValueVec* items = new malValueVec(1 + rest->count());
+    lclValueVec* items = new lclValueVec(1 + rest->count());
     items->at(0) = first;
     std::copy(rest->begin(), rest->end(), items->begin() + 1);
 
-    return mal::list(items);
+    return lcl::list(items);
 }
 
 BUILTIN("contains?")
 {
     CHECK_ARGS_IS(2);
-    if (*argsBegin == mal::nilValue()) {
+    if (*argsBegin == lcl::nilValue()) {
         return *argsBegin;
     }
-    ARG(malHash, hash);
-    return mal::boolean(hash->contains(*argsBegin));
+    ARG(lclHash, hash);
+    return lcl::boolean(hash->contains(*argsBegin));
 }
 
 BUILTIN("cos")
@@ -773,18 +773,18 @@ BUILTIN("cos")
 BUILTIN("count")
 {
     CHECK_ARGS_IS(1);
-    if (*argsBegin == mal::nilValue()) {
-        return mal::integer(0);
+    if (*argsBegin == lcl::nilValue()) {
+        return lcl::integer(0);
     }
 
-    ARG(malSequence, seq);
-    return mal::integer(seq->count());
+    ARG(lclSequence, seq);
+    return lcl::integer(seq->count());
 }
 
 BUILTIN("deref")
 {
     CHECK_ARGS_IS(1);
-    ARG(malAtom, atom);
+    ARG(lclAtom, atom);
 
     return atom->deref();
 }
@@ -792,7 +792,7 @@ BUILTIN("deref")
 BUILTIN("dissoc")
 {
     CHECK_ARGS_AT_LEAST(1);
-    ARG(malHash, hash);
+    ARG(lclHash, hash);
 
     return hash->dissoc(argsBegin, argsEnd);
 }
@@ -800,9 +800,9 @@ BUILTIN("dissoc")
 BUILTIN("empty?")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
-    return mal::boolean(seq->isEmpty());
+    return lcl::boolean(seq->isEmpty());
 }
 
 BUILTIN("eval")
@@ -833,13 +833,13 @@ BUILTIN("expt")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*rhs)
-            return mal::mdouble(pow(lhs->value(),
+            return lcl::mdouble(pow(lhs->value(),
                                     rhs->value()));
         }
         else
         {
             ADD_INT_VAL(*rhs)
-            return mal::mdouble(pow(lhs->value(),
+            return lcl::mdouble(pow(lhs->value(),
                                     double(rhs->value())));
         }
     }
@@ -850,7 +850,7 @@ BUILTIN("expt")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*rhs)
-            return mal::mdouble(pow(double(lhs->value()),
+            return lcl::mdouble(pow(double(lhs->value()),
                                     rhs->value()));
         }
         else
@@ -858,7 +858,7 @@ BUILTIN("expt")
             ADD_INT_VAL(*rhs)
             auto result = static_cast<std::int64_t>(pow(double(lhs->value()),
                                     double(rhs->value())));
-            return mal::integer(result);
+            return lcl::integer(result);
         }
     }
 }
@@ -866,10 +866,10 @@ BUILTIN("expt")
 BUILTIN("first")
 {
     CHECK_ARGS_IS(1);
-    if (*argsBegin == mal::nilValue()) {
-        return mal::nilValue();
+    if (*argsBegin == lcl::nilValue()) {
+        return lcl::nilValue();
     }
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
     return seq->first();
 }
 
@@ -880,12 +880,12 @@ BUILTIN("fix")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return mal::integer(floor(lhs->value()));
+        return lcl::integer(floor(lhs->value()));
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::integer(lhs->value());
+        return lcl::integer(lhs->value());
     }
 }
 
@@ -896,57 +896,57 @@ BUILTIN("float")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return mal::mdouble(lhs->value());
+        return lcl::mdouble(lhs->value());
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return mal::mdouble(double(lhs->value()));
+        return lcl::mdouble(double(lhs->value()));
     }
 }
 
 BUILTIN("fn?")
 {
     CHECK_ARGS_IS(1);
-    malValuePtr arg = *argsBegin++;
+    lclValuePtr arg = *argsBegin++;
 
     // Lambdas are functions, unless they're macros.
-    if (const malLambda* lambda = DYNAMIC_CAST(malLambda, arg)) {
-        return mal::boolean(!lambda->isMacro());
+    if (const lclLambda* lambda = DYNAMIC_CAST(lclLambda, arg)) {
+        return lcl::boolean(!lambda->isMacro());
     }
     // Builtins are functions.
-    return mal::boolean(DYNAMIC_CAST(malBuiltIn, arg));
+    return lcl::boolean(DYNAMIC_CAST(lclBuiltIn, arg));
 }
 
 BUILTIN("get")
 {
     CHECK_ARGS_IS(2);
-    if (*argsBegin == mal::nilValue()) {
+    if (*argsBegin == lcl::nilValue()) {
         return *argsBegin;
     }
-    ARG(malHash, hash);
+    ARG(lclHash, hash);
     return hash->get(*argsBegin);
 }
 
 BUILTIN("getenv")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, str);
+    ARG(lclString, str);
 
     if (const char* env_p = std::getenv(str->value().c_str())) {
         String env = env_p;
-        return mal::string(env);
+        return lcl::string(env);
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("getfiled")
 {
     CHECK_ARGS_IS(4);
-    ARG(malString, title);
-    ARG(malString, def);
-    ARG(malString, ext);
-    ARG(malInteger, flags);
+    ARG(lclString, title);
+    ARG(lclString, def);
+    ARG(lclString, ext);
+    ARG(lclInteger, flags);
     QString fileName;
     QString path = def->value().c_str();
     QString fileExt = "(*.";
@@ -973,7 +973,7 @@ BUILTIN("getfiled")
                 fileName += ".";
                 fileName += ext->value().c_str();
             }
-            return mal::string(qUtf8Printable(fileName));
+            return lcl::string(qUtf8Printable(fileName));
         }
     }
 
@@ -991,7 +991,7 @@ BUILTIN("getfiled")
         fileName = QFileDialog::getOpenFileName(nullptr, title->value().c_str(), path, fileExt);
         if (fileName.size())
         {
-            return mal::string(qUtf8Printable(fileName));
+            return lcl::string(qUtf8Printable(fileName));
         }
     }
 
@@ -1009,14 +1009,14 @@ BUILTIN("getfiled")
      *
      */
 
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("getint")
 {
     if (CHECK_ARGS_AT_LEAST(0))
     {
-        ARG(malString, str);
+        ARG(lclString, str);
         std::cout << str->value();
     }
     int x = 0;
@@ -1028,14 +1028,14 @@ BUILTIN("getint")
         std::cin.ignore(10000,'\n');
         std::cout << "Bad entry. Enter a NUMBER: ";
     }
-    return mal::integer(x);
+    return lcl::integer(x);
 }
 
 BUILTIN("getreal")
 {
     if (CHECK_ARGS_AT_LEAST(0))
     {
-        ARG(malString, str);
+        ARG(lclString, str);
         std::cout << str->value();
     }
     float x = 0;
@@ -1047,7 +1047,7 @@ BUILTIN("getreal")
         std::cin.ignore(10000,'\n');
         std::cout << "Bad entry. Enter a NUMBER: ";
     }
-    return mal::mdouble(x);
+    return lcl::mdouble(x);
 }
 
 
@@ -1058,56 +1058,56 @@ BUILTIN("getstring")
     {
         argsBegin++;
     }
-    ARG(malString, str);
+    ARG(lclString, str);
     std::cout << str->value();
     String s = "";
     std::getline(std::cin >> std::ws, s);
-    return mal::string(s);
+    return lcl::string(s);
 }
 
 BUILTIN("hash-map")
 {
     Q_UNUSED(name);
-    return mal::hash(argsBegin, argsEnd, true);
+    return lcl::hash(argsBegin, argsEnd, true);
 }
 
 BUILTIN("keys")
 {
     CHECK_ARGS_IS(1);
-    ARG(malHash, hash);
+    ARG(lclHash, hash);
     return hash->keys();
 }
 
 BUILTIN("keyword")
 {
     CHECK_ARGS_IS(1);
-    const malValuePtr arg = *argsBegin++;
-    if (malKeyword* s = DYNAMIC_CAST(malKeyword, arg))
+    const lclValuePtr arg = *argsBegin++;
+    if (lclKeyword* s = DYNAMIC_CAST(lclKeyword, arg))
       return s;
-    if (const malString* s = DYNAMIC_CAST(malString, arg))
-      return mal::keyword(":" + s->value());
-    MAL_FAIL("keyword expects a keyword or string");
+    if (const lclString* s = DYNAMIC_CAST(lclString, arg))
+      return lcl::keyword(":" + s->value());
+    LCL_FAIL("keyword expects a keyword or string");
 }
 
 BUILTIN("last")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
-    MAL_CHECK(0 < seq->count(), "Index out of range");
+    LCL_CHECK(0 < seq->count(), "Index out of range");
     return seq->item(seq->count()-1);
 }
 
 BUILTIN("list")
 {
     Q_UNUSED(name);
-    return mal::list(argsBegin, argsEnd);
+    return lcl::list(argsBegin, argsEnd);
 }
 
 BUILTIN("listp")
 {
     CHECK_ARGS_IS(1);
-    return (DYNAMIC_CAST(malList, *argsBegin)) ? mal::trueValue() : mal::nilValue();
+    return (DYNAMIC_CAST(lclList, *argsBegin)) ? lcl::trueValue() : lcl::nilValue();
 }
 
 BUILTIN("log")
@@ -1123,7 +1123,7 @@ BUILTIN("logand")
     [[maybe_unused]] int64_t intValue = 0;
 
     if (argCount == 0) {
-        return mal::integer(0);
+        return lcl::integer(0);
     }
     else {
         CHECK_IS_NUMBER(argsBegin->ptr());
@@ -1131,7 +1131,7 @@ BUILTIN("logand")
             ADD_INT_VAL(*intVal);
             intValue = intVal->value();
             if (argCount == 1) {
-                return mal::integer(intValue);
+                return lcl::integer(intValue);
             }
             else {
                 result = intValue;
@@ -1141,7 +1141,7 @@ BUILTIN("logand")
             ADD_FLOAT_VAL(*floatVal);
             floatValue = floatVal->value();
             if (argCount == 1) {
-                return mal::integer(int(floatValue));
+                return lcl::integer(int(floatValue));
             }
             else {
                 result = int(floatValue);
@@ -1150,16 +1150,16 @@ BUILTIN("logand")
     }
     for (auto it = argsBegin; it != argsEnd; it++) {
         CHECK_IS_NUMBER(it->ptr());
-        if (it->ptr()->type() == MALTYPE::INT) {
-            const malInteger* i = VALUE_CAST(malInteger, *it);
+        if (it->ptr()->type() == LCLTYPE::INT) {
+            const lclInteger* i = VALUE_CAST(lclInteger, *it);
             result = result & i->value();
         }
         else {
-            const malDouble* i = VALUE_CAST(malDouble, *it);
+            const lclDouble* i = VALUE_CAST(lclDouble, *it);
             result = result & int(i->value());
         }
     }
-    return mal::integer(result);
+    return lcl::integer(result);
 }
 
 BUILTIN("log10")
@@ -1168,15 +1168,15 @@ BUILTIN("log10")
     if (FLOAT_PTR) {
         ADD_FLOAT_VAL(*lhs)
         if (lhs->value() < 0) {
-            return mal::nilValue();
+            return lcl::nilValue();
         }
-        return mal::mdouble(log10(lhs->value())); }
+        return lcl::mdouble(log10(lhs->value())); }
     else {
         ADD_INT_VAL(*lhs)
         if (lhs->value() < 0) {
-            return mal::nilValue();
+            return lcl::nilValue();
         }
-        return mal::mdouble(log10(lhs->value())); }
+        return lcl::mdouble(log10(lhs->value())); }
 }
 
 BUILTIN("macro?")
@@ -1184,24 +1184,24 @@ BUILTIN("macro?")
     CHECK_ARGS_IS(1);
 
     // Macros are implemented as lambdas, with a special flag.
-    const malLambda* lambda = DYNAMIC_CAST(malLambda, *argsBegin);
-    return mal::boolean((lambda != NULL) && lambda->isMacro());
+    const lclLambda* lambda = DYNAMIC_CAST(lclLambda, *argsBegin);
+    return lcl::boolean((lambda != NULL) && lambda->isMacro());
 }
 
 BUILTIN("map")
 {
     CHECK_ARGS_IS(2);
-    malValuePtr op = *argsBegin++; // this gets checked in APPLY
-    ARG(malSequence, source);
+    lclValuePtr op = *argsBegin++; // this gets checked in APPLY
+    ARG(lclSequence, source);
 
     const int length = source->count();
-    malValueVec* items = new malValueVec(length);
+    lclValueVec* items = new lclValueVec(length);
     auto it = source->begin();
     for (int i = 0; i < length; i++) {
       items->at(i) = APPLY(op, it+i, it+i+1);
     }
 
-    return  mal::list(items);
+    return  lcl::list(items);
 }
 
 BUILTIN("mapcar")
@@ -1213,10 +1213,10 @@ BUILTIN("mapcar")
     int listCount = argCount-1;
     //int listCounts[listCount];
     std::vector<int> listCounts(static_cast<int>(listCount));
-    const malValuePtr op = EVAL(argsBegin++->ptr(), NULL);
+    const lclValuePtr op = EVAL(argsBegin++->ptr(), NULL);
 
     for (auto it = argsBegin++; it != argsEnd; it++) {
-        const malSequence* seq = VALUE_CAST(malSequence, *it);
+        const lclSequence* seq = VALUE_CAST(lclSequence, *it);
         listCounts[i++] = seq->count();
         offset += seq->count();
         if (count < seq->count()) {
@@ -1227,21 +1227,21 @@ BUILTIN("mapcar")
     //int newListCounts[count];
     //std::vector<int> newListCounts(static_cast<int>(count));
     std::vector<int> newListCounts(count);
-    //malValueVec* valItems[count]; // FIXME [-Wvla-cxx-extension]
-    std::vector<malValueVec *> valItems(count);
-    malValueVec* items = new malValueVec(offset);
-    malValueVec* result = new malValueVec(count);
+    //lclValueVec* valItems[count]; // FIXME [-Wvla-cxx-extension]
+    std::vector<lclValueVec *> valItems(count);
+    lclValueVec* items = new lclValueVec(offset);
+    lclValueVec* result = new lclValueVec(count);
 
     offset = 0;
     for (auto it = --argsBegin; it != argsEnd; ++it) {
-        const malSequence* seq = STATIC_CAST(malSequence, *it);
+        const lclSequence* seq = STATIC_CAST(lclSequence, *it);
         std::copy(seq->begin(), seq->end(), items->begin() + offset);
         offset += seq->count();
     }
 
     for (auto l = 0; l < count; l++) {
         newListCounts[l] = 0;
-        valItems[l] = { new malValueVec(listCount+1) };
+        valItems[l] = { new lclValueVec(listCount+1) };
         valItems[l]->at(0) = op;
     }
 
@@ -1260,10 +1260,10 @@ BUILTIN("mapcar")
         for (auto v = listCount - newListCounts[l]; v > 0; v--) {
             valItems[l]->erase(std::next(valItems[l]->begin()));
         }
-        malList* List = new malList(valItems[l]);
+        lclList* List = new lclList(valItems[l]);
         result->at(l) = EVAL(List, NULL);
     }
-    return mal::list(result);
+    return lcl::list(result);
 }
 
 
@@ -1280,12 +1280,12 @@ BUILTIN("max")
         if (hasFloat) {
             ADD_FLOAT_VAL(*floatVal);
             floatValue = floatVal->value();
-            return mal::mdouble(floatValue);
+            return lcl::mdouble(floatValue);
         }
         else {
             ADD_INT_VAL(*intVal);
             intValue = intVal->value();
-            return mal::integer(intValue);
+            return lcl::integer(intValue);
         }
     }
 
@@ -1320,7 +1320,7 @@ BUILTIN("max")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return mal::mdouble(floatValue);
+        return lcl::mdouble(floatValue);
     } else {
         ADD_INT_VAL(*intVal);
         intValue = intVal->value();
@@ -1333,32 +1333,32 @@ BUILTIN("max")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return mal::integer(intValue);
+        return lcl::integer(intValue);
     }
 }
 
 BUILTIN("member?")
 {
     CHECK_ARGS_IS(2);
-    malValuePtr op = *argsBegin++;
-    ARG(malSequence, seq);
+    lclValuePtr op = *argsBegin++;
+    ARG(lclSequence, seq);
 
     const int length = seq->count();
-    malValueVec* items = new malValueVec(length);
+    lclValueVec* items = new lclValueVec(length);
     std::copy(seq->begin(), seq->end(), items->begin());
 
     for (int i = 0; i < length; i++) {
         if (items->at(i)->print(true).compare(op->print(true)) == 0) {
-            return mal::trueValue();
+            return lcl::trueValue();
         }
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("meta")
 {
     CHECK_ARGS_IS(1);
-    malValuePtr obj = *argsBegin++;
+    lclValuePtr obj = *argsBegin++;
 
     return obj->meta();
 }
@@ -1376,12 +1376,12 @@ BUILTIN("min")
         if (hasFloat) {
             ADD_FLOAT_VAL(*floatVal);
             floatValue = floatVal->value();
-            return mal::mdouble(floatValue);
+            return lcl::mdouble(floatValue);
         }
         else {
             ADD_INT_VAL(*intVal);
             intValue = intVal->value();
-            return mal::integer(intValue);
+            return lcl::integer(intValue);
         }
     }
 
@@ -1415,7 +1415,7 @@ BUILTIN("min")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return mal::mdouble(floatValue);
+        return lcl::mdouble(floatValue);
     } else {
         ADD_INT_VAL(*intVal);
         intValue = intVal->value();
@@ -1427,7 +1427,7 @@ BUILTIN("min")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return mal::integer(intValue);
+        return lcl::integer(intValue);
     }
 }
 
@@ -1440,22 +1440,22 @@ BUILTIN("nth")
     if(INT_PTR)
     {
         AG_INT(index);
-        ARG(malSequence, seq);
+        ARG(lclSequence, seq);
         i = index->value();
-        MAL_CHECK(i >= 0 && i < seq->count(), "Index out of range");
+        LCL_CHECK(i >= 0 && i < seq->count(), "Index out of range");
         return seq->item(i);
     }
     else if(FLOAT_PTR) {
         // add dummy for error msg
         AG_INT(index);
         [[maybe_unused]] const String dummy = index->print(true);
-        return mal::nilValue();
+        return lcl::nilValue();
     }
     else {
-        ARG(malSequence, seq);
+        ARG(lclSequence, seq);
         AG_INT(index);
         i = index->value();
-        MAL_CHECK(i >= 0 && i < seq->count(), "Index out of range");
+        LCL_CHECK(i >= 0 && i < seq->count(), "Index out of range");
         return seq->item(i);
     }
 }
@@ -1464,34 +1464,34 @@ BUILTIN("null")
 {
     CHECK_ARGS_IS(1);
     if (NIL_PTR) {
-        return mal::trueValue();
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("number?")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    return mal::boolean(DYNAMIC_CAST(malInteger, *argsBegin) ||
-            DYNAMIC_CAST(malDouble, *argsBegin));
+    return lcl::boolean(DYNAMIC_CAST(lclInteger, *argsBegin) ||
+            DYNAMIC_CAST(lclDouble, *argsBegin));
 }
 
 BUILTIN("numberp")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    return (DYNAMIC_CAST(malInteger, *argsBegin) ||
-            DYNAMIC_CAST(malDouble, *argsBegin)) ? mal::trueValue() : mal::nilValue();
+    return (DYNAMIC_CAST(lclInteger, *argsBegin) ||
+            DYNAMIC_CAST(lclDouble, *argsBegin)) ? lcl::trueValue() : lcl::nilValue();
 }
 
 BUILTIN("open")
 {
     CHECK_ARGS_IS(2);
-    ARG(malString, filename);
-    ARG(malString, m);
+    ARG(lclString, filename);
+    ARG(lclString, m);
     const char mode = std::tolower(m->value().c_str()[0]);
-    malFile* pf = new malFile(filename->value().c_str(), mode);
+    lclFile* pf = new lclFile(filename->value().c_str(), mode);
 
     return pf->open();
 }
@@ -1505,7 +1505,7 @@ BUILTIN("polar")
     double y = 0;
     [[maybe_unused]] double z = 0;
 
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
 
     if (FLOAT_PTR) {
         ADD_FLOAT_VAL(*floatAngle)
@@ -1529,81 +1529,81 @@ BUILTIN("polar")
     if(seq->count() == 2)
     {
         CHECK_IS_NUMBER(seq->item(0))
-        if (seq->item(0)->type() == MALTYPE::INT)
+        if (seq->item(0)->type() == LCLTYPE::INT)
         {
-            const malInteger* intX = VALUE_CAST(malInteger, seq->item(0));
+            const lclInteger* intX = VALUE_CAST(lclInteger, seq->item(0));
             x = double(intX->value());
         }
-        if (seq->item(0)->type() == MALTYPE::REAL)
+        if (seq->item(0)->type() == LCLTYPE::REAL)
         {
-            const malDouble* floatX = VALUE_CAST(malDouble, seq->item(0));
+            const lclDouble* floatX = VALUE_CAST(lclDouble, seq->item(0));
             x = floatX->value();
         }
         CHECK_IS_NUMBER(seq->item(1))
-        if (seq->item(1)->type() == MALTYPE::INT)
+        if (seq->item(1)->type() == LCLTYPE::INT)
         {
-            const malInteger* intY = VALUE_CAST(malInteger, seq->item(1));
+            const lclInteger* intY = VALUE_CAST(lclInteger, seq->item(1));
             y = double(intY->value());
         }
-        if (seq->item(1)->type() == MALTYPE::REAL)
+        if (seq->item(1)->type() == LCLTYPE::REAL)
         {
-            const malDouble* floatY = VALUE_CAST(malDouble, seq->item(1));
+            const lclDouble* floatY = VALUE_CAST(lclDouble, seq->item(1));
             y = floatY->value();
         }
 
-        malValueVec* items = new malValueVec(2);
-        items->at(0) = mal::mdouble(x + dist * sin(angle));
-        items->at(1) = mal::mdouble(y + dist * cos(angle));
-        return mal::list(items);
+        lclValueVec* items = new lclValueVec(2);
+        items->at(0) = lcl::mdouble(x + dist * sin(angle));
+        items->at(1) = lcl::mdouble(y + dist * cos(angle));
+        return lcl::list(items);
     }
 
     if(seq->count() == 3)
     {
-        if (seq->item(0)->type() == MALTYPE::INT)
+        if (seq->item(0)->type() == LCLTYPE::INT)
         {
-            const malInteger* intX = VALUE_CAST(malInteger, seq->item(0));
+            const lclInteger* intX = VALUE_CAST(lclInteger, seq->item(0));
             x = double(intX->value());
         }
-        if (seq->item(0)->type() == MALTYPE::REAL)
+        if (seq->item(0)->type() == LCLTYPE::REAL)
         {
-            const malDouble* floatX = VALUE_CAST(malDouble, seq->item(0));
+            const lclDouble* floatX = VALUE_CAST(lclDouble, seq->item(0));
             x = floatX->value();
         }
         CHECK_IS_NUMBER(seq->item(1))
-        if (seq->item(1)->type() == MALTYPE::INT)
+        if (seq->item(1)->type() == LCLTYPE::INT)
         {
-            const malInteger* intY = VALUE_CAST(malInteger, seq->item(1));
+            const lclInteger* intY = VALUE_CAST(lclInteger, seq->item(1));
             y = double(intY->value());
         }
-        if (seq->item(1)->type() == MALTYPE::REAL)
+        if (seq->item(1)->type() == LCLTYPE::REAL)
         {
-            const malDouble* floatY = VALUE_CAST(malDouble, seq->item(1));
+            const lclDouble* floatY = VALUE_CAST(lclDouble, seq->item(1));
             y = floatY->value();
         }
         CHECK_IS_NUMBER(seq->item(2))
-        if (seq->item(2)->type() == MALTYPE::INT)
+        if (seq->item(2)->type() == LCLTYPE::INT)
         {
-            const malInteger* intY = VALUE_CAST(malInteger, seq->item(2));
+            const lclInteger* intY = VALUE_CAST(lclInteger, seq->item(2));
             z = double(intY->value());
         }
-        if (seq->item(2)->type() == MALTYPE::REAL)
+        if (seq->item(2)->type() == LCLTYPE::REAL)
         {
-            const malDouble* floatY = VALUE_CAST(malDouble, seq->item(2));
+            const lclDouble* floatY = VALUE_CAST(lclDouble, seq->item(2));
             z = floatY->value();
         }
-        malValueVec* items = new malValueVec(3);
-        items->at(0) = mal::mdouble(x + dist * sin(angle));
-        items->at(1) = mal::mdouble(y + dist * cos(angle));
-        items->at(2) = mal::mdouble(z);
-        return mal::list(items);
+        lclValueVec* items = new lclValueVec(3);
+        items->at(0) = lcl::mdouble(x + dist * sin(angle));
+        items->at(1) = lcl::mdouble(y + dist * cos(angle));
+        items->at(2) = lcl::mdouble(z);
+        return lcl::list(items);
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("pr-str")
 {
     Q_UNUSED(name);
-    return mal::string(printValues(argsBegin, argsEnd, " ", true));
+    return lcl::string(printValues(argsBegin, argsEnd, " ", true));
 }
 
 BUILTIN("prin1")
@@ -1612,17 +1612,17 @@ BUILTIN("prin1")
     int args = CHECK_ARGS_BETWEEN(0, 2);
     if (args == 0) {
         std::cout << std::endl;
-        return mal::nullValue();
+        return lcl::nullValue();
     }
-    malFile* pf = NULL;
-    MALTYPE type = argsBegin->ptr()->type();
+    lclFile* pf = NULL;
+    LCLTYPE type = argsBegin->ptr()->type();
     String boolean = argsBegin->ptr()->print(true);
-    malValueIter value = argsBegin;
+    lclValueIter value = argsBegin;
 
     if (args == 2) {
         argsBegin++;
         if (argsBegin->ptr()->print(true).compare("nil") != 0) {
-            pf = VALUE_CAST(malFile, *argsBegin);
+            pf = VALUE_CAST(lclFile, *argsBegin);
         }
     }
     if (boolean == "nil") {
@@ -1632,7 +1632,7 @@ BUILTIN("prin1")
         else {
             std::cout << "\"nil\"";
         }
-            return mal::nilValue();
+            return lcl::nilValue();
     }
     if (boolean == "false") {
         if (pf) {
@@ -1641,7 +1641,7 @@ BUILTIN("prin1")
         else {
             std::cout << "\"false\"";
         }
-            return mal::falseValue();
+            return lcl::falseValue();
     }
     if (boolean == "true") {
         if (pf) {
@@ -1650,7 +1650,7 @@ BUILTIN("prin1")
         else {
             std::cout << "\"true\"";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
     if (boolean == "T") {
         if (pf) {
@@ -1659,12 +1659,12 @@ BUILTIN("prin1")
         else {
             std::cout << "\"T\"";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
 
     switch(type) {
-        case MALTYPE::FILE: {
-            malFile* f = VALUE_CAST(malFile, *value);
+        case LCLTYPE::FILE: {
+            lclFile* f = VALUE_CAST(lclFile, *value);
             char filePtr[32];
             sprintf(filePtr, "%p", f->value());
             const String file = filePtr;
@@ -1676,8 +1676,8 @@ BUILTIN("prin1")
             }
             return f;
         }
-        case MALTYPE::INT: {
-            malInteger* i = VALUE_CAST(malInteger, *value);
+        case LCLTYPE::INT: {
+            lclInteger* i = VALUE_CAST(lclInteger, *value);
             if (pf) {
                 pf->writeLine("\"" + i->print(true) + "\"");
             }
@@ -1686,8 +1686,8 @@ BUILTIN("prin1")
             }
             return i;
         }
-        case MALTYPE::LIST: {
-            malList* list = VALUE_CAST(malList, *value);
+        case LCLTYPE::LIST: {
+            lclList* list = VALUE_CAST(lclList, *value);
             if (pf) {
                 pf->writeLine("\"" + list->print(true) + "\"");
             }
@@ -1696,8 +1696,8 @@ BUILTIN("prin1")
             }
             return list;
         }
-        case MALTYPE::MAP: {
-            malHash* hash = VALUE_CAST(malHash, *value);
+        case LCLTYPE::MAP: {
+            lclHash* hash = VALUE_CAST(lclHash, *value);
             if (pf) {
                 pf->writeLine("\"" + hash->print(true) + "\"");
             }
@@ -1706,8 +1706,8 @@ BUILTIN("prin1")
             }
             return hash;
          }
-        case MALTYPE::REAL: {
-            malDouble* d = VALUE_CAST(malDouble, *value);
+        case LCLTYPE::REAL: {
+            lclDouble* d = VALUE_CAST(lclDouble, *value);
             if (pf) {
                 pf->writeLine("\"" + d->print(true) + "\"");
             }
@@ -1716,8 +1716,8 @@ BUILTIN("prin1")
             }
             return d;
         }
-        case MALTYPE::STR: {
-            malString* str = VALUE_CAST(malString, *value);
+        case LCLTYPE::STR: {
+            lclString* str = VALUE_CAST(lclString, *value);
             if (pf) {
                 pf->writeLine("\"" + str->value() + "\"");
             }
@@ -1726,8 +1726,8 @@ BUILTIN("prin1")
             }
             return str;
         }
-        case MALTYPE::SYM: {
-            malSymbol* sym = VALUE_CAST(malSymbol, *value);
+        case LCLTYPE::SYM: {
+            lclSymbol* sym = VALUE_CAST(lclSymbol, *value);
             if (pf) {
                 pf->writeLine("\"" + sym->value() + "\"");
             }
@@ -1736,8 +1736,8 @@ BUILTIN("prin1")
             }
             return sym;
         }
-        case MALTYPE::VEC: {
-            malVector* vector = VALUE_CAST(malVector, *value);
+        case LCLTYPE::VEC: {
+            lclVector* vector = VALUE_CAST(lclVector, *value);
             if (pf) {
                 pf->writeLine("\"" + vector->print(true) + "\"");
             }
@@ -1746,8 +1746,8 @@ BUILTIN("prin1")
             }
             return vector;
         }
-        case MALTYPE::KEYW: {
-            malKeyword* keyword = VALUE_CAST(malKeyword, *value);
+        case LCLTYPE::KEYW: {
+            lclKeyword* keyword = VALUE_CAST(lclKeyword, *value);
             if (pf) {
                 pf->writeLine("\"" + keyword->print(true) + "\"");
             }
@@ -1763,7 +1763,7 @@ BUILTIN("prin1")
             else {
                 std::cout << "\"nil\"";
             }
-            return mal::nilValue();
+            return lcl::nilValue();
         }
     }
 
@@ -1773,7 +1773,7 @@ BUILTIN("prin1")
     else {
         std::cout << "\"nil\"";
     }
-        return mal::nilValue();
+        return lcl::nilValue();
 }
 
 BUILTIN("princ")
@@ -1782,17 +1782,17 @@ BUILTIN("princ")
     if (args == 0) {
         std::cout << std::endl;
         fflush(stdout);
-        return mal::nullValue();
+        return lcl::nullValue();
     }
-    malFile* pf = NULL;
-    MALTYPE type = argsBegin->ptr()->type();
+    lclFile* pf = NULL;
+    LCLTYPE type = argsBegin->ptr()->type();
     String boolean = argsBegin->ptr()->print(true);
-    malValueIter value = argsBegin;
+    lclValueIter value = argsBegin;
 
     if (args == 2) {
         argsBegin++;
         if (argsBegin->ptr()->print(true).compare("nil") != 0) {
-            pf = VALUE_CAST(malFile, *argsBegin);
+            pf = VALUE_CAST(lclFile, *argsBegin);
         }
     }
     if (boolean == "nil") {
@@ -1802,7 +1802,7 @@ BUILTIN("princ")
         else {
             std::cout << "nil";
         }
-            return mal::nilValue();
+            return lcl::nilValue();
     }
     if (boolean == "false") {
         if (pf) {
@@ -1811,7 +1811,7 @@ BUILTIN("princ")
         else {
             std::cout << "false";
         }
-            return mal::falseValue();
+            return lcl::falseValue();
     }
     if (boolean == "true") {
         if (pf) {
@@ -1820,7 +1820,7 @@ BUILTIN("princ")
         else {
             std::cout << "true";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
     if (boolean == "T") {
         if (pf) {
@@ -1829,12 +1829,12 @@ BUILTIN("princ")
         else {
             std::cout << "T";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
 
     switch(type) {
-        case MALTYPE::FILE: {
-            malFile* f = VALUE_CAST(malFile, *value);
+        case LCLTYPE::FILE: {
+            lclFile* f = VALUE_CAST(lclFile, *value);
             char filePtr[32];
             sprintf(filePtr, "%p", f->value());
             const String file = filePtr;
@@ -1846,8 +1846,8 @@ BUILTIN("princ")
             }
             return f;
         }
-        case MALTYPE::INT: {
-            malInteger* i = VALUE_CAST(malInteger, *value);
+        case LCLTYPE::INT: {
+            lclInteger* i = VALUE_CAST(lclInteger, *value);
             if (pf) {
                 pf->writeLine(i->print(true));
             }
@@ -1856,8 +1856,8 @@ BUILTIN("princ")
             }
             return i;
         }
-        case MALTYPE::LIST: {
-            malList* list = VALUE_CAST(malList, *value);
+        case LCLTYPE::LIST: {
+            lclList* list = VALUE_CAST(lclList, *value);
             if (pf) {
                 pf->writeLine(list->print(true));
             }
@@ -1866,8 +1866,8 @@ BUILTIN("princ")
             }
             return list;
         }
-        case MALTYPE::MAP: {
-            malHash* hash = VALUE_CAST(malHash, *value);
+        case LCLTYPE::MAP: {
+            lclHash* hash = VALUE_CAST(lclHash, *value);
             if (pf) {
                 pf->writeLine(hash->print(true));
             }
@@ -1876,8 +1876,8 @@ BUILTIN("princ")
             }
             return hash;
          }
-        case MALTYPE::REAL: {
-            malDouble* d = VALUE_CAST(malDouble, *value);
+        case LCLTYPE::REAL: {
+            lclDouble* d = VALUE_CAST(lclDouble, *value);
             if (pf) {
                 pf->writeLine(d->print(true));
             }
@@ -1886,8 +1886,8 @@ BUILTIN("princ")
             }
             return d;
         }
-        case MALTYPE::STR: {
-            malString* str = VALUE_CAST(malString, *value);
+        case LCLTYPE::STR: {
+            lclString* str = VALUE_CAST(lclString, *value);
             if (pf) {
                 pf->writeLine(str->value());
             }
@@ -1897,8 +1897,8 @@ BUILTIN("princ")
             }
             return str;
         }
-        case MALTYPE::SYM: {
-            malSymbol* sym = VALUE_CAST(malSymbol, *value);
+        case LCLTYPE::SYM: {
+            lclSymbol* sym = VALUE_CAST(lclSymbol, *value);
             if (pf) {
                 pf->writeLine(sym->value());
             }
@@ -1907,8 +1907,8 @@ BUILTIN("princ")
             }
             return sym;
         }
-        case MALTYPE::VEC: {
-            malVector* vector = VALUE_CAST(malVector, *value);
+        case LCLTYPE::VEC: {
+            lclVector* vector = VALUE_CAST(lclVector, *value);
             if (pf) {
                 pf->writeLine(vector->print(true));
             }
@@ -1917,8 +1917,8 @@ BUILTIN("princ")
             }
             return vector;
         }
-        case MALTYPE::KEYW: {
-            malKeyword* keyword = VALUE_CAST(malKeyword, *value);
+        case LCLTYPE::KEYW: {
+            lclKeyword* keyword = VALUE_CAST(lclKeyword, *value);
             if (pf) {
                 pf->writeLine(keyword->print(true));
             }
@@ -1934,7 +1934,7 @@ BUILTIN("princ")
             else {
                 std::cout << "nil";
             }
-            return mal::nilValue();
+            return lcl::nilValue();
         }
         fflush(stdout);
     }
@@ -1945,7 +1945,7 @@ BUILTIN("princ")
     else {
         std::cout << "nil";
     }
-        return mal::nilValue();
+        return lcl::nilValue();
 }
 
 BUILTIN("print")
@@ -1953,17 +1953,17 @@ BUILTIN("print")
     int args = CHECK_ARGS_BETWEEN(0, 2);
     if (args == 0) {
         std::cout << std::endl;
-        return mal::nullValue();
+        return lcl::nullValue();
     }
-    malFile* pf = NULL;
-    MALTYPE type = argsBegin->ptr()->type();
+    lclFile* pf = NULL;
+    LCLTYPE type = argsBegin->ptr()->type();
     String boolean = argsBegin->ptr()->print(true);
-    malValueIter value = argsBegin;
+    lclValueIter value = argsBegin;
 
     if (args == 2) {
         argsBegin++;
         if (argsBegin->ptr()->print(true).compare("nil") != 0) {
-            pf = VALUE_CAST(malFile, *argsBegin);
+            pf = VALUE_CAST(lclFile, *argsBegin);
         }
     }
     if (boolean == "nil") {
@@ -1973,7 +1973,7 @@ BUILTIN("print")
         else {
             std::cout << "\n\"nil\" ";
         }
-            return mal::nilValue();
+            return lcl::nilValue();
     }
     if (boolean == "false") {
         if (pf) {
@@ -1982,7 +1982,7 @@ BUILTIN("print")
         else {
             std::cout << "\n\"false\" ";
         }
-            return mal::falseValue();
+            return lcl::falseValue();
     }
     if (boolean == "true") {
         if (pf) {
@@ -1991,7 +1991,7 @@ BUILTIN("print")
         else {
             std::cout << "\n\"true\" ";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
     if (boolean == "T") {
         if (pf) {
@@ -2000,12 +2000,12 @@ BUILTIN("print")
         else {
             std::cout << "\n\"T\" ";
         }
-            return mal::trueValue();
+            return lcl::trueValue();
     }
 
     switch(type) {
-        case MALTYPE::FILE: {
-            malFile* f = VALUE_CAST(malFile, *value);
+        case LCLTYPE::FILE: {
+            lclFile* f = VALUE_CAST(lclFile, *value);
             char filePtr[32];
             sprintf(filePtr, "%p", f->value());
             const String file = filePtr;
@@ -2017,8 +2017,8 @@ BUILTIN("print")
             }
             return f;
         }
-        case MALTYPE::INT: {
-            malInteger* i = VALUE_CAST(malInteger, *value);
+        case LCLTYPE::INT: {
+            lclInteger* i = VALUE_CAST(lclInteger, *value);
             if (pf) {
                 pf->writeLine("\n\"" + i->print(true) + "\" ");
             }
@@ -2027,8 +2027,8 @@ BUILTIN("print")
             }
             return i;
         }
-        case MALTYPE::LIST: {
-            malList* list = VALUE_CAST(malList, *value);
+        case LCLTYPE::LIST: {
+            lclList* list = VALUE_CAST(lclList, *value);
             if (pf) {
                 pf->writeLine("\n\"" + list->print(true) + "\" ");
             }
@@ -2037,8 +2037,8 @@ BUILTIN("print")
             }
             return list;
         }
-        case MALTYPE::MAP: {
-            malHash* hash = VALUE_CAST(malHash, *value);
+        case LCLTYPE::MAP: {
+            lclHash* hash = VALUE_CAST(lclHash, *value);
             if (pf) {
                 pf->writeLine("\n\"" + hash->print(true) + "\" ");
             }
@@ -2047,8 +2047,8 @@ BUILTIN("print")
             }
             return hash;
          }
-        case MALTYPE::REAL: {
-            malDouble* d = VALUE_CAST(malDouble, *value);
+        case LCLTYPE::REAL: {
+            lclDouble* d = VALUE_CAST(lclDouble, *value);
             if (pf) {
                 pf->writeLine("\n\"" + d->print(true) + "\" ");
             }
@@ -2057,8 +2057,8 @@ BUILTIN("print")
             }
             return d;
         }
-        case MALTYPE::STR: {
-            malString* str = VALUE_CAST(malString, *value);
+        case LCLTYPE::STR: {
+            lclString* str = VALUE_CAST(lclString, *value);
             if (pf) {
                 pf->writeLine("\n\"" + str->value() + "\" ");
             }
@@ -2067,8 +2067,8 @@ BUILTIN("print")
             }
             return str;
         }
-        case MALTYPE::SYM: {
-            malSymbol* sym = VALUE_CAST(malSymbol, *value);
+        case LCLTYPE::SYM: {
+            lclSymbol* sym = VALUE_CAST(lclSymbol, *value);
             if (pf) {
                 pf->writeLine("\n\"" + sym->value() + "\" ");
             }
@@ -2077,8 +2077,8 @@ BUILTIN("print")
             }
             return sym;
         }
-        case MALTYPE::VEC: {
-            malVector* vector = VALUE_CAST(malVector, *value);
+        case LCLTYPE::VEC: {
+            lclVector* vector = VALUE_CAST(lclVector, *value);
             if (pf) {
                 pf->writeLine("\n\"" + vector->print(true) + "\" ");
             }
@@ -2087,8 +2087,8 @@ BUILTIN("print")
             }
             return vector;
         }
-        case MALTYPE::KEYW: {
-            malKeyword* keyword = VALUE_CAST(malKeyword, *value);
+        case LCLTYPE::KEYW: {
+            lclKeyword* keyword = VALUE_CAST(lclKeyword, *value);
             if (pf) {
                 pf->writeLine("\n\"" + keyword->print(true) + "\" ");
             }
@@ -2104,7 +2104,7 @@ BUILTIN("print")
             else {
                 std::cout << "\n\"nil\" ";
             }
-            return mal::nilValue();
+            return lcl::nilValue();
         }
     }
 
@@ -2114,114 +2114,114 @@ BUILTIN("print")
     else {
         std::cout << "\n\"nil\" ";
     }
-        return mal::nilValue();
+        return lcl::nilValue();
 }
 
 BUILTIN("println")
 {
     Q_UNUSED(name);
     std::cout << printValues(argsBegin, argsEnd, " ", false) << std::endl;
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("prn")
 {
     Q_UNUSED(name);
     std::cout << printValues(argsBegin, argsEnd, " ", true) << std::endl;
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("prompt")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, str);
+    ARG(lclString, str);
     std::cout << str->value();
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("py-eval-float")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
+    ARG(lclString, com);
     double result;
     int err = RS_PYTHON->evalFloat(com->value().c_str(), result);
     if (err == 0)
     {
-        return mal::mdouble(result);
+        return lcl::mdouble(result);
     }
-    MAL_FAIL("'evalFloat' python failed");
+    LCL_FAIL("'evalFloat' python failed");
 }
 
 BUILTIN("py-eval-integer")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
+    ARG(lclString, com);
     int result;
     int err = RS_PYTHON->evalInteger(com->value().c_str(), result);
     if (err == 0)
     {
-        return mal::integer(result);
+        return lcl::integer(result);
     }
-    MAL_FAIL("'evalInteger' python failed");
+    LCL_FAIL("'evalInteger' python failed");
 }
 
 BUILTIN("py-eval-vector")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
+    ARG(lclString, com);
     v3_t result;
     int err = RS_PYTHON->evalVector(com->value().c_str(), result);
 
     if (err == 0)
     {
-        malValueVec* items = new malValueVec(3);
-        items->at(0) = mal::mdouble(result.x);
-        items->at(1) = mal::mdouble(result.y);
-        items->at(2) = mal::mdouble(result.z);
-        return mal::list(items);
+        lclValueVec* items = new lclValueVec(3);
+        items->at(0) = lcl::mdouble(result.x);
+        items->at(1) = lcl::mdouble(result.y);
+        items->at(2) = lcl::mdouble(result.z);
+        return lcl::list(items);
     }
-    MAL_FAIL("'evalVector' python failed");
+    LCL_FAIL("'evalVector' python failed");
 }
 
 BUILTIN("py-eval-string")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
+    ARG(lclString, com);
     QString result;
     int err = RS_PYTHON->evalString(com->value().c_str(), result);
     if (err == 0)
     {
-        return mal::string(result.toStdString());
+        return lcl::string(result.toStdString());
     }
-    MAL_FAIL("'evalString' python failed");
+    LCL_FAIL("'evalString' python failed");
 }
 
 BUILTIN("py-simple-string")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
-    return mal::integer(RS_PYTHON->runString(com->value().c_str()));
+    ARG(lclString, com);
+    return lcl::integer(RS_PYTHON->runString(com->value().c_str()));
 }
 
 BUILTIN("py-simple-file")
 {
     Q_UNUSED(name);
     Q_UNUSED(argsEnd);
-    ARG(malString, com);
-    return mal::integer(RS_PYTHON->runFile(com->value().c_str()));
+    ARG(lclString, com);
+    return lcl::integer(RS_PYTHON->runFile(com->value().c_str()));
 }
 
 BUILTIN("read-string")
 {
     Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
-    ARG(malString, str);
+    ARG(lclString, str);
 
     return readStr(str->value());
 }
@@ -2234,9 +2234,9 @@ BUILTIN("read-line")
     {
         String str;
         std::getline(std::cin, str);
-        return mal::string(str);
+        return lcl::string(str);
     }
-    ARG(malFile, pf);
+    ARG(lclFile, pf);
 
     return pf->readLine();
 }
@@ -2255,9 +2255,9 @@ BUILTIN("read-char")
             break;
         }
         std::cout << std::endl;
-        return mal::integer(int(c));
+        return lcl::integer(int(c));
     }
-    ARG(malFile, pf);
+    ARG(lclFile, pf);
 
     return pf->readChar();
 }
@@ -2265,7 +2265,7 @@ BUILTIN("read-char")
 BUILTIN("readline")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, str);
+    ARG(lclString, str);
 
     return readline(str->value());
 }
@@ -2278,48 +2278,48 @@ BUILTIN("rem")
         if (FLOAT_PTR) {
             ADD_FLOAT_VAL(*floatVal)
             floatValue = floatValue + floatVal->value();
-            MAL_CHECK(floatVal->value() != 0.0, "Division by zero");
+            LCL_CHECK(floatVal->value() != 0.0, "Division by zero");
     }
     else {
         ADD_INT_VAL(*intVal)
         floatValue = floatValue + double(intVal->value());
-        MAL_CHECK(intVal->value() != 0, "Division by zero");
+        LCL_CHECK(intVal->value() != 0, "Division by zero");
     }
     argsBegin++;
     do {
         if (FLOAT_PTR) {
             ADD_FLOAT_VAL(*floatVal)
             floatValue = fmod(floatValue, floatVal->value());
-            MAL_CHECK(floatVal->value() != 0.0, "Division by zero");
+            LCL_CHECK(floatVal->value() != 0.0, "Division by zero");
         }
         else {
             ADD_INT_VAL(*intVal)
             floatValue = fmod(floatValue, double(intVal->value()));
-            MAL_CHECK(intVal->value() != 0, "Division by zero");
+            LCL_CHECK(intVal->value() != 0, "Division by zero");
         }
         argsBegin++;
     } while (argsBegin != argsEnd);
-    return mal::mdouble(floatValue);
+    return lcl::mdouble(floatValue);
     } else {
         [[maybe_unused]] int64_t intValue = 0;
         ADD_INT_VAL(*intVal) // +
         intValue = intValue + intVal->value();
-        MAL_CHECK(intVal->value() != 0, "Division by zero");
+        LCL_CHECK(intVal->value() != 0, "Division by zero");
         argsBegin++;
         do {
             ADD_INT_VAL(*intVal)
             intValue = int(fmod(double(intValue), double(intVal->value())));
-            MAL_CHECK(intVal->value() != 0, "Division by zero");
+            LCL_CHECK(intVal->value() != 0, "Division by zero");
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return mal::integer(intValue);
+        return lcl::integer(intValue);
     }
 }
 
 BUILTIN("reset!")
 {
     CHECK_ARGS_IS(2);
-    ARG(malAtom, atom);
+    ARG(lclAtom, atom);
     return atom->reset(*argsBegin);
 }
 
@@ -2327,10 +2327,10 @@ BUILTIN("rest")
 {
     Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
-    if (*argsBegin == mal::nilValue()) {
-        return mal::list(new malValueVec(0));
+    if (*argsBegin == lcl::nilValue()) {
+        return lcl::list(new lclValueVec(0));
     }
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
     return seq->rest();
 }
 
@@ -2338,37 +2338,37 @@ BUILTIN("reverse")
 {
     Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
-    if (*argsBegin == mal::nilValue()) {
-        return mal::list(new malValueVec(0));
+    if (*argsBegin == lcl::nilValue()) {
+        return lcl::list(new lclValueVec(0));
     }
-    ARG(malSequence, seq);
+    ARG(lclSequence, seq);
     return seq->reverse(seq->begin(), seq->end());
 }
 
 BUILTIN("seq")
 {
     CHECK_ARGS_IS(1);
-    malValuePtr arg = *argsBegin++;
-    if (arg == mal::nilValue()) {
-        return mal::nilValue();
+    lclValuePtr arg = *argsBegin++;
+    if (arg == lcl::nilValue()) {
+        return lcl::nilValue();
     }
-    if (const malSequence* seq = DYNAMIC_CAST(malSequence, arg)) {
-        return seq->isEmpty() ? mal::nilValue()
-                              : mal::list(seq->begin(), seq->end());
+    if (const lclSequence* seq = DYNAMIC_CAST(lclSequence, arg)) {
+        return seq->isEmpty() ? lcl::nilValue()
+                              : lcl::list(seq->begin(), seq->end());
     }
-    if (const malString* strVal = DYNAMIC_CAST(malString, arg)) {
+    if (const lclString* strVal = DYNAMIC_CAST(lclString, arg)) {
         const String str = strVal->value();
         int length = str.length();
         if (length == 0)
-            return mal::nilValue();
+            return lcl::nilValue();
 
-        malValueVec* items = new malValueVec(length);
+        lclValueVec* items = new lclValueVec(length);
         for (int i = 0; i < length; i++) {
-            (*items)[i] = mal::string(str.substr(i, 1));
+            (*items)[i] = lcl::string(str.substr(i, 1));
         }
-        return mal::list(items);
+        return lcl::list(items);
     }
-    MAL_FAIL("'%s' is not a string or sequence", arg->print(true).c_str());
+    LCL_FAIL("'%s' is not a string or sequence", arg->print(true).c_str());
 }
 
 BUILTIN("sin")
@@ -2380,12 +2380,12 @@ BUILTIN("slurp")
 {
     Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
-    ARG(malString, filename);
+    ARG(lclString, filename);
 
     std::ios_base::openmode openmode =
         std::ios::ate | std::ios::in | std::ios::binary;
     std::ifstream file(filename->value().c_str(), openmode);
-    MAL_CHECK(!file.fail(), "Cannot open %s", filename->value().c_str());
+    LCL_CHECK(!file.fail(), "Cannot open %s", filename->value().c_str());
 
     String data;
     data.reserve(file.tellg());
@@ -2393,7 +2393,7 @@ BUILTIN("slurp")
     data.append(std::istreambuf_iterator<char>(file.rdbuf()),
                 std::istreambuf_iterator<char>());
 
-    return mal::string(data);
+    return lcl::string(data);
 }
 
 BUILTIN("sqrt")
@@ -2404,62 +2404,62 @@ BUILTIN("sqrt")
 BUILTIN("startapp")
 {
     int count = CHECK_ARGS_AT_LEAST(1);
-    ARG(malString, com);
+    ARG(lclString, com);
     String command = com->value();
 
     if (count > 1)
     {
-        ARG(malString, para);
+        ARG(lclString, para);
         command += " ";
         command += para->value();
     }
 
     if (system(command.c_str()))
     {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
-    return mal::integer(count);
+    return lcl::integer(count);
 }
 
 BUILTIN("str")
 {
     Q_UNUSED(name);
-    return mal::string(printValues(argsBegin, argsEnd, "", false));
+    return lcl::string(printValues(argsBegin, argsEnd, "", false));
 }
 
 BUILTIN("strcase")
 {
     int count = CHECK_ARGS_AT_LEAST(1);
-    ARG(malString, str);
+    ARG(lclString, str);
     String trans = str->value();
 
     if (count > 1)
     {
-        ARG(malConstant, boolVal);
+        ARG(lclConstant, boolVal);
         if (boolVal->isTrue())
         {
             std::transform(trans.begin(), trans.end(), trans.begin(),
                    [](unsigned char c){ return std::tolower(c); });
-            return mal::string(trans);
+            return lcl::string(trans);
         }
     }
 
     std::transform(trans.begin(), trans.end(), trans.begin(),
                    [](unsigned char c){ return std::toupper(c); });
 
-    return mal::string(trans);
+    return lcl::string(trans);
 }
 
 BUILTIN("strlen")
 {
     Q_UNUSED(name);
-    return mal::integer(countValues(argsBegin, argsEnd));
+    return lcl::integer(countValues(argsBegin, argsEnd));
 }
 
 BUILTIN("substr")
 {
     int count = CHECK_ARGS_AT_LEAST(2);
-    ARG(malString, s);
+    ARG(lclString, s);
     AG_INT(start);
     int startPos = (int)start->value();
 
@@ -2473,57 +2473,57 @@ BUILTIN("substr")
         if (count > 2)
         {
             AG_INT(size);
-            return mal::string(bla.substr(startPos-1, size->value()));
+            return lcl::string(bla.substr(startPos-1, size->value()));
         }
         else
         {
-                return mal::string(bla.substr(startPos-1, bla.size()));
+                return lcl::string(bla.substr(startPos-1, bla.size()));
         }
     }
 
-    return mal::string(String(""));
+    return lcl::string(String(""));
 }
 
 BUILTIN("subst")
 {
     CHECK_ARGS_IS(3);
-    malValuePtr oldSym = *argsBegin++;
-    malValuePtr newSym = *argsBegin++;
-    ARG(malSequence, seq);
+    lclValuePtr oldSym = *argsBegin++;
+    lclValuePtr newSym = *argsBegin++;
+    ARG(lclSequence, seq);
 
     const int length = seq->count();
-    malValueVec* items = new malValueVec(length);
+    lclValueVec* items = new lclValueVec(length);
     std::copy(seq->begin(), seq->end(), items->begin());
 
     for (int i = 0; i < length; i++) {
         if (items->at(i)->print(true).compare(oldSym->print(true)) == 0) {
             items->at(i) = newSym;
-            return mal::list(items);
+            return lcl::list(items);
         }
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("swap!")
 {
     CHECK_ARGS_AT_LEAST(2);
-    ARG(malAtom, atom);
+    ARG(lclAtom, atom);
 
-    malValuePtr op = *argsBegin++; // this gets checked in APPLY
+    lclValuePtr op = *argsBegin++; // this gets checked in APPLY
 
-    malValueVec args(1 + argsEnd - argsBegin);
+    lclValueVec args(1 + argsEnd - argsBegin);
     args[0] = atom->deref();
     std::copy(argsBegin, argsEnd, args.begin() + 1);
 
-    malValuePtr value = APPLY(op, args.begin(), args.end());
+    lclValuePtr value = APPLY(op, args.begin(), args.end());
     return atom->reset(value);
 }
 
 BUILTIN("symbol")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, token);
-    return mal::symbol(token->value());
+    ARG(lclString, token);
+    return lcl::symbol(token->value());
 }
 
 BUILTIN("tan")
@@ -2537,7 +2537,7 @@ BUILTIN("terpri")
     Q_UNUSED(argsBegin);
     Q_UNUSED(argsEnd);
     std::cout << std::endl;
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("throw")
@@ -2556,7 +2556,7 @@ BUILTIN("time-ms")
         high_resolution_clock::now().time_since_epoch()
     );
 
-    return mal::integer(ms.count());
+    return lcl::integer(ms.count());
 }
 
 BUILTIN("type?")
@@ -2564,30 +2564,30 @@ BUILTIN("type?")
     CHECK_ARGS_IS(1);
 
     if (argsBegin->ptr()->print(true).compare("nil") == 0) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
 
-    return mal::type(argsBegin->ptr()->type());
+    return lcl::type(argsBegin->ptr()->type());
 }
 
 BUILTIN("vals")
 {
     CHECK_ARGS_IS(1);
-    ARG(malHash, hash);
+    ARG(lclHash, hash);
     return hash->values();
 }
 
 BUILTIN("vec")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, s);
-    return mal::vector(s->begin(), s->end());
+    ARG(lclSequence, s);
+    return lcl::vector(s->begin(), s->end());
 }
 
 BUILTIN("vector")
 {
     Q_UNUSED(name);
-    return mal::vector(argsBegin, argsEnd);
+    return lcl::vector(argsBegin, argsEnd);
 }
 
 BUILTIN("ver")
@@ -2595,18 +2595,18 @@ BUILTIN("ver")
     Q_UNUSED(name);
     Q_UNUSED(argsBegin);
     Q_UNUSED(argsEnd);
-    return mal::string(LISP_VERSION);
+    return lcl::string(LISP_VERSION);
 }
 
 BUILTIN("vl-consp")
 {
     CHECK_ARGS_IS(1);
-    ARG(malSequence, s);
+    ARG(lclSequence, s);
 
     if(s->isDotted()) {
-        return mal::trueValue();
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-directory-files")
@@ -2614,14 +2614,14 @@ BUILTIN("vl-directory-files")
     int count = CHECK_ARGS_AT_LEAST(0);
     int len = 0;
     String path = "./";
-    malValueVec* items;
+    lclValueVec* items;
     std::vector<std::filesystem::path> sorted_by_name;
 
     if (count > 0) {
-        ARG(malString, directory);
+        ARG(lclString, directory);
         path = directory->value();
         if (!std::filesystem::exists(path.c_str())) {
-            return mal::nilValue();
+            return lcl::nilValue();
         }
         if (count > 1 && (NIL_PTR || INT_PTR) && !(count == 2 && (NIL_PTR || INT_PTR))) {
             if (NIL_PTR) {
@@ -2659,7 +2659,7 @@ BUILTIN("vl-directory-files")
             }
         }
         else if (count > 1 && !(count == 2 && (NIL_PTR || INT_PTR))) {
-            ARG(malString, pattern);
+            ARG(lclString, pattern);
             int dir = 3;
             if (count > 2) {
                 AG_INT(directories2);
@@ -2728,20 +2728,20 @@ BUILTIN("vl-directory-files")
         }
     }
     std::sort(sorted_by_name.begin(), sorted_by_name.end(), compareNat);
-    items = new malValueVec(len);
+    items = new lclValueVec(len);
     len = 0;
     for (const auto & filename : sorted_by_name) {
-        items->at(len) = mal::string(filename);
+        items->at(len) = lcl::string(filename);
         len++;
     }
-    return items->size() ? mal::list(items) : mal::nilValue();
+    return items->size() ? lcl::list(items) : lcl::nilValue();
 }
 
 BUILTIN("vl-file-copy")
 {
     int count = CHECK_ARGS_AT_LEAST(2);
-    ARG(malString, source);
-    ARG(malString, dest);
+    ARG(lclString, source);
+    ARG(lclString, dest);
 
     if (count == 3 && argsBegin->ptr()->isTrue()) {
 
@@ -2751,7 +2751,7 @@ BUILTIN("vl-file-copy")
         std::ifstream file(source->value().c_str(), openmode);
 
         if (file.fail()) {
-            return mal::nilValue();
+            return lcl::nilValue();
         }
 
         String data;
@@ -2761,91 +2761,91 @@ BUILTIN("vl-file-copy")
 
         of.open(dest->value(), std::ios::app);
         if (!of) {
-            return mal::nilValue();
+            return lcl::nilValue();
         }
         else {
             of << data;
             of.close();
-            return mal::integer(sizeof source->value());
+            return lcl::integer(sizeof source->value());
         }
     }
 
     std::error_code err;
     std::filesystem::copy(source->value(), dest->value(), std::filesystem::copy_options::update_existing, err);
     if (err) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
-    return mal::integer(sizeof source->value());
+    return lcl::integer(sizeof source->value());
 }
 
 BUILTIN("vl-file-delete")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
     if (!std::filesystem::exists(path->value().c_str())) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
     if (std::filesystem::remove(path->value().c_str()))
     {
-        return mal::trueValue();
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-file-directory-p")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
     const std::filesystem::directory_entry dir(path->value().c_str());
     if (std::filesystem::exists(path->value().c_str()) &&
         dir.is_directory()) {
-        return mal::trueValue();
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-file-rename")
 {
     CHECK_ARGS_IS(2);
-    ARG(malString, path);
-    ARG(malString, newName);
+    ARG(lclString, path);
+    ARG(lclString, newName);
     if (!std::filesystem::exists(path->value().c_str())) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
     std::error_code err;
     std::filesystem::rename(path->value().c_str(), newName->value().c_str(), err);
     if (err) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
-    return mal::trueValue();
+    return lcl::trueValue();
 }
 
 BUILTIN("vl-file-size")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
     if (!std::filesystem::exists(path->value().c_str())) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
     if (!std::filesystem::is_directory(path->value().c_str())) {
-        return mal::string("0");
+        return lcl::string("0");
     }
     try {
         [[maybe_unused]] auto size = std::filesystem::file_size(path->value().c_str());
         char str[50];
         sprintf(str, "%ld", size);
-        return mal::string(str);
+        return lcl::string(str);
     }
     catch (std::filesystem::filesystem_error&) {}
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-file-systime")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
     if (!std::filesystem::exists(path->value().c_str())) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
 
     std::filesystem::file_time_type ftime = std::filesystem::last_write_time(path->value().c_str());
@@ -2857,52 +2857,52 @@ BUILTIN("vl-file-systime")
     if (strftime(buffer, sizeof buffer, "%Y %m %w %e %I %M %S", std::localtime(&cftime))) {
         sscanf (buffer,"%d %d %d %d %d %d %d",&J,&M,&W,&D,&h,&m,&s);
 
-        malValueVec* items = new malValueVec(6);
-        items->at(0) = new malInteger(J);
-        items->at(1) = new malInteger(M);
-        items->at(2) = new malInteger(W);
-        items->at(3) = new malInteger(D);
-        items->at(4) = new malInteger(m);
-        items->at(5) = new malInteger(s);
-        return mal::list(items);
+        lclValueVec* items = new lclValueVec(6);
+        items->at(0) = new lclInteger(J);
+        items->at(1) = new lclInteger(M);
+        items->at(2) = new lclInteger(W);
+        items->at(3) = new lclInteger(D);
+        items->at(4) = new lclInteger(m);
+        items->at(5) = new lclInteger(s);
+        return lcl::list(items);
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-filename-base")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
 
     const std::filesystem::path p(path->value());
-    return mal::string(p.stem());
+    return lcl::string(p.stem());
 }
 
 BUILTIN("vl-filename-directory")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
 
     const std::filesystem::path p(path->value());
     if (!p.has_extension()) {
-        return mal::string(path->value());
+        return lcl::string(path->value());
     }
 
     const auto directory = std::filesystem::path{ p }.parent_path().string();
-    return mal::string(directory);
+    return lcl::string(directory);
 }
 
 BUILTIN("vl-filename-extension")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, path);
+    ARG(lclString, path);
 
     const std::filesystem::path p(path->value());
     if (!p.has_extension()) {
-        return mal::nilValue();
+        return lcl::nilValue();
     }
 
-    return mal::string(p.extension());
+    return lcl::string(p.extension());
 }
 
 BUILTIN("vl-filename-mktemp")
@@ -2919,7 +2919,7 @@ BUILTIN("vl-filename-mktemp")
     path = p / filename;
 
     if (count > 0) {
-        ARG(malString, pattern);
+        ARG(lclString, pattern);
         p = pattern->value().c_str();
         filename = p.stem();
         filename +=  + num;
@@ -2935,56 +2935,56 @@ BUILTIN("vl-filename-mktemp")
         path += filename;
     }
     if (count > 1) {
-        ARG(malString, directory);
+        ARG(lclString, directory);
         path = directory->value() / d;
         path += filename;
     }
     if (count == 3) {
-        ARG(malString, extension);
+        ARG(lclString, extension);
         path += extension->value();
     }
-    return mal::string(path);
+    return lcl::string(path);
 }
 
 BUILTIN("vl-mkdir")
 {
     CHECK_ARGS_IS(1);
-    ARG(malString, dir);
+    ARG(lclString, dir);
 
     if(std::filesystem::create_directory(dir->value())) {
-        return mal::trueValue();
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("vl-position")
 {
     CHECK_ARGS_IS(2);
-    malValuePtr op = *argsBegin++; // this gets checked in APPLY
+    lclValuePtr op = *argsBegin++; // this gets checked in APPLY
 
-    const malSequence* seq = VALUE_CAST(malSequence, *(argsBegin));
+    const lclSequence* seq = VALUE_CAST(lclSequence, *(argsBegin));
     for (int i = 0; i < seq->count(); i++) {
         if(seq->item(i)->print(true).compare(op->print(true)) == 0) {
-            return mal::integer(i);
+            return lcl::integer(i);
         }
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("symbol")
 {
     CHECK_ARGS_IS(1);
-    if(argsBegin->ptr()->type() == MALTYPE::SYM) {
-        return mal::trueValue();
+    if(argsBegin->ptr()->type() == LCLTYPE::SYM) {
+        return lcl::trueValue();
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("wcmatch")
 {
     CHECK_ARGS_IS(2);
-    ARG(malString, str);
-    ARG(malString, p);
+    ARG(lclString, str);
+    ARG(lclString, p);
     std::vector<String> StringList;
     String del = ",";
     String pat = p->value();
@@ -3052,17 +3052,17 @@ BUILTIN("wcmatch")
         }
         std::regex e (expr);
         if (std::regex_match (str->value(),e)) {
-            return mal::trueValue();
+            return lcl::trueValue();
         }
     }
-    return mal::nilValue();
+    return lcl::nilValue();
 }
 
 BUILTIN("with-meta")
 {
     CHECK_ARGS_IS(2);
-    malValuePtr obj  = *argsBegin++;
-    malValuePtr meta = *argsBegin++;
+    lclValuePtr obj  = *argsBegin++;
+    lclValuePtr meta = *argsBegin++;
     return obj->withMeta(meta);
 }
 
@@ -3070,14 +3070,14 @@ BUILTIN("write-line")
 {
     int count = CHECK_ARGS_AT_LEAST(1);
     //multi
-    ARG(malString, str);
+    ARG(lclString, str);
 
     if (count == 1)
     {
-        return mal::string(str->value());
+        return lcl::string(str->value());
     }
 
-    ARG(malFile, pf);
+    ARG(lclFile, pf);
 
     return pf->writeLine(str->value());
 }
@@ -3091,22 +3091,22 @@ BUILTIN("write-char")
 
     if (count == 1)
     {
-        return mal::integer(c->value());
+        return lcl::integer(c->value());
     }
 
-    ARG(malFile, pf);
+    ARG(lclFile, pf);
 
     return pf->writeChar(itoa64(c->value()));
 }
 
-void installCore(malEnvPtr env) {
+void installCore(lclEnvPtr env) {
     for (auto it = handlers.begin(), end = handlers.end(); it != end; ++it) {
-        malBuiltIn* handler = *it;
+        lclBuiltIn* handler = *it;
         env->set(handler->name(), handler);
     }
 }
 
-static String printValues(malValueIter begin, malValueIter end,
+static String printValues(lclValueIter begin, lclValueIter end,
                           const String& sep, bool readably)
 {
     String out;
@@ -3124,7 +3124,7 @@ static String printValues(malValueIter begin, malValueIter end,
     return out;
 }
 
-static int countValues(malValueIter begin, malValueIter end)
+static int countValues(lclValueIter begin, lclValueIter end)
 {
     int result = 0;
 

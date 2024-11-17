@@ -3,7 +3,7 @@
 #ifndef INCLUDE_TYPES_H
 #define INCLUDE_TYPES_H
 
-#include "MAL.h"
+#include "LCL.h"
 
 #include <exception>
 #include <stdio.h>
@@ -19,51 +19,51 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-class malEmptyInputException : public std::exception { };
+class lclEmptyInputException : public std::exception { };
 
-enum class MALTYPE { ATOM, BUILTIN, BOOLEAN, FILE, GUI, INT, LIST, MAP, REAL, STR, SYM, UNDEF, VEC, KEYW };
+enum class LCLTYPE { ATOM, BUILTIN, BOOLEAN, FILE, GUI, INT, LIST, MAP, REAL, STR, SYM, UNDEF, VEC, KEYW };
 
 #define MAX_DCL_TILES 31
 #define MAX_DCL_ATTR 35
 #define MAX_DCL_POS 8
 #define MAX_DCL_COLOR 13
 
-class malValue : public RefCounted {
+class lclValue : public RefCounted {
 public:
-    malValue() {
-        TRACE_OBJECT("Creating malValue %p\n", this);
+    lclValue() {
+        TRACE_OBJECT("Creating lclValue %p\n", this);
     }
-    malValue(malValuePtr meta) : m_meta(meta) {
-        TRACE_OBJECT("Creating malValue %p\n", this);
+    lclValue(lclValuePtr meta) : m_meta(meta) {
+        TRACE_OBJECT("Creating lclValue %p\n", this);
     }
-    virtual ~malValue() {
-        TRACE_OBJECT("Destroying malValue %p\n", this);
+    virtual ~lclValue() {
+        TRACE_OBJECT("Destroying lclValue %p\n", this);
     }
 
-    malValuePtr withMeta(malValuePtr meta) const;
-    virtual malValuePtr doWithMeta(malValuePtr meta) const = 0;
-    malValuePtr meta() const;
+    lclValuePtr withMeta(lclValuePtr meta) const;
+    virtual lclValuePtr doWithMeta(lclValuePtr meta) const = 0;
+    lclValuePtr meta() const;
 
     bool isTrue() const;
 
-    bool isEqualTo(const malValue* rhs) const;
+    bool isEqualTo(const lclValue* rhs) const;
 
-    virtual malValuePtr eval(malEnvPtr env);
+    virtual lclValuePtr eval(lclEnvPtr env);
 
     virtual String print(bool readably) const = 0;
 
-    virtual MALTYPE type() const { return MALTYPE::UNDEF; }
+    virtual LCLTYPE type() const { return LCLTYPE::UNDEF; }
 
 protected:
-    virtual bool doIsEqualTo(const malValue* rhs) const = 0;
+    virtual bool doIsEqualTo(const lclValue* rhs) const = 0;
 
-    malValuePtr m_meta;
+    lclValuePtr m_meta;
 };
 
 template<class T>
-T* value_cast(malValuePtr obj, const char* typeName) {
+T* value_cast(lclValuePtr obj, const char* typeName) {
     T* dest = dynamic_cast<T*>(obj.ptr());
-    MAL_CHECK(dest != NULL, "'%s' is not a %s",
+    LCL_CHECK(dest != NULL, "'%s' is not a %s",
               obj->print(true).c_str(), typeName);
     return dest;
 }
@@ -73,90 +73,90 @@ T* value_cast(malValuePtr obj, const char* typeName) {
 #define STATIC_CAST(Type, Value)   (static_cast<Type*>((Value).ptr()))
 
 #define WITH_META(Type) \
-    virtual malValuePtr doWithMeta(malValuePtr meta) const { \
+    virtual lclValuePtr doWithMeta(lclValuePtr meta) const { \
         return new Type(*this, meta); \
     } \
 
-class malConstant : public malValue {
+class lclConstant : public lclValue {
 public:
-    malConstant(String name) : m_name(name) { }
-    malConstant(const malConstant& that, malValuePtr meta)
-        : malValue(meta), m_name(that.m_name) { }
+    lclConstant(String name) : m_name(name) { }
+    lclConstant(const lclConstant& that, lclValuePtr meta)
+        : lclValue(meta), m_name(that.m_name) { }
 
     virtual String print(bool) const { return m_name; }
 
-    virtual MALTYPE type() const {
+    virtual LCLTYPE type() const {
         if ((m_name.compare("false") ||
             (m_name.compare("true")))) {
-            return MALTYPE::BOOLEAN; }
+            return LCLTYPE::BOOLEAN; }
         else {
-            return MALTYPE::UNDEF; }
+            return LCLTYPE::UNDEF; }
     }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
         return this == rhs; // these are singletons
     }
 
-    WITH_META(malConstant)
+    WITH_META(lclConstant)
 
 private:
     const String m_name;
 };
 
-class malInteger : public malValue {
+class lclInteger : public lclValue {
 public:
-    malInteger(int64_t value) : m_value(value) { }
-    malInteger(const malInteger& that, malValuePtr meta)
-        : malValue(meta), m_value(that.m_value) { }
+    lclInteger(int64_t value) : m_value(value) { }
+    lclInteger(const lclInteger& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.m_value) { }
 
     virtual String print(bool) const {
         return std::to_string(m_value);
     }
 
-    virtual MALTYPE type() const { return MALTYPE::INT; }
+    virtual LCLTYPE type() const { return LCLTYPE::INT; }
 
     int64_t value() const { return m_value; }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const;
+    virtual bool doIsEqualTo(const lclValue* rhs) const;
 
-    WITH_META(malInteger)
+    WITH_META(lclInteger)
 
 private:
     const int64_t m_value;
 };
 
-class malDouble : public malValue {
+class lclDouble : public lclValue {
 public:
-    malDouble(double value) : m_value(value) { }
-    malDouble(const malDouble& that, malValuePtr meta)
-        : malValue(meta), m_value(that.m_value) { }
+    lclDouble(double value) : m_value(value) { }
+    lclDouble(const lclDouble& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.m_value) { }
 
     virtual String print(bool) const {
         return std::to_string(m_value);
     }
 
     virtual bool isFloat() const { return true; }
-    virtual MALTYPE type() const { return MALTYPE::REAL; }
+    virtual LCLTYPE type() const { return LCLTYPE::REAL; }
 
     double value() const { return m_value; }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const;
+    virtual bool doIsEqualTo(const lclValue* rhs) const;
 
-    WITH_META(malDouble)
+    WITH_META(lclDouble)
 
 private:
     const double m_value;
 };
 
-class malFile : public malValue {
+class lclFile : public lclValue {
 public:
-    malFile(const char *path, const char &mode)
+    lclFile(const char *path, const char &mode)
         : m_path(path)
         , m_mode(mode)
     {
     }
-    malFile(const malFile& that, malValuePtr meta)
-        : malValue(meta), m_value(that.m_value) { }
+    lclFile(const lclFile& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.m_value) { }
 
     virtual String print(bool) const {
         String path = "#<file \"";
@@ -165,22 +165,22 @@ public:
         return path;
     }
 
-    virtual MALTYPE type() const { return MALTYPE::FILE; }
+    virtual LCLTYPE type() const { return LCLTYPE::FILE; }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
-        return value() == static_cast<const malFile*>(rhs)->value();
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
+        return value() == static_cast<const lclFile*>(rhs)->value();
     }
 
     ::FILE *value() const { return m_value; }
 
-    WITH_META(malFile)
+    WITH_META(lclFile)
 
-    malValuePtr close();
-    malValuePtr open();
-    malValuePtr readLine();
-    malValuePtr readChar();
-    malValuePtr writeChar(const char &c);
-    malValuePtr writeLine(const String &line);
+    lclValuePtr close();
+    lclValuePtr open();
+    lclValuePtr readLine();
+    lclValuePtr readChar();
+    lclValuePtr writeChar(const char &c);
+    lclValuePtr writeLine(const String &line);
 
 private:
     String m_path;
@@ -188,12 +188,12 @@ private:
     char m_mode;
 };
 
-class malStringBase : public malValue {
+class lclStringBase : public lclValue {
 public:
-    malStringBase(const String& token)
+    lclStringBase(const String& token)
         : m_value(token) { }
-    malStringBase(const malStringBase& that, malValuePtr meta)
-        : malValue(meta), m_value(that.value()) { }
+    lclStringBase(const lclStringBase& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.value()) { }
 
     virtual String print(bool) const { return m_value; }
 
@@ -203,203 +203,203 @@ private:
     const String m_value;
 };
 
-class malString : public malStringBase {
+class lclString : public lclStringBase {
 public:
-    malString(const String& token)
-        : malStringBase(token) { }
-    malString(const malString& that, malValuePtr meta)
-        : malStringBase(that, meta) { }
+    lclString(const String& token)
+        : lclStringBase(token) { }
+    lclString(const lclString& that, lclValuePtr meta)
+        : lclStringBase(that, meta) { }
 
     virtual String print(bool readably) const;
-    virtual MALTYPE type() const { return MALTYPE::STR; }
+    virtual LCLTYPE type() const { return LCLTYPE::STR; }
 
     String escapedValue() const;
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
-        return value() == static_cast<const malString*>(rhs)->value();
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
+        return value() == static_cast<const lclString*>(rhs)->value();
     }
 
-    WITH_META(malString)
+    WITH_META(lclString)
 };
 
-class malKeyword : public malStringBase {
+class lclKeyword : public lclStringBase {
 public:
-    malKeyword(const String& token)
-        : malStringBase(token) { }
-    malKeyword(const malKeyword& that, malValuePtr meta)
-        : malStringBase(that, meta) { }
+    lclKeyword(const String& token)
+        : lclStringBase(token) { }
+    lclKeyword(const lclKeyword& that, lclValuePtr meta)
+        : lclStringBase(that, meta) { }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
-        return value() == static_cast<const malKeyword*>(rhs)->value();
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
+        return value() == static_cast<const lclKeyword*>(rhs)->value();
     }
 
-    virtual MALTYPE type() const { return MALTYPE::KEYW; }
+    virtual LCLTYPE type() const { return LCLTYPE::KEYW; }
 
-    WITH_META(malKeyword)
+    WITH_META(lclKeyword)
 };
 
-class malSymbol : public malStringBase {
+class lclSymbol : public lclStringBase {
 public:
-    malSymbol(const String& token)
-        : malStringBase(token) { }
-    malSymbol(const malSymbol& that, malValuePtr meta)
-        : malStringBase(that, meta) { }
+    lclSymbol(const String& token)
+        : lclStringBase(token) { }
+    lclSymbol(const lclSymbol& that, lclValuePtr meta)
+        : lclStringBase(that, meta) { }
 
-    virtual malValuePtr eval(malEnvPtr env);
+    virtual lclValuePtr eval(lclEnvPtr env);
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
-        return value() == static_cast<const malSymbol*>(rhs)->value();
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
+        return value() == static_cast<const lclSymbol*>(rhs)->value();
     }
 
-    virtual MALTYPE type() const { return MALTYPE::SYM; }
+    virtual LCLTYPE type() const { return LCLTYPE::SYM; }
 
-    WITH_META(malSymbol)
+    WITH_META(lclSymbol)
 };
 
-class malSequence : public malValue {
+class lclSequence : public lclValue {
 public:
-    malSequence(malValueVec* items);
-    malSequence(malValueIter begin, malValueIter end);
-    malSequence(const malSequence& that, malValuePtr meta);
-    virtual ~malSequence();
+    lclSequence(lclValueVec* items);
+    lclSequence(lclValueIter begin, lclValueIter end);
+    lclSequence(const lclSequence& that, lclValuePtr meta);
+    virtual ~lclSequence();
 
     virtual String print(bool readably) const;
 
-    malValueVec* evalItems(malEnvPtr env) const;
+    lclValueVec* evalItems(lclEnvPtr env) const;
     int count() const { return m_items->size(); }
     bool isEmpty() const { return m_items->empty(); }
     bool isDotted() const;
-    malValuePtr item(int index) const { return (*m_items)[index]; }
+    lclValuePtr item(int index) const { return (*m_items)[index]; }
 
-    malValueIter begin() const { return m_items->begin(); }
-    malValueIter end()   const { return m_items->end(); }
+    lclValueIter begin() const { return m_items->begin(); }
+    lclValueIter end()   const { return m_items->end(); }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const;
+    virtual bool doIsEqualTo(const lclValue* rhs) const;
 
-    virtual malValuePtr conj(malValueIter argsBegin,
-                              malValueIter argsEnd) const = 0;
+    virtual lclValuePtr conj(lclValueIter argsBegin,
+                              lclValueIter argsEnd) const = 0;
 #if 0
-    virtual malValuePtr append(malValueIter argsBegin,
-                             malValueIter argsEnd) const;
+    virtual lclValuePtr append(lclValueIter argsBegin,
+                             lclValueIter argsEnd) const;
 #endif
-    virtual malValueVec* append(malValueIter argsBegin,
-                             malValueIter argsEnd) const;
+    virtual lclValueVec* append(lclValueIter argsBegin,
+                             lclValueIter argsEnd) const;
 
-    malValuePtr first() const;
-    malValuePtr reverse(malValueIter argsBegin, malValueIter argsEnd) const;
-    virtual malValuePtr rest() const;
-    virtual malValuePtr dotted() const;
+    lclValuePtr first() const;
+    lclValuePtr reverse(lclValueIter argsBegin, lclValueIter argsEnd) const;
+    virtual lclValuePtr rest() const;
+    virtual lclValuePtr dotted() const;
 
 private:
-    malValueVec* const m_items;
+    lclValueVec* const m_items;
 };
 
-class malList : public malSequence {
+class lclList : public lclSequence {
 public:
-    malList(malValueVec* items) : malSequence(items) { }
-    malList(malValueIter begin, malValueIter end)
-        : malSequence(begin, end) { }
-    malList(const malList& that, malValuePtr meta)
-        : malSequence(that, meta) { }
+    lclList(lclValueVec* items) : lclSequence(items) { }
+    lclList(lclValueIter begin, lclValueIter end)
+        : lclSequence(begin, end) { }
+    lclList(const lclList& that, lclValuePtr meta)
+        : lclSequence(that, meta) { }
 
     virtual String print(bool readably) const;
-    virtual MALTYPE type() const { return MALTYPE::LIST; }
-    virtual malValuePtr eval(malEnvPtr env);
+    virtual LCLTYPE type() const { return LCLTYPE::LIST; }
+    virtual lclValuePtr eval(lclEnvPtr env);
 
-    virtual malValuePtr conj(malValueIter argsBegin,
-                             malValueIter argsEnd) const;
+    virtual lclValuePtr conj(lclValueIter argsBegin,
+                             lclValueIter argsEnd) const;
 
-    WITH_META(malList)
+    WITH_META(lclList)
 };
 
-class malVector : public malSequence {
+class lclVector : public lclSequence {
 public:
-    malVector(malValueVec* items) : malSequence(items) { }
-    malVector(malValueIter begin, malValueIter end)
-        : malSequence(begin, end) { }
-    malVector(const malVector& that, malValuePtr meta)
-        : malSequence(that, meta) { }
+    lclVector(lclValueVec* items) : lclSequence(items) { }
+    lclVector(lclValueIter begin, lclValueIter end)
+        : lclSequence(begin, end) { }
+    lclVector(const lclVector& that, lclValuePtr meta)
+        : lclSequence(that, meta) { }
 
-    virtual malValuePtr eval(malEnvPtr env);
+    virtual lclValuePtr eval(lclEnvPtr env);
     virtual String print(bool readably) const;
-    virtual MALTYPE type() const { return MALTYPE::VEC; }
+    virtual LCLTYPE type() const { return LCLTYPE::VEC; }
 
-    virtual malValuePtr conj(malValueIter argsBegin,
-                             malValueIter argsEnd) const;
+    virtual lclValuePtr conj(lclValueIter argsBegin,
+                             lclValueIter argsEnd) const;
 
-    WITH_META(malVector)
+    WITH_META(lclVector)
 };
 
-class malApplicable : public malValue {
+class lclApplicable : public lclValue {
 public:
-    malApplicable() { }
-    malApplicable(malValuePtr meta) : malValue(meta) { }
+    lclApplicable() { }
+    lclApplicable(lclValuePtr meta) : lclValue(meta) { }
 
-    virtual malValuePtr apply(malValueIter argsBegin,
-                               malValueIter argsEnd) const = 0;
+    virtual lclValuePtr apply(lclValueIter argsBegin,
+                               lclValueIter argsEnd) const = 0;
 };
 
-class malHash : public malValue {
+class lclHash : public lclValue {
 public:
-    typedef std::map<String, malValuePtr> Map;
+    typedef std::map<String, lclValuePtr> Map;
 
-    malHash(malValueIter argsBegin, malValueIter argsEnd, bool isEvaluated);
-    malHash(const malHash::Map& map);
-    malHash(const malHash& that, malValuePtr meta)
-    : malValue(meta), m_map(that.m_map), m_isEvaluated(that.m_isEvaluated) { }
+    lclHash(lclValueIter argsBegin, lclValueIter argsEnd, bool isEvaluated);
+    lclHash(const lclHash::Map& map);
+    lclHash(const lclHash& that, lclValuePtr meta)
+    : lclValue(meta), m_map(that.m_map), m_isEvaluated(that.m_isEvaluated) { }
 
-    malValuePtr assoc(malValueIter argsBegin, malValueIter argsEnd) const;
-    malValuePtr dissoc(malValueIter argsBegin, malValueIter argsEnd) const;
-    bool contains(malValuePtr key) const;
-    malValuePtr eval(malEnvPtr env);
-    malValuePtr get(malValuePtr key) const;
-    malValuePtr keys() const;
-    malValuePtr values() const;
+    lclValuePtr assoc(lclValueIter argsBegin, lclValueIter argsEnd) const;
+    lclValuePtr dissoc(lclValueIter argsBegin, lclValueIter argsEnd) const;
+    bool contains(lclValuePtr key) const;
+    lclValuePtr eval(lclEnvPtr env);
+    lclValuePtr get(lclValuePtr key) const;
+    lclValuePtr keys() const;
+    lclValuePtr values() const;
 
     virtual String print(bool readably) const;
 
-    virtual bool doIsEqualTo(const malValue* rhs) const;
+    virtual bool doIsEqualTo(const lclValue* rhs) const;
 
-    virtual MALTYPE type() const { return MALTYPE::MAP; }
+    virtual LCLTYPE type() const { return LCLTYPE::MAP; }
 
-    WITH_META(malHash)
+    WITH_META(lclHash)
 
 private:
     const Map m_map;
     const bool m_isEvaluated;
 };
 
-class malBuiltIn : public malApplicable {
+class lclBuiltIn : public lclApplicable {
 public:
-    typedef malValuePtr (ApplyFunc)(const String& name,
-                                    malValueIter argsBegin,
-                                    malValueIter argsEnd);
+    typedef lclValuePtr (ApplyFunc)(const String& name,
+                                    lclValueIter argsBegin,
+                                    lclValueIter argsEnd);
 
-    malBuiltIn(const String& name, ApplyFunc* handler)
+    lclBuiltIn(const String& name, ApplyFunc* handler)
     : m_name(name), m_handler(handler) { }
 
-    malBuiltIn(bool eval, const String& name)
+    lclBuiltIn(bool eval, const String& name)
     : m_inEval(eval), m_name(name) { }
 
-    malBuiltIn(const malBuiltIn& that, malValuePtr meta)
-    : malApplicable(meta), m_name(that.m_name), m_handler(that.m_handler) { }
+    lclBuiltIn(const lclBuiltIn& that, lclValuePtr meta)
+    : lclApplicable(meta), m_name(that.m_name), m_handler(that.m_handler) { }
 
-    virtual malValuePtr apply(malValueIter argsBegin,
-                              malValueIter argsEnd) const;
+    virtual lclValuePtr apply(lclValueIter argsBegin,
+                              lclValueIter argsEnd) const;
 
     virtual String print(bool) const {
         return STRF("#builtin-function(%s)", m_name.c_str());
     }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
         return this == rhs; // these are singletons
     }
 
     String name() const { return m_name; }
 
-    virtual MALTYPE type() const { return MALTYPE::BUILTIN; }
+    virtual LCLTYPE type() const { return LCLTYPE::BUILTIN; }
 
-    WITH_META(malBuiltIn)
+    WITH_META(lclBuiltIn)
 
 private:
     [[maybe_unused]] bool m_inEval;
@@ -407,19 +407,19 @@ private:
     ApplyFunc* m_handler;
 };
 
-class malLambda : public malApplicable {
+class lclLambda : public lclApplicable {
 public:
-    malLambda(const StringVec& bindings, malValuePtr body, malEnvPtr env);
-    malLambda(const malLambda& that, malValuePtr meta);
-    malLambda(const malLambda& that, bool isMacro);
+    lclLambda(const StringVec& bindings, lclValuePtr body, lclEnvPtr env);
+    lclLambda(const lclLambda& that, lclValuePtr meta);
+    lclLambda(const lclLambda& that, bool isMacro);
 
-    virtual malValuePtr apply(malValueIter argsBegin,
-                              malValueIter argsEnd) const;
+    virtual lclValuePtr apply(lclValueIter argsBegin,
+                              lclValueIter argsEnd) const;
 
-    malValuePtr getBody() const { return m_body; }
-    malEnvPtr makeEnv(malValueIter argsBegin, malValueIter argsEnd) const;
+    lclValuePtr getBody() const { return m_body; }
+    lclEnvPtr makeEnv(lclValueIter argsBegin, lclValueIter argsEnd) const;
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
         return this == rhs; // do we need to do a deep inspection?
     }
 
@@ -429,22 +429,22 @@ public:
 
     bool isMacro() const { return m_isMacro; }
 
-    virtual malValuePtr doWithMeta(malValuePtr meta) const;
+    virtual lclValuePtr doWithMeta(lclValuePtr meta) const;
 
 private:
     const StringVec   m_bindings;
-    const malValuePtr m_body;
-    const malEnvPtr   m_env;
+    const lclValuePtr m_body;
+    const lclEnvPtr   m_env;
     const bool        m_isMacro;
 };
 
-class malAtom : public malValue {
+class lclAtom : public lclValue {
 public:
-    malAtom(malValuePtr value) : m_value(value) { }
-    malAtom(const malAtom& that, malValuePtr meta)
-        : malValue(meta), m_value(that.m_value) { }
+    lclAtom(lclValuePtr value) : m_value(value) { }
+    lclAtom(const lclAtom& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.m_value) { }
 
-    virtual bool doIsEqualTo(const malValue* rhs) const {
+    virtual bool doIsEqualTo(const lclValue* rhs) const {
         return this->m_value->isEqualTo(rhs);
     }
 
@@ -452,16 +452,16 @@ public:
         return "(atom " + m_value->print(readably) + ")";
     };
 
-    virtual MALTYPE type() const { return MALTYPE::ATOM; }
+    virtual LCLTYPE type() const { return LCLTYPE::ATOM; }
 
-    malValuePtr deref() const { return m_value; }
+    lclValuePtr deref() const { return m_value; }
 
-    malValuePtr reset(malValuePtr value) { return m_value = value; }
+    lclValuePtr reset(lclValuePtr value) { return m_value = value; }
 
-    WITH_META(malAtom)
+    WITH_META(lclAtom)
 
 private:
-    malValuePtr m_value;
+    lclValuePtr m_value;
 };
 
 enum TILE_ID {
@@ -626,7 +626,7 @@ typedef struct color_prop {
 } color_prop_t;
 
 typedef struct guitile {
-    malValueVec*    tiles;
+    lclValueVec*    tiles;
     QWidget*        parent = nullptr;
     String          action = "";
     pos_t           alignment = LEFT;
@@ -667,13 +667,13 @@ typedef struct guitile {
     double          width = 0.0;
 } tile_t;
 
-class malGui : public malValue {
+class lclGui : public lclValue {
 public:
-    malGui(const tile_t& tile) : m_value(tile) { }
-    malGui(const malGui& that, malValuePtr meta)
-        : malValue(meta), m_value(that.m_value) { }
+    lclGui(const tile_t& tile) : m_value(tile) { }
+    lclGui(const lclGui& that, lclValuePtr meta)
+        : lclValue(meta), m_value(that.m_value) { }
 
-    virtual ~malGui() { delete m_value.tiles; }
+    virtual ~lclGui() { delete m_value.tiles; }
 
     tile_t value() const { return m_value; }
 
@@ -681,28 +681,28 @@ public:
         return STRF("#builtin-gui(%s)", m_value.name.c_str());
     }
 
-    virtual MALTYPE type() const { return MALTYPE::GUI; }
+    virtual LCLTYPE type() const { return LCLTYPE::GUI; }
 
-    virtual bool doIsEqualTo(const malValue*) const { return false; }
+    virtual bool doIsEqualTo(const lclValue*) const { return false; }
 
-    virtual malValuePtr conj(malValueIter argsBegin,
-                             malValueIter argsEnd) const;
+    virtual lclValuePtr conj(lclValueIter argsBegin,
+                             lclValueIter argsEnd) const;
 
-    WITH_META(malGui)
+    WITH_META(lclGui)
 
 private:
     const tile_t m_value;
 };
 
-class malWidget : public malGui {
+class lclWidget : public lclGui {
 public:
-    malWidget(const tile_t& tile);
-    malWidget(const malWidget& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclWidget(const tile_t& tile);
+    lclWidget(const lclWidget& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malWidget() { delete m_widget; }
+    virtual ~lclWidget() { delete m_widget; }
 
-    WITH_META(malWidget)
+    WITH_META(lclWidget)
 
     QWidget* widget() const { return m_widget; }
 
@@ -710,16 +710,16 @@ private:
     QWidget* m_widget;
 };
 
-class malButton : public malGui {
+class lclButton : public lclGui {
 
 public:
-    malButton(const tile_t& tile);
-    malButton(const malButton& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclButton(const tile_t& tile);
+    lclButton(const lclButton& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malButton() { delete m_button; }
+    virtual ~lclButton() { delete m_button; }
 
-    WITH_META(malButton)
+    WITH_META(lclButton)
 
     QPushButton* button() const { return m_button; }
 
@@ -729,16 +729,16 @@ private:
     QPushButton* m_button;
 };
 
-class malRadioButton : public malGui {
+class lclRadioButton : public lclGui {
 
 public:
-    malRadioButton(const tile_t& tile);
-    malRadioButton(const malRadioButton& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclRadioButton(const tile_t& tile);
+    lclRadioButton(const lclRadioButton& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malRadioButton() { delete m_button; }
+    virtual ~lclRadioButton() { delete m_button; }
 
-    WITH_META(malRadioButton)
+    WITH_META(lclRadioButton)
 
     QRadioButton* button() const { return m_button; }
 
@@ -748,16 +748,16 @@ private:
     QRadioButton* m_button;
 };
 
-class malLabel : public malGui {
+class lclLabel : public lclGui {
 
 public:
-    malLabel(const tile_t& tile);
-    malLabel(const malLabel& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclLabel(const tile_t& tile);
+    lclLabel(const lclLabel& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malLabel() { delete m_label; }
+    virtual ~lclLabel() { delete m_label; }
 
-    WITH_META(malLabel)
+    WITH_META(lclLabel)
 
     QLabel* label() const { return m_label; }
 
@@ -765,15 +765,15 @@ private:
     QLabel* m_label;
 };
 
-class malRow : public malGui {
+class lclRow : public lclGui {
 public:
-    malRow(const tile_t& tile);
-    malRow(const malRow& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclRow(const tile_t& tile);
+    lclRow(const lclRow& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malRow() { delete m_layout; }
+    virtual ~lclRow() { delete m_layout; }
 
-    WITH_META(malRow)
+    WITH_META(lclRow)
 
     QHBoxLayout* layout() const { return m_layout; }
 
@@ -781,15 +781,15 @@ private:
     QHBoxLayout* m_layout;
 };
 
-class malBoxedRow : public malGui {
+class lclBoxedRow : public lclGui {
 public:
-    malBoxedRow(const tile_t& tile);
-    malBoxedRow(const malBoxedRow& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclBoxedRow(const tile_t& tile);
+    lclBoxedRow(const lclBoxedRow& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malBoxedRow() { delete m_layout; delete m_groupbox; }
+    virtual ~lclBoxedRow() { delete m_layout; delete m_groupbox; }
 
-    WITH_META(malBoxedRow)
+    WITH_META(lclBoxedRow)
 
     QHBoxLayout* layout() const { return m_layout; }
     QGroupBox* groupbox() const { return m_groupbox; }
@@ -799,15 +799,15 @@ private:
     QGroupBox* m_groupbox;
 };
 
-class malColumn : public malGui {
+class lclColumn : public lclGui {
 public:
-    malColumn(const tile_t& tile);
-    malColumn(const malColumn& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclColumn(const tile_t& tile);
+    lclColumn(const lclColumn& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malColumn() { delete m_layout; }
+    virtual ~lclColumn() { delete m_layout; }
 
-    WITH_META(malColumn)
+    WITH_META(lclColumn)
 
     QVBoxLayout* layout() const { return m_layout; }
 
@@ -815,15 +815,15 @@ private:
     QVBoxLayout* m_layout;
 };
 
-class malBoxedColumn : public malGui {
+class lclBoxedColumn : public lclGui {
 public:
-    malBoxedColumn(const tile_t& tile);
-    malBoxedColumn(const malBoxedColumn& that, malValuePtr meta)
-        : malGui(that, meta) { }
+    lclBoxedColumn(const tile_t& tile);
+    lclBoxedColumn(const lclBoxedColumn& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
 
-    virtual ~malBoxedColumn() { delete m_layout; delete m_groupbox; }
+    virtual ~lclBoxedColumn() { delete m_layout; delete m_groupbox; }
 
-    WITH_META(malBoxedColumn)
+    WITH_META(lclBoxedColumn)
 
     QVBoxLayout* layout() const { return m_layout; }
     QGroupBox* groupbox() const { return m_groupbox; }
@@ -833,59 +833,59 @@ private:
     QGroupBox* m_groupbox;
 };
 
-namespace mal {
-    malValuePtr atom(malValuePtr value);
-    malValuePtr boolean(bool value);
-    malValuePtr builtin(const String& name, malBuiltIn::ApplyFunc handler);
-    malValuePtr builtin(bool eval, const String&);
-    malValuePtr falseValue();
-    malValuePtr file(const char *path, const char &mode);
-    malValuePtr gui(const tile_t& tile);
-    malValuePtr hash(malValueIter argsBegin, malValueIter argsEnd,
+namespace lcl {
+    lclValuePtr atom(lclValuePtr value);
+    lclValuePtr boolean(bool value);
+    lclValuePtr builtin(const String& name, lclBuiltIn::ApplyFunc handler);
+    lclValuePtr builtin(bool eval, const String&);
+    lclValuePtr falseValue();
+    lclValuePtr file(const char *path, const char &mode);
+    lclValuePtr gui(const tile_t& tile);
+    lclValuePtr hash(lclValueIter argsBegin, lclValueIter argsEnd,
                      bool isEvaluated);
-    malValuePtr hash(const malHash::Map& map);
-    malValuePtr integer(int64_t value);
-    malValuePtr integer(const String& token);
-    malValuePtr keyword(const String& token);
-    malValuePtr lambda(const StringVec&, malValuePtr, malEnvPtr);
-    malValuePtr list(malValueVec* items);
-    malValuePtr list(malValueIter begin, malValueIter end);
-    malValuePtr list(malValuePtr a);
-    malValuePtr list(malValuePtr a, malValuePtr b);
-    malValuePtr list(malValuePtr a, malValuePtr b, malValuePtr c);
-    malValuePtr macro(const malLambda& lambda);
-    malValuePtr mdouble(double value);
-    malValuePtr mdouble(const String& token);
-    malValuePtr nilValue();
-    malValuePtr nullValue();
-    malValuePtr string(const String& token);
-    malValuePtr symbol(const String& token);
-    malValuePtr trueValue();
-    malValuePtr type(MALTYPE type);
-    malValuePtr typeAtom();
-    malValuePtr typeBuiltin();
-    malValuePtr typeFile();
-    malValuePtr typeInteger();
-    malValuePtr typeList();
-    malValuePtr typeMap();
-    malValuePtr typeReal();
-    malValuePtr typeString();
-    malValuePtr typeSymbol();
-    malValuePtr typeUndef();
-    malValuePtr typeVector();
-    malValuePtr typeKeword();
-    malValuePtr piValue();
-    malValuePtr vector(malValueVec* items);
-    malValuePtr vector(malValueIter begin, malValueIter end);
+    lclValuePtr hash(const lclHash::Map& map);
+    lclValuePtr integer(int64_t value);
+    lclValuePtr integer(const String& token);
+    lclValuePtr keyword(const String& token);
+    lclValuePtr lambda(const StringVec&, lclValuePtr, lclEnvPtr);
+    lclValuePtr list(lclValueVec* items);
+    lclValuePtr list(lclValueIter begin, lclValueIter end);
+    lclValuePtr list(lclValuePtr a);
+    lclValuePtr list(lclValuePtr a, lclValuePtr b);
+    lclValuePtr list(lclValuePtr a, lclValuePtr b, lclValuePtr c);
+    lclValuePtr macro(const lclLambda& lambda);
+    lclValuePtr mdouble(double value);
+    lclValuePtr mdouble(const String& token);
+    lclValuePtr nilValue();
+    lclValuePtr nullValue();
+    lclValuePtr string(const String& token);
+    lclValuePtr symbol(const String& token);
+    lclValuePtr trueValue();
+    lclValuePtr type(LCLTYPE type);
+    lclValuePtr typeAtom();
+    lclValuePtr typeBuiltin();
+    lclValuePtr typeFile();
+    lclValuePtr typeInteger();
+    lclValuePtr typeList();
+    lclValuePtr typeMap();
+    lclValuePtr typeReal();
+    lclValuePtr typeString();
+    lclValuePtr typeSymbol();
+    lclValuePtr typeUndef();
+    lclValuePtr typeVector();
+    lclValuePtr typeKeword();
+    lclValuePtr piValue();
+    lclValuePtr vector(lclValueVec* items);
+    lclValuePtr vector(lclValueIter begin, lclValueIter end);
 
-    malValuePtr widget(const tile_t& tile);
-    malValuePtr boxedcolumn(const tile_t& tile);
-    malValuePtr boxedrow(const tile_t& tile);
-    malValuePtr button(const tile_t& tile);
-    malValuePtr column(const tile_t& tile);
-    malValuePtr label(const tile_t& tile);
-    malValuePtr row(const tile_t& tile);
-    malValuePtr radiobutton(const tile_t& tile);
+    lclValuePtr widget(const tile_t& tile);
+    lclValuePtr boxedcolumn(const tile_t& tile);
+    lclValuePtr boxedrow(const tile_t& tile);
+    lclValuePtr button(const tile_t& tile);
+    lclValuePtr column(const tile_t& tile);
+    lclValuePtr label(const tile_t& tile);
+    lclValuePtr row(const tile_t& tile);
+    lclValuePtr radiobutton(const tile_t& tile);
 
 }
 

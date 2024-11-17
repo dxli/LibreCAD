@@ -1,4 +1,4 @@
-#include "MAL.h"
+#include "LCL.h"
 #include "Types.h"
 
 #include <regex>
@@ -176,10 +176,10 @@ void Tokeniser::nextToken()
 
     String mismatch(m_iter, m_end);
     if (mismatch[0] == '"') {
-        MAL_CHECK(false, "expected '\"', got EOF");
+        LCL_CHECK(false, "expected '\"', got EOF");
     }
     else {
-        MAL_CHECK(false, "unexpected '%s'", mismatch.c_str());
+        LCL_CHECK(false, "unexpected '%s'", mismatch.c_str());
     }
 }
 
@@ -190,17 +190,17 @@ void Tokeniser::skipWhitespace()
     }
 }
 
-static malValuePtr readAtom(Tokeniser& tokeniser);
-static malValuePtr readForm(Tokeniser& tokeniser);
-static void readList(Tokeniser& tokeniser, malValueVec* items,
+static lclValuePtr readAtom(Tokeniser& tokeniser);
+static lclValuePtr readForm(Tokeniser& tokeniser);
+static void readList(Tokeniser& tokeniser, lclValueVec* items,
                       const String& end);
-static malValuePtr processMacro(Tokeniser& tokeniser, const String& symbol);
+static lclValuePtr processMacro(Tokeniser& tokeniser, const String& symbol);
 
-malValuePtr readStr(const String& input)
+lclValuePtr readStr(const String& input)
 {
     Tokeniser tokeniser(input);
     if (tokeniser.eof()) {
-        throw malEmptyInputException();
+        throw lclEmptyInputException();
     }
     return readForm(tokeniser);
 }
@@ -217,10 +217,10 @@ static pos_t getDclPos(const String& str);
 static tile_id_t getDclId(const String& str);
 static color_t getDclColor(const String& str);
 static attribute_id_t getDclAttributeId(const String& str);
-static malValuePtr readDclFile(Tokeniser& tokeniser, bool start=false);
-static malValuePtr addTile(tile_t tile);
+static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start=false);
+static lclValuePtr addTile(tile_t tile);
 
-malValuePtr loadDcl(const String& path)
+lclValuePtr loadDcl(const String& path)
 {
     std::ifstream file(path.c_str());
     String data;
@@ -231,41 +231,41 @@ malValuePtr loadDcl(const String& path)
 
     Tokeniser tokeniser(data);
     if (tokeniser.eof()) {
-        throw malEmptyInputException();
+        throw lclEmptyInputException();
     }
     return readDclFile(tokeniser, true);
 }
 
-static malValuePtr readForm(Tokeniser& tokeniser)
+static lclValuePtr readForm(Tokeniser& tokeniser)
 {
-    MAL_CHECK(!tokeniser.eof(), "expected form, got EOF");
+    LCL_CHECK(!tokeniser.eof(), "expected form, got EOF");
     String token = tokeniser.peek();
 
-    MAL_CHECK(!std::regex_match(token, closeRegex),
+    LCL_CHECK(!std::regex_match(token, closeRegex),
             "unexpected '%s'", token.c_str());
 
     if (token == "(") {
         tokeniser.next();
-        std::unique_ptr<malValueVec> items(new malValueVec);
+        std::unique_ptr<lclValueVec> items(new lclValueVec);
         readList(tokeniser, items.get(), ")");
-        return mal::list(items.release());
+        return lcl::list(items.release());
     }
     if (token == "[") {
         tokeniser.next();
-        std::unique_ptr<malValueVec> items(new malValueVec);
+        std::unique_ptr<lclValueVec> items(new lclValueVec);
         readList(tokeniser, items.get(), "]");
-        return mal::vector(items.release());
+        return lcl::vector(items.release());
     }
     if (token == "{") {
         tokeniser.next();
-        malValueVec items;
+        lclValueVec items;
         readList(tokeniser, &items, "}");
-        return mal::hash(items.begin(), items.end(), false);
+        return lcl::hash(items.begin(), items.end(), false);
     }
     return readAtom(tokeniser);
 }
 
-static malValuePtr readAtom(Tokeniser& tokeniser)
+static lclValuePtr readAtom(Tokeniser& tokeniser)
 {
     struct ReaderMacro {
         const char* token;
@@ -281,41 +281,41 @@ static malValuePtr readAtom(Tokeniser& tokeniser)
 
     struct Constant {
         const char* token;
-        malValuePtr value;
+        lclValuePtr value;
     };
     Constant constantTable[] = {
-        { "false",      mal::falseValue()  },
-        { "nil",        mal::nilValue()    },
-        { "true",       mal::trueValue()   },
-        { "T",          mal::trueValue()   },
-        { "pi",         mal::piValue()     },
-        { "!false",     mal::falseValue()  },
-        { "!nil",       mal::nilValue()    },
-        { "!true",      mal::trueValue()   },
-        { "!T",         mal::trueValue()   },
-        { "!pi",        mal::piValue()     },
-        { "ATOM",       mal::typeAtom()    },
-        { "FILE",       mal::typeFile()    },
-        { "INT",        mal::typeInteger() },
-        { "LIST",       mal::typeList()    },
-        { "REAL",       mal::typeReal()    },
-        { "STR",        mal::typeString()  },
-        { "VEC",        mal::typeVector()  },
-        { "KEYW",       mal::typeKeword()  }
+        { "false",      lcl::falseValue()  },
+        { "nil",        lcl::nilValue()    },
+        { "true",       lcl::trueValue()   },
+        { "T",          lcl::trueValue()   },
+        { "pi",         lcl::piValue()     },
+        { "!false",     lcl::falseValue()  },
+        { "!nil",       lcl::nilValue()    },
+        { "!true",      lcl::trueValue()   },
+        { "!T",         lcl::trueValue()   },
+        { "!pi",        lcl::piValue()     },
+        { "ATOM",       lcl::typeAtom()    },
+        { "FILE",       lcl::typeFile()    },
+        { "INT",        lcl::typeInteger() },
+        { "LIST",       lcl::typeList()    },
+        { "REAL",       lcl::typeReal()    },
+        { "STR",        lcl::typeString()  },
+        { "VEC",        lcl::typeVector()  },
+        { "KEYW",       lcl::typeKeword()  }
     };
 
     String token = tokeniser.next();
     if (token[0] == '"') {
-        return mal::string(unescape(token));
+        return lcl::string(unescape(token));
     }
     if (token[0] == ':') {
-        return mal::keyword(token);
+        return lcl::keyword(token);
     }
     if (token == "^") {
-        malValuePtr meta = readForm(tokeniser);
-        malValuePtr value = readForm(tokeniser);
+        lclValuePtr meta = readForm(tokeniser);
+        lclValuePtr value = readForm(tokeniser);
         // Note that meta and value switch places
-        return mal::list(mal::symbol("with-meta"), value, meta);
+        return lcl::list(lcl::symbol("with-meta"), value, meta);
     }
 
     for (Constant  &constant : constantTable) {
@@ -329,22 +329,22 @@ static malValuePtr readAtom(Tokeniser& tokeniser)
         }
     }
     if (std::regex_match(token, intRegex)) {
-        return mal::integer(token);
+        return lcl::integer(token);
     }
     if (std::regex_match(token, floatRegex)) {
-        return mal::mdouble(token);
+        return lcl::mdouble(token);
     }
     if (token[0] == '!') {
-        return mal::symbol(token.erase(0, 1));
+        return lcl::symbol(token.erase(0, 1));
     }
-    return mal::symbol(token);
+    return lcl::symbol(token);
 }
 
-static void readList(Tokeniser& tokeniser, malValueVec* items,
+static void readList(Tokeniser& tokeniser, lclValueVec* items,
                       const String& end)
 {
     while (1) {
-        MAL_CHECK(!tokeniser.eof(), "expected '%s', got EOF", end.c_str());
+        LCL_CHECK(!tokeniser.eof(), "expected '%s', got EOF", end.c_str());
         if (tokeniser.peek() == end) {
             tokeniser.next();
             return;
@@ -353,24 +353,24 @@ static void readList(Tokeniser& tokeniser, malValueVec* items,
     }
 }
 
-static malValuePtr processMacro(Tokeniser& tokeniser, const String& symbol)
+static lclValuePtr processMacro(Tokeniser& tokeniser, const String& symbol)
 {
-    return mal::list(mal::symbol(symbol), readForm(tokeniser));
+    return lcl::list(lcl::symbol(symbol), readForm(tokeniser));
 }
 
-static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
+static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
 {
-    MAL_CHECK(!tokeniser.eof(), "expected form, got EOF");
+    LCL_CHECK(!tokeniser.eof(), "expected form, got EOF");
     String token = tokeniser.peek();
     int i;
 
     if (start) {
         tile_t tile;
         tile.name = "*DCL-TILES*";
-        tile.tiles = new malValueVec;
+        tile.tiles = new lclValueVec;
         readTile(tokeniser, tile);
         std::cout << "<-- *DCL-TILES* " << std::endl;
-        return mal::gui(tile);
+        return lcl::gui(tile);
     }
 
     if (token.compare(":") == 0) {
@@ -397,7 +397,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
-                tile.tiles = new malValueVec;
+                tile.tiles = new lclValueVec;
                 token = tokeniser.peek();
                 tokeniser.next();
                 readTile(tokeniser, tile);
@@ -410,7 +410,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
-                tile.tiles = new malValueVec;
+                tile.tiles = new lclValueVec;
                 token = tokeniser.peek();
                 tokeniser.next();
                 readTile(tokeniser, tile);
@@ -428,7 +428,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
-                tile.tiles = new malValueVec(0);
+                tile.tiles = new lclValueVec(0);
                 token = tokeniser.peek();
                 tokeniser.next();
                 std::cout << "readDclFile(): 'dclTile' next: " << tokeniser.peek() << std::endl;
@@ -440,7 +440,7 @@ static malValuePtr readDclFile(Tokeniser& tokeniser, bool start)
         tile_t tile;
         tile.name = token;
         tile.id = getDclId(tokeniser.peek());
-        tile.tiles = new malValueVec;
+        tile.tiles = new lclValueVec;
         tokeniser.next();
         readTile(tokeniser, tile);
         for (auto &it : dclTile) {
@@ -612,7 +612,7 @@ static void readTile(Tokeniser& tokeniser, tile_t& tile)
         if (std::regex_match(tokeniser.peek(), dclRegex)) {
             std::cout <<"("<<tile.name<<") ";
             std::cout << "readTile() 'dclRegex' [<- readDclFile(tokeniser, false) token: " << tokeniser.peek() << std::endl;
-            malValuePtr result = readDclFile(tokeniser, false);
+            lclValuePtr result = readDclFile(tokeniser, false);
             if (result) {
                  tile.tiles->push_back(result);
             }
@@ -704,7 +704,7 @@ static bool getDclBool(const String& str)
 static void copyTile(const tile_t &a, tile_t &b)
 {
 
-    b.tiles = new malValueVec(a.tiles->size());
+    b.tiles = new lclValueVec(a.tiles->size());
     std::copy(a.tiles->begin(), a.tiles->end(), b.tiles->begin());
     b.action                 = a.action;
     b.alignment              = a.alignment;
@@ -745,87 +745,87 @@ static void copyTile(const tile_t &a, tile_t &b)
     b.width                  = a.width;
 }
 
-static malValuePtr addTile(tile_t tile)
+static lclValuePtr addTile(tile_t tile)
 {
     qDebug() << __func__ << tile.label.c_str();
 
     switch(tile.id) {
 #if 0
     case BOXED_COLUMN:
-        return mal::boxed_column(tile);
+        return lcl::boxed_column(tile);
     case BOXED_RADIO_COLUMN:
-        return mal::boxed_radio_column(tile);
+        return lcl::boxed_radio_column(tile);
     case BOXED_RADIO_ROW:
-        return mal::boxed_radio_row(tile);
+        return lcl::boxed_radio_row(tile);
 #endif
     case BOXED_ROW:
-        return mal::boxedrow(tile);
+        return lcl::boxedrow(tile);
     case BUTTON:
-        return mal::button(tile);
+        return lcl::button(tile);
 
     case COLUMN:
-        return mal::column(tile);
+        return lcl::column(tile);
 #if 0
     case CONCATENATION:
-        return mal::concatenation(tile);
+        return lcl::concatenation(tile);
 #endif
     case DIALOG:
-        return mal::widget(tile);
+        return lcl::widget(tile);
 #if 0
     case EDIT_BOX:
-        return mal::edit_box(tile);
+        return lcl::edit_box(tile);
     case ERRTILE:
-        return mal::errtile(tile);
+        return lcl::errtile(tile);
     case IMAGE:
-        return mal::image(tile);
+        return lcl::image(tile);
     case IMAGE_BUTTON:
-        return mal::image_button(tile);
+        return lcl::image_button(tile);
     case LIST_BOX:
-        return mal::list_box(tile);
+        return lcl::list_box(tile);
     case OK_CANCEL:
-        return mal::ok_cancel(tile);
+        return lcl::ok_cancel(tile);
     case OK_CANCEL_HELP:
-        return mal::ok_cancel_help(tile);
+        return lcl::ok_cancel_help(tile);
     case OK_CANCEL_HELP_ERRTILE:
-        return mal::ok_cancel_help_errtile(tile);
+        return lcl::ok_cancel_help_errtile(tile);
     case OK_CANCEL_HELP_INFO:
-        return mal::ok_cancel_help_info(tile);
+        return lcl::ok_cancel_help_info(tile);
     case OK_ONLY:
-        return mal::ok_only(tile);
+        return lcl::ok_only(tile);
     case PARAGRAPH:
-        return mal::paragraph(tile);
+        return lcl::paragraph(tile);
     case POPUP_LIST:
-        return mal::popup_list(tile);
+        return lcl::popup_list(tile);
 #endif
     case RADIO_BUTTON:
-        return mal::radiobutton(tile);
+        return lcl::radiobutton(tile);
 #if 0
     case RADIO_COLUMN:
-        return mal::radio_column(tile);
+        return lcl::radio_column(tile);
     case RADIO_ROW:
-        return mal::radio_row(tile);
+        return lcl::radio_row(tile);
 #endif
     case ROW:
-        return mal::row(tile);
+        return lcl::row(tile);
 #if 0
     case SLIDER:
-        return mal::slider(tile);
+        return lcl::slider(tile);
     case SPACER:
-        return mal::spacer(tile);
+        return lcl::spacer(tile);
     case SPACER_0:
-        return mal::spacer_0(tile);
+        return lcl::spacer_0(tile);
     case SPACER_1:
-        return mal::spacer_1(tile);
+        return lcl::spacer_1(tile);
 #endif
     case TEXT:
-        return mal::label(tile);
+        return lcl::label(tile);
 #if 0
     case TEXT_PART:
-        return mal::text_part(tile);
+        return lcl::text_part(tile);
     case TOGGLE:
-        return mal::toggle(tile);
+        return lcl::toggle(tile);
 #endif
     default:
-        return mal::gui(tile);
+        return lcl::gui(tile);
     }
 }

@@ -1,6 +1,6 @@
 #ifndef LISP_H
 #define LISP_H
-#include <MAL.h>
+#include <LCL.h>
 
 #include <stdio.h>
 #include <streambuf>

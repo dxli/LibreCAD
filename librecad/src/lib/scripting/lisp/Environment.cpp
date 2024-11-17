@@ -4,28 +4,28 @@
 #include <iostream>
 #include <algorithm>
 
-malEnvPtr replEnv(new malEnv);
+lclEnvPtr replEnv(new lclEnv);
 
-malEnvPtr shadowEnv(new malEnv);
+lclEnvPtr shadowEnv(new lclEnv);
 
-malEnvPtr dclEnv(new malEnv);
+lclEnvPtr dclEnv(new lclEnv);
 
 
-malEnv::malEnv(malEnvPtr outer)
+lclEnv::lclEnv(lclEnvPtr outer)
 : m_outer(outer)
 {
-    TRACE_ENV("Creating malEnv %p, outer=%p\n", this, m_outer.ptr());
+    TRACE_ENV("Creating lclEnv %p, outer=%p\n", this, m_outer.ptr());
 }
 
-malEnv::malEnv(malEnvPtr outer, const StringVec& bindings,
-               malValueIter argsBegin, malValueIter argsEnd)
+lclEnv::lclEnv(lclEnvPtr outer, const StringVec& bindings,
+               lclValueIter argsBegin, lclValueIter argsEnd)
 : m_outer(outer)
 {
-    TRACE_ENV("Creating malEnv %p, outer=%p\n", this, m_outer.ptr());
+    TRACE_ENV("Creating lclEnv %p, outer=%p\n", this, m_outer.ptr());
     setLamdaMode(true);
     int n = bindings.size();
     for (auto &it : bindings) {
-        // std::cout << "[malEnv::malEnv] bindings: " << it << std::endl;
+        // std::cout << "[lclEnv::lclEnv] bindings: " << it << std::endl;
         if (it != "&" ||
             it != "/")
             {
@@ -44,13 +44,13 @@ malEnv::malEnv(malEnvPtr outer, const StringVec& bindings,
         if (bindings[i] == "&" ||
             bindings[i] == "/"
         ) {
-            MAL_CHECK(i == n - 2, "There must be one parameter after the &");
+            LCL_CHECK(i == n - 2, "There must be one parameter after the &");
 
             // std::cout << "it &: " << it->ptr()->print(true) << std::endl;
-            set(bindings[n-1], mal::list(it, argsEnd));
+            set(bindings[n-1], lcl::list(it, argsEnd));
             return;
         }
-        MAL_CHECK(it != argsEnd, "Not enough parameters");
+        LCL_CHECK(it != argsEnd, "Not enough parameters");
         // std::cout << "it m_bindings.push_back + set: " << it->ptr()->print(true) << std::endl;
         // std::cout << "it->ptr()->type(): " << (int) it->ptr()->type() << std::endl;
         set(bindings[i], *it);
@@ -60,20 +60,20 @@ malEnv::malEnv(malEnvPtr outer, const StringVec& bindings,
     // std::cout << "argsEnd->ptr bottom: " << argsEnd->ptr() << std::endl;
 
     // for ( auto &str : m_bindings) {  std::cout << "m_bindings: " << str << std::endl; }
-    // std::cout << "MAL_CHECK: " << (int)(it == argsEnd) << std::endl;
+    // std::cout << "LCL_CHECK: " << (int)(it == argsEnd) << std::endl;
     // std::cout << "std::distance bottom : " << std::distance(argsBegin, argsEnd) << std::endl;
-    MAL_CHECK(it == argsEnd, "Too many parameters");
+    LCL_CHECK(it == argsEnd, "Too many parameters");
 }
 
-malEnv::~malEnv()
+lclEnv::~lclEnv()
 {
-    TRACE_ENV("Destroying malEnv %p, outer=%p\n", this, m_outer.ptr());
+    TRACE_ENV("Destroying lclEnv %p, outer=%p\n", this, m_outer.ptr());
 }
 
-malEnvPtr malEnv::find(const String& symbol)
+lclEnvPtr lclEnv::find(const String& symbol)
 {
-    // std::cout << "[malEnv::find] symbol: " << symbol << std::endl;
-    for (malEnvPtr env = this; env; env = env->m_outer) {
+    // std::cout << "[lclEnv::find] symbol: " << symbol << std::endl;
+    for (lclEnvPtr env = this; env; env = env->m_outer) {
         if (env->m_map.find(symbol) != env->m_map.end()) {
             return env;
         }
@@ -81,23 +81,23 @@ malEnvPtr malEnv::find(const String& symbol)
     return NULL;
 }
 
-malValuePtr malEnv::get(const String& symbol)
+lclValuePtr lclEnv::get(const String& symbol)
 {
-    for (malEnvPtr env = this; env; env = env->m_outer) {
+    for (lclEnvPtr env = this; env; env = env->m_outer) {
         auto it = env->m_map.find(symbol);
         if (it != env->m_map.end()) {
             return it->second;
         }
     }
 #if 1
-    MAL_FAIL("'%s' not found", symbol.c_str());
+    LCL_FAIL("'%s' not found", symbol.c_str());
 #else
     // std::cout << "'" << symbol << "' not found!" << std::endl;
-    return mal::nilValue();
+    return lcl::nilValue();
 #endif
 }
 
-malValuePtr malEnv::set(const String& symbol, malValuePtr value)
+lclValuePtr lclEnv::set(const String& symbol, lclValuePtr value)
 {
     if (isLamda()) {
         for (auto &it : m_bindings) {
@@ -114,10 +114,10 @@ malValuePtr malEnv::set(const String& symbol, malValuePtr value)
     return value;
 }
 
-malEnvPtr malEnv::getRoot()
+lclEnvPtr lclEnv::getRoot()
 {
     // Work our way down the the global environment.
-    for (malEnvPtr env = this; ; env = env->m_outer) {
+    for (lclEnvPtr env = this; ; env = env->m_outer) {
         if (!env->m_outer) {
             return env;
         }
