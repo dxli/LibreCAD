@@ -4,16 +4,20 @@
 #include "StaticList.h"
 #include "Types.h"
 
+#ifdef DEVELOPER
+
+#include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/select.h>
+
+#include <cstdlib>
 #include <chrono>
 #include <fstream>
 #include <iostream>
 #include <filesystem>
-#include <stdio.h>
-#include <cstdlib>
-#include <unistd.h>
-#include <sys/select.h>
-#include <termios.h>
-#include <sys/ioctl.h>
+
 #include <QMessageBox>
 #include <QFileDialog>
 
@@ -3139,3 +3143,5 @@ static int countValues(lclValueIter begin, lclValueIter end)
 
     return result;
 }
+
+#endif // DEVELOPER

@@ -1,6 +1,8 @@
 #include "Debug.h"
 #include "String.h"
 
+#ifdef DEVELOPER
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,3 +88,4 @@ String unescape(const String& in)
     return out;
 }
 
+#endif // DEVELOPER

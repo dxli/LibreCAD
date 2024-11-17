@@ -3,11 +3,14 @@
 #include "Types.h"
 #include "lisp.h"
 
+#ifdef DEVELOPER
+
+#include <math.h>
 #include <iostream>
 #include <algorithm>
 #include <memory>
 #include <typeinfo>
-#include <math.h>
+
 #include <QObject>
 
 namespace lcl {
@@ -1086,3 +1089,4 @@ lclLabel::lclLabel(const tile_t& tile)
     }
 }
 
+#endif // DEVELOPER

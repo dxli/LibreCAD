@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef DEVELOPER
+
 #define DEBUG_TRACE                    1
 //#define DEBUG_OBJECT_LIFETIMES         1
 //#define DEBUG_ENV_LIFETIMES            1
@@ -41,5 +43,7 @@
 
 #define ASSERT(condition, ...) \
     _ASSERT(__FILE__, __LINE__, condition, __VA_ARGS__)
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_DEBUG_H

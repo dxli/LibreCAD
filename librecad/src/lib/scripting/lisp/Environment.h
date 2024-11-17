@@ -5,6 +5,8 @@
 
 #include <map>
 
+#ifdef DEVELOPER
+
 class lclEnv : public RefCounted {
 public:
     lclEnv(lclEnvPtr outer = NULL);
@@ -36,5 +38,7 @@ extern lclEnvPtr replEnv;
 extern lclEnvPtr shadowEnv;
 
 extern lclEnvPtr dclEnv;
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_ENVIRONMENT_H

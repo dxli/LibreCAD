@@ -1,4 +1,3 @@
-#pragma once
 
 #ifndef INCLUDE_TYPES_H
 #define INCLUDE_TYPES_H
@@ -9,15 +8,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <map>
-
 #include <iostream>
+
 #include <QWidget>
+#include <QLabel>
 #include <QPushButton>
 #include <QRadioButton>
-#include <QLabel>
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+
+#ifdef DEVELOPER
 
 class lclEmptyInputException : public std::exception { };
 
@@ -888,5 +889,7 @@ namespace lcl {
     lclValuePtr radiobutton(const tile_t& tile);
 
 }
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_TYPES_H

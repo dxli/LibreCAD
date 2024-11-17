@@ -1,6 +1,8 @@
 #ifndef INCLUDE_STRING_H
 #define INCLUDE_STRING_H
 
+#ifdef DEVELOPER
+
 #include <string>
 #include <vector>
 
@@ -14,5 +16,7 @@ extern String stringPrintf(const char* fmt, ...);
 extern String copyAndFree(char* mallocedString);
 extern String escape(const String& s);
 extern String unescape(const String& s);
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_STRING_H

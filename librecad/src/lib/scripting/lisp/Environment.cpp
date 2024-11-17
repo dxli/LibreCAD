@@ -4,6 +4,8 @@
 #include <iostream>
 #include <algorithm>
 
+#ifdef DEVELOPER
+
 lclEnvPtr replEnv(new lclEnv);
 
 lclEnvPtr shadowEnv(new lclEnv);
@@ -123,3 +125,5 @@ lclEnvPtr lclEnv::getRoot()
         }
     }
 }
+
+#endif // DEVELOPER

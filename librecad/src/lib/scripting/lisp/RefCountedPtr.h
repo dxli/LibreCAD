@@ -5,6 +5,8 @@
 
 #include <cstddef>
 
+#ifdef DEVELOPER
+
 class RefCounted {
 public:
     RefCounted() : m_refCount(0) { }
@@ -73,5 +75,7 @@ private:
 
     T* m_object;
 };
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_REFCOUNTEDPTR_H

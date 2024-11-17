@@ -1,5 +1,7 @@
 #include "Validation.h"
 
+#ifdef DEVELOPER
+
 int checkArgsIs(const char* name, int expected, int got)
 {
     LCL_CHECK(got == expected,
@@ -31,3 +33,5 @@ int checkArgsEven(const char* name, int got)
            name, got);
     return got;
 }
+
+#endif // DEVELOPER

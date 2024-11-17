@@ -1,6 +1,8 @@
 #ifndef INCLUDE_STATICLIST_H
 #define INCLUDE_STATICLIST_H
 
+#ifdef DEVELOPER
+
 template<typename T>
 class StaticList
 {
@@ -46,5 +48,7 @@ private:
     friend class Node;
     Node*  m_head;
 };
+
+#endif // DEVELOPER
 
 #endif // INCLUDE_STATICLIST_H

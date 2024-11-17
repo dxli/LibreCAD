@@ -1,11 +1,13 @@
 #include "LCL.h"
 #include "Types.h"
 
-#include <regex>
+#ifdef DEVELOPER
 
+#include <regex>
 #include <fstream>
 #include <iostream>
 #include <string.h>
+
 #include <QDebug>
 
 typedef std::regex              Regex;
@@ -829,3 +831,5 @@ static lclValuePtr addTile(tile_t tile)
         return lcl::gui(tile);
     }
 }
+
+#endif // DEVELOPER
