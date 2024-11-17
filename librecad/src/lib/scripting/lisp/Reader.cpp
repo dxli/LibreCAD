@@ -757,14 +757,15 @@ static malValuePtr addTile(tile_t tile)
         return mal::boxed_radio_column(tile);
     case BOXED_RADIO_ROW:
         return mal::boxed_radio_row(tile);
-    case BOXED_ROW:
-        return mal::boxed_row(tile);
 #endif
+    case BOXED_ROW:
+        return mal::boxedrow(tile);
     case BUTTON:
         return mal::button(tile);
-#if 0
+
     case COLUMN:
         return mal::column(tile);
+#if 0
     case CONCATENATION:
         return mal::concatenation(tile);
 #endif
@@ -795,8 +796,10 @@ static malValuePtr addTile(tile_t tile)
         return mal::paragraph(tile);
     case POPUP_LIST:
         return mal::popup_list(tile);
+#endif
     case RADIO_BUTTON:
-        return mal::radio_button(tile);
+        return mal::radiobutton(tile);
+#if 0
     case RADIO_COLUMN:
         return mal::radio_column(tile);
     case RADIO_ROW:

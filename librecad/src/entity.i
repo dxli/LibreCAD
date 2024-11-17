@@ -1,8 +1,10 @@
 %module librecad;
-%ignore *::operator=;
-%ignore *::operator[];
-%ignore *::operator<<;
+//%ignore *::operator=;
+//%ignore *::operator[];
 
+%rename(__aref__)             *::operator[];
+%rename(__lshift__)           *::operator<<;
+%rename(__rshift__)           *::operator>>;
 %{
 //#include "qtconfigmacros.h"
 //#include "qcolormap.h"
@@ -15,10 +17,14 @@
 //#include "lc_crosshair.h"
 //#include "lc_defaults.h"
 
+
 //#include "lc_hyperbola.h"
 //#include "lc_looputils.h"
 //#include "lc_parabola.h"
+
 #include "lc_rect.h"
+#include "rs_pythongui.h"
+
 //#include "rs_arc.h"
 //#include "lc_refarc.h"
 //#include "rs_circle.h"
@@ -88,9 +94,7 @@
 //%include "qcolormap.h"
 //%include "qcolor.h"
 //%include "qfiledialog.h"
-
 //%rename(__slurp__) LC_Quadratic::operator<<(std::ostream&, const LC_Quadratic&);
-
 //%include "lib/math/lc_quadratic.h"
 //%include "lib/engine/document/entities/dxf_format.h"
 //%include "lib/engine/document/entities/rs_flags.h"
@@ -103,7 +107,10 @@
 //%include "lib/engine/document/entities/lc_defaults.h"
 //%include "lib/engine/document/entities/lc_hyperbola.h"
 //%include "lib/engine/document/entities/lc_looputils.h"
+%ignore operator<<;
 %include "lib/engine/document/entities/lc_rect.h"
+%include "lib/scripting/rs_pythongui.h"
+
 //%include "lib/engine/document/entities/rs_arc.h"
 //%include "lib/engine/document/entities/lc_refarc.h"
 //%include "lib/engine/document/entities/rs_circle.h"

@@ -563,12 +563,17 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
             }
 
             if (special == "repeat") {
-                checkArgsIs("repeat*", 2, argCount);
+                checkArgsAtLeast("repeat", 2, argCount);
                 const malInteger* loop = VALUE_CAST(malInteger, list->item(1));
-                for (int64_t i = 1; i < loop->value(); i++) {
-                    EVAL(list->item(argCount), env);
+                malValuePtr loopBody;
+
+                for (int i = 0; i < loop->value(); i++) {
+                    for (int j = 1; j < argCount; j++)
+                    {
+                        loopBody = EVAL(list->item(j+1), env);
+                    }
                 }
-                ast = list->item(argCount);
+                ast = loopBody;
                 continue; // TCO
             }
 
@@ -678,14 +683,20 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
             }
 
             if (special == "while") {
-                checkArgsIs("while", 2, argCount);
-
+                checkArgsAtLeast("while", 2, argCount);
                 malValuePtr loop = list->item(1);
-                malValuePtr loopBody = list->item(argCount);
+                malValuePtr loopBody;
 
                 while (1) {
-                    loopBody = EVAL(list->item(argCount), env);
-                    loop = EVAL(list->item(1), env);
+                    for (int i = 1; i < argCount; i++)
+                    {
+                        loopBody = EVAL(list->item(i+1), env);
+                        loop = EVAL(list->item(1), env);
+
+                        if (!loop->isTrue()) {
+                            break;
+                        }
+                    }
 
                     if (!loop->isTrue()) {
                         ast = loopBody;
@@ -694,6 +705,7 @@ malValuePtr EVAL(malValuePtr ast, malEnvPtr env)
                 }
                 continue; // TCO
             }
+
             if (special == "zero?" || special == "zerop") {
                                 checkArgsIs(special.c_str(), 1, argCount);
                 if (EVAL(list->item(1), env)->type() == MALTYPE::REAL) {
@@ -838,6 +850,18 @@ static void openTile(const malGui* tile)
             vLayout = new QVBoxLayout(dclDialog);
         }
             break;
+        case ROW:
+        {
+            const malRow* r = static_cast<const malRow*>(tile);
+            vLayout->addLayout(r->layout());
+        }
+            break;
+        case COLUMN:
+        {
+            const malColumn* c = static_cast<const malColumn*>(tile);
+            vLayout->addLayout(c->layout());
+        }
+            break;
         case TEXT:
         {
             const malLabel* l = static_cast<const malLabel*>(tile);
@@ -873,7 +897,37 @@ static void openTile(const malGui* tile)
             }
 #endif
             vLayout->addWidget(b->button());
+        }
+            break;
+        case RADIO_BUTTON:
+        {
+            const malRadioButton* b = static_cast<const malRadioButton*>(tile);
+            if (tile->value().key != "")
+            {
+                dclEnv->set(noQuotes(tile->value().key).c_str(), mal::nilValue());
+            }
+#if 0
+            switch (tile->value().alignment) {
+            case LEFT:
+                vLayout->
+                break;
+            case RIGHT:
 
+                break;
+            case TOP:
+
+                break;
+            case BOTTOM:
+
+                break;
+            case CENTERED:
+
+                break;
+            default:
+                break;
+            }
+#endif
+            vLayout->addWidget(b->button());
         }
 
             break;

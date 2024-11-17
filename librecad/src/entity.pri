@@ -1,19 +1,30 @@
+TARGET = entity
+
 GENERATED_SOURCES += \
-    entity_wrap.cxx
+    $${TARGET}_wrap.cxx
 
 SWIG_INPUT += \
     entity.i
 
 SWIG_USE_FILE += \
-    -I/usr/include/aarch64-linux-gnu/qt6 \
-    -I/usr/include/aarch64-linux-gnu/qt6/QtGui \
-    -I/usr/include/aarch64-linux-gnu/qt6/QtCore \
-    -I/usr/include/aarch64-linux-gnu/qt6/QtWidgets
+    -I$$[QT_INSTALL_LIBS]/qt6
 
+SWIG_FLAGS += \
+    -v -c++ -python
+
+SWIG_INCLUDE += \
+    -I${QMAKE_INCDIR}
+
+SWIG += \
+    /usr/bin/swig
+
+swig.target = $${TARGET}_wrap.cxx
 swig.input = SWIG_INPUT
 swig.variable_out = GENERATED_SOURCES
-swig.commands = /usr/bin/swig -c++ -python -o ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
-#swig.commands = /usr/bin/swig -c++ -v $$SWIG_USE_FILE -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_VERSION_MAJOR=6 -python -o $${INSTALLDIR} ${QMAKE_FILE_NAME}
+swig.commands = $$SWIG $$SWIG_FLAGS $$SWIG_USE_FILE  -outdir $${INSTALLDIR} -o ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
+swig.output = $${TARGET}_wrap.cxx
 
-swig.output = entity_wrap.cxx
 QMAKE_EXTRA_COMPILERS += swig
+QMAKE_EXTRA_TARGETS += swig
+QMAKE_CLEAN += $$swig.target
+QMAKE_CLEAN += librecad.py

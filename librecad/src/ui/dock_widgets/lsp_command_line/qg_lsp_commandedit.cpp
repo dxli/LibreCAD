@@ -144,7 +144,6 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
             setText(prom + *it);
         }
         break;
-
     case Qt::Key_Down:
         if (!historyList.isEmpty() && it < historyList.end() )
         {
@@ -157,14 +156,12 @@ void QG_Lsp_CommandEdit::keyPressEvent(QKeyEvent* e)
             }
         }
         break;
-#if 0
     case Qt::Key_Backspace:
         if (QLineEdit::text().size() > prombtSize())
         {
             QLineEdit::keyPressEvent(e);
         }
         break;
-#endif
     case Qt::Key_Enter:
     case Qt::Key_Return:
         processInput(text());

@@ -471,7 +471,7 @@ BUILTIN("alert")
     ARG(malString, str);
 
     QMessageBox msgBox;
-    msgBox.setWindowTitle("MAL LISP [QT C++]");
+    msgBox.setWindowTitle("LibreCAD");
     msgBox.setText(str->value().c_str());
     msgBox.setIcon(QMessageBox::Information);
     msgBox.exec();

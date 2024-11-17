@@ -238,12 +238,28 @@ namespace mal {
         return malValuePtr(new malWidget(tile));
     }
 
+    malValuePtr boxedcolumn(const tile_t& tile) {
+        return malValuePtr(new malBoxedColumn(tile));
+    }
+
+    malValuePtr boxedrow(const tile_t& tile) {
+        return malValuePtr(new malBoxedRow(tile));
+    }
+
     malValuePtr button(const tile_t& tile) {
         return malValuePtr(new malButton(tile));
     }
 
+    malValuePtr column(const tile_t& tile) {
+        return malValuePtr(new malColumn(tile));
+    }
+
     malValuePtr label(const tile_t& tile) {
         return malValuePtr(new malLabel(tile));
+    }
+
+    malValuePtr radiobutton(const tile_t& tile) {
+        return malValuePtr(new malRadioButton(tile));
     }
 
     malValuePtr row(const tile_t& tile) {
@@ -823,47 +839,6 @@ malButton::malButton(const tile_t& tile)
     QObject::connect(m_button, QOverload<bool>::of(&QPushButton::clicked), [&](bool newValue) { clicked(newValue); });
 }
 
-malRow::malRow(const tile_t& tile)
-    : malGui(tile)
-    , m_row(new QHBoxLayout)
-{
-#if 0
-    if(int(tile.width))
-    {
-        m_row->setMinimumWidth(int(tile.width));
-    }
-
-    if(int(tile.height))
-    {
-        m_row->setMinimumHeight(int(tile.height));
-    }
-
-    if (tile.fixed_width)
-    {
-        if(int(tile.width)) {
-            m_row->setFixedWidth(int(tile.width));
-        }
-        else
-        {
-            m_row->setFixedWidth(80);
-        }
-
-    }
-
-    if (tile.fixed_height)
-    {
-        if(int(tile.height))
-        {
-            m_row->setMinimumHeight(int(tile.height));
-        }
-        else
-        {
-            m_row->setFixedWidth(32);
-        }
-    }
-#endif
-}
-
 void malButton::clicked(bool checked)
 {
     Q_UNUSED(checked)
@@ -880,6 +855,170 @@ void malButton::clicked(bool checked)
         LispRun_SimpleString(action.c_str());
     }
 }
+
+malRadioButton::malRadioButton(const tile_t& tile)
+    : malGui(tile)
+    , m_button(new QRadioButton)
+{
+    m_button->setText(noQuotes(tile.label).c_str());
+
+    if(int(tile.width))
+    {
+        m_button->setMinimumWidth(int(tile.width));
+    }
+
+    if(int(tile.height))
+    {
+        m_button->setMinimumHeight(int(tile.height));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_button->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_button->setFixedWidth(80);
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_button->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_button->setFixedWidth(32);
+        }
+    }
+
+    QObject::connect(m_button, QOverload<bool>::of(&QPushButton::clicked), [&](bool newValue) { clicked(newValue); });
+}
+
+void malRadioButton::clicked(bool checked)
+{
+    qDebug() << "malRadioButton::clicked checked:" << checked;
+    qDebug() << "malRadioButton::clicked key:" << noQuotes(this->value().key).c_str();
+    malValuePtr val = dclEnv->get(noQuotes(this->value().key).c_str());
+    qDebug() << "malRadioButton::clicked val:" << val->print(true).c_str();
+    if (val->print(true).compare("nil") != 0) {
+        String action = "(do";
+        action += noQuotes(val->print(true)).c_str();
+        action += ")";
+        malValuePtr action_expr = mal::string(action);
+        qDebug() << "malRadioButton::clicked action_expr:" << action_expr->print(true).c_str();
+        LispRun_SimpleString(action.c_str());
+    }
+}
+
+malRow::malRow(const tile_t& tile)
+    : malGui(tile)
+    , m_layout(new QHBoxLayout)
+{
+#if 0
+    if(int(tile.width))
+    {
+        m_layout->setMinimumWidth(int(tile.width));
+    }
+
+    if(int(tile.height))
+    {
+        m_layout->setMinimumHeight(int(tile.height));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_layout->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_layout->setFixedWidth(80);
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_layout->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_layout->setFixedWidth(32);
+        }
+    }
+#endif
+}
+
+malBoxedColumn::malBoxedColumn(const tile_t& tile)
+    : malGui(tile)
+    , m_layout(new QVBoxLayout)
+    , m_groupbox(new QGroupBox)
+{
+    m_groupbox->setTitle(noQuotes(tile.label).c_str());
+    m_groupbox->setStyleSheet("QGroupBox { border: 1px solid silver; border-radius: 5px;margin-top: 5px; }"
+                                " QGroupBox::title { subcontrol-origin: margin;left: 5px;padding: -10px 2px 0px 2px;}" );
+    m_layout->addWidget(m_groupbox);
+}
+
+malBoxedRow::malBoxedRow(const tile_t& tile)
+    : malGui(tile)
+    , m_layout(new QHBoxLayout)
+    , m_groupbox(new QGroupBox)
+{
+    m_groupbox->setTitle(noQuotes(tile.label).c_str());
+    m_groupbox->setStyleSheet("QGroupBox { border: 1px solid silver; border-radius: 5px;margin-top: 5px; }"
+                              " QGroupBox::title { subcontrol-origin: margin;left: 5px;padding: -10px 2px 0px 2px;}" );
+    m_layout->addWidget(m_groupbox);
+}
+
+malColumn::malColumn(const tile_t& tile)
+    : malGui(tile)
+    , m_layout(new QVBoxLayout)
+{
+#if 0
+    if(int(tile.width))
+    {
+        m_layout->setMinimumWidth(int(tile.width));
+    }
+
+    if(int(tile.height))
+    {
+        m_layout->setMinimumHeight(int(tile.height));
+    }
+
+    if (tile.fixed_width)
+    {
+        if(int(tile.width)) {
+            m_layout->setFixedWidth(int(tile.width));
+        }
+        else
+        {
+            m_layout->setFixedWidth(80);
+        }
+
+    }
+
+    if (tile.fixed_height)
+    {
+        if(int(tile.height))
+        {
+            m_layout->setMinimumHeight(int(tile.height));
+        }
+        else
+        {
+            m_layout->setFixedWidth(32);
+        }
+    }
+#endif
+}
+
 
 malLabel::malLabel(const tile_t& tile)
     : malGui(tile)

@@ -13,8 +13,11 @@
 #include <iostream>
 #include <QWidget>
 #include <QPushButton>
+#include <QRadioButton>
 #include <QLabel>
+#include <QGroupBox>
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 
 class malEmptyInputException : public std::exception { };
 
@@ -726,6 +729,25 @@ private:
     QPushButton* m_button;
 };
 
+class malRadioButton : public malGui {
+
+public:
+    malRadioButton(const tile_t& tile);
+    malRadioButton(const malRadioButton& that, malValuePtr meta)
+        : malGui(that, meta) { }
+
+    virtual ~malRadioButton() { delete m_button; }
+
+    WITH_META(malRadioButton)
+
+    QRadioButton* button() const { return m_button; }
+
+    void clicked(bool checked);
+
+private:
+    QRadioButton* m_button;
+};
+
 class malLabel : public malGui {
 
 public:
@@ -749,14 +771,66 @@ public:
     malRow(const malRow& that, malValuePtr meta)
         : malGui(that, meta) { }
 
-    virtual ~malRow() { delete m_row; }
+    virtual ~malRow() { delete m_layout; }
 
     WITH_META(malRow)
 
-    QHBoxLayout* row() const { return m_row; }
+    QHBoxLayout* layout() const { return m_layout; }
 
 private:
-    QHBoxLayout* m_row;
+    QHBoxLayout* m_layout;
+};
+
+class malBoxedRow : public malGui {
+public:
+    malBoxedRow(const tile_t& tile);
+    malBoxedRow(const malBoxedRow& that, malValuePtr meta)
+        : malGui(that, meta) { }
+
+    virtual ~malBoxedRow() { delete m_layout; delete m_groupbox; }
+
+    WITH_META(malBoxedRow)
+
+    QHBoxLayout* layout() const { return m_layout; }
+    QGroupBox* groupbox() const { return m_groupbox; }
+
+private:
+    QHBoxLayout* m_layout;
+    QGroupBox* m_groupbox;
+};
+
+class malColumn : public malGui {
+public:
+    malColumn(const tile_t& tile);
+    malColumn(const malColumn& that, malValuePtr meta)
+        : malGui(that, meta) { }
+
+    virtual ~malColumn() { delete m_layout; }
+
+    WITH_META(malColumn)
+
+    QVBoxLayout* layout() const { return m_layout; }
+
+private:
+    QVBoxLayout* m_layout;
+};
+
+class malBoxedColumn : public malGui {
+public:
+    malBoxedColumn(const tile_t& tile);
+    malBoxedColumn(const malBoxedColumn& that, malValuePtr meta)
+        : malGui(that, meta) { }
+
+    virtual ~malBoxedColumn() { delete m_layout; delete m_groupbox; }
+
+    WITH_META(malBoxedColumn)
+
+    QVBoxLayout* layout() const { return m_layout; }
+    QGroupBox* groupbox() const { return m_groupbox; }
+
+private:
+    QVBoxLayout* m_layout;
+    QGroupBox* m_groupbox;
 };
 
 namespace mal {
@@ -805,9 +879,13 @@ namespace mal {
     malValuePtr vector(malValueIter begin, malValueIter end);
 
     malValuePtr widget(const tile_t& tile);
+    malValuePtr boxedcolumn(const tile_t& tile);
+    malValuePtr boxedrow(const tile_t& tile);
     malValuePtr button(const tile_t& tile);
+    malValuePtr column(const tile_t& tile);
     malValuePtr label(const tile_t& tile);
     malValuePtr row(const tile_t& tile);
+    malValuePtr radiobutton(const tile_t& tile);
 
 }
 

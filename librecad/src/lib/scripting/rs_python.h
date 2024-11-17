@@ -31,18 +31,12 @@
 
 #ifdef RS_OPT_PYTHON
 
-#ifdef _WINDOWS
-#define HOST "windows"
-#else
-#define HOST "linux"
-#endif
-
-#define ONHOST_STR(host) " on " host
-#define ONHOST ONHOST_STR(HOST)
-
-
 #include <QString>
 #include "rs_graphic.h"
+
+#define COPYRIGHT \
+"\nType \"help\", \"copyright\", \"credits\" or \"license\" " \
+    "for more information."
 
 #define RS_PYTHON RS_Python::instance()
 
@@ -76,8 +70,7 @@ public:
     RS_Graphic* getGraphic() {
         return graphic;
     }
-
-    QString Py_GetVersionString() const { return QString("LibrePython ") + QString(Py_GetVersion()) + QString(" ") + QString(ONHOST); }
+    QString Py_GetVersionString() const { return QString("Python ") + QString(Py_GetVersion()) + QString(" on ") + QString(Py_GetPlatform()) + QString(COPYRIGHT); }
 
     int addSysPath(const QString& path);
     int runCommand(const QString& command, QString& buf_out, QString& buf_err);

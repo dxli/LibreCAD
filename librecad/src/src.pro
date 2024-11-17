@@ -361,7 +361,7 @@ HEADERS += \
     lib/gui/rs_grid.h \
     lib/gui/rs_linetypepattern.h \
     lib/gui/rs_mainwindowinterface.h \
-    lib/gui/rs_painter.h \    
+    lib/gui/rs_painter.h \
     lib/gui/rs_staticgraphicview.h \
     lib/information/rs_locale.h \
     lib/information/rs_information.h \
@@ -391,6 +391,7 @@ HEADERS += \
     lib/scripting/lisp/Types.h \
     lib/scripting/rs_lisp.h \
     lib/scripting/rs_python.h \
+    lib/scripting/rs_pythongui.h \
     lib/scripting/rs_python_wrappers.h \
     lib/scripting/rs_script.h \
     lib/scripting/rs_scriptlist.h \
@@ -401,7 +402,7 @@ HEADERS += \
     ui/components/status_bar/lc_relzerocoordinateswidget.h \
     ui/dialogs/lc_dialog.h \
     ui/main/lc_mdiapplicationwindow.h
-    
+
 SOURCES += \
     actions/drawing/draw/dimensions/lc_actioncircledimbase.cpp \
     actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp \
@@ -501,7 +502,7 @@ SOURCES += \
     lib/gui/rs_graphicview.cpp \
     lib/gui/rs_grid.cpp \
     lib/gui/rs_linetypepattern.cpp \
-    lib/gui/rs_painter.cpp \    
+    lib/gui/rs_painter.cpp \
     lib/gui/rs_staticgraphicview.cpp \
     lib/information/rs_locale.cpp \
     lib/information/rs_information.cpp \
@@ -536,6 +537,7 @@ SOURCES += \
     lib/scripting/lisp/Validation.cpp \
     lib/scripting/rs_lisp.cpp \
     lib/scripting/rs_python.cpp \
+    lib/scripting/rs_pythongui.cpp \
     lib/scripting/rs_python_wrappers.cpp \
     lib/scripting/rs_script.cpp \
     lib/scripting/rs_scriptlist.cpp \
@@ -661,7 +663,7 @@ HEADERS += actions/dock_widgets/block/rs_actionblocksadd.h \
     actions/drawing/info/rs_actioninfoarea.h \
     actions/drawing/info/rs_actioninfodist.h \
     actions/drawing/info/rs_actioninfodist2.h \
-    actions/drawing/info/rs_actioninfototallength.h \    
+    actions/drawing/info/rs_actioninfototallength.h \
     actions/drawing/info/rs_actioninfoinside.h \
     actions/drawing/lc_abstractactionwithpreview.h \
     actions/drawing/modify/lc_actionmodifybase.h \
@@ -1432,14 +1434,14 @@ FORMS = ui/action_options/circle/lc_circlebyarcoptions.ui \
 # ################################################################################
 # Main
 HEADERS += \
-    main/qc_dialogfactory.h \    
+    main/qc_dialogfactory.h \
     main/doc_plugin_interface.h \
     plugins/document_interface.h \
     plugins/qc_plugininterface.h \
     plugins/intern/qc_actiongetpoint.h \
     plugins/intern/qc_actiongetselect.h \
     plugins/intern/qc_actiongetent.h \
-    main/main.h \    
+    main/main.h \
     main/console_dxf2pdf/console_dxf2pdf.h \
     main/console_dxf2pdf/pdf_print_loop.h
 
@@ -1449,7 +1451,7 @@ SOURCES += \
     plugins/intern/qc_actiongetpoint.cpp \
     plugins/intern/qc_actiongetselect.cpp \
     plugins/intern/qc_actiongetent.cpp \
-    main/main.cpp \    
+    main/main.cpp \
     main/console_dxf2pdf/console_dxf2pdf.cpp \
     main/console_dxf2pdf/pdf_print_loop.cpp
 

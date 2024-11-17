@@ -370,6 +370,7 @@ RS_Python::RS_Python()
     addSysPath(".");
 
     PyImport_ImportModule("emb");
+    PyImport_ImportModule("_librecad");
     m_pGlobalMain = PyImport_AddModule("__main__");
     PyModule_AddStringConstant(globalMain(), "__file__", "");
     m_pGlobalDict = PyModule_GetDict(globalMain());
@@ -463,6 +464,8 @@ int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_er
         return -1;
     }
 
+    //PyObject* pDict = PyDict_Copy(Py_GlobalDict());
+
     std::string buffer_err;
     std::string buffer_out;
     {
@@ -473,8 +476,9 @@ int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_er
         emb::set_stderr(write_err);
 
         //PyGILState_STATE gil_state = PyGILState_Ensure();
-        PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, Py_GlobalDict(), Py_GlobalDict());
+        //PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, pDict, pDict);
         //PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, PyDict_New(), PyDict_New());
+        PyObject* pRes = PyRun_File(fp, qUtf8Printable(name), Py_file_input, Py_GlobalDict(), Py_GlobalDict());
 
 
         if(!pRes) {
@@ -495,6 +499,7 @@ int RS_Python::runFileCmd(const QString& name, QString& buf_out, QString& buf_er
             qCritical() << buffer_err.c_str();
             return -1;
         }
+        //Py_XDECREF(pDict);
         Py_XDECREF(pRes);
         //PyGILState_Release(gil_state);
     }
@@ -581,7 +586,11 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
         qCritical() << "[RS_Python::runCommand] can not load dict of __main__";
         return -1;
     }
-
+#if 0
+    PyObject *module;
+    module = PyImport_AddModule("__main__");
+    PyObject* pDict = PyModule_GetDict(module);
+#endif
     QString result = "";
     std::string buffer_err;
     std::string buffer_out;
@@ -616,17 +625,26 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
 
         //PyGILState_STATE gil_state = PyGILState_Ensure();
 
-        PyObject* pCode = Py_CompileString(qUtf8Printable(command), "<stdin>", Py_single_input);
-        if(!pCode || PyErr_Occurred())
+        PyCompilerFlags cf = {0};
+        //PyCompilerFlags cf = _PyCompilerFlags_INIT;
+        cf.cf_flags |= PyCF_IGNORE_COOKIE;
+         PyObject* pCode = Py_CompileStringFlags(qUtf8Printable(command), "<string>", Py_eval_input, &cf);
+        //PyObject* pCode = _PyRun_SimpleStringFlagsWithName(qUtf8Printable(command), "<string>", &cf);
+        //PyObject* pCode = Py_CompileString(qUtf8Printable(command), "<stdin>", Py_eval_input);
+        if(pCode == NULL || PyErr_Occurred())
         {
+            // Not an expression?
+            qDebug() << "[RS_Python::runCommand]" << command;
             PyErr_Clear(); //and clear them !
+
+            // Run as a string
             PyRun_SimpleString(qUtf8Printable(command));
-            qDebug() << "!pCode || PyErr_Occurred() PyRun_SimpleString";
         }
 
         else
         {
             PyObject* pRes = PyEval_EvalCode(pCode, Py_GlobalDict(), Py_GlobalDict());
+            //PyObject* pRes = PyEval_EvalCode(pCode, pDict, pDict);
             if (!pRes)
             {
                 PyErr_Print();
@@ -657,7 +675,9 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
         //PyGILState_Release(gil_state);
 #endif
     }
-
+#if 0
+    Py_XDECREF(pDict);
+#endif
     emb::reset_stdout();
     emb::reset_stderr();
 
