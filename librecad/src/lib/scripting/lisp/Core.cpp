@@ -3,6 +3,7 @@
 #include "Environment.h"
 #include "StaticList.h"
 #include "Types.h"
+#include "lisp.h"
 
 #ifdef DEVELOPER
 
@@ -13,6 +14,8 @@
 #include <sys/select.h>
 
 #include <cstdlib>
+#include <cctype>
+#include <climits>
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -171,7 +174,7 @@ static StaticList<lclBuiltIn*> handlers;
         SET_FLOAT_VAL(opr, checkDivByZero); \
         argsBegin++; \
     } while (argsBegin != argsEnd); \
-    return lcl::mdouble(floatValue);
+    return lcl::ldouble(floatValue);
 
 #define BUILTIN_INT_VAL(opr, checkDivByZero) \
     [[maybe_unused]] int64_t intValue = 0; \
@@ -187,10 +190,10 @@ static StaticList<lclBuiltIn*> handlers;
     CHECK_ARGS_IS(1); \
     if (FLOAT_PTR) { \
         ADD_FLOAT_VAL(*lhs) \
-        return lcl::mdouble(foo(lhs->value())); } \
+        return lcl::ldouble(foo(lhs->value())); } \
     else { \
         ADD_INT_VAL(*lhs) \
-        return lcl::mdouble(foo(lhs->value())); }
+        return lcl::ldouble(foo(lhs->value())); }
 
 #define BUILTIN_OP_COMPARE(opr) \
     CHECK_ARGS_IS(2); \
@@ -272,25 +275,25 @@ bool compareNat(const String& a, const String& b)
     if (b.empty()) {
         return false;
     }
-    if (std::isdigit(a[0]) && !std::isdigit(b[0])) {
+    if (std::isdigit(a[0], std::locale()) && !std::isdigit(b[0], std::locale())) {
         return false;
     }
-    if (!std::isdigit(a[0]) && std::isdigit(b[0])) {
+    if (!std::isdigit(a[0], std::locale()) && std::isdigit(b[0], std::locale())) {
         return false;
     }
-    if (!std::isdigit(a[0]) && !std::isdigit(b[0])) {
+    if (!std::isdigit(a[0], std::locale()) && !std::isdigit(b[0], std::locale())) {
         //std::cout << "HIT no dig" << std::endl;
         if (a[0] == '.' &&
             b[0] == '.' &&
             a.size() > 1 &&
             b.size() > 1) {
-            return (std::toupper(a[1]) < std::toupper(b[1]));
+            return (std::toupper(a[1], std::locale()) < std::toupper(b[1], std::locale()));
         }
 
-        if (std::toupper(a[0]) == std::toupper(b[0])) {
+        if (std::toupper(a[0], std::locale()) == std::toupper(b[0], std::locale())) {
             return compareNat(a.substr(1), b.substr(1));
         }
-        return (std::toupper(a[0]) < std::toupper(b[0]));
+        return (std::toupper(a[0], std::locale()) < std::toupper(b[0], std::locale()));
     }
 
     // Both strings begin with digit --> parse both numbers
@@ -345,7 +348,7 @@ BUILTIN("-")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*lhs)
-            return lcl::mdouble(-lhs->value());
+            return lcl::ldouble(-lhs->value());
         }
         else
         {
@@ -411,8 +414,7 @@ BUILTIN("/=")
 
 BUILTIN("~ ")
 {
-    Q_UNUSED(argsEnd);
-    Q_UNUSED(name);
+    CHECK_ARGS_IS(1);
     if (FLOAT_PTR)
     {
         return lcl::nilValue();
@@ -430,7 +432,7 @@ BUILTIN("1+")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return lcl::mdouble(lhs->value()+1);
+        return lcl::ldouble(lhs->value()+1);
     }
     else
     {
@@ -445,7 +447,7 @@ BUILTIN("1-")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return lcl::mdouble(lhs->value()-1);
+        return lcl::ldouble(lhs->value()-1);
     }
     else
     {
@@ -460,7 +462,7 @@ BUILTIN("abs")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return lcl::mdouble(abs(lhs->value()));
+        return lcl::ldouble(abs(lhs->value()));
     }
     else
     {
@@ -574,10 +576,10 @@ BUILTIN("atof")
         if(std::regex_match(s->value().c_str(), intRegex) ||
             std::regex_match(s->value().c_str(), floatRegex))
             {
-                return lcl::mdouble(atof(s->value().c_str()));
+                return lcl::ldouble(atof(s->value().c_str()));
             }
     }
-    return lcl::mdouble(0);
+    return lcl::ldouble(0);
 }
 
 BUILTIN("atoi")
@@ -769,6 +771,20 @@ BUILTIN("contains?")
     return lcl::boolean(hash->contains(*argsBegin));
 }
 
+BUILTIN("copyright")
+{
+    CHECK_ARGS_IS(0);
+    QFile f(":/readme.md");
+    if (!f.open(QFile::ReadOnly | QFile::Text))
+    {
+        return lcl::nilValue();
+    }
+    QTextStream in(&f);
+    std::cout << in.readAll().toStdString();
+
+    return lcl::nilValue();
+}
+
 BUILTIN("cos")
 {
     BUILTIN_FUNCTION(cos);
@@ -783,6 +799,14 @@ BUILTIN("count")
 
     ARG(lclSequence, seq);
     return lcl::integer(seq->count());
+}
+
+BUILTIN("credits")
+{
+    CHECK_ARGS_IS(0);
+    std::cout << "Thanks to all the people supporting LibreCAD"
+    "for supporting LibreCAD development. See https://dokuwiki.librecad.org for more information.";
+    return lcl::nilValue();
 }
 
 BUILTIN("deref")
@@ -837,13 +861,13 @@ BUILTIN("expt")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*rhs)
-            return lcl::mdouble(pow(lhs->value(),
+            return lcl::ldouble(pow(lhs->value(),
                                     rhs->value()));
         }
         else
         {
             ADD_INT_VAL(*rhs)
-            return lcl::mdouble(pow(lhs->value(),
+            return lcl::ldouble(pow(lhs->value(),
                                     double(rhs->value())));
         }
     }
@@ -854,7 +878,7 @@ BUILTIN("expt")
         if (FLOAT_PTR)
         {
             ADD_FLOAT_VAL(*rhs)
-            return lcl::mdouble(pow(double(lhs->value()),
+            return lcl::ldouble(pow(double(lhs->value()),
                                     rhs->value()));
         }
         else
@@ -900,12 +924,12 @@ BUILTIN("float")
     if (FLOAT_PTR)
     {
         ADD_FLOAT_VAL(*lhs)
-        return lcl::mdouble(lhs->value());
+        return lcl::ldouble(lhs->value());
     }
     else
     {
         ADD_INT_VAL(*lhs)
-        return lcl::mdouble(double(lhs->value()));
+        return lcl::ldouble(double(lhs->value()));
     }
 }
 
@@ -1051,7 +1075,7 @@ BUILTIN("getreal")
         std::cin.ignore(10000,'\n');
         std::cout << "Bad entry. Enter a NUMBER: ";
     }
-    return lcl::mdouble(x);
+    return lcl::ldouble(x);
 }
 
 
@@ -1073,6 +1097,13 @@ BUILTIN("hash-map")
 {
     Q_UNUSED(name);
     return lcl::hash(argsBegin, argsEnd, true);
+}
+
+BUILTIN("help")
+{
+    CHECK_ARGS_IS(0);
+    std::cout << "poor Help call 'SOS' :-b";
+    return lcl::nilValue();
 }
 
 BUILTIN("keys")
@@ -1100,6 +1131,20 @@ BUILTIN("last")
 
     LCL_CHECK(0 < seq->count(), "Index out of range");
     return seq->item(seq->count()-1);
+}
+
+BUILTIN("license")
+{
+    CHECK_ARGS_IS(0);
+    QFile f(":/gpl-2.0.txt");
+    if (!f.open(QFile::ReadOnly | QFile::Text))
+    {
+        return lcl::nilValue();
+    }
+    QTextStream in(&f);
+    std::cout << in.readAll().toStdString();
+
+    return lcl::nilValue();
 }
 
 BUILTIN("list")
@@ -1174,13 +1219,13 @@ BUILTIN("log10")
         if (lhs->value() < 0) {
             return lcl::nilValue();
         }
-        return lcl::mdouble(log10(lhs->value())); }
+        return lcl::ldouble(log10(lhs->value())); }
     else {
         ADD_INT_VAL(*lhs)
         if (lhs->value() < 0) {
             return lcl::nilValue();
         }
-        return lcl::mdouble(log10(lhs->value())); }
+        return lcl::ldouble(log10(lhs->value())); }
 }
 
 BUILTIN("macro?")
@@ -1284,7 +1329,7 @@ BUILTIN("max")
         if (hasFloat) {
             ADD_FLOAT_VAL(*floatVal);
             floatValue = floatVal->value();
-            return lcl::mdouble(floatValue);
+            return lcl::ldouble(floatValue);
         }
         else {
             ADD_INT_VAL(*intVal);
@@ -1324,7 +1369,7 @@ BUILTIN("max")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return lcl::mdouble(floatValue);
+        return lcl::ldouble(floatValue);
     } else {
         ADD_INT_VAL(*intVal);
         intValue = intVal->value();
@@ -1380,7 +1425,7 @@ BUILTIN("min")
         if (hasFloat) {
             ADD_FLOAT_VAL(*floatVal);
             floatValue = floatVal->value();
-            return lcl::mdouble(floatValue);
+            return lcl::ldouble(floatValue);
         }
         else {
             ADD_INT_VAL(*intVal);
@@ -1419,7 +1464,7 @@ BUILTIN("min")
             }
             argsBegin++;
         } while (argsBegin != argsEnd);
-        return lcl::mdouble(floatValue);
+        return lcl::ldouble(floatValue);
     } else {
         ADD_INT_VAL(*intVal);
         intValue = intVal->value();
@@ -1475,16 +1520,14 @@ BUILTIN("null")
 
 BUILTIN("number?")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     return lcl::boolean(DYNAMIC_CAST(lclInteger, *argsBegin) ||
             DYNAMIC_CAST(lclDouble, *argsBegin));
 }
 
 BUILTIN("numberp")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     return (DYNAMIC_CAST(lclInteger, *argsBegin) ||
             DYNAMIC_CAST(lclDouble, *argsBegin)) ? lcl::trueValue() : lcl::nilValue();
 }
@@ -1556,8 +1599,8 @@ BUILTIN("polar")
         }
 
         lclValueVec* items = new lclValueVec(2);
-        items->at(0) = lcl::mdouble(x + dist * sin(angle));
-        items->at(1) = lcl::mdouble(y + dist * cos(angle));
+        items->at(0) = lcl::ldouble(x + dist * sin(angle));
+        items->at(1) = lcl::ldouble(y + dist * cos(angle));
         return lcl::list(items);
     }
 
@@ -1596,9 +1639,9 @@ BUILTIN("polar")
             z = floatY->value();
         }
         lclValueVec* items = new lclValueVec(3);
-        items->at(0) = lcl::mdouble(x + dist * sin(angle));
-        items->at(1) = lcl::mdouble(y + dist * cos(angle));
-        items->at(2) = lcl::mdouble(z);
+        items->at(0) = lcl::ldouble(x + dist * sin(angle));
+        items->at(1) = lcl::ldouble(y + dist * cos(angle));
+        items->at(2) = lcl::ldouble(z);
         return lcl::list(items);
     }
     return lcl::nilValue();
@@ -1612,7 +1655,6 @@ BUILTIN("pr-str")
 
 BUILTIN("prin1")
 {
-    Q_UNUSED(name);
     int args = CHECK_ARGS_BETWEEN(0, 2);
     if (args == 0) {
         std::cout << std::endl;
@@ -2137,8 +2179,7 @@ BUILTIN("prn")
 
 BUILTIN("prompt")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, str);
     std::cout << str->value();
     return lcl::nilValue();
@@ -2146,22 +2187,20 @@ BUILTIN("prompt")
 
 BUILTIN("py-eval-float")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     double result;
     int err = RS_PYTHON->evalFloat(com->value().c_str(), result);
     if (err == 0)
     {
-        return lcl::mdouble(result);
+        return lcl::ldouble(result);
     }
     LCL_FAIL("'evalFloat' python failed");
 }
 
 BUILTIN("py-eval-integer")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     int result;
     int err = RS_PYTHON->evalInteger(com->value().c_str(), result);
@@ -2174,8 +2213,7 @@ BUILTIN("py-eval-integer")
 
 BUILTIN("py-eval-vector")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     v3_t result;
     int err = RS_PYTHON->evalVector(com->value().c_str(), result);
@@ -2183,9 +2221,9 @@ BUILTIN("py-eval-vector")
     if (err == 0)
     {
         lclValueVec* items = new lclValueVec(3);
-        items->at(0) = lcl::mdouble(result.x);
-        items->at(1) = lcl::mdouble(result.y);
-        items->at(2) = lcl::mdouble(result.z);
+        items->at(0) = lcl::ldouble(result.x);
+        items->at(1) = lcl::ldouble(result.y);
+        items->at(2) = lcl::ldouble(result.z);
         return lcl::list(items);
     }
     LCL_FAIL("'evalVector' python failed");
@@ -2193,8 +2231,7 @@ BUILTIN("py-eval-vector")
 
 BUILTIN("py-eval-string")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     QString result;
     int err = RS_PYTHON->evalString(com->value().c_str(), result);
@@ -2207,23 +2244,20 @@ BUILTIN("py-eval-string")
 
 BUILTIN("py-simple-string")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     return lcl::integer(RS_PYTHON->runString(com->value().c_str()));
 }
 
 BUILTIN("py-simple-file")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(1);
     ARG(lclString, com);
     return lcl::integer(RS_PYTHON->runFile(com->value().c_str()));
 }
 
 BUILTIN("read-string")
 {
-    Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
     ARG(lclString, str);
 
@@ -2232,8 +2266,6 @@ BUILTIN("read-string")
 
 BUILTIN("read-line")
 {
-    Q_UNUSED(argsBegin);
-    Q_UNUSED(argsEnd);
     if (!CHECK_ARGS_AT_LEAST(0))
     {
         String str;
@@ -2247,8 +2279,6 @@ BUILTIN("read-line")
 
 BUILTIN("read-char")
 {
-    Q_UNUSED(argsBegin);
-    Q_UNUSED(argsEnd);
     if (!CHECK_ARGS_AT_LEAST(0))
     {
         unsigned char c = 0;
@@ -2303,7 +2333,7 @@ BUILTIN("rem")
         }
         argsBegin++;
     } while (argsBegin != argsEnd);
-    return lcl::mdouble(floatValue);
+    return lcl::ldouble(floatValue);
     } else {
         [[maybe_unused]] int64_t intValue = 0;
         ADD_INT_VAL(*intVal) // +
@@ -2329,7 +2359,6 @@ BUILTIN("reset!")
 
 BUILTIN("rest")
 {
-    Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
     if (*argsBegin == lcl::nilValue()) {
         return lcl::list(new lclValueVec(0));
@@ -2340,7 +2369,6 @@ BUILTIN("rest")
 
 BUILTIN("reverse")
 {
-    Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
     if (*argsBegin == lcl::nilValue()) {
         return lcl::list(new lclValueVec(0));
@@ -2382,7 +2410,6 @@ BUILTIN("sin")
 
 BUILTIN("slurp")
 {
-    Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
     ARG(lclString, filename);
 
@@ -2456,7 +2483,7 @@ BUILTIN("strcase")
 
 BUILTIN("strlen")
 {
-    Q_UNUSED(name);
+    CHECK_ARGS_IS(0);
     return lcl::integer(countValues(argsBegin, argsEnd));
 }
 
@@ -2537,16 +2564,13 @@ BUILTIN("tan")
 
 BUILTIN("terpri")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsBegin);
-    Q_UNUSED(argsEnd);
+    CHECK_ARGS_IS(0);
     std::cout << std::endl;
     return lcl::nilValue();
 }
 
 BUILTIN("throw")
 {
-    Q_UNUSED(argsEnd);
     CHECK_ARGS_IS(1);
     throw *argsBegin;
 }
@@ -2590,16 +2614,14 @@ BUILTIN("vec")
 
 BUILTIN("vector")
 {
-    Q_UNUSED(name);
+    CHECK_ARGS_IS(0);
     return lcl::vector(argsBegin, argsEnd);
 }
 
 BUILTIN("ver")
 {
-    Q_UNUSED(name);
-    Q_UNUSED(argsBegin);
-    Q_UNUSED(argsEnd);
-    return lcl::string(LISP_VERSION);
+    CHECK_ARGS_IS(0);
+    return lcl::string(Lisp_GetVersion());
 }
 
 BUILTIN("vl-consp")

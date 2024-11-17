@@ -28,6 +28,7 @@ static const Regex tokenRegexes[] = {
 
 std::vector<tile_t> dclProtoTile;
 
+int currentId = - 1;
 
 static attribute_prop_t dclAttribute[MAX_DCL_ATTR] = {
     { "action", ACTION },
@@ -219,7 +220,7 @@ static pos_t getDclPos(const String& str);
 static tile_id_t getDclId(const String& str);
 static color_t getDclColor(const String& str);
 static attribute_id_t getDclAttributeId(const String& str);
-static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start=false);
+static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start = false, int id = -1);
 static lclValuePtr addTile(tile_t tile);
 
 lclValuePtr loadDcl(const String& path)
@@ -235,7 +236,7 @@ lclValuePtr loadDcl(const String& path)
     if (tokeniser.eof()) {
         throw lclEmptyInputException();
     }
-    return readDclFile(tokeniser, true);
+    return readDclFile(tokeniser, true, -1);
 }
 
 static lclValuePtr readForm(Tokeniser& tokeniser)
@@ -334,7 +335,7 @@ static lclValuePtr readAtom(Tokeniser& tokeniser)
         return lcl::integer(token);
     }
     if (std::regex_match(token, floatRegex)) {
-        return lcl::mdouble(token);
+        return lcl::ldouble(token);
     }
     if (token[0] == '!') {
         return lcl::symbol(token.erase(0, 1));
@@ -360,7 +361,7 @@ static lclValuePtr processMacro(Tokeniser& tokeniser, const String& symbol)
     return lcl::list(lcl::symbol(symbol), readForm(tokeniser));
 }
 
-static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
+static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start, int id)
 {
     LCL_CHECK(!tokeniser.eof(), "expected form, got EOF");
     String token = tokeniser.peek();
@@ -368,11 +369,11 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
 
     if (start) {
         tile_t tile;
-        tile.name = "*DCL-TILES*";
+        tile.name = "#<dcl-tiles>";
         tile.tiles = new lclValueVec;
         readTile(tokeniser, tile);
-        std::cout << "<-- *DCL-TILES* " << std::endl;
-        return lcl::gui(tile);
+        std::cout << "readDclFile " << tile.name << std::endl;
+        return lcl::dclgui(tile);
     }
 
     if (token.compare(":") == 0) {
@@ -386,6 +387,7 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 std::cout << "readDclFile(): got proto Dcl Tile..." << std::endl;
                 tile_t tile;
                 copyTile(dclProtoTile[i], tile);
+                tile.parentId = id;
                 tokeniser.next();
                 readTile(tokeniser, tile);
                 return addTile(tile);
@@ -399,6 +401,7 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
+                tile.parentId = id;
                 tile.tiles = new lclValueVec;
                 token = tokeniser.peek();
                 tokeniser.next();
@@ -412,6 +415,7 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
+                tile.parentId = id;
                 tile.tiles = new lclValueVec;
                 token = tokeniser.peek();
                 tokeniser.next();
@@ -430,6 +434,7 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
                 tile_t tile;
                 tile.name = token;
                 tile.id = getDclId(token);
+                tile.parentId = id;
                 tile.tiles = new lclValueVec(0);
                 token = tokeniser.peek();
                 tokeniser.next();
@@ -442,6 +447,7 @@ static lclValuePtr readDclFile(Tokeniser& tokeniser, bool start)
         tile_t tile;
         tile.name = token;
         tile.id = getDclId(tokeniser.peek());
+        tile.parentId = id;
         tile.tiles = new lclValueVec;
         tokeniser.next();
         readTile(tokeniser, tile);
@@ -462,6 +468,11 @@ static void readTile(Tokeniser& tokeniser, tile_t& tile)
 {
     //std::cout << "readTile() token: " << tokeniser.peek() << std::endl;
     String token;
+
+    if (tile.id == DIALOG) {
+        currentId = 0;
+    }
+
     while (1) {
 
         if (tokeniser.eof()) {
@@ -485,7 +496,7 @@ static void readTile(Tokeniser& tokeniser, tile_t& tile)
         if (tokeniser.peek() == ":") {
             std::cout <<"("<<tile.name<<") ";
             std::cout << "readTile() ':' [<- readDclFile(tokeniser, false) token: " << tokeniser.peek() << std::endl;
-            tile.tiles->push_back(readDclFile(tokeniser, false));
+            tile.tiles->push_back(readDclFile(tokeniser, false, currentId));
         }
 
         std::cout << "readTile() isdclAttribute for: " << tile.name << " ? ";
@@ -614,9 +625,9 @@ static void readTile(Tokeniser& tokeniser, tile_t& tile)
         if (std::regex_match(tokeniser.peek(), dclRegex)) {
             std::cout <<"("<<tile.name<<") ";
             std::cout << "readTile() 'dclRegex' [<- readDclFile(tokeniser, false) token: " << tokeniser.peek() << std::endl;
-            lclValuePtr result = readDclFile(tokeniser, false);
+            lclValuePtr result = readDclFile(tokeniser, false, currentId);
             if (result) {
-                 tile.tiles->push_back(result);
+                tile.tiles->push_back(result);
             }
         }
         std::cout <<"("<<tile.name<<") Bottom"<< std::endl;
@@ -828,7 +839,7 @@ static lclValuePtr addTile(tile_t tile)
         return lcl::toggle(tile);
 #endif
     default:
-        return lcl::gui(tile);
+        return lcl::dclgui(tile);
     }
 }
 

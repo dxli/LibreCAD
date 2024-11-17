@@ -32,7 +32,6 @@
 #ifdef RS_OPT_PYTHON
 
 #include <QString>
-#include "rs_graphic.h"
 
 #define COPYRIGHT \
 "\nType \"help\", \"copyright\", \"credits\" or \"license\" " \
@@ -63,13 +62,6 @@ public:
     static RS_Python* instance();
     ~RS_Python();
 
-    void setGraphic(RS_Graphic* g) {
-        graphic = g;
-    }
-
-    RS_Graphic* getGraphic() {
-        return graphic;
-    }
     QString Py_GetVersionString() const { return QString("Python ") + QString(Py_GetVersion()) + QString(" on ") + QString(Py_GetPlatform()) + QString(COPYRIGHT); }
 
     int addSysPath(const QString& path);
@@ -89,7 +81,6 @@ public:
 private:
     RS_Python();
     static RS_Python* unique;
-    RS_Graphic* graphic;
     PyObject* m_pGlobalMain;
     PyObject* m_pGlobalDict;
     PyObject* globalMain() { return m_pGlobalMain; }

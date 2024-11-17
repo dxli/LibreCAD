@@ -68,11 +68,11 @@ namespace lcl {
     {
         return lclValuePtr(new lclFile(path, mode));
     }
-
+#if 0
     lclValuePtr gui(const tile_t& tile) {
         return lclValuePtr(new lclGui(tile));
     }
-
+#endif
     lclValuePtr hash(const lclHash::Map& map) {
         return lclValuePtr(new lclHash(map));
     }
@@ -142,14 +142,14 @@ namespace lcl {
         return lclValuePtr(c);
     }
 
-    lclValuePtr mdouble(double value)
+    lclValuePtr ldouble(double value)
     {
         return lclValuePtr(new lclDouble(value));
     }
 
-    lclValuePtr mdouble(const String& token)
+    lclValuePtr ldouble(const String& token)
     {
-        return mdouble(std::stof(token));
+        return ldouble(std::stof(token));
     }
 
     lclValuePtr piValue() {
@@ -235,6 +235,10 @@ namespace lcl {
 
     lclValuePtr vector(lclValueIter begin, lclValueIter end) {
         return lclValuePtr(new lclVector(begin, end));
+    }
+
+    lclValuePtr dclgui(const tile_t& tile) {
+        return lclValuePtr(new lclDclGui(tile));
     }
 
     lclValuePtr widget(const tile_t& tile) {
@@ -787,12 +791,13 @@ lclValuePtr lclGui::conj(lclValueIter argsBegin,
 {
     Q_UNUSED(argsBegin)
     Q_UNUSED(argsEnd)
-    return lcl::gui(m_value);
+    return lcl::dclgui(m_value);
 }
 
 lclWidget::lclWidget(const tile_t& tile)
     : lclGui(tile)
     , m_widget(new QWidget)
+    , m_layout(new QVBoxLayout(m_widget))
 {
     m_widget->setWindowTitle(noQuotes(tile.label).c_str());
     m_widget->setWindowFlags(Qt::Tool | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowCloseButtonHint); //FIXME

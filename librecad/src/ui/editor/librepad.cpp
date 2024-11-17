@@ -326,12 +326,19 @@ void Librepad::addNewTab(const QString& path)
         ui->tabWidget->tabBar()->setTabText(index, editor->fileName());
         ui->tabWidget->tabBar()->setTabToolTip(index, editor->fileName());
     });
+
+    ui->actionRedo->setEnabled(false);
+    ui->actionUndo->setEnabled(false);
+    connect(editor, &QPlainTextEdit::redoAvailable, ui->actionRedo, &QAction::setEnabled);
+    connect(editor, &QPlainTextEdit::undoAvailable, ui->actionUndo, &QAction::setEnabled);
+
     editor->setFocus();
 
     if (path.at(0) != '*')
     {
         writeRecentSettings(path);
     }
+
 }
 
 Librepad::~Librepad()

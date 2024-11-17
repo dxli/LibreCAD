@@ -628,7 +628,8 @@ typedef struct color_prop {
 
 typedef struct guitile {
     lclValueVec*    tiles;
-    QWidget*        parent = nullptr;
+    int             layoutId = -1;
+    int             parentId = -1;
     String          action = "";
     pos_t           alignment = LEFT;
     bool            allow_accept = false;
@@ -689,10 +690,19 @@ public:
     virtual lclValuePtr conj(lclValueIter argsBegin,
                              lclValueIter argsEnd) const;
 
-    WITH_META(lclGui)
+    virtual QBoxLayout* layout() const { return nullptr; }
 
 private:
     const tile_t m_value;
+};
+
+class lclDclGui : public lclGui {
+public:
+    lclDclGui(const tile_t& tile) : lclGui(tile) { }
+    lclDclGui(const lclDclGui& that, lclValuePtr meta)
+        : lclGui(that, meta) { }
+
+    WITH_META(lclDclGui)
 };
 
 class lclWidget : public lclGui {
@@ -706,9 +716,11 @@ public:
     WITH_META(lclWidget)
 
     QWidget* widget() const { return m_widget; }
+    virtual QVBoxLayout* layout() const { return m_layout; }
 
 private:
     QWidget* m_widget;
+    QVBoxLayout* m_layout;
 };
 
 class lclButton : public lclGui {
@@ -776,7 +788,7 @@ public:
 
     WITH_META(lclRow)
 
-    QHBoxLayout* layout() const { return m_layout; }
+    virtual QHBoxLayout* layout() const { return m_layout; }
 
 private:
     QHBoxLayout* m_layout;
@@ -792,7 +804,7 @@ public:
 
     WITH_META(lclBoxedRow)
 
-    QHBoxLayout* layout() const { return m_layout; }
+    virtual QHBoxLayout* layout() const { return m_layout; }
     QGroupBox* groupbox() const { return m_groupbox; }
 
 private:
@@ -810,7 +822,7 @@ public:
 
     WITH_META(lclColumn)
 
-    QVBoxLayout* layout() const { return m_layout; }
+    virtual QVBoxLayout* layout() const { return m_layout; }
 
 private:
     QVBoxLayout* m_layout;
@@ -826,7 +838,7 @@ public:
 
     WITH_META(lclBoxedColumn)
 
-    QVBoxLayout* layout() const { return m_layout; }
+    virtual QVBoxLayout* layout() const { return m_layout; }
     QGroupBox* groupbox() const { return m_groupbox; }
 
 private:
@@ -855,8 +867,8 @@ namespace lcl {
     lclValuePtr list(lclValuePtr a, lclValuePtr b);
     lclValuePtr list(lclValuePtr a, lclValuePtr b, lclValuePtr c);
     lclValuePtr macro(const lclLambda& lambda);
-    lclValuePtr mdouble(double value);
-    lclValuePtr mdouble(const String& token);
+    lclValuePtr ldouble(double value);
+    lclValuePtr ldouble(const String& token);
     lclValuePtr nilValue();
     lclValuePtr nullValue();
     lclValuePtr string(const String& token);
@@ -879,6 +891,7 @@ namespace lcl {
     lclValuePtr vector(lclValueVec* items);
     lclValuePtr vector(lclValueIter begin, lclValueIter end);
 
+    lclValuePtr dclgui(const tile_t& tile);
     lclValuePtr widget(const tile_t& tile);
     lclValuePtr boxedcolumn(const tile_t& tile);
     lclValuePtr boxedrow(const tile_t& tile);

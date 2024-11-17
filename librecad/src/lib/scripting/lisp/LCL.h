@@ -11,19 +11,6 @@
 
 #ifdef DEVELOPER
 
-// LISP_VERSION
-#define REL "1.0.1"
-#define BUILD_TYPE "devel"
-#ifdef _WINDOWS
-    #define COMPILER "MSC"
-    #define HOST "windows"
-#else
-    #define COMPILER "GCC"
-    #define HOST "linux"
-#endif
-#define VERSION_STR(rel, build, date, time) "LibreLisp " rel " (" build ", " date ", " time ") [" COMPILER " " __VERSION__ "] on " HOST
-#define LISP_VERSION VERSION_STR(REL,BUILD_TYPE,__DATE__,__TIME__)
-
 class lclValue;
 typedef RefCountedPtr<lclValue>  lclValuePtr;
 typedef std::vector<lclValuePtr> lclValueVec;

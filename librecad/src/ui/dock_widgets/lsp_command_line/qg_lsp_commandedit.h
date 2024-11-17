@@ -49,6 +49,7 @@ public:
 
     void runFile(const QString& path);
     void processInput(QString input);
+    void setPrombt(const QString& p) { prom = p; prombt(); }
 
     bool keycode_mode = false;
 
@@ -60,7 +61,6 @@ protected:
 
     QString relative_ray;
     QMap<QString, QString> variables;
-
 
 signals:
     void spacePressed();
@@ -85,7 +85,7 @@ private:
     bool acceptCoordinates = false;
     bool calculator_mode = false;
     int prombtSize() const { return (int) prom.size(); }
-    const QString prom = "Command: ";
+    QString prom = "Command: ";
     void prombt() { QLineEdit::setText(prom); }
     /*save history for next session*/
     QString m_path;

@@ -58,7 +58,7 @@ public:
     static RS_Lisp* instance();
     ~RS_Lisp();
 
-    QString Lisp_GetVersionString() const { return LISP_VERSION; }
+    QString Lisp_GetVersionString() const { return QString(Lisp_GetVersion()) + QString(LISP_COPYRIGHT); }
 
     std::string runCommand(const QString& command);
     std::string runFileCmd(const QString& name);

@@ -60,6 +60,7 @@ static const char* lclEvalFunctionTable[MAX_FUNC] = {
 int64_t lclGuiId = 0;
 bool traceDebug = false;
 
+std::vector<const lclGui*> dclLayouts = {};
 QWidget *dclDialog = nullptr;
 QVBoxLayout *vLayout = nullptr;
 
@@ -76,6 +77,11 @@ static void openTile(const lclGui* tile);
 static void makeArgv(lclEnvPtr env, int argc, char* argv[]);
 static String safeRep(const String& input, lclEnvPtr env);
 static lclValuePtr quasiquote(lclValuePtr obj);
+
+const char *Lisp_GetVersion()
+{
+    return LISP_VERSION;
+}
 
 int LispRun_SimpleString(const char *command)
 {
@@ -532,6 +538,7 @@ lclValuePtr EVAL(lclValuePtr ast, lclEnvPtr env)
                     const lclGui* dlg = DYNAMIC_CAST(lclGui, *it);
                     std::cout << "Dialog: " << dlg->value().name << std::endl;
                     if (dlg->value().name == dlgName->value()) {
+                        //curDclTile = dlg;
                         openTile(dlg);
                         return lcl::trueValue();
                     }
@@ -848,26 +855,54 @@ static void openTile(const lclGui* tile)
         case DIALOG:
         {
             const lclWidget* dlg = static_cast<const lclWidget*>(tile);
+            dclLayouts.clear();
+            dclLayouts.push_back(tile);
             dclDialog = dlg->widget();
-            vLayout = new QVBoxLayout(dclDialog);
+            vLayout = dlg->layout();
         }
             break;
         case ROW:
         {
             const lclRow* r = static_cast<const lclRow*>(tile);
-            vLayout->addLayout(r->layout());
+            if (dclLayouts.size() && r->value().parentId == 0) {
+                dclLayouts.front()->layout()->addLayout(r->layout());
+            }
+            dclLayouts.push_back(tile);
         }
             break;
+        case BOXED_ROW:
+        {
+            const lclBoxedRow* br = static_cast<const lclBoxedRow*>(tile);
+            if (dclLayouts.size() && br->value().parentId == 0) {
+                dclLayouts.front()->layout()->addLayout(br->layout());
+            }
+            dclLayouts.push_back(tile);
+        }
+        break;
         case COLUMN:
         {
             const lclColumn* c = static_cast<const lclColumn*>(tile);
-            vLayout->addLayout(c->layout());
+            if (dclLayouts.size() && c->value().parentId == 0) {
+                dclLayouts.front()->layout()->addLayout(c->layout());
+            }
+            dclLayouts.push_back(tile);
         }
             break;
+        case BOXED_COLUMN:
+        {
+            const lclBoxedColumn* bc = static_cast<const lclBoxedColumn*>(tile);
+            if (dclLayouts.size() && bc->value().parentId == 0) {
+                dclLayouts.front()->layout()->addLayout(bc->layout());
+            }
+            dclLayouts.push_back(tile);
+        }
+        break;
         case TEXT:
         {
             const lclLabel* l = static_cast<const lclLabel*>(tile);
-            vLayout->addWidget(l->label());
+            if (dclLayouts.size() && l->value().parentId == 0) {
+                dclLayouts.front()->layout()->addWidget(l->label());
+            }
         }
             break;
         case BUTTON:
@@ -877,6 +912,10 @@ static void openTile(const lclGui* tile)
             {
                 dclEnv->set(noQuotes(tile->value().key).c_str(), lcl::nilValue());
             }
+
+            if (dclLayouts.size() && b->value().parentId == 0) {
+                dclLayouts.front()->layout()->addWidget(b->button());
+            }
 #if 0
             switch (tile->value().alignment) {
             case LEFT:
@@ -898,7 +937,6 @@ static void openTile(const lclGui* tile)
                 break;
             }
 #endif
-            vLayout->addWidget(b->button());
         }
             break;
         case RADIO_BUTTON:
@@ -908,6 +946,10 @@ static void openTile(const lclGui* tile)
             {
                 dclEnv->set(noQuotes(tile->value().key).c_str(), lcl::nilValue());
             }
+
+            if (dclLayouts.size() && b->value().parentId == 0) {
+                dclLayouts.front()->layout()->addWidget(b->button());
+            }
 #if 0
             switch (tile->value().alignment) {
             case LEFT:
@@ -929,9 +971,7 @@ static void openTile(const lclGui* tile)
                 break;
             }
 #endif
-            vLayout->addWidget(b->button());
         }
-
             break;
         default:
             break;

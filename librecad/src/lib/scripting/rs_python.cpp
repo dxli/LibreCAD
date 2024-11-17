@@ -358,8 +358,6 @@ RS_Python* RS_Python::instance() {
 RS_Python::RS_Python()
     //: m_main(initModule())
 {
-    graphic = NULL;
-
     qputenv("PYTHONPATH", QByteArray("."));
 
     PyImport_AppendInittab("_librecad", PyInit__librecad);
@@ -586,6 +584,9 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
         qCritical() << "[RS_Python::runCommand] can not load dict of __main__";
         return -1;
     }
+
+
+    int ret = -1;
 #if 0
     PyObject *module;
     module = PyImport_AddModule("__main__");
@@ -601,11 +602,19 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
         emb::stderr_write_type write_err = [&buffer_err] (std::string s) { buffer_err += s; };
         emb::set_stderr(write_err);
 
-#if 0
-        // Run as string
-        PyObject* pRes = PyRun_String(qUtf8Printable(command), Py_single_input, Py_GlobalDict(), Py_GlobalDict());
-        PyRun_SimpleString("\n");
+#if 1
+        PyCompilerFlags cf = { 0, PY_MINOR_VERSION };
+        cf.cf_flags |= PyCF_IGNORE_COOKIE;
+        ret = PyRun_SimpleStringFlags(qUtf8Printable(command), &cf);
+        if (PyErr_Occurred())
+        {
+            PyErr_Print();
+            PyErr_Clear(); //and clear them !
+        }
+#endif
 
+
+#if 0
         if(!pRes)
         {
             PyErr_Print();
@@ -619,16 +628,15 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
             return -1;
         }
         Py_XDECREF(pRes);
-#else
+//#else
         // Compile as an expression
         //PyObject* pCode = Py_CompileStringExFlags(qUtf8Printable(command), "<string>", Py_eval_input, nullptr, -1);
 
         //PyGILState_STATE gil_state = PyGILState_Ensure();
 
-        PyCompilerFlags cf = {0};
-        //PyCompilerFlags cf = _PyCompilerFlags_INIT;
+        PyCompilerFlags cf = { 0, PY_MINOR_VERSION };
         cf.cf_flags |= PyCF_IGNORE_COOKIE;
-         PyObject* pCode = Py_CompileStringFlags(qUtf8Printable(command), "<string>", Py_eval_input, &cf);
+        PyObject* pCode = Py_CompileStringFlags(qUtf8Printable(command), "<string>", Py_eval_input, &cf);
         //PyObject* pCode = _PyRun_SimpleStringFlagsWithName(qUtf8Printable(command), "<string>", &cf);
         //PyObject* pCode = Py_CompileString(qUtf8Printable(command), "<stdin>", Py_eval_input);
         if(pCode == NULL || PyErr_Occurred())
@@ -686,7 +694,8 @@ int RS_Python::runCommand(const QString& command, QString& buf_out, QString& buf
 
     qDebug() << __func__ << "result:" << result;
 
-    return 0;
+    return (ret != 0);
+    //return 0;
 }
 
 /**
