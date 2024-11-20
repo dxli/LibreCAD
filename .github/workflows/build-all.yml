@@ -119,6 +119,12 @@ jobs:
         run: |
           brew uninstall p7zip
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          
+      - run: python my_script.py
+
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
@@ -159,6 +165,12 @@ jobs:
         uses: actions/checkout@main
         with:
           fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          
+      - run: python my_script.py
 
       - name: Uninstall incorrect mingw
         run: |
