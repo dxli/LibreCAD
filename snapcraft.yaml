@@ -5,18 +5,31 @@ base: core22
 confinement: strict
 license: GPL-2.0
 summary: "librecad: is a 2D open source CAD"
+compression: lzo
 description: |
         LibreCAD is a cross-platform 2D CAD program written in C++17. It can read DXF/DWG files
         and can write DXF/PDF/SVG files. It supports point/line/circle/ellipse/parabola/spline
         primitives. The user interface is highly customizable, and has dozens of translations.
         Code repository:
         https://www.github.com/LibreCAD/LibreCAD
+
 environment:
+        DISABLE_WAYLAND: 1
+        QT_QPA_PLATFORMTHEME: gtk3
         LD_LIBRARY_PATH: $SNAP/usr/local/lib/:$SNAP/usr/lib/x86_64-linux-gnu/:$SNAP/usr/lib64/:$LD_LIBRARY_PATH
 
 apps:
         librecad:
                 command: usr/bin/librecad
+                plugs:
+                  - desktop
+                  - desktop-legacy
+                  - home
+                #desktop: usr/share/applications/org.librecad.librecad.desktop
+                common-id: org.librecad.librecad.desktop
+                extensions:
+                  - kde-neon
+
 parts:
         librecad:
                 plugin: qmake
@@ -25,34 +38,24 @@ parts:
                   - "QMAKE_CXXFLAGS+=-march=x86-64"
                 source: .
                 build-packages:
-                        - build-essential
                         - qtbase5-dev
-                        - qttools5-dev
-                        - qttools5-dev-tools
-                        - librsvg2-bin
                         - libfreetype6-dev
                         - libicu-dev
-                        - libqt5opengl5-dev
-                        - git
-                        - g++
                         - libcairo2-dev
-                        - libpango-1.0-0
-                        - libpango1.0-dev
                         - libboost-dev
-                        - libqt5svg5-dev
-                        - libgtest-dev
-                        - libcurl4-gnutls-dev
-                        - libgtk-3-dev
-                        - libbz2-dev
+                        - rsync
 
                 stage-packages:
                         - libcairo2
                         - libfreetype6
                         - libicu70
                         - libpango-1.0-0
-                        - libqt5widgets5
+                        - libqt5gui5
                         - libqt5printsupport5
                         - libqt5svg5
+                        - qt5-gtk-platformtheme
+                stage:
+                  - -usr/share/pkgconfig
 
                 override-stage: |
                         echo "1"
@@ -63,16 +66,21 @@ parts:
                         echo $SNAPCRAFT_STAGE
                         mkdir -p $SNAPCRAFT_STAGE/usr/bin
                         mkdir -p $SNAPCRAFT_STAGE/usr/share/librecad
+                        mkdir -p $SNAPCRAFT_STAGE/usr/share/applications
                         mkdir -p usr/bin
                         mkdir -p usr/share/librecad
                         cp -a $SRC_DIR/librecad $SNAPCRAFT_STAGE/usr/bin/
                         cp -a $SRC_DIR/ttf2lff $SNAPCRAFT_STAGE/usr/bin/
                         cp -a $SRC_DIR/resources/* $SNAPCRAFT_STAGE/usr/share/librecad/
+                        find .. -type f -iname "*.desktop" -print
+                        export DESKTOP_DIR=../parts/librecad/src/desktop
+                        cp -a $DESKTOP_DIR/*.desktop $SNAPCRAFT_STAGE/usr/share/applications/org.librecad.librecad.desktop
+                        cp -a $DESKTOP_DIR/org.librecad.*.xml $SNAPCRAFT_STAGE/usr/share/applications/org.librecad.librecad.xml
                         snapcraftctl stage 
                 override-prime: |
                         echo "1"
                         echo $PWD
-                        cp -a ../stage/* ./
+                        #rsync -av ../stage/* ./
                         snapcraftctl prime 
                 #For 18.04
                 #configflags:
