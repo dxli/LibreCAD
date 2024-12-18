@@ -125,7 +125,7 @@ parts:
 
 
       cp -a $SRC_DIR/*.qm $CRAFT_STAGE/usr/share/librecad/resources/qm
-      rsync -vut ../project/librecad/support/* $CRAFT_STAGE/usr/share/librecad/resources/
+      rsync -vut ../librecad/support/* $CRAFT_STAGE/usr/share/librecad/resources/
       export DESKTOP_DIR=../parts/librecad/src/desktop
       cp -a $DESKTOP_DIR/*.desktop $CRAFT_STAGE/usr/share/applications/org.librecad.librecad.desktop
       cp -a $DESKTOP_DIR/org.librecad.*.xml $CRAFT_STAGE/usr/share/applications/org.librecad.librecad.xml
