@@ -105,16 +105,27 @@ parts:
       #echo "1"
       #echo $PWD 
       #find .. -type f -name librecad
+      echo "current folder"
+      pwd
+      ls
+      pushd ..
+      echo "parent folder"
+      pwd
+      ls
+      popd
       export SRC_DIR=../parts/librecad/build/
       echo $CRAFT_STAGE
       mkdir -p $CRAFT_STAGE/usr/bin
-      mkdir -p $CRAFT_STAGE/usr/share/librecad
+      mkdir -p $CRAFT_STAGE/usr/share/librecad/resources/qm
       mkdir -p $CRAFT_STAGE/usr/share/applications
       mkdir -p usr/bin
       mkdir -p usr/share/librecad
       cp -a $SRC_DIR/librecad $CRAFT_STAGE/usr/bin/
       #cp -a $SRC_DIR/ttf2lff $CRAFT_STAGE/usr/bin/
-      cp -a $SRC_DIR/../src/unix/resources/* $CRAFT_STAGE/usr/share/librecad/
+
+
+      cp -a $SRC_DIR/*.qm $CRAFT_STAGE/usr/share/librecad/qm
+      rsync -vut ../project/librecad/support/* $CRAFT_STAGE/usr/share/librecad/
       export DESKTOP_DIR=../parts/librecad/src/desktop
       cp -a $DESKTOP_DIR/*.desktop $CRAFT_STAGE/usr/share/applications/org.librecad.librecad.desktop
       cp -a $DESKTOP_DIR/org.librecad.*.xml $CRAFT_STAGE/usr/share/applications/org.librecad.librecad.xml
