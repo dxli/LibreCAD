@@ -1509,12 +1509,6 @@ RS_Entity& RS_Ellipse::shear(double k)
     return *this;
 }
 
-double RS_Ellipse::getBulge() const
-{
-    double bulge = std::tan(std::abs(getAngle2() - getAngle1())/4.0);
-    return isReversed() ? - bulge : bulge;
-}
-
 /**
  * is the Ellipse an Arc
  * @return false, if both angle1/angle2 are zero
