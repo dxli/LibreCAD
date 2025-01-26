@@ -116,7 +116,7 @@ jobs:
 
       - name: Install Clang
         run: |
-          sudo apt-get -qq install clang-11 clang-tools-11
+          sudo apt-get -qq install clang-18 clang-tools-18
 
       - name: Set Dark splash
         # Test setting dark splash screen for `2.2.2_alpha`,
@@ -130,7 +130,7 @@ jobs:
       - name: Build and analyze
         run: |
           export CC=g++
-          export ANALYZE="scan-build-11 -o out --use-cc=/usr/bin/clang++ --use-analyzer=/usr/bin/clang++ "
+          export ANALYZE="scan-build-18 -o out --use-cc=/usr/bin/clang++ --use-analyzer=/usr/bin/clang++ "
           ${ANALYZE}qmake6 -r librecad.pro CONFIG+=debug_and_release PREFIX=/usr
           ${ANALYZE}make release -j$(nproc)
 
