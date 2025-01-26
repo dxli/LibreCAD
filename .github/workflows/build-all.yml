@@ -111,7 +111,7 @@ jobs:
           sudo apt-get -qq install qmake6 qt6-5compat-dev qt6-base-dev qt6-declarative-dev qt6-image-formats-plugin-pdf qt6-pdf-dev linguist-qt6
           sudo apt-get -qq install libqt6svg6 libqt6svgwidgets6 qt6-l10n-tools qtchooser libgl-dev libxcb-cursor0 libmuparser-dev libboost-dev
           sudo apt-get -qq install librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2
-          sudo ln -snf /usr/lib/x86_64-linux-gnu/qtchooser/qt5.conf /usr/lib/x86_64-linux-gnu/qtchooser/default.conf
+          #sudo ln -snf /usr/lib/x86_64-linux-gnu/qtchooser/qt5.conf /usr/lib/x86_64-linux-gnu/qtchooser/default.conf
           sudo rm -rf /usr/local/lib/android
           find /home/runner/work/LibreCAD/Qt/ -iname "libqt*svg*"
 
