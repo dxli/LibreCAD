@@ -95,7 +95,7 @@ jobs:
           path: LibreCAD*.AppImage
           retention-days: 2
 
-  BuildLinuxAach64:
+  BuildLinuxAarch64:
     runs-on: ubuntu-22.04-arm
     outputs:
       output1: ${{ steps.artifact-upload-step.outputs.artifact-id }}
