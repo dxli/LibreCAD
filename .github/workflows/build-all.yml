@@ -110,7 +110,6 @@ jobs:
         with:
           aqtversion: '==3.1.*'
           version: '6.9.0'
-          host: 'linux_arm64'
           target: 'desktop'
           arch: 'linux_gcc_arm64'
           modules: 'qt5compat'
