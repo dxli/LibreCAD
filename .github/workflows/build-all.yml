@@ -112,7 +112,8 @@ jobs:
           version: '6.9.0'
           target: 'desktop'
           arch: 'linux_gcc_arm64'
-          modules: 'qt5compat'
+          modules: 'qt5compat qtwayland qtsvg qtbase qtwidgets'
+          archives: 'qtwayland qttranslations qttools qtsvg qtdeclarative qtbase icu'
 
       - name: Qt6 path
         run: |
