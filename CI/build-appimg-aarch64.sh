@@ -56,12 +56,14 @@ cp -r librecad/support/patterns appdir/usr/share/librecad/
 
 cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
 convert -resize 256x256 CI/librecad.svg appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
+mkdir -p appdir/usr/share/icons/hicolor/scalable/apps/
+cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
 
 # temporarily use png icon
 ls -l appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
-ls -l appdir/librecad.svg
-rm -f appdir/librecad.svg
-sed -i'' -e 's:^Icon=.*$:Icon=librecad.png:' appdir/usr/share/applications/librecad.desktop
+ls -l appdir/usr/share/icons/hicolor/scalable/apps/
+#sed -i'' -e 's:^Icon=.*$:Icon=librecad.png:' appdir/usr/share/applications/librecad.desktop
+ls -l appdir/usr/share/applications/librecad.desktop
 cat appdir/usr/share/applications/librecad.desktop
 
 export QMAKE=$(which qmake6)
