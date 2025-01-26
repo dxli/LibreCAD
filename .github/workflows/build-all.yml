@@ -119,6 +119,8 @@ jobs:
         run: |
           find ${{github.workspace}}/../Qt -type f -iname "*.so"
           ls -l ${{github.workspace}}/../Qt
+          aqt list-qt linux desktop --arch 6.9.0
+          aqt list-qt linux desktop --modules 6.9.0 linux_gcc_arm64
 
       - name: Install Qt and dependencies
         run: |
