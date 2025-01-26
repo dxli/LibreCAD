@@ -58,6 +58,7 @@ cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
 convert -resize 256x256 CI/librecad.svg appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
 
 # temporarily use png icon
+ls -l appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
 ls -l appdir/librecad.svg
 rm -f appdir/librecad.svg
 sed -i'' -e 's:^Icon=.*$:Icon=librecad.png:' appdir/usr/share/applications/librecad.desktop
