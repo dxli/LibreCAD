@@ -58,9 +58,10 @@ cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
 convert -resize 256x256 CI/librecad.svg appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
 
 # temporarily use png icon
+ls -l appdir/librecad.svg
 rm -f appdir/librecad.svg
-sed -i'' -e 's:^Icon=.*:Icon=librecad.png' appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
-cat appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
+sed -i'' -e 's:^Icon=.*$:Icon=librecad.png:' appdir/usr/share/applications/librecad.desktop
+cat appdir/usr/share/applications/librecad.desktop
 
 export QMAKE=$(which qmake6)
 export EXTRA_QT_MODULES=svg
