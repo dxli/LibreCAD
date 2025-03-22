@@ -271,7 +271,6 @@ jobs:
           host: 'windows'
           arch: 'win64_mingw'
           target: 'desktop'
-          dir: '..'
           tools-only: 'false'
           extra: '--external 7z'
           modules: 'qt5compat qtimageformats'
