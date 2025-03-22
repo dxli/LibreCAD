@@ -272,7 +272,6 @@ jobs:
           arch: 'win64_mingw'
           target: 'desktop'
           tools-only: 'false'
-          extra: '--external 7z'
           modules: 'qt5compat qtimageformats'
           tools: 'tools_mingw1310'
 
