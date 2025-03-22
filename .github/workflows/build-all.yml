@@ -267,7 +267,7 @@ jobs:
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.6.*'
+          version: '6.9.*'
           host: 'windows'
           arch: 'win64_mingw'
           target: 'desktop'
@@ -279,7 +279,8 @@ jobs:
           set-env: 'true'
           tools-only: 'false'
           extra: '--external 7z'
-          modules: 'qt5compat'
+          modules: 'qt5compat qtimageformats'
+          tools: 'tools_mingw1310'
 
       - name: install mingw-1120
         run: |
