@@ -275,10 +275,6 @@ jobs:
           modules: 'qt5compat qtimageformats'
           tools: 'tools_mingw1310'
 
-      - name: install mingw-1120
-        run: |
-          aqt install-tool windows desktop tools_mingw90
-
       - name: list folders
         run: |
           where qmake6.exe
