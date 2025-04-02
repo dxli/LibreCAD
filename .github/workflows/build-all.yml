@@ -275,13 +275,20 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Install boost
-        shell: bash
-        run: |
-          curl -# -L -o boost.7z https://archives.boost.io/release/1.87.0/source/boost_1_87_0.7z
-          7z x -o. -y boost.7z
-          mv boost_1_87_0 ../boost
-          rm boost.7z
-
+        uses: MarkusJx/install-boost@v2
+        id: install-boost
+        with:
+          # REQUIRED: Specify the required boost version
+          # A list of supported versions can be found here:
+          # https://github.com/MarkusJx/prebuilt-boost/blob/main/versions-manifest.json
+          boost_version: 1.87.0
+          # OPTIONAL: Specify a custon install location
+          boost_install_dir: C:\some_directory
+          # OPTIONAL: Specify a platform version
+          platform_version: 2022
+          # OPTIONAL: Specify a toolset
+          toolset: msvc
+        
       - name: Debugging
         if: ${{ always() }}
         shell: cmd
