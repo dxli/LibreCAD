@@ -1,8 +1,9 @@
 call set-windows-env.bat
 
 rem qmake6.exe librecad.pro -r -spec win32-g++
-cd ${{gitub.workspace}}
+cd ..
 cd 
+dir 
 mkdir build
 
 pushed build
