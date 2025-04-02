@@ -39,6 +39,7 @@ find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 
 find_package(Boost 1.87.0)
 
+
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC OFF)
 #set(CMAKE_AUTORCC ON)
@@ -1603,6 +1604,11 @@ qt_add_executable(librecad
 # add constants like M_PI to cmath
 if(WIN32)
     target_compile_definitions(librecad PRIVATE _USE_MATH_DEFINES)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    target_link_libraries(librecad ${Boost_LIBRARIES})
+endif()
+
 endif(WIN32)
 
 

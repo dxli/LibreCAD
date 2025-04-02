@@ -6,7 +6,7 @@ cd
 dir 
 mkdir build
 
-pushed build
+cd build
 cmake.exe .. -G "Visual Studio 17 2022"
 cmake --build . --config Release
 rem msbuild /p:Configuration=${{ env.BUILD_CONFIGURATION }} /p:OutDir=${{ runner.temp }}\build\ "${{ env.SOLUTION_FILE_PATH }}\QtStockV3.sln"
@@ -20,7 +20,7 @@ if NOT exist LibreCAD.exe (
 
 set
 windeployqt6.exe --release LibreCAD--compiler-runtime
-popd
+cd ..
 cd
 
 
