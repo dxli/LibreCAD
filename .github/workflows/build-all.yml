@@ -269,17 +269,15 @@ jobs:
         with:
           version: '6.9.*'
           host: 'windows'
-          arch: 'win64_mingw'
+          arch: 'win64_msvc2022_64'
           target: 'desktop'
           tools-only: 'false'
           modules: 'qt3d qt5compat qtimageformats qtshadertools'
-          tools: 'tools_mingw1310'
+          tools: 'tools_cmake'
 
-      - name: list folders
-        run: |
-          where qmake6.exe
-          where g++.exe
-          where mingw32-make.exe
+          
+      - name: (3) Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Install boost
         shell: bash
@@ -306,13 +304,10 @@ jobs:
           dir ..
           echo.
           dir ..\boost
-          dir ..\Qt\6.6.3\mingw_64\bin
+          dir ..\Qt\6.9.0\mingw_64\bin
           echo.
           dir /b /s ..\Qt
-          where qmake6.exe
-          where mingw32-make.exe
-          where make.exe
-          where g++
+          where cmake.exe
 
       - name: Build
         run: |
