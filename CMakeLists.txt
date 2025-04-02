@@ -8,8 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(MIN_GW_PATH_PREFIX "c:\\DevTools\\QT\\6.7.2\\mingw_64")
 set(MIN_GW_PATH_PREFIX "d:\\Qt\\QT6\\6.7.0\\mingw_64")
 #set(MIN_GW_PATH_PREFIX "c:\\DevTools\\QT\\6.7.2\\mingw_64")
-set(BOOST_DIR "c:\\Local\\boost_1_84_0")
-set(Boost_INCLUDE_DIR "c:\\Local\\boost_1_84_0")
 
 #set(CMAKE_PREFIX_PATH "${MIN_GW_PATH_PREFIX}\\lib\\cmake\\Qt6")
 
@@ -39,7 +37,7 @@ find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 
 #qt_standard_project_setup()
 
-find_package(Boost REQUIRED COMPONENTS)
+find_package(Boost 1.87.0)
 
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC OFF)
@@ -50,7 +48,7 @@ find_package(Boost REQUIRED COMPONENTS)
 
 include_directories(${MIN_GW_PATH_PREFIX}\\include\\QtSvg)
 
-include_directories(${Boost_INCLUDE_DIRS})
+#include_directories(${Boost_INCLUDE_DIRS})
 
 #include_directories(desktop/res_old/actions)
 #include_directories(desktop/res_old/extui)
