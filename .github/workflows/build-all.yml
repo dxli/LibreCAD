@@ -259,11 +259,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Uninstall incorrect mingw
-        run: |
-          choco uninstall mingw --force
-          choco uninstall strawberryperl --force
-
       - name: Install Qt6
         uses: jurplel/install-qt-action@v3
         with:
