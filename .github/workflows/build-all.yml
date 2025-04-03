@@ -269,7 +269,6 @@ jobs:
           tools-only: 'false'
           modules: 'qt3d qt5compat qtimageformats qtshadertools'
           tools: 'tools_cmake'
-
           
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
@@ -290,13 +289,13 @@ jobs:
           toolset: msvc
 
       - name: Configure CMake
+        env:
+          BOOST_ROOT: ${{ steps.install-boost.outputs.BOOST_ROOT }}
         run: |
           cmake.exe . -G "Visual Studio 17 2022" \
           -DCMAKE_BUILD_TYPE=$BUILD_TYPE -B build \
           -DBoost_INCLUDE_DIR=${{BOOST_ROOT}}/include \
           -DBoost_LIBRARY_DIRS=${{BOOST_ROOT}}/lib
-        env:
-          BOOST_ROOT: ${{ steps.install-boost.outputs.BOOST_ROOT }}
 
       - name: Build
         run: |
