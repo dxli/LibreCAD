@@ -290,9 +290,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          mkdir generated
-          cd generated
-          cmake.exe .. -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=${{ steps.installBoost.outputs.BOOST_ROOT }}/include -DBoost_LIBRARY_DIRS=${{ steps.installBoost.outputs.BOOST_ROOT }}/lib 
+          cmake.exe . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
         shell: cmd
         env:
           BUILD_TYPE: release
@@ -301,10 +299,8 @@ jobs:
 
       - name: Build
         run: |
-          echo SET:
-          set
           cd generated
-          cmake --build .. --config Release
+          cmake --build generated --config Release
         shell: cmd
 
       - name: listFile
