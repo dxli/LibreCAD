@@ -304,8 +304,9 @@ jobs:
 
       - name: listFile
         run: |
-          cd build
+          cd generated
           dir *.*
+          dir Release\*.exe
         shell: cmd
 
       - name: winDeployment
@@ -313,7 +314,7 @@ jobs:
           copy CI\custom-win.pri custom.pri
           copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
           cd generated
-          windeployqt6.exe --release --compiler-runtime LibreCAD.exe
+          windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
           dir *.*
           pushd "${{ github.workspace }}\scripts"
           call build-win-setup.bat
