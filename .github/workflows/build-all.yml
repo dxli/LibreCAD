@@ -288,28 +288,15 @@ jobs:
           platform_version: 2022
           # OPTIONAL: Specify a toolset
           toolset: msvc
-        
-      - name: Debugging
-        if: ${{ always() }}
-        shell: cmd
+
+      - name: Configure CMake
         run: |
-          set
-          echo.
-          dir c:\
-          echo.
-          dir d:\
-          echo.
-          dir d:\a
-          echo.
-          dir
-          echo.
-          dir ..
-          echo.
-          dir ..\boost
-          dir ..\Qt\6.9.0\mingw_64\bin
-          echo.
-          dir /b /s ..\Qt
-          where cmake.exe
+          cmake.exe . -G "Visual Studio 17 2022" \
+          -DCMAKE_BUILD_TYPE=$BUILD_TYPE -B build \
+          -DBoost_INCLUDE_DIR=${{BOOST_ROOT}}/include \
+          -DBoost_LIBRARY_DIRS=${{BOOST_ROOT}}/lib
+        env:
+          BOOST_ROOT: ${{ steps.install-boost.outputs.BOOST_ROOT }}
 
       - name: Build
         run: |
@@ -317,8 +304,11 @@ jobs:
           copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
           echo SET:
           set
+          cmake --build . --config Release
+          windeployqt6.exe --release --compiler-runtime LibreCAD.exe
+          mkdir generated
           pushd "${{ github.workspace }}\scripts"
-          build-windows.bat
+          call build-win-setup.bat
         shell: cmd
 
       - name: Rename installer

@@ -1,4 +1,3 @@
-#cmake_minimum_required(VERSION 3.28)
 cmake_minimum_required(VERSION 3.30)
 project(LibreCAD VERSION 2.2.2)
 
@@ -37,8 +36,7 @@ find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 
 #qt_standard_project_setup()
 
-find_package(Boost 1.87.0)
-
+find_package(Boost REQUIRED COMPONENTS)
 
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC OFF)
@@ -1607,7 +1605,7 @@ if(WIN32)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS}) 
     target_link_libraries(librecad ${Boost_LIBRARIES})
-endif()
+endif(Boost_FOUND)
 
 endif(WIN32)
 

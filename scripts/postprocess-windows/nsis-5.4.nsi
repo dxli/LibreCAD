@@ -32,7 +32,7 @@
 
   ;Name and file
   Name "${APPNAME}"
-  OutFile "../../generated/${InstallerName}.exe"
+  OutFile "../../${InstallerName}.exe"
 
   ;Default installation folder
   InstallDir "${ProgramsFolder}\LibreCAD"
