@@ -282,7 +282,7 @@ jobs:
           # https://github.com/MarkusJx/prebuilt-boost/blob/main/versions-manifest.json
           boost_version: 1.87.0
           # OPTIONAL: Specify a custon install location
-          boost_install_dir: C:\some_directory
+          boost_install_dir: ${{ github.workspace }}/../boost
           # OPTIONAL: Specify a platform version
           platform_version: 2022
           # OPTIONAL: Specify a toolset
@@ -291,8 +291,8 @@ jobs:
       - name: Configure CMake
         run: |
           cmake.exe \
-          -DBoost_INCLUDE_DIR="${{steps.installBoost.outputs.BOOST_ROOT}}"/include \
-          -DBoost_LIBRARY_DIRS="${{steps.installBoost.outputs.BOOST_ROOT}}"/lib \
+          -DBoost_INCLUDE_DIR="${{BOOST_ROOT}}"/include \
+          -DBoost_LIBRARY_DIRS="${{BOOST_ROOT}}"/lib \
           . -G "Visual Studio 17 2022"
         env:
           BUILD_TYPE: release
