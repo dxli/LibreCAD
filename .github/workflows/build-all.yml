@@ -290,6 +290,8 @@ jobs:
 
       - name: Configure CMake
         run: |
+          mkdir generated
+          cd generated
           cmake.exe . -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=${{ steps.installBoost.outputs.BOOST_ROOT }}/include -DBoost_LIBRARY_DIRS=${{ steps.installBoost.outputs.BOOST_ROOT }}/lib 
         shell: cmd
         env:
@@ -303,6 +305,7 @@ jobs:
           copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
           echo SET:
           set
+          cd generated
           cmake --build . --config Release
           windeployqt6.exe --release --compiler-runtime LibreCAD.exe
           mkdir generated
@@ -310,6 +313,19 @@ jobs:
           call build-win-setup.bat
         shell: cmd
 
+      - name: listFile
+        run: |
+          cd build
+          dir *.*
+        shell: cmd
+
+      - name: winDeployment
+        run: |
+          cd generated
+          windeployqt6.exe --release --compiler-runtime LibreCAD.exe
+          dir *.*
+        shell: cmd
+        
       - name: Rename installer
         run: |
           mv generated/LibreCAD-Installer.exe LibreCAD-`git describe --always`-win64.exe
