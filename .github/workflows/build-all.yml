@@ -292,7 +292,7 @@ jobs:
         run: |
           mkdir generated
           cd generated
-          cmake.exe . -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=${{ steps.installBoost.outputs.BOOST_ROOT }}/include -DBoost_LIBRARY_DIRS=${{ steps.installBoost.outputs.BOOST_ROOT }}/lib 
+          cmake.exe .. -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=${{ steps.installBoost.outputs.BOOST_ROOT }}/include -DBoost_LIBRARY_DIRS=${{ steps.installBoost.outputs.BOOST_ROOT }}/lib 
         shell: cmd
         env:
           BUILD_TYPE: release
@@ -306,7 +306,7 @@ jobs:
           echo SET:
           set
           cd generated
-          cmake --build . --config Release
+          cmake --build .. --config Release
           windeployqt6.exe --release --compiler-runtime LibreCAD.exe
           mkdir generated
           pushd "${{ github.workspace }}\scripts"
