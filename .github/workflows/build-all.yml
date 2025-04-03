@@ -291,8 +291,8 @@ jobs:
       - name: Configure CMake
         run: |
           cmake.exe . -G "Visual Studio 17 2022" \
-          -DBoost_INCLUDE_DIR=${{steps.installBoost.outputs.BOOST_ROOT}}/include \
-          -DBoost_LIBRARY_DIRS=${{steps.installBoost.outputs.BOOST_ROOT}}/lib
+          -DBoost_INCLUDE_DIR="${{steps.installBoost.outputs.BOOST_ROOT}}"/include \
+          -DBoost_LIBRARY_DIRS="${{steps.installBoost.outputs.BOOST_ROOT}}"/lib
         env:
           BUILD_TYPE: release
           BOOST_ROOT: ${{ steps.installBoost.outputs.BOOST_ROOT }}
