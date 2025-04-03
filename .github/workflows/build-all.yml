@@ -299,7 +299,6 @@ jobs:
 
       - name: Build
         run: |
-          cd generated
           cmake --build generated --config Release
         shell: cmd
 
