@@ -301,16 +301,10 @@ jobs:
 
       - name: Build
         run: |
-          copy CI\custom-win.pri custom.pri
-          copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
           echo SET:
           set
           cd generated
           cmake --build .. --config Release
-          windeployqt6.exe --release --compiler-runtime LibreCAD.exe
-          mkdir generated
-          pushd "${{ github.workspace }}\scripts"
-          call build-win-setup.bat
         shell: cmd
 
       - name: listFile
@@ -321,9 +315,13 @@ jobs:
 
       - name: winDeployment
         run: |
+          copy CI\custom-win.pri custom.pri
+          copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
           cd generated
           windeployqt6.exe --release --compiler-runtime LibreCAD.exe
           dir *.*
+          pushd "${{ github.workspace }}\scripts"
+          call build-win-setup.bat
         shell: cmd
         
       - name: Rename installer
