@@ -299,7 +299,7 @@ jobs:
 
       - name: Build
         run: |
-          cmake --build generated --config Release -j 6
+          cmake --build generated --config Release --parallel 6
         shell: cmd
 
       - name: listFile
