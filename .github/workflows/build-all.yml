@@ -296,10 +296,11 @@ jobs:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
           BOOST_ROOT: ${{ steps.installBoost.outputs.BOOST_ROOT }}
+          CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
         run: |
-          cmake --build generated --config Release --parallel 6
+          cmake --build generated --config Release
         shell: cmd
 
       - name: listFile
@@ -308,6 +309,12 @@ jobs:
           dir *.*
           dir Release\*.*
           dir x64\*.*
+        shell: cmd
+
+      - name: List files
+        run: |
+            echo "${{ github.workspace }}"
+            dir "${{ github.workspace }}"
         shell: cmd
 
       - name: winDeployment
@@ -323,14 +330,8 @@ jobs:
         
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-Installer.exe LibreCAD-`git describe --always`-win64.exe
+          mv LibreCAD-Installer.exe LibreCAD-`git describe --always`-win64.exe
         shell: bash
-
-      - name: List files
-        run: |
-            echo "${{ github.workspace }}"
-            dir "${{ github.workspace }}"
-        shell: cmd
 
       - name: Upload artifact
         id: artifact-upload-step

@@ -7,7 +7,7 @@
 
 ;--------------------------------
 ;Include version information
-  !include /NONFATAL "generated_scmrev.nsh"
+;  !include /NONFATAL "generated_scmrev.nsh"
 !ifndef SCMREVISION
     !define SCMREVISION "2.2.2.x"
 !endif
@@ -122,7 +122,7 @@ Section "Install Section" SecInstall
   SetOutPath "$INSTDIR"
   File /r "..\..\generated\Release\*.*"
   SetOutPath "$INSTDIR\resources\qm"
-  File /NONFATAL "generated\*.qm"
+  File /NONFATAL "..\..\generated\*.qm"
   SetOutPath "$INSTDIR"
 
   ;Store installation folder
