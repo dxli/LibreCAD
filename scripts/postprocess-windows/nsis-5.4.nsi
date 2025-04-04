@@ -120,10 +120,9 @@ FunctionEnd
 
 Section "Install Section" SecInstall
   SetOutPath "$INSTDIR"
-  File /r "generated\Release\*.*"
-  File /r "generated\x64\*.*"
+  File /r "..\..\generated\Release\*.*"
   SetOutPath "$INSTDIR\resources\qm"
-  File /NONFATAL "generated\qt*.qm"
+  File /NONFATAL "generated\*.qm"
   SetOutPath "$INSTDIR"
 
   ;Store installation folder
