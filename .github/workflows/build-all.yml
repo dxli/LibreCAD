@@ -306,7 +306,8 @@ jobs:
         run: |
           cd generated
           dir *.*
-          dir Release\*.exe
+          dir Release\*.*
+          dir x64\*.*
         shell: cmd
 
       - name: winDeployment
