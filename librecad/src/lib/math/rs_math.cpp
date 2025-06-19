@@ -630,20 +630,12 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
         //        DEBUG_HEADER
         //        std::cout<<"cubic: one root: "<<ans[0]<<std::endl;
     }else{
-        std::complex<double> u(q,0),rt[3];
-        u=std::pow(-0.5*u - std::sqrt(0.25*u*u+p*p*p/27), 1./3);
-        rt[0]=u-p/(3.*u)-shift;
-        std::complex<double> w(-0.5, std::sqrt(3.)/2);
-        rt[1]=u*w-p/(3.*u*w)-shift;
-        rt[2]=u/w-p*w/(3.*u)-shift;
-        //        DEBUG_HEADER
-        //        std::cout<<"Roots:\n";
-        //        std::cout<<rt[0]<<std::endl;
-        //        std::cout<<rt[1]<<std::endl;
-        //        std::cout<<rt[2]<<std::endl;
-        ans.push_back(rt[0].real());
-        ans.push_back(rt[1].real());
-        ans.push_back(rt[2].real());
+        double u = 2 * std::sqrt(- p / 3);
+        // discriminant < 0 implies p < 0 and acos argument in [-1..1]
+        double cos3t = std::min(1., std::max(-1., 3 * q / (p * u)));
+        double t = std::acos(cos3t) / 3;
+        constexpr double k = 2 * M_PI / 3;
+        ans = std::vector<double>{{u * std::cos(t), u * std::cos(t - k), u * std::cos(t - 2 * k)}};
     }
     // newton-raphson
     for(double& x0: ans){
@@ -669,12 +661,13 @@ std::vector<double> RS_Math::cubicSolver(const std::vector<double>& ce)
 **/
 std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
 {
-    std::vector<double> ans(0,0.);
+    std::vector<double> ans;
     if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
         DEBUG_HEADER
                 std::cout<<"expected array size=4, got "<<ce.size()<<std::endl;
     }
-    if(ce.size() != 4) return ans;
+    if(ce.size() != 4)
+        return ans;
     if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
         std::cout<<"x^4+("<<ce[0]<<")*x^3+("<<ce[1]<<")*x^2+("<<ce[2]<<")*x+("<<ce[3]<<")==0"<<std::endl;
     }
@@ -693,29 +686,27 @@ std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
     double q= ce[2] + ce[0]*((1./8)*a2 - 0.5*ce[1]);
     double r= ce[3] - shift*ce[2] + (ce[1] - 3.*shift2)*shift2;
     if(RS_DEBUG->getLevel()>=RS_Debug::D_INFORMATIONAL){
-        DEBUG_HEADER
-                std::cout<<"x^4+("<<p<<")*x^2+("<<q<<")*x+("<<r<<")==0"<<std::endl;
+        DEBUG_HEADER;
+        std::cout<<"x^4+("<<p<<")*x^2+("<<q<<")*x+("<<r<<")==0"<<std::endl;
     }
     if (q*q <= 1.e-4*RS_TOLERANCE*std::abs(p*r)) {// Biquadratic equations
-        double discriminant= 0.25*p*p -r;
+        double discriminant = 0.25*p*p -r;
         if (discriminant < -1.e3*RS_TOLERANCE) {
 
             //            DEBUG_HEADER
             //            std::cout<<"discriminant="<<discriminant<<"\tno root"<<std::endl;
             return ans;
         }
-        double t2[2];
-        t2[0]=-0.5*p-sqrt(std::abs(discriminant));
-        t2[1]= -p - t2[0];
+        double t2[] = {-0.5 * p - std::sqrt(std::abs(discriminant)), - p - t2[0]};
         //        std::cout<<"t2[0]="<<t2[0]<<std::endl;
         //        std::cout<<"t2[1]="<<t2[1]<<std::endl;
         if ( t2[1] >= 0.) { // two real roots
-            ans.push_back(sqrt(t2[1])-shift);
-            ans.push_back(-sqrt(t2[1])-shift);
+            ans.push_back(std::sqrt(t2[1])-shift);
+            ans.push_back(- std::sqrt(t2[1])-shift);
         }
         if ( t2[0] >= 0. ) {// four real roots
-            ans.push_back(sqrt(t2[0])-shift);
-            ans.push_back(-sqrt(t2[0])-shift);
+            ans.push_back(std::sqrt(t2[0])-shift);
+            ans.push_back(- std::sqrt(t2[0])-shift);
         }
         //        DEBUG_HEADER
         //        for(int i=0;i<ans.size();i++){
@@ -724,13 +715,14 @@ std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
         return ans;
     }
     if ( std::abs(r)< 1.0e-75 ) {
-        std::vector<double> cubic(3,0.);
+        std::vector<double> cubic(3, 0.);
         cubic[1]=p;
         cubic[2]=q;
         ans.push_back(0.);
         auto r=cubicSolver(cubic);
-        std::copy(r.begin(),r.end(), std::back_inserter(ans));
-        for(size_t i=0; i<ans.size(); i++) ans[i] -= shift;
+        std::copy(r.begin(), r.end(), std::back_inserter(ans));
+        for(double& root: ans)
+            root -= shift;
         return ans;
     }
     // depressed quartic to two quadratic equations
@@ -744,10 +736,7 @@ std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
     //  y=u^2,
     //  y^3 + 2 p y^2 + ( p^2 - 4 r) y - q^2 =0
     //
-    std::vector<double> cubic(3,0.);
-    cubic[0]=2.*p;
-    cubic[1]=p*p-4.*r;
-    cubic[2]=-q*q;
+    std::vector<double> cubic = {{2 * p, p * p - 4 * r, - q * q}};
     auto r3= cubicSolver(cubic);
     if (r3.empty())
         return {};
@@ -761,7 +750,7 @@ std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
                     qDebug()<<"Quartic Error:: Found one real root for cubic, but negative\n";
             return ans;
         }
-        double sqrtz0=sqrt(r3[0]);
+        double sqrtz0 = std::sqrt(r3[0]);
         std::vector<double> ce2(2,0.);
         ce2[0]=	-sqrtz0;
         ce2[1]=0.5*(p+r3[0])+0.5*q/sqrtz0;
@@ -779,13 +768,13 @@ std::vector<double> RS_Math::quarticSolver(const std::vector<double>& ce)
     if ( r3[0]> 0. && r3[1] > 0. ) {
         double sqrtz0=sqrt(r3[0]);
         std::vector<double> ce2(2,0.);
-        ce2[0]=	-sqrtz0;
+        ce2[0]=	- sqrtz0;
         ce2[1]=0.5*(p+r3[0])+0.5*q/sqrtz0;
         ans=quadraticSolver(ce2);
         ce2[0]=	sqrtz0;
         ce2[1]=0.5*(p+r3[0])-0.5*q/sqrtz0;
         auto r1=quadraticSolver(ce2);
-        std::copy(r1.begin(),r1.end(),std::back_inserter(ans));
+        std::copy(r1.begin(), r1.end(), std::back_inserter(ans));
         for(auto& x: ans){
             x -= shift;
         }
