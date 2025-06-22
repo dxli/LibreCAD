@@ -69,7 +69,7 @@ LC_DimArcData::LC_DimArcData(double input_radius,
     startAngle(input_startAngle) {
 }
 
-LC_DimArc::LC_DimArc(RS_EntityContainer* parent,
+LC_DimArc::LC_DimArc(const RS_EntityContainer* parent,
                      const RS_DimensionData& input_commonDimData,
                      const LC_DimArcData& input_dimArcData)
     :

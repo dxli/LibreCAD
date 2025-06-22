@@ -226,7 +226,7 @@ std::ostream& operator << (std::ostream& os, const RS_EllipseData& ed) {
 /**
  * Constructor.
  */
-RS_Ellipse::RS_Ellipse(RS_EntityContainer* parent,
+RS_Ellipse::RS_Ellipse(const RS_EntityContainer* parent,
                        const RS_EllipseData& d)
 	:LC_CachedLengthEntity(parent)
 	,data(d) {

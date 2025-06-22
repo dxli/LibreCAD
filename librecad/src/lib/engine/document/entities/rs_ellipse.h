@@ -79,7 +79,7 @@ std::ostream& operator << (std::ostream& os, const RS_EllipseData& ed);
 class RS_Ellipse : public LC_CachedLengthEntity {
 public:
     RS_Ellipse()=default;
-    RS_Ellipse(RS_EntityContainer* parent, const RS_EllipseData& d);
+    RS_Ellipse(const RS_EntityContainer* parent, const RS_EllipseData& d);
 
     RS_Entity* clone() const override;
 

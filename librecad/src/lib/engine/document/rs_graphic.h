@@ -56,7 +56,7 @@ public:
 // At least "active" one, so viewport will be accessible via document, not via graphic view.
 class RS_Graphic : public RS_Document {
 public:
-    RS_Graphic(RS_EntityContainer* parent=nullptr);
+    RS_Graphic(const RS_EntityContainer* parent=nullptr);
     virtual ~RS_Graphic();
 
     /** @return RS2::EntityGraphic */

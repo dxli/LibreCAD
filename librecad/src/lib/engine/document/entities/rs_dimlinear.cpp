@@ -71,7 +71,7 @@ std::ostream& operator << (std::ostream& os,
  * @para d Common dimension geometrical data.
  * @para ed Extended geometrical data for linear dimension.
  */
-RS_DimLinear::RS_DimLinear(RS_EntityContainer* parent,
+RS_DimLinear::RS_DimLinear(const RS_EntityContainer* parent,
                            const RS_DimensionData& d,
                            const RS_DimLinearData& ed)
         : RS_Dimension(parent, d), m_dimLinearData(ed) {

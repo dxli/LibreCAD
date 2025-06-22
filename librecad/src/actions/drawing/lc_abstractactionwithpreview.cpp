@@ -721,13 +721,12 @@ void LC_AbstractActionWithPreview::updateMouseButtonHints(){
  */
 bool LC_AbstractActionWithPreview::checkMayExpandEntity(const RS_Entity *e, const QString &entityName) const{
     bool mayDivide = false;
-    bool locked = e->isLocked();
-    if (locked){
+    if (e->isLocked()){
         if (!entityName.isEmpty()){
             commandMessage(entityName + tr(" is not divided as it is locked."));
         }
     } else {
-        RS_EntityContainer *pContainer = e->getParent();
+        const RS_EntityContainer *pContainer = e->getParent();
         if (pContainer != nullptr){
             if (pContainer->is(RS2::EntityPolyline)){
                 mayDivide = false;

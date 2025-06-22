@@ -65,7 +65,7 @@ std::ostream& operator << (std::ostream& os, const RS_DimAlignedData& dd);
 class RS_DimAligned:public RS_Dimension {
 public:
     RS_DimAligned(
-        RS_EntityContainer *parent,
+        const RS_EntityContainer *parent,
         const RS_DimensionData &d,
         const RS_DimAlignedData &ed);
     RS_Entity *clone() const override;

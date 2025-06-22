@@ -51,7 +51,7 @@ class RS_LayerList;
 class RS_Document : public RS_EntityContainer,
     public RS_Undo {
 public:
-	RS_Document(RS_EntityContainer* parent=nullptr);
+    RS_Document(const RS_EntityContainer* parent=nullptr);
 
     virtual RS_LayerList* getLayerList()= 0;
     virtual RS_BlockList* getBlockList() = 0;

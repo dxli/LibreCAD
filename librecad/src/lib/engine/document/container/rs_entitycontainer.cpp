@@ -24,12 +24,11 @@
 **
 **********************************************************************/
 
-#include <QList>
 #include <iostream>
-#include "rs_entitycontainer.h"
-
-#include <QObject>
 #include <set>
+
+#include <QList>
+#include <QObject>
 
 #include "lc_looputils.h"
 #include "qg_dialogfactory.h"
@@ -38,6 +37,7 @@
 #include "rs_dialogfactory.h"
 #include "rs_dimension.h"
 #include "rs_ellipse.h"
+#include "rs_entitycontainer.h"
 #include "rs_information.h"
 #include "rs_insert.h"
 #include "rs_layer.h"
@@ -81,7 +81,7 @@ namespace {
  *
  * @param owner True if we own and also delete the entities.
  */
-RS_EntityContainer::RS_EntityContainer(RS_EntityContainer *parent,  bool owner):
+RS_EntityContainer::RS_EntityContainer(const RS_EntityContainer *parent,  bool owner):
     RS_Entity(parent)
 {
 
@@ -92,25 +92,20 @@ RS_EntityContainer::RS_EntityContainer(RS_EntityContainer *parent,  bool owner):
     //autoUpdateBorders = true;
     entIdx = -1;
 }
+
 /**
  * Copy constructor. Makes a deep copy of all entities.
  */
 
 RS_EntityContainer::RS_EntityContainer(const RS_EntityContainer& other):
-    RS_Entity{other}
+    RS_Entity(other.getParent())
     , subContainer{other.subContainer}
     , m_entities{other.m_entities}
     , m_autoUpdateBorders{other.m_autoUpdateBorders}
     , entIdx{other.entIdx}
     , autoDelete{other.autoDelete}
 {
-    if (autoDelete) {
-        for(auto it = begin(); it != end(); ++it) {
-            if ((*it)->isContainer()) {
-                *it = (*it)->clone();
-            }
-        }
-    }
+    detach();
 }
 
 RS_EntityContainer& RS_EntityContainer::operator = (const RS_EntityContainer& other)
@@ -121,18 +116,12 @@ RS_EntityContainer& RS_EntityContainer::operator = (const RS_EntityContainer& ot
     m_autoUpdateBorders = other.m_autoUpdateBorders;
     entIdx = other.entIdx;
     autoDelete = other.autoDelete;
-    if (autoDelete) {
-        for(auto it = begin(); it != end(); ++it) {
-            if ((*it)->isContainer()) {
-                *it = (*it)->clone();
-            }
-        }
-    }
+    detach();
     return *this;
 }
 
 RS_EntityContainer::RS_EntityContainer(RS_EntityContainer&& other):
-    RS_Entity{other}
+    RS_Entity(other.getParent())
     , subContainer{other.subContainer}
     , m_entities{std::move(other.m_entities)}
     , m_autoUpdateBorders{other.m_autoUpdateBorders}
@@ -143,7 +132,6 @@ RS_EntityContainer::RS_EntityContainer(RS_EntityContainer&& other):
 
 RS_EntityContainer& RS_EntityContainer::operator = (RS_EntityContainer&& other)
 {
-
     this->RS_Entity::operator = (other);
     subContainer=other.subContainer;
     m_entities = std::move(other.m_entities);
@@ -174,6 +162,7 @@ RS_Entity *RS_EntityContainer::clone() const {
         for (const RS_Entity *entity: std::as_const(m_entities)) {
             if (entity != nullptr) {
                 ec->m_entities.push_back(entity->clone());
+                ec->m_entities.last()->reparent(this);
             }
         }
     } else {
@@ -240,7 +229,7 @@ void RS_EntityContainer::detach() {
     }
 }
 
-void RS_EntityContainer::reparent(RS_EntityContainer *parent) {
+void RS_EntityContainer::reparent(const RS_EntityContainer *parent) {
     RS_Entity::reparent(parent);
 
     // All sub-entities:
@@ -1326,7 +1315,8 @@ int RS_EntityContainer::entityAt() {
 /**
  * Finds the given entity and makes it the current entity if found.
  */
-int RS_EntityContainer::findEntity(RS_Entity const *const entity) {
+int RS_EntityContainer::findEntity(RS_Entity const *const entity) const
+{
     entIdx = m_entities.indexOf(const_cast<RS_Entity *>(entity));
     return entIdx;
 }
@@ -2180,9 +2170,14 @@ RS_Entity *RS_EntityContainer::last() const {
     return m_entities.last();
 }
 
-const QList<RS_Entity *> &RS_EntityContainer::getEntityList() {
+const QList<RS_Entity *>& RS_EntityContainer::getEntityList() const{
     return m_entities;
 }
+
+QList<RS_Entity *>& RS_EntityContainer::getEntityList() {
+    return m_entities;
+}
+
 
 std::vector<std::unique_ptr<RS_EntityContainer>> RS_EntityContainer::getLoops() const {
     if (m_entities.empty())
@@ -2190,8 +2185,8 @@ std::vector<std::unique_ptr<RS_EntityContainer>> RS_EntityContainer::getLoops() 
 
     std::vector<std::unique_ptr<RS_EntityContainer>> loops;
     RS_EntityContainer edges(nullptr, false);
-    for(RS_Entity* e1: *this){
-        if (e1 != nullptr && e1->isContainer())
+    for(RS_Entity* e1: m_entities){
+        if (e1 != nullptr && e1->isContainer() && e1->rtti() != RS2::EntityHatch)
         {
             if (e1->isContainer()){
                 auto subLoops = static_cast<RS_EntityContainer*>(e1)->getLoops();

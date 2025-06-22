@@ -74,7 +74,7 @@ std::ostream& operator << (std::ostream& os,
 class RS_DimLinear:public RS_Dimension {
 public:
     RS_DimLinear(
-        RS_EntityContainer *parent,
+        const RS_EntityContainer *parent,
         const RS_DimensionData &d,
         const RS_DimLinearData &ed);
     ~RS_DimLinear() override = default;

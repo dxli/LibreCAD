@@ -71,28 +71,9 @@ std::ostream& operator << (std::ostream& os, const LC_SplinePointsData& ld);
  */
 class LC_SplinePoints : public LC_CachedLengthEntity // RS_EntityContainer
 {
-private:
-    void UpdateControlPoints();
-    void UpdateQuadExtent(const RS_Vector& x1, const RS_Vector& c1, const RS_Vector& x2);
-    int GetNearestQuad(const RS_Vector& coord, double* dist, double* dt) const;
-    RS_Vector GetSplinePointAtDist(double dDist, int iStartSeg, double dStartT,
-                                   int *piSeg, double *pdt) const;
-    int GetQuadPoints(int iSeg, RS_Vector *pvStart, RS_Vector *pvControl,
-                      RS_Vector *pvEnd) const;
 
-    bool offsetCut(const RS_Vector& coord, const double& distance);
-    bool offsetSpline(const RS_Vector& coord, const double& distance);
-    std::vector<RS_Entity*> offsetTwoSidesSpline(const double& distance) const;
-    std::vector<RS_Entity*> offsetTwoSidesCut(const double& distance) const;
-    LC_SplinePointsData data;
-
-protected:
-    /**
-* @return The length of the line.
-*/
-    void updateLength() override;
 public:
-    LC_SplinePoints(RS_EntityContainer* parent, LC_SplinePointsData d);
+    LC_SplinePoints(const RS_EntityContainer* parent, LC_SplinePointsData d);
     RS_Entity* clone() const override;
 
 /**	@return RS2::EntitySpline */
@@ -242,6 +223,27 @@ public:
     static QPolygonF getBoundingRect(const RS_Vector& x1, const RS_Vector& c1, const RS_Vector& x2);
     //! \}
     void fillStrokePoints(int splineSegments, std::vector<RS_Vector>& points) const;
+
+protected:
+    /**
+    * @return The length of the line.
+    */
+    void updateLength() override;
+
+private:
+    void UpdateControlPoints();
+    void UpdateQuadExtent(const RS_Vector& x1, const RS_Vector& c1, const RS_Vector& x2);
+    int GetNearestQuad(const RS_Vector& coord, double* dist, double* dt) const;
+    RS_Vector GetSplinePointAtDist(double dDist, int iStartSeg, double dStartT,
+                                   int *piSeg, double *pdt) const;
+    int GetQuadPoints(int iSeg, RS_Vector *pvStart, RS_Vector *pvControl,
+                      RS_Vector *pvEnd) const;
+
+    bool offsetCut(const RS_Vector& coord, const double& distance);
+    bool offsetSpline(const RS_Vector& coord, const double& distance);
+    std::vector<RS_Entity*> offsetTwoSidesSpline(const double& distance) const;
+    std::vector<RS_Entity*> offsetTwoSidesCut(const double& distance) const;
+    LC_SplinePointsData data;
 };
 
 #endif

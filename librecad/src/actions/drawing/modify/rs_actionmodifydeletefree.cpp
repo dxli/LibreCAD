@@ -57,7 +57,7 @@ void RS_ActionModifyDeleteFree::init(int status) {
 
 void RS_ActionModifyDeleteFree::trigger(){
     if (m_entity1 && m_entity2) {
-        RS_EntityContainer *parent = m_entity2->getParent();
+        const RS_EntityContainer *parent = m_entity2->getParent();
         if (parent) {
             if (parent->rtti() == RS2::EntityPolyline) {
                 if (parent->getId() == m_polyline->getId()) {
@@ -106,10 +106,10 @@ void RS_ActionModifyDeleteFree::onMouseLeftButtonRelease(int status, QMouseEvent
             m_actionData->v1 = snapPoint(e);
             m_entity1 = getKeyEntity();
             if (m_entity1) {
-                RS_EntityContainer *parent = m_entity1->getParent();
+                const RS_EntityContainer *parent = m_entity1->getParent();
                 if (parent) {
                     if (parent->rtti() == RS2::EntityPolyline) {
-                        m_polyline = dynamic_cast<RS_Polyline *>(parent);
+                        m_polyline = dynamic_cast<RS_Polyline *>(const_cast<RS_EntityContainer*>(parent));
                         setStatus(1);
                     } else {
                         commandMessage(tr("Parent of first entity is not a polyline"));

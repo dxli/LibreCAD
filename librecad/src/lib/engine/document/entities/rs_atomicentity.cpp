@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "rs_atomicentity.h"
 
-RS_AtomicEntity::RS_AtomicEntity(RS_EntityContainer* parent) : RS_Entity(parent) {}
+RS_AtomicEntity::RS_AtomicEntity(const RS_EntityContainer* parent) : RS_Entity(parent) {}
 
 bool RS_AtomicEntity::isContainer() const {
 	return false;

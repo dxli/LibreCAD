@@ -127,8 +127,8 @@ void RS_ActionModifyRound::doTrigger() {
                 for (auto *e: m_entity1->getParent()->getEntityList()) {
                     if ((e != m_entity1) && (e != m_entity2)){
                         if (removeOldFillet(e, foundPolyline)){
-                            m_entity1->getParent()->removeEntity(e);
-                            break;
+                            const_cast<RS_EntityContainer*>(m_entity1->getParent())->removeEntity(e);
+                         break;
                         }
                     }
                 }

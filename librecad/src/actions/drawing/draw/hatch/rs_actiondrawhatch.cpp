@@ -131,7 +131,7 @@ void RS_ActionDrawHatch::doTrigger([[maybe_unused]]bool keepSelected) {
                     //			    (e->getParent()->rtti()==RS2::EntitySpline ||
                     //				 e->getParent()->rtti()==RS2::EntityPolyline)) {
                     (e->getParent()->rtti()==RS2::EntitySpline)) {
-                    e->getParent()->setSelected(false);
+                    const_cast<RS_EntityContainer*>(e->getParent())->setSelected(false);
                 }
                 RS_Entity *cp = e->clone();
                 cp->setPen(RS_Pen(RS2::FlagInvalid));

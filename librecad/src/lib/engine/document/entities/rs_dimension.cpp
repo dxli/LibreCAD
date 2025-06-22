@@ -172,9 +172,9 @@ std::ostream& operator <<(std::ostream& os,
 /**
  * Constructor.
  */
-RS_Dimension::RS_Dimension(RS_EntityContainer* parent,const RS_DimensionData& d)
+RS_Dimension::RS_Dimension(const RS_EntityContainer* parent,const RS_DimensionData& d)
     : RS_EntityContainer(parent)
-    , m_dimGenericData(std::move(d)){
+    , m_dimGenericData(d){
 }
 
 RS_Vector RS_Dimension::getNearestRef(const RS_Vector& coord,

@@ -330,7 +330,7 @@ LC_Quadratic LC_ParabolaData::getQuadratic() const
     return lq;
 }
 
-LC_Parabola::LC_Parabola(RS_EntityContainer* parent, const LC_ParabolaData& d):
+LC_Parabola::LC_Parabola(const RS_EntityContainer* parent, const LC_ParabolaData& d):
     LC_SplinePoints{parent, convert2SplineData(d)}
   , data{d}
 {

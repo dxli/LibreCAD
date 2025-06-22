@@ -56,7 +56,7 @@ std::ostream& operator << (std::ostream& os, const RS_CircleData& ad);
 class RS_Circle : public LC_CachedLengthEntity {
 public:
 	RS_Circle()=default;
-    RS_Circle (RS_EntityContainer* parent,
+    RS_Circle(const RS_EntityContainer* parent,
                const RS_CircleData& d);
 	~RS_Circle() = default;
 

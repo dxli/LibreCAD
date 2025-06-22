@@ -142,7 +142,7 @@ std::ostream &operator<<(std::ostream &os, const RS_MTextData &td);
  */
 class RS_MText : public RS_EntityContainer {
 public:
-  RS_MText(RS_EntityContainer *parent, const RS_MTextData &d);
+  RS_MText(const RS_EntityContainer *parent, const RS_MTextData &d);
   virtual ~RS_MText() = default;
 
    RS_Entity *clone() const override;
@@ -222,7 +222,7 @@ public:
 protected:
     class LC_TextLine:public RS_EntityContainer{
     public:
-        LC_TextLine(RS_EntityContainer* parent=nullptr, bool owner=true):RS_EntityContainer(parent, owner){}
+        LC_TextLine(const RS_EntityContainer* parent=nullptr, bool owner=true):RS_EntityContainer(parent, owner){}
         ~LC_TextLine() override = default;
 
         LC_TextLine* clone() const override;

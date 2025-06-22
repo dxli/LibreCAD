@@ -77,7 +77,7 @@ struct RS_ImageData {
  */
 class RS_Image : public RS_AtomicEntity {
 public:
-    RS_Image(RS_EntityContainer* parent,
+    RS_Image(const RS_EntityContainer* parent,
             const RS_ImageData& d);
 
     RS_Entity* clone() const override;

@@ -73,7 +73,7 @@ public:
      * @param parent The graphic this block belongs to.
      * @param blockData defining data of the block.
      */
-    RS_Block(RS_EntityContainer* parent, const RS_BlockData& d);
+    RS_Block(const RS_EntityContainer* parent, const RS_BlockData& d);
 
     RS_Entity* clone() const override;
 

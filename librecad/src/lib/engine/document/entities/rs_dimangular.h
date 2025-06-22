@@ -119,7 +119,7 @@ class RS_DimAngular : public RS_Dimension
     friend std::ostream& operator << (std::ostream& os, const RS_DimAngular& d);
 
 public:
-    RS_DimAngular(RS_EntityContainer* parent,
+    RS_DimAngular(const RS_EntityContainer* parent,
                   const RS_DimensionData& d,
                   const RS_DimAngularData& ed);
 

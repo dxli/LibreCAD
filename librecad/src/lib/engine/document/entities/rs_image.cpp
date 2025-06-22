@@ -100,7 +100,7 @@ std::ostream& operator << (std::ostream& os, const RS_ImageData& ld) {
 /**
  * Constructor.
  */
-RS_Image::RS_Image(RS_EntityContainer* parent,
+RS_Image::RS_Image(const RS_EntityContainer* parent,
                    const RS_ImageData& d)
     :RS_AtomicEntity(parent), data(d) {
     RS_Image::update();

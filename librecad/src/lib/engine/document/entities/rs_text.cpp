@@ -83,7 +83,7 @@ std::ostream& operator << (std::ostream& os, const RS_TextData& td) {
 /**
  * Constructor.
  */
-RS_Text::RS_Text(RS_EntityContainer* parent,
+RS_Text::RS_Text(const RS_EntityContainer* parent,
                  const RS_TextData& d)
         : RS_EntityContainer(parent), data(d) {
     usedTextHeight = 0.0;

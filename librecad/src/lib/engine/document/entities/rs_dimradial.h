@@ -61,7 +61,7 @@ std::ostream& operator << (std::ostream& os,
  */
 class RS_DimRadial : public RS_Dimension {
 public:
-    RS_DimRadial(RS_EntityContainer* parent,
+    RS_DimRadial(const RS_EntityContainer* parent,
                  const RS_DimensionData& d,
                  const RS_DimRadialData& ed);
 

@@ -70,7 +70,7 @@ std::ostream& operator << (std::ostream& os, const RS_ArcData& ad);
 class RS_Arc : public LC_CachedLengthEntity {
 public:
     RS_Arc()=default;
-    RS_Arc(RS_EntityContainer* parent,
+    RS_Arc(const RS_EntityContainer* parent,
            const RS_ArcData& d);
 
     RS_Entity* clone() const override;

@@ -183,9 +183,9 @@ void RS_Hatch::calculateBorders() {
 
 /**
  * Updates the Hatch. Called when the
- * hatch or it's data, position, alignment, .. changes.
+ * m_hatch or it's data, position, alignment, .. changes.
  *
- * Refill hatch with pattern. Move, scale, rotate, trim, etc.
+ * Refill m_hatch with pattern. Move, scale, rotate, trim, etc.
  */
 void RS_Hatch::update() {
 
@@ -216,9 +216,9 @@ void RS_Hatch::update() {
     RS_Pen hatch_pen = this->getPen();
 
     // delete old hatch:
-    if (hatch) {
-        removeEntity(hatch);
-        hatch = nullptr;
+    if (m_hatch) {
+        removeEntity(m_hatch);
+        m_hatch = nullptr;
     }
 
     if (isUndone()) {
@@ -330,13 +330,14 @@ void RS_Hatch::update() {
     RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Hatch::update: cutting pattern carpet: OK");
 
     // add the hatch pattern entities
-    hatch = new RS_EntityContainer(this);
-    hatch->setPen(hatch_pen);
-    hatch->setLayer(hatch_layer);
-    hatch->setFlag(RS2::FlagTemp);
+    removeEntity(m_hatch);
+    m_hatch = new RS_EntityContainer(this);
+    m_hatch->setPen(hatch_pen);
+    m_hatch->setLayer(hatch_layer);
+    m_hatch->setFlag(RS2::FlagTemp);
 
     //calculateBorders();
-    for(auto e: tmp2){
+    for(RS_Entity* e: tmp2){
 
         RS_Vector middlePoint;
         RS_Vector middlePoint2;
@@ -366,14 +367,14 @@ void RS_Hatch::update() {
                 RS_Entity* te = e->clone();
                 te->setPen(hatch_pen);
                 te->setLayer(hatch_layer);
-                te->reparent(hatch);
+                te->reparent(m_hatch);
                 te->setFlag(RS2::FlagHatchChild);
-                hatch->addEntity(te);
+                m_hatch->addEntity(te);
             }
         }
     }
 
-    addEntity(hatch);
+    addEntity(m_hatch);
     //getGraphic()->addEntity(rubbish);
 
     forcedCalculateBorders();
@@ -442,9 +443,9 @@ RS_EntityContainer RS_Hatch::trimPattern(const RS_EntityContainer& patternEntiti
         // getting all intersections of this pattern line with the contour:
         QList<RS_Vector> is;
 
-        for(const RS_Entity* loop: *this){
+        for(const RS_Entity* loop: getEntityList()){
 
-            if (loop->isContainer()) {
+            if (loop->isContainer() && static_cast<const RS_EntityContainer*>(loop) != this->m_hatch) {
                 for(auto p: * static_cast<const RS_EntityContainer*>(loop)){
 
                     RS_VectorSolutions sol =
@@ -526,7 +527,7 @@ RS_EntityContainer RS_Hatch::trimPattern(const RS_EntityContainer& patternEntiti
             if (line) {
                 trimmed.addEntity(new RS_Line{&trimmed, v1, v2});
             } else if (arc || circle) {
-                if(fabs(center.angleTo(v2)-center.angleTo(v1)) > RS_TOLERANCE_ANGLE)
+                if(std::abs(center.angleTo(v2)-center.angleTo(v1)) > RS_TOLERANCE_ANGLE)
                 {//don't create an arc with a too small angle
                     trimmed.addEntity(new RS_Arc(&trimmed,
                                               RS_ArcData(center,
@@ -547,7 +548,7 @@ RS_EntityContainer RS_Hatch::trimPattern(const RS_EntityContainer& patternEntiti
  */
 void RS_Hatch::activateContour(bool on) {
     RS_DEBUG->print("RS_Hatch::activateContour: %d", (int)on);
-        for(RS_Entity* e: *this){
+        for(RS_Entity* e: getEntityList()){
             if (!e->isUndone()) {
                 if (!e->getFlag(RS2::FlagTemp)) {
                     RS_DEBUG->print("RS_Hatch::activateContour: set visible");

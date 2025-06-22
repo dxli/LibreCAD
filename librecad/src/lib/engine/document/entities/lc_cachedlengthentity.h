@@ -3,9 +3,9 @@
 
 #include "rs_atomicentity.h"
 
-class LC_CachedLengthEntity:public RS_AtomicEntity{
+class LC_CachedLengthEntity: public RS_AtomicEntity{
 public:
-    LC_CachedLengthEntity(RS_EntityContainer* parent = nullptr);
+    LC_CachedLengthEntity(const RS_EntityContainer* parent = nullptr);
 
     double getLength() const override{
         return cachedLength;

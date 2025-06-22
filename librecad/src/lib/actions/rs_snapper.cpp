@@ -770,9 +770,9 @@ RS_Entity* RS_Snapper::catchEntity(const RS_Vector& pos, RS2::EntityType enType,
         if(en->isVisible()==false) continue;
         if(en->rtti() != enType && isContainer){
             //whether this entity is a member of member of the type enType
-            RS_Entity* parent(en->getParent());
+            const RS_EntityContainer* parent(en->getParent());
             bool matchFound{false};
-            while(parent ) {
+            while(parent != nullptr) {
 //                    std::cout<<"RS_Snapper::catchEntity(): parent->rtti()="<<parent->rtti()<<" enType= "<<enType<<std::endl;
                 if(parent->rtti() == enType) {
                     matchFound=true;

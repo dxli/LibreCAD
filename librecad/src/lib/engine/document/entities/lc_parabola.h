@@ -91,7 +91,7 @@ private:
     LC_ParabolaData data;
 
 public:
-    LC_Parabola(RS_EntityContainer* parent, const LC_ParabolaData& d);
+    LC_Parabola(const RS_EntityContainer* parent, const LC_ParabolaData& d);
 
     RS_Entity* clone() const override;
 

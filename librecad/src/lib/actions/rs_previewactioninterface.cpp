@@ -483,7 +483,7 @@ void RS_PreviewActionInterface::markRelativeZero() {
     m_viewport->markRelativeZero();
 }
 
-bool RS_PreviewActionInterface::is(RS_Entity *e, RS2::EntityType type) const{
+bool RS_PreviewActionInterface::is(const RS_Entity *e, RS2::EntityType type) const{
     return  e != nullptr && e->is(type);
 }
 

@@ -368,7 +368,7 @@ bool RS_Information::isTrimmable(RS_Entity *e1, RS_Entity *e2){
                 e1->getParent() == e2->getParent()){
 
                 // in the same polyline
-                RS_Polyline* pl = static_cast<RS_Polyline *>(e1->getParent());
+                RS_Polyline* pl = static_cast<RS_Polyline *>(const_cast<RS_EntityContainer*>(e1->getParent()));
                 int idx1 = pl->findEntity(e1);
                 int idx2 = pl->findEntity(e2);
                 RS_DEBUG->print("RS_Information::isTrimmable: "

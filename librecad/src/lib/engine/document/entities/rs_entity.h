@@ -51,7 +51,7 @@ class LC_Quadratic;
  */
 class RS_Entity:public RS_Undoable, public LC_Drawable {
 public:
-    RS_Entity(RS_EntityContainer *parent = nullptr);
+    RS_Entity(const RS_EntityContainer *parent = nullptr);
     RS_Entity(const RS_Entity& entity);
     RS_Entity& operator = (const RS_Entity& entity);
     RS_Entity(RS_Entity&& entity);
@@ -63,8 +63,8 @@ public:
     virtual RS_Entity *clone() const = 0;
     virtual RS_Entity *cloneProxy() const;
 
-    virtual void reparent(RS_EntityContainer *parent){
-        this->parent = parent;
+    virtual void reparent(const RS_EntityContainer *parent){
+        m_parent = parent;
     }
 
     void resetBorders();
@@ -107,15 +107,15 @@ public:
     /**
 	 * @return Parent of this entity or nullptr if this is a root entity.
      */
-    RS_EntityContainer *getParent() const{
-        return parent;
+    const RS_EntityContainer *getParent() const{
+        return m_parent;
     }
 
     /**
      * Reparents this entity.
      */
-    void setParent(RS_EntityContainer *p){
-        parent = p;
+    void setParent(const RS_EntityContainer *p){
+        m_parent = p;
     }
     /** @return The center point (x) of this arc */
     //get center for entities arc, circle and ellipse
@@ -586,8 +586,8 @@ m0 x + m1 y + m2 =0
     bool isParentIgnoredOnModifications() const;
 
 protected:
-//! Entity's parent entity or nullptr is this entity has no parent.
-    RS_EntityContainer *parent = nullptr;
+//! Entity's m_parent entity or nullptr is this entity has no m_parent.
+    const RS_EntityContainer *m_parent = nullptr;
     //! minimum coordinates
     RS_Vector minV;
     //! maximum coordinates

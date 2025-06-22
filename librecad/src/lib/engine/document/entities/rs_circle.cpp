@@ -92,7 +92,7 @@ std::ostream& operator << (std::ostream& os, const RS_CircleData& ad)
 /**
  * constructor.
  */
-RS_Circle::RS_Circle(RS_EntityContainer* parent,
+RS_Circle::RS_Circle(const RS_EntityContainer* parent,
                      const RS_CircleData& d)
     :LC_CachedLengthEntity(parent), data(d) {
     calculateBorders();

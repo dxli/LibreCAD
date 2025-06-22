@@ -84,7 +84,7 @@ bool validRange(const RS_Vector& vpMin, const RS_Vector& vpMax){
 /**
  * Default constructor.
  */
-RS_Graphic::RS_Graphic(RS_EntityContainer* parent)
+RS_Graphic::RS_Graphic(const RS_EntityContainer* parent)
         : RS_Document(parent),
         layerList(),
         blockList(true),

@@ -63,7 +63,7 @@ std::ostream& operator << (std::ostream& os,const RS_DimAlignedData& dd) {
  * @para d Common dimension geometrical data.
  * @para ed Extended geometrical data for aligned dimension.
  */
-RS_DimAligned::RS_DimAligned(RS_EntityContainer* parent,
+RS_DimAligned::RS_DimAligned(const RS_EntityContainer* parent,
                              const RS_DimensionData& d,
                              const RS_DimAlignedData& ed)
     : RS_Dimension(parent, d), m_dimAlignedData(ed) {

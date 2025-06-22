@@ -66,19 +66,19 @@ struct RS_Entity::Impl {
 };
 
 /**
- * @param parent The parent entity of this entity.
+ * @param m_parent The m_parent entity of this entity.
  *               E.g. a line might have a graphic entity or
- *               a polyline entity as parent.
+ *               a polyline entity as m_parent.
  */
-RS_Entity::RS_Entity(RS_EntityContainer *parent)
-    : parent{parent}
+RS_Entity::RS_Entity(const RS_EntityContainer *parent)
+    : m_parent{parent}
     , m_pImpl{std::make_unique<Impl>()}
 {
     init();
 }
 
 RS_Entity::RS_Entity(const RS_Entity& other):
-    parent{other.parent}
+    m_parent{other.m_parent}
     , minV {other.minV}
     , maxV {other.maxV}
     , m_layer {other.m_layer}
@@ -90,7 +90,7 @@ RS_Entity::RS_Entity(const RS_Entity& other):
 
 RS_Entity& RS_Entity::operator = (const RS_Entity& other)
 {
-    parent = other.parent;
+    m_parent = other.m_parent;
     minV  = other.minV;
     maxV  = other.maxV;
     m_layer  = other.m_layer;
@@ -101,7 +101,7 @@ RS_Entity& RS_Entity::operator = (const RS_Entity& other)
 }
 
 RS_Entity::RS_Entity(RS_Entity&& other):
-    parent{other.parent}
+    m_parent{other.m_parent}
     , minV {other.minV}
     , maxV {other.maxV}
     , m_layer {other.m_layer}
@@ -113,7 +113,7 @@ RS_Entity::RS_Entity(RS_Entity&& other):
 
 RS_Entity& RS_Entity::operator = (RS_Entity&& other)
 {
-    parent = other.parent;
+    m_parent = other.m_parent;
     minV  = other.minV;
     maxV  = other.maxV;
     m_layer  = other.m_layer;
@@ -276,14 +276,14 @@ void RS_Entity::undoStateChanged([[maybe_unused]] bool undone){
 }
 
 /**
- * @return true if this entity or any parent entities are undone.
+ * @return true if this entity or any m_parent entities are undone.
  */
 bool RS_Entity::isUndone() const {
-    if (!parent) {
+    if (!m_parent) {
         return RS_Undoable::isUndone();
     }
     else {
-        return RS_Undoable::isUndone() || parent->isUndone();
+        return RS_Undoable::isUndone() || m_parent->isUndone();
     }
 }
 
@@ -501,33 +501,33 @@ double RS_Entity::getRadius() const {
 void RS_Entity::setRadius([[maybe_unused]] double r){}
 
 /**
- * @return The parent graphic in which this entity is stored
- * or the parent's parent graphic or nullptr if none of the parents
+ * @return The m_parent graphic in which this entity is stored
+ * or the m_parent's m_parent graphic or nullptr if none of the parents
  * are stored in a graphic.
  */
 RS_Graphic* RS_Entity::getGraphic() const{
     if (rtti()==RS2::EntityGraphic) {
         auto const* ret=static_cast<RS_Graphic const*>(this);
         return const_cast<RS_Graphic*>(ret);
-    } else if (!parent) {
+    } else if (!m_parent) {
         return nullptr;
     }
-    return parent->getGraphic();
+    return m_parent->getGraphic();
 }
 
 /**
- * @return The parent block in which this entity is stored
- * or the parent's parent block or nullptr if none of the parents
+ * @return The m_parent block in which this entity is stored
+ * or the m_parent's m_parent block or nullptr if none of the parents
  * are stored in a block.
  */
 RS_Block* RS_Entity::getBlock() const{
     if (rtti()==RS2::EntityBlock) {
         RS_Block const* ret=static_cast<RS_Block const*>(this);
         return const_cast<RS_Block*>(ret);
-    } else if (!parent) {
+    } else if (!m_parent) {
         return nullptr;
     }
-    return parent->getBlock();
+    return m_parent->getBlock();
 }
 
 /** return the equation of the entity
@@ -544,24 +544,24 @@ LC_Quadratic RS_Entity::getQuadratic() const{
 }
 
 /**
- * @return The parent insert in which this entity is stored
- * or the parent's parent block or nullptr if none of the parents
+ * @return The m_parent insert in which this entity is stored
+ * or the m_parent's m_parent block or nullptr if none of the parents
  * are stored in a block.
  */
 RS_Insert* RS_Entity::getInsert() const{
     if (rtti()==RS2::EntityInsert) {
         RS_Insert const* ret=static_cast<RS_Insert const*>(this);
         return const_cast<RS_Insert*>(ret);
-    } else if (!parent) {
+    } else if (!m_parent) {
         return nullptr;
     } else {
-        return parent->getInsert();
+        return m_parent->getInsert();
     }
 }
 
 /**
- * @return The parent block or insert in which this entity is stored
- * or the parent's parent block or insert or nullptr if none of the parents
+ * @return The m_parent block or insert in which this entity is stored
+ * or the m_parent's m_parent block or insert or nullptr if none of the parents
  * are stored in a block or insert.
  */
 RS_Entity* RS_Entity::getBlockOrInsert() const{
@@ -572,16 +572,16 @@ RS_Entity* RS_Entity::getBlockOrInsert() const{
             ret=const_cast<RS_Entity*>(this);
             break;
         default:
-            if(parent) {
-                return parent->getBlockOrInsert();
+            if(m_parent) {
+                return m_parent->getBlockOrInsert();
             }
     }
     return ret;
 }
 
 /**
- * @return The parent document in which this entity is stored
- * or the parent's parent document or nullptr if none of the parents
+ * @return The m_parent document in which this entity is stored
+ * or the m_parent's m_parent document or nullptr if none of the parents
  * are stored in a document. Note that a document is usually
  * either a Graphic or a Block.
  */
@@ -589,10 +589,10 @@ RS_Document* RS_Entity::getDocument() const{
     if (isDocument()) {
         RS_Document const* ret=static_cast<RS_Document const*>(this);
         return const_cast<RS_Document*>(ret);
-    } else if (!parent) {
+    } else if (!m_parent) {
         return nullptr;
     }
-    return parent->getDocument();
+    return m_parent->getDocument();
 }
 
 /**
@@ -710,8 +710,8 @@ RS_Layer* RS_Entity::getLayerResolved() const {
     // we have no layer but a parent that might have one.
     // return parent's layer instead:
     if (m_layer == nullptr /*|| layer->getName()=="ByBlock"*/) {
-        if (parent != nullptr) {
-            return parent->getLayerResolved();
+        if (m_parent != nullptr) {
+            return m_parent->getLayerResolved();
         } else {
             return nullptr;
         }
@@ -729,7 +729,7 @@ RS_Layer* RS_Entity::getLayerResolved() const {
  *               false: the layer of the entity is returned.
  *
  * @return pointer to the layer this entity is on. If the layer
- * is set to nullptr the layer of the next parent that is not on
+ * is set to nullptr the layer of the next m_parent that is not on
  * layer nullptr is returned. If all parents are on layer nullptr, nullptr
  * is returned.
  */
@@ -738,8 +738,8 @@ RS_Layer* RS_Entity::getLayer(bool resolve) const {
         // we have no layer but a parent that might have one.
         // return parent's layer instead:
         if (m_layer == nullptr /*|| layer->getName()=="ByBlock"*/) {
-            if (parent != nullptr) {
-                return parent->getLayer(true);
+            if (m_parent != nullptr) {
+                return m_parent->getLayer(true);
             } else {
                 return nullptr;
             }
@@ -788,34 +788,34 @@ RS_Pen RS_Entity::getPenResolved() const {
     RS_Pen p = m_pImpl->pen;
     // use parental attributes (e.g. vertex of a polyline, block
     // entities when they are drawn in block documents):
-    if (parent != nullptr && parent->rtti() != RS2::EntityGraphic) {
+    if (m_parent != nullptr && m_parent->rtti() != RS2::EntityGraphic) {
         //if pen is invalid gets all from parent
         if (!p.isValid()) {
-            p = parent->getPen(false);
+            p = m_parent->getPen(false);
         }
         //pen is valid, verify byBlock parts
-        RS_EntityContainer *ep = parent;
+        const RS_EntityContainer *ep = m_parent;
         //If parent is byblock check parent.parent (nested blocks)
         while (p.isColorByBlock()) {
             if (ep) {
-                p.setColorFromPen(parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
-                ep = ep->parent;
+                p.setColorFromPen(m_parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
+                ep = ep->m_parent;
             } else
                 break;
         }
-        ep = parent;
+        ep = m_parent;
         while (p.isWidthByBlock()) {
             if (ep) {
-                p.setWidthFromPen(parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
-                ep = ep->parent;
+                p.setWidthFromPen(m_parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
+                ep = ep->m_parent;
             } else
                 break;
         }
-        ep = parent;
+        ep = m_parent;
         while (p.isLineTypeByBlock()) {
             if (ep) {
-                p.setLineTypeFromPen(parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
-                ep = ep->parent;
+                p.setLineTypeFromPen(m_parent->getPen(false)); // fixme - check whether resolved pen is actually needed there...
+                ep = ep->m_parent;
             } else
                 break;
         }
@@ -1060,8 +1060,8 @@ std::ostream& operator << (std::ostream& os, RS_Entity& e) {
     //return os;
 
     os << " {Entity id: " << e.m_id;
-    if (e.parent) {
-        os << " | parent id: " << e.parent->getId() << "\n";
+    if (e.m_parent) {
+        os << " | parent id: " << e.m_parent->getId() << "\n";
     } else {
         os << " | no parent\n";
     }
@@ -1135,7 +1135,7 @@ std::ostream& operator << (std::ostream& os, RS_Entity& e) {
 }
 
 bool RS_Entity::isParentIgnoredOnModifications() const {
-     return parent != nullptr && parent->ignoredOnModification();
+     return m_parent != nullptr && m_parent->ignoredOnModification();
 }
 
 

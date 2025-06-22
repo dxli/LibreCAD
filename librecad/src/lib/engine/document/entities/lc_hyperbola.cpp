@@ -60,7 +60,7 @@ std::ostream& operator << (std::ostream& os, const LC_HyperbolaData& ed) {
 /**
  * Constructor.
  */
-LC_Hyperbola::LC_Hyperbola(RS_EntityContainer* parent,
+LC_Hyperbola::LC_Hyperbola(const RS_EntityContainer* parent,
                        const LC_HyperbolaData& d)
     :RS_AtomicEntity(parent)
     ,data(d)

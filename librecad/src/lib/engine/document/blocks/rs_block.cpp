@@ -48,7 +48,7 @@ bool RS_BlockData::isValid() const{
  * @param name The name of the block used as an identifier.
  * @param basePoint Base point (offset) of the block.
  */
-RS_Block::RS_Block(RS_EntityContainer* parent,
+RS_Block::RS_Block(const RS_EntityContainer* parent,
                    const RS_BlockData& d)
     : RS_Document(parent), data(d){
     setPen({RS_Color(128,128,128), RS2::Width01, RS2::SolidLine});

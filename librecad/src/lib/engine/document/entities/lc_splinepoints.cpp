@@ -561,8 +561,9 @@ std::ostream& operator << (std::ostream& os, const LC_SplinePointsData& ld)
 /**
  * Constructor.
  */
-LC_SplinePoints::LC_SplinePoints(RS_EntityContainer* parent,
-                                 LC_SplinePointsData d) : LC_CachedLengthEntity(parent)
+LC_SplinePoints::LC_SplinePoints(const RS_EntityContainer* parent,
+                                 LC_SplinePointsData d) :
+    LC_CachedLengthEntity(parent)
     ,data(std::move(d))
 {
     if (!data.useControlPoints) {
@@ -3306,7 +3307,7 @@ LC_SplinePoints* LC_SplinePoints::cut(const RS_Vector& pos){
 		data.controlPoints.push_back(vPoint);
 		newData.controlPoints.insert(newData.controlPoints.begin(), vPoint);
 
-		ret = new LC_SplinePoints(parent, newData);
+		ret = new LC_SplinePoints(m_parent, newData);
 
 		data.cut = true;
 	}

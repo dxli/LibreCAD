@@ -60,7 +60,7 @@ std::ostream& operator << (std::ostream& os, const RS_DimDiametricData& dd);
  */
 class RS_DimDiametric : public RS_Dimension {
 public:
-    RS_DimDiametric(RS_EntityContainer* parent,
+    RS_DimDiametric(const RS_EntityContainer* parent,
                  const RS_DimensionData& d,
                  const RS_DimDiametricData& ed);
 

@@ -53,8 +53,8 @@ std::ostream& operator << (std::ostream& os, const RS_LineData& ld);
 class RS_Line : public LC_CachedLengthEntity {
 public:
     RS_Line() = default;
-    RS_Line(RS_EntityContainer* parent,const RS_LineData& d);
-    RS_Line(RS_EntityContainer* parent, const RS_Vector& pStart, const RS_Vector& pEnd);
+    RS_Line(const RS_EntityContainer* parent,const RS_LineData& d);
+    RS_Line(const RS_EntityContainer* parent, const RS_Vector& pStart, const RS_Vector& pEnd);
     RS_Line(const RS_Vector& pStart, const RS_Vector& pEnd);
     RS_Entity* clone() const override;
 

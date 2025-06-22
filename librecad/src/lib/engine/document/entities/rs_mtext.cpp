@@ -118,7 +118,7 @@ std::ostream &operator<<(std::ostream &os, const RS_MTextData &td) {
 /**
  * Constructor.
  */
-RS_MText::RS_MText(RS_EntityContainer *parent, const RS_MTextData &d)
+RS_MText::RS_MText(const RS_EntityContainer *parent, const RS_MTextData &d)
     : RS_EntityContainer(parent), data(d) {
     setText(data.text);
 }

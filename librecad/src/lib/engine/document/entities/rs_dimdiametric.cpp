@@ -62,7 +62,7 @@ std::ostream& operator << (std::ostream& os,
  * @para d Common dimension geometrical data.
  * @para ed Extended geometrical data for diametric dimension.
  */
-RS_DimDiametric::RS_DimDiametric(RS_EntityContainer* parent,
+RS_DimDiametric::RS_DimDiametric(const RS_EntityContainer* parent,
                            const RS_DimensionData& d,
                            const RS_DimDiametricData& ed)
         : RS_Dimension(parent, d), m_dimDiametricData(ed) {

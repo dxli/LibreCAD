@@ -44,7 +44,7 @@ public:
     /**
      * Constructor.
      */
-    RS_AtomicEntity(RS_EntityContainer* parent=nullptr);
+    RS_AtomicEntity(const RS_EntityContainer* parent=nullptr);
 
     /**
      * @return false because entities made from subclasses are

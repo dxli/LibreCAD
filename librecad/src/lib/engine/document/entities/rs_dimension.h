@@ -113,7 +113,7 @@ std::ostream& operator << (std::ostream& os,
  */
 class RS_Dimension : public RS_EntityContainer {
 public:
-    RS_Dimension(RS_EntityContainer* parent,const RS_DimensionData& d);
+    RS_Dimension(const RS_EntityContainer* parent,const RS_DimensionData& d);
 
     RS_Vector getNearestRef( const RS_Vector& coord, double* dist = nullptr) const override;
     RS_Vector getNearestSelectedRef( const RS_Vector& coord, double* dist = nullptr) const override;

@@ -23,7 +23,6 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-#include "rs_modification.h"
 
 #include <QSet>
 
@@ -44,6 +43,7 @@
 #include "rs_layer.h"
 #include "rs_line.h"
 #include "rs_math.h"
+#include "rs_modification.h"
 #include "rs_mtext.h"
 #include "rs_polyline.h"
 #include "rs_settings.h"
@@ -2670,8 +2670,9 @@ LC_BevelResult* RS_Modification::bevel(
             //cl->setUndoState(true);
             undo.addUndoable(cl);
 
-            undo.addUndoable(entity1->getParent());
-            entity1->getParent()->setUndoState(true);
+            auto* parent = const_cast<RS_EntityContainer*>(entity1->getParent());
+            undo.addUndoable(parent);
+            parent->setUndoState(true);
 
         }
 
@@ -2945,8 +2946,9 @@ LC_RoundResult* RS_Modification::round(const RS_Vector& coord,
         if (handleUndo){
             container->addEntity(cl);
             undo.addUndoable(cl);
-            undo.addUndoable(entity1->getParent());
-            entity1->getParent()->setUndoState(true);
+            auto* parent = const_cast<RS_EntityContainer*>(entity1->getParent());
+            undo.addUndoable(parent);
+            parent->setUndoState(true);
         }
 
         entity1 = (RS_AtomicEntity *) baseContainer->entityAt(entity1->getParent()->findEntity(entity1));

@@ -109,7 +109,7 @@ std::ostream& operator << (std::ostream& os, const RS_ArcData& ad) {
 /**
  * Default constructor.
  */
-RS_Arc::RS_Arc(RS_EntityContainer* parent,
+RS_Arc::RS_Arc(const RS_EntityContainer* parent,
                const RS_ArcData& d)
     : LC_CachedLengthEntity(parent), data(d) {
     calculateBorders();

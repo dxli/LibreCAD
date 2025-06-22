@@ -52,7 +52,7 @@ public:
         double length = 0.0;
     };
 
-    RS_EntityContainer(RS_EntityContainer* parent=nullptr, bool owner=true);
+    RS_EntityContainer(const RS_EntityContainer* parent=nullptr, bool owner=true);
     RS_EntityContainer(const RS_EntityContainer& other);
     RS_EntityContainer& operator = (const RS_EntityContainer& other);
     RS_EntityContainer(RS_EntityContainer&& other);
@@ -69,7 +69,7 @@ public:
         return RS2::EntityContainer;
     }
 
-    void reparent(RS_EntityContainer* parent) override;
+    void reparent(const RS_EntityContainer* parent) override;
 
     /**
      * @return true: because entities made from this class
@@ -123,7 +123,7 @@ public:
     virtual RS_Entity* prevEntity(RS2::ResolveLevel level=RS2::ResolveNone) const;
     virtual RS_Entity* entityAt(int index);
     virtual void setEntityAt(int index,RS_Entity* en);
-    virtual int findEntity(RS_Entity const* const entity);
+    virtual int findEntity(RS_Entity const* const entity) const;
     virtual void clear();
 
     //virtual unsigned long int count() {
@@ -273,7 +273,8 @@ public:
     RS_Entity* first() const;
 //! \}
 
-    const QList<RS_Entity*>& getEntityList();
+    const QList<RS_Entity*>& getEntityList() const;
+    QList<RS_Entity*>& getEntityList();
 
     inline RS_Entity* unsafeEntityAt(int index) const {return m_entities.at(index);}
 

@@ -61,7 +61,7 @@ std::ostream& operator <<(std::ostream& os,const RS_DimRadialData& dd) {
  * @para d Common dimension geometrical data.
  * @para ed Extended geometrical data for radial dimension.
  */
-RS_DimRadial::RS_DimRadial(RS_EntityContainer* parent, const RS_DimensionData& d, const RS_DimRadialData& ed)
+RS_DimRadial::RS_DimRadial(const RS_EntityContainer* parent, const RS_DimensionData& d, const RS_DimRadialData& ed)
     : RS_Dimension(parent, d), m_dimRadialData(ed) {
 }
 

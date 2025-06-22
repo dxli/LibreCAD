@@ -117,7 +117,7 @@ LC_DimAngularVars::LC_DimAngularVars(const LC_DimAngularVars& av) :
  * @para d Common dimension geometrical data.
  * @para ed Extended geometrical data for angular dimension.
  */
-RS_DimAngular::RS_DimAngular(RS_EntityContainer* parent,
+RS_DimAngular::RS_DimAngular(const RS_EntityContainer* parent,
                              const RS_DimensionData& d,
                              const RS_DimAngularData& ed) :
     RS_Dimension( parent, d),

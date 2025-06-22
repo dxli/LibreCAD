@@ -143,10 +143,10 @@ RS_Entity* snapEntity(const QG_GraphicView& view, const QMouseEvent* event) {
 RS_Insert* getAncestorInsert(RS_Entity* entity) {
     while (entity != nullptr) {
         if (entity->rtti() == RS2::EntityInsert) {
-            RS_Insert* parent = getAncestorInsert(entity->getParent());
+            RS_Insert* parent = getAncestorInsert(const_cast<RS_EntityContainer*>(entity->getParent()));
             return parent != nullptr ? parent : static_cast<RS_Insert*>(entity);
         }
-        entity = entity->getParent();
+        entity = const_cast<RS_EntityContainer*>(entity->getParent());
     }
     return nullptr;
 }
@@ -159,7 +159,7 @@ RS_Entity* getParentText(RS_Insert* insert) {
     switch (insert->getParent()->rtti()) {
         case RS2::EntityText:
         case RS2::EntityMText:
-            return insert->getParent();
+            return const_cast<RS_EntityContainer*>(insert->getParent());;
         default:
             return nullptr;
     }
@@ -173,7 +173,7 @@ void QG_GraphicView::showEntityPropertiesDialog(RS_Entity* entity){
 
     // snap to the top selected parent
     while (entity != nullptr && entity->getParent() != nullptr && entity->getParent()->isSelected()) {
-        entity = entity->getParent();
+        entity = const_cast<RS_EntityContainer*>(entity->getParent());
     }
 
     launchEditProperty(entity);

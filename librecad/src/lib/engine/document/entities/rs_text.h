@@ -137,7 +137,7 @@ std::ostream& operator << (std::ostream& os, const RS_TextData& td);
  */
 class RS_Text : public RS_EntityContainer {
 public:
-    RS_Text(RS_EntityContainer* parent,
+    RS_Text(const RS_EntityContainer* parent,
             const RS_TextData& d);
 
     RS_Entity* clone() const override;

@@ -74,7 +74,7 @@ std::ostream& operator << (std::ostream& os, const LC_HyperbolaData& ed);
 class LC_Hyperbola : public RS_AtomicEntity {
 public:
 	LC_Hyperbola() = default;
-    LC_Hyperbola(RS_EntityContainer* parent,
+    LC_Hyperbola(const RS_EntityContainer* parent,
                const LC_HyperbolaData& d);
 
     /** create data based on foci and a point on hyperbola */

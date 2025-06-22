@@ -173,7 +173,7 @@ private:
     QPainterPath createSolidFillPath( RS_Painter *painter) const;
 
     RS_HatchData data;
-    RS_EntityContainer* hatch = nullptr;
+    RS_EntityContainer* m_hatch = nullptr;
     mutable double m_area = RS_MAXDOUBLE;
     RS_HatchError updateError = HATCH_UNDEFINED;
     bool updateRunning = false;

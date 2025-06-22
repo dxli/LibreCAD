@@ -110,7 +110,7 @@ public:
         /**
          * Reimplementation of reparent. Invalidates m_block cache pointer.
          */
-    void reparent(RS_EntityContainer* parent)  override{
+    void reparent(const RS_EntityContainer* parent)  override{
                 RS_Entity::reparent(parent);
                 m_block = nullptr;
     }
