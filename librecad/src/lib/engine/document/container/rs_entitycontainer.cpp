@@ -1100,7 +1100,7 @@ RS_Entity *RS_EntityContainer::nextEntity(RS2::ResolveLevel level) const {
 
         case RS2::ResolveAllButInserts: {
             RS_Entity *e = nullptr;
-            if (subContainer) {
+            if (subContainer != nullptr) {
                 e = subContainer->nextEntity(level);
                 if (e) {
                     --entIdx; //return a sub-entity, index not advanced
@@ -1113,11 +1113,11 @@ RS_Entity *RS_EntityContainer::nextEntity(RS2::ResolveLevel level) const {
                 if (entIdx < m_entities.size())
                     e = m_entities.at(entIdx);
             }
-            if (e && e->isContainer() && e->rtti() != RS2::EntityInsert) {
-                subContainer = (RS_EntityContainer *) e;
-                e = ((RS_EntityContainer *) e)->firstEntity(level);
+            if (e != nullptr && e->isContainer() && e->rtti() != RS2::EntityInsert) {
+                subContainer = static_cast<RS_EntityContainer *>(e);
+                e = subContainer->firstEntity(level);
                 // empty container:
-                if (!e) {
+                if (e == nullptr) {
                     subContainer = nullptr;
                     e = nextEntity(level);
                 }
@@ -1131,7 +1131,7 @@ RS_Entity *RS_EntityContainer::nextEntity(RS2::ResolveLevel level) const {
             RS_Entity *e = nullptr;
             if (subContainer) {
                 e = subContainer->nextEntity(level);
-                if (e) {
+                if (e != nullptr) {
                     --entIdx; //return a sub-entity, index not advanced
                     return e;
                 } else {
@@ -1142,11 +1142,11 @@ RS_Entity *RS_EntityContainer::nextEntity(RS2::ResolveLevel level) const {
                 if (entIdx < m_entities.size())
                     e = m_entities.at(entIdx);
             }
-            if (e && e->isContainer() && e->rtti() != RS2::EntityText && e->rtti() != RS2::EntityMText) {
-                subContainer = (RS_EntityContainer *) e;
-                e = ((RS_EntityContainer *) e)->firstEntity(level);
+            if (e != nullptr && e->isContainer() && e->rtti() != RS2::EntityText && e->rtti() != RS2::EntityMText) {
+                subContainer = static_cast<RS_EntityContainer *>(e);
+                e = subContainer->firstEntity(level);
                 // empty container:
-                if (!e) {
+                if (e == nullptr) {
                     subContainer = nullptr;
                     e = nextEntity(level);
                 }
@@ -1170,9 +1170,9 @@ RS_Entity *RS_EntityContainer::nextEntity(RS2::ResolveLevel level) const {
                 if (entIdx < m_entities.size())
                     e = m_entities.at(entIdx);
             }
-            if (e && e->isContainer()) {
-                subContainer = (RS_EntityContainer *) e;
-                e = ((RS_EntityContainer *) e)->firstEntity(level);
+            if (e != nullptr && e->isContainer()) {
+                subContainer = static_cast<RS_EntityContainer *>(e);
+                e = subContainer->firstEntity(level);
                 // empty container:
                 if (!e) {
                     subContainer = nullptr;
@@ -1498,9 +1498,9 @@ RS_Vector RS_EntityContainer::getNearestIntersection(
     RS_Vector closestPoint(false);  // closest found endpoint
     RS_Entity* closestEntity = getNearestEntity(coord, nullptr, RS2::ResolveAllButTextImage);
 
-    if (closestEntity) {
+    if (closestEntity != nullptr) {
         for (RS_Entity *en = firstEntity(RS2::ResolveAllButTextImage);
-             en;
+             en != nullptr;
              en = nextEntity(RS2::ResolveAllButTextImage)) {
             if (
                 !en->isVisible()
