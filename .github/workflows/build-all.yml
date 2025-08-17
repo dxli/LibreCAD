@@ -240,6 +240,7 @@ jobs:
           version: 1.88.0
           toolset: msvc
           platform_version: 2022
+          cache: no
           
       - name: Configure CMake
         run: |
