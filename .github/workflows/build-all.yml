@@ -232,21 +232,21 @@ jobs:
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Install boost
-        uses: MarkusJx/install-boost@v2
+      - name: Cache Boost
+        uses: actions/cache@v2
+        with:
+          path: '${{ runner.workspace }}/boost_*.tar.gz'
+          key: 'boost-1.88.0'
+
+      - name: Build Boost
+        # This won't re-download the archive unnecessarily:
+        uses: egor-tensin/build-boost@v1
         id: installBoost
         with:
-          # REQUIRED: Specify the required boost version
-          # A list of supported versions can be found here:
-          # https://github.com/MarkusJx/prebuilt-boost/blob/main/versions-manifest.json
-          boost_version: 1.88.0
-          # OPTIONAL: Specify a custon install location
-          boost_install_dir: ${{github.workspace}}\..\
-          # OPTIONAL: Specify a platform version
-          platform_version: 2022
-          # OPTIONAL: Specify a toolset
+          version: 1.88.0
           toolset: msvc
-
+          platform_version: 2022
+          
       - name: Configure CMake
         run: |
           cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
