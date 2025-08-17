@@ -239,7 +239,7 @@ jobs:
 
       - name: DirBoost
         run: |
-          dir C:\Users\runneradmin\AppData\Local\Temp\chocolatey\boost-msvc-14.3\1.87.0\
+          dir C:/Local/boost_*
         shell: cmd
 
       - name: Configure CMake
@@ -249,7 +249,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: "C:/Users/runneradmin/AppData/Local/Temp/chocolatey/boost-msvc-14.3/1.87.0"
+          BOOST_ROOT: "C:/Local/boost_1_87_0"
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
