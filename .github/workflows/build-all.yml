@@ -233,7 +233,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Install boost
-        uses: MarkusJx/install-boost@v2
+        uses: MarkusJx/install-boost@master
         id: installBoost
         with:
           # REQUIRED: Specify the required boost version
