@@ -232,12 +232,6 @@ jobs:
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Cache Boost
-        uses: actions/cache@v2
-        with:
-          path: '${{ runner.workspace }}/boost_*.tar.gz'
-          key: 'boost-1.88.0'
-
       - name: Build Boost
         # This won't re-download the archive unnecessarily:
         uses: egor-tensin/build-boost@v1
