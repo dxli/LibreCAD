@@ -238,9 +238,13 @@ jobs:
         id: installBoost
         with:
           version: 1.88.0
+          libraries: ''
           toolset: msvc
-          platform_version: 2022
+          platform: x64
           cache: no
+          configuration: Release
+          static: 1
+          static-runtime: 1
           
       - name: Configure CMake
         run: |
