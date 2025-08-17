@@ -237,11 +237,10 @@ jobs:
         run: |
           mkdir -p /d/a/LibreCAD/boost
           cd /d/a/LibreCAD/boost
-          curl -L https://github.com/MarkusJx/prebuilt-boost/releases/download/v1.87.0/boost-1.87.0-windows-2022-msvc-static-x86.tar.gz -o boost.tar.gz
-          tar -xzf boost.tar.gz
-          rm boost.tar.gz  # Optional: Clean up the archive
+          curl -L https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.zip -o boost.zip
+          unzip boost.zip
+          mv boost_1_87_0/* .  # Move contents to root dir
           ls /d/a/LibreCAD/boost
-          ls /d/a/LibreCAD/boost/boost_1_87_0
 
       - name: Configure CMake
         run: |
@@ -250,7 +249,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: "D:/a/LibreCAD/boost/boost_1_87_0"
+          BOOST_ROOT: "D:/a/LibreCAD/boost"
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
