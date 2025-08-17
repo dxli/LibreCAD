@@ -232,15 +232,20 @@ jobs:
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Download and Extract Boost Source
-        shell: bash
-        run: |
-          mkdir -p /d/a/LibreCAD/boost
-          cd /d/a/LibreCAD/boost
-          curl -L https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.zip -o boost.zip
-          unzip boost.zip
-          mv boost_1_87_0/* .  # Move contents to root dir
-          ls /d/a/LibreCAD/boost
+      - name: Install boost
+        uses: MarkusJx/install-boost@v2
+        id: installBoost
+        with:
+          # REQUIRED: Specify the required boost version
+          # A list of supported versions can be found here:
+          # https://github.com/MarkusJx/prebuilt-boost/blob/main/versions-manifest.json
+          boost_version: 1.88.0
+          # OPTIONAL: Specify a custon install location
+          boost_install_dir: ${{ github.workspace }}/../
+          # OPTIONAL: Specify a platform version
+          platform_version: 2022
+          # OPTIONAL: Specify a toolset
+          toolset: msvc
 
       - name: Configure CMake
         run: |
@@ -249,7 +254,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: "D:/a/LibreCAD/boost"
+          BOOST_ROOT: ${{ steps.installBoost.outputs.BOOST_ROOT }}
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
