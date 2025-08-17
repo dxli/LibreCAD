@@ -232,20 +232,11 @@ jobs:
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Install boost
-        uses: MarkusJx/install-boost@v2
-        id: installBoost
-        with:
-          # REQUIRED: Specify the required boost version
-          # A list of supported versions can be found here:
-          # https://github.com/MarkusJx/prebuilt-boost/blob/main/versions-manifest.json
-          boost_version: 1.80.0
-          # OPTIONAL: Specify a custon install location
-          #boost_install_dir: ${{ github.workspace }}/../
-          # OPTIONAL: Specify a platform version
-          platform_version: 2022
-          # OPTIONAL: Specify a toolset
-          toolset: msvc
+
+      - name: Install Boost via Chocolatey
+        run: |
+          choco install boost-msvc-14.3 --version 1.87.0 -y --params="'/InstallArch:x64'"
+          ls ../../
 
       - name: Configure CMake
         run: |
