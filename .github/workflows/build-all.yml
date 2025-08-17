@@ -249,7 +249,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: "C:\Users\runneradmin\AppData\Local\Temp\chocolatey\boost-msvc-14.3\1.87.0"
+          BOOST_ROOT: "C:/Users/runneradmin/AppData/Local/Temp/chocolatey/boost-msvc-14.3/1.87.0"
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
