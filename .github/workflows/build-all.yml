@@ -232,15 +232,13 @@ jobs:
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
-
-      - name: Install Boost via Chocolatey
+      - name: Download and Extract Boost Source
+        shell: pwsh
         run: |
-          choco install boost-msvc-14.3 --version 1.87.0 -y --params="'/InstallArch:x64'"
-
-      - name: DirBoost
-        run: |
-          dir C:/ProgramData/chocolatey/lib/boost-msvc-14.3/tools/boost_1_87_0
-        shell: cmd
+          Invoke-WebRequest -Uri "https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.zip" -OutFile "boost_1_87_0.zip"
+          Expand-Archive -Path "boost_1_87_0.zip" -DestinationPath "D:\a\LibreCAD\boost"
+          ls D:\a\LibreCAD\boost
+          ls D:\a\LibreCAD\boost\boost_1_87_0
 
       - name: Configure CMake
         run: |
@@ -249,7 +247,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: "C:/ProgramData/chocolatey/lib/boost-msvc-14.3/tools/boost_1_87_0"
+          BOOST_ROOT: "D:/a/LibreCAD/boost/boost_1_87_0"
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
