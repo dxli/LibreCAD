@@ -236,10 +236,12 @@ jobs:
         run: |
           curl -# -L -o boost.7z https://archives.boost.io/release/1.87.0/source/boost_1_87_0.7z
           7z x -o. -y boost.7z
-          #mv boost_1_87_0 ../boost
+          mv boost_1_87_0 ./
           rm boost.7z
           pwd
-          ls boost*/
+          ls boost/
+          ls boost/
+          ls boost/v*.hpp
         shell: bash
 
       - name: Configure CMake
@@ -249,7 +251,7 @@ jobs:
         env:
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: boost_1_87_0
+          BOOST_ROOT: boost
           CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
