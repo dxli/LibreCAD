@@ -13,7 +13,8 @@ description: |
   Code repository:
   https://www.github.com/LibreCAD/LibreCAD
 environment:
-  LD_LIBRARY_PATH: $SNAP/usr/local/lib/:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/:$SNAP/usr/lib64/:$LD_LIBRARY_PATHapps:
+  LD_LIBRARY_PATH: $SNAP/usr/local/lib/:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/:$SNAP/usr/lib64/:$LD_LIBRARY_PATH
+apps:
   librecad:
     command: usr/bin/librecad
     plugs:
@@ -29,9 +30,10 @@ environment:
     common-id: org.librecad.librecad.desktop
     environment:
       SNAP_DESKTOP_RUNTIME: $SNAP
-      HOME: $SNAP_USER_DATAextensions:
+      HOME: $SNAP_USER_DATA
+extensions:
   - kde-neon-6
-  plugs:
+plugs:
   desktop:
     mount-host-font-cache: false
   icon-themes:
@@ -45,7 +47,8 @@ environment:
   gtk-3-themes:
     interface: content
     target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themesparts:
+    default-provider: gtk-common-themes
+parts:
   librecad:
     plugin: cmake
     source: https://github.com/LibreCAD/LibreCAD/archive/refs/tags/v2.2.1.2.tar.gz
@@ -66,17 +69,15 @@ environment:
       make -j$(nproc)
     stage:
       - -usr/share/pkgconfig
-    override-install: |
+    override-prime: |
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       mkdir -p $CRAFT_PART_INSTALL/usr/share/icons
       mkdir -p $CRAFT_PART_INSTALL/usr/share/librecad/resources/qm
       mkdir -p $CRAFT_PART_INSTALL/usr/share/applications
       cp -a $CRAFT_PART_BUILD/librecad $CRAFT_PART_INSTALL/usr/bin/
-      cp -a $CRAFT_PART_BUILD/.qm $CRAFT_PART_INSTALL/usr/share/librecad/resources/qm
+      cp -a $CRAFT_PART_BUILD/*.qm $CRAFT_PART_INSTALL/usr/share/librecad/resources/qm
       rsync -vaut $CRAFT_PART_SRC/librecad/support/ $CRAFT_PART_INSTALL/usr/share/librecad/resources/
       find $CRAFT_PART_SRC/CI -type f -name librecad.svg -exec cp -av '{}' $CRAFT_PART_INSTALL/usr/share/icons/ ;
-      cp -a $CRAFT_PART_SRC/desktop/.desktop $CRAFT_PART_INSTALL/usr/share/applications/org.librecad.librecad.desktop
-      sed -i'' -e 's:^\sIcon=.$:Icon=/usr/share/icons/librecad.svg:' $CRAFT_PART_INSTALL/usr/share/applications/org.librecad.librecad.desktop
-      cp -a $CRAFT_PART_SRC/desktop/org.librecad..xml $CRAFT_PART_INSTALL/usr/share/applications/
-
-
+      cp -a $CRAFT_PART_SRC/desktop/librecad.desktop $CRAFT_PART_INSTALL/usr/share/applications/org.librecad.librecad.desktop
+      sed -i'' -e 's:Icon=.*:Icon=/usr/share/icons/librecad.svg:' $CRAFT_PART_INSTALL/usr/share/applications/org.librecad.librecad.desktop
+      cp -a $CRAFT_PART_SRC/desktop/org.librecad.librecad.xml $CRAFT_PART_INSTALL/usr/share/applications/
