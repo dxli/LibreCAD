@@ -23,8 +23,9 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-#include<cmath>
+#include <cmath>
 
+#include <QRandomGenerator>
 #include <QSet>
 
 #include "rs_modification.h"
@@ -456,16 +457,11 @@ void RS_Modification::copy(const RS_Vector& ref, const bool cut) {
     }
 }
 
-
-
 /**
- * Copies the given entity from the given container to the clipboard.
- * Layers and blocks that are needed are also copied if the container is
- * or is part of an RS_Graphic.
- *
- * @param e The entity.
- * @param ref Reference point. The entities will be moved by -ref.
- * @param cut true: cut instead of copying, false: copy
+ * **Key Changes**:
+ * 1. **Bake** insert transform → **new "baked_xxx" block** in clipboard graphic
+ * 2. **Reset** insertData to **identity** (pos=0,0 | angle=0 | scale=1,1 | 1x1)
+ * 3. **Post-paste `update()`**: Clones **pre-transformed baked entities** → **no double/loss**
  */
 void RS_Modification::copyEntity(RS_Entity* e, const RS_Vector& ref, const bool cut) {
 
@@ -476,61 +472,84 @@ void RS_Modification::copyEntity(RS_Entity* e, const RS_Vector& ref, const bool 
         return;
     }
 
-    // add entity to clipboard:
-    RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::copyEntity: to clipboard: %s", getIdFlagString(e).c_str());
+    // 🔹 **CLONE & PRE-MOVE** (standard)
     RS_Entity* c = e->clone();
+    c->move(-ref);  // Shift to ref=0,0
 
-    c->move(-ref);
-
-    // issue #1616: copy&paste a rotated block results in a double rotated block
-    // At this point the copied block entities are already rotated, but at
-    // pasting, RS_Insert::update() would still rotate the entities again and
-    // cause double rotation.
-    bool isBlock = c->rtti() == RS2::EntityInsert;
-    double angle = isBlock ? static_cast<RS_Insert*>(c)->getAngle() : 0.;
-    // issue #1616: A quick fix: rotate back all block entities in the clipboard back by the
-    // rotation angle before pasting
-    if (isBlock && std::abs(std::remainder(angle, 2. * M_PI)) > RS_TOLERANCE_ANGLE)
-    {
+    // **FIX #1616/#2348: BAKE INSERT TRANSFORMS**
+    if (c->rtti() == RS2::EntityInsert) {
         auto* insert = static_cast<RS_Insert*>(c);
-        //insert->rotate(insert->getData().insertionPoint, - angle);
-        insert->setAngle(0.);
+        RS_Block* origBlock = insert->getBlockForInsert();
+        if (origBlock && origBlock->count() != 0) {
+            RS_DEBUG->print(RS_Debug::D_DEBUGGING,
+                            "BAKING insert '%s' (angle=%.2f° scale=%.2fx%.2f)",
+                            insert->getName().toUtf8().constData(),
+                            RS_Math::rad2deg(insert->getAngle()),
+                            insert->getScale().x, insert->getScale().y);
+
+            // 1. **NEW BAKED BLOCK** in clipboard (unique name)
+            const int index = QRandomGenerator::global()->bounded(3);
+            QString bakedName = insert->getName() + "_baked_" +
+                                QString::number(QTime::currentTime().msec()) +
+                                QString::number(index);
+            RS_Graphic* clipGraphic = RS_CLIPBOARD->getGraphic();
+            RS_Block* bakedBlock = addNewBlock(bakedName, *clipGraphic);
+
+            // 2. **CLONE & FULL TRANSFORM** each orig entity → baked world coords
+            RS_Vector ip = insert->getInsertionPoint();  // Post-move world pos
+            RS_Vector scale = insert->getScale();
+            double angle = insert->getAngle();
+            for (RS_Entity* oe : *origBlock) {
+                if (!oe)
+                    continue;
+
+                RS_Entity* be = oe->clone();
+
+                // **EXACT RS_Insert::update() transform** (relative to insertionPoint)
+                be->move(ip);                           // Offset to world
+                be->rotate(ip, angle);                  // Rotate around insert pt
+                be->scale(ip, scale);                   // Scale around insert pt
+
+                bakedBlock->addEntity(be);
+                RS_DEBUG->print(RS_Debug::D_DEBUGGING, "   Baked entity %s",
+                                getIdFlagString(be).c_str());
+            }
+
+            // 3. **RESET INSERT → IDENTITY** (references baked block)
+            insert->setName(bakedName);
+            insert->setInsertionPoint({0.0, 0.0});
+            insert->setAngle(0.0);
+            insert->setScale({1.0, 1.0});
+            insert->setCols(1);   // Reset array → single (handles #arrays)
+            insert->setRows(1);
+            insert->update();     // Invalidate old cache
+
+            RS_DEBUG->print(RS_Debug::D_DEBUGGING, "✅ BAKED: '%s' → identity insert",
+                            bakedName.toUtf8().constData());
+        }
     }
 
+    // **ADD TO CLIPBOARD** (standard)
     RS_CLIPBOARD->addEntity(c);
     copyLayers(e);
     copyBlocks(e);
+    c->setLayer(e->getLayer()->getName());  // Layer fix
 
-    // set layer to the layer clone:
-    c->setLayer(e->getLayer()->getName());
-
+    // **CUT HANDLING** (standard)
     if (cut) {
-        LC_UndoSection undo( document);
-        RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::copyEntity: cut ID/flag: %s", getIdFlagString(e).c_str());
+        LC_UndoSection undo(document);
         e->changeUndoState();
         undo.addUndoable(e);
-
-        // delete entity in graphic view:
-        if (graphicView) {
+        if (graphicView)
             graphicView->deleteEntity(e);
-        }
-        e->setSelected(false);
-    } else {
-        RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::copyEntity: delete in view ID/flag: %s", getIdFlagString(e).c_str());
-        // delete entity in graphic view:
-        if (graphicView) {
-            graphicView->deleteEntity(e);
-        }
-        e->setSelected(false);
-        if (graphicView) {
-            graphicView->drawEntity(e);
-        }
+    } else if (graphicView != nullptr) {
+        graphicView->deleteEntity(e);  // Temp hide
+        graphicView->drawEntity(e);    // Restore
     }
+    e->setSelected(false);
 
     RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::copyEntity: OK");
 }
-
-
 
 /**
  * Copies all layers of the given entity to the clipboard.
