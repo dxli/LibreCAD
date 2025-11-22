@@ -55,6 +55,15 @@ public:
     // Validation
     static bool validate(const RS_SplineData& data);
 
+    // NEW: Knot insertion (rational + closed handling)
+    static bool insertKnot(RS_SplineData& splineData, double u);
+
+    // NEW: Global interpolation from fit points
+    static bool setFitPoints(RS_SplineData& splineData,
+                             const std::vector<RS_Vector>& fitPoints,
+                             bool useCentripetal = true,
+                             bool closed = false);
+
 private:
 };
 

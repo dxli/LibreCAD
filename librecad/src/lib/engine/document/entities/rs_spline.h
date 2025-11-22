@@ -66,6 +66,9 @@ struct RS_SplineData {
  * Inherits from RS_EntityContainer.
  */
 class RS_Spline : public RS_EntityContainer {
+    // Give LC_SplineHelper full access to private members
+    friend class LC_SplineHelper;
+
 public:
     /** Constructor with parent and data */
     RS_Spline(RS_EntityContainer* parent, const RS_SplineData& d);
@@ -300,8 +303,8 @@ private:
     /** Internal spline data */
     RS_SplineData data;
 
-    /** Find knot span */
-    static int findSpan(int n, int p, double u, const std::vector<double>& U);
+    /** Find knot span index – returns size_t, no int/size_t mixing */
+    static size_t findSpan(size_t n, size_t p, double u, const std::vector<double>& U);
 
     /** Compute basis functions non-recursively */
     static std::vector<double> basisFunctions(int i, double u, int p, const std::vector<double>& U);
