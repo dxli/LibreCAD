@@ -72,6 +72,7 @@ LC_DlgAbout::LC_DlgAbout(QWidget *parent)
     // Compiler macro list in Qt source tree
     // Src/qtbase/src/corelib/global/qcompilerdetection.h
 
+
     m_info = QString(
         tr("Version: <b>%1</b>").arg(XSTR(LC_VERSION)) + "<br/>" +
 #if defined(Q_CC_CLANG)
