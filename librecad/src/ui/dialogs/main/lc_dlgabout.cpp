@@ -63,6 +63,7 @@ void aboutImageLabels(QLabel* label)
 }
 }
 
+#include "rs_debug.h"
 LC_DlgAbout::LC_DlgAbout(QWidget *parent)
     : LC_Dialog(parent, "About")
     , ui(std::make_unique<Ui::LC_DlgAbout>()){
@@ -72,7 +73,7 @@ LC_DlgAbout::LC_DlgAbout(QWidget *parent)
     // Compiler macro list in Qt source tree
     // Src/qtbase/src/corelib/global/qcompilerdetection.h
 
-
+    LC_ERR<<__func__<<"(): LC_VERSION: "<<XSTR(LC_VERSION);
     m_info = QString(
         tr("Version: <b>%1</b>").arg(XSTR(LC_VERSION)) + "<br/>" +
 #if defined(Q_CC_CLANG)
