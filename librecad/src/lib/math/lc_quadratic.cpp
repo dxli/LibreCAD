@@ -25,17 +25,252 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <numeric>
 
 #include "lc_quadratic.h"
+#include "lc_hyperbola.h"
+#include "lc_parabola.h"
 
 #include "rs_atomicentity.h"
+#include "rs_circle.h"
 #include "rs_debug.h"
 #include "rs_ellipse.h"
 #include "rs_information.h"
 #include "rs_line.h"
 #include "rs_math.h"
+#include "rs_point.h"
+#include "rs_polyline.h"
 
 #ifdef EMU_C99
 #include "emu_c99.h" /* C99 math */
 #endif
+
+namespace {
+
+RS_Line* createLongLine(const RS_Vector& point, const RS_Vector& dir, double half = 400.0) {
+  RS_Vector u = dir; u.normalize();
+  return new RS_Line(nullptr, RS_LineData(point - u * half, point + u * half));
+}
+
+RS_Polyline* createTwoParallelSegments(const RS_Vector& base, const RS_Vector& normal,
+                                       double dist, const RS_Vector& line_dir) {
+  auto poly = new RS_Polyline(nullptr, RS_PolylineData());
+  double h = dist / 2.0;
+  RS_Vector offset1 = normal * h;
+  RS_Vector offset2 = normal * (-h);
+  poly->addVertex(base + offset1 - line_dir * 400.0);
+  poly->addVertex(base + offset1 + line_dir * 400.0);
+  poly->addVertex(base + offset2 - line_dir * 400.0);
+  poly->addVertex(base + offset2 + line_dir * 400.0);
+  return poly;
+}
+
+RS_Polyline* createTwoCrossingSegments(const RS_Vector& center, const RS_Vector& d1, const RS_Vector& d2) {
+  auto poly = new RS_Polyline(nullptr, RS_PolylineData());
+  RS_Vector u1 = d1; u1.normalize();
+  RS_Vector u2 = d2; u2.normalize();
+  poly->addVertex(center - u1 * 500.0); poly->addVertex(center + u1 * 500.0);
+  poly->addVertex(center - u2 * 500.0); poly->addVertex(center + u2 * 500.0);
+  return poly;
+}
+
+bool isLinearOrConstant(const LC_Quadratic::ConicCoeffs& c, RS_Entity*& out) {
+  const double eps = RS_TOLERANCE * c.scale;
+  if (c.quad_norm < eps) {
+    if (c.lin_norm < eps) { out = nullptr; return true; }
+    RS_Vector pt, dr;
+    if (std::abs(c.E) > RS_TOLERANCE) {
+      pt = RS_Vector(0, -c.F / c.E);
+      dr = RS_Vector(1, -c.D / c.E);
+    } else {
+      pt = RS_Vector(-c.F / c.D, 0);
+      dr = RS_Vector(0, 1);
+    }
+    out = createLongLine(pt, dr);
+    return true;
+  }
+  return false;
+}
+
+bool isDegenerate(const LC_Quadratic::ConicCoeffs& c, double& det3) {
+  double A=c.A, h=c.h, D=c.D, E=c.E, F=c.F;
+  det3 = A*(c.C*F - E*E/4) - h*(h*F - D*E/4) + (D/2)*(h*(E/2) - c.C*(D/2));
+  return std::abs(det3) < 1e-6 * c.scale * c.scale;
+}
+
+RS_Vector getCenter(const LC_Quadratic::ConicCoeffs& c, double detQ) {
+  RS_Vector cen;
+  cen.x = (c.B * c.E - 2 * c.C * c.D) / detQ;
+  cen.y = (c.B * c.D - 2 * c.A * c.E) / detQ;
+  return cen;
+}
+
+double evalAt(const LC_Quadratic::ConicCoeffs& c, const RS_Vector& cen) {
+  double x = cen.x, y = cen.y;
+  return c.A*x*x + c.B*x*y + c.C*y*y + c.D*x + c.E*y + c.F;
+}
+
+RS_Entity* handleDegenerate(const LC_Quadratic::ConicCoeffs& c, const RS_Vector& center, double val, double disc, double detQ) {
+  const double eps_abs = RS_TOLERANCE, eps_rel = 1e-8, eps_deg = 1e-6;
+  bool finite_center = std::abs(detQ) > eps_abs * c.quad_norm * c.quad_norm;
+
+         // Parallel lines (degenerate parabola)
+  if (!finite_center && std::abs(disc) < eps_rel * (c.B*c.B + 4*std::abs(c.A*c.C))) {
+    double p = 0, q = 0;
+    if (std::abs(c.A) > eps_abs) {
+      p = (c.A >= 0 ? std::sqrt(c.A) : -std::sqrt(-c.A));
+      q = p != 0 ? c.B / (2*p) : 0;
+    } else if (std::abs(c.C) > eps_abs) {
+      q = (c.C >= 0 ? std::sqrt(c.C) : -std::sqrt(-c.C));
+      p = q != 0 ? c.B / (2*q) : 0;
+    }
+    double norm = std::sqrt(p*p + q*q);
+    if (norm < eps_abs) return nullptr;
+
+    double s = (std::abs(p) > std::abs(q)) ? c.D / p : c.E / q;
+    double delta = s*s - 4*c.F;
+    if (delta < -eps_deg * c.scale) return nullptr;
+    double dist = std::sqrt(std::max(0.0, delta)) / norm;
+
+    RS_Vector n(p/norm, q/norm);
+    RS_Vector line_dir(-n.y, n.x);
+    double r_mid = s / 2;
+    RS_Vector base;
+    if (std::abs(q) > eps_abs) {
+      base.y = -r_mid / q;
+      if (std::abs(p) > eps_abs) base.x = (-r_mid - q*base.y)/p;
+    } else if (std::abs(p) > eps_abs) {
+      base.x = -r_mid / p;
+    }
+
+    if (dist < 1e-5) return createLongLine(base, line_dir);
+    return createTwoParallelSegments(base, n, dist, line_dir);
+  }
+
+         // Intersecting lines / double line / point
+  if (finite_center) {
+    if (std::abs(val) > eps_deg * c.scale) return nullptr;
+
+           // Try quadratic in x at y=center.y
+    double yy = center.y;
+    double aa = c.A, bb = c.B*yy + c.D, cc = c.C*yy*yy + c.E*yy + c.F;
+    double dd = bb*bb - 4*aa*cc;
+
+    if (std::abs(dd) < eps_deg * c.scale*c.scale && std::abs(aa) > eps_abs) {
+      double sd = std::sqrt(std::max(0.0, dd));
+      double x1 = (-bb + sd)/(2*aa);
+      double x2 = (-bb - sd)/(2*aa);
+      RS_Vector d1(x1 - center.x, yy - center.y);
+      RS_Vector d2(x2 - center.x, yy - center.y);
+      if (d1.squared() < 1e-8 || d2.squared() < 1e-8 ||
+          std::abs(d1.dotP(d2)) / (d1.magnitude()*d2.magnitude() + 1e-10) > 0.999) {
+        RS_Vector common = d1.magnitude() > d2.magnitude() ? d1 : d2;
+        return createLongLine(center, common);
+      }
+      return createTwoCrossingSegments(center, d1, d2);
+    }
+
+           // Fallback point
+    return new RS_Point(nullptr, RS_PointData(center));
+  }
+
+  return nullptr;
+}
+
+RS_Entity* handleNonDegenerate(const LC_Quadratic::ConicCoeffs& c, const RS_Vector& center, double val, double disc) {
+  const double eps_abs = RS_TOLERANCE, eps_rel = 1e-8;
+
+  bool is_parabola = std::abs(disc) < eps_rel * (c.B*c.B + 4*std::abs(c.A*c.C));
+  bool is_ellipse  = disc < 0.0;
+
+  double theta = 0.0;
+  if (std::abs(c.B) > eps_abs) {
+    theta = 0.5 * std::atan2(c.B, c.A - c.C);
+  } else if (c.A < c.C - eps_abs) {
+    theta = M_PI / 2.0;
+  }
+  double ct = std::cos(theta), st = std::sin(theta);
+
+  double Ap = c.A*ct*ct + c.B*ct*st + c.C*st*st;
+  double Cp = c.A*st*st - c.B*ct*st + c.C*ct*ct;
+
+  if (std::abs(Ap) < eps_abs || std::abs(Cp) < eps_abs) return nullptr;
+
+  if (is_ellipse) {
+    double alpha = -val / Ap;
+    double beta  = -val / Cp;
+    if (alpha <= 0 || beta <= 0 || alpha < 1e-8 || beta < 1e-8) {
+      return new RS_Point(nullptr, RS_PointData(center));
+    }
+    double smaj = std::sqrt(std::max(alpha, beta));
+    double smin = std::sqrt(std::min(alpha, beta));
+    double ratio = smin / smaj;
+
+    RS_Vector majorP = (alpha >= beta)
+                           ? RS_Vector(ct * smaj, st * smaj)
+                           : RS_Vector(-st * smaj, ct * smaj);
+
+    if (ratio > 0.999 && std::abs(theta) < 1e-5) {
+      return new RS_Circle(nullptr, RS_CircleData(center, smaj));
+    }
+
+    RS_EllipseData ed;
+    ed.center   = center;
+    ed.majorP   = majorP;
+    ed.ratio    = ratio;
+    ed.angle1   = 0.0;
+    ed.angle2   = 2*M_PI;
+    ed.reversed = false;
+    return new RS_Ellipse(nullptr, ed);
+  }
+
+  if (is_parabola) {
+    RS_Vector axis = (std::abs(c.B) < eps_abs)
+    ? (std::abs(c.A) <= std::abs(c.C) ? RS_Vector(1,0) : RS_Vector(0,1))
+    : RS_Vector(std::cos(0.5*std::atan2(c.B, c.A-c.C)),
+                std::sin(0.5*std::atan2(c.B, c.A-c.C)));
+    axis.normalize();
+
+    RS_Vector pdir(-axis.y, axis.x);
+    double denom = std::abs(Ap) + std::abs(Cp) + 0.5*std::abs(c.B);
+    double p = std::abs(val) / (denom + eps_abs);
+    if (p < 1e-6) return new RS_Point(nullptr, RS_PointData(center));
+
+    if (val < 0) pdir = -pdir;
+
+    std::array<RS_Vector, 3> cps = { {
+    center + p*4*axis - 4*p*pdir,
+    center,
+    center + p*4*axis + 4*p*pdir
+    }};
+
+    LC_ParabolaData pd;
+    pd.controlPoints = std::move(cps);
+    return new LC_Parabola(nullptr, pd);
+  }
+
+         // Hyperbola
+  double aa2 = -val / Ap;
+  double bb2 = -val / Cp;
+  if (aa2 <= 0 || bb2 <= 0 || std::min(aa2, bb2) < 1e-8)
+    return nullptr;
+
+  bool x_trans = (Ap * val < 0);
+  double a = std::sqrt(x_trans ? aa2 : bb2);
+  double b = std::sqrt(x_trans ? bb2 : aa2);
+
+  RS_Vector majorP = x_trans
+                         ? RS_Vector(ct*a, st*a)
+                         : RS_Vector(-st*a, ct*a);
+
+  LC_HyperbolaData hd;
+  hd.center   = center;
+  hd.majorP   = majorP;
+  hd.ratio    = b / a;
+  hd.angle1   = 0.0;
+  hd.angle2   = 2*M_PI;
+  hd.reversed = false;
+
+  return new LC_Hyperbola(nullptr, hd);
+}
+} // anonymous namespace
 
 /**
  * Constructor.
@@ -798,6 +1033,54 @@ double LC_Quadratic::evaluateAt(const RS_Vector& p) const
                   m_dConst;                               // F
 
   return result;
+}
+
+RS_Entity* LC_Quadratic::fromQuadratic(const LC_Quadratic& q) const
+{
+  if (!q.isValid()) return nullptr;
+
+  auto c = extractCoefficients();
+
+  RS_Entity* res = nullptr;
+  if (isLinearOrConstant(c, res)) return res;
+
+  double det3 = 0.;
+  bool deg = isDegenerate(c, det3);
+
+  double detQ = 4*c.A*c.C - c.B*c.B;
+  bool finiteC = std::abs(detQ) > RS_TOLERANCE * c.quad_norm * c.quad_norm;
+
+  RS_Vector center = finiteC ? getCenter(c, detQ) : RS_Vector();
+  double val = evalAt(c, center);
+
+  if (finiteC && std::abs(val) > 1e-5 * c.scale)
+    return nullptr;
+
+  if (deg) {
+    return handleDegenerate(c, center, val,
+                            c.B*c.B - 4*c.A*c.C, detQ);
+  }
+
+  return handleNonDegenerate(c, center, val,
+                             c.B*c.B - 4*c.A*c.C);
+}
+
+LC_Quadratic::ConicCoeffs LC_Quadratic::extractCoefficients() const
+{
+  LC_Quadratic::ConicCoeffs c{};
+  c.A = m_mQuad(0, 0);
+  c.h = m_mQuad(0, 1);
+  c.B = 2.0 * c.h;
+  c.C = m_mQuad(1, 1);
+  c.D = m_vLinear(0);
+  c.E = m_vLinear(1);
+  c.F = m_dConst;
+
+  c.quad_norm = std::sqrt(c.A*c.A + c.B*c.B + c.C*c.C);
+  c.lin_norm  = std::sqrt(c.D*c.D + c.E*c.E);
+  c.scale     = std::max({c.quad_norm, c.lin_norm, std::abs(c.F), 1e-6});
+
+  return c;
 }
 
 /**

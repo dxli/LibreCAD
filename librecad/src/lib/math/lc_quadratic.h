@@ -28,9 +28,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 
+class RS_AtomicEntity;
+class RS_Entity;
 class RS_Vector;
 class RS_VectorSolutions;
-class RS_AtomicEntity;
 
 /**
  * Class for generic linear and quadratic equation
@@ -40,6 +41,13 @@ class RS_AtomicEntity;
  */
 class LC_Quadratic {
 public:
+
+  struct ConicCoeffs {
+    double A, B, C, D, E, F;  // A x² + B xy + C y² + D x + E y + F = 0
+    double h;                 // B/2
+    double quad_norm, lin_norm, scale;
+  };
+
     LC_Quadratic();
     LC_Quadratic(const LC_Quadratic& lc0);
     LC_Quadratic& operator = (const LC_Quadratic& lc0);
@@ -113,10 +121,13 @@ public:
      */
     LC_Quadratic getDualCurve() const;
 
+    RS_Entity* fromQuadratic(const LC_Quadratic& q) const;
+
     /** the matrix of rotation by angle **/
     static boost::numeric::ublas::matrix<double> rotationMatrix(double angle);
 
     static RS_VectorSolutions getIntersection(const LC_Quadratic& l1, const LC_Quadratic& l2);
+    ConicCoeffs extractCoefficients() const;
 
     friend std::ostream& operator << (std::ostream& os, const LC_Quadratic& l);
 
