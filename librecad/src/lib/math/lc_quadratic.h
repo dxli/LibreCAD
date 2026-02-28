@@ -28,10 +28,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 
-class RS_AtomicEntity;
-class RS_Entity;
 class RS_Vector;
 class RS_VectorSolutions;
+class RS_AtomicEntity;
+class RS_Entity;
 
 /**
  * Class for generic linear and quadratic equation
@@ -41,13 +41,6 @@ class RS_VectorSolutions;
  */
 class LC_Quadratic {
 public:
-
-  struct ConicCoeffs {
-    double A, B, C, D, E, F;  // A x² + B xy + C y² + D x + E y + F = 0
-    double h;                 // B/2
-    double quad_norm, lin_norm, scale;
-  };
-
     LC_Quadratic();
     LC_Quadratic(const LC_Quadratic& lc0);
     LC_Quadratic& operator = (const LC_Quadratic& lc0);
@@ -112,6 +105,15 @@ public:
           */
     double evaluateAt(const RS_Vector& p) const;
 
+    // Coefficient accessors (const, inline-friendly)
+    double getA() const { return m_mQuad(0, 0); }          // coefficient of x²
+    double getB() const { return 2.0 * m_mQuad(0, 1); }    // coefficient of xy
+    double getC() const { return m_mQuad(1, 1); }          // coefficient of y²
+    double getD() const { return m_vLinear(0); }            // coefficient of x
+    double getE() const { return m_vLinear(1); }            // coefficient of y
+    double getF() const { return m_dConst; }               // constant term
+
+    RS_Entity* toEntity() const;
     /**
      * @brief getDualCurve: the dual curve of the current conic section
      * @return the quadratic of the dual curve, if the current curve is a conic section;
@@ -121,13 +123,10 @@ public:
      */
     LC_Quadratic getDualCurve() const;
 
-    RS_Entity* fromQuadratic(const LC_Quadratic& q) const;
-
     /** the matrix of rotation by angle **/
     static boost::numeric::ublas::matrix<double> rotationMatrix(double angle);
 
     static RS_VectorSolutions getIntersection(const LC_Quadratic& l1, const LC_Quadratic& l2);
-    ConicCoeffs extractCoefficients() const;
 
     friend std::ostream& operator << (std::ostream& os, const LC_Quadratic& l);
 
