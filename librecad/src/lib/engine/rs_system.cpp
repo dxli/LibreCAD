@@ -627,8 +627,8 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) const
     }
 #endif
 
-    dirList.append( QDir::cleanPath( executableDirectory + "/../lib/" + appDirName);
-    dirList.append( QDir::cleanPath( executableDirectory + "/../lib64/" + appDirName);
+    dirList.append(QDir::cleanPath( executableDirectory + "/../lib/" + appDirName));
+    dirList.append(QDir::cleanPath( executableDirectory + "/../lib64/" + appDirName));
 
     for (auto& dir: dirList) {
 
