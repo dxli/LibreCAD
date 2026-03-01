@@ -43,7 +43,7 @@ strip unix/plugins/*.so
 
 # copy executables and binary resources
 cp unix/librecad appdir/usr/bin/
-cp unix/plugins/*.so appdir/usr/lib/librecad/
+cp unix/plugins/*/*.so appdir/usr/lib/librecad/
 cp -r unix/resources/qm appdir/usr/share/librecad/
 
 cp desktop/librecad.desktop appdir/usr/share/applications/
