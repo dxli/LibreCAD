@@ -3,6 +3,7 @@ set(PLUGIN_NAME sample)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
+CLASS_NAME ${PLUGIN_NAME}
 ${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     sample.cpp

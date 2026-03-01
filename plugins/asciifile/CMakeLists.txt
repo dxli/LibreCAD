@@ -3,6 +3,7 @@ set(PLUGIN_NAME asciifile)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
+CLASS_NAME ${PLUGIN_NAME}
     ${PLUGIN_HEADERS}
     asciifile.cpp
     asciifile.h

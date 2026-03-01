@@ -27,12 +27,10 @@ class QComboBox;
 class lc_Geardlg : public QDialog
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.librecad.gear.MyInterface" FILE "gear.json")
-
 
 public:
-    explicit lc_Geardlg(QWidget *parent);
-    virtual ~lc_Geardlg();
+    explicit lc_Geardlg(QWidget *parent = nullptr);
+    ~lc_Geardlg() override;
 
 public slots:
     void processAction(Document_Interface *doc, const QString& cmd, QPointF& center);
