@@ -3,6 +3,7 @@ set(PLUGIN_NAME pointstocsv)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
+${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     pointstocsv.cpp
     pointstocsv.h

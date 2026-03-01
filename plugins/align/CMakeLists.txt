@@ -3,6 +3,7 @@ set(PLUGIN_NAME align)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
+${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     align.cpp
     align.h

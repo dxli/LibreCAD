@@ -3,6 +3,7 @@ set(PLUGIN_NAME divide)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
+${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     divide.cpp
     divide.h
