@@ -282,17 +282,20 @@ RS_Entity* createDegeneratePointOrIntersecting(
   return poly;
 }
 
-RS_Entity* createEllipseOrCircle(
-    const LC_Quadratic& q,
-    const RS_Vector& center,
-    double valueAtCenter,
-    double Ap,
-    double Cp,
-    double theta)
+// ---------------------------------------------------------------------------
+// 1. Ellipse / Circle
+// ---------------------------------------------------------------------------
+RS_Entity* createEllipseOrCircle(const LC_Quadratic& q,
+                                 const RS_Vector& center,
+                                 double valueAtCenter,
+                                 double Ap,
+                                 double Cp,
+                                 double theta)
 {
   double alpha = -valueAtCenter / Ap;
   double beta  = -valueAtCenter / Cp;
 
+         // Imaginary ellipse → degenerate to point
   if (alpha <= 0 || beta <= 0 || alpha < 1e-8 || beta < 1e-8) {
     return new RS_Point(nullptr, RS_PointData(center));
   }
@@ -301,55 +304,63 @@ RS_Entity* createEllipseOrCircle(
   double semiMinor = std::sqrt(std::min(alpha, beta));
   double ratio     = semiMinor / semiMajor;
 
-  RS_Vector majorP;
-  if (alpha >= beta) {
-    majorP = RS_Vector(std::cos(theta) * semiMajor, std::sin(theta) * semiMajor);
-  } else {
-    majorP = RS_Vector(-std::sin(theta) * semiMajor, std::cos(theta) * semiMajor);
-  }
+  RS_Vector majorP = (alpha >= beta)
+                         ? RS_Vector(std::cos(theta) * semiMajor, std::sin(theta) * semiMajor)
+                         : RS_Vector(-std::sin(theta) * semiMajor, std::cos(theta) * semiMajor);
 
-         // Fast-path circle detection
+         // Fast-path: nearly perfect circle with negligible rotation
   if (ratio > 0.999 && std::abs(theta) < 1e-5) {
     return new RS_Circle(nullptr, RS_CircleData(center, semiMajor));
   }
 
-  RS_EllipseData ed;
-  ed.center     = center;
-  ed.majorP     = majorP;
-  ed.ratio      = ratio;
-  ed.angle1     = 0.0;
-  ed.angle2     = 2.0 * M_PI;
-  ed.reversed = false;
+  RS_EllipseData data;
+  data.center     = center;
+  data.majorP     = majorP;
+  data.ratio      = ratio;
+  data.angle1     = 0.0;
+  data.angle2     = 0.;
+  data.reversed = false;
 
-  return new RS_Ellipse(nullptr, ed);
+  return new RS_Ellipse(nullptr, data);
 }
 
-RS_Entity* createParabola(
-    const LC_Quadratic& q,
-    const RS_Vector& center,
-    double valueAtCenter,
-    double Ap,
-    double Cp)
+// ---------------------------------------------------------------------------
+// 2. Parabola (Fixed for v == 0 case)
+// ---------------------------------------------------------------------------
+RS_Entity* createParabola(const LC_Quadratic& q,
+                          const RS_Vector& center,
+                          double valueAtCenter,
+                          double Ap,
+                          double Cp)
 {
-  // ─── Determine parabola axis direction ───────────────────────────────
+  // Determine axis direction
   RS_Vector axis;
-  double B = q.getB();
-  double A = q.getA();
-  double C = q.getC();
-
-  if (std::abs(B) < RS_TOLERANCE) {
-    axis = (std::abs(A) <= std::abs(C)) ? RS_Vector(1,0) : RS_Vector(0,1);
+  if (std::abs(q.getB()) < RS_TOLERANCE) {
+    axis = std::abs(q.getA()) <= std::abs(q.getC())
+    ? RS_Vector(1.0, 0.0)
+    : RS_Vector(0.0, 1.0);
   } else {
-    double angle = 0.5 * std::atan2(B, A - C);
+    double angle = 0.5 * std::atan2(q.getB(), q.getA() - q.getC());
     axis = RS_Vector(std::cos(angle), std::sin(angle));
   }
   axis.normalize();
 
   RS_Vector perp(-axis.y, axis.x);
 
-         // ─── Estimate focal parameter p (4p = latus rectum) ───────────────────
-  double denom = std::abs(Ap) + std::abs(Cp) + 0.5 * std::abs(B);
+         // Estimate focal parameter p
+  double denom = std::abs(Ap) + std::abs(Cp) + 0.5 * std::abs(q.getB());
   double p = std::abs(valueAtCenter) / (denom + RS_TOLERANCE);
+
+         // Special case: v == 0 (standard parabola with vertex at center)
+  if (p < 1e-6) {
+    // Try to estimate p from linear terms along axis
+    double linear = q.getB() * axis.x * axis.y + q.getD() * axis.x + q.getE() * axis.y;
+    if (std::abs(linear) > RS_TOLERANCE) {
+      p = std::abs(linear) / (2.0 * denom);
+    } else {
+      p = 1.0;  // default reasonable p
+    }
+  }
 
   if (p < 1e-6) {
     return new RS_Point(nullptr, RS_PointData(center));
@@ -359,7 +370,6 @@ RS_Entity* createParabola(
     perp = -perp;
   }
 
-         // ─── Three control points (t = -2, 0, +2) ─────────────────────────────
   std::array<RS_Vector, 3> cps = {
       center + p*4*axis - 4*p*perp,
       center,
@@ -372,7 +382,19 @@ RS_Entity* createParabola(
   return new LC_Parabola(nullptr, data);
 }
 
-RS_Entity* createHyperbola(
+// ---------------------------------------------------------------------------
+// 3. Hyperbola (Fixed sign handling)
+// ---------------------------------------------------------------------------
+/**
+ * Creates both branches of a hyperbola as separate LC_Hyperbola entities in a container.
+ *
+ * - First branch: center + majorP direction, parameter angle -4 to +4 radians
+ * - Second branch: center - majorP direction, parameter angle -4 to +4 radians
+ *
+ * @return RS_EntityContainer* containing two LC_Hyperbola (caller takes ownership)
+ *         or nullptr if invalid
+ */
+RS_Entity* LC_QuadraticUtils::createHyperbola(
     const LC_Quadratic& q,
     const RS_Vector& center,
     double valueAtCenter,
@@ -380,30 +402,56 @@ RS_Entity* createHyperbola(
     double Cp,
     double theta)
 {
-  double a2 = -valueAtCenter / Ap;
-  double b2 = -valueAtCenter / Cp;
+  double aa2 = -valueAtCenter / Ap;
+  double bb2 = -valueAtCenter / Cp;
 
-  if (a2 <= 0 || b2 <= 0 || std::min(a2, b2) < 1e-8) {
+         // Must have opposite signs for real hyperbola
+  if (aa2 * bb2 >= 0) {
     return nullptr;
   }
 
-  bool xTransverse = Ap * valueAtCenter < 0;
-  double semiTrans = std::sqrt(xTransverse ? a2 : b2);
-  double semiConj  = std::sqrt(xTransverse ? b2 : a2);
+         // Ensure aa2 > 0 (transverse axis) and bb2 < 0
+  if (aa2 < 0) {
+    std::swap(aa2, bb2);
+    theta += M_PI / 2.0;
+  }
 
-  RS_Vector majorP = xTransverse
-                         ? RS_Vector(std::cos(theta) * semiTrans, std::sin(theta) * semiTrans)
-                         : RS_Vector(-std::sin(theta) * semiTrans, std::cos(theta) * semiTrans);
+  if (aa2 <= 0 || bb2 >= 0) {
+    return nullptr;
+  }
 
-  LC_HyperbolaData data;
-  data.center   = center;
-  data.majorP   = majorP;
-  data.ratio    = semiConj / semiTrans;
-  data.angle1   = 0.0;
-  data.angle2   = 2.0 * M_PI;
-  data.reversed = false;
+  double semiTrans = std::sqrt(aa2);
+  double semiConj  = std::sqrt(-bb2);
 
-  return new LC_Hyperbola(nullptr, data);
+         // Direction of transverse axis (majorP)
+  RS_Vector majorP = RS_Vector(std::cos(theta) * semiTrans, std::sin(theta) * semiTrans);
+
+         // Create container for both branches
+  auto container = new RS_EntityContainer(nullptr, true);
+
+         // First branch: +majorP direction, angle -4 to +4 rad
+  LC_HyperbolaData data1;
+  data1.center   = center;
+  data1.majorP   = majorP;
+  data1.ratio    = semiConj / semiTrans;
+  data1.angle1   = -4.0;
+  data1.angle2   = 4.0;
+  data1.reversed = false;
+
+  container->addEntity(new LC_Hyperbola(container, data1));
+
+         // Second branch: -majorP direction, angle -4 to +4 rad
+  LC_HyperbolaData data2;
+  data2.center   = center;
+  data2.majorP   = -majorP;  // opposite direction
+  data2.ratio    = semiConj / semiTrans;
+  data2.angle1   = -4.0;
+  data2.angle2   = 4.0;
+  data2.reversed = false;
+
+  container->addEntity(new LC_Hyperbola(container, data2));
+
+  return container;
 }
 
 RS_Entity* createDualAroundCenter(
@@ -432,6 +480,7 @@ RS_Entity* createDualAroundCenter(
          // 4. Preserve original visual attributes (pen, layer)
   dualEntity->setPen(entity->getPen());
   dualEntity->setLayer(entity->getLayer());
+  dualEntity->setPenToActive();
 
          // Return ownership to caller
   return dualEntity.release();

@@ -111,8 +111,19 @@ void LC_ActionDrawDual::createDualForSelected()
            // Delegate dual creation to the utility function
     RS_Entity* dualCopy = LC_QuadraticUtils::createDualAroundCenter(e, m_center);
 
-    if (dualCopy) {
-      dualGroup->addEntity(dualCopy);
+    if (dualCopy != nullptr) {
+      if (dualCopy->isContainer()) {
+        auto* dualContainer = static_cast<RS_EntityContainer*>(dualCopy);
+        for (RS_Entity* dual: *dualContainer) {
+          dualGroup->addEntity(dual);
+        }
+        dualContainer->setOwner(false);
+        dualContainer->clear();
+        delete dualCopy;
+      } else {
+          dualGroup->addEntity(dualCopy);
+      }
+      e->setSelected(false);
     }
   }
 
@@ -123,8 +134,9 @@ void LC_ActionDrawDual::createDualForSelected()
 
          // Undo support (optional – already added in previous version)
   LC_UndoSection undo(m_document, m_viewport, true);
-  for(RS_Entity* en: m_selectedEntities) {
+  for(RS_Entity* en: *dualGroup) {
     m_container->addEntity(en);
+    en->reparent(m_container);
     undo.addUndoable(en);
   }
 

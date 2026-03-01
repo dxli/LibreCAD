@@ -817,9 +817,9 @@ RS_Entity* LC_Quadratic::toEntity() const
   RS_Vector center = computeCenter(*this);
   double v = evaluateAt(center);
 
-  if (center.isValid() && std::abs(v) > 1e-5 * computeScale(*this)) {
-    return nullptr;
-  }
+  // if (center.isValid() && std::abs(v) > 1e-5 * computeScale(*this)) {
+  //   return nullptr;
+  // }
 
   if (isDegenerate(*this)) {
     return createDegeneratePointOrIntersecting(*this, center, v);
