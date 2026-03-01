@@ -3,12 +3,12 @@ set(PLUGIN_NAME divide)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
-${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     divide.cpp
     divide.h
     dividedlg.cpp
     dividedlg.h
+    ${PLUGIN_NAME}.json
 )
 
 #qt_add_translations(${PLUGIN_NAME} TS_FILE_DIR ../ts TS_FILES ${PLUGIN_TS_FILES})

@@ -3,10 +3,10 @@ set(PLUGIN_NAME asciifile)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
-${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     asciifile.cpp
     asciifile.h
+    ${PLUGIN_NAME}.json
 )
 
 #qt_add_translations(${PLUGIN_NAME} TS_FILE_DIR ../ts TS_FILES ${PLUGIN_TS_FILES})

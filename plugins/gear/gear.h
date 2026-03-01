@@ -27,6 +27,8 @@ class QComboBox;
 class lc_Geardlg : public QDialog
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.librecad.gear.MyInterface" FILE "gear.json")
+
 
 public:
     explicit lc_Geardlg(QWidget *parent);
