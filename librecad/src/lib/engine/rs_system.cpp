@@ -607,6 +607,7 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) const
     }
 
     RS_DEBUG->print("%s\n", QString("%1(): line %2: dir=%3").arg(__func__).arg(__LINE__).arg(appDir).toUtf8().constData());
+     const QString executableDirectory = QCoreApplication::applicationDirPath();
 
 #if (defined(Q_OS_WIN32) || defined(Q_OS_WIN64) || defined(Q_OS_UNIX))
     // for AppImage use relative paths from executable
@@ -625,6 +626,10 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) const
         dirList.append( QDir::cleanPath( appDir + "/../lib/" + appDirName));
     }
 #endif
+
+    dirList.append( QDir::cleanPath( executableDirectory + "/../lib/" + appDirName);
+    dirList.append( QDir::cleanPath( executableDirectory + "/../lib64/" + appDirName);
+
     for (auto& dir: dirList) {
 
         RS_DEBUG->print("%s\n", QString("%1(): line %2: dir=%3\n").arg(__func__).arg(__LINE__).arg(dir).toUtf8().constData());

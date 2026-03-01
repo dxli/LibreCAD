@@ -39,11 +39,11 @@ mkdir -p appdir/usr/share/librecad
 
 # strip binaries
 strip unix/librecad
-strip unix/resources/plugins/*.so
+strip unix/plugins/*.so
 
 # copy executables and binary resources
 cp unix/librecad appdir/usr/bin/
-cp unix/resources/plugins/*.so appdir/usr/lib/librecad/
+cp unix/plugins/*.so appdir/usr/lib/librecad/
 cp -r unix/resources/qm appdir/usr/share/librecad/
 
 cp desktop/librecad.desktop appdir/usr/share/applications/
