@@ -45,6 +45,8 @@ strip unix/plugins/*.so
 cp unix/librecad appdir/usr/bin/
 cp unix/plugins/*/*.so appdir/usr/lib/librecad/
 cp -r unix/resources/qm appdir/usr/share/librecad/
+rsync -av --include='*/' --include='*.json' --exclude='*' plugins/ appdir/usr/lib/librecad/
+rsync -av --include='*/' --include='*.qm' --exclude='*' plugins/ appdir/usr/share/librecad/qm/
 
 cp desktop/librecad.desktop appdir/usr/share/applications/
 cp desktop/org.librecad.librecad.appdata.xml appdir/usr/share/metainfo/
