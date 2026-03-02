@@ -195,19 +195,54 @@ std::tuple<double, double, RS_Vector> computeEllipseSemiAxesAndMajorP(
 
 // ─── Entity creation helpers ──────────────────────────────────────────────
 
-RS_Entity* createLineFromLinearCoefficients(const LC_Quadratic& q) {
-  double D = q.getD(), E = q.getE(), F = q.getF();
-  double ln = std::hypot(D, E);
-  double s = std::max({ln, std::abs(F), 1e-6});
-  const double e = RS_TOLERANCE;
+/**
+ * Creates an RS_Line from a linear (or nearly linear) quadratic equation.
+ * Returns nullptr if the equation is constant or invalid.
+ *
+ * @param q The LC_Quadratic object (assumed to be linear)
+ * @return RS_Line* with a long visible segment, or nullptr
+ */
+RS_Entity* LC_QuadraticUtils::createLineFromLinearCoefficients(const LC_Quadratic& q)
+{
+  double D = q.getD();
+  double E = q.getE();
+  double F = q.getF();
 
-  if (ln < e * s) return nullptr;
+  double linNorm = std::hypot(D, E);
+  double scale   = std::max({linNorm, std::abs(F), 1e-6});
+  const double eps = RS_TOLERANCE * 10;  // Slightly looser tolerance for near-zero cases
 
-  RS_Vector base = std::abs(E) > e ? RS_Vector(0, -F/E) : RS_Vector(-F/D, 0);
-  RS_Vector dir  = std::abs(E) > e ? RS_Vector(-E, D) : RS_Vector(0, 1);
+         // If linear norm is negligible → constant equation (whole plane or empty)
+  if (linNorm < eps * scale) {
+    return nullptr;
+  }
+
+         // Find one point on the line D x + E y + F = 0
+  RS_Vector base;
+  if (std::abs(E) > eps) {
+    // Solve for y when x = 0
+    base = RS_Vector(0.0, -F / E);
+  } else if (std::abs(D) > eps) {
+    // Solve for x when y = 0
+    base = RS_Vector(-F / D, 0.0);
+  } else {
+    // Should not reach here (linNorm > 0)
+    return nullptr;
+  }
+
+         // Direction vector perpendicular to normal (D, E)
+  RS_Vector dir(-E, D);
+  if (dir.squared() < 1e-12) {
+    dir = RS_Vector(1.0, 0.0);  // fallback
+  }
   dir.normalize();
 
-  return new RS_Line(nullptr, {base - dir*400, base + dir*400});
+         // Create a long visible line segment centered at base point
+  const double halfLength = 400.0;  // arbitrary large enough for visibility
+  return new RS_Line(nullptr, RS_LineData{
+                                  base - dir * halfLength,
+                                  base + dir * halfLength
+                              });
 }
 
 /**

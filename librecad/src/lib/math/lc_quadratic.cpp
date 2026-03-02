@@ -445,49 +445,119 @@ std::vector<double>  LC_Quadratic::getCoefficients() const
  * @param offset Translation vector (dx, dy)
  * @return Translated LC_Quadratic
  */
+/**
+ * Translates the quadratic / line by the given offset vector.
+ * Works for both quadratic and linear cases.
+ */
 LC_Quadratic& LC_Quadratic::move(const RS_Vector& offset)
 {
-  if (!isValid()) {
-    return *this;
+  if (!isValid()) return *this;
+
+  const double dx = offset.x;
+  const double dy = offset.y;
+
+  if (isQuadratic()) {
+    // Full quadratic translation
+    m_vLinear(0) -= 2.0 * getA() * dx + getB() * dy;
+    m_vLinear(1) -= getB() * dx + 2.0 * getC() * dy;
+    m_dConst += getA()*dx*dx + getB()*dx*dy + getC()*dy*dy + getD()*dx + getE()*dy;
+  } else {
+    // Pure linear case: D x + E y + F = 0 → D (x+dx) + E (y+dy) + F = 0
+    // → D x + E y + (F + D dx + E dy) = 0
+    m_dConst += getD() * dx + getE() * dy;
   }
-
-  std::vector<double> coeffs = getCoefficients();
-  double A = coeffs[0];
-  double B = coeffs[1];
-  double C = coeffs[2];
-  double D = coeffs[3];
-  double E = coeffs[4];
-  double F = coeffs[5];
-
-  double dx = offset.x;
-  double dy = offset.y;
-
-  m_vLinear(0) = D - 2.0 * A * dx - B * dy;
-  m_vLinear(1) = E - B * dx - 2.0 * C * dy;
-  m_dConst = F + A * dx * dx + B * dx * dy + C * dy * dy - D * dx - E * dy;
 
   return *this;
 }
 
-LC_Quadratic& LC_Quadratic::rotate(double angle)
+
+/**
+ * Non-uniform scaling from the given center.
+ * Works for both quadratic and linear cases.
+ */
+LC_Quadratic& LC_Quadratic::scale(const RS_Vector& center, const RS_Vector& factor)
 {
-    using namespace boost::numeric::ublas;
-    matrix<double> m=rotationMatrix(angle);
-    matrix<double> t=trans(m);
-    m_vLinear = prod(t, m_vLinear);
-    if(m_bIsQuadratic){
-        m_mQuad=prod(m_mQuad,m);
-        m_mQuad=prod(t, m_mQuad);
-    }
+  if (!isValid() || factor.magnitude() < RS_TOLERANCE) {
     return *this;
+  }
+
+  double sx = factor.x;
+  double sy = factor.y;
+  double cx = center.x;
+  double cy = center.y;
+
+  if (std::abs(sx) < RS_TOLERANCE || std::abs(sy) < RS_TOLERANCE) {
+    // Degenerate scaling → invalidate
+    m_bValid = false;
+    return *this;
+  }
+
+  move(-center);  // shift to origin
+
+  if (isQuadratic()) {
+    double A = getA(), B = getB(), C = getC();
+    double D = getD(), E = getE(), F = getF();
+
+           // Scale quadratic terms
+    m_mQuad(0,0) = A / (sx * sx);
+    m_mQuad(0,1) = B / (sx * sy) / 2.0;
+    m_mQuad(1,1) = C / (sy * sy);
+
+           // Scale linear terms
+    m_vLinear(0) = D / (sx * sx);
+    m_vLinear(1) = E / (sy * sy);
+
+           // Scale constant (no change needed after shift)
+  } else {
+    // Linear case: D (x/sx) + E (y/sy) + F = 0
+    // → (D/sx) x + (E/sy) y + F = 0
+    m_vLinear(0) /= sx;
+    m_vLinear(1) /= sy;
+    // F unchanged
+  }
+
+  move(center);  // shift back
+
+  return *this;
 }
 
+
+LC_Quadratic& LC_Quadratic::rotate(double angle)
+{
+  if (std::abs(angle) < RS_TOLERANCE) return *this;
+
+  using namespace boost::numeric::ublas;
+
+  matrix<double> R = rotationMatrix(angle);
+  matrix<double> Rt = trans(R);
+
+         // Rotate linear part
+  m_vLinear = prod(Rt, m_vLinear);
+
+  if (m_bIsQuadratic) {
+    // Rotate quadratic matrix
+    m_mQuad = prod(m_mQuad, R);
+    m_mQuad = prod(Rt, m_mQuad);
+  }
+
+         // Optional: renormalize to avoid coefficient explosion
+         // normalize();
+
+  return *this;
+}
+
+/**
+ * Rotates the quadratic / line around the given center by the given angle (radians).
+ * Works for both quadratic and linear cases.
+ */
 LC_Quadratic& LC_Quadratic::rotate(const RS_Vector& center, double angle)
 {
-    move(-center);
-    rotate(angle);
-    move(center);
-    return *this;
+  if (!isValid()) return *this;
+
+  move(-center);
+  rotate(angle);
+  move(center);
+  return *this;
 }
 
 /**
@@ -505,52 +575,6 @@ LC_Quadratic& LC_Quadratic::rotate(const RS_Vector& center, double angle)
  * @param factor Scaling factors (sx, sy)
  * @return Reference to this (modified) LC_Quadratic
  */
-LC_Quadratic& LC_Quadratic::scale(const RS_Vector& center, const RS_Vector& factor)
-{
-  if (!isValid() || factor.magnitude() < RS_TOLERANCE) {
-    m_bValid = false;
-    return *this;
-  }
-
-  double sx = factor.x;
-  double sy = factor.y;
-  double cx = center.x;
-  double cy = center.y;
-
-  if (std::abs(sx) < RS_TOLERANCE || std::abs(sy) < RS_TOLERANCE) {
-    m_bValid = false;
-    return *this;
-  }
-
-  double A = m_mQuad(0,0);
-  double B = 2.0 * m_mQuad(0,1);  // full B coefficient
-  double C = m_mQuad(1,1);
-  double D = m_vLinear(0);
-  double E = m_vLinear(1);
-  double F = m_dConst;
-
-         // Apply non-uniform scaling transformation
-  double A_new = A / (sx * sx);
-  double B_new = B / (sx * sy);
-  double C_new = C / (sy * sy);
-
-  double D_new = (D - 2.0 * A * cx - B * cy) / (sx * sx) + (B * cy) / (sx * sy);
-  double E_new = (E - B * cx - 2.0 * C * cy) / (sy * sy) + (B * cx) / (sx * sy);
-
-  double F_new = F + A * cx * cx + B * cx * cy + C * cy * cy
-                 - D * cx - E * cy;
-
-         // Update internal representation
-  m_mQuad(0,0) = A_new;
-  m_mQuad(0,1) = m_mQuad(1,0) = B_new * 0.5;
-  m_mQuad(1,1) = C_new;
-  m_vLinear(0) = D_new;
-  m_vLinear(1) = E_new;
-  m_dConst = F_new;
-
-  m_bValid = true;
-  return *this;
-}
 
 /**
  * @author{Dongxu Li}
