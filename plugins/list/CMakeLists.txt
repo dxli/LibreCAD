@@ -3,7 +3,7 @@ set(PLUGIN_NAME list)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
-CLASS_NAME ${PLUGIN_NAME}
+    CLASS_NAME LC_List
     ${PLUGIN_HEADERS}
     list.cpp
     list.h

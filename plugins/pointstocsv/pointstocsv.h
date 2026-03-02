@@ -13,12 +13,13 @@
 #ifndef EXPTOCSV_H
 #define EXPTOCSV_H
 
-#include <QDialog>
-#include "qc_plugininterface.h"
-#include "document_interface.h"
-#include <QTextEdit>
 #include <QComboBox>
+#include <QDialog>
 #include <QLabel>
+#include <QTextEdit>
+
+#include "document_interface.h"
+#include "qc_plugininterface.h"
 
 
 class Plug_Entity;

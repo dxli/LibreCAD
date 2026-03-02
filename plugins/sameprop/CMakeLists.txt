@@ -3,8 +3,8 @@ set(PLUGIN_NAME sameprop)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
-CLASS_NAME ${PLUGIN_NAME}
-${PLUGIN_NAME}.json
+    CLASS_NAME LC_SameProp
+    ${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     sameprop.cpp
     sameprop.h

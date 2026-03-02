@@ -3,8 +3,8 @@ set(PLUGIN_NAME picfile)
 qt_add_plugin(
     ${PLUGIN_NAME}
     SHARED
-CLASS_NAME ${PLUGIN_NAME}
-${PLUGIN_NAME}.json
+    CLASS_NAME PicFile
+    ${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
     picfile.cpp
     picfile.h
