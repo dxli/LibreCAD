@@ -188,7 +188,9 @@ void RS_Point::draw(RS_Painter* painter) {
 
 LC_Quadratic RS_Point::getQuadratic() const
 {
-  return LC_Quadratic{{data.pos.x, data.pos.y, 1.}};
+  const double a = data.pos.x;
+  const double b = data.pos.y;
+  return LC_Quadratic({1., 0., 1., -2.*a, -2.*b, a*a + b*b});
 }
 
 

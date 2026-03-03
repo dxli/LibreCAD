@@ -770,8 +770,16 @@ boost::numeric::ublas::matrix<double> LC_Quadratic::rotationMatrix(double angle)
  */
 LC_Quadratic LC_Quadratic::getDualCurve() const
 {
+  if (!isValid()) {
+    return {};
+  }
   if (!isQuadratic()) {
-    return LC_Quadratic{};
+    // linear
+    double a = m_vLinear(0);
+    double b = m_vLinear(1);
+    double c = m_dConst;
+
+    return LC_Quadratic({a*a, 2*a*b, b*b, 2*a*c, 2*b*c, c*c}).getDualCurve();
   }
 
          // Primal coefficients: A x² + B xy + C y² + D x + E y + F = 0
