@@ -2,7 +2,6 @@ set(PLUGIN_NAME align)
 
 qt_add_plugin(
     ${PLUGIN_NAME}
-    SHARED
     CLASS_NAME LC_Align
     ${PLUGIN_NAME}.json
     ${PLUGIN_HEADERS}
@@ -16,10 +15,10 @@ install(TARGETS ${PLUGIN_NAME} BUNDLE DESTINATION bin LIBRARY DESTINATION bin/re
 set_target_properties(
     ${PLUGIN_NAME}
     PROPERTIES
-STRIP_EXCLUDE ON
     AUTOMOC ON
-    AUTOUIC ON
 )
+
+target_include_directories(${PLUGIN_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
  target_compile_definitions(${PLUGIN_NAME} PRIVATE
  DWGSUPPORT
