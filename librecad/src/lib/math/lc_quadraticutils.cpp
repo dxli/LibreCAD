@@ -497,6 +497,32 @@ RS_Entity* createDualAroundCenter(
     return nullptr;
   }
 
+  switch (entity->rtti()) {
+  case RS2::EntityLine:
+  {
+    auto* line = static_cast<RS_Line*>(entity);
+    RS_Vector normal = line->getNormalVector();
+    double c = - normal.dotP(line->getStartpoint().move(-center));
+    if (RS_Math::equal(c, 0.))
+      return nullptr;
+    return new RS_Point{nullptr, {RS_Vector{normal.x/c, normal.y/c} + center}};
+  }
+  break;
+  case RS2::EntityPoint:
+  {
+    auto* point = static_cast<RS_Point*>(entity);
+    RS_Vector pos = point->getPos().move(-center);
+    // pos.x * x + pos.y * y + 1 = 0
+    if (RS_Math::equal(std::hypot(pos.x, pos.y), 0.))
+      return nullptr;
+    LC_Quadratic dualQ{{pos.x, pos.y, 1.}};
+    return dualQ.move(center).toEntity();
+  }
+  break;
+  default:
+    break;
+  }
+
          // 1. Get quadratic representation of the original entity
   LC_Quadratic q = entity->getQuadratic();
   if (!q.isValid()) {
