@@ -458,13 +458,18 @@ LC_Quadratic& LC_Quadratic::move(const RS_Vector& offset)
 
   if (isQuadratic()) {
     // Full quadratic translation
+    // A(x-dx)^2 + B (x-dx)(y-dy) + C(y-dy)^2 + D(x-dx) + E(y-dy) + F = 0
+    // A x^2 + B xy + C y^2 +(D - 2Adx - B dy)x + (E-Bdx -2Cdy)y + (A dx^2 + B dx dy + c dy^2 - D dx - E dy +F)
+    const double D = getD();
+    const double E = getE();
+
     m_vLinear(0) -= 2.0 * getA() * dx + getB() * dy;
     m_vLinear(1) -= getB() * dx + 2.0 * getC() * dy;
-    m_dConst += getA()*dx*dx + getB()*dx*dy + getC()*dy*dy + getD()*dx + getE()*dy;
+    m_dConst += getA() * dx * dx + getB() * dx * dy + getC() * dy * dy - D * dx - E * dy;
   } else {
-    // Pure linear case: D x + E y + F = 0 → D (x+dx) + E (y+dy) + F = 0
-    // → D x + E y + (F + D dx + E dy) = 0
-    m_dConst += getD() * dx + getE() * dy;
+    // Pure linear case: D x + E y + F = 0 → D (x-dx) + E (y-dy) + F = 0
+    // → D x + E y + (F - D dx - E dy) = 0
+    m_dConst -= getD() * dx + getE() * dy;
   }
 
   return *this;
@@ -483,8 +488,6 @@ LC_Quadratic& LC_Quadratic::scale(const RS_Vector& center, const RS_Vector& fact
 
   double sx = factor.x;
   double sy = factor.y;
-  double cx = center.x;
-  double cy = center.y;
 
   if (std::abs(sx) < RS_TOLERANCE || std::abs(sy) < RS_TOLERANCE) {
     // Degenerate scaling → invalidate
