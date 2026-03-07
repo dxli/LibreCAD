@@ -72,7 +72,7 @@ class LC_Gear : public QObject, QC_PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(QC_PluginInterface)
-    Q_PLUGIN_METADATA(IID LC_DocumentInterface_iid FILE  "gear.json")
+    Q_PLUGIN_METADATA(IID LC_DocumentInterface_iid FILE  ":/gear.json")
 
     lc_Geardlg      *parameters_dialog {nullptr};
 
