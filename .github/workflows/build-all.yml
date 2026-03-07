@@ -47,7 +47,8 @@ jobs:
           cd unix
           ./librecad_tests
           ls plugins/gear/
-          strings plugins/gear/lib*.so|grep IID
+          which strings
+          strings plugins/gear/lib*.so
 
       - name: Create AppImage
         run: |
