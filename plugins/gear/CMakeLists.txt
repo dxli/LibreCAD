@@ -3,6 +3,7 @@ set(PLUGIN_NAME gear)
 qt_add_plugin(
     ${PLUGIN_NAME}
     ${PLUGIN_HEADERS}
+    ${PLUGIN_NAME}.json
     gear.cpp
     gear.h
 )
