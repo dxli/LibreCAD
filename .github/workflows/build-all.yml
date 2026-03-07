@@ -41,12 +41,13 @@ jobs:
           cmake -S . -B unix -DBUILD_TESTS=ON
           echo "cmake build"
           cmake --build unix -j$(nproc)
-          strings unix/plugins/gear/libgear.so|grep IID
           
       - name: Run Tests
         run: |
           cd unix
           ./librecad_tests
+          ls plugins/gear/
+          strings plugins/gear/lib*.so|grep IID
 
       - name: Create AppImage
         run: |
