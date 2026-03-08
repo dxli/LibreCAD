@@ -21,6 +21,8 @@ SOURCES += gear.cpp
 
 HEADERS += gear.h
 
+RESOURCES += gear.qrc
+
 # Installation Directory
 win32 {
         DESTDIR = ../../windows/resources/plugins

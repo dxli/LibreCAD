@@ -9,6 +9,9 @@ qt_add_plugin(
     gear.qrc
 )
 
+qt_add_resources(PLUGIN_RESOURCES gear.qrc)
+target_sources(${PLUGIN_NAME} PRIVATE ${PLUGIN_RESOURCES})
+
 target_include_directories(${PLUGIN_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 #qt_add_translations(${PLUGIN_NAME} TS_FILE_DIR ../ts TS_FILES ${PLUGIN_TS_FILES})
 install(TARGETS ${PLUGIN_NAME} BUNDLE DESTINATION bin LIBRARY DESTINATION bin/resources/plugins)
