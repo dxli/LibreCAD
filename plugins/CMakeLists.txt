@@ -91,6 +91,38 @@ set(PLUGIN_TS_FILES
     plugins_zh_tw.ts
    )
 
+   # Prevent stripping of symbols in all build types (especially Release)
+# This overrides any implicit or toolchain-level stripping
+set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)  # Optional: helps with plugin loading, but not directly related
+
+# Ensure debug symbols are generated even in Release
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(
+        -g                      # Always include debug info
+        $<$<CONFIG:Release>:-g> # Explicitly force -g in Release too
+    )
+    # Prevent linker from stripping (overrides -s if present)
+    add_link_options(
+        -Wl,--no-strip-discarded
+        $<$<CONFIG:Release>:-g>
+    )
+endif()
+
+# If you find explicit strip commands anywhere (e.g. in subdirs or install rules),
+# you can conditionally disable them like this:
+option(LC_NO_STRIP "Disable stripping of binaries and libraries" ON)
+
+if(LC_NO_STRIP)
+    # Global way to avoid install stripping (CMake 3.13+)
+    set(CMAKE_INSTALL_DO_STRIP FALSE CACHE INTERNAL "" FORCE)
+
+    # For older CMake or manual control, override strip on targets if needed
+    # (add this after defining your plugin targets, or in plugins/CMakeLists.txt)
+    # foreach(target IN ITEMS your_plugin_target1 your_plugin_target2 ...)
+    #     set_target_properties(${target} PROPERTIES INSTALL_RPATH_NO_STRIP TRUE)
+    # endforeach()
+endif()
+
 add_subdirectory(asciifile)
 add_subdirectory(align)
 add_subdirectory(divide)
