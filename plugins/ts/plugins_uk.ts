@@ -11,6 +11,14 @@
     </message>
 </context>
 <context>
+    <name>ExpTo_Csv</name>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="34"/>
+        <source>Export points to csv</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LC_Align</name>
     <message>
         <location filename="../align/align.cpp" line="24"/>
@@ -871,6 +879,24 @@ anti-clockwise.</source>
     </message>
 </context>
 <context>
+    <name>lc_Exptocsvdlg</name>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="122"/>
+        <source>Export to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="122"/>
+        <source>CSV (*.csv)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="130"/>
+        <source>Unable to open file</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>lc_Geardlg</name>
     <message>
         <location filename="../gear/gear.cpp" line="114"/>
@@ -1084,7 +1110,7 @@ anti-clockwise.</source>
     <message>
         <location filename="../picfile/picfile.cpp" line="132"/>
         <source>The file %1 not exist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не існує файл %1</translation>
     </message>
     <message>
         <location filename="../picfile/picfile.cpp" line="137"/>

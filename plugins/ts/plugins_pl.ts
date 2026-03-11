@@ -11,6 +11,14 @@
     </message>
 </context>
 <context>
+    <name>ExpTo_Csv</name>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="34"/>
+        <source>Export points to csv</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LC_Align</name>
     <message>
         <location filename="../align/align.cpp" line="24"/>
@@ -655,7 +663,7 @@ first base, second base, first target, second target.</source>
     <message>
         <location filename="../divide/divide.cpp" line="463"/>
         <source>Line type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Typ linii</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="465"/>
@@ -867,6 +875,24 @@ anti-clockwise.</source>
     <message>
         <location filename="../divide/dividedlg.cpp" line="264"/>
         <source>Inside</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>lc_Exptocsvdlg</name>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="122"/>
+        <source>Export to file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="122"/>
+        <source>CSV (*.csv)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pointstocsv/pointstocsv.cpp" line="130"/>
+        <source>Unable to open file</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
