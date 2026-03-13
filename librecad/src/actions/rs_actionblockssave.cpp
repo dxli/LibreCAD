@@ -59,9 +59,9 @@ void RS_ActionBlocksSave::trigger() {
     }
     RS_BlockList* bList = appWindow->getBlockWidget() -> getBlockList();
     if (bList) {
-        auto b=bList->getActive();
-        if(b) {
-			RS_Graphic g(nullptr);
+        RS_Block* b=bList->getActive();
+        if (b != nullptr) {
+	    RS_Graphic g(nullptr);
             g.setOwner(false);
             g.getBlockList()->setOwner(false);
 
@@ -72,7 +72,7 @@ void RS_ActionBlocksSave::trigger() {
                  e = b->nextEntity(RS2::ResolveNone)) {
                 g.addEntity(e);
                 if (e->rtti() == RS2::EntityInsert) {
-					RS_Insert *in = static_cast<RS_Insert *>(e);
+		    RS_Insert *in = static_cast<RS_Insert *>(e);
                     g.addBlock(in->getBlockForInsert());
 					addBlock(in,&g);
                 }
@@ -86,13 +86,15 @@ void RS_ActionBlocksSave::trigger() {
             RS2::FormatType t = RS2::FormatDXFRW;
 
             QG_FileDialog dlg(appWindow->getMDIWindow(), {}, QG_FileDialog::BlockFile);
-            const QString fn = dlg.getSaveFile(&t);
-            QApplication::setOverrideCursor( QCursor(Qt::WaitCursor) );
-//            g.setModified(true);
-            g.saveAs(fn, t);
-            QApplication::restoreOverrideCursor();
-		} else
+            const QString fn = dlg.getSaveFile(&t, b->getName());
+	    if (!fn.isEmpty()) {
+		    QApplication::setOverrideCursor( QCursor(Qt::WaitCursor) );
+		    g.saveAs(fn, t);
+		    QApplication::restoreOverrideCursor();
+	    }
+	} else {
 			RS_DIALOGFACTORY->commandMessage(tr("No block activated to save"));
+	}
     } else {
         RS_DEBUG->print(RS_Debug::D_WARNING,
                         "RS_ActionBlocksSave::trigger():  blockList is NULL");

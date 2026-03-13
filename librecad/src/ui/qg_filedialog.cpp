@@ -24,6 +24,9 @@
 **
 **********************************************************************/
 
+#include <limits>
+#include <random>
+
 #include <QMessageBox>
 #include <QSettings>
 #ifdef Q_OS_LINUX
@@ -203,7 +206,7 @@ QString QG_FileDialog::getOpenFile(RS2::FormatType* type){
     return fn;
 }
 
-QString QG_FileDialog::getSaveFile(RS2::FormatType* type){
+QString QG_FileDialog::getSaveFile(RS2::FormatType* type, const QString& defaultName){
     setAcceptMode ( QFileDialog::AcceptSave );
     // read default settings:
     RS_SETTINGS->beginGroup("/Paths");
@@ -232,13 +235,21 @@ QString QG_FileDialog::getSaveFile(RS2::FormatType* type){
 
     // when defFilter is added the below should use the default extension.
     // generate an untitled name
-    QString fn = tr("Untitled");
+    QString fn = defaultName.isEmpty() ? tr("Untitled") : defaultName;
     if(QFile::exists( defDir + fn + getExtension( ftype ) ))
     {
-        int fileCount = 1;
+        unsigned fileCount = 1;
         while(QFile::exists( defDir + fn + QString("%1").arg(fileCount) +
-                             getExtension(ftype)) )
+                             getExtension(ftype)) ) {
             ++fileCount;
+	    if (fileCount > 10) {
+		    // avoid unlikely case, too many files with the name pattern
+		     std::random_device r;
+		     std::default_random_engine e1(r());
+		     std::uniform_int_distribution<unsigned> uniform_dist(0, std::numeric_limits<unsigned int>::max());
+		    fileCount += uniform_dist(e1);
+	    }
+	}
         fn += QString("%1").arg(fileCount);
     }
 
