@@ -55,8 +55,8 @@ PluginCapabilities CircleToolsPlugin::getCapabilities() const {
 
     // Use ASCII only to avoid encoding issues on Windows builds
     const QString action = QStringLiteral("CircleTools - Circles (diameter / layer)");
-    cap.menuEntryPoints << PluginMenuLocation(QStringLiteral("Plugins"), action);
-//    cap.menuEntryPoints << PluginMenuLocation(QStringLiteral("plugins_menu"), action);
+    cap.menuEntryPoints
+        << PluginMenuLocation("plugins_menu", tr("Circle Tools plugin"));
     //cap.menuEntryPoints << PluginMenuLocation(QStringLiteral("menu_Plugins"), action);
 
     return cap;

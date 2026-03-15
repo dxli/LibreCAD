@@ -1,92 +1,186 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# LibreCAD AppImage Build Script – arm64/aarch64 (updated 2026)
+# ──────────────────────────────────────────────────────────────
+# All .qm files — both LibreCAD's and Qt's — go into:
+#    usr/share/librecad/qm/
+#
+# Run on arm64 system after build (qmake && make).
+# Supports: clean mode
 #
 
-## script to build LibreCAD AppImage: arm64
-## intended to be used on Travis CI
-## does not run on modern systems because of linuxdeployqt
-## for testing it can be called with parameter 'clean' to remove AppImage file and folder
+set -euo pipefail
 
-# ensure that the script is called from LibreCAD root folder and executable exists
-if [ ! -d "unix" ]; then
-    echo "The script has to be called from LibreCAD root folder!"
-    exit
-fi
-if [ ! -f "unix/librecad" ]; then
-    echo "Please build LibreCAD first, before calling this script!"
-    exit
-fi
+# ────────────────────────────────────────────────────────────────
+# 1. Validation & clean mode
+# ────────────────────────────────────────────────────────────────
 
-# for testing purposes and manual use
-# this script can be called with parameter clean
-# to remove appdir and LibreCAD*.AppImage files
-if [ 1 -eq $# ] && [ "clean" = "$1" ]; then
-    [ -d "appdir" ] && rm -Rf appdir
-    compgen -G "LibreCAD*.AppImage" >/dev/null && rm LibreCAD*.AppImage
-    echo "cleaned LibreCAD AppImage files"
-    exit
-fi
+if [[ ! -d "unix" || ! -f "unix/librecad" ]]; then
+    cat << 'EOF' >&2
+Error: Run from LibreCAD git root with unix/librecad already built.
 
-# create folder structure
-mkdir -p appdir/usr/bin
-mkdir -p appdir/usr/lib/librecad
-mkdir -p appdir/usr/share/applications
-mkdir -p appdir/usr/share/librecad
-mkdir -p appdir/usr/share/metainfo
-mkdir -p appdir/usr/share/doc/librecad
-mkdir -p appdir/usr/share/icons/hicolor/256x256/apps
-mkdir -p appdir/usr/share/icons/hicolor/scalable/apps
-mkdir -p appdir/usr/share/librecad
-
-# strip binaries
-strip unix/librecad
-strip unix/resources/plugins/*.so
-
-# copy executables and binary resources
-cp unix/librecad appdir/usr/bin/
-
-# <<< FORCE BUNDLED QT PLUGINS >>>
-# Add qt.conf next to the executable to force Qt to load plugins only from the bundled location
-cat > appdir/usr/bin/qt.conf <<EOF
-[Paths]
-Plugins = ../plugins
+Example:
+    qmake
+    make -j$(nproc)
 EOF
-# <<< END >>>
+    exit 1
+fi
 
-cp unix/resources/plugins/*.so appdir/usr/lib/librecad/
-mkdir appdir/usr/share/librecad/qm
-find unix -type f -iname "*.qm"
-cp -v unix/resources/qm/* appdir/usr/share/librecad/qm/
-cp -v unix/*.qm appdir/usr/share/librecad/qm/
+if [[ $(uname -m) != "aarch64" ]]; then
+    echo "Warning: Script designed for aarch64 — current: $(uname -m)"
+    echo "Continue? (y/N)"
+    read -r ans && [[ "$ans" != [yY] ]] && exit 1
+fi
 
-cp desktop/librecad.desktop appdir/usr/share/applications/
-cp desktop/org.librecad.librecad.appdata.xml appdir/usr/share/metainfo/
-cp -r librecad/support/doc/* appdir/usr/share/doc/librecad/
-cp -r librecad/support/fonts appdir/usr/share/librecad/
-cp -r librecad/support/library appdir/usr/share/librecad/
-cp -r librecad/support/patterns appdir/usr/share/librecad/
-mkdir -p appdir/usr/lib/aarch64-linux-gnu/qt5/plugins
-cp -r /usr/lib/aarch64-linux-gnu/qt5/plugins/* appdir/usr/lib/aarch64-linux-gnu/qt5/plugins
-mkdir -p appdir/usr/plugins/
-cp -r /usr/lib/aarch64-linux-gnu/qt5/plugins/* appdir/usr/plugins/
+if [[ $# -eq 1 && "$1" == "clean" ]]; then
+    rm -rf appdir LibreCAD*.AppImage 2>/dev/null || true
+    echo "Cleaned appdir/ and *.AppImage"
+    exit 0
+fi
 
-cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
-convert -resize 256x256 CI/librecad.svg appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
-mkdir -p appdir/usr/share/icons/hicolor/scalable/apps/
-cp CI/librecad.svg appdir/usr/share/icons/hicolor/scalable/apps/
+# ────────────────────────────────────────────────────────────────
+# 2. Prepare appdir
+# ────────────────────────────────────────────────────────────────
 
-ls -l appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
-ls -l appdir/usr/share/icons/hicolor/scalable/apps/
+echo "→ Creating fresh appdir …"
+rm -rf appdir
+
+mkdir -p appdir/usr/{bin,lib/librecad}
+mkdir -p appdir/usr/share/{applications,metainfo,doc/librecad}
+mkdir -p appdir/usr/share/icons/hicolor/{scalable/apps,256x256/apps}
+mkdir -p appdir/usr/share/librecad/{qm,fonts,library,patterns}
+
+# ────────────────────────────────────────────────────────────────
+# 3. Strip
+# ────────────────────────────────────────────────────────────────
+
+echo "→ Stripping …"
+strip --strip-unneeded unix/librecad unix/resources/plugins/*.so 2>/dev/null || true
+
+# ────────────────────────────────────────────────────────────────
+# 4. Core files
+# ────────────────────────────────────────────────────────────────
+
+echo "→ Copying binary + plugins …"
+cp unix/librecad                        appdir/usr/bin/
+cp unix/resources/plugins/*.so          appdir/usr/lib/librecad/  2>/dev/null || true
+
+# ────────────────────────────────────────────────────────────────
+# 5. Translations → unified qm/ folder
+# ────────────────────────────────────────────────────────────────
+
+qm_dir="appdir/usr/share/librecad/qm"
+mkdir -p "$qm_dir"
+
+echo "→ Copying translations to $qm_dir …"
+
+# A. LibreCAD translations
+echo "  • LibreCAD .qm files"
+find unix -type f -iname "*.qm" -exec cp -v {} "$qm_dir/" \; 2>/dev/null || true
+cp -rv unix/resources/qm/* "$qm_dir/" 2>/dev/null || true
+
+# B. Qt translations — force copy to same folder
+echo "  • Qt system .qm files"
+qt_search_paths=(
+    "/usr/share/qt5/translations"
+    "/usr/share/qt6/translations"
+    "/usr/lib/aarch64-linux-gnu/qt5/translations"
+    "/usr/lib/aarch64-linux-gnu/qt6/translations"
+    "/usr/share/qt/translations"
+    "/usr/lib/qt5/translations"
+    "/usr/lib/qt6/translations"
+)
+
+qt_found=""
+for p in "${qt_search_paths[@]}"; do
+    if [[ -d "$p" ]]; then
+        shopt -s nullglob
+        qm_files=("$p"/*.qm)
+        if (( ${#qm_files[@]} > 0 )); then
+            qt_found="$p"
+            echo "      → found in $p (${#qm_files[@]} files)"
+            cp -v "$p"/*.qm "$qm_dir/" 2>/dev/null || true
+            break
+        fi
+    fi
+done
+
+if [[ -z "$qt_found" ]]; then
+    echo "      WARNING: No Qt translations folder found"
+    echo "      Searched: ${qt_search_paths[*]}"
+    echo "      → Qt UI may stay in English — check your distro's qtbase5-dev / qttranslations5 package"
+fi
+
+# ────────────────────────────────────────────────────────────────
+# 6. Other assets
+# ────────────────────────────────────────────────────────────────
+
+echo "→ Copying resources, desktop, icons …"
+
+cp desktop/librecad.desktop             appdir/usr/share/applications/
+cp desktop/org.librecad.librecad.appdata.xml appdir/usr/share/metainfo/ 2>/dev/null || true
+
+cp -r librecad/support/doc/*            appdir/usr/share/doc/librecad/     2>/dev/null || true
+cp -r librecad/support/{fonts,library,patterns} appdir/usr/share/librecad/
+
+cp CI/librecad.svg                      appdir/usr/share/icons/hicolor/scalable/apps/librecad.svg
+
+if command -v convert >/dev/null 2>&1; then
+    echo "→ 256×256 icon …"
+    convert -resize 256x256 CI/librecad.svg \
+        appdir/usr/share/icons/hicolor/256x256/apps/librecad.png || true
+    ls -l appdir/usr/share/icons/hicolor/256x256/apps/librecad.png
+fi
+
 ls -l appdir/usr/share/applications/librecad.desktop
 
-export QMAKE=$(which qmake)
-export EXTRA_QT_MODULES=svg
+# ────────────────────────────────────────────────────────────────
+# 7. linuxdeploy tools (aarch64)
+# ────────────────────────────────────────────────────────────────
 
-wget -c https://github.com/$(wget -q https://github.com/probonopd/go-appimage/releases/expanded_assets/continuous -O - | grep "appimagetool-.*-aarch64.AppImage" | head -n 1 | cut -d '"' -f 2)
-chmod +x appimagetool-*.AppImage
-wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-aarch64.AppImage
-wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-aarch64.AppImage
-chmod +x *.AppImage
-#ARCH=aarch64 ./appimagetool-*.AppImage deploy appdir/usr/share/applications/librecad.desktop
-ARCH=aarch64 ./linuxdeploy-plugin-qt-aarch64.AppImage --appdir appdir
-ARCH=aarch64 ./linuxdeploy-aarch64.AppImage --appdir appdir -e appdir/usr/bin/librecad -d appdir/usr/share/applications/librecad.desktop
-VERSION=`git describe --always` ARCH=aarch64 ./appimagetool-*.AppImage appdir/
+echo "→ Fetching linuxdeploy (aarch64) …"
+
+tools=(
+    "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-aarch64.AppImage"
+    "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-aarch64.AppImage"
+)
+
+for url in "${tools[@]}"; do
+    f=$(basename "$url")
+    [[ -x "$f" ]] || {
+        echo "  Downloading $f"
+        wget -c --no-verbose "$url" || exit 2
+        chmod +x "$f"
+    }
+done
+
+# ────────────────────────────────────────────────────────────────
+# 8. Build AppImage
+# ────────────────────────────────────────────────────────────────
+
+echo "→ Building AppImage …"
+
+ARCH=aarch64 ./linuxdeploy-aarch64.AppImage \
+    --appdir appdir \
+    -e appdir/usr/bin/librecad \
+    -d appdir/usr/share/applications/librecad.desktop \
+    -i appdir/usr/share/icons/hicolor/scalable/apps/librecad.svg \
+    --plugin qt \
+    --output appimage
+
+# ────────────────────────────────────────────────────────────────
+# 9. Report
+# ────────────────────────────────────────────────────────────────
+
+echo ""
+echo "═══════════════════════════════════════════════"
+echo "  Done – arm64 AppImage ready"
+echo "═══════════════════════════════════════════════"
+ls -lh LibreCAD*.AppImage 2>/dev/null || echo "No AppImage – check logs"
+
+echo ""
+echo "Verify .qm files are together:"
+echo "  ./LibreCAD*.AppImage --appimage-extract"
+echo "  find squashfs-root/usr/share/librecad/qm -name '*.qm' | sort -u"
+echo ""
+echo "You should see both librecad_* / yourapp_*.qm  and  qtbase_* / qt_*.qm"

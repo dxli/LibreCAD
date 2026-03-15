@@ -1,150 +1,118 @@
-; nsis-msvc.nsi
-; NSIS installer script optimized for MSVC Qt builds of LibreCAD
-; Features:
-; - Dynamic architecture detection (AMD64) → -x86 or -x64 in filename
-; - Dynamic InstallDir ($PROGRAMFILES vs $PROGRAMFILES64)
-; - Uses SCMREVISION passed from build-windows.bat (/DSCMREVISION=...)
-; - Falls back to generated_scmrev.nsh or default if not provided
-; - Packages LFF font files from librecad/support/fonts/ → resources/fonts/
-; - Packages hatch patterns from librecad/support/patterns/ → resources/patterns/
-; - Packages library parts from librecad/support/library/ → resources/library/ (with subfolders)
-; - Preselected file association for .dxf files (user selectable via components page)
-; Optimizations:
-; - Added SetRegView for proper 32/64-bit registry handling
-; - Added basic error checking for critical registry writes
-; - Removed commented-out unused code for clarity
-; - Used /SOLID lzma compression for smaller installer size
-; - Added version info to installer properties
+; nsis-msvc.nsi – Modernized NSIS installer for LibreCAD (MSVC/Qt builds, 2026 style)
+; All .qm translation files go into resources/qm/ (no separate translations/ folder)
 
 SetCompressor /SOLID lzma
+Unicode True
 
 !include "MUI2.nsh"
 !include "LogicLib.nsh"
 !include "WinVer.nsh"
 
-;--------------------------------
-; Allow overrides (Qt path, version, installer name, etc.)
+;───────────────────────────────────────────────
+; Custom overrides (optional: create custom.nsh to override Qt paths etc.)
 !include /NONFATAL "custom.nsh"
 
-;--------------------------------
-; Version handling - priority:
-; 1. /DSCMREVISION from command line (build-windows.bat)
-; 2. generated_scmrev.nsh (if exists)
-; 3. Default fallback
+;───────────────────────────────────────────────
+; SCMREVISION priority: cmd-line > generated file > fallback
 !ifdef SCMREVISION
-    ; Already defined via command line - highest priority
+  ; /DSCMREVISION=... passed to makensis
 !else
-    !include /NONFATAL "generated_scmrev.nsh"
-    !ifndef SCMREVISION
-        !define SCMREVISION "2.2.x"
-    !endif
+  !include /NONFATAL "generated_scmrev.nsh"
+  !ifndef SCMREVISION
+    !define SCMREVISION "2.2.1.x"   ; update fallback as needed
+  !endif
 !endif
 
-;--------------------------------
-; Basic definitions
+;───────────────────────────────────────────────
+; Core definitions
 !ifndef APPNAME
-    !define APPNAME "LibreCAD"
+  !define APPNAME "LibreCAD"
 !endif
-!define UNINSTKEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
-!define MUI_ICON "..\..\librecad\res\main\librecad.ico"
-!define MUI_UNICON "..\..\librecad\res\main\uninstall.ico"
 
-;--------------------------------
-; Dynamic architecture suffix and install directory
+!define COMPANY     "LibreCAD Team"
+!define UNINSTKEY   "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
+!define MUI_ICON    "..\..\librecad\res\main\librecad.ico"
+!define MUI_UNICON  "..\..\librecad\res\main\uninstall.ico"
+
+; Dynamic architecture
 !ifdef AMD64
-    !define ARCH_SUFFIX "x64"
-    InstallDir "$PROGRAMFILES64\LibreCAD"
+  !define ARCH_SUFFIX "x64"
+  InstallDir "$PROGRAMFILES64\${APPNAME}"
 !else
-    !define ARCH_SUFFIX "x86"
-    InstallDir "$PROGRAMFILES\LibreCAD"
+  !define ARCH_SUFFIX "x86"
+  InstallDir "$PROGRAMFILES\${APPNAME}"
 !endif
 
-;--------------------------------
-; General - Dynamic output filename with version and architecture
 Name "${APPNAME} ${SCMREVISION}"
-OutFile "../../generated/LibreCAD-${SCMREVISION}-Windows-${ARCH_SUFFIX}.exe"
-InstallDirRegKey HKLM "Software\${APPNAME}" ""
+OutFile "..\..\generated\LibreCAD-${SCMREVISION}-Windows-${ARCH_SUFFIX}.exe"
+
 RequestExecutionLevel admin
-VIProductVersion "${VIProductVersion}"
-VIAddVersionKey "ProductName" "${APPNAME}"
-VIAddVersionKey "FileVersion" "${SCMREVISION}"
-VIAddVersionKey "ProductVersion" "${SCMREVISION}"
-VIAddVersionKey "FileDescription" "${APPNAME} Installer"
-VIAddVersionKey "LegalCopyright" "LibreCAD Team"
 
-;--------------------------------
-; Interface
+; Version info
+VIProductVersion    "2.2.1.0"   ; adjust dotted version if needed
+VIAddVersionKey     "ProductName"     "${APPNAME}"
+VIAddVersionKey     "FileVersion"     "${SCMREVISION}"
+VIAddVersionKey     "ProductVersion"  "${SCMREVISION}"
+VIAddVersionKey     "FileDescription" "${APPNAME} Installer"
+VIAddVersionKey     "LegalCopyright"  "© ${COMPANY}"
+VIAddVersionKey     "CompanyName"     "${COMPANY}"
+
+;───────────────────────────────────────────────
+; UI settings
 !define MUI_ABORTWARNING
-!define MUI_FINISHPAGE_RUN "$INSTDIR\LibreCAD.exe"
+!define MUI_FINISHPAGE_RUN          "$INSTDIR\LibreCAD.exe"
+!define MUI_FINISHPAGE_RUN_FUNCTION "LaunchLink"
+!define MUI_FINISHPAGE_RUN_CHECKED
 
-;--------------------------------
 ; Pages
-!insertmacro MUI_PAGE_LICENSE "../../licenses/gpl-2.0.txt"
+!insertmacro MUI_PAGE_LICENSE       "../../licenses/gpl-2.0.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 
-;--------------------------------
-; Languages (multilingual)
+; Languages (installer UI)
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Spanish"
-!insertmacro MUI_LANGUAGE "SpanishInternational"
 !insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "TradChinese"
 !insertmacro MUI_LANGUAGE "Japanese"
 !insertmacro MUI_LANGUAGE "Korean"
 !insertmacro MUI_LANGUAGE "Italian"
-!insertmacro MUI_LANGUAGE "Dutch"
 !insertmacro MUI_LANGUAGE "Russian"
 !insertmacro MUI_LANGUAGE "Polish"
-!insertmacro MUI_LANGUAGE "Portuguese"
 !insertmacro MUI_LANGUAGE "PortugueseBR"
 !insertmacro MUI_LANGUAGE "Czech"
-!insertmacro MUI_LANGUAGE "Swedish"
-!insertmacro MUI_LANGUAGE "Finnish"
-!insertmacro MUI_LANGUAGE "Greek"
 !insertmacro MUI_LANGUAGE "Turkish"
-!insertmacro MUI_LANGUAGE "Arabic"
 
-;--------------------------------
-; Qt paths (override in custom.nsh if needed)
+;───────────────────────────────────────────────
+; Qt paths (override in custom.nsh if your setup differs)
 !ifndef Qt_Dir
-    !define Qt_Dir "C:\Qt"
+  !define Qt_Dir "C:\Qt"
 !endif
 !ifndef Qt_Version
-    !define Qt_Version "5.15.2"
-!endif
-!ifndef Arch_Suffix
-    !ifdef AMD64
-        !define Arch_Suffix "_64"
-    !else
-        !define Arch_Suffix ""
-    !endif
+  !define Qt_Version "5.15.2"   ; change to 6.x.x if using Qt6
 !endif
 !ifndef MSVC_Ver
-    !define MSVC_Ver "msvc2019${Arch_Suffix}"
+  !ifdef AMD64
+    !define MSVC_Ver "msvc2019_64"
+  !else
+    !define MSVC_Ver "msvc2019"
+  !endif
 !endif
-!define QT_BIN_DIR "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\bin"
-!define PLUGINS_DIR "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\plugins"
-!define TRANSLATIONS_DIR "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\translations"
 
-;--------------------------------
-; Component descriptions
-!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecMain} "The core files required to run LibreCAD."
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecAssoc} "Associate .dxf files with LibreCAD so double-clicking them opens in the application."
-!insertmacro MUI_FUNCTION_DESCRIPTION_END
+!define QT_BIN_DIR       "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\bin"
+!define QT_PLUGINS_DIR   "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\plugins"
+!define QT_TRANSLATIONS  "${Qt_Dir}\${Qt_Version}\${MSVC_Ver}\translations"
 
-;--------------------------------
-; Installer Sections
-Section "Main Section" SecMain
-  SectionIn RO  ; Required section
+;───────────────────────────────────────────────
+; Components
+Section "LibreCAD Core" SecMain
+  SectionIn RO
 
-  ; Set registry view based on architecture
   !ifdef AMD64
     SetRegView 64
   !else
@@ -152,98 +120,87 @@ Section "Main Section" SecMain
   !endif
 
   SetOutPath "$INSTDIR"
-  ; Copy all built files (windeployqt already placed everything needed)
+
+  ; Main files (assume windeployqt already copied Qt DLLs/plugins here)
   File /r /x "*.pdb" "..\..\windows\*.*"
 
-  ; Fallback explicit plugin copies (non-fatal)
+  ; Key Qt plugins (fallback, non-fatal)
   SetOutPath "$INSTDIR\platforms"
-  File /nonfatal "${PLUGINS_DIR}\platforms\qwindows.dll"
-  File /nonfatal "${PLUGINS_DIR}\platforms\qminimal.dll"
-  File /nonfatal "${PLUGINS_DIR}\platforms\qoffscreen.dll"
-  SetOutPath "$INSTDIR\imageformats"
-  File /nonfatal "${PLUGINS_DIR}\imageformats\qgif.dll"
-  File /nonfatal "${PLUGINS_DIR}\imageformats\qico.dll"
-  File /nonfatal "${PLUGINS_DIR}\imageformats\qjpeg.dll"
-  File /nonfatal "${PLUGINS_DIR}\imageformats\qsvg.dll"
-  File /nonfatal "${PLUGINS_DIR}\imageformats\qtiff.dll"
-  SetOutPath "$INSTDIR\styles"
-  File /nonfatal "${PLUGINS_DIR}\styles\qwindowsvistastyle.dll"
-  SetOutPath "$INSTDIR\resources\qm"
-  File /nonfatal "${TRANSLATIONS_DIR}\qt_*.qm"
-  File /nonfatal "${TRANSLATIONS_DIR}\qtbase_*.qm"
-  File /nonfatal "..\..\windows\translations\*.qm"
-  File /nonfatal "..\..\generated\Release\translations\*.qm"
+  File /nonfatal "${QT_PLUGINS_DIR}\platforms\qwindows.dll"
 
-  ; === Package LFF fonts ===
+  SetOutPath "$INSTDIR\imageformats"
+  File /nonfatal "${QT_PLUGINS_DIR}\imageformats\qgif.dll"
+  File /nonfatal "${QT_PLUGINS_DIR}\imageformats\qico.dll"
+  File /nonfatal "${QT_PLUGINS_DIR}\imageformats\qjpeg.dll"
+  File /nonfatal "${QT_PLUGINS_DIR}\imageformats\qsvg.dll"
+
+  ; ───────────────────────────────────────────────
+  ; ALL translations → resources/qm/ only
+  ; ───────────────────────────────────────────────
+  SetOutPath "$INSTDIR\resources\qm"
+  ; Qt standard translations
+  File /nonfatal "${QT_TRANSLATIONS}\qt_*.qm"
+  File /nonfatal "${QT_TRANSLATIONS}\qtbase_*.qm"
+  ; LibreCAD / plugin translations (from build output or generated)
+  File /nonfatal "..\..\windows\translations\*.qm"
+  File /nonfatal "..\..\generated\Release\translations\*.qm"   ; adjust if your build puts them elsewhere
+
+  ; Fonts (LFF)
   SetOutPath "$INSTDIR\resources\fonts"
   File /r "..\..\librecad\support\fonts\*.lff"
 
-  ; === Package hatch patterns ===
+  ; Hatch patterns
   SetOutPath "$INSTDIR\resources\patterns"
   File /r "..\..\librecad\support\patterns\*.dxf"
 
-  ; === Package library parts (DXF) - preserves subfolder structure ===
+  ; Library parts (with subfolders preserved)
   SetOutPath "$INSTDIR\resources\library"
   File /r "..\..\librecad\support\library\*.dxf"
 
-  ; Registry, shortcuts, uninstaller
+  ; Registry & uninstaller
   WriteRegStr HKLM "Software\${APPNAME}" "" "$INSTDIR"
-
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 
+  ; Shortcuts (all users)
   SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\${APPNAME}"
-  CreateShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe"
-  CreateShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-  CreateShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe"
+  CreateShortCut "$SMPROGRAMS\${APPNAME}\LibreCAD.lnk"        "$INSTDIR\LibreCAD.exe"
+  CreateShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk"       "$INSTDIR\Uninstall.exe"
+  CreateShortCut "$DESKTOP\LibreCAD.lnk"                      "$INSTDIR\LibreCAD.exe"
 
-  ; Add/Remove Programs entries - show architecture
-  WriteRegStr HKLM "${UNINSTKEY}" "DisplayName" "${APPNAME} ${SCMREVISION} (${ARCH_SUFFIX})"
-  WriteRegStr HKLM "${UNINSTKEY}" "DisplayIcon" "$INSTDIR\LibreCAD.exe"
-  WriteRegStr HKLM "${UNINSTKEY}" "DisplayVersion" "${SCMREVISION}"
-  WriteRegStr HKLM "${UNINSTKEY}" "Publisher" "LibreCAD Team"
-  WriteRegStr HKLM "${UNINSTKEY}" "URLInfoAbout" "https://librecad.org"
+  ; Add/Remove Programs info
+  WriteRegStr HKLM "${UNINSTKEY}" "DisplayName"     "${APPNAME} ${SCMREVISION} (${ARCH_SUFFIX})"
+  WriteRegStr HKLM "${UNINSTKEY}" "DisplayIcon"     "$INSTDIR\LibreCAD.exe"
+  WriteRegStr HKLM "${UNINSTKEY}" "DisplayVersion"  "${SCMREVISION}"
+  WriteRegStr HKLM "${UNINSTKEY}" "Publisher"       "${COMPANY}"
+  WriteRegStr HKLM "${UNINSTKEY}" "URLInfoAbout"    "https://librecad.org"
   WriteRegStr HKLM "${UNINSTKEY}" "InstallLocation" "$INSTDIR"
-  WriteRegStr HKLM "${UNINSTKEY}" "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteRegStr HKLM "${UNINSTKEY}" "UninstallString" '"$INSTDIR\Uninstall.exe"'
   WriteRegDWORD HKLM "${UNINSTKEY}" "NoModify" 1
   WriteRegDWORD HKLM "${UNINSTKEY}" "NoRepair" 1
-
-  ; Check for errors on uninstaller registration
-
 SectionEnd
 
 Section "Associate .dxf files" SecAssoc
-
-  ; Set registry view (same as main section)
   !ifdef AMD64
     SetRegView 64
   !else
     SetRegView 32
   !endif
 
-  ; File association for .dxf
-  ; Backup existing association if not already ours
   ReadRegStr $R0 HKCR ".dxf" ""
   ${If} $R0 != "LibreCAD.DXF"
     WriteRegStr HKLM "Software\${APPNAME}" "OldDXFAssoc" $R0
   ${EndIf}
 
-  ; Set new association
   WriteRegStr HKCR ".dxf" "" "LibreCAD.DXF"
-  WriteRegStr HKCR "LibreCAD.DXF" "" "DXF File"
-  WriteRegStr HKCR "LibreCAD.DXF\DefaultIcon" "" "$INSTDIR\LibreCAD.ico,0"
+  WriteRegStr HKCR "LibreCAD.DXF" "" "DXF Drawing"
+  WriteRegStr HKCR "LibreCAD.DXF\DefaultIcon" "" "$INSTDIR\LibreCAD.exe,0"
   WriteRegStr HKCR "LibreCAD.DXF\shell\open\command" "" '"$INSTDIR\LibreCAD.exe" "%1"'
 
-  ; Check for errors
-
-  ; Notify Windows of changes
   System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, i 0, i 0)'
-
 SectionEnd
 
 Section "Uninstall"
-
-  ; Set registry view based on architecture
   !ifdef AMD64
     SetRegView 64
   !else
@@ -251,25 +208,38 @@ Section "Uninstall"
   !endif
 
   SetShellVarContext all
-  Delete "$DESKTOP\${APPNAME}.lnk"
+  Delete "$DESKTOP\LibreCAD.lnk"
   RMDir /r "$SMPROGRAMS\${APPNAME}"
   RMDir /r "$INSTDIR"
 
-  ; Restore file association for .dxf if it was ours
+  ; Restore original .dxf association if changed
   DeleteRegKey HKCR "LibreCAD.DXF"
   ReadRegStr $R0 HKCR ".dxf" ""
   ${If} $R0 == "LibreCAD.DXF"
     ReadRegStr $R1 HKLM "Software\${APPNAME}" "OldDXFAssoc"
-    ${If} $R1 == ""
-      DeleteRegKey HKCR ".dxf"
-    ${Else}
+    ${If} $R1 != ""
       WriteRegStr HKCR ".dxf" "" $R1
+    ${Else}
+      DeleteRegKey HKCR ".dxf"
     ${EndIf}
-    ; Notify Windows of changes
     System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, i 0, i 0)'
   ${EndIf}
 
   DeleteRegKey HKLM "Software\${APPNAME}"
   DeleteRegKey HKLM "${UNINSTKEY}"
-
 SectionEnd
+
+;───────────────────────────────────────────────
+; Component descriptions
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecMain}   "Core application files (required)."
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecAssoc}  "Set LibreCAD as default for .dxf files (double-click opens in LibreCAD)."
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
+
+;───────────────────────────────────────────────
+; Optional: auto-launch after install
+Function LaunchLink
+  ${If} ${SectionIsSelected} ${SecMain}
+    ExecShell "" "$INSTDIR\LibreCAD.exe"
+  ${EndIf}
+FunctionEnd
