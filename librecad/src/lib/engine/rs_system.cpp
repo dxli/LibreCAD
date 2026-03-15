@@ -626,11 +626,14 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) {
     // not for Apple because it uses resources this is more for unix systems
     dirList.append(appDir + "/resources/" + subDirectory);
 #endif
+
+#if defined(Q_OS_UNIX)
     dirList.append(executableDirectory + "/resources/" + subDirectory);
     dirList.append(QDir::cleanPath(executableDirectory + "/../resources/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../share/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../lib/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../lib64/" + m_appDirName + "/" + subDirectory));
+#endif
 
     for (const QString& dir: dirList) {
         RS_DEBUG->print("%s\n", QString("%1(): line %2: dir=%3\n").arg(__func__).arg(__LINE__).arg(dir).toStdString().c_str());

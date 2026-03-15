@@ -86,11 +86,7 @@ cp -r unix/resources/qm/*             "$qm_target/"  2>/dev/null || true
 # Qt translations — try several common system locations
 echo "  - Qt system translations"
 qt_paths=(
-    "/usr/share/qt5/translations"
     "/usr/share/qt6/translations"
-    "/usr/lib/x86_64-linux-gnu/qt5/translations"
-    "/usr/lib/qt5/translations"
-    "/usr/share/qt/translations"
     "/usr/lib/qt6/translations"
 )
 

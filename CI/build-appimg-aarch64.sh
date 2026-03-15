@@ -83,12 +83,9 @@ cp -rv unix/resources/qm/* "$qm_dir/" 2>/dev/null || true
 echo "  • Qt system .qm files"
 qt_search_paths=(
     "/usr/share/qt5/translations"
-    "/usr/share/qt6/translations"
     "/usr/lib/aarch64-linux-gnu/qt5/translations"
-    "/usr/lib/aarch64-linux-gnu/qt6/translations"
     "/usr/share/qt/translations"
     "/usr/lib/qt5/translations"
-    "/usr/lib/qt6/translations"
 )
 
 qt_found=""
