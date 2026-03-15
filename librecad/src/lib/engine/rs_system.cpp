@@ -25,17 +25,18 @@
 **
 **********************************************************************/
 
-#include <QMap>
 #include <QApplication>
+#include <QFileInfo>
+#include <QMap>
+#include <QStandardPaths>
 #include <QTextCodec>
 #include <QTranslator>
-#include <QFileInfo>
-#include "rs_settings.h"
-#include "rs_system.h"
+
 #include "rs.h"
 #include "rs_debug.h"
+#include "rs_settings.h"
+#include "rs_system.h"
 
-#include <QStandardPaths>
 
 
 RS_System* RS_System::instance() {
@@ -392,8 +393,6 @@ void RS_System::initAllLanguagesList() {
  *
  *fixme, need to support command language
  */
-#include "rs_debug.h"
-
 /**
  * Loads .qm translation files matching the requested language (case-insensitive).
  */

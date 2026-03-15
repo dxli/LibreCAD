@@ -23,12 +23,12 @@
 ** This copyright notice MUST APPEAR in all copies of the script!  
 **
 **********************************************************************/
-#include "qg_dlgoptionsgeneral.h"
 
-#include <QMessageBox>
-#include <qc_applicationwindow.h>
 #include <QColorDialog>
+#include <QMessageBox>
 
+#include "qc_applicationwindow.h"
+#include "qg_dlgoptionsgeneral.h"
 #include "qg_filedialog.h"
 
 #include "rs_debug.h"
@@ -77,12 +77,12 @@ void QG_DlgOptionsGeneral::init()
     QStringList languageList = RS_SYSTEM->getLanguageList();
     languageList.sort();
     languageList.prepend("en");
-	for(auto const& lang: languageList){
+    for(const QString& lang: std::as_const(languageList)){
 
         RS_DEBUG->print("QG_DlgOptionsGeneral::init: adding %s to combobox",
 						lang.toLatin1().data());
 
-		QString l = RS_SYSTEM->symbolToLanguage(lang);
+        QString l = RS_SYSTEM->symbolToLanguage(lang).toLower();
 		if (!l.isEmpty() && cbLanguage->findData(lang)==-1) {
             RS_DEBUG->print("QG_DlgOptionsGeneral::init: %s", l.toLatin1().data());
 			cbLanguage->addItem(l,lang);
