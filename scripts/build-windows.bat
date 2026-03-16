@@ -36,7 +36,7 @@ mkdir windows\ts
 windeployqt.exe --release windows\LibreCAD.exe --verbose 2 --force
 dir librecad\ts\*.ts
     for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
-      lrelease.exe "%%f" -qm ..\..\windows\ts\
+      lrelease.exe "%%f" -qm ..\..\windows\translations\
     )
 rem lrelease.exe librecad\ts\*.ts -qm windows\ts\
 dir windows\ts
@@ -82,7 +82,7 @@ echo "SCMREVISION=%SCMREVISION%"
 
 :: Input string (e.g., 2.2.1.3-*, 2.2.2-alpha)
 set "input=%SCMREVISION%"
-if "!input!"=="" set "input=2.2.2-alpha*"
+if "!input!"=="" set "input=2.2.1-rc*"
 
 :: 1. Scan for the first character that is NOT 0-9 or .
 set "CLEAN_VERSION="
