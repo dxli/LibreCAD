@@ -7426,8 +7426,9 @@ Deze actie kan NIET ongedaan worden gemaakt.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Verwijder %n laag(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7448,8 +7449,9 @@ Deze actie kan NIET ongedaan worden gemaakt.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Verwijder %n blok(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

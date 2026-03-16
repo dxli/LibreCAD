@@ -7432,8 +7432,9 @@ Denna åtgärd kan inte ångras.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Ta bort %n lager(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7454,8 +7455,9 @@ Denna åtgärd kan inte ångras.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Ta bort %n block(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

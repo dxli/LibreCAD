@@ -7305,10 +7305,9 @@ Tega dejanja ni mogoče razveljaviti.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Odstrani %n plast(-e)<numerusform />
-            <numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7329,10 +7328,9 @@ Tega dejanja ni mogoče razveljaviti.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Odstrani %n blok(e)<numerusform />
-            <numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

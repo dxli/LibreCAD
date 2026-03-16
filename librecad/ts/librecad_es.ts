@@ -7487,8 +7487,9 @@ Esta acción NO se puede deshacer.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Remove %n layer(s)<numerusform>Eliminar %n capa</numerusform>
-            <numerusform>Eliminar %n capas</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7509,8 +7510,9 @@ Esta acción NO se puede deshacer.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Quitar bloque(s) %n<numerusform>Eliminar %n bloque</numerusform>
-            <numerusform>Eliminar %n bloques</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

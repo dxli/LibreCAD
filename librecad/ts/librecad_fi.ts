@@ -9277,8 +9277,9 @@ Jos ei - "By Layer" arvot pysyvät ja niin kynä kohdekerros määrittää kynä
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1808" />
         <location filename="../src/ui/qg_dialogfactory.cpp" line="395" />
         <source>Remove %n layer(s)</source>
-        <translation>Poista %n kerros(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -9328,8 +9329,9 @@ Jos ei - "By Layer" arvot pysyvät ja niin kynä kohdekerros määrittää kynä
     <message numerus="yes">
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640" />
         <source>Remove %n block(s)</source>
-        <translation>Poista %n lohko(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

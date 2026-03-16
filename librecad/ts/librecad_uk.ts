@@ -7449,9 +7449,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Видалити %n шар(s)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7472,9 +7472,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Видалити %n блок(s)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

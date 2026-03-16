@@ -9351,7 +9351,9 @@ Jika Tidak - "Dengan Lapis" nilai tetap dan begitu pena dari lapisan target akan
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1808" />
         <location filename="../src/ui/qg_dialogfactory.cpp" line="395" />
         <source>Remove %n layer(s)</source>
-        <translation>Hapus% n lapis<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -9401,7 +9403,9 @@ Jika Tidak - "Dengan Lapis" nilai tetap dan begitu pena dari lapisan target akan
     <message numerus="yes">
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640" />
         <source>Remove %n block(s)</source>
-        <translation>Hapus% n blok<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

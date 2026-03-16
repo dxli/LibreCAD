@@ -7372,8 +7372,9 @@ Si Non - les valeurs "By Layer" restent et donc le stylo du calque cible défini
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Supprimer %n calque(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7500,8 +7501,9 @@ Cette action ne peut être annulée.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Supprimer %n bloc(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

@@ -9247,7 +9247,9 @@ If No - "By Layer" values remains and so pen of target layer will define pen for
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1808" />
         <location filename="../src/ui/qg_dialogfactory.cpp" line="395" />
         <source>Remove %n layer(s)</source>
-        <translation>移除%n層<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -9408,7 +9410,9 @@ This action can NOT be undone.</source>
     <message numerus="yes">
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640" />
         <source>Remove %n block(s)</source>
-        <translation>移除 %n 區塊<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

@@ -9230,8 +9230,9 @@ Nëse vlerat jo - "Sinjale" mbeten dhe kështu pena e shtresës së synuar do t�
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1808" />
         <location filename="../src/ui/qg_dialogfactory.cpp" line="395" />
         <source>Remove %n layer(s)</source>
-        <translation>Hiq niveli<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -9281,8 +9282,9 @@ Nëse vlerat jo - "Sinjale" mbeten dhe kështu pena e shtresës së synuar do t�
     <message numerus="yes">
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640" />
         <source>Remove %n block(s)</source>
-        <translation>Hiq<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

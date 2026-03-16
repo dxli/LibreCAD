@@ -9408,7 +9408,9 @@ This action can NOT be undone.</source>
     <message numerus="yes">
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640" />
         <source>Remove %n block(s)</source>
-        <translation>删除 %n 块<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

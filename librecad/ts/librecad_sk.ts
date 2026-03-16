@@ -7432,9 +7432,9 @@ Táto akcia nemôže byť odstránená.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Odstrániť %n vrstvu (s)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7455,9 +7455,9 @@ Táto akcia nemôže byť odstránená.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Odstrániť%n blok (-y)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

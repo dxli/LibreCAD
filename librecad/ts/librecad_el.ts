@@ -7473,8 +7473,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Αφαίρεση στρώματος %n<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7495,8 +7496,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Αφαίρεση τμήματος( ων) %n<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

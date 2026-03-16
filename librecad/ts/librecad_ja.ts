@@ -7520,7 +7520,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>%n レイヤーを削除します<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7541,7 +7543,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>%nブロックを削除します<numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

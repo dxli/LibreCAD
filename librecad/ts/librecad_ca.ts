@@ -7490,8 +7490,9 @@ Aquesta acció no es pot desfer.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Suprimeix %n capa(s)<numerusform>Eliminar %n capa</numerusform>
-            <numerusform>Eliminar %n capes</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7512,8 +7513,9 @@ Aquesta acció no es pot desfer.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Suprimeix %n bloc(s)<numerusform>Elimina %n bloc</numerusform>
-            <numerusform>Elimina %n blocs</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

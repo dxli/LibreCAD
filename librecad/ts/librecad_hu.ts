@@ -7494,7 +7494,9 @@ Ez a művelet nem visszavonható.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>% n réteg eltávolítása<numerusform>%n réteg eltávolítása</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7515,7 +7517,9 @@ Ez a művelet nem visszavonható.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>% n blokk (ek) eltávolítása<numerusform>%n blokk eltávolítása</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

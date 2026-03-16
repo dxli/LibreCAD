@@ -7490,8 +7490,9 @@ Questo NON può essere annullato.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Rimuovere %n layer(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7512,8 +7513,9 @@ Questo NON può essere annullato.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Rimuovere %n blocco(i)<numerusform>Rimuovi %n blocco</numerusform>
-            <numerusform>Rimuovi %n blocchi</numerusform>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>

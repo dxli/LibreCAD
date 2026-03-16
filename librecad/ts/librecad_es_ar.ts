@@ -7437,8 +7437,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>إزالة النسبة المئوية من الطبقة (الطبقات)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -7459,8 +7460,9 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>إزالة النسبة المئوية للبنات (الكتلات)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
