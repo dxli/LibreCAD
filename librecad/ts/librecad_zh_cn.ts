@@ -9247,7 +9247,7 @@ If No - "By Layer" values remains and so pen of target layer will define pen for
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1808" />
         <location filename="../src/ui/qg_dialogfactory.cpp" line="395" />
         <source>Remove %n layer(s)</source>
-        <translation>删除%n 层<numerusform />
+        <translation type="unfinished">
         </translation>
     </message>
     <message>
