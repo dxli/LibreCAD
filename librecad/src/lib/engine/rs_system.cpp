@@ -628,7 +628,7 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) {
     dirList.append(executableDirectory + "/resources/" + subDirectory);
 
     if (QStringLiteral("qm") == subDirectory) {
-        dirList.append(QDir::cleanPath(executableDirectory + "/translations"));
+        dirList.append(QDir::cleanPath(executableDirectory + "/../translations"));
     }
 
 #if !(defined(Q_OS_WIN32) || defined(Q_OS_WIN64))
