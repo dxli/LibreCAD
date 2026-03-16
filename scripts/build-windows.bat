@@ -36,10 +36,10 @@ mkdir windows\ts
 windeployqt.exe --release windows\LibreCAD.exe --verbose 2 --force
 dir librecad\ts\*.ts
     for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
-      lrelease.exe "%%f" -qm ..\..\windows\translations\
+      lrelease.exe "%%f" -qm windows\translations\
     )
 rem lrelease.exe librecad\ts\*.ts -qm windows\ts\
-dir windows\ts
+dir windows\translations
 rem windeployqt.exe windows\LibreCAD.exe --release --verbose 2 --force
 
 echo [INFO] Extracting version (SCMREVISION)...
@@ -75,7 +75,7 @@ if NOT "_%MSYSGIT_DIR%"=="_" (
 
 if "!SCMREVISION!"=="unknown" (
     echo [WARNING] Could not extract version. Using hardcoded default.
-    set SCMREVISION=2.2.1.3
+    set SCMREVISION=2.2.1.5
 )
 
 echo "SCMREVISION=%SCMREVISION%"
