@@ -453,8 +453,11 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
                 continue;                           // already loaded this category
             QLocale localeReq(langReq);
             QLocale localeQm(langPart);
-            if (localeReq != localeQm)
+            if (localeReq != localeQm) {
+                if (localeReq.language() == localeQm.language())
+                        LC_ERR<< __func__<<"("<<langReq<<"): ignoring "<<name;
                 continue;
+            }
 
             QTranslator* t = new QTranslator(qApp);
             QString full = dir.absoluteFilePath(file);
