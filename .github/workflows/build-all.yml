@@ -24,7 +24,7 @@ jobs:
         run: |
           sudo apt-get -y update
           sudo apt-get -qq install \
-          libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2 qttools5-dev-tools
+          libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2
           sudo apt-get -qq install clang clang-tools
           sudo rm -rf /usr/local/lib/android
 
@@ -87,7 +87,8 @@ jobs:
           sudo apt-get -qq install libqt5svg5 libqwt-qt5-dev imagemagick
           sudo apt-get -qq install qt5-qmake libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 libqt5svg5-dev \
           libqt5pdf5 libqt5scripttools5 libqt5dbus5 libqt5charts5-dev qttools5-dev-tools \
-          libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2
+          libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2 \
+          qttranslations5-l10n
           sudo rm -rf /usr/local/lib/android
 
       - name: Build

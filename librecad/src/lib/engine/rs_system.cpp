@@ -27,6 +27,7 @@
 
 #include <QApplication>
 #include <QFileInfo>
+#include <QLocale>
 #include <QMap>
 #include <QStandardPaths>
 #include <QTextCodec>
@@ -437,9 +438,9 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
 
             int cat = -1;
             QString langPart;
-            if      (name.startsWith("librecad_")) {
+            if      (name.startsWith("librecad_", Qt::CaseInsensitive)) {
                 cat = 0; langPart = name.mid(9);
-            } else if (name.startsWith("plugins_")) {
+            } else if (name.startsWith("plugins_", Qt::CaseInsensitive)) {
                 cat = 1; langPart = name.mid(8);
             } else if (name.startsWith("qt_")) {
                 cat = 2; langPart = name.mid(3);
@@ -450,7 +451,9 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
 
             if (tr[cat])
                 continue;                           // already loaded this category
-            if (langPart != langReq && langPart != langAlt)
+            QLocale localeReq(langReq);
+            QLocale localeQm(langPart);
+            if (localeReq != localeQm)
                 continue;
 
             QTranslator* t = new QTranslator(qApp);
@@ -629,6 +632,7 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) {
 
     if (QStringLiteral("qm") == subDirectory) {
         dirList.append(QDir::cleanPath(executableDirectory + "/../translations"));
+        dirList.append(QDir::cleanPath(executableDirectory + "/translations"));
     }
 
 #if !(defined(Q_OS_WIN32) || defined(Q_OS_WIN64))
