@@ -35,9 +35,10 @@ dir windows\
 mkdir windows\ts
 windeployqt.exe --release windows\LibreCAD.exe --verbose 2 --force
 dir librecad\ts\*.ts
-    for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
-      lrelease.exe "%%f" -qm windows\translations\
-    )
+mkdir windows\translations
+for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
+    lrelease.exe "%%f" -qm windows\translations\
+)
 rem lrelease.exe librecad\ts\*.ts -qm windows\ts\
 dir windows\translations
 rem windeployqt.exe windows\LibreCAD.exe --release --verbose 2 --force
