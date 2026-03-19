@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es" sourcelanguage="en">
+<TS version="2.1" language="es" sourcelanguage="en">
 <context>
     <name></name>
     <message>
         <source>Loading..</source>
-        <translation>Cargando...</translation>
+        <translation type="vanished">Cargando...</translation>
     </message>
     <message>
         <source>Loading Library Paths..</source>
-        <translation>Cargando rutas de librerías...</translation>
+        <translation type="vanished">Cargando rutas de librerías...</translation>
     </message>
 </context>
 <context>
     <name>@default</name>
     <message>
         <source>Loading..</source>
-        <translation>Cargando...</translation>
+        <translation type="vanished">Cargando...</translation>
     </message>
     <message>
         <source>Loading Library Paths..</source>
-        <translation>Cargando rutas de librerías...</translation>
+        <translation type="vanished">Cargando rutas de librerías...</translation>
     </message>
     <message>
         <source>Loading File %1..</source>
-        <translation>Cargando archivo %1...</translation>
+        <translation type="vanished">Cargando archivo %1...</translation>
     </message>
 </context>
 <context>
@@ -55,6 +55,29 @@
     <message>
         <source>Set</source>
         <translation>Establecer</translation>
+    </message>
+</context>
+<context>
+    <name>DlgParabola</name>
+    <message>
+        <source>Parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Points on Spline</source>
+        <translation type="unfinished">Puntos en la spline</translation>
+    </message>
+    <message>
+        <source>Control Points</source>
+        <translation type="unfinished">Puntos de control</translation>
     </message>
 </context>
 <context>
@@ -89,6 +112,21 @@
     </message>
 </context>
 <context>
+    <name>LC_ActionDimArc</name>
+    <message>
+        <source>Select arc entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify dimension arc location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LC_ActionDrawCircle2PR</name>
     <message>
         <source>radius=%1 is too small for points selected
@@ -119,6 +157,170 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     <message>
         <source>Select circle center</source>
         <translation>Seleccione el centro del círculo</translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawLinePoints</name>
+    <message>
+        <source>Specify distance (%1)
+or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify  distance (angle %1 deg)
+or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawLinePolygonCenTan</name>
+    <message>
+        <source>Specify center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify a tangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter number:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid number. Try 1..9999</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawLineSnake</name>
+    <message>
+        <source>Specify direction (x or y) or [%1]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify distance (%1) or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify distance (%1 deg) or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify angle or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify point or [%1]</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawParabola4Points</name>
+    <message>
+        <source>Specify the first point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the fourth point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the Axis on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawParabolaFD</name>
+    <message>
+        <source>Specify the focus of parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the directrix of parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the start point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the end point on parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionDrawSliceDivide</name>
+    <message>
+        <source> is not divided as it is locked.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> is not divided as it is part of polyline. Expand polyline first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Línea</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Círculo</translation>
     </message>
 </context>
 <context>
@@ -288,7 +490,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
-        <translation>Tangencial 2 círculos, radio</translation>
+        <translation type="vanished">Tangencial 2 círculos, radio</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
@@ -352,7 +554,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Draw polylines</source>
-        <translation>Dibujar polilíneas</translation>
+        <translation type="vanished">Dibujar polilíneas</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
@@ -372,7 +574,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation>Eliminar entre dos nodos</translation>
+        <translation type="vanished">Eliminar entre dos nodos</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
@@ -568,11 +770,11 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>&amp;Show all</source>
-        <translation>&amp;Mostrar todo</translation>
+        <translation type="vanished">&amp;Mostrar todo</translation>
     </message>
     <message>
         <source>&amp;Hide all</source>
-        <translation>&amp;Ocultar todo</translation>
+        <translation type="vanished">&amp;Ocultar todo</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
@@ -640,7 +842,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation>&amp;Preferencias</translation>
+        <translation type="vanished">&amp;Preferencias</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
@@ -652,11 +854,11 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Open IDE</source>
-        <translation>Abrir IDE</translation>
+        <translation type="vanished">Abrir IDE</translation>
     </message>
     <message>
         <source>Run Script..</source>
-        <translation>Ejecutar script...</translation>
+        <translation type="vanished">Ejecutar script...</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
@@ -680,11 +882,11 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Export as &amp;MakerCAM SVG...</source>
-        <translation>Exportar como &amp;MakerCAM SVG...</translation>
+        <translation type="vanished">Exportar como &amp;MakerCAM SVG...</translation>
     </message>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation>Regenerar entidades de cotas</translation>
+        <translation type="vanished">Regenerar entidades de cotas</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -764,7 +966,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
+        <translation type="vanished">Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
@@ -776,7 +978,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
-        <translation>Ctrl+I</translation>
+        <translation type="vanished">Ctrl+I</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
@@ -836,7 +1038,187 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
+        <translation type="vanished">Ctrl+D</translation>
+    </message>
+    <message>
+        <source>Pol&amp;ygon (Cen,Tan)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snake (X)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snake (Y)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle (1 Point)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle (2 Points)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle (3 Points)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break/Divide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle From Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orthogonal From Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Point To Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slice/Divide Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slice/Divide Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line of Points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tangential 2 Circles, Radius</source>
+        <comment>circle tangential with two circles, and given radius</comment>
+        <translation type="unfinished">Tangencial 2 círculos, radio</translation>
+    </message>
+    <message>
+        <source>Para&amp;bola 4 points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parabola &amp;Focus Directrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pick Pen From Entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Pick Pen From Entity (Resolved)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply Pen to Entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Join</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Show all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Hide all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Unlock all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Lock all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export Selected Layer(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export &amp;Visible Layer(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Show all blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Hide all blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export as CA&amp;M/plain SVG...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+G</source>
+        <comment>Toggle Grid</comment>
+        <translation type="unfinished">Ctrl+G</translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <comment>Toggle Draft Mode</comment>
+        <translation type="unfinished">Ctrl+D</translation>
+    </message>
+    <message>
+        <source>Ctrl+I</source>
+        <comment>Hide Statusbar</comment>
+        <translation type="unfinished">Ctrl+I</translation>
+    </message>
+    <message>
+        <source>Re-dock Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save A&amp;ll...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -844,6 +1226,132 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     <message>
         <source>Export as</source>
         <translation>Exportar como</translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionLayersExport</name>
+    <message>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionPenApply</name>
+    <message>
+        <source>Specify entity to pick the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify entity to apply pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionPenPick</name>
+    <message>
+        <source>Specify entity to pick the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>LC_ActionSnapMiddleManual</name>
+    <message>
+        <source>Specify percentage / start-point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify start point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify end point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>LC_CircleByArcOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original Resolved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radius Shift:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Replace arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_CrossOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Percent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
     </message>
 </context>
 <context>
@@ -858,11 +1366,1226 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Ratón</translation>
+        <translation type="vanished">Ratón</translation>
     </message>
     <message>
         <source>Save</source>
         <translation>Guardar</translation>
+    </message>
+</context>
+<context>
+    <name>LC_DlgParabola</name>
+    <message>
+        <source>Parabola control points cannot be collinear</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_DuplicateOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>In Place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Original Resolved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LayerDialogEx</name>
+    <message>
+        <source>Layer Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent Layers Path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Informational</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alternative Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
+       The contents of a Construction Layer should not appear in printout.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Construction Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename Virtual Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Secondary Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Layer</source>
+        <translation type="unfinished">Agregar capa</translation>
+    </message>
+    <message>
+        <source>Edit Layer</source>
+        <translation type="unfinished">Editar capa</translation>
+    </message>
+    <message>
+        <source>Default Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LayerTreeOptionsDialog</name>
+    <message>
+        <source>Layers Tree Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Naming Convention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Level Name Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Secondary Layer Suffixes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimensional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Informational</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alternative Position </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicating Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Suffix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display and Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show full name as ToolTip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show layer type icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show indented layer names. Ident size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow restructuring via Drag&amp;Drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename secondary layers on primary rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Matched item in highlight filter mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual layer background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Threeview items separator grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Selected items background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active layer background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Pens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimensional Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Informational Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alternative Position Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LayerTreeWidget</name>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking for matching layer names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Secondary Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Active Layer Only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse Secondary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add dimensions Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify layer attributes / rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flat List Mode)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Child Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Layers (Sub-Tree)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Copy Structure (Sub-Tree)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Content (Sub-Tree)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Select Entities (Sub-Tree)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit Layer &amp;Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Layer</source>
+        <translation type="unfinished">&amp;Eliminar capa</translation>
+    </message>
+    <message>
+        <source>&amp;Add Dimensions Sub-Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Info Sub-Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Alternative View Sub-Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Sub-layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to Dimensional Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to Info Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to Alternative Position Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to Normal Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Select Layer&apos;s Entities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Create Layer Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Duplicate Layer With Content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Selection to Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate Selection to Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Layer</source>
+        <translation type="unfinished">&amp;Agregar capa</translation>
+    </message>
+    <message>
+        <source>&amp;Freeze Others Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Defreeze All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Freeze All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Unlock All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Lock All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable &amp;Printing All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Printing All Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Find And Remove Empty Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LineAngleRelOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Offset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free</source>
+        <translation type="unfinished">Libre</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inicio</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fin</translation>
+    </message>
+    <message>
+        <source>Line Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tick Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Longitud:</translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Snap Distance:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LineFromPointToLineOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orthogonal</source>
+        <translation type="unfinished">Ortogonal</translation>
+    </message>
+    <message>
+        <source>To Intersection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End offset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inicio</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fin</translation>
+    </message>
+    <message>
+        <source>Length:</source>
+        <translation type="unfinished">Longitud:</translation>
+    </message>
+    <message>
+        <source>Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LineJoinOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Extend/Trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add segment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Polyline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attributes:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove originals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line 2:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line 1:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_LinePointsOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Fit Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fin</translation>
+    </message>
+    <message>
+        <source>Edge Points:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of points:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ModifyBreakDivideOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Remove Segments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_ModifyGapOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Gap Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Distance:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free</source>
+        <translation type="unfinished">Libre</translation>
+    </message>
+    <message>
+        <source>Gap Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inicio</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fin</translation>
+    </message>
+    <message>
+        <source>Line Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_PenPaletteOptionsDialog</name>
+    <message>
+        <source>Pen Palette Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Columns to display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Type Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Type Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Width Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line Width Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active Pen Background:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entire table row is bold for active pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Matched Item Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Case-insensitive pens filtering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Controls whether tooltip will be shown for table item or not</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show tooltip for table items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pens file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show colorn name as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HEX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RGB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Natural name where possible</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show info message if no entities may be selected by pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On double click on table item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select entities by attributes pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select entities by drawing pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_PenPaletteWidget</name>
+    <message>
+        <source>Pen Palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Pen Editor by Entity Drawing Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Pen Editor by Entity Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Entities By Drawing Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Entities By Pen Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Guardar</translation>
+    </message>
+    <message>
+        <source>Apply Pen To Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Editor Pen by Current Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply Editor Pen As Current Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>to current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick from Active Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply Editor Pen to Active Layer Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply To Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Selected Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pens Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply Pen To Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Set As Current Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply Pen To Active Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Select Entities With Attributes Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Select Entities With Drawing Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Pens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location of pens file is changed, please restart the application so new pens file will be used.
+
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_Rectangle1PointOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edges:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corners:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size inner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="unfinished">Radio:</translation>
+    </message>
+    <message>
+        <source>Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top-left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Arriba</translation>
+    </message>
+    <message>
+        <source>Top-right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Izquierda</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Derecha</translation>
+    </message>
+    <message>
+        <source>Bottom-left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Abajo</translation>
+    </message>
+    <message>
+        <source>Bottom-right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished">Redondear</translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation type="unfinished">Chaflán</translation>
+    </message>
+    <message>
+        <source>Snap shift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Vertical</translation>
+    </message>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Horizontal</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LC_Rectangle2PointsOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Snap shift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="unfinished">Radio:</translation>
+    </message>
+    <message>
+        <source>Edges:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>End Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corners:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-Horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>Base Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished">Redondear</translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation type="unfinished">Chaflán</translation>
+    </message>
+    <message>
+        <source>Length Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Vertical</translation>
+    </message>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Horizontal</translation>
+    </message>
+</context>
+<context>
+    <name>LC_Rectangle3PointsOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished">Vertical</translation>
+    </message>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Horizontal</translation>
+    </message>
+    <message>
+        <source>Edges:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quadrangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed Base Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished">Redondear</translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation type="unfinished">Chaflán</translation>
+    </message>
+    <message>
+        <source>Corners:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap shift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="unfinished">Radio:</translation>
+    </message>
+    <message>
+        <source>Fixed Inner Angle:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -874,6 +2597,159 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     <message>
         <source>Insert Image</source>
         <translation>Insertar imagen</translation>
+    </message>
+</context>
+<context>
+    <name>LC_SliceDivideOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished">Fin</translation>
+    </message>
+    <message>
+        <source>Edge Tick:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Count:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Circle Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tick Length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tick snap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Divide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished">Medio</translation>
+    </message>
+    <message>
+        <source>Fixed </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance:</source>
+        <translation type="unfinished">Distancia:</translation>
+    </message>
+</context>
+<context>
+    <name>LC_StarOptions</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulario</translation>
+    </message>
+    <message>
+        <source>Radius Inner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Radius Outer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Symmetric</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number:</source>
+        <translation type="unfinished">Número:</translation>
+    </message>
+</context>
+<context>
+    <name>LC_WidgetFactory</name>
+    <message>
+        <source>Library Browser</source>
+        <translation type="unfinished">Navegador de biblioteca</translation>
+    </message>
+    <message>
+        <source>Command line</source>
+        <translation type="unfinished">Línea de comandos</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freehand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PolyLines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Seleccionar</translation>
+    </message>
+    <message>
+        <source>Dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">Modificar</translation>
+    </message>
+    <message>
+        <source>Measure</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -925,6 +2801,10 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     <message>
         <source>Use themed icons</source>
         <translation>Usar íconos temáticos</translation>
+    </message>
+    <message>
+        <source>Left toolbar columns:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1106,7 +2986,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Library Browser</source>
-        <translation>Navegador de biblioteca</translation>
+        <translation type="vanished">Navegador de biblioteca</translation>
     </message>
     <message>
         <source>Print preview for %1</source>
@@ -1126,7 +3006,7 @@ la distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Saving drawing under new filename...</source>
-        <translation>Guardando dibujo con nuevo nombre...</translation>
+        <translation type="vanished">Guardando dibujo con nuevo nombre...</translation>
     </message>
     <message>
         <source>Exporting drawing...</source>
@@ -1172,7 +3052,7 @@ Verifique los permisos.</translation>
         <source>Cannot save the file
 %1
 Please check the permissions.</source>
-        <translation>No se puede guardar el archivo
+        <translation type="vanished">No se puede guardar el archivo
 %1
 Verifique los permisos.</translation>
     </message>
@@ -1224,7 +3104,7 @@ Guardado automático desactivado.</translation>
     </message>
     <message>
         <source>Su&amp;b-Window mode</source>
-        <translation>Modo su&amp;bventana</translation>
+        <translation type="vanished">Modo su&amp;bventana</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
@@ -1432,11 +3312,173 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Help Links</source>
-        <translation>Enlaces de ayuda</translation>
+        <translation type="vanished">Enlaces de ayuda</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation>En línea</translation>
+        <translation type="vanished">En línea</translation>
+    </message>
+    <message>
+        <source>Saving drawing: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closing Drawing</source>
+        <translation type="unfinished">Cerrando dibujo</translation>
+    </message>
+    <message>
+        <source>Save changes to the following item?
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">&amp;Guardar</translation>
+    </message>
+    <message>
+        <source>Save &amp;as...</source>
+        <translation type="unfinished">Guardar &amp;como...</translation>
+    </message>
+    <message>
+        <source>&amp;Save %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save %1 &amp;as...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Window mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rounded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Triangular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>North</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>South</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>East</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>West</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Arrange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Maximized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save All cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please adjust scaling and positioning in print preview first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opening recent file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cmd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <comment>Dock the command widget to the main window</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen Palette</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Polyline</source>
+        <translation type="unfinished">&amp;Polilínea</translation>
+    </message>
+    <message>
+        <source>&amp;Wiki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User&apos;s &amp;Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Style Sheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wid&amp;gets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Forum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zulip &amp;Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Release Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On&amp;line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Donate</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1444,1503 +3486,1503 @@ Verifique que exista y los permisos.</translation>
     <message>
         <source>Do you really want to close the file
 %1?</source>
-        <translation>¿Realmente desea cerrar el archivo
+        <translation type="vanished">¿Realmente desea cerrar el archivo
 %1?</translation>
     </message>
     <message>
         <source>Do you really want to close the drawing?</source>
-        <translation>¿Realmente desea cerrar el dibujo?</translation>
+        <translation type="vanished">¿Realmente desea cerrar el dibujo?</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation>Cerrando dibujo</translation>
+        <translation type="vanished">Cerrando dibujo</translation>
     </message>
 </context>
 <context>
     <name>QG_ActionFactory</name>
     <message>
         <source>&amp;New</source>
-        <translation>&amp;Nuevo</translation>
+        <translation type="vanished">&amp;Nuevo</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp;Abrir...</translation>
+        <translation type="vanished">&amp;Abrir...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;Guardar</translation>
+        <translation type="vanished">&amp;Guardar</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>Guardar &amp;como...</translation>
+        <translation type="vanished">Guardar &amp;como...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Cerrar</translation>
+        <translation type="vanished">&amp;Cerrar</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation>&amp;Imprimir</translation>
+        <translation type="vanished">&amp;Imprimir</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Salir</translation>
+        <translation type="vanished">Salir</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>S&amp;alir</translation>
+        <translation type="vanished">S&amp;alir</translation>
     </message>
     <message>
         <source>Quits the application</source>
-        <translation>Salir de la aplicación</translation>
+        <translation type="vanished">Salir de la aplicación</translation>
     </message>
     <message>
         <source>Zoom in</source>
-        <translation>Acercar</translation>
+        <translation type="vanished">Acercar</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>Zoom &amp;acercar</translation>
+        <translation type="vanished">Zoom &amp;acercar</translation>
     </message>
     <message>
         <source>Zooms in</source>
-        <translation>Acercar</translation>
+        <translation type="vanished">Acercar</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation>Alejar</translation>
+        <translation type="vanished">Alejar</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>Zoom &amp;alejar</translation>
+        <translation type="vanished">Zoom &amp;alejar</translation>
     </message>
     <message>
         <source>Zooms out</source>
-        <translation>Alejar</translation>
+        <translation type="vanished">Alejar</translation>
     </message>
     <message>
         <source>Auto Zoom</source>
-        <translation>Zoom automático</translation>
+        <translation type="vanished">Zoom automático</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation>&amp;Zoom automático</translation>
+        <translation type="vanished">&amp;Zoom automático</translation>
     </message>
     <message>
         <source>Zooms automatic</source>
-        <translation>Zoom automático</translation>
+        <translation type="vanished">Zoom automático</translation>
     </message>
     <message>
         <source>Window Zoom</source>
-        <translation>Zoom de ventana</translation>
+        <translation type="vanished">Zoom de ventana</translation>
     </message>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>Zoom de &amp;ventana</translation>
+        <translation type="vanished">Zoom de &amp;ventana</translation>
     </message>
     <message>
         <source>Zooms in a window</source>
-        <translation>Acercar en ventana</translation>
+        <translation type="vanished">Acercar en ventana</translation>
     </message>
     <message>
         <source>Pan Zoom</source>
-        <translation>Desplazamiento</translation>
+        <translation type="vanished">Desplazamiento</translation>
     </message>
     <message>
         <source>&amp;Pan Zoom</source>
-        <translation>&amp;Desplazamiento</translation>
+        <translation type="vanished">&amp;Desplazamiento</translation>
     </message>
     <message>
         <source>Realtime Panning</source>
-        <translation>Desplazamiento en tiempo real</translation>
+        <translation type="vanished">Desplazamiento en tiempo real</translation>
     </message>
     <message>
         <source>Redraw</source>
-        <translation>Redibujar</translation>
+        <translation type="vanished">Redibujar</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>&amp;Redibujar</translation>
+        <translation type="vanished">&amp;Redibujar</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Deshacer</translation>
+        <translation type="vanished">Deshacer</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation>&amp;Deshacer</translation>
+        <translation type="vanished">&amp;Deshacer</translation>
     </message>
     <message>
         <source>Undoes last action</source>
-        <translation>Deshace la última acción</translation>
+        <translation type="vanished">Deshace la última acción</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Rehacer</translation>
+        <translation type="vanished">Rehacer</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>&amp;Rehacer</translation>
+        <translation type="vanished">&amp;Rehacer</translation>
     </message>
     <message>
         <source>Redoes last action</source>
-        <translation>Rehace la última acción</translation>
+        <translation type="vanished">Rehace la última acción</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Cortar</translation>
+        <translation type="vanished">Cortar</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>Cor&amp;tar</translation>
+        <translation type="vanished">Cor&amp;tar</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation type="vanished">Copiar</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Copiar</translation>
+        <translation type="vanished">&amp;Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Pegar</translation>
+        <translation type="vanished">Pegar</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp;Pegar</translation>
+        <translation type="vanished">&amp;Pegar</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation>Seleccionar entidad</translation>
+        <translation type="vanished">Seleccionar entidad</translation>
     </message>
     <message>
         <source>Selects single Entities</source>
-        <translation>Selecciona entidades individuales</translation>
+        <translation type="vanished">Selecciona entidades individuales</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation>Seleccionar ventana</translation>
+        <translation type="vanished">Seleccionar ventana</translation>
     </message>
     <message>
         <source>Select &amp;Window</source>
-        <translation>Seleccionar &amp;ventana</translation>
+        <translation type="vanished">Seleccionar &amp;ventana</translation>
     </message>
     <message>
         <source>Selects all Entities in a given Window</source>
-        <translation>Selecciona todas las entidades en una ventana</translation>
+        <translation type="vanished">Selecciona todas las entidades en una ventana</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation>Deseleccionar ventana</translation>
+        <translation type="vanished">Deseleccionar ventana</translation>
     </message>
     <message>
         <source>Deselect &amp;Window</source>
-        <translation>Deseleccionar &amp;ventana</translation>
+        <translation type="vanished">Deseleccionar &amp;ventana</translation>
     </message>
     <message>
         <source>Deselects all Entities in a given Window</source>
-        <translation>Deselecciona todas las entidades en una ventana</translation>
+        <translation type="vanished">Deselecciona todas las entidades en una ventana</translation>
     </message>
     <message>
         <source>(De-)Select Contour</source>
-        <translation>(De)Seleccionar contorno</translation>
+        <translation type="vanished">(De)Seleccionar contorno</translation>
     </message>
     <message>
         <source>(De-)Selects connected entities</source>
-        <translation>(De)Selecciona entidades conectadas</translation>
+        <translation type="vanished">(De)Selecciona entidades conectadas</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation>Seleccionar todo</translation>
+        <translation type="vanished">Seleccionar todo</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Seleccionar &amp;todo</translation>
+        <translation type="vanished">Seleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Selects all Entities</source>
-        <translation>Selecciona todas las entidades</translation>
+        <translation type="vanished">Selecciona todas las entidades</translation>
     </message>
     <message>
         <source>Deselect all</source>
-        <translation>Deseleccionar todo</translation>
+        <translation type="vanished">Deseleccionar todo</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation>Deseleccionar &amp;todo</translation>
+        <translation type="vanished">Deseleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Deselects all Entities</source>
-        <translation>Deselecciona todas las entidades</translation>
+        <translation type="vanished">Deselecciona todas las entidades</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation>Invertir selección</translation>
+        <translation type="vanished">Invertir selección</translation>
     </message>
     <message>
         <source>&amp;Invert Selection</source>
-        <translation>&amp;Invertir selección</translation>
+        <translation type="vanished">&amp;Invertir selección</translation>
     </message>
     <message>
         <source>Inverts the current selection</source>
-        <translation>Invierte la selección actual</translation>
+        <translation type="vanished">Invierte la selección actual</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation>Seleccionar entidades intersectadas</translation>
+        <translation type="vanished">Seleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>In&amp;tersected Entities</source>
-        <translation>Entidades in&amp;tersectadas</translation>
+        <translation type="vanished">Entidades in&amp;tersectadas</translation>
     </message>
     <message>
         <source>Selects all entities intersected by a line</source>
-        <translation>Selecciona todas las entidades intersectadas por una línea</translation>
+        <translation type="vanished">Selecciona todas las entidades intersectadas por una línea</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation>Deseleccionar entidades intersectadas</translation>
+        <translation type="vanished">Deseleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>Deselect Inte&amp;rsected Entities</source>
-        <translation>Deseleccionar entidades inte&amp;rsectadas</translation>
+        <translation type="vanished">Deseleccionar entidades inte&amp;rsectadas</translation>
     </message>
     <message>
         <source>Deselects all entities intersected by a line</source>
-        <translation>Deselecciona todas las entidades intersectadas por una línea</translation>
+        <translation type="vanished">Deselecciona todas las entidades intersectadas por una línea</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De)Seleccionar capa</translation>
+        <translation type="vanished">(De)Seleccionar capa</translation>
     </message>
     <message>
         <source>(De-)Selects layers</source>
-        <translation>(De)Selecciona capas</translation>
+        <translation type="vanished">(De)Selecciona capas</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation>Puntos</translation>
+        <translation type="vanished">Puntos</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>&amp;Puntos</translation>
+        <translation type="vanished">&amp;Puntos</translation>
     </message>
     <message>
         <source>Draw Points</source>
-        <translation>Dibujar puntos</translation>
+        <translation type="vanished">Dibujar puntos</translation>
     </message>
     <message>
         <source>Line: 2 Points</source>
-        <translation>Línea: 2 puntos</translation>
+        <translation type="vanished">Línea: 2 puntos</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation>&amp;2 puntos</translation>
+        <translation type="vanished">&amp;2 puntos</translation>
     </message>
     <message>
         <source>Draw lines</source>
-        <translation>Dibujar líneas</translation>
+        <translation type="vanished">Dibujar líneas</translation>
     </message>
     <message>
         <source>Line: Angle</source>
-        <translation>Línea: ángulo</translation>
+        <translation type="vanished">Línea: ángulo</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation>&amp;Ángulo</translation>
+        <translation type="vanished">&amp;Ángulo</translation>
     </message>
     <message>
         <source>Draw lines with a given angle</source>
-        <translation>Dibujar líneas con un ángulo dado</translation>
+        <translation type="vanished">Dibujar líneas con un ángulo dado</translation>
     </message>
     <message>
         <source>Line: Horizontal</source>
-        <translation>Línea: horizontal</translation>
+        <translation type="vanished">Línea: horizontal</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation>&amp;Horizontal</translation>
+        <translation type="vanished">&amp;Horizontal</translation>
     </message>
     <message>
         <source>Draw horizontal lines</source>
-        <translation>Dibujar líneas horizontales</translation>
+        <translation type="vanished">Dibujar líneas horizontales</translation>
     </message>
     <message>
         <source>hor./vert. line</source>
-        <translation>línea hor./vert.</translation>
+        <translation type="vanished">línea hor./vert.</translation>
     </message>
     <message>
         <source>H&amp;orizontal / Vertical</source>
-        <translation>H&amp;orizontal / Vertical</translation>
+        <translation type="vanished">H&amp;orizontal / Vertical</translation>
     </message>
     <message>
         <source>Draw horizontal/vertical lines</source>
-        <translation>Dibujar líneas horizontales/verticales</translation>
+        <translation type="vanished">Dibujar líneas horizontales/verticales</translation>
     </message>
     <message>
         <source>Line: Vertical</source>
-        <translation>Línea: vertical</translation>
+        <translation type="vanished">Línea: vertical</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation>&amp;Vertical</translation>
+        <translation type="vanished">&amp;Vertical</translation>
     </message>
     <message>
         <source>Draw vertical lines</source>
-        <translation>Dibujar líneas verticales</translation>
+        <translation type="vanished">Dibujar líneas verticales</translation>
     </message>
     <message>
         <source>Line: Freehand</source>
-        <translation>Línea a mano alzada</translation>
+        <translation type="vanished">Línea a mano alzada</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation>Línea a &amp;mano alzada</translation>
+        <translation type="vanished">Línea a &amp;mano alzada</translation>
     </message>
     <message>
         <source>Draw freehand lines</source>
-        <translation>Dibujar líneas a mano alzada</translation>
+        <translation type="vanished">Dibujar líneas a mano alzada</translation>
     </message>
     <message>
         <source>Parallel</source>
-        <translation>Paralela</translation>
+        <translation type="vanished">Paralela</translation>
     </message>
     <message>
         <source>Para&amp;llel</source>
-        <translation>Para&amp;lela</translation>
+        <translation type="vanished">Para&amp;lela</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation>Rectángulo</translation>
+        <translation type="vanished">Rectángulo</translation>
     </message>
     <message>
         <source>&amp;Rectangle</source>
-        <translation>&amp;Rectángulo</translation>
+        <translation type="vanished">&amp;Rectángulo</translation>
     </message>
     <message>
         <source>Draw rectangles</source>
-        <translation>Dibujar rectángulos</translation>
+        <translation type="vanished">Dibujar rectángulos</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation>Bisector</translation>
+        <translation type="vanished">Bisector</translation>
     </message>
     <message>
         <source>&amp;Bisector</source>
-        <translation>&amp;Bisector</translation>
+        <translation type="vanished">&amp;Bisector</translation>
     </message>
     <message>
         <source>Draw bisectors</source>
-        <translation>Dibujar bisectores</translation>
+        <translation type="vanished">Dibujar bisectores</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation>Tangente (P,C)</translation>
+        <translation type="vanished">Tangente (P,C)</translation>
     </message>
     <message>
         <source>&amp;Tangent (P,C)</source>
-        <translation>&amp;Tangente (P,C)</translation>
+        <translation type="vanished">&amp;Tangente (P,C)</translation>
     </message>
     <message>
         <source>Draw tangent (point, circle)</source>
-        <translation>Dibujar tangente (punto, círculo)</translation>
+        <translation type="vanished">Dibujar tangente (punto, círculo)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation>Tangente (C,C)</translation>
+        <translation type="vanished">Tangente (C,C)</translation>
     </message>
     <message>
         <source>Tan&amp;gent (C,C)</source>
-        <translation>Tan&amp;gente (C,C)</translation>
+        <translation type="vanished">Tan&amp;gente (C,C)</translation>
     </message>
     <message>
         <source>Draw tangent (circle, circle)</source>
-        <translation>Dibujar tangente (círculo, círculo)</translation>
+        <translation type="vanished">Dibujar tangente (círculo, círculo)</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Ortogonal</translation>
+        <translation type="vanished">Ortogonal</translation>
     </message>
     <message>
         <source>&amp;Orthogonal</source>
-        <translation>&amp;Ortogonal</translation>
+        <translation type="vanished">&amp;Ortogonal</translation>
     </message>
     <message>
         <source>Draw orthogonal line</source>
-        <translation>Dibujar línea ortogonal</translation>
+        <translation type="vanished">Dibujar línea ortogonal</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation>Ángulo relativo</translation>
+        <translation type="vanished">Ángulo relativo</translation>
     </message>
     <message>
         <source>R&amp;elative angle</source>
-        <translation>Á&amp;ngulo relativo</translation>
+        <translation type="vanished">Á&amp;ngulo relativo</translation>
     </message>
     <message>
         <source>Draw line with relative angle</source>
-        <translation>Dibujar línea con ángulo relativo</translation>
+        <translation type="vanished">Dibujar línea con ángulo relativo</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation>Polígono</translation>
+        <translation type="vanished">Polígono</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Pol&amp;ígono (centro, esquina)</translation>
+        <translation type="vanished">Pol&amp;ígono (centro, esquina)</translation>
     </message>
     <message>
         <source>Draw polygon with center and corner</source>
-        <translation>Dibujar polígono con centro y esquina</translation>
+        <translation type="vanished">Dibujar polígono con centro y esquina</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cor,Cor)</source>
-        <translation>Polígono (esquina, esquina)</translation>
+        <translation type="vanished">Polígono (esquina, esquina)</translation>
     </message>
     <message>
         <source>Draw polygon with two corners</source>
-        <translation>Dibujar polígono con dos esquinas</translation>
+        <translation type="vanished">Dibujar polígono con dos esquinas</translation>
     </message>
     <message>
         <source>Circle: Center, Point</source>
-        <translation>Círculo: centro, punto</translation>
+        <translation type="vanished">Círculo: centro, punto</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation>Centro, &amp;punto</translation>
+        <translation type="vanished">Centro, &amp;punto</translation>
     </message>
     <message>
         <source>Draw circles with center and point</source>
-        <translation>Dibujar círculos con centro y punto</translation>
+        <translation type="vanished">Dibujar círculos con centro y punto</translation>
     </message>
     <message>
         <source>Circle: Center, Radius</source>
-        <translation>Círculo: centro, radio</translation>
+        <translation type="vanished">Círculo: centro, radio</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation>Centro, &amp;radio</translation>
+        <translation type="vanished">Centro, &amp;radio</translation>
     </message>
     <message>
         <source>Draw circles with center and radius</source>
-        <translation>Dibujar círculos con centro y radio</translation>
+        <translation type="vanished">Dibujar círculos con centro y radio</translation>
     </message>
     <message>
         <source>Circle: 2 Points</source>
-        <translation>Círculo: 2 puntos</translation>
+        <translation type="vanished">Círculo: 2 puntos</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation>2 puntos</translation>
+        <translation type="vanished">2 puntos</translation>
     </message>
     <message>
         <source>Draw circles with 2 points</source>
-        <translation>Dibujar círculos con 2 puntos</translation>
+        <translation type="vanished">Dibujar círculos con 2 puntos</translation>
     </message>
     <message>
         <source>Circle: 3 Points</source>
-        <translation>Círculo: 3 puntos</translation>
+        <translation type="vanished">Círculo: 3 puntos</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation>3 puntos</translation>
+        <translation type="vanished">3 puntos</translation>
     </message>
     <message>
         <source>Draw circles with 3 points</source>
-        <translation>Dibujar círculos con 3 puntos</translation>
+        <translation type="vanished">Dibujar círculos con 3 puntos</translation>
     </message>
     <message>
         <source>Arc: Center, Point, Angles</source>
-        <translation>Arco: centro, punto, ángulos</translation>
+        <translation type="vanished">Arco: centro, punto, ángulos</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation>&amp;Centro, punto, ángulos</translation>
+        <translation type="vanished">&amp;Centro, punto, ángulos</translation>
     </message>
     <message>
         <source>Draw arcs</source>
-        <translation>Dibujar arcos</translation>
+        <translation type="vanished">Dibujar arcos</translation>
     </message>
     <message>
         <source>Arc: 3 Points</source>
-        <translation>Arco: 3 puntos</translation>
+        <translation type="vanished">Arco: 3 puntos</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation>&amp;3 puntos</translation>
+        <translation type="vanished">&amp;3 puntos</translation>
     </message>
     <message>
         <source>Draw arcs with 3 points</source>
-        <translation>Dibujar arcos con 3 puntos</translation>
+        <translation type="vanished">Dibujar arcos con 3 puntos</translation>
     </message>
     <message>
         <source>Ellipse with Axis</source>
-        <translation>Elipse con ejes</translation>
+        <translation type="vanished">Elipse con ejes</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>&amp;Elipse (ejes)</translation>
+        <translation type="vanished">&amp;Elipse (ejes)</translation>
     </message>
     <message>
         <source>Draw Ellipses</source>
-        <translation>Dibujar elipses</translation>
+        <translation type="vanished">Dibujar elipses</translation>
     </message>
     <message>
         <source>Ellipse Arc with Axis</source>
-        <translation>Arco de elipse con ejes</translation>
+        <translation type="vanished">Arco de elipse con ejes</translation>
     </message>
     <message>
         <source>&amp;Ellipse Arc (Axis)</source>
-        <translation>Arco de &amp;elipse (ejes)</translation>
+        <translation type="vanished">Arco de &amp;elipse (ejes)</translation>
     </message>
     <message>
         <source>Draw Ellipse Arcs</source>
-        <translation>Dibujar arcos de elipse</translation>
+        <translation type="vanished">Dibujar arcos de elipse</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation type="vanished">Texto</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation>&amp;Texto</translation>
+        <translation type="vanished">&amp;Texto</translation>
     </message>
     <message>
         <source>Draw Text Entities</source>
-        <translation>Dibujar entidades de texto</translation>
+        <translation type="vanished">Dibujar entidades de texto</translation>
     </message>
     <message>
         <source>Draw Hatches and Solid Fills</source>
-        <translation>Dibujar sombreados y rellenos sólidos</translation>
+        <translation type="vanished">Dibujar sombreados y rellenos sólidos</translation>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Alineado</translation>
+        <translation type="vanished">Alineado</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation>&amp;Alineado</translation>
+        <translation type="vanished">&amp;Alineado</translation>
     </message>
     <message>
         <source>Aligned Dimension</source>
-        <translation>Cota alineada</translation>
+        <translation type="vanished">Cota alineada</translation>
     </message>
     <message>
         <source>Linear</source>
-        <translation>Lineal</translation>
+        <translation type="vanished">Lineal</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation>&amp;Lineal</translation>
+        <translation type="vanished">&amp;Lineal</translation>
     </message>
     <message>
         <source>Linear Dimension</source>
-        <translation>Cota lineal</translation>
+        <translation type="vanished">Cota lineal</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation type="vanished">Horizontal</translation>
     </message>
     <message>
         <source>Horizontal Dimension</source>
-        <translation>Cota horizontal</translation>
+        <translation type="vanished">Cota horizontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>Vertical</translation>
+        <translation type="vanished">Vertical</translation>
     </message>
     <message>
         <source>Vertical Dimension</source>
-        <translation>Cota vertical</translation>
+        <translation type="vanished">Cota vertical</translation>
     </message>
     <message>
         <source>Radial</source>
-        <translation>Radial</translation>
+        <translation type="vanished">Radial</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation>&amp;Radial</translation>
+        <translation type="vanished">&amp;Radial</translation>
     </message>
     <message>
         <source>Radial Dimension</source>
-        <translation>Cota radial</translation>
+        <translation type="vanished">Cota radial</translation>
     </message>
     <message>
         <source>Diametric</source>
-        <translation>Diámetro</translation>
+        <translation type="vanished">Diámetro</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation>&amp;Diámetro</translation>
+        <translation type="vanished">&amp;Diámetro</translation>
     </message>
     <message>
         <source>Diametric Dimension</source>
-        <translation>Cota de diámetro</translation>
+        <translation type="vanished">Cota de diámetro</translation>
     </message>
     <message>
         <source>Angular</source>
-        <translation>Angular</translation>
+        <translation type="vanished">Angular</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation>&amp;Angular</translation>
+        <translation type="vanished">&amp;Angular</translation>
     </message>
     <message>
         <source>Angular Dimension</source>
-        <translation>Cota angular</translation>
+        <translation type="vanished">Cota angular</translation>
     </message>
     <message>
         <source>Leader</source>
-        <translation>Directriz</translation>
+        <translation type="vanished">Directriz</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation>&amp;Directriz</translation>
+        <translation type="vanished">&amp;Directriz</translation>
     </message>
     <message>
         <source>Leader Dimension</source>
-        <translation>Cota con directriz</translation>
+        <translation type="vanished">Cota con directriz</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Eliminar</translation>
+        <translation type="vanished">Eliminar</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Eliminar</translation>
+        <translation type="vanished">&amp;Eliminar</translation>
     </message>
     <message>
         <source>Delete Entities</source>
-        <translation>Eliminar entidades</translation>
+        <translation type="vanished">Eliminar entidades</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation>Eliminar a mano alzada</translation>
+        <translation type="vanished">Eliminar a mano alzada</translation>
     </message>
     <message>
         <source>&amp;Delete Freehand</source>
-        <translation>&amp;Eliminar a mano alzada</translation>
+        <translation type="vanished">&amp;Eliminar a mano alzada</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>Mover</translation>
+        <translation type="vanished">Mover</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation>&amp;Mover</translation>
+        <translation type="vanished">&amp;Mover</translation>
     </message>
     <message>
         <source>Move Entities</source>
-        <translation>Mover entidades</translation>
+        <translation type="vanished">Mover entidades</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation>Rotar</translation>
+        <translation type="vanished">Rotar</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation>&amp;Rotar</translation>
+        <translation type="vanished">&amp;Rotar</translation>
     </message>
     <message>
         <source>Rotate Entities</source>
-        <translation>Rotar entidades</translation>
+        <translation type="vanished">Rotar entidades</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Escalar</translation>
+        <translation type="vanished">Escalar</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation>&amp;Escalar</translation>
+        <translation type="vanished">&amp;Escalar</translation>
     </message>
     <message>
         <source>Scale Entities</source>
-        <translation>Escalar entidades</translation>
+        <translation type="vanished">Escalar entidades</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation>Espejo</translation>
+        <translation type="vanished">Espejo</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp;Espejo</translation>
+        <translation type="vanished">&amp;Espejo</translation>
     </message>
     <message>
         <source>Mirror Entities</source>
-        <translation>Reflejar entidades</translation>
+        <translation type="vanished">Reflejar entidades</translation>
     </message>
     <message>
         <source>Move and Rotate</source>
-        <translation>Mover y rotar</translation>
+        <translation type="vanished">Mover y rotar</translation>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation>Mo&amp;ver y rotar</translation>
+        <translation type="vanished">Mo&amp;ver y rotar</translation>
     </message>
     <message>
         <source>Move and Rotate Entities</source>
-        <translation>Mover y rotar entidades</translation>
+        <translation type="vanished">Mover y rotar entidades</translation>
     </message>
     <message>
         <source>Rotate Two</source>
-        <translation>Rotar dos</translation>
+        <translation type="vanished">Rotar dos</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation>Rotar d&amp;os</translation>
+        <translation type="vanished">Rotar d&amp;os</translation>
     </message>
     <message>
         <source>Rotate Entities around two centers</source>
-        <translation>Rotar entidades alrededor de dos centros</translation>
+        <translation type="vanished">Rotar entidades alrededor de dos centros</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Recortar</translation>
+        <translation type="vanished">Recortar</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation>&amp;Recortar</translation>
+        <translation type="vanished">&amp;Recortar</translation>
     </message>
     <message>
         <source>Trim Entities</source>
-        <translation>Recortar entidades</translation>
+        <translation type="vanished">Recortar entidades</translation>
     </message>
     <message>
         <source>Trim Two</source>
-        <translation>Recortar dos</translation>
+        <translation type="vanished">Recortar dos</translation>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation>&amp;Recortar dos</translation>
+        <translation type="vanished">&amp;Recortar dos</translation>
     </message>
     <message>
         <source>Trim two Entities</source>
-        <translation>Recortar dos entidades</translation>
+        <translation type="vanished">Recortar dos entidades</translation>
     </message>
     <message>
         <source>Lengthen</source>
-        <translation>Alargar</translation>
+        <translation type="vanished">Alargar</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation>&amp;Alargar</translation>
+        <translation type="vanished">&amp;Alargar</translation>
     </message>
     <message>
         <source>Lengthen by a given amount</source>
-        <translation>Alargar por una cantidad dada</translation>
+        <translation type="vanished">Alargar por una cantidad dada</translation>
     </message>
     <message>
         <source>&amp;Cut</source>
-        <translation>&amp;Cortar</translation>
+        <translation type="vanished">&amp;Cortar</translation>
     </message>
     <message>
         <source>Cut Entities</source>
-        <translation>Cortar entidades</translation>
+        <translation type="vanished">Cortar entidades</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Estirar</translation>
+        <translation type="vanished">Estirar</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation>&amp;Estirar</translation>
+        <translation type="vanished">&amp;Estirar</translation>
     </message>
     <message>
         <source>Stretch Entities</source>
-        <translation>Estirar entidades</translation>
+        <translation type="vanished">Estirar entidades</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Chaflán</translation>
+        <translation type="vanished">Chaflán</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation>&amp;Chaflán</translation>
+        <translation type="vanished">&amp;Chaflán</translation>
     </message>
     <message>
         <source>Bevel Entities</source>
-        <translation>Chaflán en entidades</translation>
+        <translation type="vanished">Chaflán en entidades</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation>Redondear</translation>
+        <translation type="vanished">Redondear</translation>
     </message>
     <message>
         <source>&amp;Round</source>
-        <translation>&amp;Redondear</translation>
+        <translation type="vanished">&amp;Redondear</translation>
     </message>
     <message>
         <source>Round Entities</source>
-        <translation>Redondear entidades</translation>
+        <translation type="vanished">Redondear entidades</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Libre</translation>
+        <translation type="vanished">Libre</translation>
     </message>
     <message>
         <source>&amp;Free</source>
-        <translation>&amp;Libre</translation>
+        <translation type="vanished">&amp;Libre</translation>
     </message>
     <message>
         <source>Free positioning</source>
-        <translation>Posicionamiento libre</translation>
+        <translation type="vanished">Posicionamiento libre</translation>
     </message>
     <message>
         <source>Grid</source>
-        <translation>Cuadrícula</translation>
+        <translation type="vanished">Cuadrícula</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation>&amp;Cuadrícula</translation>
+        <translation type="vanished">&amp;Cuadrícula</translation>
     </message>
     <message>
         <source>Grid positioning</source>
-        <translation>Posicionamiento en cuadrícula</translation>
+        <translation type="vanished">Posicionamiento en cuadrícula</translation>
     </message>
     <message>
         <source>Endpoints</source>
-        <translation>Extremos</translation>
+        <translation type="vanished">Extremos</translation>
     </message>
     <message>
         <source>&amp;Endpoints</source>
-        <translation>&amp;Extremos</translation>
+        <translation type="vanished">&amp;Extremos</translation>
     </message>
     <message>
         <source>Snap to endpoints</source>
-        <translation>Ajustar a extremos</translation>
+        <translation type="vanished">Ajustar a extremos</translation>
     </message>
     <message>
         <source>On Entity</source>
-        <translation>En entidad</translation>
+        <translation type="vanished">En entidad</translation>
     </message>
     <message>
         <source>&amp;On Entity</source>
-        <translation>&amp;En entidad</translation>
+        <translation type="vanished">&amp;En entidad</translation>
     </message>
     <message>
         <source>Snap to nearest point on entity</source>
-        <translation>Ajustar al punto más cercano en la entidad</translation>
+        <translation type="vanished">Ajustar al punto más cercano en la entidad</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Centro</translation>
+        <translation type="vanished">Centro</translation>
     </message>
     <message>
         <source>&amp;Center</source>
-        <translation>&amp;Centro</translation>
+        <translation type="vanished">&amp;Centro</translation>
     </message>
     <message>
         <source>Snap to centers</source>
-        <translation>Ajustar a centros</translation>
+        <translation type="vanished">Ajustar a centros</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Medio</translation>
+        <translation type="vanished">Medio</translation>
     </message>
     <message>
         <source>&amp;Middle</source>
-        <translation>&amp;Medio</translation>
+        <translation type="vanished">&amp;Medio</translation>
     </message>
     <message>
         <source>Snap to middle points</source>
-        <translation>Ajustar a puntos medios</translation>
+        <translation type="vanished">Ajustar a puntos medios</translation>
     </message>
     <message>
         <source>Distance from Endpoint</source>
-        <translation>Distancia desde el extremo</translation>
+        <translation type="vanished">Distancia desde el extremo</translation>
     </message>
     <message>
         <source>&amp;Distance from Endpoint</source>
-        <translation>&amp;Distancia desde el extremo</translation>
+        <translation type="vanished">&amp;Distancia desde el extremo</translation>
     </message>
     <message>
         <source>Snap to points with a given distance to an endpoint</source>
-        <translation>Ajustar a puntos con una distancia dada desde un extremo</translation>
+        <translation type="vanished">Ajustar a puntos con una distancia dada desde un extremo</translation>
     </message>
     <message>
         <source>Intersection</source>
-        <translation>Intersección</translation>
+        <translation type="vanished">Intersección</translation>
     </message>
     <message>
         <source>&amp;Intersection</source>
-        <translation>&amp;Intersección</translation>
+        <translation type="vanished">&amp;Intersección</translation>
     </message>
     <message>
         <source>Snap to intersection points</source>
-        <translation>Ajustar a puntos de intersección</translation>
+        <translation type="vanished">Ajustar a puntos de intersección</translation>
     </message>
     <message>
         <source>Intersection Manually</source>
-        <translation>Intersección manual</translation>
+        <translation type="vanished">Intersección manual</translation>
     </message>
     <message>
         <source>I&amp;ntersection Manually</source>
-        <translation>I&amp;ntersección manual</translation>
+        <translation type="vanished">I&amp;ntersección manual</translation>
     </message>
     <message>
         <source>Snap to intersection points manually</source>
-        <translation>Ajustar a puntos de intersección manualmente</translation>
+        <translation type="vanished">Ajustar a puntos de intersección manualmente</translation>
     </message>
     <message>
         <source>Restrict Nothing</source>
-        <translation>Sin restricciones</translation>
+        <translation type="vanished">Sin restricciones</translation>
     </message>
     <message>
         <source>Restrict &amp;Nothing</source>
-        <translation>Restringir &amp;nada</translation>
+        <translation type="vanished">Restringir &amp;nada</translation>
     </message>
     <message>
         <source>No snap restriction</source>
-        <translation>Sin restricción de ajuste</translation>
+        <translation type="vanished">Sin restricción de ajuste</translation>
     </message>
     <message>
         <source>Restrict Orthogonally</source>
-        <translation>Restringir ortogonalmente</translation>
+        <translation type="vanished">Restringir ortogonalmente</translation>
     </message>
     <message>
         <source>Restrict &amp;Orthogonally</source>
-        <translation>Restringir &amp;ortogonalmente</translation>
+        <translation type="vanished">Restringir &amp;ortogonalmente</translation>
     </message>
     <message>
         <source>Restrict snapping orthogonally</source>
-        <translation>Restringir ajuste ortogonalmente</translation>
+        <translation type="vanished">Restringir ajuste ortogonalmente</translation>
     </message>
     <message>
         <source>Restrict Horizontally</source>
-        <translation>Restringir horizontalmente</translation>
+        <translation type="vanished">Restringir horizontalmente</translation>
     </message>
     <message>
         <source>Restrict &amp;Horizontally</source>
-        <translation>Restringir &amp;horizontalmente</translation>
+        <translation type="vanished">Restringir &amp;horizontalmente</translation>
     </message>
     <message>
         <source>Restrict snapping horizontally</source>
-        <translation>Restringir ajuste horizontalmente</translation>
+        <translation type="vanished">Restringir ajuste horizontalmente</translation>
     </message>
     <message>
         <source>Restrict Vertically</source>
-        <translation>Restringir verticalmente</translation>
+        <translation type="vanished">Restringir verticalmente</translation>
     </message>
     <message>
         <source>Restrict &amp;Vertically</source>
-        <translation>Restringir &amp;verticalmente</translation>
+        <translation type="vanished">Restringir &amp;verticalmente</translation>
     </message>
     <message>
         <source>Restrict snapping vertically</source>
-        <translation>Restringir ajuste verticalmente</translation>
+        <translation type="vanished">Restringir ajuste verticalmente</translation>
     </message>
     <message>
         <source>Set Relative Zero</source>
-        <translation>Establecer cero relativo</translation>
+        <translation type="vanished">Establecer cero relativo</translation>
     </message>
     <message>
         <source>&amp;Set Relative Zero</source>
-        <translation>&amp;Establecer cero relativo</translation>
+        <translation type="vanished">&amp;Establecer cero relativo</translation>
     </message>
     <message>
         <source>Set position of the Relative Zero point</source>
-        <translation>Establecer posición del punto cero relativo</translation>
+        <translation type="vanished">Establecer posición del punto cero relativo</translation>
     </message>
     <message>
         <source>(Un-)Lock Relative Zero</source>
-        <translation>(Des)Bloquear cero relativo</translation>
+        <translation type="vanished">(Des)Bloquear cero relativo</translation>
     </message>
     <message>
         <source>(Un-)&amp;Lock Relative Zero</source>
-        <translation>(Des)Bloquear &amp;cero relativo</translation>
+        <translation type="vanished">(Des)Bloquear &amp;cero relativo</translation>
     </message>
     <message>
         <source>(Un-)Lock relative Zero</source>
-        <translation>(Des)Bloquear cero relativo</translation>
+        <translation type="vanished">(Des)Bloquear cero relativo</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation>Punto dentro del contorno</translation>
+        <translation type="vanished">Punto dentro del contorno</translation>
     </message>
     <message>
         <source>&amp;Point inside contour</source>
-        <translation>&amp;Punto dentro del contorno</translation>
+        <translation type="vanished">&amp;Punto dentro del contorno</translation>
     </message>
     <message>
         <source>Checks if a given point is inside the selected contour</source>
-        <translation>Verifica si un punto dado está dentro del contorno seleccionado</translation>
+        <translation type="vanished">Verifica si un punto dado está dentro del contorno seleccionado</translation>
     </message>
     <message>
         <source>Defreeze all</source>
-        <translation>Mostrar todo</translation>
+        <translation type="vanished">Mostrar todo</translation>
     </message>
     <message>
         <source>&amp;Defreeze all</source>
-        <translation>&amp;Mostrar todo</translation>
+        <translation type="vanished">&amp;Mostrar todo</translation>
     </message>
     <message>
         <source>Defreeze all layers</source>
-        <translation>Mostrar todas las capas</translation>
+        <translation type="vanished">Mostrar todas las capas</translation>
     </message>
     <message>
         <source>Freeze all</source>
-        <translation>Ocultar todo</translation>
+        <translation type="vanished">Ocultar todo</translation>
     </message>
     <message>
         <source>&amp;Freeze all</source>
-        <translation>&amp;Ocultar todo</translation>
+        <translation type="vanished">&amp;Ocultar todo</translation>
     </message>
     <message>
         <source>Freeze all layers</source>
-        <translation>Ocultar todas las capas</translation>
+        <translation type="vanished">Ocultar todas las capas</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Agregar capa</translation>
+        <translation type="vanished">Agregar capa</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>&amp;Agregar capa</translation>
+        <translation type="vanished">&amp;Agregar capa</translation>
     </message>
     <message>
         <source>Remove Layer</source>
-        <translation>Eliminar capa</translation>
+        <translation type="vanished">Eliminar capa</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;Eliminar capa</translation>
+        <translation type="vanished">&amp;Eliminar capa</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation>Editar capa</translation>
+        <translation type="vanished">Editar capa</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation>&amp;Editar capa</translation>
+        <translation type="vanished">&amp;Editar capa</translation>
     </message>
     <message>
         <source>Toggle Layer Visibility</source>
-        <translation>Alternar visibilidad de capa</translation>
+        <translation type="vanished">Alternar visibilidad de capa</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer</source>
-        <translation>&amp;Alternar capa</translation>
+        <translation type="vanished">&amp;Alternar capa</translation>
     </message>
     <message>
         <source>Toggle Layer</source>
-        <translation>Alternar capa</translation>
+        <translation type="vanished">Alternar capa</translation>
     </message>
     <message>
         <source>Defreeze all blocks</source>
-        <translation>Mostrar todos los bloques</translation>
+        <translation type="vanished">Mostrar todos los bloques</translation>
     </message>
     <message>
         <source>Freeze all blocks</source>
-        <translation>Ocultar todos los bloques</translation>
+        <translation type="vanished">Ocultar todos los bloques</translation>
     </message>
     <message>
         <source>Add Block</source>
-        <translation>Agregar bloque</translation>
+        <translation type="vanished">Agregar bloque</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation>&amp;Agregar bloque</translation>
+        <translation type="vanished">&amp;Agregar bloque</translation>
     </message>
     <message>
         <source>Remove Block</source>
-        <translation>Eliminar bloque</translation>
+        <translation type="vanished">Eliminar bloque</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation>&amp;Eliminar bloque</translation>
+        <translation type="vanished">&amp;Eliminar bloque</translation>
     </message>
     <message>
         <source>Rename Block</source>
-        <translation>Renombrar bloque</translation>
+        <translation type="vanished">Renombrar bloque</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation>&amp;Renombrar bloque</translation>
+        <translation type="vanished">&amp;Renombrar bloque</translation>
     </message>
     <message>
         <source>Rename Block and all Inserts</source>
-        <translation>Renombrar bloque y todas las inserciones</translation>
+        <translation type="vanished">Renombrar bloque y todas las inserciones</translation>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Editar bloque</translation>
+        <translation type="vanished">Editar bloque</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation>&amp;Editar bloque</translation>
+        <translation type="vanished">&amp;Editar bloque</translation>
     </message>
     <message>
         <source>Insert Block</source>
-        <translation>Insertar bloque</translation>
+        <translation type="vanished">Insertar bloque</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation>&amp;Insertar bloque</translation>
+        <translation type="vanished">&amp;Insertar bloque</translation>
     </message>
     <message>
         <source>Toggle Block Visibility</source>
-        <translation>Alternar visibilidad de bloque</translation>
+        <translation type="vanished">Alternar visibilidad de bloque</translation>
     </message>
     <message>
         <source>&amp;Toggle Block</source>
-        <translation>&amp;Alternar bloque</translation>
+        <translation type="vanished">&amp;Alternar bloque</translation>
     </message>
     <message>
         <source>Toggle Block</source>
-        <translation>Alternar bloque</translation>
+        <translation type="vanished">Alternar bloque</translation>
     </message>
     <message>
         <source>Create Block</source>
-        <translation>Crear bloque</translation>
+        <translation type="vanished">Crear bloque</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation>&amp;Crear bloque</translation>
+        <translation type="vanished">&amp;Crear bloque</translation>
     </message>
     <message>
         <source>Explode</source>
-        <translation>Desagrupar</translation>
+        <translation type="vanished">Desagrupar</translation>
     </message>
     <message>
         <source>&amp;Explode</source>
-        <translation>&amp;Desagrupar</translation>
+        <translation type="vanished">&amp;Desagrupar</translation>
     </message>
     <message>
         <source>Explode Blocks and other Entity Groups</source>
-        <translation>Desagrupar bloques y otros grupos de entidades</translation>
+        <translation type="vanished">Desagrupar bloques y otros grupos de entidades</translation>
     </message>
     <message>
         <source>General Application Preferences</source>
-        <translation>Preferencias generales de la aplicación</translation>
+        <translation type="vanished">Preferencias generales de la aplicación</translation>
     </message>
     <message>
         <source>Drawing</source>
-        <translation>Dibujo</translation>
+        <translation type="vanished">Dibujo</translation>
     </message>
     <message>
         <source>Creates a new drawing</source>
-        <translation>Crea un nuevo dibujo</translation>
+        <translation type="vanished">Crea un nuevo dibujo</translation>
     </message>
     <message>
         <source>Opens an existing drawing</source>
-        <translation>Abre un dibujo existente</translation>
+        <translation type="vanished">Abre un dibujo existente</translation>
     </message>
     <message>
         <source>Saves the current drawing</source>
-        <translation>Guarda el dibujo actual</translation>
+        <translation type="vanished">Guarda el dibujo actual</translation>
     </message>
     <message>
         <source>Saves the current drawing under a new filename</source>
-        <translation>Guarda el dibujo actual con un nombre nuevo</translation>
+        <translation type="vanished">Guarda el dibujo actual con un nombre nuevo</translation>
     </message>
     <message>
         <source>Closes the current drawing</source>
-        <translation>Cierra el dibujo actual</translation>
+        <translation type="vanished">Cierra el dibujo actual</translation>
     </message>
     <message>
         <source>Prints out the current drawing</source>
-        <translation>Imprime el dibujo actual</translation>
+        <translation type="vanished">Imprime el dibujo actual</translation>
     </message>
     <message>
         <source>New Drawing</source>
-        <translation>Nuevo dibujo</translation>
+        <translation type="vanished">Nuevo dibujo</translation>
     </message>
     <message>
         <source>Open Drawing</source>
-        <translation>Abrir dibujo</translation>
+        <translation type="vanished">Abrir dibujo</translation>
     </message>
     <message>
         <source>Save Drawing</source>
-        <translation>Guardar dibujo</translation>
+        <translation type="vanished">Guardar dibujo</translation>
     </message>
     <message>
         <source>Save Drawing As</source>
-        <translation>Guardar dibujo como</translation>
+        <translation type="vanished">Guardar dibujo como</translation>
     </message>
     <message>
         <source>Close Drawing</source>
-        <translation>Cerrar dibujo</translation>
+        <translation type="vanished">Cerrar dibujo</translation>
     </message>
     <message>
         <source>Print Drawing</source>
-        <translation>Imprimir dibujo</translation>
+        <translation type="vanished">Imprimir dibujo</translation>
     </message>
     <message>
         <source>Cuts entities to the clipboard</source>
-        <translation>Corta entidades al portapapeles</translation>
+        <translation type="vanished">Corta entidades al portapapeles</translation>
     </message>
     <message>
         <source>Copies entities to the clipboard</source>
-        <translation>Copia entidades al portapapeles</translation>
+        <translation type="vanished">Copia entidades al portapapeles</translation>
     </message>
     <message>
         <source>Pastes the clipboard contents</source>
-        <translation>Pega el contenido del portapapeles</translation>
+        <translation type="vanished">Pega el contenido del portapapeles</translation>
     </message>
     <message>
         <source>(De-)&amp;Select Entity</source>
-        <translation>(De)Seleccionar entidad</translation>
+        <translation type="vanished">(De)Seleccionar entidad</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De)Seleccionar &amp;contorno</translation>
+        <translation type="vanished">(De)Seleccionar &amp;contorno</translation>
     </message>
     <message>
         <source>Draw parallels to existing lines, arcs, circles</source>
-        <translation>Dibujar paralelas a líneas, arcos o círculos existentes</translation>
+        <translation type="vanished">Dibujar paralelas a líneas, arcos o círculos existentes</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation>Paralela por punto</translation>
+        <translation type="vanished">Paralela por punto</translation>
     </message>
     <message>
         <source>Par&amp;allel through point</source>
-        <translation>Par&amp;alela por punto</translation>
+        <translation type="vanished">Par&amp;alela por punto</translation>
     </message>
     <message>
         <source>Draw parallel through a given point</source>
-        <translation>Dibujar paralela por un punto dado</translation>
+        <translation type="vanished">Dibujar paralela por un punto dado</translation>
     </message>
     <message>
         <source>Attributes</source>
-        <translation>Atributos</translation>
+        <translation type="vanished">Atributos</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation>&amp;Atributos</translation>
+        <translation type="vanished">&amp;Atributos</translation>
     </message>
     <message>
         <source>Modify Entity Attributes</source>
-        <translation>Modificar atributos de entidad</translation>
+        <translation type="vanished">Modificar atributos de entidad</translation>
     </message>
     <message>
         <source>Delete selected</source>
-        <translation>Eliminar seleccionados</translation>
+        <translation type="vanished">Eliminar seleccionados</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation>&amp;Eliminar seleccionados</translation>
+        <translation type="vanished">&amp;Eliminar seleccionados</translation>
     </message>
     <message>
         <source>Delete selected entities</source>
-        <translation>Eliminar entidades seleccionadas</translation>
+        <translation type="vanished">Eliminar entidades seleccionadas</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Vista previa de impresión</translation>
+        <translation type="vanished">Vista previa de impresión</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation>Pre&amp;visualizar impresión</translation>
+        <translation type="vanished">Pre&amp;visualizar impresión</translation>
     </message>
     <message>
         <source>Shows a preview of a print</source>
-        <translation>Muestra una vista previa de impresión</translation>
+        <translation type="vanished">Muestra una vista previa de impresión</translation>
     </message>
     <message>
         <source>Distance Point to Point</source>
-        <translation>Distancia punto a punto</translation>
+        <translation type="vanished">Distancia punto a punto</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation>&amp;Distancia punto a punto</translation>
+        <translation type="vanished">&amp;Distancia punto a punto</translation>
     </message>
     <message>
         <source>Measures the distance between two points</source>
-        <translation>Mide la distancia entre dos puntos</translation>
+        <translation type="vanished">Mide la distancia entre dos puntos</translation>
     </message>
     <message>
         <source>Distance Entity to Point</source>
-        <translation>Distancia entidad a punto</translation>
+        <translation type="vanished">Distancia entidad a punto</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation>&amp;Distancia entidad a punto</translation>
+        <translation type="vanished">&amp;Distancia entidad a punto</translation>
     </message>
     <message>
         <source>Measures the distance between an entity and a point</source>
-        <translation>Mide la distancia entre una entidad y un punto</translation>
+        <translation type="vanished">Mide la distancia entre una entidad y un punto</translation>
     </message>
     <message>
         <source>Angle between two lines</source>
-        <translation>Ángulo entre dos líneas</translation>
+        <translation type="vanished">Ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>&amp;Angle between two lines</source>
-        <translation>&amp;Ángulo entre dos líneas</translation>
+        <translation type="vanished">&amp;Ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>Measures the angle between two lines</source>
-        <translation>Mide el ángulo entre dos líneas</translation>
+        <translation type="vanished">Mide el ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>Export Drawing</source>
-        <translation>Exportar dibujo</translation>
+        <translation type="vanished">Exportar dibujo</translation>
     </message>
     <message>
         <source>&amp;Export..</source>
-        <translation>&amp;Exportar...</translation>
+        <translation type="vanished">&amp;Exportar...</translation>
     </message>
     <message>
         <source>Exports the current drawing as bitmap</source>
-        <translation>Exporta el dibujo actual como imagen</translation>
+        <translation type="vanished">Exporta el dibujo actual como imagen</translation>
     </message>
     <message>
         <source>Properties</source>
-        <translation>Propiedades</translation>
+        <translation type="vanished">Propiedades</translation>
     </message>
     <message>
         <source>Modify Entity Properties</source>
-        <translation>Modificar propiedades de entidad</translation>
+        <translation type="vanished">Modificar propiedades de entidad</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation>&amp;Propiedades</translation>
+        <translation type="vanished">&amp;Propiedades</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation>Aplicación</translation>
+        <translation type="vanished">Aplicación</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation>&amp;Preferencias de la aplicación</translation>
+        <translation type="vanished">&amp;Preferencias de la aplicación</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>Preferencias del &amp;dibujo actual</translation>
+        <translation type="vanished">Preferencias del &amp;dibujo actual</translation>
     </message>
     <message>
         <source>Settings for the current Drawing</source>
-        <translation>Configuración del dibujo actual</translation>
+        <translation type="vanished">Configuración del dibujo actual</translation>
     </message>
     <message>
         <source>Enables/disables the grid</source>
-        <translation>Activa/desactiva la cuadrícula</translation>
+        <translation type="vanished">Activa/desactiva la cuadrícula</translation>
     </message>
     <message>
         <source>Circle: Concentric</source>
-        <translation>Círculo: concéntrico</translation>
+        <translation type="vanished">Círculo: concéntrico</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation>&amp;Concéntrico</translation>
+        <translation type="vanished">&amp;Concéntrico</translation>
     </message>
     <message>
         <source>Draw circles concentric to existing circles</source>
-        <translation>Dibujar círculos concéntricos a círculos existentes</translation>
+        <translation type="vanished">Dibujar círculos concéntricos a círculos existentes</translation>
     </message>
     <message>
         <source>Arc: Concentric</source>
-        <translation>Arco: concéntrico</translation>
+        <translation type="vanished">Arco: concéntrico</translation>
     </message>
     <message>
         <source>Draw arcs concentric to existing arcs</source>
-        <translation>Dibujar arcos concéntricos a arcos existentes</translation>
+        <translation type="vanished">Dibujar arcos concéntricos a arcos existentes</translation>
     </message>
     <message>
         <source>Hatch</source>
-        <translation>Sombreado</translation>
+        <translation type="vanished">Sombreado</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation>&amp;Sombreado</translation>
+        <translation type="vanished">&amp;Sombreado</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation>Imagen</translation>
+        <translation type="vanished">Imagen</translation>
     </message>
     <message>
         <source>&amp;Image</source>
-        <translation>&amp;Imagen</translation>
+        <translation type="vanished">&amp;Imagen</translation>
     </message>
     <message>
         <source>Insert Image (Bitmap)</source>
-        <translation>Insertar imagen (mapa de bits)</translation>
+        <translation type="vanished">Insertar imagen (mapa de bits)</translation>
     </message>
     <message>
         <source>Statusbar</source>
-        <translation>Barra de estado</translation>
+        <translation type="vanished">Barra de estado</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation>&amp;Barra de estado</translation>
+        <translation type="vanished">&amp;Barra de estado</translation>
     </message>
     <message>
         <source>Enables/disables the statusbar</source>
-        <translation>Activa/desactiva la barra de estado</translation>
+        <translation type="vanished">Activa/desactiva la barra de estado</translation>
     </message>
     <message>
         <source>Total length of selected entities</source>
-        <translation>Longitud total de entidades seleccionadas</translation>
+        <translation type="vanished">Longitud total de entidades seleccionadas</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation>&amp;Longitud total de entidades seleccionadas</translation>
+        <translation type="vanished">&amp;Longitud total de entidades seleccionadas</translation>
     </message>
     <message>
         <source>Measures the total length of all selected entities</source>
-        <translation>Mide la longitud total de todas las entidades seleccionadas</translation>
+        <translation type="vanished">Mide la longitud total de todas las entidades seleccionadas</translation>
     </message>
     <message>
         <source>&amp;Export...</source>
-        <translation>&amp;Exportar...</translation>
+        <translation type="vanished">&amp;Exportar...</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation>&amp;Imprimir...</translation>
+        <translation type="vanished">&amp;Imprimir...</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Salir</translation>
+        <translation type="vanished">Salir</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Salir</translation>
+        <translation type="vanished">&amp;Salir</translation>
     </message>
     <message>
         <source>Draft</source>
-        <translation>Borrador</translation>
+        <translation type="vanished">Borrador</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation>&amp;Borrador</translation>
+        <translation type="vanished">&amp;Borrador</translation>
     </message>
     <message>
         <source>Enables/disables the draft mode</source>
-        <translation>Activa/desactiva el modo borrador</translation>
+        <translation type="vanished">Activa/desactiva el modo borrador</translation>
     </message>
     <message>
         <source>&amp;Preferences</source>
-        <translation>&amp;Preferencias</translation>
+        <translation type="vanished">&amp;Preferencias</translation>
     </message>
     <message>
         <source>Open IDE</source>
-        <translation>Abrir IDE</translation>
+        <translation type="vanished">Abrir IDE</translation>
     </message>
     <message>
         <source>&amp;Open IDE</source>
-        <translation>&amp;Abrir IDE</translation>
+        <translation type="vanished">&amp;Abrir IDE</translation>
     </message>
     <message>
         <source>Opens the integrated development environment for scripting</source>
-        <translation>Abre el entorno de desarrollo integrado para scripts</translation>
+        <translation type="vanished">Abre el entorno de desarrollo integrado para scripts</translation>
     </message>
     <message>
         <source>Run Script..</source>
-        <translation>Ejecutar script...</translation>
+        <translation type="vanished">Ejecutar script...</translation>
     </message>
     <message>
         <source>&amp;Run Script..</source>
-        <translation>&amp;Ejecutar script...</translation>
+        <translation type="vanished">&amp;Ejecutar script...</translation>
     </message>
     <message>
         <source>Runs a script</source>
-        <translation>Ejecuta un script</translation>
+        <translation type="vanished">Ejecuta un script</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp;Bloque</translation>
+        <translation type="vanished">&amp;Bloque</translation>
     </message>
 </context>
 <context>
@@ -2949,6 +4991,14 @@ Verifique que exista y los permisos.</translation>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
         <translation>escape</translation>
+    </message>
+    <message>
+        <source>Spacebar: restored snapping mode to normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spacebar: temporarily set snapping mode to free snapping</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2965,24 +5015,8526 @@ Verifique que exista y los permisos.</translation>
         <source>Current Layer</source>
         <translation>Capa actual</translation>
     </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_BlockDialog</name>
+    <message>
+        <source>Block Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Renaming Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_BlockWidget</name>
+    <message>
+        <source>Show all blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide all blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Block</source>
+        <translation type="unfinished">Crear bloque</translation>
+    </message>
+    <message>
+        <source>Add an empty block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename the active block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit the active block
+in a separate window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>save the active block to a file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert the active block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking for matching block names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Defreeze all Blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Freeze all Blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Toggle Visibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Block</source>
+        <translation type="unfinished">&amp;Eliminar bloque</translation>
+    </message>
+    <message>
+        <source>&amp;Add Block</source>
+        <translation type="unfinished">&amp;Agregar bloque</translation>
+    </message>
+    <message>
+        <source>&amp;Rename Block</source>
+        <translation type="unfinished">&amp;Renombrar bloque</translation>
+    </message>
+    <message>
+        <source>&amp;Edit Block</source>
+        <translation type="unfinished">&amp;Editar bloque</translation>
+    </message>
+    <message>
+        <source>&amp;Insert Block</source>
+        <translation type="unfinished">&amp;Insertar bloque</translation>
+    </message>
+    <message>
+        <source>&amp;Create New Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_ColorBox</name>
+    <message>
+        <source>Unchanged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Green</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Magenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black / White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark Gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light Gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/ColorBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom Picked</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_CommandEdit</name>
+    <message>
+        <source>clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_CommandHistory</name>
+    <message>
+        <source>&amp;Copy</source>
+        <translation type="unfinished">&amp;Copiar</translation>
+    </message>
+    <message>
+        <source>Select &amp;All</source>
+        <translation type="unfinished">Seleccionar &amp;todo</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_CommandWidget</name>
+    <message>
+        <source>Command Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command history and output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown command: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>escape</source>
+        <comment>escape, go back from action steps</comment>
+        <translation type="unfinished">escape</translation>
+    </message>
+    <message>
+        <source>Float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command line</source>
+        <translation type="unfinished">Línea de comandos</translation>
+    </message>
+    <message>
+        <source>Cmd</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_CoordinateWidget</name>
+    <message>
+        <source>Coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DimOptions</name>
+    <message>
+        <source>R</source>
+        <comment>Radial dimension prefix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DimensionLabelEditor</name>
+    <message>
+        <source>Dimension Label Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimension Label:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation type="unfinished">Etiqueta:</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>⌀ (Diameter)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>° (Degree)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>± (Plus / Minus)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>π (Pi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>× (Times)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>÷ (Division)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R</source>
+        <comment>Radial dimension prefix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R</source>
+        <comment>Radial dimesnion prefix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgArc</name>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="unfinished">Radio:</translation>
+    </message>
+    <message>
+        <source>Center (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reversed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgAttributes</name>
+    <message>
+        <source>Attributes</source>
+        <translation type="unfinished">Atributos</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Apply attributes also to all sub-entities of selected INSERT.
+This recursively modifies all entities of the Block itself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply attributes Block-deep</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgCircle</name>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Círculo</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Radius:</source>
+        <translation type="unfinished">Radio:</translation>
+    </message>
+    <message>
+        <source>Center (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgDimLinear</name>
+    <message>
+        <source>Linear Dimension</source>
+        <translation type="unfinished">Cota lineal</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgDimension</name>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Cota</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgEllipse</name>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipse</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Center (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minor:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Major:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reversed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgHatch</name>
+    <message>
+        <source>Choose Hatch Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pattern</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid Fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgImage</name>
+    <message>
+        <source>Image</source>
+        <translation type="unfinished">Imagen</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>insert (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size (px):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>insert (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DPI</source>
+        <translation type="unfinished">DPI</translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select an image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgInitial</name>
+    <message>
+        <source>Welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+&lt;/font&gt;
+&lt;br&gt;
+Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
+(You can changes these settings later.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Unit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GUI Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgInsert</name>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Insertion point (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insertion point (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Rows:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Columns:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Row Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Column Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgLine</name>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Línea</translation>
+    </message>
+    <message>
+        <source>ID: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>End point (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End point (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start point (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start point (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgMText</name>
+    <message>
+        <source>MText</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Font Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Line spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Default line spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Ángulo</translation>
+    </message>
+    <message>
+        <source>Text Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left to right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right to left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text:</source>
+        <translation type="unfinished">Texto:</translation>
+    </message>
+    <message>
+        <source>Clear Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Text From File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Text To File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Cortar</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copiar</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Pegar</translation>
+    </message>
+    <message>
+        <source>Insert Symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diameter (⌀)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Degree (°)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plus / Minus (±)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At (@)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hash (#)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dollar ($)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copyright (©)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Registered (®)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paragraph (§)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pi (π)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pound (£)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yen (¥)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Times (×)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Division (÷)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert Unicode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Page:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Char:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0000-007F] Basic Latin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0080-00FF] Latin-1 Supplementary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0100-017F] Latin Extended-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0180-024F] Latin Extended-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0250-02AF] IPA Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[02B0-02FF] Spacing Modifier Letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0300-036F] Combining Diacritical Marks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0370-03FF] Greek and Coptic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0400-04FF] Cyrillic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0500-052F] Cyrillic Supplementary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0530-058F] Armenian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0590-05FF] Hebrew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0600-06FF] Arabic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0700-074F] Syriac</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0780-07BF] Thaana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0900-097F] Devanagari</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0980-09FF] Bengali</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0A00-0A7F] Gurmukhi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0A80-0AFF] Gujarati</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0B00-0B7F] Oriya</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0B80-0BFF] Tamil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0C00-0C7F] Telugu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0C80-0CFF] Kannada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0D00-0D7F] Malayalam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0D80-0DFF] Sinhala</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0E00-0E7F] Thai</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0E80-0EFF] Lao</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0F00-0FFF] Tibetan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1000-109F] Myanmar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10A0-10FF] Georgian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1100-11FF] Hangul Jamo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1200-137F] Ethiopic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[13A0-13FF] Cherokee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1680-169F] Ogham</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[16A0-16FF] Runic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1700-171F] Tagalog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1720-173F] Hanunoo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1740-175F] Buhid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1760-177F] Tagbanwa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1780-17FF] Khmer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1800-18AF] Mongolian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1E00-1EFF] Latin Extended Additional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1F00-1FFF] Greek Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2000-206F] General Punctuation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2070-209F] Superscripts and Subscripts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20A0-20CF] Currency Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20D0-20FF] Combining Marks for Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2100-214F] Letterlike Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2150-218F] Number Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2190-21FF] Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2200-22FF] Mathematical Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2300-23FF] Miscellaneous Technical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2400-243F] Control Pictures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2440-245F] Optical Character Recognition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2460-24FF] Enclosed Alphanumerics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2500-257F] Box Drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2580-259F] Block Elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[25A0-25FF] Geometric Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2600-26FF] Miscellaneous Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2700-27BF] Dingbats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[27F0-27FF] Supplemental Arrows-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2800-28FF] Braille Patterns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2900-297F] Supplemental Arrows-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2E80-2EFF] CJK Radicals Supplement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2F00-2FDF] Kangxi Radicals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2FF0-2FFF] Ideographic Description Characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3000-303F] CJK Symbols and Punctuation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3040-309F] Hiragana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[30A0-30FF] Katakana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3100-312F] Bopomofo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3130-318F] Hangul Compatibility Jamo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3190-319F] Kanbun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[31A0-31BF] Bopomofo Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3200-32FF] Enclosed CJK Letters and Months</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3300-33FF] CJK Compatibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[4E00-9FAF] CJK Unified Ideographs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[A000-A48F] Yi Syllables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[A490-A4CF] Yi Radicals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[AC00-D7AF] Hangul Syllables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[D800-DBFF] High Surrogates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[DC00-DFFF] Low Surrogate Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[E000-F8FF] Private Use Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[F900-FAFF] CJK Compatibility Ideographs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE00-FE0F] Variation Selectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE20-FE2F] Combining Half Marks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE30-FE4F] CJK Compatibility Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE50-FE6F] Small Form Variants</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FFF0-FFFF] Specials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10300-1032F] Old Italic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10330-1034F] Gothic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10400-1044F] Deseret</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D100-1D1FF] Musical Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[E0000-E007F] Tags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgMirror</name>
+    <message>
+        <source>Mirroring Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgMove</name>
+    <message>
+        <source>Move/Copy Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Multiple Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies. Maximum 100</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgMoveRotate</name>
+    <message>
+        <source>Move/Rotate Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Angle (a):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Multiple Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgOptionsDrawing</name>
+    <message>
+        <source>Drawing Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Landscape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>P&amp;ortrait</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Izquierda</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished">Abajo</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Derecha</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished">Arriba</translation>
+    </message>
+    <message>
+        <source>Number of pages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontally:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertically:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Main Unit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Main drawing unit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Format:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>P&amp;recision:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Ángulo</translation>
+    </message>
+    <message>
+        <source>F&amp;ormat:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pre&amp;cision:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>angular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Grid</source>
+        <translation type="unfinished">&amp;Cuadrícula</translation>
+    </message>
+    <message>
+        <source>Grid Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use orthogonal grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orthogonal Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Isometric Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crosshair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&apos;.&apos; (Period)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decimal separator:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear units:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length Factor:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tick size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angular units:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear zeros:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Format units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension geometries.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text size &amp; position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Scale:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length to enlarge over dimension line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimension lines, arrows &amp; ticks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angular zeros:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angular precision:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enlarge:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear precision:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aligned</source>
+        <translation type="unfinished">Alineado</translation>
+    </message>
+    <message>
+        <source>Horizontal</source>
+        <translation type="unfinished">Horizontal</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text alignment:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimension line gap:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extension lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fixed extension line length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Splines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of line segments per spline patch:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Points</source>
+        <translation type="unfinished">&amp;Puntos</translation>
+    </message>
+    <message>
+        <source>Point Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Point Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dwg Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size relative to screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size in drawing units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(0 =&gt; 5% relative to screen size)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scientific</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decimal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Engineering</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architectural</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fractional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architectural (metric)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decimal Degrees</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deg/min/sec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradians</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radians</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Surveyor&apos;s units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen %</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgOptionsGeneral</name>
+    <message>
+        <source>Application Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;GUI Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Command Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphic View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-panning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap indicator shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide cursor when snapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scrollbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anti-aliasing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;utomatically scale grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide the relative-&amp;zero marker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+Z</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap indicator lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visualize the entity under the cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mouse-over effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphic Colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;End Handle Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Relative-Zero Marker Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>G&amp;rid Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Highlighted Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Meta Grid Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S&amp;elected Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>St&amp;art Handle Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgr&amp;ound:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Handle Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap indicator:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#1E90FF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Part Libraries:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Template:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translations:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Patterns:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Program Defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When set, LibreCAD will automatically generate a backup of your current drawing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto save time (minutes):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time between automatic saving of the document in minutes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t use native OS file open dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invert horizontal scrolling direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invert vertical scrolling direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inverts zoom direction when using mouse wheel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invert zoom direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restores program geometry/layout to original state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restores the program to its original state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display loading screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start in tab mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start with main window maximized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open last opened files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD dockwidgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable CAD toolbars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Defaults for new drawings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Unit:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing unit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evaluate commands when SPACE BAR is pressed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle free snap mode when SPACE BAR is pressed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CAD Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify layer of selected entities, at  layer activation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically zoom drawing when opening</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please restart the application to apply all changes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This will also include custom menus and toolbars. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgOptionsMakerCam</name>
+    <message>
+        <source>Export as CAM/plain SVG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default width of elements, mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export invisible layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export visible construction layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert blocks to safe inline SVG content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipses / Ellipse arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Approximate ellipses and ellipse arcs with cubic béziers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raster Image export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash/Dot Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length of the pattern, mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bake dash/dot lines to SVG path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Points</source>
+        <translation type="unfinished">Puntos</translation>
+    </message>
+    <message>
+        <source>Export Points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MakerCAM as of November 2014 does not hide SVG content 
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
+because it does not take into account the reference point in the &lt;use&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, 
+when they are created using the &lt;ellipse&gt; tag  with a rotation in 
+the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exported images can be useful in SVG editors (Inkscape, etc), 
+but avoided in some CAM&apos;s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+which can be useful in lasercut of plywood or for papercraft. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
+but ignored by other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length of line pattern related to zoom, 
+so default step value required for baking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whether to export points</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgPoint</name>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Position (y):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position (x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgPolyline</name>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">Cerrado</translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgRotate</name>
+    <message>
+        <source>Rotation Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Multiple Copies:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>&amp;Angle (a):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgRotate2</name>
+    <message>
+        <source>Rotate Two Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Multiple Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Angle (&amp;a):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle (&amp;b):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgScale</name>
+    <message>
+        <source>Scaling Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Keep Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Multiple Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Scale by the same factor at both x- and y- directions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Isotropic Scaling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use current &amp;layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgSpline</name>
+    <message>
+        <source>Spline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished">Geometría</translation>
+    </message>
+    <message>
+        <source>Degree:</source>
+        <translation type="unfinished">Grado:</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">Cerrado</translation>
+    </message>
+</context>
+<context>
+    <name>QG_DlgText</name>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Texto</translation>
+    </message>
+    <message>
+        <source>Text:</source>
+        <translation type="unfinished">Texto:</translation>
+    </message>
+    <message>
+        <source>Clear Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load Text From File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Text To File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Cortar</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copiar</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Pegar</translation>
+    </message>
+    <message>
+        <source>Layer:</source>
+        <translation type="unfinished">Capa:</translation>
+    </message>
+    <message>
+        <source>Font settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle:</source>
+        <translation type="unfinished">Ángulo:</translation>
+    </message>
+    <message>
+        <source>Oblique:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width factor:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Baseline Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Top Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Baseline Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Baseline Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A&amp;ligned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Middle</source>
+        <translation type="unfinished">&amp;Medio</translation>
+    </message>
+    <message>
+        <source>Insert Symbol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diameter (⌀)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Degree (°)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plus / Minus (±)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At (@)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hash (#)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dollar ($)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copyright (©)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Registered (®)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paragraph (§)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pi (π)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pound (£)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yen (¥)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Times (×)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Division (÷)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert Unicode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Page:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Char:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0000-007F] Basic Latin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0080-00FF] Latin-1 Supplementary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0100-017F] Latin Extended-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0180-024F] Latin Extended-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0250-02AF] IPA Extensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[02B0-02FF] Spacing Modifier Letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0300-036F] Combining Diacritical Marks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0370-03FF] Greek and Coptic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0400-04FF] Cyrillic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0500-052F] Cyrillic Supplementary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0530-058F] Armenian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0590-05FF] Hebrew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0600-06FF] Arabic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0700-074F] Syriac</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0780-07BF] Thaana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0900-097F] Devanagari</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0980-09FF] Bengali</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0A00-0A7F] Gurmukhi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0A80-0AFF] Gujarati</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0B00-0B7F] Oriya</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0B80-0BFF] Tamil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0C00-0C7F] Telugu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0C80-0CFF] Kannada</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0D00-0D7F] Malayalam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0D80-0DFF] Sinhala</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0E00-0E7F] Thai</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0E80-0EFF] Lao</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[0F00-0FFF] Tibetan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1000-109F] Myanmar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10A0-10FF] Georgian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1100-11FF] Hangul Jamo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1200-137F] Ethiopic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[13A0-13FF] Cherokee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1680-169F] Ogham</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[16A0-16FF] Runic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1700-171F] Tagalog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1720-173F] Hanunoo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1740-175F] Buhid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1760-177F] Tagbanwa</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1780-17FF] Khmer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1800-18AF] Mongolian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1E00-1EFF] Latin Extended Additional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1F00-1FFF] Greek Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2000-206F] General Punctuation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2070-209F] Superscripts and Subscripts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20A0-20CF] Currency Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20D0-20FF] Combining Marks for Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2100-214F] Letterlike Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2150-218F] Number Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2190-21FF] Arrows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2200-22FF] Mathematical Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2300-23FF] Miscellaneous Technical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2400-243F] Control Pictures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2440-245F] Optical Character Recognition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2460-24FF] Enclosed Alphanumerics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2500-257F] Box Drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2580-259F] Block Elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[25A0-25FF] Geometric Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2600-26FF] Miscellaneous Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2700-27BF] Dingbats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[27F0-27FF] Supplemental Arrows-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2800-28FF] Braille Patterns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2900-297F] Supplemental Arrows-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2E80-2EFF] CJK Radicals Supplement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2F00-2FDF] Kangxi Radicals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2FF0-2FFF] Ideographic Description Characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3000-303F] CJK Symbols and Punctuation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3040-309F] Hiragana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[30A0-30FF] Katakana</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3100-312F] Bopomofo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3130-318F] Hangul Compatibility Jamo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3190-319F] Kanbun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[31A0-31BF] Bopomofo Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3200-32FF] Enclosed CJK Letters and Months</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3300-33FF] CJK Compatibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[4E00-9FAF] CJK Unified Ideographs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[A000-A48F] Yi Syllables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[A490-A4CF] Yi Radicals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[AC00-D7AF] Hangul Syllables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[D800-DBFF] High Surrogates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[DC00-DFFF] Low Surrogate Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[E000-F8FF] Private Use Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[F900-FAFF] CJK Compatibility Ideographs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE00-FE0F] Variation Selectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE20-FE2F] Combining Half Marks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE30-FE4F] CJK Compatibility Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE50-FE6F] Small Form Variants</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[FFF0-FFFF] Specials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10300-1032F] Old Italic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10330-1034F] Gothic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[10400-1044F] Deseret</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D100-1D1FF] Musical Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[E0000-E007F] Tags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_ExitDialog</name>
+    <message>
+        <source>QCad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>again Still No Text supplied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_FileDialog</name>
+    <message>
+        <source>Drawing Exchange DXF 2007 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange DXF 2004 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange DXF 2000 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange DXF R14 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange DXF R12 %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LFF Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dwg Drawing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QCad Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jww Drawing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QCad 1.x file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <comment>block file</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing</source>
+        <comment>drawing file</comment>
+        <translation type="unfinished">Dibujo</translation>
+    </message>
+    <message>
+        <source>Open %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save %1 As</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_GraphicView</name>
+    <message>
+        <source>Edit Block</source>
+        <translation type="unfinished">Editar bloque</translation>
+    </message>
+    <message>
+        <source>Edit Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_ImageOptionsDialog</name>
+    <message>
+        <source>Image Export Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bitmap Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B&amp;lack</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colouring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black / White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coloured</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Borders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top / Bottom - Border:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left / Right - Border:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>set same size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_LayerBox</name>
+    <message>
+        <source>- Unchanged -</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_LayerDialog</name>
+    <message>
+        <source>Layer Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
+The contents of a Construction Layer should not appear in printout.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Construction Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_LayerWidget</name>
+    <message>
+        <source>Show all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlock all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify layer attributes / rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking for matching layer names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Defreeze all Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Freeze all Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Unlock all Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Lock all Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle Layer &amp;Visibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle Layer Loc&amp;k</source>
+        <translation type="unfinished">Alternar bloqueo de capa</translation>
+    </message>
+    <message>
+        <source>Toggle Layer &amp;Printing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle &amp;Construction Layer</source>
+        <translation type="unfinished">Alternar capa de &amp;construcción</translation>
+    </message>
+    <message>
+        <source>&amp;Remove Layer</source>
+        <translation type="unfinished">&amp;Eliminar capa</translation>
+    </message>
+    <message>
+        <source>&amp;Add Layer</source>
+        <translation type="unfinished">&amp;Agregar capa</translation>
+    </message>
+    <message>
+        <source>Edit Layer &amp;Attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export Selected Layer(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export &amp;Visible Layer(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_LibraryWidget</name>
+    <message>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rebuild</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_LineTypeBox</name>
+    <message>
+        <source>- Unchanged -</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Dot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Dot (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Dot (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Dot (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation type="unfinished">Centro</translation>
+    </message>
+    <message>
+        <source>Center (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border (tiny)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border (small)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Border (large)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_MouseWidget</name>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished">Ratón</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Derecha</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Izquierda</translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_PenToolBar</name>
+    <message>
+        <source>Line color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_PolylineOptions</name>
+    <message>
+        <source>wrong action type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_RecentFiles</name>
+    <message>
+        <source>&amp;%1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_SelectionWidget</name>
+    <message>
+        <source>Selection</source>
+        <translation type="unfinished">Selección</translation>
+    </message>
+    <message>
+        <source>Selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_SnapToolBar</name>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to Endpoints</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to equidistant points of entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to center points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to intersections automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to closest point on entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to point with given distance to endpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to intersections manually</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap to grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrict Horizontally</source>
+        <translation type="unfinished">Restringir horizontalmente</translation>
+    </message>
+    <message>
+        <source>Restrict Vertically</source>
+        <translation type="unfinished">Restringir verticalmente</translation>
+    </message>
+    <message>
+        <source>Move relative Zero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock relative Zero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclusive Snap Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Middle Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free Snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap on grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap on Endpoints</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap on Entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Middle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Intersection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrict Horizontal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrict Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrict Orthogonal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrict Nothing</source>
+        <translation type="unfinished">Sin restricciones</translation>
+    </message>
+    <message>
+        <source>Set relative zero position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock relative zero position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Relative zero position is %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unlocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_WidgetPen</name>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished">Trazo</translation>
+    </message>
+    <message>
+        <source>Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QG_WidthBox</name>
+    <message>
+        <source>By Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QMessageBox</name>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer empty name is not allowed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attempt to create layer with duplicating name. Duplicated layer name is 
+[%1].
+Please specify a different name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer list separator string is empty. It will not be possible to build layers tree.
+Please specify a different value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid value provide for %1 color.
+Please specify a different value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove empty layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer(s) without entities found, yet they are filtered and not visible.
+
+Clear filtering mask and repeat.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No layers without entities found, nothing to remove.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Layer</source>
+        <translation type="unfinished">Agregar capa</translation>
+    </message>
+    <message>
+        <source>Such child layer already exist for 
+[%1].
+Please specify a different name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Such child layer already exist for 
+[%1].
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dimensional layer may be added only for normal active layer.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace &quot;By Layer&quot; value to source layers values?
+
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
+
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Layer</source>
+        <translation type="unfinished">Eliminar capa</translation>
+    </message>
+    <message>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Remove %n layer(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Listed layers and all entities on them will be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: this action can NOT be undone!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layers for removal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer DialogEx</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid value provided for %1 color.
+Please specify a different value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid path to pens file.
+%1 
+Please specify a different value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen will be removed from palette, drawing entities will not be affected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen for removal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove pens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pens will be removed from palette, drawing entities will not be affected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pens for removal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Entities </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There are no entities that matches pen on visible layers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Such entities exist on frozen layers.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Such entities exist on locked layers.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use different pen attributes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set pen by entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please select only one entity to pick pen setting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving Pens Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
+This action can NOT be undone.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Block</source>
+        <translation type="unfinished">Eliminar bloque</translation>
+    </message>
+    <message>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Remove %n block(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Listed blocks and all their entities will be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blocks for removal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>No %1 layers found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>R</source>
+        <comment>Radial dimension prefix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>: duplicated command: %1 is already taken by %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>line2p</source>
+        <comment>draw line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>li</source>
+        <comment>draw line</comment>
+        <translation type="unfinished">li</translation>
+    </message>
+    <message>
+        <source>line</source>
+        <comment>draw line</comment>
+        <translation type="unfinished">línea</translation>
+    </message>
+    <message>
+        <source>l</source>
+        <comment>draw line</comment>
+        <translation type="unfinished">l</translation>
+    </message>
+    <message>
+        <source>sline</source>
+        <comment>draw snake line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sli</source>
+        <comment>draw snake line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sl</source>
+        <comment>draw snake line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>slinex</source>
+        <comment>draw snake line (X)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>slix</source>
+        <comment>draw snake line (X)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rlx</source>
+        <comment>draw snake line (X)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sliney</source>
+        <comment>draw snake line (Y)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sliy</source>
+        <comment>draw snake line (Y)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rly</source>
+        <comment>draw snake line (Y)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lineang</source>
+        <comment>angled line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>la</source>
+        <comment>angled line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linehor</source>
+        <comment>horizontal line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lh</source>
+        <comment>horizontal line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linever</source>
+        <comment>vertical line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lv</source>
+        <comment>vertical line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linerec</source>
+        <comment>draw rectangle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>re</source>
+        <comment>draw rectangle</comment>
+        <translation type="unfinished">re</translation>
+    </message>
+    <message>
+        <source>rect</source>
+        <comment>draw rectangle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rect1</source>
+        <comment>draw rectangle (1 Point)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>re1</source>
+        <comment>draw rectangle (1 Point)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rect2</source>
+        <comment>draw rectangle (2 Points)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>re2</source>
+        <comment>draw rectangle (2 Points)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rect3</source>
+        <comment>draw rectangle (3 Points)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>re3</source>
+        <comment>draw rectangle (3 Points)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>slicel</source>
+        <comment>slice/divide line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sll</source>
+        <comment>slice/divide line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>slicec</source>
+        <comment>slice/divide circle/arc</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>slc</source>
+        <comment>slice/divide circle/arc</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>star</source>
+        <comment>draw star</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>st</source>
+        <comment>draw star</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cross</source>
+        <comment>draw cross for circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cx</source>
+        <comment>draw cross for circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linepoints</source>
+        <comment>draw line of points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lpoints</source>
+        <comment>draw line of points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>criclebyarc</source>
+        <comment>draw circle by arc</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cba</source>
+        <comment>draw circle by arc</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>duplicate</source>
+        <comment>duplicate entity</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dup</source>
+        <comment>duplicate entity</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linejoin</source>
+        <comment>lines join</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lj</source>
+        <comment>lines join</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>breakdivide</source>
+        <comment>break or divide entity</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bd</source>
+        <comment>break or divide entity</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>gapline</source>
+        <comment>line gap</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>gl</source>
+        <comment>line gap</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linepar</source>
+        <comment>create parallel</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lineoff</source>
+        <comment>create parallel</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pa</source>
+        <comment>create parallel</comment>
+        <translation type="unfinished">zt</translation>
+    </message>
+    <message>
+        <source>ll</source>
+        <comment>create parallel</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lineparthro</source>
+        <comment>parallel through point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lp</source>
+        <comment>parallel through point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ptp</source>
+        <comment>parallel through point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linebisect</source>
+        <comment>angle bisector</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bi</source>
+        <comment>angle bisector</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bisect</source>
+        <comment>angle bisector</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linetancp</source>
+        <comment>tangent point and circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lt</source>
+        <comment>tangent point and circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tanpc</source>
+        <comment>tangent point and circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linetan2c</source>
+        <comment>tangent two circles</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lc</source>
+        <comment>tangent two circles</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linetancper</source>
+        <comment>tangent line and circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or</source>
+        <comment>tangent line and circle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lineperp</source>
+        <comment>perpendicular line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lo</source>
+        <comment>perpendicular line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ortho</source>
+        <comment>perpendicular line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>linerelang</source>
+        <comment>relative line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>lr</source>
+        <comment>relative line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polygoncencor</source>
+        <comment>polygon centre point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pp</source>
+        <comment>polygon centre point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polycp</source>
+        <comment>polygon centre point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pcp</source>
+        <comment>polygon centre point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polygoncentan</source>
+        <comment>polygon centre vertex</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pv</source>
+        <comment>polygon centre vertex</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polyct</source>
+        <comment>polygon centre vertex</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polygon2v</source>
+        <comment>polygon by 2 vertices</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>p2</source>
+        <comment>polygon by 2 vertices</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>poly2</source>
+        <comment>polygon by 2 vertices</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circle</source>
+        <comment>draw circle</comment>
+        <translation type="unfinished">círculo</translation>
+    </message>
+    <message>
+        <source>ci</source>
+        <comment>draw circle</comment>
+        <translation type="unfinished">ci</translation>
+    </message>
+    <message>
+        <source>c</source>
+        <comment>draw circle</comment>
+        <translation type="unfinished">c</translation>
+    </message>
+    <message>
+        <source>circle2p</source>
+        <comment>circle 2 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>c2</source>
+        <comment>circle 2 points</comment>
+        <translation type="unfinished">c2</translation>
+    </message>
+    <message>
+        <source>c2p</source>
+        <comment>circle 2 points</comment>
+        <translation type="unfinished">c2p</translation>
+    </message>
+    <message>
+        <source>circle2pr</source>
+        <comment>circle 2 points radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cc</source>
+        <comment>circle 2 points radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circle3p</source>
+        <comment>circle 3 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>c3</source>
+        <comment>circle 3 points</comment>
+        <translation type="unfinished">c3</translation>
+    </message>
+    <message>
+        <source>c3p</source>
+        <comment>circle 3 points</comment>
+        <translation type="unfinished">c3p</translation>
+    </message>
+    <message>
+        <source>circlecr</source>
+        <comment>circle point radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cr</source>
+        <comment>circle point radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ccr</source>
+        <comment>circle point radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circletan2cp</source>
+        <comment>circle 2 tangent point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tr</source>
+        <comment>circle 2 tangent point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circletan2p</source>
+        <comment>circle tangent 2 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>td</source>
+        <comment>circle tangent 2 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circletan2cr</source>
+        <comment>circle 2 tangent radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tc</source>
+        <comment>circle 2 tangent radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>circletan3</source>
+        <comment>circle tangent to 3</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t3</source>
+        <comment>circle tangent to 3</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ct3</source>
+        <comment>circle tangent to 3</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tan3</source>
+        <comment>circle tangent to 3</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arc</source>
+        <comment>arc point radius</comment>
+        <translation type="unfinished">arco</translation>
+    </message>
+    <message>
+        <source>ar</source>
+        <comment>arc point radius</comment>
+        <translation type="unfinished">ar</translation>
+    </message>
+    <message>
+        <source>a</source>
+        <comment>arc point radius</comment>
+        <translation type="unfinished">a</translation>
+    </message>
+    <message>
+        <source>arc3p</source>
+        <comment>draw 3pt arc</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>a3</source>
+        <comment>draw 3pt arc</comment>
+        <translation type="unfinished">a3</translation>
+    </message>
+    <message>
+        <source>arctan</source>
+        <comment>arc tangent</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>at</source>
+        <comment>arc tangent</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>spline</source>
+        <comment>draw spline</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sf</source>
+        <comment>draw spline</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>spl</source>
+        <comment>draw spline</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>spline2</source>
+        <comment>spline through points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sp</source>
+        <comment>spline through points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>stp</source>
+        <comment>spline through points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arcellc2ax</source>
+        <comment>arc ellipse</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ae</source>
+        <comment>arc ellipse</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>parabola4p</source>
+        <comment>Parabola 4 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pl4</source>
+        <comment>Parabola 4 points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>parabolafd</source>
+        <comment>Parabola focus directrix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plfd</source>
+        <comment>Parabola focus directrix</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>free</source>
+        <comment>draw freehand line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fh</source>
+        <comment>draw freehand line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fhl</source>
+        <comment>draw freehand line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ellipsec2p</source>
+        <comment>ellipse axis</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ea</source>
+        <comment>ellipse axis</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ellipse3p</source>
+        <comment>ellipse foci</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ef</source>
+        <comment>ellipse foci</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ellipse4p</source>
+        <comment>ellipse 4 point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>e4</source>
+        <comment>ellipse 4 point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ellipsec3p</source>
+        <comment>ellipse center 3 point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>e3</source>
+        <comment>ellipse center 3 point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ellipseinscribed</source>
+        <comment>inscribed ellipse</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ei</source>
+        <comment>inscribed ellipse</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ie</source>
+        <comment>inscribed ellipse</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>polyline</source>
+        <comment>draw polyline</comment>
+        <translation type="unfinished">polilínea</translation>
+    </message>
+    <message>
+        <source>pl</source>
+        <comment>draw polyline</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>angleline</source>
+        <comment>draw angle from line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rortoline</source>
+        <comment>draw orthogonal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rort</source>
+        <comment>draw orthogonal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>point2line</source>
+        <comment>draw line from point to line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>p2l</source>
+        <comment>draw line from point to line</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plineadd</source>
+        <comment>pl add node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pi</source>
+        <comment>pl add node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plineapp</source>
+        <comment>pl append node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pn</source>
+        <comment>pl append node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plinedel</source>
+        <comment>pl delete node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pd</source>
+        <comment>pl delete node</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plinedeltwn</source>
+        <comment>pl del between nodes</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pr</source>
+        <comment>pl del between nodes</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plinetrm</source>
+        <comment>pl trim segments</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pt</source>
+        <comment>pl trim segments</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plinepar</source>
+        <comment>pl equidistant</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pe</source>
+        <comment>pl equidistant</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>plinejoin</source>
+        <comment>pl join</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pj</source>
+        <comment>pl join</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>selectall</source>
+        <comment>Select all entities</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sa</source>
+        <comment>Select all entities</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deselectall</source>
+        <comment>deselect all entities</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sx</source>
+        <comment>deselect all entities</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tn</source>
+        <comment>deselect all entities</comment>
+        <translation type="unfinished">tn</translation>
+    </message>
+    <message>
+        <source>invertselect</source>
+        <comment>invert select</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>is</source>
+        <comment>invert select</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimaligned</source>
+        <comment>dimension - aligned</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ds</source>
+        <comment>dimension - aligned</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimlinear</source>
+        <comment>dimension - linear</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dl</source>
+        <comment>dimension - linear</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimhorizontal</source>
+        <comment>dimension - horizontal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dh</source>
+        <comment>dimension - horizontal</comment>
+        <translation type="unfinished">ch</translation>
+    </message>
+    <message>
+        <source>dimvertical</source>
+        <comment>dimension - vertical</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dv</source>
+        <comment>dimension - vertical</comment>
+        <translation type="unfinished">cv</translation>
+    </message>
+    <message>
+        <source>dimradius</source>
+        <comment>dimension - radial</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimradial</source>
+        <comment>dimension - radial</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dr</source>
+        <comment>dimension - radial</comment>
+        <translation type="unfinished">cl</translation>
+    </message>
+    <message>
+        <source>dimdiameter</source>
+        <comment>dimension - diametric</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dd</source>
+        <comment>dimension - diametric</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimdiametric</source>
+        <comment>dimension - diametric</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimangular</source>
+        <comment>dimension - angular</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>da</source>
+        <comment>dimension - angular</comment>
+        <translation type="unfinished">ca</translation>
+    </message>
+    <message>
+        <source>dan</source>
+        <comment>dimension - angular</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dimleader</source>
+        <comment>dimension - leader</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ld</source>
+        <comment>dimension - leader</comment>
+        <translation type="unfinished">lc</translation>
+    </message>
+    <message>
+        <source>dimregen</source>
+        <comment>dimension - regenerate</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dg</source>
+        <comment>dimension - regenerate</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modmove</source>
+        <comment>modify - move (copy)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mv</source>
+        <comment>modify - move (copy)</comment>
+        <translation type="unfinished">mm</translation>
+    </message>
+    <message>
+        <source>modrotate</source>
+        <comment>modify - rotate</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ro</source>
+        <comment>modify - rotate</comment>
+        <translation type="unfinished">mr</translation>
+    </message>
+    <message>
+        <source>modscale</source>
+        <comment>modify - scale</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sz</source>
+        <comment>modify - scale</comment>
+        <translation type="unfinished">me</translation>
+    </message>
+    <message>
+        <source>modmirror</source>
+        <comment>modify -  mirror</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mi</source>
+        <comment>modify -  mirror</comment>
+        <translation type="unfinished">mp</translation>
+    </message>
+    <message>
+        <source>modmovrot</source>
+        <comment>modify - move rotate</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mr</source>
+        <comment>modify - move rotate</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mod2rot</source>
+        <comment>modify - rotate2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>r2</source>
+        <comment>modify - rotate2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modrevert</source>
+        <comment>modify -  revert direction</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>md</source>
+        <comment>modify -  revert direction</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rev</source>
+        <comment>modify -  revert direction</comment>
+        <translation type="unfinished">inv</translation>
+    </message>
+    <message>
+        <source>modtrim</source>
+        <comment>modify - trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tm</source>
+        <comment>modify - trim (extend)</comment>
+        <translation type="unfinished">mm</translation>
+    </message>
+    <message>
+        <source>modtrim2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>t2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tm2</source>
+        <comment>modify - multi trim (extend)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modlengthen</source>
+        <comment>modify - lengthen</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>le</source>
+        <comment>modify - lengthen</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modoffset</source>
+        <comment>modify - offset</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mo</source>
+        <comment>modify - offset</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>moff</source>
+        <comment>modify - offset</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modbevel</source>
+        <comment>modify - bevel</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bev</source>
+        <comment>modify - bevel</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ch</source>
+        <comment>modify - bevel</comment>
+        <translation type="unfinished">ch</translation>
+    </message>
+    <message>
+        <source>modfillet</source>
+        <comment>modify - fillet</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fi</source>
+        <comment>modify - fillet</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>moddivide</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cut</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>div</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>di</source>
+        <comment>modify - divide (cut)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modstretch</source>
+        <comment>modify - stretch</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ss</source>
+        <comment>modify - stretch</comment>
+        <translation type="unfinished">ms</translation>
+    </message>
+    <message>
+        <source>modproperties</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>prop</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mp</source>
+        <comment>modify properties</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modattr</source>
+        <comment>modify attribute</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>attr</source>
+        <comment>modify attribute</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ma</source>
+        <comment>modify attribute</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>modexpltext</source>
+        <comment>explode text strings</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>xt</source>
+        <comment>explode text strings</comment>
+        <translation type="unfinished">me</translation>
+    </message>
+    <message>
+        <source>modexplode</source>
+        <comment>explode block/polyline into entities</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>xp</source>
+        <comment>explode block/polyline into entities</comment>
+        <translation type="unfinished">mx</translation>
+    </message>
+    <message>
+        <source>moddelete</source>
+        <comment>modify - delete (erase)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>er</source>
+        <comment>modify - delete (erase)</comment>
+        <translation type="unfinished">mb</translation>
+    </message>
+    <message>
+        <source>del</source>
+        <comment>modify - delete (erase)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>infodistance</source>
+        <comment>distance point to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>id</source>
+        <comment>distance point to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dist</source>
+        <comment>distance point to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dpp</source>
+        <comment>distance point to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>infodistep</source>
+        <comment>distance entity to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ii</source>
+        <comment>distance entity to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dep</source>
+        <comment>distance entity to point</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>infoangle</source>
+        <comment>measure angle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ia</source>
+        <comment>measure angle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ang</source>
+        <comment>measure angle</comment>
+        <translation type="unfinished">ang</translation>
+    </message>
+    <message>
+        <source>infoarea</source>
+        <comment>measure area</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>aa</source>
+        <comment>measure area</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mtext</source>
+        <comment>draw mtext</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mt</source>
+        <comment>draw mtext</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mtxt</source>
+        <comment>draw mtext</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>text</source>
+        <comment>draw text</comment>
+        <translation type="unfinished">texto</translation>
+    </message>
+    <message>
+        <source>tx</source>
+        <comment>draw text</comment>
+        <translation type="unfinished">tx</translation>
+    </message>
+    <message>
+        <source>txt</source>
+        <comment>draw text</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hatch</source>
+        <comment>draw hatch</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ha</source>
+        <comment>draw hatch</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>point</source>
+        <comment>draw point</comment>
+        <translation type="unfinished">punto</translation>
+    </message>
+    <message>
+        <source>po</source>
+        <comment>draw point</comment>
+        <translation type="unfinished">pt</translation>
+    </message>
+    <message>
+        <source>snapfree</source>
+        <comment>snap - free</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>so</source>
+        <comment>snap - free</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>os</source>
+        <comment>snap - free</comment>
+        <translation type="unfinished">nf</translation>
+    </message>
+    <message>
+        <source>snapcenter</source>
+        <comment>snap - center</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sc</source>
+        <comment>snap - center</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snapdist</source>
+        <comment>snap - distance to endpoints</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sd</source>
+        <comment>snap - distance to endpoints</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snapend</source>
+        <comment>snap - end points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>se</source>
+        <comment>snap - end points</comment>
+        <translation type="unfinished">ff</translation>
+    </message>
+    <message>
+        <source>snapgrid</source>
+        <comment>snap - grid</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sg</source>
+        <comment>snap - grid</comment>
+        <translation type="unfinished">fr</translation>
+    </message>
+    <message>
+        <source>snapintersection</source>
+        <comment>snap - intersection</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>si</source>
+        <comment>snap - intersection</comment>
+        <translation type="unfinished">fi</translation>
+    </message>
+    <message>
+        <source>snapmiddle</source>
+        <comment>snap - middle points</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sm</source>
+        <comment>snap - middle points</comment>
+        <translation type="unfinished">fm</translation>
+    </message>
+    <message>
+        <source>snaponentity</source>
+        <comment>snap - on entity</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sn</source>
+        <comment>snap - on entity</comment>
+        <translation type="unfinished">fc</translation>
+    </message>
+    <message>
+        <source>np</source>
+        <comment>snap - on entity</comment>
+        <translation type="unfinished">fp</translation>
+    </message>
+    <message>
+        <source>snapmiddlemanual</source>
+        <comment>snap middle manual</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snapmanual</source>
+        <comment>snap middle manual</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>smm</source>
+        <comment>snap middle manual</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>setrelativezero</source>
+        <comment>set relative zero position</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rz</source>
+        <comment>set relative zero position</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restrictnothing</source>
+        <comment>restrict - nothing</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rn</source>
+        <comment>restrict - nothing</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restrictorthogonal</source>
+        <comment>restrict - orthogonal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rr</source>
+        <comment>restrict - orthogonal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restricthorizontal</source>
+        <comment>restrict - horizontal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rh</source>
+        <comment>restrict - horizontal</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>restrictvertical</source>
+        <comment>restrict - vertical</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rv</source>
+        <comment>restrict - vertical</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>kill</source>
+        <comment>kill all actions</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ki</source>
+        <comment>kill all actions</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>k</source>
+        <comment>kill all actions</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>undo</source>
+        <comment>undo cycle</comment>
+        <translation type="unfinished">deshacer</translation>
+    </message>
+    <message>
+        <source>un</source>
+        <comment>undo cycle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>u</source>
+        <comment>undo cycle</comment>
+        <translation type="unfinished">u</translation>
+    </message>
+    <message>
+        <source>redo</source>
+        <comment>redo cycle</comment>
+        <translation type="unfinished">rehacer</translation>
+    </message>
+    <message>
+        <source>rd</source>
+        <comment>redo cycle</comment>
+        <translation type="unfinished">rd</translation>
+    </message>
+    <message>
+        <source>r</source>
+        <comment>redo cycle</comment>
+        <translation type="unfinished">r</translation>
+    </message>
+    <message>
+        <source>drawpref</source>
+        <comment>drawing preferences</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dp</source>
+        <comment>drawing preferences</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>regen</source>
+        <comment>zoom - redraw</comment>
+        <translation type="unfinished">regenerar</translation>
+    </message>
+    <message>
+        <source>redraw</source>
+        <comment>zoom - redraw</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rg</source>
+        <comment>zoom - redraw</comment>
+        <translation type="unfinished">rd</translation>
+    </message>
+    <message>
+        <source>zr</source>
+        <comment>zoom - redraw</comment>
+        <translation type="unfinished">zr</translation>
+    </message>
+    <message>
+        <source>zoomauto</source>
+        <comment>zoom - auto</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>za</source>
+        <comment>zoom - auto</comment>
+        <translation type="unfinished">za</translation>
+    </message>
+    <message>
+        <source>zoomprevious</source>
+        <comment>zoom - previous</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>zv</source>
+        <comment>zoom - previous</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>zoomwindow</source>
+        <comment>zoom - window</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>zw</source>
+        <comment>zoom - window</comment>
+        <translation type="unfinished">zv</translation>
+    </message>
+    <message>
+        <source>zoompan</source>
+        <comment>zoom - pan</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>zp</source>
+        <comment>zoom - pan</comment>
+        <translation type="unfinished">zt</translation>
+    </message>
+    <message>
+        <source>angle</source>
+        <translation type="unfinished">ángulo</translation>
+    </message>
+    <message>
+        <source>dpi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>close</source>
+        <translation type="unfinished">cerrar</translation>
+    </message>
+    <message>
+        <source>chord length</source>
+        <translation type="unfinished">longitud de cuerda</translation>
+    </message>
+    <message>
+        <source>columns</source>
+        <translation type="unfinished">columnas</translation>
+    </message>
+    <message>
+        <source>columnspacing</source>
+        <translation type="unfinished">espacio entre columnas</translation>
+    </message>
+    <message>
+        <source>equation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>factor</source>
+        <translation type="unfinished">factor</translation>
+    </message>
+    <message>
+        <source>length</source>
+        <translation type="unfinished">longitud</translation>
+    </message>
+    <message>
+        <source>length1</source>
+        <comment>bevel/fillet length1</comment>
+        <translation type="unfinished">longitud 1</translation>
+    </message>
+    <message>
+        <source>length2</source>
+        <comment>bevel/fillet length2</comment>
+        <translation type="unfinished">longitud 2</translation>
+    </message>
+    <message>
+        <source>number</source>
+        <translation type="unfinished">número</translation>
+    </message>
+    <message>
+        <source>radius</source>
+        <translation type="unfinished">radio</translation>
+    </message>
+    <message>
+        <source>rows</source>
+        <translation type="unfinished">filas</translation>
+    </message>
+    <message>
+        <source>rowspacing</source>
+        <translation type="unfinished">espacio entre filas</translation>
+    </message>
+    <message>
+        <source>through</source>
+        <translation type="unfinished">a través de</translation>
+    </message>
+    <message>
+        <source>trim</source>
+        <translation type="unfinished">recortar</translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>anglerel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>offset</source>
+        <translation type="unfinished">offset</translation>
+    </message>
+    <message>
+        <source>linesnap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ticksnap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bevels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nopoly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>usepoly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>str</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>round</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snap1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>topl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>topr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>middle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bottoml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bottomr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snapcorner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snapshift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sizein</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sizeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>snap2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>corner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mid-vert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mid-hor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>quad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>noquad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>angle_inner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edge-none</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edge-both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edge-start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>edge-end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nofit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dist_fixed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dist_flex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sym</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>nosym</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ang</source>
+        <comment>angle</comment>
+        <translation type="unfinished">ang</translation>
+    </message>
+    <message>
+        <source>an</source>
+        <comment>angle</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>center</source>
+        <translation type="unfinished">centro</translation>
+    </message>
+    <message>
+        <source>cen</source>
+        <comment>center</comment>
+        <translation type="unfinished">cen</translation>
+    </message>
+    <message>
+        <source>ce</source>
+        <comment>center</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cl</source>
+        <comment>chord length</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>c</source>
+        <comment>close</comment>
+        <translation type="unfinished">c</translation>
+    </message>
+    <message>
+        <source>cols</source>
+        <comment>columns</comment>
+        <translation type="unfinished">cols</translation>
+    </message>
+    <message>
+        <source>co</source>
+        <comment>columns</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>columnspacing</source>
+        <comment>columnspacing for inserts</comment>
+        <translation type="unfinished">espacio entre columnas</translation>
+    </message>
+    <message>
+        <source>colspacing</source>
+        <comment>columnspacing for inserts</comment>
+        <translation type="unfinished">espacio entre columnas</translation>
+    </message>
+    <message>
+        <source>cs</source>
+        <comment>columnspacing for inserts</comment>
+        <translation type="unfinished">ec</translation>
+    </message>
+    <message>
+        <source>fact</source>
+        <comment>factor</comment>
+        <translation type="unfinished">fact</translation>
+    </message>
+    <message>
+        <source>f</source>
+        <comment>factor</comment>
+        <translation type="unfinished">f</translation>
+    </message>
+    <message>
+        <source>eqn</source>
+        <comment>equation</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>eq</source>
+        <comment>equation</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>help</source>
+        <translation type="unfinished">ayuda</translation>
+    </message>
+    <message>
+        <source>?</source>
+        <comment>help</comment>
+        <translation type="unfinished">?</translation>
+    </message>
+    <message>
+        <source>length</source>
+        <comment>length</comment>
+        <translation type="unfinished">longitud</translation>
+    </message>
+    <message>
+        <source>len</source>
+        <comment>length</comment>
+        <translation type="unfinished">long</translation>
+    </message>
+    <message>
+        <source>l</source>
+        <comment>length</comment>
+        <translation type="unfinished">l</translation>
+    </message>
+    <message>
+        <source>length1</source>
+        <comment>length1</comment>
+        <translation type="unfinished">longitud 1</translation>
+    </message>
+    <message>
+        <source>len1</source>
+        <comment>length1</comment>
+        <translation type="unfinished">long1</translation>
+    </message>
+    <message>
+        <source>l1</source>
+        <comment>length1</comment>
+        <translation type="unfinished">l1</translation>
+    </message>
+    <message>
+        <source>length2</source>
+        <comment>length2</comment>
+        <translation type="unfinished">longitud 2</translation>
+    </message>
+    <message>
+        <source>len2</source>
+        <comment>length2</comment>
+        <translation type="unfinished">long2</translation>
+    </message>
+    <message>
+        <source>l2</source>
+        <comment>length2</comment>
+        <translation type="unfinished">l2</translation>
+    </message>
+    <message>
+        <source>number</source>
+        <comment>number</comment>
+        <translation type="unfinished">número</translation>
+    </message>
+    <message>
+        <source>num</source>
+        <comment>number</comment>
+        <translation type="unfinished">num</translation>
+    </message>
+    <message>
+        <source>n</source>
+        <comment>number</comment>
+        <translation type="unfinished">n</translation>
+    </message>
+    <message>
+        <source>ra</source>
+        <comment>radius</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>reversed</source>
+        <comment>reversed</comment>
+        <translation type="unfinished">invertido</translation>
+    </message>
+    <message>
+        <source>rev</source>
+        <comment>reversed</comment>
+        <translation type="unfinished">inv</translation>
+    </message>
+    <message>
+        <source>row</source>
+        <comment>row</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>rowspacing</source>
+        <comment>rowspacing for inserts</comment>
+        <translation type="unfinished">espacio entre filas</translation>
+    </message>
+    <message>
+        <source>rs</source>
+        <comment>rowspacing for inserts</comment>
+        <translation type="unfinished">ef</translation>
+    </message>
+    <message>
+        <source>text</source>
+        <translation type="unfinished">texto</translation>
+    </message>
+    <message>
+        <source>t</source>
+        <comment>text</comment>
+        <translation type="unfinished">t</translation>
+    </message>
+    <message>
+        <source>t</source>
+        <comment>through</comment>
+        <translation type="unfinished">t</translation>
+    </message>
+    <message>
+        <source>undo</source>
+        <translation type="unfinished">deshacer</translation>
+    </message>
+    <message>
+        <source>u</source>
+        <comment>undo</comment>
+        <translation type="unfinished">u</translation>
+    </message>
+    <message>
+        <source>redo</source>
+        <translation type="unfinished">rehacer</translation>
+    </message>
+    <message>
+        <source>r</source>
+        <comment>redo</comment>
+        <translation type="unfinished">r</translation>
+    </message>
+    <message>
+        <source>back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>b</source>
+        <comment>back</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>bw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>blackwhite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>paperoffset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>graphoffset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command: %1 (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RS_Commands:: command not found: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accepted keycode: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command not found: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available commands:</source>
+        <translation type="unfinished">Comandos disponibles:</translation>
+    </message>
+    <message>
+        <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File on disk modified. Please save to another file to avoid data loss! File modified: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch:: loading pattern failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <comment>unknown length unit</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Foot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Millimeter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centimeter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Meter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Kilometer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Microinch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angstrom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nanometer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Micron</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decimeter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hectometer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gigameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Astro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lightyear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parsec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A0</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A1</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A2</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A3</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A4</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letter / ANSI A</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legal</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tabloid / ANSI B</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ANSI C</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ANSI D</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ANSI E</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch A</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch B</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch C</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch D</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch E</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>custom</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>a0</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished">a0</translation>
+    </message>
+    <message>
+        <source>a1</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished">a1</translation>
+    </message>
+    <message>
+        <source>a2</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished">a2</translation>
+    </message>
+    <message>
+        <source>a3</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished">a3</translation>
+    </message>
+    <message>
+        <source>a4</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished">a4</translation>
+    </message>
+    <message>
+        <source>letter</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>legal</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>tabloid</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ansi c</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ansi d</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ansi e</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arch a</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arch b</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arch c</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arch d</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>arch e</source>
+        <comment>Paper format</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DWG support is not complete!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If this file fails to open try an older DWG format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or try to find a converter to make it a DXF file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <comment>fileImport</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import error:</source>
+        <comment>fileImport</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anyhow, there are some entities identified.</source>
+        <comment>dwgImport</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you open the file now, the drawing may be not complete or unusable.</source>
+        <comment>dwgImport</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore error and open the file?</source>
+        <comment>dwgImport</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>no DXF/DWG error</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error opening DXF/DWG file</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsupported DXF/DWG file version</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG meta data</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG file header</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG header dara</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG object map</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG classes</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG tables</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG blocks</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG entities</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG objects</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG sections</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading DXF/DWG code</source>
+        <comment>RS_FilterDXFRW</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opened dwg file version %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unknown error opening dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>can&apos;t open this dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>unsupported dwg version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading file metadata in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading file header in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading header vars in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading classes in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading offsets in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading tables in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading blocks in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading entities in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>error reading objects in dwg file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>undefined error</source>
+        <comment>RS_FilterInterface</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>usage: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> [options] &lt;dxf_files&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> *.dxf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-- print all dxf files to pdf files with the same names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> -o some.pdf *.dxf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto fit and center drawing to page.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto center drawing on page.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print grayscale.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print monochrome (black/white).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paper size (Width x Height) in mm.</source>
+        <comment>WxH</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output resolution (DPI).</source>
+        <comment>integer</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paper margins in mm (integer or float).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print on multiple pages (Horiz. x Vert.).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output PDF file.</source>
+        <comment>file</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target output directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;dxf_files&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Input DXF file(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>enter an integer number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LibreCAD query</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>enter a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>enter text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading..</source>
+        <translation type="unfinished">Cargando...</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading File %1..</source>
+        <translation type="unfinished">Cargando archivo %1...</translation>
+    </message>
+    <message>
+        <source>Pen Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid objects removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished">Licencia</translation>
+    </message>
+    <message>
+        <source>Keycode mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load command file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste multiple commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle</source>
+        <translation type="unfinished">Círculo</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">Curva</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Editar</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipse</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Archivo</translation>
+    </message>
+    <message>
+        <source>Dimension</source>
+        <translation type="unfinished">Cota</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished">Información</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Línea</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation type="unfinished">Modificar</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Seleccionar</translation>
+    </message>
+    <message>
+        <source>Snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snap Extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished">Ver</translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PenTB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Combine all layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>- Unchanged -</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Creators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/CustomColor%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom Picked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must input a distance first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator error for input: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal </source>
+        <comment>command to trigger cli calculator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>calculate </source>
+        <comment>command to trigger cli calculator</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculator mode: Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>noname</source>
+        <comment>default layer name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Image Files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows Bitmap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Joint Photographic Experts Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics Interchange Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multiple-image Network Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable Bit Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable Grey Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable Network Graphic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Portable Pixel Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Bitmap Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Pixel Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scalable Vector Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SGI Black &amp; White</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encapsulated PostScript</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encapsulated PostScript Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encapsulated PostScript Interchange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windows Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>JPEG 2000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZSoft Paintbrush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC Paint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SGI-Bilddatei</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Targa Image File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tagged Image File Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Drawing As</source>
+        <translation type="unfinished">Guardar dibujo como</translation>
+    </message>
+    <message>
+        <source>%1 already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Old Drawing Exchange %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawing Exchange %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dwg Drawing %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>QCad 1.x file %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LFF Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jww %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Drawing</source>
+        <translation type="unfinished">Abrir dibujo</translation>
+    </message>
+    <message>
+        <source>-Unchanged-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ByLayer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ByBlock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.00mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.05mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.09mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.13mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.15mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.18mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.20mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.25mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.30mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.35mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.40mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.50mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.53mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.60mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.70mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.80mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0.90mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1.00mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1.06mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1.20mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1.40mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1.58mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2.00mmISO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2.11mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionBlocksCreate</name>
+    <message>
+        <source>Specify reference point</source>
+        <translation type="unfinished">Especifique punto de referencia</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionBlocksInsert</name>
+    <message>
+        <source>Block cannot contain an insert of itself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> has nested insert of current block in:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>
+This block cannot be inserted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify reference point</source>
+        <translation type="unfinished">Especifique punto de referencia</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Enter angle:</source>
+        <translation type="unfinished">Ingrese ángulo:</translation>
+    </message>
+    <message>
+        <source>Enter factor:</source>
+        <translation type="unfinished">Ingrese factor:</translation>
+    </message>
+    <message>
+        <source>Enter columns:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter rows:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter column spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter row spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionBlocksSave</name>
+    <message>
+        <source>No block activated to save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDefault</name>
+    <message>
+        <source>Choose second edge</source>
+        <translation type="unfinished">Seleccione segundo borde</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimAligned</name>
+    <message>
+        <source>Specify first extension line origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second extension line origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify dimension line location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimAngular</name>
+    <message>
+        <source>Select first line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Select second line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify dimension arc line location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimDiametric</name>
+    <message>
+        <source>Not a circle or arc entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Select arc or circle entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify dimension line location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimLeader</name>
+    <message>
+        <source>Specify target point</source>
+        <translation type="unfinished">Especifique punto de destino</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify next point</source>
+        <translation type="unfinished">Especifique siguiente punto</translation>
+    </message>
+    <message>
+        <source>Finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimLinear</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify first extension line origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second extension line origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify dimension line location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension line angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDimRadial</name>
+    <message>
+        <source>Not a circle or arc entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Select arc or circle entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify dimension line position or enter angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter dimension text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawArc</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Not a valid chord length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify start angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify end angle or [angle/chord length]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify included angle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify chord length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawArc3P</name>
+    <message>
+        <source>Invalid arc data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify startpoint or [center]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second point</source>
+        <translation type="unfinished">Especifique el segundo punto</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify endpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawArcTangential</name>
+    <message>
+        <source>Specify base entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify end angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify end point</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircle</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify point on circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircle2P</name>
+    <message>
+        <source>Invalid Circle data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify first point</source>
+        <translation type="unfinished">Especifique el primer punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second point</source>
+        <translation type="unfinished">Especifique el segundo punto</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircle3P</name>
+    <message>
+        <source>Invalid circle data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify first point</source>
+        <translation type="unfinished">Especifique el primer punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second point</source>
+        <translation type="unfinished">Especifique el segundo punto</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify third point</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleCR</name>
+    <message>
+        <source>radius=%1 is invalid (expression)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>radius=%1 is invalid (negative)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>radius=%1 is invalid (zero)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify circle center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify circle radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleInscribe</name>
+    <message>
+        <source>Specify the first line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third line</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleTan1_2P</name>
+    <message>
+        <source>Specify a line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the first point on the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the second point on the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the center of the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleTan2</name>
+    <message>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the first line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Select the center of the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleTan2_1P</name>
+    <message>
+        <source>Specify a line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the another arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify a point on the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the center of the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawCircleTan3</name>
+    <message>
+        <source>Specify the first line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third line/arc/circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the center of the tangent circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawEllipse4Points</name>
+    <message>
+        <source>Can not determine uniquely an ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the first point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the fourth point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawEllipseAxis</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify ellipse center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify endpoint of major axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify endpoint or length of minor axis:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify start angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify end angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawEllipseCenter3Points</name>
+    <message>
+        <source>Specify the center of ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the first point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the second point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third point on ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawEllipseFociPoint</name>
+    <message>
+        <source>specify a point on ellipse, or total distance to foci</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total distance %1 is smaller than distance between foci</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify first focus of ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second focus of ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify a point on ellipse or total distance to foci</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawEllipseInscribe</name>
+    <message>
+        <source>Can not determine uniquely an ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the first line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify the second line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify the third line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify the fourth line</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawHatch</name>
+    <message>
+        <source>Hatch created successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Error: Invalid contour found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Error: Pattern not found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Error: Contour or pattern too small!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Error: Contour too big!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hatch Error: Undefined Error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total hatch area = %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid hatch area. Please check that the entities chosen form one or more closed contours.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawImage</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify reference point</source>
+        <translation type="unfinished">Especifique punto de referencia</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Enter angle:</source>
+        <translation type="unfinished">Ingrese ángulo:</translation>
+    </message>
+    <message>
+        <source>Enter factor:</source>
+        <translation type="unfinished">Ingrese factor:</translation>
+    </message>
+    <message>
+        <source>Enter dpi:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLine</name>
+    <message>
+        <source>Specify first point</source>
+        <translation type="unfinished">Especifique el primer punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify next point or [%1]</source>
+        <translation type="unfinished">Especifique siguiente punto o [%1]</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify next point</source>
+        <translation type="unfinished">Especifique siguiente punto</translation>
+    </message>
+    <message>
+        <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot undo: Begin of history reached</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot redo: End of history reached</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineAngle</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Specify position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Enter angle:</source>
+        <translation type="unfinished">Ingrese ángulo:</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Enter length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineBisector</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Number sector lines not in range: </source>
+        <comment>number of bisector to create must be in [1, 200]</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select first line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Select second line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Enter bisector length:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter number of bisectors:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineFree</name>
+    <message>
+        <source>Click and drag to draw a line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineHorVert</name>
+    <message>
+        <source>Specify first point</source>
+        <translation type="unfinished">Especifique el primer punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second point</source>
+        <translation type="unfinished">Especifique el segundo punto</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineOrthTan</name>
+    <message>
+        <source>Select a line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Select circle, arc or ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineParallel</name>
+    <message>
+        <source>Specify Distance &lt;%1&gt; or select entity or [%2]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Enter number:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Not a valid number. Try 1..99</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineParallelThrough</name>
+    <message>
+        <source>Select entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify through point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Number:</source>
+        <translation type="unfinished">Número:</translation>
+    </message>
+    <message>
+        <source>Not a valid number. Try 1..99</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLinePolygonCenCor</name>
+    <message>
+        <source>Specify center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify a corner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter number:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid number. Try 1..9999</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLinePolygonCorCor</name>
+    <message>
+        <source>Specify first corner</source>
+        <translation type="unfinished">Especifique primera esquina</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second corner</source>
+        <translation type="unfinished">Especifique segunda esquina</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Number:</source>
+        <translation type="unfinished">Número:</translation>
+    </message>
+    <message>
+        <source>Not a valid number. Try 1..9999</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not a valid expression.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineRectangle</name>
+    <message>
+        <source>Specify first corner</source>
+        <translation type="unfinished">Especifique primera esquina</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second corner</source>
+        <translation type="unfinished">Especifique segunda esquina</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineRelAngle</name>
+    <message>
+        <source>Not a valid expression</source>
+        <translation type="unfinished">Expresión no válida</translation>
+    </message>
+    <message>
+        <source>Select base entity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineTangent1</name>
+    <message>
+        <source>Specify point</source>
+        <translation type="unfinished">Especifique punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Select circle, arc or ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawLineTangent2</name>
+    <message>
+        <source>Select first circle/ellipse/parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Select second circle/ellipse/parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Select the tangent line closest to cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawMText</name>
+    <message>
+        <source>Specify insertion point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Enter text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawPoint</name>
+    <message>
+        <source>Specify location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawPolyline</name>
+    <message>
+        <source>Enter the end point x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter number of polylines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>equation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter an equation, f(x)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the start point x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The entered x is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The step size entered is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The value x entered is invalid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify first point</source>
+        <translation type="unfinished">Especifique el primer punto</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify next point or [%1]</source>
+        <translation type="unfinished">Especifique siguiente punto o [%1]</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify next point</source>
+        <translation type="unfinished">Especifique siguiente punto</translation>
+    </message>
+    <message>
+        <source>Cannot close sequence of lines: Not enough entities defined yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot undo: Not enough entities defined yet.</source>
+        <translation type="unfinished">No se puede deshacer: aún no hay suficientes entidades definidas.</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawSpline</name>
+    <message>
+        <source>Specify first control point</source>
+        <translation type="unfinished">Especifique el primer punto de control</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify next control point or [%1]</source>
+        <translation type="unfinished">Especifique el siguiente punto de control o [%1]</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+    <message>
+        <source>Specify next control point</source>
+        <translation type="unfinished">Especifique el siguiente punto de control</translation>
+    </message>
+    <message>
+        <source>Cannot undo: Not enough entities defined yet.</source>
+        <translation type="unfinished">No se puede deshacer: aún no hay suficientes entidades definidas.</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionDrawText</name>
+    <message>
+        <source>Specify insertion point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Specify second point</source>
+        <translation type="unfinished">Especifique el segundo punto</translation>
+    </message>
+    <message>
+        <source>Enter text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished">Atrás</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionEditCopy</name>
+    <message>
+        <source>Specify reference point</source>
+        <translation type="unfinished">Especifique punto de referencia</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionEditPaste</name>
+    <message>
+        <source>Set reference point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+</context>
+<context>
+    <name>RS_ActionEditUndo</name>
+    <message>
+        <source>Nothing to undo!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to redo!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RS_ActionInfoAngle</name>
     <message>
         <source>Angle between two lines</source>
-        <translation>Ángulo entre dos líneas</translation>
+        <translation type="vanished">Ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>&amp;Angle between two lines</source>
-        <translation>&amp;Ángulo entre dos líneas</translation>
+        <translation type="vanished">&amp;Ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>Measures the angle between two lines</source>
-        <translation>Mide el ángulo entre dos líneas</translation>
+        <translation type="vanished">Mide el ángulo entre dos líneas</translation>
     </message>
     <message>
         <source>Angle: %1%2</source>
-        <translation>Ángulo: %1%2</translation>
+        <translation type="vanished">Ángulo: %1%2</translation>
     </message>
     <message>
         <source>Lines are parallel</source>
@@ -3013,19 +13565,19 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Polygonal Area</source>
-        <translation>Área poligonal</translation>
+        <translation type="vanished">Área poligonal</translation>
     </message>
     <message>
         <source>&amp;Polygonal Area</source>
-        <translation>Área &amp;poligonal</translation>
+        <translation type="vanished">Área &amp;poligonal</translation>
     </message>
     <message>
         <source>Measures the area of a polygon</source>
-        <translation>Mide el área de un polígono</translation>
+        <translation type="vanished">Mide el área de un polígono</translation>
     </message>
     <message>
         <source>Area: %1</source>
-        <translation>Área: %1</translation>
+        <translation type="vanished">Área: %1</translation>
     </message>
     <message>
         <source>Circumference: %1</source>
@@ -3060,19 +13612,19 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionInfoDist</name>
     <message>
         <source>Distance Point to Point</source>
-        <translation>Distancia punto a punto</translation>
+        <translation type="vanished">Distancia punto a punto</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation>&amp;Distancia punto a punto</translation>
+        <translation type="vanished">&amp;Distancia punto a punto</translation>
     </message>
     <message>
         <source>Measures the distance between two points</source>
-        <translation>Mide la distancia entre dos puntos</translation>
+        <translation type="vanished">Mide la distancia entre dos puntos</translation>
     </message>
     <message>
         <source>Distance: %1</source>
-        <translation>Distancia: %1</translation>
+        <translation type="vanished">Distancia: %1</translation>
     </message>
     <message>
         <source>Specify first point of distance</source>
@@ -3099,15 +13651,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionInfoDist2</name>
     <message>
         <source>Distance Entity to Point</source>
-        <translation>Distancia entidad a punto</translation>
+        <translation type="vanished">Distancia entidad a punto</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation>&amp;Distancia entidad a punto</translation>
+        <translation type="vanished">&amp;Distancia entidad a punto</translation>
     </message>
     <message>
         <source>Measures the distance between an entity and a point</source>
-        <translation>Mide la distancia entre una entidad y un punto</translation>
+        <translation type="vanished">Mide la distancia entre una entidad y un punto</translation>
     </message>
     <message>
         <source>Distance: %1</source>
@@ -3134,15 +13686,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionInfoInside</name>
     <message>
         <source>Point inside contour</source>
-        <translation>Punto dentro del contorno</translation>
+        <translation type="vanished">Punto dentro del contorno</translation>
     </message>
     <message>
         <source>&amp;Point inside contour</source>
-        <translation>&amp;Punto dentro del contorno</translation>
+        <translation type="vanished">&amp;Punto dentro del contorno</translation>
     </message>
     <message>
         <source>Checks if a given point is inside the selected contour</source>
-        <translation>Verifica si un punto dado está dentro del contorno seleccionado</translation>
+        <translation type="vanished">Verifica si un punto dado está dentro del contorno seleccionado</translation>
     </message>
     <message>
         <source>Point is inside selected contour.</source>
@@ -3165,15 +13717,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionInfoTotalLength</name>
     <message>
         <source>Total length of selected entities</source>
-        <translation>Longitud total de entidades seleccionadas</translation>
+        <translation type="vanished">Longitud total de entidades seleccionadas</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation>&amp;Longitud total de entidades seleccionadas</translation>
+        <translation type="vanished">&amp;Longitud total de entidades seleccionadas</translation>
     </message>
     <message>
         <source>Measures the total length of all selected entities</source>
-        <translation>Mide la longitud total de todas las entidades seleccionadas</translation>
+        <translation type="vanished">Mide la longitud total de todas las entidades seleccionadas</translation>
     </message>
     <message>
         <source>Total Length of selected entities: %1</source>
@@ -3188,90 +13740,90 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionLayersAdd</name>
     <message>
         <source>Add Layer</source>
-        <translation>Agregar capa</translation>
+        <translation type="vanished">Agregar capa</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>&amp;Agregar capa</translation>
+        <translation type="vanished">&amp;Agregar capa</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionLayersEdit</name>
     <message>
         <source>Edit Layer</source>
-        <translation>Editar capa</translation>
+        <translation type="vanished">Editar capa</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation>&amp;Editar capa</translation>
+        <translation type="vanished">&amp;Editar capa</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionLayersFreezeAll</name>
     <message>
         <source>Freeze all</source>
-        <translation>Ocultar todo</translation>
+        <translation type="vanished">Ocultar todo</translation>
     </message>
     <message>
         <source>&amp;Freeze all</source>
-        <translation>&amp;Ocultar todo</translation>
+        <translation type="vanished">&amp;Ocultar todo</translation>
     </message>
     <message>
         <source>Freeze all layers</source>
-        <translation>Ocultar todas las capas</translation>
+        <translation type="vanished">Ocultar todas las capas</translation>
     </message>
     <message>
         <source>Defreeze all</source>
-        <translation>Mostrar todo</translation>
+        <translation type="vanished">Mostrar todo</translation>
     </message>
     <message>
         <source>&amp;Defreeze all</source>
-        <translation>&amp;Mostrar todo</translation>
+        <translation type="vanished">&amp;Mostrar todo</translation>
     </message>
     <message>
         <source>Defreeze all layers</source>
-        <translation>Mostrar todas las capas</translation>
+        <translation type="vanished">Mostrar todas las capas</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionLayersRemove</name>
     <message>
         <source>Remove Layer</source>
-        <translation>Eliminar capa</translation>
+        <translation type="vanished">Eliminar capa</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;Eliminar capa</translation>
+        <translation type="vanished">&amp;Eliminar capa</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionLayersToggleLock</name>
     <message>
         <source>Toggle Layer Lock</source>
-        <translation>Alternar bloqueo de capa</translation>
+        <translation type="vanished">Alternar bloqueo de capa</translation>
     </message>
     <message>
         <source>&amp;Toggle Lock</source>
-        <translation>&amp;Alternar bloqueo</translation>
+        <translation type="vanished">&amp;Alternar bloqueo</translation>
     </message>
     <message>
         <source>Toggle Lock</source>
-        <translation>Alternar bloqueo</translation>
+        <translation type="vanished">Alternar bloqueo</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionLayersToggleView</name>
     <message>
         <source>Toggle Layer Visibility</source>
-        <translation>Alternar visibilidad de capa</translation>
+        <translation type="vanished">Alternar visibilidad de capa</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer</source>
-        <translation>&amp;Alternar capa</translation>
+        <translation type="vanished">&amp;Alternar capa</translation>
     </message>
     <message>
         <source>Toggle Layer</source>
-        <translation>Alternar capa</translation>
+        <translation type="vanished">Alternar capa</translation>
     </message>
 </context>
 <context>
@@ -3282,11 +13834,11 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>&amp;Insert Library Object</source>
-        <translation>&amp;Insertar objeto de librería</translation>
+        <translation type="vanished">&amp;Insertar objeto de librería</translation>
     </message>
     <message>
         <source>Inserts an Object from the part library.</source>
-        <translation>Inserta un objeto desde la librería de partes.</translation>
+        <translation type="vanished">Inserta un objeto desde la librería de partes.</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
@@ -3321,7 +13873,7 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionLockRelativeZero</name>
     <message>
         <source>(Un-)Lock Relative Zero</source>
-        <translation>(Des)Bloquear cero relativo</translation>
+        <translation type="vanished">(Des)Bloquear cero relativo</translation>
     </message>
     <message>
         <source>(Un-)&amp;Lock Relative Zero</source>
@@ -3329,37 +13881,37 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>(Un-)Lock relative Zero</source>
-        <translation>(Des)Bloquear cero relativo</translation>
+        <translation type="vanished">(Des)Bloquear cero relativo</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyAttributes</name>
     <message>
         <source>Attributes</source>
-        <translation>Atributos</translation>
+        <translation type="vanished">Atributos</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation>&amp;Atributos</translation>
+        <translation type="vanished">&amp;Atributos</translation>
     </message>
     <message>
         <source>Modify Entity Attributes</source>
-        <translation>Modificar atributos de entidad</translation>
+        <translation type="vanished">Modificar atributos de entidad</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyBevel</name>
     <message>
         <source>Bevel</source>
-        <translation>Chaflán</translation>
+        <translation type="vanished">Chaflán</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation>&amp;Chaflán</translation>
+        <translation type="vanished">&amp;Chaflán</translation>
     </message>
     <message>
         <source>Bevel Entities</source>
-        <translation>Chaflán en entidades</translation>
+        <translation type="vanished">Chaflán en entidades</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
@@ -3394,15 +13946,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyCut</name>
     <message>
         <source>Cut</source>
-        <translation>Cortar</translation>
+        <translation type="vanished">Cortar</translation>
     </message>
     <message>
         <source>&amp;Cut</source>
-        <translation>&amp;Cortar</translation>
+        <translation type="vanished">&amp;Cortar</translation>
     </message>
     <message>
         <source>Cut Entities</source>
-        <translation>Cortar entidades</translation>
+        <translation type="vanished">Cortar entidades</translation>
     </message>
     <message>
         <source>No Entity found.</source>
@@ -3410,7 +13962,7 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Entity must be a line, arc or circle.</source>
-        <translation>La entidad debe ser una línea, arco o círculo.</translation>
+        <translation type="vanished">La entidad debe ser una línea, arco o círculo.</translation>
     </message>
     <message>
         <source>Cutting point is invalid.</source>
@@ -3445,26 +13997,26 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyDelete</name>
     <message>
         <source>Delete</source>
-        <translation>Eliminar</translation>
+        <translation type="vanished">Eliminar</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Eliminar</translation>
+        <translation type="vanished">&amp;Eliminar</translation>
     </message>
     <message>
         <source>Delete Entities</source>
-        <translation>Eliminar entidades</translation>
+        <translation type="vanished">Eliminar entidades</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyDeleteFree</name>
     <message>
         <source>Delete Freehand</source>
-        <translation>Eliminar a mano alzada</translation>
+        <translation type="vanished">Eliminar a mano alzada</translation>
     </message>
     <message>
         <source>&amp;Delete Freehand</source>
-        <translation>&amp;Eliminar a mano alzada</translation>
+        <translation type="vanished">&amp;Eliminar a mano alzada</translation>
     </message>
     <message>
         <source>Specify first break point on a polyline</source>
@@ -3492,11 +14044,11 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Parent of second entity is NULL</source>
-        <translation>El padre de la segunda entidad es NULL</translation>
+        <translation type="vanished">El padre de la segunda entidad es NULL</translation>
     </message>
     <message>
         <source>One of the chosen entities is NULL</source>
-        <translation>Una de las entidades seleccionadas es NULL</translation>
+        <translation type="vanished">Una de las entidades seleccionadas es NULL</translation>
     </message>
     <message>
         <source>Parent of first entity is not a polyline</source>
@@ -3504,15 +14056,15 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Parent of first entity is NULL</source>
-        <translation>El padre de la primera entidad es NULL</translation>
+        <translation type="vanished">El padre de la primera entidad es NULL</translation>
     </message>
     <message>
         <source>First entity is NULL</source>
-        <translation>La primera entidad es NULL</translation>
+        <translation type="vanished">La primera entidad es NULL</translation>
     </message>
     <message>
         <source>Second entity is NULL</source>
-        <translation>La segunda entidad es NULL</translation>
+        <translation type="vanished">La segunda entidad es NULL</translation>
     </message>
     <message>
         <source>Parent of second entity is nullptr</source>
@@ -3539,15 +14091,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyDeleteQuick</name>
     <message>
         <source>Delete selected</source>
-        <translation>Eliminar seleccionados</translation>
+        <translation type="vanished">Eliminar seleccionados</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation>&amp;Eliminar seleccionados</translation>
+        <translation type="vanished">&amp;Eliminar seleccionados</translation>
     </message>
     <message>
         <source>Delete selected entities</source>
-        <translation>Eliminar entidades seleccionadas</translation>
+        <translation type="vanished">Eliminar entidades seleccionadas</translation>
     </message>
     <message>
         <source>Pick entity to delete</source>
@@ -3562,45 +14114,53 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyEntity</name>
     <message>
         <source>Properties</source>
-        <translation>Propiedades</translation>
+        <translation type="vanished">Propiedades</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation>&amp;Propiedades</translation>
+        <translation type="vanished">&amp;Propiedades</translation>
     </message>
     <message>
         <source>Modify Entity Properties</source>
-        <translation>Modificar propiedades de entidad</translation>
+        <translation type="vanished">Modificar propiedades de entidad</translation>
+    </message>
+    <message>
+        <source>Click on entity to modify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyExplodeText</name>
     <message>
         <source>Explode Text</source>
-        <translation>Desagrupar texto</translation>
+        <translation type="vanished">Desagrupar texto</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation>&amp;Desagrupar texto en letras</translation>
+        <translation type="vanished">&amp;Desagrupar texto en letras</translation>
     </message>
     <message>
         <source>Explodes Text Entities into single Letters</source>
-        <translation>Desagrupa entidades de texto en letras individuales</translation>
+        <translation type="vanished">Desagrupa entidades de texto en letras individuales</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyMirror</name>
     <message>
         <source>Mirror</source>
-        <translation>Espejo</translation>
+        <translation type="vanished">Espejo</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp;Espejo</translation>
+        <translation type="vanished">&amp;Espejo</translation>
     </message>
     <message>
         <source>Mirror Entities</source>
-        <translation>Reflejar entidades</translation>
+        <translation type="vanished">Reflejar entidades</translation>
     </message>
     <message>
         <source>Specify first point of mirror line</source>
@@ -3623,15 +14183,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyMove</name>
     <message>
         <source>Move</source>
-        <translation>Mover</translation>
+        <translation type="vanished">Mover</translation>
     </message>
     <message>
         <source>&amp;Move</source>
-        <translation>&amp;Mover</translation>
+        <translation type="vanished">&amp;Mover</translation>
     </message>
     <message>
         <source>Move Entities</source>
-        <translation>Mover entidades</translation>
+        <translation type="vanished">Mover entidades</translation>
     </message>
     <message>
         <source>Specify reference point</source>
@@ -3651,15 +14211,15 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Move / Copy</source>
-        <translation>Mover / Copiar</translation>
+        <translation type="vanished">Mover / Copiar</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation>&amp;Mover / Copiar</translation>
+        <translation type="vanished">&amp;Mover / Copiar</translation>
     </message>
     <message>
         <source>Move or copy entities one or multiple times</source>
-        <translation>Mover o copiar entidades una o varias veces</translation>
+        <translation type="vanished">Mover o copiar entidades una o varias veces</translation>
     </message>
     <message>
         <source>Invalid number of copies, use %1 </source>
@@ -3670,15 +14230,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyMoveRotate</name>
     <message>
         <source>Move and Rotate</source>
-        <translation>Mover y rotar</translation>
+        <translation type="vanished">Mover y rotar</translation>
     </message>
     <message>
         <source>M&amp;ove and Rotate</source>
-        <translation>Mo&amp;ver y rotar</translation>
+        <translation type="vanished">Mo&amp;ver y rotar</translation>
     </message>
     <message>
         <source>Move and Rotate Entities</source>
-        <translation>Mover y rotar entidades</translation>
+        <translation type="vanished">Mover y rotar entidades</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
@@ -3720,15 +14280,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyRotate</name>
     <message>
         <source>Rotate</source>
-        <translation>Rotar</translation>
+        <translation type="vanished">Rotar</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation>&amp;Rotar</translation>
+        <translation type="vanished">&amp;Rotar</translation>
     </message>
     <message>
         <source>Rotate Entities</source>
-        <translation>Rotar entidades</translation>
+        <translation type="vanished">Rotar entidades</translation>
     </message>
     <message>
         <source>Specify reference point</source>
@@ -3751,15 +14311,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyRotate2</name>
     <message>
         <source>Rotate Two</source>
-        <translation>Rotar dos</translation>
+        <translation type="vanished">Rotar dos</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation>Rotar d&amp;os</translation>
+        <translation type="vanished">Rotar d&amp;os</translation>
     </message>
     <message>
         <source>Rotate Entities around two centers</source>
-        <translation>Rotar entidades alrededor de dos centros</translation>
+        <translation type="vanished">Rotar entidades alrededor de dos centros</translation>
     </message>
     <message>
         <source>Specify absolute reference point</source>
@@ -3782,15 +14342,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyRound</name>
     <message>
         <source>Round</source>
-        <translation>Redondear</translation>
+        <translation type="vanished">Redondear</translation>
     </message>
     <message>
         <source>&amp;Round</source>
-        <translation>&amp;Redondear</translation>
+        <translation type="vanished">&amp;Redondear</translation>
     </message>
     <message>
         <source>Round Entities</source>
-        <translation>Redondear entidades</translation>
+        <translation type="vanished">Redondear entidades</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
@@ -3798,7 +14358,7 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Specify first entity</source>
-        <translation>Seleccione primera entidad</translation>
+        <translation type="vanished">Seleccione primera entidad</translation>
     </message>
     <message>
         <source>Back</source>
@@ -3816,20 +14376,24 @@ Verifique que exista y los permisos.</translation>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
+    <message>
+        <source>Specify first entity or enter radius &lt;%1&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RS_ActionModifyScale</name>
     <message>
         <source>Scale</source>
-        <translation>Escalar</translation>
+        <translation type="vanished">Escalar</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation>&amp;Escalar</translation>
+        <translation type="vanished">&amp;Escalar</translation>
     </message>
     <message>
         <source>Scale Entities</source>
-        <translation>Escalar entidades</translation>
+        <translation type="vanished">Escalar entidades</translation>
     </message>
     <message>
         <source>Specify reference point</source>
@@ -3839,20 +14403,28 @@ Verifique que exista y los permisos.</translation>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
+    <message>
+        <source>Specify scale center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify target point</source>
+        <translation type="unfinished">Especifique punto de destino</translation>
+    </message>
 </context>
 <context>
     <name>RS_ActionModifyStretch</name>
     <message>
         <source>Stretch</source>
-        <translation>Estirar</translation>
+        <translation type="vanished">Estirar</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation>&amp;Estirar</translation>
+        <translation type="vanished">&amp;Estirar</translation>
     </message>
     <message>
         <source>Stretch Entities</source>
-        <translation>Estirar entidades</translation>
+        <translation type="vanished">Estirar entidades</translation>
     </message>
     <message>
         <source>Specify first corner</source>
@@ -3883,15 +14455,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionModifyTrim</name>
     <message>
         <source>Trim</source>
-        <translation>Recortar</translation>
+        <translation type="vanished">Recortar</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation>&amp;Recortar</translation>
+        <translation type="vanished">&amp;Recortar</translation>
     </message>
     <message>
         <source>Trim Entities</source>
-        <translation>Recortar entidades</translation>
+        <translation type="vanished">Recortar entidades</translation>
     </message>
     <message>
         <source>Select first trim entity</source>
@@ -3919,30 +14491,30 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Trim Two</source>
-        <translation>Recortar dos</translation>
+        <translation type="vanished">Recortar dos</translation>
     </message>
     <message>
         <source>&amp;Trim Two</source>
-        <translation>&amp;Recortar dos</translation>
+        <translation type="vanished">&amp;Recortar dos</translation>
     </message>
     <message>
         <source>Trim two Entities</source>
-        <translation>Recortar dos entidades</translation>
+        <translation type="vanished">Recortar dos entidades</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyTrimAmount</name>
     <message>
         <source>Lengthen</source>
-        <translation>Alargar</translation>
+        <translation type="vanished">Alargar</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation>&amp;Alargar</translation>
+        <translation type="vanished">&amp;Alargar</translation>
     </message>
     <message>
         <source>Lengthen by a given amount</source>
-        <translation>Alargar por una cantidad dada</translation>
+        <translation type="vanished">Alargar por una cantidad dada</translation>
     </message>
     <message>
         <source>No entity found. </source>
@@ -3973,15 +14545,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionOptionsDrawing</name>
     <message>
         <source>Drawing</source>
-        <translation>Dibujo</translation>
+        <translation type="vanished">Dibujo</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>Preferencias del &amp;dibujo actual</translation>
+        <translation type="vanished">Preferencias del &amp;dibujo actual</translation>
     </message>
     <message>
         <source>Settings for the current Drawing</source>
-        <translation>Configuración del dibujo actual</translation>
+        <translation type="vanished">Configuración del dibujo actual</translation>
     </message>
 </context>
 <context>
@@ -4120,7 +14692,7 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Delete between two nodes</source>
-        <translation>Eliminar entre dos nodos</translation>
+        <translation type="vanished">Eliminar entre dos nodos</translation>
     </message>
     <message>
         <source>No Entity found.</source>
@@ -4240,15 +14812,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionPrintPreview</name>
     <message>
         <source>Print Preview</source>
-        <translation>Vista previa de impresión</translation>
+        <translation type="vanished">Vista previa de impresión</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation>Pre&amp;visualizar impresión</translation>
+        <translation type="vanished">Pre&amp;visualizar impresión</translation>
     </message>
     <message>
         <source>Shows a preview of a print</source>
-        <translation>Muestra una vista previa de impresión</translation>
+        <translation type="vanished">Muestra una vista previa de impresión</translation>
     </message>
     <message>
         <source>RS_ActionPrintPreview::fit(): Invalid paper size</source>
@@ -4289,6 +14861,10 @@ Verifique que exista y los permisos.</translation>
     <message>
         <source>Printout in color</source>
         <translation>Impresión en color</translation>
+    </message>
+    <message>
+        <source>RS_ActionPrintPreview::calcPagesNum(): Limit of pages has been exceeded.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4374,42 +14950,42 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionSelectAll</name>
     <message>
         <source>Select All</source>
-        <translation>Seleccionar todo</translation>
+        <translation type="vanished">Seleccionar todo</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Seleccionar &amp;todo</translation>
+        <translation type="vanished">Seleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Selects all Entities</source>
-        <translation>Selecciona todas las entidades</translation>
+        <translation type="vanished">Selecciona todas las entidades</translation>
     </message>
     <message>
         <source>Deselect all</source>
-        <translation>Deseleccionar todo</translation>
+        <translation type="vanished">Deseleccionar todo</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation>Deseleccionar &amp;todo</translation>
+        <translation type="vanished">Deseleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Deselects all Entities</source>
-        <translation>Deselecciona todas las entidades</translation>
+        <translation type="vanished">Deselecciona todas las entidades</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectContour</name>
     <message>
         <source>(De-)Select Contour</source>
-        <translation>(De)Seleccionar contorno</translation>
+        <translation type="vanished">(De)Seleccionar contorno</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De)Seleccionar &amp;contorno</translation>
+        <translation type="vanished">(De)Seleccionar &amp;contorno</translation>
     </message>
     <message>
         <source>(De-)Selects connected entities</source>
-        <translation>(De)Selecciona entidades conectadas</translation>
+        <translation type="vanished">(De)Selecciona entidades conectadas</translation>
     </message>
     <message>
         <source>Entity must be an Atomic Entity.</source>
@@ -4420,27 +14996,27 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionSelectIntersected</name>
     <message>
         <source>Select Intersected Entities</source>
-        <translation>Seleccionar entidades intersectadas</translation>
+        <translation type="vanished">Seleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>In&amp;tersected Entities</source>
-        <translation>Entidades in&amp;tersectadas</translation>
+        <translation type="vanished">Entidades in&amp;tersectadas</translation>
     </message>
     <message>
         <source>Selects all entities intersected by a line</source>
-        <translation>Selecciona todas las entidades intersectadas por una línea</translation>
+        <translation type="vanished">Selecciona todas las entidades intersectadas por una línea</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation>Deseleccionar entidades intersectadas</translation>
+        <translation type="vanished">Deseleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>Deselect Inte&amp;rsected Entities</source>
-        <translation>Deseleccionar entidades inte&amp;rsectadas</translation>
+        <translation type="vanished">Deseleccionar entidades inte&amp;rsectadas</translation>
     </message>
     <message>
         <source>Deselects all entities intersected by a line</source>
-        <translation>Deselecciona todas las entidades intersectadas por una línea</translation>
+        <translation type="vanished">Deselecciona todas las entidades intersectadas por una línea</translation>
     </message>
     <message>
         <source>Choose first point of intersection line</source>
@@ -4463,72 +15039,72 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionSelectInvert</name>
     <message>
         <source>Invert Selection</source>
-        <translation>Invertir selección</translation>
+        <translation type="vanished">Invertir selección</translation>
     </message>
     <message>
         <source>&amp;Invert Selection</source>
-        <translation>&amp;Invertir selección</translation>
+        <translation type="vanished">&amp;Invertir selección</translation>
     </message>
     <message>
         <source>Inverts the current selection</source>
-        <translation>Invierte la selección actual</translation>
+        <translation type="vanished">Invierte la selección actual</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectLayer</name>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De)Seleccionar capa</translation>
+        <translation type="vanished">(De)Seleccionar capa</translation>
     </message>
     <message>
         <source>(De-)Selects layers</source>
-        <translation>(De)Selecciona capas</translation>
+        <translation type="vanished">(De)Selecciona capas</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectSingle</name>
     <message>
         <source>Select Entity</source>
-        <translation>Seleccionar entidad</translation>
+        <translation type="vanished">Seleccionar entidad</translation>
     </message>
     <message>
         <source>(De-)&amp;Select Entity</source>
-        <translation>(De)Seleccionar entidad</translation>
+        <translation type="vanished">(De)Seleccionar entidad</translation>
     </message>
     <message>
         <source>Selects single Entities</source>
-        <translation>Selecciona entidades individuales</translation>
+        <translation type="vanished">Selecciona entidades individuales</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectWindow</name>
     <message>
         <source>Select Window</source>
-        <translation>Seleccionar ventana</translation>
+        <translation type="vanished">Seleccionar ventana</translation>
     </message>
     <message>
         <source>Select &amp;Window</source>
-        <translation>Seleccionar &amp;ventana</translation>
+        <translation type="vanished">Seleccionar &amp;ventana</translation>
     </message>
     <message>
         <source>Selects all Entities in a given Window</source>
-        <translation>Selecciona todas las entidades en una ventana</translation>
+        <translation type="vanished">Selecciona todas las entidades en una ventana</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation>Deseleccionar ventana</translation>
+        <translation type="vanished">Deseleccionar ventana</translation>
     </message>
     <message>
         <source>Deselect &amp;Window</source>
-        <translation>Deseleccionar &amp;ventana</translation>
+        <translation type="vanished">Deseleccionar &amp;ventana</translation>
     </message>
     <message>
         <source>Deselects all Entities in a given Window</source>
-        <translation>Deselecciona todas las entidades en una ventana</translation>
+        <translation type="vanished">Deselecciona todas las entidades en una ventana</translation>
     </message>
     <message>
         <source>Choose first edge</source>
-        <translation>Seleccione primer borde</translation>
+        <translation type="vanished">Seleccione primer borde</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4551,15 +15127,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionSetRelativeZero</name>
     <message>
         <source>Set Relative Zero</source>
-        <translation>Establecer cero relativo</translation>
+        <translation type="vanished">Establecer cero relativo</translation>
     </message>
     <message>
         <source>&amp;Set Relative Zero</source>
-        <translation>&amp;Establecer cero relativo</translation>
+        <translation type="vanished">&amp;Establecer cero relativo</translation>
     </message>
     <message>
         <source>Set position of the Relative Zero point</source>
-        <translation>Establecer posición del punto cero relativo</translation>
+        <translation type="vanished">Establecer posición del punto cero relativo</translation>
     </message>
     <message>
         <source>Set relative Zero</source>
@@ -4578,7 +15154,7 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionSnapIntersectionManual</name>
     <message>
         <source>Intersection Manually</source>
-        <translation>Intersección manual</translation>
+        <translation type="vanished">Intersección manual</translation>
     </message>
     <message>
         <source>I&amp;ntersection Manually</source>
@@ -4586,7 +15162,7 @@ Verifique que exista y los permisos.</translation>
     </message>
     <message>
         <source>Snap to intersection points manually</source>
-        <translation>Ajustar a puntos de intersección manualmente</translation>
+        <translation type="vanished">Ajustar a puntos de intersección manualmente</translation>
     </message>
     <message>
         <source>Select first entity</source>
@@ -4605,15 +15181,15 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionToolRegenerateDimensions</name>
     <message>
         <source>Regenerate Dimension Entities</source>
-        <translation>Regenerar entidades de cotas</translation>
+        <translation type="vanished">Regenerar entidades de cotas</translation>
     </message>
     <message>
         <source>&amp;Regenerate Dimension Entities</source>
-        <translation>&amp;Regenerar entidades de cotas</translation>
+        <translation type="vanished">&amp;Regenerar entidades de cotas</translation>
     </message>
     <message>
         <source>Regenerates all Dimension Entities</source>
-        <translation>Regenera todas las entidades de cotas</translation>
+        <translation type="vanished">Regenera todas las entidades de cotas</translation>
     </message>
     <message>
         <source>Regenerated %1 dimension entities</source>
@@ -4628,57 +15204,57 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionZoomAuto</name>
     <message>
         <source>Auto Zoom</source>
-        <translation>Zoom automático</translation>
+        <translation type="vanished">Zoom automático</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation>&amp;Zoom automático</translation>
+        <translation type="vanished">&amp;Zoom automático</translation>
     </message>
     <message>
         <source>Zooms automatic</source>
-        <translation>Zoom automático</translation>
+        <translation type="vanished">Zoom automático</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionZoomIn</name>
     <message>
         <source>Zoom in</source>
-        <translation>Acercar</translation>
+        <translation type="vanished">Acercar</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>Zoom &amp;acercar</translation>
+        <translation type="vanished">Zoom &amp;acercar</translation>
     </message>
     <message>
         <source>Zooms in</source>
-        <translation>Acercar</translation>
+        <translation type="vanished">Acercar</translation>
     </message>
     <message>
         <source>Zoom out</source>
-        <translation>Alejar</translation>
+        <translation type="vanished">Alejar</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>Zoom &amp;alejar</translation>
+        <translation type="vanished">Zoom &amp;alejar</translation>
     </message>
     <message>
         <source>Zooms out</source>
-        <translation>Alejar</translation>
+        <translation type="vanished">Alejar</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionZoomPan</name>
     <message>
         <source>Pan Zoom</source>
-        <translation>Desplazamiento</translation>
+        <translation type="vanished">Desplazamiento</translation>
     </message>
     <message>
         <source>&amp;Pan Zoom</source>
-        <translation>&amp;Desplazamiento</translation>
+        <translation type="vanished">&amp;Desplazamiento</translation>
     </message>
     <message>
         <source>Realtime Panning</source>
-        <translation>Desplazamiento en tiempo real</translation>
+        <translation type="vanished">Desplazamiento en tiempo real</translation>
     </message>
     <message>
         <source>Click and drag to pan zoom</source>
@@ -4697,41 +15273,41 @@ Verifique que exista y los permisos.</translation>
     <name>RS_ActionZoomPrevious</name>
     <message>
         <source>Previous View</source>
-        <translation>Vista anterior</translation>
+        <translation type="vanished">Vista anterior</translation>
     </message>
     <message>
         <source>&amp;Previous View</source>
-        <translation>Vista &amp;anterior</translation>
+        <translation type="vanished">Vista &amp;anterior</translation>
     </message>
     <message>
         <source>Shows previous view</source>
-        <translation>Muestra vista anterior</translation>
+        <translation type="vanished">Muestra vista anterior</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionZoomRedraw</name>
     <message>
         <source>Redraw</source>
-        <translation>Redibujar</translation>
+        <translation type="vanished">Redibujar</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>&amp;Redibujar</translation>
+        <translation type="vanished">&amp;Redibujar</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionZoomWindow</name>
     <message>
         <source>Window Zoom</source>
-        <translation>Zoom de ventana</translation>
+        <translation type="vanished">Zoom de ventana</translation>
     </message>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>Zoom de &amp;ventana</translation>
+        <translation type="vanished">Zoom de &amp;ventana</translation>
     </message>
     <message>
         <source>Zooms in a window</source>
-        <translation>Acercar en ventana</translation>
+        <translation type="vanished">Acercar en ventana</translation>
     </message>
     <message>
         <source>Specify first edge</source>
@@ -4754,823 +15330,830 @@ Verifique que exista y los permisos.</translation>
     <name>RS_Commands</name>
     <message>
         <source>line</source>
-        <translation>línea</translation>
+        <translation type="vanished">línea</translation>
     </message>
     <message>
         <source>l</source>
         <comment>line</comment>
-        <translation>l</translation>
+        <translation type="vanished">l</translation>
     </message>
     <message>
         <source>rectangle</source>
-        <translation>rectángulo</translation>
+        <translation type="vanished">rectángulo</translation>
     </message>
     <message>
         <source>rec</source>
         <comment>rectangle</comment>
-        <translation>rec</translation>
+        <translation type="vanished">rec</translation>
     </message>
     <message>
         <source>rectang</source>
         <comment>rectangle</comment>
-        <translation>rectang</translation>
+        <translation type="vanished">rectang</translation>
     </message>
     <message>
         <source>text</source>
-        <translation>texto</translation>
+        <translation type="vanished">texto</translation>
     </message>
     <message>
         <source>regen</source>
-        <translation>regenerar</translation>
+        <translation type="vanished">regenerar</translation>
     </message>
     <message>
         <source>undo</source>
-        <translation>deshacer</translation>
+        <translation type="vanished">deshacer</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo</comment>
-        <translation>u</translation>
+        <translation type="vanished">u</translation>
     </message>
     <message>
         <source>redo</source>
-        <translation>rehacer</translation>
+        <translation type="vanished">rehacer</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo</comment>
-        <translation>r</translation>
+        <translation type="vanished">r</translation>
     </message>
     <message>
         <source>arc</source>
-        <translation>arco</translation>
+        <translation type="vanished">arco</translation>
     </message>
     <message>
         <source>a</source>
         <comment>arc</comment>
-        <translation>a</translation>
+        <translation type="vanished">a</translation>
     </message>
     <message>
         <source>angle</source>
-        <translation>ángulo</translation>
+        <translation type="vanished">ángulo</translation>
     </message>
     <message>
         <source>factor</source>
-        <translation>factor</translation>
+        <translation type="vanished">factor</translation>
     </message>
     <message>
         <source>columns</source>
-        <translation>columnas</translation>
+        <translation type="vanished">columnas</translation>
     </message>
     <message>
         <source>rows</source>
-        <translation>filas</translation>
+        <translation type="vanished">filas</translation>
     </message>
     <message>
         <source>columnspacing</source>
-        <translation>espacio entre columnas</translation>
+        <translation type="vanished">espacio entre columnas</translation>
     </message>
     <message>
         <source>rowspacing</source>
-        <translation>espacio entre filas</translation>
+        <translation type="vanished">espacio entre filas</translation>
     </message>
     <message>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>ang</translation>
+        <translation type="vanished">ang</translation>
     </message>
     <message>
         <source>a</source>
         <comment>angle</comment>
-        <translation>a</translation>
+        <translation type="vanished">a</translation>
     </message>
     <message>
         <source>fact</source>
         <comment>factor</comment>
-        <translation>fact</translation>
+        <translation type="vanished">fact</translation>
     </message>
     <message>
         <source>f</source>
         <comment>factor</comment>
-        <translation>f</translation>
+        <translation type="vanished">f</translation>
     </message>
     <message>
         <source>cols</source>
         <comment>columns</comment>
-        <translation>cols</translation>
+        <translation type="vanished">cols</translation>
     </message>
     <message>
         <source>c</source>
         <comment>columns</comment>
-        <translation>c</translation>
+        <translation type="vanished">c</translation>
     </message>
     <message>
         <source>r</source>
         <comment>rows</comment>
-        <translation>r</translation>
+        <translation type="vanished">r</translation>
     </message>
     <message>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>espacio entre columnas</translation>
+        <translation type="vanished">espacio entre columnas</translation>
     </message>
     <message>
         <source>colspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>espacio entre columnas</translation>
+        <translation type="vanished">espacio entre columnas</translation>
     </message>
     <message>
         <source>cs</source>
         <comment>columnspacing for inserts</comment>
-        <translation>ec</translation>
+        <translation type="vanished">ec</translation>
     </message>
     <message>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>espacio entre filas</translation>
+        <translation type="vanished">espacio entre filas</translation>
     </message>
     <message>
         <source>rs</source>
         <comment>rowspacing for inserts</comment>
-        <translation>ef</translation>
+        <translation type="vanished">ef</translation>
     </message>
     <message>
         <source>center</source>
-        <translation>centro</translation>
+        <translation type="vanished">centro</translation>
     </message>
     <message>
         <source>cen</source>
         <comment>center</comment>
-        <translation>cen</translation>
+        <translation type="vanished">cen</translation>
     </message>
     <message>
         <source>c</source>
         <comment>center</comment>
-        <translation>c</translation>
+        <translation type="vanished">c</translation>
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed arc</comment>
-        <translation>invertido</translation>
+        <translation type="vanished">invertido</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>reversed arc</comment>
-        <translation>inv</translation>
+        <translation type="vanished">inv</translation>
     </message>
     <message>
         <source>r</source>
         <comment>reversed arc</comment>
-        <translation>r</translation>
+        <translation type="vanished">r</translation>
     </message>
     <message>
         <source>point</source>
-        <translation>punto</translation>
+        <translation type="vanished">punto</translation>
     </message>
     <message>
         <source>po</source>
         <comment>point</comment>
-        <translation>pt</translation>
+        <translation type="vanished">pt</translation>
     </message>
     <message>
         <source>offset</source>
-        <translation>offset</translation>
+        <translation type="vanished">offset</translation>
     </message>
     <message>
         <source>o</source>
         <comment>offset</comment>
-        <translation>o</translation>
+        <translation type="vanished">o</translation>
     </message>
     <message>
         <source>parallel</source>
-        <translation>paralela</translation>
+        <translation type="vanished">paralela</translation>
     </message>
     <message>
         <source>length</source>
-        <translation>longitud</translation>
+        <translation type="vanished">longitud</translation>
     </message>
     <message>
         <source>close</source>
-        <translation>cerrar</translation>
+        <translation type="vanished">cerrar</translation>
     </message>
     <message>
         <source>number</source>
-        <translation>número</translation>
+        <translation type="vanished">número</translation>
     </message>
     <message>
         <source>through</source>
-        <translation>a través de</translation>
+        <translation type="vanished">a través de</translation>
     </message>
     <message>
         <source>help</source>
-        <translation>ayuda</translation>
+        <translation type="vanished">ayuda</translation>
     </message>
     <message>
         <source>?</source>
         <comment>help</comment>
-        <translation>?</translation>
+        <translation type="vanished">?</translation>
     </message>
     <message>
         <source>length</source>
         <comment>length</comment>
-        <translation>longitud</translation>
+        <translation type="vanished">longitud</translation>
     </message>
     <message>
         <source>len</source>
         <comment>length</comment>
-        <translation>long</translation>
+        <translation type="vanished">long</translation>
     </message>
     <message>
         <source>l</source>
         <comment>length</comment>
-        <translation>l</translation>
+        <translation type="vanished">l</translation>
     </message>
     <message>
         <source>c</source>
         <comment>close</comment>
-        <translation>c</translation>
+        <translation type="vanished">c</translation>
     </message>
     <message>
         <source>num</source>
         <comment>number</comment>
-        <translation>num</translation>
+        <translation type="vanished">num</translation>
     </message>
     <message>
         <source>n</source>
         <comment>number</comment>
-        <translation>n</translation>
+        <translation type="vanished">n</translation>
     </message>
     <message>
         <source>t</source>
         <comment>through</comment>
-        <translation>t</translation>
+        <translation type="vanished">t</translation>
     </message>
     <message>
         <source>par</source>
         <comment>parallel</comment>
-        <translation>par</translation>
+        <translation type="vanished">par</translation>
     </message>
     <message>
         <source>length1</source>
-        <translation>longitud 1</translation>
+        <translation type="vanished">longitud 1</translation>
     </message>
     <message>
         <source>length2</source>
-        <translation>longitud 2</translation>
+        <translation type="vanished">longitud 2</translation>
     </message>
     <message>
         <source>radius</source>
-        <translation>radio</translation>
+        <translation type="vanished">radio</translation>
     </message>
     <message>
         <source>trim</source>
-        <translation>recortar</translation>
+        <translation type="vanished">recortar</translation>
     </message>
     <message>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>longitud 1</translation>
+        <translation type="vanished">longitud 1</translation>
     </message>
     <message>
         <source>len1</source>
         <comment>length1</comment>
-        <translation>long1</translation>
+        <translation type="vanished">long1</translation>
     </message>
     <message>
         <source>l1</source>
         <comment>length1</comment>
-        <translation>l1</translation>
+        <translation type="vanished">l1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>longitud 2</translation>
+        <translation type="vanished">longitud 2</translation>
     </message>
     <message>
         <source>len2</source>
         <comment>length2</comment>
-        <translation>long2</translation>
+        <translation type="vanished">long2</translation>
     </message>
     <message>
         <source>l2</source>
         <comment>length2</comment>
-        <translation>l2</translation>
+        <translation type="vanished">l2</translation>
     </message>
     <message>
         <source>r</source>
         <comment>radius</comment>
-        <translation>r</translation>
+        <translation type="vanished">r</translation>
     </message>
     <message>
         <source>t</source>
         <comment>text</comment>
-        <translation>t</translation>
+        <translation type="vanished">t</translation>
     </message>
     <message>
         <source>chord length</source>
-        <translation>longitud de cuerda</translation>
+        <translation type="vanished">longitud de cuerda</translation>
     </message>
     <message>
         <source>length</source>
         <comment>chord length</comment>
-        <translation>longitud</translation>
+        <translation type="vanished">longitud</translation>
     </message>
     <message>
         <source>l</source>
         <comment>chord length</comment>
-        <translation>l</translation>
+        <translation type="vanished">l</translation>
     </message>
     <message>
         <source>Command: %1</source>
-        <translation>Comando: %1</translation>
+        <translation type="vanished">Comando: %1</translation>
     </message>
     <message>
         <source>Available commands:</source>
-        <translation>Comandos disponibles:</translation>
+        <translation type="vanished">Comandos disponibles:</translation>
     </message>
     <message>
         <source>ln</source>
         <comment>line</comment>
-        <translation>ln</translation>
+        <translation type="vanished">ln</translation>
     </message>
     <message>
         <source>circle</source>
-        <translation>círculo</translation>
+        <translation type="vanished">círculo</translation>
     </message>
     <message>
         <source>ci</source>
         <comment>circle</comment>
-        <translation>ci</translation>
+        <translation type="vanished">ci</translation>
     </message>
     <message>
         <source>rg</source>
         <comment>redraw</comment>
-        <translation>rd</translation>
+        <translation type="vanished">rd</translation>
     </message>
     <message>
         <source>zr</source>
         <comment>redraw</comment>
-        <translation>zr</translation>
+        <translation type="vanished">zr</translation>
     </message>
     <message>
         <source>zw</source>
         <comment>zoom - window</comment>
-        <translation>zv</translation>
+        <translation type="vanished">zv</translation>
     </message>
     <message>
         <source>zoom - window</source>
-        <translation>zoom - ventana</translation>
+        <translation type="vanished">zoom - ventana</translation>
     </message>
     <message>
         <source>za</source>
         <comment>zoom - auto</comment>
-        <translation>za</translation>
+        <translation type="vanished">za</translation>
     </message>
     <message>
         <source>zoom - auto</source>
-        <translation>zoom - auto</translation>
+        <translation type="vanished">zoom - auto</translation>
     </message>
     <message>
         <source>zp</source>
         <comment>zoom - pan</comment>
-        <translation>zt</translation>
+        <translation type="vanished">zt</translation>
     </message>
     <message>
         <source>zoom - pan</source>
-        <translation>zoom - desplazamiento</translation>
+        <translation type="vanished">zoom - desplazamiento</translation>
     </message>
     <message>
         <source>li</source>
         <comment>line</comment>
-        <translation>li</translation>
+        <translation type="vanished">li</translation>
     </message>
     <message>
         <source>re</source>
         <comment>rectangle</comment>
-        <translation>re</translation>
+        <translation type="vanished">re</translation>
     </message>
     <message>
         <source>rp</source>
         <comment>regular polygon</comment>
-        <translation>pr</translation>
+        <translation type="vanished">pr</translation>
     </message>
     <message>
         <source>c2</source>
         <comment>2 point circle</comment>
-        <translation>c2</translation>
+        <translation type="vanished">c2</translation>
     </message>
     <message>
         <source>c3</source>
         <comment>3 point circle</comment>
-        <translation>c3</translation>
+        <translation type="vanished">c3</translation>
     </message>
     <message>
         <source>ar</source>
         <comment>arc</comment>
-        <translation>ar</translation>
+        <translation type="vanished">ar</translation>
     </message>
     <message>
         <source>a3</source>
         <comment>3 point arc</comment>
-        <translation>a3</translation>
+        <translation type="vanished">a3</translation>
     </message>
     <message>
         <source>ep</source>
         <comment>ellipse</comment>
-        <translation>ep</translation>
+        <translation type="vanished">ep</translation>
     </message>
     <message>
         <source>tx</source>
         <comment>text</comment>
-        <translation>tx</translation>
+        <translation type="vanished">tx</translation>
     </message>
     <message>
         <source>mt</source>
         <comment>text</comment>
-        <translation>mt</translation>
+        <translation type="vanished">mt</translation>
     </message>
     <message>
         <source>da</source>
         <comment>dimension - aligned</comment>
-        <translation>ca</translation>
+        <translation type="vanished">ca</translation>
     </message>
     <message>
         <source>dh</source>
         <comment>dimension - horizontal</comment>
-        <translation>ch</translation>
+        <translation type="vanished">ch</translation>
     </message>
     <message>
         <source>dv</source>
         <comment>dimension - vertical</comment>
-        <translation>cv</translation>
+        <translation type="vanished">cv</translation>
     </message>
     <message>
         <source>dr</source>
         <comment>dimension - linear</comment>
-        <translation>cl</translation>
+        <translation type="vanished">cl</translation>
     </message>
     <message>
         <source>ld</source>
         <comment>dimension - leader</comment>
-        <translation>lc</translation>
+        <translation type="vanished">lc</translation>
     </message>
     <message>
         <source>rd</source>
         <comment>redraw</comment>
-        <translation>rd</translation>
+        <translation type="vanished">rd</translation>
     </message>
     <message>
         <source>zi</source>
         <comment>zoom - in</comment>
-        <translation>zd</translation>
+        <translation type="vanished">zd</translation>
     </message>
     <message>
         <source>zo</source>
         <comment>zoom - out</comment>
-        <translation>zf</translation>
+        <translation type="vanished">zf</translation>
     </message>
     <message>
         <source>pa</source>
         <comment>zoom - pan</comment>
-        <translation>zt</translation>
+        <translation type="vanished">zt</translation>
     </message>
     <message>
         <source>os</source>
         <comment>snap - none</comment>
-        <translation>nf</translation>
+        <translation type="vanished">nf</translation>
     </message>
     <message>
         <source>sg</source>
         <comment>snap - grid</comment>
-        <translation>fr</translation>
+        <translation type="vanished">fr</translation>
     </message>
     <message>
         <source>se</source>
         <comment>snap - end</comment>
-        <translation>ff</translation>
+        <translation type="vanished">ff</translation>
     </message>
     <message>
         <source>si</source>
         <comment>snap - intersection</comment>
-        <translation>fi</translation>
+        <translation type="vanished">fi</translation>
     </message>
     <message>
         <source>sn</source>
         <comment>snap - center</comment>
-        <translation>fc</translation>
+        <translation type="vanished">fc</translation>
     </message>
     <message>
         <source>sm</source>
         <comment>snap - middle</comment>
-        <translation>fm</translation>
+        <translation type="vanished">fm</translation>
     </message>
     <message>
         <source>sn</source>
         <comment>snap - nearest</comment>
-        <translation>fc</translation>
+        <translation type="vanished">fc</translation>
     </message>
     <message>
         <source>np</source>
         <comment>snap - nearest point</comment>
-        <translation>fp</translation>
+        <translation type="vanished">fp</translation>
     </message>
     <message>
         <source>fr*</source>
         <comment>layers - freeze all</comment>
-        <translation>cc*</translation>
+        <translation type="vanished">cc*</translation>
     </message>
     <message>
         <source>th*</source>
         <comment>layers - defreeze all</comment>
-        <translation>dc*</translation>
+        <translation type="vanished">dc*</translation>
     </message>
     <message>
         <source>tn</source>
         <comment>Deselect all</comment>
-        <translation>tn</translation>
+        <translation type="vanished">tn</translation>
     </message>
     <message>
         <source>ch</source>
         <comment>modify - bevel (chamfer)</comment>
-        <translation>ch</translation>
+        <translation type="vanished">ch</translation>
     </message>
     <message>
         <source>mt</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>mm</translation>
+        <translation type="vanished">mm</translation>
     </message>
     <message>
         <source>xt</source>
         <comment>modify - trim (extend)</comment>
-        <translation>me</translation>
+        <translation type="vanished">me</translation>
     </message>
     <message>
         <source>rm</source>
         <comment>modify - trim</comment>
-        <translation>mr</translation>
+        <translation type="vanished">mr</translation>
     </message>
     <message>
         <source>mv</source>
         <comment>modify - move</comment>
-        <translation>mm</translation>
+        <translation type="vanished">mm</translation>
     </message>
     <message>
         <source>mi</source>
         <comment>modify - mirror</comment>
-        <translation>mp</translation>
+        <translation type="vanished">mp</translation>
     </message>
     <message>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation>mr</translation>
+        <translation type="vanished">mr</translation>
     </message>
     <message>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>me</translation>
+        <translation type="vanished">me</translation>
     </message>
     <message>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>ms</translation>
+        <translation type="vanished">ms</translation>
     </message>
     <message>
         <source>er</source>
         <comment>modify - delete (erase)</comment>
-        <translation>mb</translation>
+        <translation type="vanished">mb</translation>
     </message>
     <message>
         <source>oo</source>
         <comment>modify - undo (oops)</comment>
-        <translation>md</translation>
+        <translation type="vanished">md</translation>
     </message>
     <message>
         <source>uu</source>
         <comment>modify - redo</comment>
-        <translation>dd</translation>
+        <translation type="vanished">dd</translation>
     </message>
     <message>
         <source>xp</source>
         <comment>modify - explode</comment>
-        <translation>mx</translation>
+        <translation type="vanished">mx</translation>
     </message>
     <message>
         <source>ex</source>
         <comment>modify - explode</comment>
-        <translation>mp</translation>
+        <translation type="vanished">mp</translation>
     </message>
     <message>
         <source>po</source>
-        <translation>pt</translation>
+        <translation type="vanished">pt</translation>
     </message>
     <message>
         <source>ln</source>
-        <translation>ln</translation>
+        <translation type="vanished">ln</translation>
     </message>
     <message>
         <source>a</source>
-        <translation>a</translation>
+        <translation type="vanished">a</translation>
     </message>
     <message>
         <source>ci</source>
-        <translation>ci</translation>
+        <translation type="vanished">ci</translation>
     </message>
     <message>
         <source>rec</source>
-        <translation>rec</translation>
+        <translation type="vanished">rec</translation>
     </message>
     <message>
         <source>rectang</source>
-        <translation>rectang</translation>
+        <translation type="vanished">rectang</translation>
     </message>
     <message>
         <source>rg</source>
         <comment>zoom - redraw</comment>
-        <translation>rd</translation>
+        <translation type="vanished">rd</translation>
     </message>
     <message>
         <source>zr</source>
         <comment>zoom - redraw</comment>
-        <translation>zr</translation>
+        <translation type="vanished">zr</translation>
     </message>
     <message>
         <source>polyline</source>
-        <translation>polilínea</translation>
+        <translation type="vanished">polilínea</translation>
     </message>
     <message>
         <source>pa</source>
         <comment>parallel</comment>
-        <translation>zt</translation>
+        <translation type="vanished">zt</translation>
     </message>
     <message>
         <source>tm</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>mm</translation>
+        <translation type="vanished">mm</translation>
     </message>
     <message>
         <source>da</source>
-        <translation>ca</translation>
+        <translation type="vanished">ca</translation>
     </message>
     <message>
         <source>dh</source>
-        <translation>ch</translation>
+        <translation type="vanished">ch</translation>
     </message>
     <message>
         <source>dr</source>
-        <translation>cl</translation>
+        <translation type="vanished">cl</translation>
     </message>
     <message>
         <source>dv</source>
-        <translation>cv</translation>
+        <translation type="vanished">cv</translation>
     </message>
     <message>
         <source>ld</source>
-        <translation>lc</translation>
+        <translation type="vanished">lc</translation>
     </message>
     <message>
         <source>tm</source>
-        <translation>mm</translation>
+        <translation type="vanished">mm</translation>
     </message>
     <message>
         <source>xt</source>
-        <translation>me</translation>
+        <translation type="vanished">me</translation>
     </message>
     <message>
         <source>rm</source>
-        <translation>mr</translation>
+        <translation type="vanished">mr</translation>
     </message>
     <message>
         <source>mv</source>
-        <translation>mm</translation>
+        <translation type="vanished">mm</translation>
     </message>
     <message>
         <source>ch</source>
-        <translation>ch</translation>
+        <translation type="vanished">ch</translation>
     </message>
     <message>
         <source>mi</source>
-        <translation>mp</translation>
+        <translation type="vanished">mp</translation>
     </message>
     <message>
         <source>ro</source>
-        <translation>mr</translation>
+        <translation type="vanished">mr</translation>
     </message>
     <message>
         <source>sz</source>
-        <translation>me</translation>
+        <translation type="vanished">me</translation>
     </message>
     <message>
         <source>ss</source>
-        <translation>ms</translation>
+        <translation type="vanished">ms</translation>
     </message>
     <message>
         <source>er</source>
-        <translation>mb</translation>
+        <translation type="vanished">mb</translation>
     </message>
     <message>
         <source>oo</source>
-        <translation>md</translation>
+        <translation type="vanished">md</translation>
     </message>
     <message>
         <source>uu</source>
-        <translation>dd</translation>
+        <translation type="vanished">dd</translation>
     </message>
     <message>
         <source>xp</source>
-        <translation>mx</translation>
+        <translation type="vanished">mx</translation>
     </message>
     <message>
         <source>os</source>
-        <translation>nf</translation>
+        <translation type="vanished">nf</translation>
     </message>
     <message>
         <source>sg</source>
-        <translation>fr</translation>
+        <translation type="vanished">fr</translation>
     </message>
     <message>
         <source>se</source>
-        <translation>ff</translation>
+        <translation type="vanished">ff</translation>
     </message>
     <message>
         <source>si</source>
-        <translation>fi</translation>
+        <translation type="vanished">fi</translation>
     </message>
     <message>
         <source>sn</source>
-        <translation>fc</translation>
+        <translation type="vanished">fc</translation>
     </message>
     <message>
         <source>sm</source>
-        <translation>fm</translation>
+        <translation type="vanished">fm</translation>
     </message>
     <message>
         <source>np</source>
-        <translation>fp</translation>
+        <translation type="vanished">fp</translation>
     </message>
     <message>
         <source>tn</source>
-        <translation>tn</translation>
+        <translation type="vanished">tn</translation>
     </message>
     <message>
         <source>li</source>
-        <translation>li</translation>
+        <translation type="vanished">li</translation>
     </message>
     <message>
         <source>pa</source>
-        <translation>zt</translation>
+        <translation type="vanished">zt</translation>
     </message>
     <message>
         <source>ar</source>
-        <translation>ar</translation>
+        <translation type="vanished">ar</translation>
     </message>
     <message>
         <source>zr</source>
-        <translation>zr</translation>
+        <translation type="vanished">zr</translation>
     </message>
     <message>
         <source>zw</source>
-        <translation>zv</translation>
+        <translation type="vanished">zv</translation>
     </message>
     <message>
         <source>za</source>
-        <translation>za</translation>
+        <translation type="vanished">za</translation>
     </message>
     <message>
         <source>zp</source>
-        <translation>zt</translation>
+        <translation type="vanished">zt</translation>
     </message>
     <message>
         <source>u</source>
-        <translation>u</translation>
+        <translation type="vanished">u</translation>
     </message>
     <message>
         <source>os</source>
         <comment>snap - free</comment>
-        <translation>nf</translation>
+        <translation type="vanished">nf</translation>
     </message>
     <message>
         <source>number</source>
         <comment>number</comment>
-        <translation>número</translation>
+        <translation type="vanished">número</translation>
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>invertido</translation>
+        <translation type="vanished">invertido</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation>inv</translation>
+        <translation type="vanished">inv</translation>
     </message>
     <message>
         <source>re</source>
-        <translation>re</translation>
+        <translation type="vanished">re</translation>
     </message>
     <message>
         <source>re</source>
         <comment>modify - revert direction</comment>
-        <translation>re</translation>
+        <translation type="vanished">re</translation>
+    </message>
+</context>
+<context>
+    <name>RS_GraphicView</name>
+    <message>
+        <source>Draft</source>
+        <translation type="unfinished">Borrador</translation>
     </message>
 </context>
 <context>
@@ -5694,27 +16277,27 @@ Verifique que exista y los permisos.</translation>
         <source>Label:</source>
         <translation>Etiqueta:</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>⌀</source>
         <translation>⌀</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>°</source>
         <translation>°</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>±</source>
         <translation>±</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>π</source>
         <translation>π</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>×</source>
         <translation>×</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>÷</source>
         <translation>÷</translation>
     </message>
@@ -5915,6 +16498,65 @@ Verifique que exista y los permisos.</translation>
     <message>
         <source>Redo</source>
         <translation>Rehacer</translation>
+    </message>
+</context>
+<context>
+    <name>Ui_LineOptionsRel</name>
+    <message>
+        <source>Line Options</source>
+        <translation type="unfinished">Opciones de línea</translation>
+    </message>
+    <message>
+        <source>Direction:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polyline</source>
+        <translation type="unfinished">Polilínea</translation>
+    </message>
+    <message>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Ángulo</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Undo the last line drawing</source>
+        <translation type="unfinished">Deshacer el último dibujo de línea</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished">Deshacer</translation>
+    </message>
+    <message>
+        <source>Form a closed contour from lines drawn</source>
+        <translation type="unfinished">Formar un contorno cerrado con las líneas dibujadas</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Cerrar</translation>
+    </message>
+    <message>
+        <source>Redo the last line drawing</source>
+        <translation type="unfinished">Rehacer el último dibujo de línea</translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished">Rehacer</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6121,6 +16763,18 @@ Verifique que exista y los permisos.</translation>
     <message>
         <source>Fit to page</source>
         <translation>Ajustar a página</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply Print Scale to line width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculate number of pages needed to contain the drawing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

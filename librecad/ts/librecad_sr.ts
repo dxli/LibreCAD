@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="sr">
 <context>
     <name>ColorWizard</name>
@@ -1162,7 +1163,7 @@ or [%2]</source>
         <translation>Дуплирај</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
         <translation>Ажурирај тренутну оловку оловком активног слоја</translation>
     </message>
 </context>
@@ -1176,8 +1177,8 @@ or [%2]</source>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
-        <source>Saving layer "%1" as "%2" </source>
-        <translation>Чувам слој "%1" као "%2" </translation>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation>Чувам слој &quot;%1&quot; као &quot;%2&quot; </translation>
     </message>
 </context>
 <context>
@@ -1691,7 +1692,7 @@ or [%2]</source>
         <translation>Претвори у нормални слој</translation>
     </message>
     <message>
-        <source>&amp;Select Layer's Entities</source>
+        <source>&amp;Select Layer&apos;s Entities</source>
         <translation>&amp;Изабери ентитете слоја</translation>
     </message>
     <message>
@@ -2222,11 +2223,11 @@ or [%2]</source>
         <translation>на тренутну</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
         <translation>Ажурирај тренутну оловку оловком активног слоја</translation>
     </message>
     <message>
-        <source>Fill Pen Editor from Active Layer's Pen</source>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
         <translation>Попуни едитор оловке из оловке активног слоја</translation>
     </message>
     <message>
@@ -2292,7 +2293,7 @@ or [%2]</source>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
-Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
         <translation>Локација датотеке оловки је промењена, молимо поново покрените апликацију да би се користила нова датотека оловки.
 
 Напомена: ако сачувате оловку преко едитора без поновног покретања, тренутне оловке из палете ће бити сачуване у новој датотеци и постојећи садржај ће бити преписан.</translation>
@@ -2805,12 +2806,12 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <translation>уклони десно</translation>
     </message>
     <message>
-        <source>remove 0'</source>
-        <translation>уклони 0'</translation>
+        <source>remove 0&apos;</source>
+        <translation>уклони 0&apos;</translation>
     </message>
     <message>
-        <source>remove 0"</source>
-        <translation>уклони 0''</translation>
+        <source>remove 0&quot;</source>
+        <translation>уклони 0&apos;&apos;</translation>
     </message>
 </context>
 <context>
@@ -2996,8 +2997,8 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <translation>Командна линија</translation>
     </message>
     <message>
-        <source>Block '%1'</source>
-        <translation>Блок '%1'</translation>
+        <source>Block &apos;%1&apos;</source>
+        <translation>Блок &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Cannot open the file
@@ -3134,8 +3135,8 @@ Please check its existence and permissions.</source>
 Молимо Вас да проверите да ли постоји и права приступа.</translation>
     </message>
     <message>
-        <source>File '%1' does not exist. Opening aborted</source>
-        <translation>Датотека '%1' не постоји. Отварање отказано</translation>
+        <source>File &apos;%1&apos; does not exist. Opening aborted</source>
+        <translation>Датотека &apos;%1&apos; не постоји. Отварање отказано</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3389,7 +3390,7 @@ Please check its existence and permissions.</source>
         <translation>&amp;Вики</translation>
     </message>
     <message>
-        <source>User's &amp;Manual</source>
+        <source>User&apos;s &amp;Manual</source>
         <translation>Корисничко &amp;Упутство</translation>
     </message>
     <message>
@@ -3446,11 +3447,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3468,16 +3469,16 @@ Please check its existence and permissions.</source>
         <translation>Тренутни слој</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Назив тренутно активног слоја&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Назив тренутно активног слоја&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -3495,8 +3496,8 @@ p, li { white-space: pre-wrap; }
         <translation>Преименовање блока</translation>
     </message>
     <message>
-        <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>Немогуће дати име блоку. Блок са именом "%1" већ постоји.</translation>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation>Немогуће дати име блоку. Блок са именом &quot;%1&quot; већ постоји.</translation>
     </message>
 </context>
 <context>
@@ -3757,7 +3758,7 @@ in a separate window</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3804,17 +3805,17 @@ in a separate window</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4013,7 +4014,7 @@ This recursively modifies all entities of the Block itself.</source>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4090,12 +4091,12 @@ This recursively modifies all entities of the Block itself.</source>
         <translation>Језик команди:</translation>
     </message>
     <message>
-        <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>&lt;font size="+1"&gt;&lt;b&gt;Добродошли у LibreCAD&lt;/b&gt;
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Добродошли у LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Молимо изаберите јединицу коју желите да користите за нове цртеже и жељени језик.&lt;br&gt;
@@ -4995,7 +4996,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Градијани</translation>
     </message>
     <message>
-        <source>Surveyor's units</source>
+        <source>Surveyor&apos;s units</source>
         <translation>Геодетске јединице</translation>
     </message>
     <message>
@@ -5003,8 +5004,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Опције</translation>
     </message>
     <message>
-        <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
-        <translation>За формате дужине 'Инжењерски' и 'Архитектонски', јединица мора бити постављена на инче.</translation>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
+        <translation>За формате дужине &apos;Инжењерски&apos; и &apos;Архитектонски&apos;, јединица мора бити постављена на инче.</translation>
     </message>
     <message>
         <source>Arrow size:</source>
@@ -5135,7 +5136,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Величина показивача:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Величина котног зареза. Подесите 0 да искључите конти зарез. Стрелице кота се неће цртати када је котни зарез укључен.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -5159,12 +5160,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Стил текста:</translation>
     </message>
     <message>
-        <source>'.' (Period)</source>
-        <translation>'.' (Тачка)</translation>
+        <source>&apos;.&apos; (Period)</source>
+        <translation>&apos;.&apos; (Тачка)</translation>
     </message>
     <message>
-        <source>',' (Comma)</source>
-        <translation>',' (Зарез)</translation>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation>&apos;,&apos; (Зарез)</translation>
     </message>
     <message>
         <source>Decimal separator:</source>
@@ -5207,8 +5208,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Дужина препуста коте</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Величина котне стрелице. &lt;a name="result_box"/&gt;без утицаја на котни зарез &lt;a name="result_box"/&gt;различит од 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Величина котне стрелице. &lt;a name=&quot;result_box&quot;/&gt;без утицаја на котни зарез &lt;a name=&quot;result_box&quot;/&gt;различит од 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -5239,8 +5240,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Линијска тачност:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Поравнање текста &lt;a name="result_box"/&gt;у односу на котну линију.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Поравнање текста &lt;a name=&quot;result_box&quot;/&gt;у односу на котну линију.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Aligned</source>
@@ -5343,8 +5344,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Архитектонске (метричке)</translation>
     </message>
     <message>
-        <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>За формат дужине 'Архитектонски (метрички)', јединица мора бити подешена на Метар.</translation>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation>За формат дужине &apos;Архитектонски (метрички)&apos;, јединица мора бити подешена на Метар.</translation>
     </message>
     <message>
         <source>Screen %</source>
@@ -5590,7 +5591,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Б&amp;рој ентитета за преглед:</translation>
     </message>
     <message>
-        <source>Don't use native OS file open dialog</source>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation>Не користи подразумевани изборник за отварање датотека оперативног система</translation>
     </message>
     <message>
@@ -5670,16 +5671,16 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Аутоматски подеси величину цртежа приликом отварања</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5742,9 +5743,9 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
-that has been set invisibe ("display: none" or "visibility: hidden").</source>
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
         <translation>MakerCAM од новембра 2014 не сакрива SVG садржај 
-који је подешен као невидљив ("display: none" или "visibility: hidden").</translation>
+који је подешен као невидљив (&quot;display: none&quot; или &quot;visibility: hidden&quot;).</translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
@@ -5762,18 +5763,18 @@ the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.<
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
-but avoided in some CAM's.</source>
+but avoided in some CAM&apos;s.</source>
         <translation>Извезене слике се могу користити у SVG уређивачима (Inkscape и сл.), 
 али их треба избегавати у неким CAM програмима.</translation>
     </message>
     <message>
-        <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
         <translation>Многи CAM програми (MakerCAM, EleskCAM, LaserWeb) игноришу црта/тачка стил линије, 
 што може бити корисно при ласерском сечењу шперплоче или при раду са папирним шаблонима. </translation>
     </message>
     <message>
-        <source>Default width of elements can affect some CAM's/SVG Editors, 
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
 but ignored by other</source>
         <translation>Подразумевана ширина елемената може утицати на неке CAM/SVG уређиваче, 
 али је неки други игноришу</translation>
@@ -5786,15 +5787,15 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5973,7 +5974,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6654,11 +6655,11 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Discard All</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6738,7 +6739,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7088,16 +7089,16 @@ The contents of a Construction Layer should not appear in printout.</source>
         <translation>Лево</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Наговештај о акцији левог/десног дугмета миша&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Наговештај о акцији левог/десног дугмета миша&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7144,28 +7145,28 @@ p, li { white-space: pre-wrap; }
         <translation>Укупна дужина</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Број изабрани ентитета&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Број изабрани ентитета&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Укупна дужина одабраних ентитета&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Укупна дужина одабраних ентитета&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7296,7 +7297,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7444,8 +7445,8 @@ p, li { white-space: pre-wrap; }
         <translation>Уклони слој</translation>
     </message>
     <message>
-        <source>Layer "%1" can never be removed.</source>
-        <translation>Слој "%1" не може никада бити уклоњен.</translation>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation>Слој &quot;%1&quot; не може никада бити уклоњен.</translation>
     </message>
     <message>
         <source>Layer Dialog</source>
@@ -7456,26 +7457,26 @@ p, li { white-space: pre-wrap; }
         <translation>Уклони блок</translation>
     </message>
     <message>
-        <source>Block "%1" and all its entities will be removed.</source>
-        <translation>Блок "%1" и сви његови ентитети ће бити уклоњени.</translation>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation>Блок &quot;%1&quot; и сви његови ентитети ће бити уклоњени.</translation>
     </message>
     <message>
         <source>Layer Properties</source>
         <translation>Својства слоја</translation>
     </message>
     <message>
-        <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>Слој са именом "%1" већ постоји. Молимо дефинишите друго име.</translation>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation>Слој са именом &quot;%1&quot; већ постоји. Молимо дефинишите друго име.</translation>
     </message>
     <message>
-        <source>Layer "%1" and all entities on it will be removed.
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>Слој "%1" и сви његови ентитети ће бити уклоњени.
+        <translation>Слој &quot;%1&quot; и сви његови ентитети ће бити уклоњени.
 Ова акција се НЕ МОЖЕ вратити.</translation>
     </message>
     <message>
-        <source>Layer "0" can never be removed.</source>
-        <translation>Слој "0" не може никада бити уклоњен.</translation>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation>Слој &quot;0&quot; не може никада бити уклоњен.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
@@ -7494,8 +7495,8 @@ This action can NOT be undone.</source>
         <translation>Упозорење: ова акције се НЕ МОЖЕ опозвати!</translation>
     </message>
     <message>
-        <source>Warning: layer "0" can never be removed.</source>
-        <translation>Упозорење: слој "0" никада не може бити уклоњен.</translation>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation>Упозорење: слој &quot;0&quot; никада не може бити уклоњен.</translation>
     </message>
     <message>
         <source>Layers for removal:</source>
@@ -7519,13 +7520,13 @@ This action can NOT be undone.</source>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -7534,144 +7535,144 @@ Please specify a different name.</source>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation type="unfinished">Додај слој</translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move Selection</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace "By Layer" value to source layers values?
+        <source>Replace &quot;By Layer&quot; value to source layers values?
 
-If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
 
-If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation type="unfinished" />
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pen</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you'd like to proceed?</source>
-        <translation type="unfinished" />
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pens</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Entities </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7927,7 +7928,7 @@ Do you want to replace it?</source>
         <translation>непозната грешка приликом отварања dwg датотетеке</translation>
     </message>
     <message>
-        <source>can't open this dwg file</source>
+        <source>can&apos;t open this dwg file</source>
         <translation>не могу да отворим ову dwg датотеку</translation>
     </message>
     <message>
@@ -10101,8 +10102,8 @@ Do you want to replace it?</source>
         <translation> -o неки_назив.pdf *.dxf</translation>
     </message>
     <message>
-        <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>-- одштампај све dxf датотеке у 'неку_назив.pdf' датотеку.</translation>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation>-- одштампај све dxf датотеке у &apos;неку_назив.pdf&apos; датотеку.</translation>
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
@@ -10176,8 +10177,8 @@ Do you want to replace it?</source>
         <translation>Искомбинуј све слојеве</translation>
     </message>
     <message>
-        <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>Датотека "%1" већ постоји. Да ли желите да је замените новом?</translation>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation>Датотека &quot;%1&quot; већ постоји. Да ли желите да је замените новом?</translation>
     </message>
     <message>
         <source>/CustomColor%1</source>
@@ -10195,222 +10196,222 @@ Do you want to replace it?</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2l</source>
@@ -10420,17 +10421,17 @@ Do you want to replace it?</source>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
@@ -10438,243 +10439,243 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>y</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>anglerel</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>start</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>offset</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linesnap</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ticksnap</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>width</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pos</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>size</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bevels</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nopoly</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usepoly</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corners</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>str</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>round</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap1</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topl</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>top</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topr</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>left</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>middle</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>right</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottoml</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottom</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottomr</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapcorner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapshift</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizein</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizeout</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hor</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vert</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap2</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-vert</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-hor</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quad</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noquad</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angle_inner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edges</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-none</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-both</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-start</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-end</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>end</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>both</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fit</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nofit</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_flex</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>distance</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sym</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nosym</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PenTB</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Layer</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>- Unchanged -</source>
@@ -10682,29 +10683,29 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>User Color</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByLayer</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByBlock</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
@@ -10724,7 +10725,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.15mm</source>
@@ -10732,7 +10733,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.20mm</source>
@@ -10740,7 +10741,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.30mm</source>
@@ -10748,7 +10749,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.40mm</source>
@@ -10756,7 +10757,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.53mm</source>
@@ -10768,7 +10769,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.80mm</source>
@@ -10780,7 +10781,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.06mm</source>
@@ -10792,7 +10793,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.58mm</source>
@@ -10800,7 +10801,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.11mm</source>
@@ -10837,8 +10838,8 @@ Do you want to replace it?</source>
         <translation>Унесите угао:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter factor:</source>
@@ -11327,24 +11328,24 @@ This block cannot be inserted.</source>
         <translation>Одредите центар тангентног круга</translation>
     </message>
     <message>
-        <source>Invalid expression '%1' for radius</source>
-        <translation>Неисправан израз '%1' за полупречник</translation>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation>Неисправан израз &apos;%1&apos; за полупречник</translation>
     </message>
     <message>
-        <source>Invalid negative radius '%1'</source>
-        <translation>Неисправан негативан полупречник '%1'</translation>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation>Неисправан негативан полупречник &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>Invalid zero radius '%1'</source>
-        <translation>Неисправан полупречник који је нула '%1'</translation>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation>Неисправан полупречник који је нула &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>No tangent circle possible for radius '%1'</source>
-        <translation>Тангентни круг није могућ за полупречник '%1'</translation>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation>Тангентни круг није могућ за полупречник &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>No common tangential circle for radius '%1'</source>
-        <translation>Нема заједничког тангентног круга за полупречник '%1'</translation>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation>Нема заједничког тангентног круга за полупречник &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -11526,7 +11527,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation>Укупно растојање '%1' је мање од размака између фокалних тачака</translation>
+        <translation>Укупно растојање &apos;%1&apos; је мање од размака између фокалних тачака</translation>
     </message>
 </context>
 <context>
@@ -11614,8 +11615,8 @@ This block cannot be inserted.</source>
         <translation>Унесите угао:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter factor:</source>
@@ -11830,8 +11831,8 @@ This block cannot be inserted.</source>
 <context>
     <name>RS_ActionDrawLinePolygon</name>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -11969,15 +11970,15 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12317,16 +12318,16 @@ This block cannot be inserted.</source>
         <translation>Унесите угао:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter factor:</source>
         <translation>Унесите фактор:</translation>
     </message>
     <message>
-        <source>Cannot open file '%1'</source>
-        <translation>Не могу отворити датотеку '%1'</translation>
+        <source>Cannot open file &apos;%1&apos;</source>
+        <translation>Не могу отворити датотеку &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -12632,11 +12633,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12762,7 +12763,7 @@ This block cannot be inserted.</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <source>Specify adding node's point</source>
+        <source>Specify adding node&apos;s point</source>
         <translation>Одредите тачку додавања чвора</translation>
     </message>
     <message>
@@ -12832,7 +12833,7 @@ This block cannot be inserted.</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <source>Specify deleting node's point</source>
+        <source>Specify deleting node&apos;s point</source>
         <translation>Одаберите тачку брисања чвора</translation>
     </message>
     <message>
@@ -12999,8 +13000,8 @@ This block cannot be inserted.</source>
         <translation>унесите померај са командне линије да померите штампу</translation>
     </message>
     <message>
-        <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>Померај штампе игнорише релативну нулу. Игноришем '@'</translation>
+        <source>Printout offset ignores relative zero. Ignoring &apos;@&apos;</source>
+        <translation>Померај штампе игнорише релативну нулу. Игноришем &apos;@&apos;</translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
@@ -13222,7 +13223,7 @@ This block cannot be inserted.</source>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13577,7 +13578,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Direction:</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
@@ -13597,7 +13598,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation type="unfinished">Релативно</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
@@ -13613,7 +13614,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
@@ -13843,7 +13844,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

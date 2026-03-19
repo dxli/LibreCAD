@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="tr">
 <context>
     <name>ColorWizard</name>
@@ -1170,7 +1171,7 @@ veya [%2]</translation>
         <translation>Çoğalt</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
         <translation>Geçerli kalemi aktif katmanın kalemiyle güncelle</translation>
     </message>
 </context>
@@ -1184,8 +1185,8 @@ veya [%2]</translation>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
-        <source>Saving layer "%1" as "%2" </source>
-        <translation>"%1" &amp;katmanını "%2" olarak kaydet </translation>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation>&quot;%1&quot; &amp;katmanını &quot;%2&quot; olarak kaydet </translation>
     </message>
 </context>
 <context>
@@ -1699,7 +1700,7 @@ veya [%2]</translation>
         <translation>Normal Katmana Dönüştür</translation>
     </message>
     <message>
-        <source>&amp;Select Layer's Entities</source>
+        <source>&amp;Select Layer&apos;s Entities</source>
         <translation>Katmanın &amp;Varlıklarını Seç</translation>
     </message>
     <message>
@@ -2230,11 +2231,11 @@ veya [%2]</translation>
         <translation>geçerliye</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
         <translation>Geçerli Kalemi Aktif Katman Kalemiyle Güncelle</translation>
     </message>
     <message>
-        <source>Fill Pen Editor from Active Layer's Pen</source>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
         <translation>Kalem Düzenleyicisini Aktif Katman Kaleminden Doldur</translation>
     </message>
     <message>
@@ -2300,7 +2301,7 @@ veya [%2]</translation>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
-Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
         <translation>Kalem dosyası konumu değişti, yeni kalem dosyasının kullanılabilmesi için uygulamayı yeniden başlatın.
 
 Not: Düzenleyici üzerinden yeniden başlatmadan kalem kaydederseniz, paletten mevcut kalemler yeni dosyaya kaydedilecek ve mevcut içerik üzerine yazılacaktır.</translation>
@@ -2813,12 +2814,12 @@ Not: Düzenleyici üzerinden yeniden başlatmadan kalem kaydederseniz, paletten 
         <translation>sağı kaldır</translation>
     </message>
     <message>
-        <source>remove 0'</source>
-        <translation>0' kaldır</translation>
+        <source>remove 0&apos;</source>
+        <translation>0&apos; kaldır</translation>
     </message>
     <message>
-        <source>remove 0"</source>
-        <translation>0" kaldır</translation>
+        <source>remove 0&quot;</source>
+        <translation>0&quot; kaldır</translation>
     </message>
 </context>
 <context>
@@ -2964,8 +2965,8 @@ Not: Düzenleyici üzerinden yeniden başlatmadan kalem kaydederseniz, paletten 
         <translation>Yeni dosya oluşturuluyor...</translation>
     </message>
     <message>
-        <source>Block '%1'</source>
-        <translation>Blok '%1'</translation>
+        <source>Block &apos;%1&apos;</source>
+        <translation>Blok &apos;%1&apos;</translation>
     </message>
     <message>
         <source>unnamed document %1</source>
@@ -3150,8 +3151,8 @@ dosyası açılamıyor
 Lütfen varlığını ve izinlerini kontrol edin.</translation>
     </message>
     <message>
-        <source>File '%1' does not exist. Opening aborted</source>
-        <translation>'%1' dosyası yok. Açılış iptal edildi</translation>
+        <source>File &apos;%1&apos; does not exist. Opening aborted</source>
+        <translation>&apos;%1&apos; dosyası yok. Açılış iptal edildi</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3397,7 +3398,7 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
         <translation>&amp;Viki</translation>
     </message>
     <message>
-        <source>User's &amp;Manual</source>
+        <source>User&apos;s &amp;Manual</source>
         <translation>&amp;Kullanıcı Kılavuzu</translation>
     </message>
     <message>
@@ -3454,11 +3455,11 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3476,16 +3477,16 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
         <translation>Geçerli Katman</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Geçerli Etkin Katmanın Adı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Geçerli Etkin Katmanın Adı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -3503,8 +3504,8 @@ p, li { white-space: pre-wrap; }
         <translation>Blok İsimlendirme</translation>
     </message>
     <message>
-        <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>Blok isimlendirilemedi. "%1" isminde bir blok zaten var.</translation>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation>Blok isimlendirilemedi. &quot;%1&quot; isminde bir blok zaten var.</translation>
     </message>
 </context>
 <context>
@@ -3765,7 +3766,7 @@ pencerede düzenle</translation>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3812,17 +3813,17 @@ pencerede düzenle</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3877,7 +3878,7 @@ pencerede düzenle</translation>
     <message>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>Nitelikleri seçilen INSERT'in tüm alt varlıklarına da uygulayın.
+        <translation>Nitelikleri seçilen INSERT&apos;in tüm alt varlıklarına da uygulayın.
 Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</translation>
     </message>
     <message>
@@ -4021,7 +4022,7 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4098,12 +4099,12 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <translation>Komut Dili:</translation>
     </message>
     <message>
-        <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>&lt;font size="+1"&gt;&lt;b&gt;LibreCAD'e hoş geldiniz&lt;/b&gt;
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;LibreCAD&apos;e hoş geldiniz&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz dili seçin.&lt;br&gt;
@@ -5071,7 +5072,7 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Radyan</translation>
     </message>
     <message>
-        <source>Surveyor's units</source>
+        <source>Surveyor&apos;s units</source>
         <translation>Haritacı birimleri</translation>
     </message>
     <message>
@@ -5083,8 +5084,8 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Seçenekler</translation>
     </message>
     <message>
-        <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
-        <translation>'Mühendislik' ve 'Mimari' uzunluk biçimleri için birim İnç olarak ayarlanmalıdır.</translation>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
+        <translation>&apos;Mühendislik&apos; ve &apos;Mimari&apos; uzunluk biçimleri için birim İnç olarak ayarlanmalıdır.</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
@@ -5143,8 +5144,8 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Tik büyüklüğü:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçülendirme tik boyutu. 0'a ayarlamak ölçü tikini devre dışı bırakacaktır. Ölçü tiki etkinleştirildiğinde ölçü oku çizilmez.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçülendirme tik boyutu. 0&apos;a ayarlamak ölçü tikini devre dışı bırakacaktır. Ölçü tiki etkinleştirildiğinde ölçü oku çizilmez.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Horizontal</source>
@@ -5167,12 +5168,12 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Yazı stili:</translation>
     </message>
     <message>
-        <source>'.' (Period)</source>
-        <translation>'.' (Nokta)</translation>
+        <source>&apos;.&apos; (Period)</source>
+        <translation>&apos;.&apos; (Nokta)</translation>
     </message>
     <message>
-        <source>',' (Comma)</source>
-        <translation>',' (Virgül)</translation>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation>&apos;,&apos; (Virgül)</translation>
     </message>
     <message>
         <source>Decimal separator:</source>
@@ -5215,8 +5216,8 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Ölçü çizgisi üzerinde büyütülecek uzunluk</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçü oku boyutu. &lt;a name="result_box"/&gt;tik boyutu &lt;a name="result_box"/&gt;0'dan büyük olduğunda etkisi yoktur&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçü oku boyutu. &lt;a name=&quot;result_box&quot;/&gt;tik boyutu &lt;a name=&quot;result_box&quot;/&gt;0&apos;dan büyük olduğunda etkisi yoktur&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -5247,8 +5248,8 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Doğrusal hassasiyet:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçü çizgisine göre &lt;a name="result_box"/&gt;metin hizalaması.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ölçü çizgisine göre &lt;a name=&quot;result_box&quot;/&gt;metin hizalaması.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Aligned</source>
@@ -5351,8 +5352,8 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Mimari (metrik)</translation>
     </message>
     <message>
-        <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>'Mimari (metrik)' uzunluk formatı için birim Metre olarak ayarlanmalıdır.</translation>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation>&apos;Mimari (metrik)&apos; uzunluk formatı için birim Metre olarak ayarlanmalıdır.</translation>
     </message>
     <message>
         <source>Screen %</source>
@@ -5598,7 +5599,7 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>&amp;Önizleme varlıklarının sayısı:</translation>
     </message>
     <message>
-        <source>Don't use native OS file open dialog</source>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation>İşletim sistemi dosya açma iletişim kutusunu kullanma</translation>
     </message>
     <message>
@@ -5678,16 +5679,16 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
         <translation>Dosyayı açarken çizimi sığdır</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5750,9 +5751,9 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
-that has been set invisibe ("display: none" or "visibility: hidden").</source>
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
         <translation>MakerCAM, Kasım 2014 itibarıyla SVG içeriğini gizlemiyor 
-görünmez olarak ayarlanmış ("görüntü: yok" veya "görünürlük: gizli").</translation>
+görünmez olarak ayarlanmış (&quot;görüntü: yok&quot; veya &quot;görünürlük: gizli&quot;).</translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
@@ -5770,20 +5771,20 @@ the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.<
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
-but avoided in some CAM's.</source>
+but avoided in some CAM&apos;s.</source>
         <translation>Dışa aktarılan görüntüler SVG düzenleyicilerde (Inkscape vb.) kullanılabilir
-ancak bazı CAM'larda bundan kaçınılır.</translation>
+ancak bazı CAM&apos;larda bundan kaçınılır.</translation>
     </message>
     <message>
-        <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
         <translation>Birçok CAM (MakerCAM, EleskCAM, LaserWeb) kesikli/noktalı çizgi stilini göz ardı eder, 
 kontrplağın lazer kesiminde veya kağıt işlerinde yararlı olabilir. </translation>
     </message>
     <message>
-        <source>Default width of elements can affect some CAM's/SVG Editors, 
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
 but ignored by other</source>
-        <translation>Elemanların varsayılan genişliği bazı CAM'leri/SVG Düzenleyicilerini etkileyebilir, 
+        <translation>Elemanların varsayılan genişliği bazı CAM&apos;leri/SVG Düzenleyicilerini etkileyebilir, 
 ama başkaları tarafından görmezden gelindi</translation>
     </message>
     <message>
@@ -5794,15 +5795,15 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5988,7 +5989,7 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6669,11 +6670,11 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Discard All</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6753,7 +6754,7 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7103,16 +7104,16 @@ Yapı Katmanının içeriği çıktıda görünmemelidir.</translation>
         <translation>Sol</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Sol/sağ fare düğmesi eylemleri hakkında ipucu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Sol/sağ fare düğmesi eylemleri hakkında ipucu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7159,28 +7160,28 @@ p, li { white-space: pre-wrap; }
         <translation>Toplam Uzunluk</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Seçilen varlıkların sayısı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Seçilen varlıkların sayısı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Seçilen varlıkların toplam uzunluğu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Seçilen varlıkların toplam uzunluğu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7311,7 +7312,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7455,8 +7456,8 @@ p, li { white-space: pre-wrap; }
         <translation>Katman Özellikleri</translation>
     </message>
     <message>
-        <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>"%1" isminde bir katman var. Lütfen başka bir isim verin.</translation>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation>&quot;%1&quot; isminde bir katman var. Lütfen başka bir isim verin.</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -7467,8 +7468,8 @@ p, li { white-space: pre-wrap; }
         <translation>Katmanı Sil</translation>
     </message>
     <message>
-        <source>Layer "%1" can never be removed.</source>
-        <translation>"%1" katmanı silinemez.</translation>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation>&quot;%1&quot; katmanı silinemez.</translation>
     </message>
     <message>
         <source>Layer Dialog</source>
@@ -7479,18 +7480,18 @@ p, li { white-space: pre-wrap; }
         <translation>Bloğu Sil</translation>
     </message>
     <message>
-        <source>Block "%1" and all its entities will be removed.</source>
-        <translation>"%1" bloğu ve içerdiği tüm varlıklar silinecek.</translation>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation>&quot;%1&quot; bloğu ve içerdiği tüm varlıklar silinecek.</translation>
     </message>
     <message>
-        <source>Layer "%1" and all entities on it will be removed.
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>Katman "%1" ve üzerindeki tüm varlıklar kaldırılacak.
+        <translation>Katman &quot;%1&quot; ve üzerindeki tüm varlıklar kaldırılacak.
 Bu işlem geri alınamaz.</translation>
     </message>
     <message>
-        <source>Layer "0" can never be removed.</source>
-        <translation>"0" katmanı hiçbir zaman silinemez.</translation>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation>&quot;0&quot; katmanı hiçbir zaman silinemez.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
@@ -7507,8 +7508,8 @@ Bu işlem geri alınamaz.</translation>
         <translation>Uyarı: Bu işlem geri alınamaz!</translation>
     </message>
     <message>
-        <source>Warning: layer "0" can never be removed.</source>
-        <translation>Uyarı: "0" katmanı hiçbir zaman kaldırılamaz.</translation>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation>Uyarı: &quot;0&quot; katmanı hiçbir zaman kaldırılamaz.</translation>
     </message>
     <message>
         <source>Layers for removal:</source>
@@ -7530,13 +7531,13 @@ Bu işlem geri alınamaz.</translation>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -7545,144 +7546,144 @@ Please specify a different name.</source>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation type="unfinished">Katman Ekle</translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move Selection</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace "By Layer" value to source layers values?
+        <source>Replace &quot;By Layer&quot; value to source layers values?
 
-If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
 
-If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation type="unfinished" />
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pen</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you'd like to proceed?</source>
-        <translation type="unfinished" />
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pens</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Entities </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7942,7 +7943,7 @@ Do you want to replace it?</source>
         <translation>dwg dosyasını açarken bilinmeyen hata</translation>
     </message>
     <message>
-        <source>can't open this dwg file</source>
+        <source>can&apos;t open this dwg file</source>
         <translation>bu dwg dosyası açılamıyor</translation>
     </message>
     <message>
@@ -10112,8 +10113,8 @@ Do you want to replace it?</source>
         <translation> -o some.pdf *.dxf</translation>
     </message>
     <message>
-        <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>-- tüm dxf dosyalarını 'some.pdf' dosyasına yazdır.</translation>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation>-- tüm dxf dosyalarını &apos;some.pdf&apos; dosyasına yazdır.</translation>
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
@@ -10187,8 +10188,8 @@ Do you want to replace it?</source>
         <translation>Tüm katmanları birleştir</translation>
     </message>
     <message>
-        <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>"%1" dosyası zaten mevcut. Üzerine yazılsın mı?</translation>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation>&quot;%1&quot; dosyası zaten mevcut. Üzerine yazılsın mı?</translation>
     </message>
     <message>
         <source>/CustomColor%1</source>
@@ -10206,222 +10207,222 @@ Do you want to replace it?</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2l</source>
@@ -10431,17 +10432,17 @@ Do you want to replace it?</source>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
@@ -10449,235 +10450,235 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>y</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>anglerel</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>start</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>offset</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linesnap</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ticksnap</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>width</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pos</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>size</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bevels</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nopoly</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usepoly</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corners</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>str</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>round</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap1</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topl</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>top</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topr</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>left</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>middle</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>right</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottoml</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottom</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottomr</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapcorner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapshift</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizein</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizeout</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hor</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vert</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap2</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-vert</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-hor</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quad</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noquad</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angle_inner</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edges</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-none</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-both</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-start</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-end</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>end</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>both</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fit</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nofit</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_flex</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>distance</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sym</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nosym</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PenTB</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Layer</source>
@@ -10693,29 +10694,29 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>User Color</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByLayer</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByBlock</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
@@ -10735,7 +10736,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.15mm</source>
@@ -10743,7 +10744,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.20mm</source>
@@ -10751,7 +10752,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.30mm</source>
@@ -10759,7 +10760,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.40mm</source>
@@ -10767,7 +10768,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.53mm</source>
@@ -10779,7 +10780,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.80mm</source>
@@ -10791,7 +10792,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.06mm</source>
@@ -10803,7 +10804,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.58mm</source>
@@ -10811,7 +10812,7 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.11mm</source>
@@ -11334,24 +11335,24 @@ Bu blok eklenemez.</translation>
         <translation>Teğet çemberin merkezini seçin</translation>
     </message>
     <message>
-        <source>Invalid expression '%1' for radius</source>
-        <translation>Yarı çap için geçersiz '%1' ifadesi</translation>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation>Yarı çap için geçersiz &apos;%1&apos; ifadesi</translation>
     </message>
     <message>
-        <source>Invalid negative radius '%1'</source>
-        <translation>Geçersiz negatif yarı çap '%1'</translation>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation>Geçersiz negatif yarı çap &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>Invalid zero radius '%1'</source>
-        <translation>Geçersiz sıfır yarı çapı '%1'</translation>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation>Geçersiz sıfır yarı çapı &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>No tangent circle possible for radius '%1'</source>
-        <translation>'%1' yarıçapı için teğet çember mümkün değil</translation>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation>&apos;%1&apos; yarıçapı için teğet çember mümkün değil</translation>
     </message>
     <message>
-        <source>No common tangential circle for radius '%1'</source>
-        <translation>'%1' yarı çapı için ortak teğet çember yok</translation>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation>&apos;%1&apos; yarı çapı için ortak teğet çember yok</translation>
     </message>
 </context>
 <context>
@@ -12038,7 +12039,7 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Enter the end point x</source>
-        <translation>Bitiş noktası x'i girin</translation>
+        <translation>Bitiş noktası x&apos;i girin</translation>
     </message>
     <message>
         <source>Enter number of polylines</source>
@@ -12058,7 +12059,7 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Enter the start point x</source>
-        <translation>Başlangıç noktası x'i girin</translation>
+        <translation>Başlangıç noktası x&apos;i girin</translation>
     </message>
     <message>
         <source>The entered x is invalid.</source>
@@ -12317,8 +12318,8 @@ Bu blok eklenemez.</translation>
         <translation>Çarpanı girin:</translation>
     </message>
     <message>
-        <source>Cannot open file '%1'</source>
-        <translation>'%1' dosyası açılamıyor</translation>
+        <source>Cannot open file &apos;%1&apos;</source>
+        <translation>&apos;%1&apos; dosyası açılamıyor</translation>
     </message>
 </context>
 <context>
@@ -12758,7 +12759,7 @@ Bu blok eklenemez.</translation>
         <translation>Düğüm eklenecek çoklu çizgiyi belirtin</translation>
     </message>
     <message>
-        <source>Specify adding node's point</source>
+        <source>Specify adding node&apos;s point</source>
         <translation>Düğüm ekleme noktasını belirtin</translation>
     </message>
 </context>
@@ -12828,7 +12829,7 @@ Bu blok eklenemez.</translation>
         <translation>Düğümü silmek için çoklu çizgiyi belirtin</translation>
     </message>
     <message>
-        <source>Specify deleting node's point</source>
+        <source>Specify deleting node&apos;s point</source>
         <translation>Silinecek düğüm noktasını belirtin</translation>
     </message>
     <message>
@@ -12991,8 +12992,8 @@ Bu blok eklenemez.</translation>
         <translation>ofset çıktısına komut satırından uzaklık yazın</translation>
     </message>
     <message>
-        <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>Çıktı ofseti göreceli sıfırı yok sayar. '@' göz ardı ediliyor</translation>
+        <source>Printout offset ignores relative zero. Ignoring &apos;@&apos;</source>
+        <translation>Çıktı ofseti göreceli sıfırı yok sayar. &apos;@&apos; göz ardı ediliyor</translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
