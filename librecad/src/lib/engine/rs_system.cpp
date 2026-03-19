@@ -442,7 +442,7 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
                 cat = 0; langPart = name.mid(9);
             } else if (name.startsWith("plugins_", Qt::CaseInsensitive)) {
                 cat = 1; langPart = name.mid(8);
-            } else if (name.startsWith("qt_")) {
+            } else if (name.startsWith("qt")) {
                 cat = 2; langPart = name.mid(3);
             } else continue;
 
