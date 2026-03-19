@@ -4,99 +4,99 @@
     <name>ColorWizard</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>Ramme</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished" />
+        <translation>Legg til i favoritter</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished" />
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>ComboBoxOption</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>Ramme</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation type="unfinished" />
+        <translation>Gruppboks</translation>
     </message>
     <message>
         <source>Set</source>
-        <translation type="unfinished" />
+        <translation>Sett</translation>
     </message>
 </context>
 <context>
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation type="unfinished" />
+        <translation>Parabola</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>Lag:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished" />
+        <translation>Geometri</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>Punkter på spline</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>Kontrollpunkter</translation>
     </message>
 </context>
 <context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished" />
+        <translation>Splinepunkter</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>Lag:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished" />
+        <translation>Geometri</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished" />
+        <translation>Lukket</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished" />
+        <translation>Splinepunkter</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>Kontrollpunkter</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>Punkter på spline</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation type="unfinished" />
+        <translation>Velg bue-entitet</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation type="unfinished" />
+        <translation>Angi plassering av buedimensjon</translation>
     </message>
 </context>
 <context>
@@ -104,31 +104,32 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation type="unfinished" />
+        <translation>radius=%1 er for liten for valgte punkter
+avstand mellom punkter=%2 er større enn diameter=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation type="unfinished" />
+        <translation>Velg fra to mulige sirkelsentre</translation>
     </message>
     <message>
         <source>Specify first point</source>
-        <translation type="unfinished" />
+        <translation>Angi første punkt</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation type="unfinished" />
+        <translation>Angi andre punkt</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Select circle center</source>
-        <translation type="unfinished" />
+        <translation>Velg sirkelsenter</translation>
     </message>
 </context>
 <context>
@@ -136,2662 +137,2667 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Angi avstand (%1)
+eller [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Angi avstand (vinkel %1 grader)
+eller [%2]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation type="unfinished" />
+        <translation>Angi senter</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation type="unfinished" />
+        <translation>Angi en tangent</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation type="unfinished" />
+        <translation>Angi nummer:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation type="unfinished" />
+        <translation>Ikke et gyldig nummer. Prøv 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation type="unfinished" />
+        <translation>Ikke en gyldig uttrykk</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation type="unfinished" />
+        <translation>Angi retning (x eller y) eller [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Angi avstand (%1) eller [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Angi avstand (%1 grader) eller [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Angi vinkel eller [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>Angi punkt eller [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi første punkt på parabola</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi andre punkt på parabola</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi tredje punkt på parabola</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi fjerde punkt på parabola</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi aksen på parabola</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi fokus på parabola</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi direktrisen på parabola</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi startpunkt på parabola</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Angi sluttpunkt på parabola</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation type="unfinished" />
+        <translation> blir ikke delt fordi den er låst.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation type="unfinished" />
+        <translation> blir ikke delt fordi den er del av en polyline. Utvid polyline først.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished" />
+        <translation>Linje</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation type="unfinished" />
+        <translation>Bue</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished" />
+        <translation>Sirkel</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSplinePoints</name>
     <message>
         <source>Specify first control point</source>
-        <translation type="unfinished" />
+        <translation>Angi første kontrollpunkt</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>Angi neste kontrollpunkt eller [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation type="unfinished" />
+        <translation>Angi neste kontrollpunkt</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished" />
+        <translation>Kan ikke angre: ikke nok entiteter definert ennå.</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation type="unfinished" />
+        <translation>Kan ikke angre: ingenting kan gjøres om.</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vinduszoom</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation type="unfinished" />
+        <translation>Zoom &amp;panning</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation type="unfinished" />
+        <translation>Velg entitet</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation type="unfinished" />
+        <translation>Velg vindu</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation type="unfinished" />
+        <translation>Avvelg vindu</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation type="unfinished" />
+        <translation>(Av)velg &amp;kontur</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>Velg kryssende entiteter</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>Avvelg kryssende entiteter</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation type="unfinished" />
+        <translation>(Av)velg lag</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;Punkter</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;2 punkter</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vinkel</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation type="unfinished" />
+        <translation>&amp;Horisontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>Vertikal</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation type="unfinished" />
+        <translation>&amp;Frihåndslinje</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation type="unfinished" />
+        <translation>&amp;Parallell</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation type="unfinished" />
+        <translation>Parallell gjennom punkt</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished" />
+        <translation>Rektangel</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation type="unfinished" />
+        <translation>Biseksor</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation type="unfinished" />
+        <translation>Tangent (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation type="unfinished" />
+        <translation>Tangent (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>Tangent &amp;ortogonal</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished" />
+        <translation>Relativ vinkel</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation type="unfinished" />
+        <translation>Polygon (Cen,Cor)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation type="unfinished" />
+        <translation>Polygon (Cor,Cor)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation type="unfinished" />
+        <translation>Senter, &amp;punkt</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation type="unfinished" />
+        <translation>Senter, &amp;radius</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation type="unfinished" />
+        <translation>2 punkter</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation type="unfinished" />
+        <translation>2 punkter, radius</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation type="unfinished" />
+        <translation>3 punkter</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation type="unfinished" />
+        <translation>&amp;Konsentrisk</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>Sirkel &amp;innskrevet</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation type="unfinished" />
+        <translation>Tangent 2 sirkler, radius</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation type="unfinished" />
+        <translation>Tangent 2 sirkler, 1 punkt</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation type="unfinished" />
+        <translation>Tangent &amp;3 sirkler</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation type="unfinished" />
+        <translation>Tangent, 2 punkter</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation type="unfinished" />
+        <translation>&amp;Senter, punkt, vinkler</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;3 punkter</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation type="unfinished" />
+        <translation>Bue &amp;tangent</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Ellipse (akse)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation type="unfinished" />
+        <translation>Ellipse &amp;bue (akse)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation type="unfinished" />
+        <translation>Ellipse &amp;fokuspunkt</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation type="unfinished" />
+        <translation>Ellipse &amp;4 punkt</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>Ellipse-senter og &amp;3 punkter</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>Ellipse &amp;innskrevet</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation type="unfinished" />
+        <translation>&amp;Spline</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation type="unfinished" />
+        <translation>&amp;Spline gjennom punkter</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished" />
+        <translation>&amp;Polyline</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til node</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation type="unfinished" />
+        <translation>Legg til &amp;node</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation type="unfinished" />
+        <translation>&amp;Slett node</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation type="unfinished" />
+        <translation>Slett &amp;mellom to noder</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished" />
+        <translation>&amp;Trim segmenter</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation type="unfinished" />
+        <translation>Opprett &amp;likeavstandede polylines</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished" />
+        <translation>Opprett polyline fra eksisterende &amp;segmenter</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation type="unfinished" />
+        <translation>&amp;Flere tekst</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation type="unfinished" />
+        <translation>&amp;Tekst</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation type="unfinished" />
+        <translation>&amp;Hatch</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation type="unfinished" />
+        <translation>Sett inn &amp;bilde</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation type="unfinished" />
+        <translation>&amp;Justert</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lineær</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vertikal</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation type="unfinished" />
+        <translation>&amp;Radial</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation type="unfinished" />
+        <translation>&amp;Diameter</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vinkel</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation type="unfinished" />
+        <translation>&amp;Leader</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;Attributter</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished" />
+        <translation>&amp;Slett</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation type="unfinished" />
+        <translation>Slett frihånd</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;Flytt / kopier</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation type="unfinished" />
+        <translation>Vend &amp;retning</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation type="unfinished" />
+        <translation>&amp;Roter</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation type="unfinished" />
+        <translation>&amp;Skaler</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation type="unfinished" />
+        <translation>&amp;Speil</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation type="unfinished" />
+        <translation>Roter t&amp;o</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation type="unfinished" />
+        <translation>&amp;Egenskaper</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation type="unfinished" />
+        <translation>&amp;Trim</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Forleng</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation type="unfinished" />
+        <translation>&amp;Del</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation type="unfinished" />
+        <translation>&amp;Strekk</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation type="unfinished" />
+        <translation>&amp;Avfasing</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation type="unfinished" />
+        <translation>&amp;Avrunding</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation type="unfinished" />
+        <translation>&amp;Eksploder tekst til bokstaver</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation type="unfinished" />
+        <translation>Punkt inne i kontur</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;Avstand punkt til punkt</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;Avstand entitet til punkt</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation type="unfinished" />
+        <translation>Vin&amp;kel mellom to linjer</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;Total lengde på valgte entiteter</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation type="unfinished" />
+        <translation>Polygonal &amp;areal</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Utvalgspeker</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished" />
+        <translation>&amp;Angre</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished" />
+        <translation>&amp;Gjenta</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished" />
+        <translation>Klipp</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kopier</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lim inn</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation type="unfinished" />
+        <translation>flytt til bunn</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation type="unfinished" />
+        <translation>senk etter entitet</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation type="unfinished" />
+        <translation>hev over entitet</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation type="unfinished" />
+        <translation>flytt til topp</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til lag</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern lag</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rediger lag</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished" />
+        <translation>Bytt laglås</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation type="unfinished" />
+        <translation>&amp;Bytt lagsynlighet</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation type="unfinished" />
+        <translation>Bytt lagutskrift</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>Bytt &amp;konstruksjonslag</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til blokk</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern blokk</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Gi blokk nytt navn</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rediger blokk</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lagre blokk</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Sett inn blokk</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation type="unfinished" />
+        <translation>Bytt blokksynlighet</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Opprett blokk</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation type="unfinished" />
+        <translation>Eks&amp;plodér</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation type="unfinished" />
+        <translation>&amp;Applikasjonspreferanser</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation type="unfinished" />
+        <translation>Gjeldende &amp;tegningspreferanser</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation type="unfinished" />
+        <translation>&amp;Slett valgt</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished" />
+        <translation>Velg &amp;alt</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation type="unfinished" />
+        <translation>Avvelg alt</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation type="unfinished" />
+        <translation>Inverter valg</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished" />
+        <translation>Zoom &amp;inn</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished" />
+        <translation>Zoom &amp;ut</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation type="unfinished" />
+        <translation>&amp;Auto-zoom</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation type="unfinished" />
+        <translation>Forrige &amp;visning</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation type="unfinished" />
+        <translation>&amp;Tegn på nytt</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished" />
+        <translation>&amp;Ny</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation type="unfinished" />
+        <translation>Ny fra &amp;mal</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished" />
+        <translation>&amp;Åpne...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lagre</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>Lagre &amp;som...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation type="unfinished" />
+        <translation>&amp;Eksporter som bilde</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lukk</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished" />
+        <translation>&amp;Skriv ut...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>Eksporter som PDF</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="unfinished" />
+        <translation>Skriv ut for&amp;håndsvisning</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished" />
+        <translation>&amp;Avslutt</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;Blokk</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fullskjerm</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rutenett</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
         <comment>Toggle Grid</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kladd</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation type="unfinished" />
+        <translation>&amp;Statuslinje</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
         <comment>Hide Statusbar</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation type="unfinished" />
+        <translation>Fokus på &amp;kommandolinje</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>Widget-alternativer</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished" />
+        <translation>Venstre</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished" />
+        <translation>Høyre</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>Topp</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>Bunn</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished" />
+        <translation>Flytende</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>Last inn stilark på nytt</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>Enhetsalternativer</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation type="unfinished" />
+        <translation>Flytt og roter</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation type="unfinished" />
+        <translation>Trim to</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
-        <translation type="unfinished" />
+        <translation>O&amp;ffset</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>Menyoppretter</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>Verktøylinjeoppretter</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
         <comment>Toggle Draft Mode</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation type="unfinished" />
+        <translation>Polygon (Cen,Tan)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation type="unfinished" />
+        <translation>&amp;Bue</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vis alle lag</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Skjul alle lag</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lås opp alle</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lås alle</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Eksporter valgte lag</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>Eksporter &amp;synlige lag</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vis alle blokker</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;Skjul alle blokker</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation type="unfinished" />
+        <translation>Eksporter som CA&amp;M/enkel SVG...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished" />
+        <translation>Lukk alle</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation type="unfinished" />
+        <translation>Dokk widgets på nytt</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation type="unfinished" />
+        <translation>Lagre a&amp;lt...</translation>
     </message>
     <message>
         <source>Cross</source>
-        <translation type="unfinished" />
+        <translation>Kryss</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation type="unfinished" />
+        <translation>Slange</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation type="unfinished" />
+        <translation>Slange (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation type="unfinished" />
+        <translation>Slange (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation type="unfinished" />
+        <translation>Rektangel (1 punkt)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation type="unfinished" />
+        <translation>Rektangel (2 punkter)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation type="unfinished" />
+        <translation>Rektangel (3 punkter)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation type="unfinished" />
+        <translation>Stjerne</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation type="unfinished" />
+        <translation>Bryt/del</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation type="unfinished" />
+        <translation>Linjeåpning</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation type="unfinished" />
+        <translation>Vinkel fra linje</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation type="unfinished" />
+        <translation>Ortogonal fra linje</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation type="unfinished" />
+        <translation>Fra punkt til linje</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation type="unfinished" />
+        <translation>Skjær/del linje</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation type="unfinished" />
+        <translation>Skjær/del sirkel</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation type="unfinished" />
+        <translation>Linje av punkter</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation type="unfinished" />
+        <translation>Via bue</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation type="unfinished" />
+        <translation>Para&amp;bola 4 punkter</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation type="unfinished" />
+        <translation>Parabola &amp;fokus direktris</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg penne fra entitet</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg penne fra entitet (løst)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation type="unfinished" />
+        <translation>Bruk penne på entitet</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation type="unfinished" />
+        <translation>Kopier penne</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation type="unfinished" />
+        <translation>Linjesammenføyning</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished" />
+        <translation>Dupliser</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>Oppdater gjeldende penne med penne fra aktivt lag</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>Eksporter som</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
         <source>Saving layer "%1" as "%2" </source>
-        <translation type="unfinished" />
+        <translation>Lagrer lag „%1“ som „%2“ </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>Angi entitet for å velge penne</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation type="unfinished" />
+        <translation>Angi entitet for å bruke penne</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>Angi entitet for å velge penne</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation type="unfinished" />
+        <translation>Angi prosent / startpunkt</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation type="unfinished" />
+        <translation>Angi startpunkt</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation type="unfinished" />
+        <translation>Angi sluttpunkt</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>Tilbake</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>Aktiv</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Original</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>Original løst</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation type="unfinished" />
+        <translation>Radiusforskyvning:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>Lag:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation type="unfinished" />
+        <translation>Erstatt bue</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>Penne:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished" />
+        <translation>Utvidelse</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation type="unfinished" />
+        <translation>Total lengde</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished" />
+        <translation>Prosent</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished" />
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished" />
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished" />
+        <translation>Type</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>Vinkel:</translation>
     </message>
 </context>
 <context>
     <name>LC_DeviceOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>Enhet</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>Lagre</translation>
     </message>
 </context>
 <context>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation type="unfinished" />
+        <translation>Parabola-kontrollpunkter kan ikke være kollineære</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>Lag:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation type="unfinished" />
+        <translation>På plass</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation type="unfinished" />
+        <translation>X-forskyvning:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>Aktiv</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Original</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>Original løst</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation type="unfinished" />
+        <translation>Y-forskyvning:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>Penne:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation type="unfinished" />
+        <translation>Laginnstillinger</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation type="unfinished" />
+        <translation>Sti til overordnede lag:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation type="unfinished" />
+        <translation>Lagtype</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>Informativ</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished" />
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished" />
+        <translation>Dimensjoner</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation type="unfinished" />
+        <translation>Alternativ posisjon</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation type="unfinished" />
+        <translation>En konstruksjonslag inneholder entiteter med uendelige rette linjer beregnet for geometrisk konstruksjon.
+       Innholdet i et konstruksjonslag bør ikke vises i utskrift.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>Konstruksjonslag</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation type="unfinished" />
+        <translation>Lagnavn:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation type="unfinished" />
+        <translation>Gi virtuelt lag nytt navn</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation type="unfinished" />
+        <translation>Legg til sekundært lag</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation>Legg til lag</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>Rediger lag</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation type="unfinished" />
+        <translation>Standard penne</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation type="unfinished" />
+        <translation>Gi lag nytt navn</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation type="unfinished" />
+        <translation>Alternativer for lagtre</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation type="unfinished" />
+        <translation>Navnekonvensjon</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation type="unfinished" />
+        <translation>Navneseparator for lagnivå</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation type="unfinished" />
+        <translation>Suffikser for sekundære lag</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished" />
+        <translation>Dimensjonal</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>Informativ</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation type="unfinished" />
+        <translation>Alternativ posisjon </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation type="unfinished" />
+        <translation>Dupliseringsnavn</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="unfinished" />
+        <translation>Prefiks</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation type="unfinished" />
+        <translation>Suffiks</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation type="unfinished" />
+        <translation>Visning og operasjoner</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation type="unfinished" />
+        <translation>Vis fullt navn som verktøytips</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation type="unfinished" />
+        <translation>Vis lagtype-ikoner</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation type="unfinished" />
+        <translation>Vis innrykkede lagnavn. Innrykkstørrelse:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation type="unfinished" />
+        <translation>Tillat omstrukturering via dra&amp;slipp</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation type="unfinished" />
+        <translation>Gi sekundære lag nytt navn ved primær endring</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>Farger</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation type="unfinished" />
+        <translation>Matchet element i uthevingsfiltermodus</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation type="unfinished" />
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation type="unfinished" />
+        <translation>Bakgrunnsfarge for virtuelt lag</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation type="unfinished" />
+        <translation>Separatorrutenett for trevisnings-elementer</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation type="unfinished" />
+        <translation>Bakgrunnsfarge for valgte elementer</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation type="unfinished" />
+        <translation>Bakgrunnsfarge for aktivt lag</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation type="unfinished" />
+        <translation>Standard penner</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>Normalt lag</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>Dimensjonalt lag</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation type="unfinished" />
+        <translation>Informativt lag</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>Alternativ posisjonslag</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished" />
+        <translation>Velg farge</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation type="unfinished" />
+        <translation>Filter</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished" />
+        <translation>Søker etter matchende lagnavn</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>Uthevingsmodus</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation type="unfinished" />
+        <translation>Vis alle lag</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation type="unfinished" />
+        <translation>Skjul alle lag</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation type="unfinished" />
+        <translation>Vis sekundære lag</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation type="unfinished" />
+        <translation>Vis bare aktivt lag</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished" />
+        <translation>Utvid alle</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished" />
+        <translation>Slå sammen alle</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation type="unfinished" />
+        <translation>Slå sammen sekundære</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation type="unfinished" />
+        <translation>Lås opp alle lag</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation type="unfinished" />
+        <translation>Lås alle lag</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation type="unfinished" />
+        <translation>Legg til et lag</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation type="unfinished" />
+        <translation>Legg til dimensjonslag</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation type="unfinished" />
+        <translation>Fjern lag</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished" />
+        <translation>Endre lagegenskaper / gi nytt navn</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation type="unfinished" />
+        <translation>Flat listemodus)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation type="unfinished" />
+        <translation>Lagmeny</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til underlag</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation type="unfinished" />
+        <translation>&amp;Gi nytt navn</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern lag (under-tre)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kopier struktur (under-tre)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Dupliser innhold (under-tre)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg entiteter (under-tre)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rediger lag&amp;egenskaper</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern lag</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til dimensjonsunderlag</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til info-underlag</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til alternativ visning-underlag</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern underlag</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>Konverter til dimensjonalt lag</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation type="unfinished" />
+        <translation>Konverter til info-lag</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>Konverter til alternativ posisjonslag</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>Konverter til normalt lag</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg lagets entiteter</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;Opprett lagkopi</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation type="unfinished" />
+        <translation>&amp;Dupliser lag med innhold</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>Flytt utvalg til lag</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>Dupliser utvalg til lag</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Legg til lag</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Frys andre lag</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Tine opp alle lag</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Frys alle lag</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lås opp alle lag</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lås alle lag</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>Aktiver &amp;utskrift for alle lag</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Deaktiver utskrift for alle lag</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Finn og fjern tomme lag</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>Forskyvning:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>Fri</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>Slutt</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>Linjesnap:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>Relativ</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished" />
+        <translation>Del</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation type="unfinished" />
+        <translation>Markeringssnap:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished" />
+        <translation>Lengde:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>Vinkel:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>Snap-avstand:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>Vinkel:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished" />
+        <translation>Størrelse:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation type="unfinished" />
+        <translation>Til kryssing</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation type="unfinished" />
+        <translation>Fast lengde</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation type="unfinished" />
+        <translation>Sluttforskyvning:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>Slutt</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished" />
+        <translation>Lengde:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>Snap:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation type="unfinished" />
+        <translation>Utvid/trim</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation type="unfinished" />
+        <translation>Legg til segment</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation type="unfinished" />
+        <translation>Ingen endring</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation type="unfinished" />
+        <translation>Opprett polyline</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation type="unfinished" />
+        <translation>Attributter:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation type="unfinished" />
+        <translation>Aktiv penne</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation type="unfinished" />
+        <translation>Linje 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation type="unfinished" />
+        <translation>Linje 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation type="unfinished" />
+        <translation>Begge linjene</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation type="unfinished" />
+        <translation>Fjern originale</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation type="unfinished" />
+        <translation>Linje 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation type="unfinished" />
+        <translation>Linje 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>Vinkel:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation type="unfinished" />
+        <translation>Tilpass linje</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>Ingen</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Begge</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>Start</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>Slutt</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation type="unfinished" />
+        <translation>Kantpunkter:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation type="unfinished" />
+        <translation>Antall punkter:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation type="unfinished" />
+        <translation>Fast avstand</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation type="unfinished" />
+        <translation>Fjern segmenter</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation type="unfinished" />
+        <translation>Fjern valgte</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation type="unfinished" />
+        <translation>Gap-snap:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>Snap-avstand:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>Fri</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation type="unfinished" />
+        <translation>Gap-størrelse:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>Slutt</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>Linjesnap:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation type="unfinished" />
+        <translation>Innstillinger for pennepalett</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation type="unfinished" />
+        <translation>Kolonner å vise</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation type="unfinished" />
+        <translation>Navn på linjetype</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation type="unfinished" />
+        <translation>Fargenavn</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation type="unfinished" />
+        <translation>Ikon for linjetype</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation type="unfinished" />
+        <translation>Fargeikon</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation type="unfinished" />
+        <translation>Ikon for linjebredde</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation type="unfinished" />
+        <translation>Navn på linjebredde</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>Farger</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation type="unfinished" />
+        <translation>Bakgrunn for aktiv penne:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation type="unfinished" />
+        <translation>Hele tabellraden er fet for aktiv penne</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation type="unfinished" />
+        <translation>Rutefarge:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation type="unfinished" />
+        <translation>Farge for matchet element:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation type="unfinished" />
+        <translation>Ikke-sensitiv pennefiltrering</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation type="unfinished" />
+        <translation>Styrer om verktøytips vises for tabellitem</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation type="unfinished" />
+        <translation>Vis verktøytips for tabellitems</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation type="unfinished" />
+        <translation>Pennefil:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation type="unfinished" />
+        <translation>Vis fargenavn som</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation type="unfinished" />
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation type="unfinished" />
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation type="unfinished" />
+        <translation>Naturlig navn der mulig</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation type="unfinished" />
+        <translation>Vis info-melding hvis ingen entiteter kan velges med penne</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation type="unfinished" />
+        <translation>Ved dobbeltklikk på tabellitem</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished" />
+        <translation>Gjør ingenting</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation type="unfinished" />
+        <translation>Velg entiteter med attributtpenne</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation type="unfinished" />
+        <translation>Velg entiteter med tegnepenne</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>Pennepalett</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation type="unfinished" />
+        <translation>Pennenavn:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished" />
+        <translation>Farge:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation type="unfinished" />
+        <translation>Filter...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>Uthevingsmodus</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished" />
+        <translation>Type:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished" />
+        <translation>Bredde:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>Fyll penne-editor med entitet-tegnepenne</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation type="unfinished" />
+        <translation>Fyll penne-editor med entitetattributter</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>Velg entiteter med tegnepenne</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation type="unfinished" />
+        <translation>Velg entiteter med penneattributter</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>Bruk penne på utvalg</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation type="unfinished" />
+        <translation>Fyll editorpenne med gjeldende penne</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>Bruk editorpenne som gjeldende penne</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation type="unfinished" />
+        <translation>til gjeldende</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>Oppdater gjeldende penne med penne fra aktivt lag</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation type="unfinished" />
+        <translation>Fyll penne-editor fra aktivt lags penne</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation type="unfinished" />
+        <translation>Velg fra aktivt lag</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation type="unfinished" />
+        <translation>Bruk editorpenne på aktivt lags penne</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation type="unfinished" />
+        <translation>Bruk på lag</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation type="unfinished" />
+        <translation>Fjern valgt penne</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation type="unfinished" />
+        <translation>Slett penne</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation type="unfinished" />
+        <translation>Pennemeny</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>&amp;Bruk penne på utvalg</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Sett som gjeldende penne</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Bruk penne på aktivt lag</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg entiteter med attributtpenne</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg entiteter med tegnepenne</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rediger penne</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern penne</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation type="unfinished" />
+        <translation>&amp;Fjern penner</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation type="unfinished" />
+        <translation>Pennepalett</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="unfinished" />
+        <translation>Plasseringen av pennefilen er endret. Start programmet på nytt slik at den nye pennefilen brukes.
+
+Merk: hvis du lagrer en penne via editoren uten å starte på nytt, vil gjeldende penner fra paletten bli lagret i den nye filen og dermed overskrive eksisterende innhold.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>Polyline</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished" />
+        <translation>Høyde:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Kanter:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Hjørner:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation type="unfinished" />
+        <translation>Indre størrelse</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Lengde X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>Snap:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Lengde Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation type="unfinished" />
+        <translation>Øverst-venstre</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>Topp</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation type="unfinished" />
+        <translation>Øverst-høyre</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished" />
+        <translation>Venstre</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished" />
+        <translation>Høyre</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation type="unfinished" />
+        <translation>Nederst-venstre</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>Bunn</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation type="unfinished" />
+        <translation>Nederst-høyre</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Rett</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Rund</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Avfasing</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Snap-forskyvning</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Begge</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>Vertikal</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>Horisontal</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished" />
+        <translation>Bredde:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Basevinkel:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Snap-forskyvning</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Kanter:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>Polyline</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation type="unfinished" />
+        <translation>Slutt-snap:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Hjørner:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Lengde X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation type="unfinished" />
+        <translation>Start-snap:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation type="unfinished" />
+        <translation>Hjørne</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation type="unfinished" />
+        <translation>Midten-vertikal</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation type="unfinished" />
+        <translation>Midten-horisontal</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Basevinkel:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Rett</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Rund</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Avfasing</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Lengde Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Begge</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>Vertikal</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>Horisontal</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>Polyline</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Begge</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>Vertikal</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>Horisontal</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Kanter:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation type="unfinished" />
+        <translation>Firkanter</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Fast basevinkel:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Lengde X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Rett</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Rund</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Avfasing</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Hjørner:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Snap-forskyvning</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Lengde Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation type="unfinished" />
+        <translation>Fast indre vinkel:</translation>
     </message>
 </context>
 <context>
     <name>LC_SimpleTests</name>
     <message>
         <source>De&amp;bugging</source>
-        <translation type="unfinished" />
+        <translation>De&amp;bugging</translation>
     </message>
     <message>
         <source>Insert Image</source>
-        <translation type="unfinished" />
+        <translation>Sett inn bilde</translation>
     </message>
 </context>
 <context>
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>Ingen</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Begge</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>Start</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>Slutt</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation type="unfinished" />
+        <translation>Kantmarkering:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>Relativ</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>Forskyvning:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation type="unfinished" />
+        <translation>Antall:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation type="unfinished" />
+        <translation>Start sirkelvinkel:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation type="unfinished" />
+        <translation>Markeringslengde:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation type="unfinished" />
+        <translation>Markeringssnap:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>Vinkel:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished" />
+        <translation>Del</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>Midten</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation type="unfinished" />
+        <translation>Fast </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished" />
+        <translation>Avstand:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation type="unfinished" />
+        <translation>Indre radius</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>Polyline</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation type="unfinished" />
+        <translation>Ytre radius</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation type="unfinished" />
+        <translation>Symmetrisk</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished" />
+        <translation>Antall:</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetFactory</name>
     <message>
         <source>Library Browser</source>
-        <translation type="unfinished" />
+        <translation>Bibliotekleser</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation type="unfinished" />
+        <translation>Kommandolinje</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation type="unfinished" />
+        <translation>Dokk</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>Flyt</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation type="unfinished" />
+        <translation>Linjer</translation>
     </message>
     <message>
         <source>Circles</source>
-        <translation type="unfinished" />
+        <translation>Sirkler</translation>
     </message>
     <message>
         <source>Freehand</source>
-        <translation type="unfinished" />
+        <translation>Frihånd</translation>
     </message>
     <message>
         <source>Ellipses</source>
-        <translation type="unfinished" />
+        <translation>Ellipser</translation>
     </message>
     <message>
         <source>PolyLines</source>
-        <translation type="unfinished" />
+        <translation>Polylinjer</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished" />
+        <translation>Velg</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished" />
+        <translation>Dimensjoner</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished" />
+        <translation>Endre</translation>
     </message>
     <message>
         <source>Measure</source>
-        <translation type="unfinished" />
+        <translation>Mål</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>Widget-alternativer</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished" />
+        <translation>Verktøylinje</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished" />
+        <translation>Ikonstørrelse</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished" />
+        <translation>Generelt</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished" />
+        <translation>Stil</translation>
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>Stilark</translation>
     </message>
     <message>
         <source>Statusbar</source>
-        <translation type="unfinished" />
+        <translation>Statuslinje</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished" />
+        <translation>Høyde</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished" />
+        <translation>Skriftstørrelse</translation>
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation type="unfinished" />
+        <translation>Angi sti til Qt-stilark.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation type="unfinished" />
+        <translation>side-lengde i piksler</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation type="unfinished" />
+        <translation>Bruk tematiske ikoner</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation type="unfinished" />
+        <translation>Kolonner venstre verktøylinje:</translation>
     </message>
 </context>
 <context>
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation type="unfinished" />
+        <translation>velg:</translation>
     </message>
     <message>
         <source>remove left</source>
-        <translation type="unfinished" />
+        <translation>fjern venstre</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation type="unfinished" />
+        <translation>fjern høyre</translation>
     </message>
     <message>
         <source>remove 0'</source>
-        <translation type="unfinished" />
+        <translation>fjern 0'</translation>
     </message>
     <message>
         <source>remove 0"</source>
-        <translation type="unfinished" />
+        <translation>fjern 0"</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished" />
+        <translation>Alternativer for relativ vinkel på linje</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished" />
+        <translation>Avstand:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished" />
+        <translation>Avstand fra original polyline</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished" />
+        <translation>Kopier:</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetEnt</name>
     <message>
         <source>Select object:</source>
-        <translation type="unfinished" />
+        <translation>Velg objekt:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetPoint</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetSelect</name>
     <message>
         <source>Select objects:</source>
-        <translation type="unfinished" />
+        <translation>Velg objekter:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
@@ -2810,7 +2816,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>&amp;Select</source>
-        <translation type="unfinished" />
+        <translation>&amp;Velg</translation>
     </message>
     <message>
         <source>&amp;Line</source>
@@ -2826,71 +2832,71 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>&amp;Modify</source>
-        <translation type="unfinished" />
+        <translation>&amp;Endre</translation>
     </message>
     <message>
         <source>&amp;Info</source>
-        <translation type="unfinished" />
+        <translation>&amp;Info</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished" />
+        <translation>Om</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished" />
+        <translation>&amp;Hjelp</translation>
     </message>
     <message>
         <source>Layer List</source>
-        <translation type="unfinished" />
+        <translation>Lagliste</translation>
     </message>
     <message>
         <source>Block List</source>
-        <translation type="unfinished" />
+        <translation>Blokkliste</translation>
     </message>
     <message>
         <source>&amp;Cascade</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kaskade</translation>
     </message>
     <message>
         <source>&amp;Tile</source>
-        <translation type="unfinished" />
+        <translation>&amp;Flislegg</translation>
     </message>
     <message>
         <source>Tile &amp;Horizontally</source>
-        <translation type="unfinished" />
+        <translation>Flislegg &amp;horisontalt</translation>
     </message>
     <message>
         <source>Creating new file...</source>
-        <translation type="unfinished" />
+        <translation>Oppretter ny fil...</translation>
     </message>
     <message>
         <source>unnamed document %1</source>
-        <translation type="unfinished" />
+        <translation>navnløst dokument %1</translation>
     </message>
     <message>
         <source>Loaded document: </source>
-        <translation type="unfinished" />
+        <translation>Lastet dokument: </translation>
     </message>
     <message>
         <source>Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>Åpning avbrutt</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished" />
+        <translation>Skriver ut...</translation>
     </message>
     <message>
         <source>Exiting application...</source>
-        <translation type="unfinished" />
+        <translation>Avslutter program...</translation>
     </message>
     <message>
         <source>Print preview for %1</source>
-        <translation type="unfinished" />
+        <translation>Utskriftsforhåndsvisning for %1</translation>
     </message>
     <message>
         <source>New Drawing created.</source>
-        <translation type="unfinished" />
+        <translation>Ny tegning opprettet.</translation>
     </message>
     <message>
         <source>Saving drawing...</source>
@@ -2914,7 +2920,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Export complete</source>
-        <translation type="unfinished" />
+        <translation>Eksportering fullført</translation>
     </message>
     <message>
         <source>Export failed!</source>
@@ -2922,444 +2928,452 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Printing complete</source>
-        <translation type="unfinished" />
+        <translation>Utskrift fullført</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation type="unfinished" />
+        <translation>Kommandolinje</translation>
     </message>
     <message>
         <source>Block '%1'</source>
-        <translation type="unfinished" />
+        <translation>Blokk '%1'</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check the permissions.</source>
-        <translation type="unfinished" />
+        <translation>Kan ikke åpne filen
+%1
+Sjekk tillatelsene.</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished" />
+        <translation>&amp;Polyline</translation>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>Autolagrer tegning...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation type="unfinished" />
+        <translation>Autolagret tegning</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation type="unfinished" />
+        <translation>Kan ikke autolagre filen
+%1
+Sjekk tillatelsene.
+Autolagring deaktivert.</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished" />
+        <translation>Importer</translation>
     </message>
     <message>
         <source>&amp;Toolbars</source>
-        <translation type="unfinished" />
+        <translation>&amp;Verktøylinjer</translation>
     </message>
     <message>
         <source>Compiled on: %1</source>
-        <translation type="unfinished" />
+        <translation>Kompilert på: %1</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished">Versjon: %1</translation>
+        <translation>Versjon: %1</translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation type="unfinished" />
+        <translation>Advarsel: Fil allerede åpnet : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
-        <translation type="unfinished" />
+        <translation>Kan ikke lagre filen </translation>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation type="unfinished" />
+        <translation> , sjekk filnavnet og tillatelsene.</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation type="unfinished" />
+        <translation>Flislegg &amp;vertikalt</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation type="unfinished" />
+        <translation>Tab&amp;bladmodus</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation type="unfinished" />
+        <translation>Nytt dokument fra mal: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation type="unfinished" />
+        <translation>Valg av mal avbrutt</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation type="unfinished" />
+        <translation>Autolagring mislyktes</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished" />
+        <translation>Fil</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished" />
+        <translation>Rediger</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished" />
+        <translation>Vis</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation type="unfinished" />
+        <translation>Snap-utvalg</translation>
     </message>
     <message>
         <source>Tool Options</source>
-        <translation type="unfinished" />
+        <translation>Verktøyalternativer</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>Eksporter som</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>Komparator: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>Komparator: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished" />
+        <translation>Qt-versjon: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation type="unfinished" />
+        <translation>Kladdemodus</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>Eksporter som PDF</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished" />
+        <translation>Eksporter</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation type="unfinished" />
+        <translation>Kan ikke åpne filen
+%1
+Kontroller at den finnes og tillatelsene.</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>Filen '%1' finnes ikke. Åpning avbrutt</translation>
     </message>
     <message>
         <source>Categories</source>
-        <translation type="unfinished" />
+        <translation>Kategorier</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished" />
+        <translation>&amp;Rekkefølge</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished" />
+        <translation>Rekkefølge</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished" />
+        <translation>Velg</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished" />
+        <translation>Linje</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished" />
+        <translation>Sirkel</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kurve</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished" />
+        <translation>Kurve</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished" />
+        <translation>Ellipse</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>Polyline</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation type="unfinished" />
+        <translation>Dimensjon</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished" />
+        <translation>Endre</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished" />
+        <translation>Info</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished" />
+        <translation>Penne</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished" />
+        <translation>Åpner nylig fil...</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished" />
+        <translation>Dokkområder</translation>
     </message>
     <message>
         <source>Grid Status</source>
-        <translation type="unfinished" />
+        <translation>Rutestatus</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished" />
+        <translation>Verktøylinjer</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation type="unfinished" />
+        <translation>Dokwidgets</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>Enhetsalternativer</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>Enhet</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished" />
+        <translation>&amp;Alternativer</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation type="unfinished" />
+        <translation>Pl&amp;ugins</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation type="unfinished" />
+        <translation>Dimen&amp;sjon</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>Dokwi&amp;dgets</translation>
     </message>
     <message>
         <source>Recent Files</source>
-        <translation type="unfinished" />
+        <translation>Nylige filer</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation type="unfinished" />
+        <translation>Komparator: Microsoft Visual C++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>Boost-versjon: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished" />
+        <translation>Kopier</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished" />
+        <translation>Bidragere</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished" />
+        <translation>Lisens</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished" />
+        <translation>System</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>Verktøylinjeoppretter</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>Menyoppretter</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation type="unfinished" />
+        <translation>Menytilordner</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation type="unfinished" />
+        <translation>&amp;Verktøy</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation type="unfinished" />
+        <translation>&amp;Tegninger</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation type="unfinished" />
+        <translation>Lagrer tegning: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation type="unfinished" />
+        <translation>Lagring avbrutt</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation type="unfinished" />
+        <translation>Lukker tegning</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation type="unfinished" />
+        <translation>Lagre endringer for følgende element?
+%1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lagre</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>Lagre &amp;som...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation type="unfinished" />
+        <translation>&amp;Lagre %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>Lagre %1 &amp;som...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation type="unfinished" />
+        <translation>&amp;Vindusmodus</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation type="unfinished" />
+        <translation>&amp;Oppsett</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation type="unfinished" />
+        <translation>Rundet</translation>
     </message>
     <message>
         <source>Triangular</source>
-        <translation type="unfinished" />
+        <translation>Trekantet</translation>
     </message>
     <message>
         <source>North</source>
-        <translation type="unfinished" />
+        <translation>Nord</translation>
     </message>
     <message>
         <source>South</source>
-        <translation type="unfinished" />
+        <translation>Sør</translation>
     </message>
     <message>
         <source>East</source>
-        <translation type="unfinished" />
+        <translation>Øst</translation>
     </message>
     <message>
         <source>West</source>
-        <translation type="unfinished" />
+        <translation>Vest</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation type="unfinished" />
+        <translation>&amp;Ordne</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation type="unfinished" />
+        <translation>&amp;Maksimert</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation type="unfinished" />
+        <translation>Lagre alt avbrutt</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation type="unfinished" />
+        <translation>Lukk alt avbrutt</translation>
     </message>
     <message>
         <source>The Code</source>
-        <translation type="unfinished" />
+        <translation>Koden</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation type="unfinished" />
+        <translation>Cmd</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>Flyt</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation type="unfinished" />
+        <translation>Dokk</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
-        <translation type="unfinished" />
+        <translation>&amp;Wiki</translation>
     </message>
     <message>
         <source>User's &amp;Manual</source>
-        <translation type="unfinished" />
+        <translation>Bruker&amp;manual</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation type="unfinished" />
+        <translation>&amp;Kommandoer</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation type="unfinished" />
+        <translation>&amp;Stilark</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>Wi&amp;dgets</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation type="unfinished" />
+        <translation>&amp;Forum</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation type="unfinished" />
+        <translation>Zulip &amp;Chat</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation type="unfinished" />
+        <translation>&amp;Utgivelsesinformasjon</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation type="unfinished" />
+        <translation>On&amp;line</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation type="unfinished" />
+        <translation>&amp;Doner</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation type="unfinished" />
+        <translation>Juster skalering og plassering i utskriftsforhåndsvisning først.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>Pennepalett</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation type="unfinished" />
+        <translation>Lagtre</translation>
     </message>
 </context>
 <context>
@@ -13702,35 +13716,35 @@ This block cannot be inserted.</source>
     <name>WidgetCreator</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>Ramme</translation>
     </message>
     <message>
         <source>&gt;</source>
-        <translation type="unfinished" />
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>&lt;</source>
-        <translation type="unfinished" />
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished" />
+        <translation>Opprett</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation type="unfinished" />
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation type="unfinished" />
+        <translation>Tilordne</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>Oppdater</translation>
     </message>
 </context>
 </TS>

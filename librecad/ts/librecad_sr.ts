@@ -56,23 +56,23 @@
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation type="unfinished" />
+        <translation>Парабола</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Слој:</translation>
+        <translation>Слој:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">Геометрија</translation>
+        <translation>Геометрија</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished">Тачке на сплајну</translation>
+        <translation>Тачке на сплајну</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished">Контролне тачке</translation>
+        <translation>Контролне тачке</translation>
     </message>
 </context>
 <context>
@@ -159,24 +159,26 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Наведи растојање (%1)
+или [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Наведи растојање (угао %1 степена)
+или [%2]</translation>
     </message>
 </context>
 <context>
@@ -206,116 +208,116 @@ or [%2]</source>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation type="unfinished" />
+        <translation>Наведи смер (x или y) или [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Наведи растојање (%1) или [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Наведи растојање (%1 степени) или [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation type="unfinished" />
+        <translation>Наведи угао или [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>Наведи тачку или [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи прву тачку на параболи</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Откажи</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи другу тачку на параболи</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи трећу тачку на параболи</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи четврту тачку на параболи</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи осу на параболи</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи фокус параболе</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Откажи</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи директрису параболе</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи почетну тачку на параболи</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation type="unfinished" />
+        <translation>Наведи завршну тачку на параболи</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation type="unfinished" />
+        <translation> се не дели јер је закључан.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation type="unfinished" />
+        <translation> се не дели јер је део полилиније. Прво прошири полилинију.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Линија</translation>
+        <translation>Линија</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation type="unfinished">Лук</translation>
+        <translation>Лук</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">Круг</translation>
+        <translation>Круг</translation>
     </message>
 </context>
 <context>
@@ -1061,107 +1063,107 @@ or [%2]</source>
     </message>
     <message>
         <source>Cross</source>
-        <translation type="unfinished" />
+        <translation>Крст</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation type="unfinished" />
+        <translation>Змија</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation type="unfinished" />
+        <translation>Змија (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation type="unfinished" />
+        <translation>Змија (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation type="unfinished" />
+        <translation>Правоугаоник (1 тачка)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation type="unfinished" />
+        <translation>Правоугаоник (2 тачке)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation type="unfinished" />
+        <translation>Правоугаоник (3 тачке)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation type="unfinished" />
+        <translation>Звезда</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation type="unfinished" />
+        <translation>Преломи/Подели</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation type="unfinished" />
+        <translation>Празнина линије</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation type="unfinished" />
+        <translation>Угао из линије</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation type="unfinished" />
+        <translation>Ортогонално из линије</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation type="unfinished" />
+        <translation>Од тачке до линије</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation type="unfinished" />
+        <translation>Исеци/Подели линију</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation type="unfinished" />
+        <translation>Исеци/Подели круг</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation type="unfinished" />
+        <translation>Линија тачака</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation type="unfinished" />
+        <translation>Преко лука</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation type="unfinished" />
+        <translation>Пара&amp;бола 4 тачке</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation type="unfinished" />
+        <translation>Парабола &amp;фокус директриса</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери оловку из ентитета</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери оловку из ентитета (разрешено)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation type="unfinished" />
+        <translation>Примени оловку на ентитет</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation type="unfinished" />
+        <translation>Копирај оловку</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation type="unfinished" />
+        <translation>Спајање линија</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished" />
+        <translation>Дуплирај</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>Ажурирај тренутну оловку оловком активног слоја</translation>
     </message>
 </context>
 <context>
@@ -1182,119 +1184,119 @@ or [%2]</source>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>Наведи ентитет за одабир оловке</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Откажи</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation type="unfinished" />
+        <translation>Наведи ентитет за примену оловке</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>Наведи ентитет за одабир оловке</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation type="unfinished" />
+        <translation>Наведи проценат / почетну тачку</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Откажи</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation type="unfinished" />
+        <translation>Наведи почетну тачку</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation type="unfinished">Одредите крајњу тачку</translation>
+        <translation>Наведи завршну тачку</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">Назад</translation>
+        <translation>Назад</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>Активно</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Оригинал</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>Оригинал разрешено</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation type="unfinished" />
+        <translation>Померај полупречника:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Слој:</translation>
+        <translation>Слој:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation type="unfinished" />
+        <translation>Замени лук</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>Оловка:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished" />
+        <translation>Проширење</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation type="unfinished">Укупна дужина</translation>
+        <translation>Укупна дужина</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished" />
+        <translation>Проценат</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished" />
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished" />
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished" />
+        <translation>Тип</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угао:</translation>
+        <translation>Угао:</translation>
     </message>
 </context>
 <context>
@@ -1316,636 +1318,637 @@ or [%2]</source>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation type="unfinished" />
+        <translation>Контролне тачке параболе не могу бити колинеарне</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">Слој:</translation>
+        <translation>Слој:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation type="unfinished" />
+        <translation>На месту</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation type="unfinished" />
+        <translation>Померај X:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>Активно</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Оригинал</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>Оригинал разрешено</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation type="unfinished" />
+        <translation>Померај Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>Оловка:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation type="unfinished">Подешавања слоја</translation>
+        <translation>Подешавања слоја</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation type="unfinished" />
+        <translation>Путања родитељских слојева:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation type="unfinished" />
+        <translation>Тип слоја</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>Информативни</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished" />
+        <translation>Нормални</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished">Котирање</translation>
+        <translation>Димензије</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation type="unfinished" />
+        <translation>Алтернативна позиција</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation type="unfinished" />
+        <translation>Конструкциони слој има ентитете бесконачних правих линија намењених за геометријску конструкцију.
+       Садржај конструкционог слоја не треба да се појави у испису.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation type="unfinished">Конструктивни слој</translation>
+        <translation>Конструкциони слој</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation type="unfinished">Назив слоја:</translation>
+        <translation>Назив слоја:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation type="unfinished" />
+        <translation>Преименуј виртуелни слој</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation type="unfinished" />
+        <translation>Додај секундарни слој</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation>Додај слој</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>Уреди слој</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation type="unfinished">Подразумевано перо</translation>
+        <translation>Подразумевана оловка</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation type="unfinished" />
+        <translation>Преименуј слој</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation type="unfinished" />
+        <translation>Опције стабла слојева</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation type="unfinished" />
+        <translation>Конвенција именовања</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation type="unfinished" />
+        <translation>Раздвајач имена нивоа слоја</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation type="unfinished" />
+        <translation>Суфикси секундарних слојева</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished" />
+        <translation>Димензионални</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>Информативни</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation type="unfinished" />
+        <translation>Алтернативна позиција </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation type="unfinished" />
+        <translation>Дуплирање имена</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="unfinished" />
+        <translation>Префикс</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation type="unfinished" />
+        <translation>Суфикс</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation type="unfinished" />
+        <translation>Приказ и операције</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation type="unfinished" />
+        <translation>Прикажи пуно име као тултип</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation type="unfinished" />
+        <translation>Прикажи иконе типа слоја</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation type="unfinished" />
+        <translation>Прикажи увучена имена слојева. Величина увлачења:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation type="unfinished" />
+        <translation>Дозволи реструктурирање преко превлачења&amp;испуштања</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation type="unfinished" />
+        <translation>Преименуј секундарне слојеве при преименовању примарног</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>Боје</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation type="unfinished" />
+        <translation>Подударајући елемент у режиму истицања филтера</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation type="unfinished">#1E90FF</translation>
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation type="unfinished" />
+        <translation>Боја позадине виртуелног слоја</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation type="unfinished" />
+        <translation>Мрежа раздвајача елемената три погледа</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation type="unfinished" />
+        <translation>Боја позадине изабраних елемената</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation type="unfinished" />
+        <translation>Боја позадине активног слоја</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation type="unfinished" />
+        <translation>Подразумеване оловке</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>Нормални слој</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>Димензионални слој</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation type="unfinished" />
+        <translation>Информативни слој</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>Слој алтернативне позиције</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished" />
+        <translation>Изабери боју</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation type="unfinished">Филтер</translation>
+        <translation>Филтер</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished">Тражим слојеве са одговарајућим називима</translation>
+        <translation>Тражење имена слојева која се подударају</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>Режим истицања</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>Подешавања</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation type="unfinished">Прикажи све слојеве</translation>
+        <translation>Прикажи све слојеве</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation type="unfinished">Сакриј све слојеве</translation>
+        <translation>Сакриј све слојеве</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation type="unfinished" />
+        <translation>Прикажи секундарне слојеве</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation type="unfinished" />
+        <translation>Прикажи само активни слој</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished" />
+        <translation>Прошири све</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished" />
+        <translation>Скупи све</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation type="unfinished" />
+        <translation>Скупи секундарне</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation type="unfinished">Откључај све слојеве</translation>
+        <translation>Откључај све слојеве</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation type="unfinished">Закључај све слојеве</translation>
+        <translation>Закључај све слојеве</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation type="unfinished">Додај слој</translation>
+        <translation>Додај слој</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation type="unfinished" />
+        <translation>Додај слој димензија</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation type="unfinished">Уклони слој</translation>
+        <translation>Уклони слој</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished">Измени особине слоја / преименуј</translation>
+        <translation>Измени атрибуте слоја / преименуј</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation type="unfinished" />
+        <translation>Режим равне листе)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation type="unfinished">Мени слојева</translation>
+        <translation>Мени слоја</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Додај дете слој</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation type="unfinished" />
+        <translation>&amp;Преименуј</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уклони слојеве (под-стабло)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Копирај структуру (под-стабло)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Дуплирај садржај (под-стабло)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери ентитете (под-стабло)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уреди &amp;атрибуте слоја</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">&amp;Уклони слој</translation>
+        <translation>&amp;Уклони слој</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Додај под-слој димензија</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Додај под-слој информација</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Додај под-слој алтернативног погледа</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уклони под-слојеве</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>Претвори у димензионални слој</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation type="unfinished" />
+        <translation>Претвори у информативни слој</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>Претвори у слој алтернативне позиције</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>Претвори у нормални слој</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери ентитете слоја</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;Креирај копију слоја</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation type="unfinished" />
+        <translation>&amp;Дуплирај слој са садржајем</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>Премести избор у слој</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>Дуплирај избор у слој</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">&amp;Додај слој</translation>
+        <translation>&amp;Додај слој</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Замрзни остале слојеве</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Одмрзни све слојеве</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Замрзни све слојеве</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Откључај све слојеве</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Закључај све слојеве</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>Омогући &amp;штампање свих слојева</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Онемогући штампање свих слојева</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;Пронађи и уклони празне слојеве</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished">Размак:</translation>
+        <translation>Померај:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>Слободно</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Почетак</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Крај</translation>
+        <translation>Крај</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап линије:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>Релативно</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">Подела</translation>
+        <translation>Подели</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап ознаке:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Дужина:</translation>
+        <translation>Дужина:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угао:</translation>
+        <translation>Угао:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>Растојање снапа:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угао:</translation>
+        <translation>Угао:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished" />
+        <translation>Величина:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished">Ортогонално</translation>
+        <translation>Ортогонално</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation type="unfinished" />
+        <translation>До пресека</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation type="unfinished" />
+        <translation>Фиксна дужина</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation type="unfinished" />
+        <translation>Померај краја:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Почетак</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Крај</translation>
+        <translation>Крај</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Дужина:</translation>
+        <translation>Дужина:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation type="unfinished" />
+        <translation>Прошири/Скрати</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation type="unfinished" />
+        <translation>Додај сегмент</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation type="unfinished" />
+        <translation>Без промене</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation type="unfinished" />
+        <translation>Креирај полилинију</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation type="unfinished" />
+        <translation>Атрибути:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation type="unfinished" />
+        <translation>Активна оловка</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation type="unfinished" />
+        <translation>Линија 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation type="unfinished" />
+        <translation>Линија 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation type="unfinished" />
+        <translation>Обе линије</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation type="unfinished" />
+        <translation>Уклони оригинале</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation type="unfinished" />
+        <translation>Линија 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation type="unfinished" />
+        <translation>Линија 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угао:</translation>
+        <translation>Угао:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation type="unfinished" />
+        <translation>Уклопи линију</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ништа</translation>
+        <translation>Ниједан</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Оба</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Почетак</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Крај</translation>
+        <translation>Крај</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation type="unfinished" />
+        <translation>Тачке ивице:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation type="unfinished" />
+        <translation>Број тачака:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation type="unfinished" />
+        <translation>Фиксно растојање</translation>
     </message>
 </context>
 <context>
@@ -1991,579 +1994,581 @@ or [%2]</source>
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation type="unfinished" />
+        <translation>Уклони сегменте</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation type="unfinished" />
+        <translation>Уклони изабрано</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап празнине:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>Растојање снапа:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>Слободно</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation type="unfinished" />
+        <translation>Величина празнине:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Почетак</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Крај</translation>
+        <translation>Крај</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап линије:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation type="unfinished" />
+        <translation>Подешавања палете оловки</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation type="unfinished" />
+        <translation>Колоне за приказ</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation type="unfinished" />
+        <translation>Назив типа линије</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation type="unfinished" />
+        <translation>Назив боје</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation type="unfinished" />
+        <translation>Икона типа линије</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation type="unfinished" />
+        <translation>Икона боје</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation type="unfinished" />
+        <translation>Икона ширине линије</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation type="unfinished" />
+        <translation>Назив ширине линије</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>Боје</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation type="unfinished" />
+        <translation>Позадина активне оловке:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation type="unfinished" />
+        <translation>Цео ред табеле је подебљан за активну оловку</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation type="unfinished" />
+        <translation>Боја мреже:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation type="unfinished" />
+        <translation>Боја подударајућег елемента:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation type="unfinished" />
+        <translation>Филтрирање оловки без обзира на мала/велика слова</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation type="unfinished" />
+        <translation>Контролише да ли ће се приказати тултип за елемент табеле</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation type="unfinished" />
+        <translation>Прикажи тултип за елементе табеле</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation type="unfinished" />
+        <translation>Датотека оловки:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation type="unfinished" />
+        <translation>Прикажи назив боје као</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation type="unfinished" />
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation type="unfinished" />
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation type="unfinished" />
+        <translation>Природни назив где је могуће</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation type="unfinished" />
+        <translation>Прикажи информативну поруку ако се ниједан ентитет не може изабрати оловком</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation type="unfinished" />
+        <translation>При двоструком клику на елемент табеле</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished" />
+        <translation>Не ради ништа</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation type="unfinished" />
+        <translation>Изабери ентитете по атрибутима оловке</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation type="unfinished" />
+        <translation>Изабери ентитете по оловци цртања</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>Палета оловки</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation type="unfinished" />
+        <translation>Назив оловке:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">Боја:</translation>
+        <translation>Боја:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation type="unfinished" />
+        <translation>Филтер...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>Режим истицања</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished" />
+        <translation>Тип:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Ширина:</translation>
+        <translation>Ширина:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>Подешавања</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>Попуни едитор оловке оловком цртања ентитета</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation type="unfinished" />
+        <translation>Попуни едитор оловке атрибутима ентитета</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>Изабери ентитете по оловци цртања</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation type="unfinished" />
+        <translation>Изабери ентитете по атрибутима оловке</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Сачувај</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>Примени оловку на избор</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation type="unfinished" />
+        <translation>Попуни едитор оловке тренутном оловком</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>Примени оловку едитора као тренутну оловку</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation type="unfinished" />
+        <translation>на тренутну</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>Ажурирај тренутну оловку оловком активног слоја</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation type="unfinished" />
+        <translation>Попуни едитор оловке из оловке активног слоја</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation type="unfinished" />
+        <translation>Изабери из активног слоја</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation type="unfinished" />
+        <translation>Примени оловку едитора на оловку активног слоја</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation type="unfinished" />
+        <translation>Примени на слој</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation type="unfinished" />
+        <translation>Уклони изабрану оловку</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation type="unfinished" />
+        <translation>Избриши оловку</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation type="unfinished" />
+        <translation>Мени оловки</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>&amp;Примени оловку на избор</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Постави као тренутну оловку</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;Примени оловку на активни слој</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери ентитете са атрибутима оловке</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Изабери ентитете са оловком цртања</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уреди оловку</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уклони оловку</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation type="unfinished" />
+        <translation>&amp;Уклони оловке</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation type="unfinished" />
+        <translation>Палета оловки</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="unfinished" />
+        <translation>Локација датотеке оловки је промењена, молимо поново покрените апликацију да би се користила нова датотека оловки.
+
+Напомена: ако сачувате оловку преко едитора без поновног покретања, тренутне оловке из палете ће бити сачуване у новој датотеци и постојећи садржај ће бити преписан.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">Полилинија</translation>
+        <translation>Полилинија</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">Висина:</translation>
+        <translation>Висина:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Ивице:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Углови:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation type="unfinished" />
+        <translation>Унутрашња величина</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Дужина X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Полупречник:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Дужина Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation type="unfinished" />
+        <translation>Горе-лево</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>Горе</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation type="unfinished" />
+        <translation>Горе-десно</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Лево</translation>
+        <translation>Лево</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished" />
+        <translation>Десно</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation type="unfinished" />
+        <translation>Доле-лево</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>Доле</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation type="unfinished" />
+        <translation>Доле-десно</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Право</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Заобљено</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Померај снапа</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Оба</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">Вертикала</translation>
+        <translation>Вертикално</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">Хоризонтални</translation>
+        <translation>Хоризонтално</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Ширина:</translation>
+        <translation>Ширина:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Основни угао:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Померај снапа</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Полупречник:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Ивице:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">Полилинија</translation>
+        <translation>Полилинија</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап краја:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Углови:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Дужина X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап почетка:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation type="unfinished" />
+        <translation>Угао</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation type="unfinished" />
+        <translation>Средина-вертикално</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation type="unfinished" />
+        <translation>Средина-хоризонтално</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Основни угао:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Право</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Заобљено</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Дужина Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Оба</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">Вертикала</translation>
+        <translation>Вертикално</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">Хоризонтални</translation>
+        <translation>Хоризонтално</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">Полилинија</translation>
+        <translation>Полилинија</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Оба</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">Вертикала</translation>
+        <translation>Вертикално</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">Хоризонтални</translation>
+        <translation>Хоризонтално</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>Ивице:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation type="unfinished" />
+        <translation>Четвороугаоник</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>Фиксни основни угао:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>Дужина X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>Право</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>Заобљено</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>Углови:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>Померај снапа</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>Дужина Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>Полупречник:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation type="unfinished" />
+        <translation>Фиксни унутрашњи угао:</translation>
     </message>
 </context>
 <context>
@@ -2581,98 +2586,98 @@ Please note that if you'll save pen via editor without restart, current pens fro
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Ништа</translation>
+        <translation>Ниједан</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>Оба</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Почетак</translation>
+        <translation>Почетак</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">Крај</translation>
+        <translation>Крај</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation type="unfinished" />
+        <translation>Ознака ивице:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>Релативно</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished">Размак:</translation>
+        <translation>Померај:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation type="unfinished" />
+        <translation>Број:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation type="unfinished" />
+        <translation>Угао почетка круга:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation type="unfinished" />
+        <translation>Дужина ознаке:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation type="unfinished" />
+        <translation>Снап ознаке:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Угао:</translation>
+        <translation>Угао:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">Подела</translation>
+        <translation>Подели</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">Средина</translation>
+        <translation>Средина</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation type="unfinished" />
+        <translation>Фиксно </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished" />
+        <translation>Растојање:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Образац</translation>
+        <translation>Образац</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation type="unfinished" />
+        <translation>Унутрашњи полупречник</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">Полилинија</translation>
+        <translation>Полилинија</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation type="unfinished" />
+        <translation>Спољашњи полупречник</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation type="unfinished" />
+        <translation>Симетрично</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished">Број:</translation>
+        <translation>Број:</translation>
     </message>
 </context>
 <context>
@@ -2782,7 +2787,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation type="unfinished" />
+        <translation>Колоне леве траке алата:</translation>
     </message>
 </context>
 <context>
@@ -3421,15 +3426,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation type="unfinished" />
+        <translation>Молимо прво подесите скалирање и позиционирање у прегледу штампе.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>Палета оловки</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation type="unfinished" />
+        <translation>Стабло слојева</translation>
     </message>
 </context>
 <context>

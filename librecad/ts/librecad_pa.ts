@@ -4,99 +4,99 @@
     <name>ColorWizard</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>ਫਰੇਮ</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished" />
+        <translation>ਮਨਪਸੰਦ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished" />
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>ComboBoxOption</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>ਫਰੇਮ</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation type="unfinished" />
+        <translation>ਗਰੁੱਪ ਬਾਕਸ</translation>
     </message>
     <message>
         <source>Set</source>
-        <translation type="unfinished" />
+        <translation>ਸੈੱਟ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ਪਰਤ:</translation>
+        <translation>ਲੇਅਰ:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">ਜੁਮੈਟਰੀ</translation>
+        <translation>ਜਿਓਮੈਟਰੀ</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>ਸਪਲਾਈਨ ਉੱਤੇ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਟਰੋਲ ਬਿੰਦੂ</translation>
     </message>
 </context>
 <context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished" />
+        <translation>ਸਪਲਾਈਨ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ਪਰਤ:</translation>
+        <translation>ਲੇਅਰ:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">ਜੁਮੈਟਰੀ</translation>
+        <translation>ਜਿਓਮੈਟਰੀ</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished">ਬੰਦ ਕੀਤਾ</translation>
+        <translation>ਬੰਦ</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished" />
+        <translation>ਸਪਲਾਈਨ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਟਰੋਲ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>ਸਪਲਾਈਨ ਉੱਤੇ ਬਿੰਦੂ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਕ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਕ ਡਾਇਮੈਂਸ਼ਨ ਦੀ ਥਾਂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
 </context>
 <context>
@@ -104,31 +104,32 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation type="unfinished" />
+        <translation>ਰੇਡੀਅਸ=%1 ਚੁਣੇ ਗਏ ਬਿੰਦੂਆਂ ਲਈ ਬਹੁਤ ਛੋਟਾ ਹੈ
+ਬਿੰਦੂਆਂ ਵਿਚਾਲੇ ਦੀ ਦੂਰੀ=%2 ਡਾਇਮੀਟਰ=%3 ਤੋਂ ਵੱਧ ਹੈ</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation type="unfinished" />
+        <translation>ਦੋ ਸੰਭਾਵਿਤ ਸਰਕਲ ਸੈਂਟਰਾਂ ਵਿੱਚੋਂ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Specify first point</source>
-        <translation type="unfinished">ਪਹਿਲਾਂ ਬਿੰਦੂ ਦਿਓ</translation>
+        <translation>ਪਹਿਲਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation type="unfinished">ਦੂਜਾ ਬਿੰਦੂ ਦਿਓ</translation>
+        <translation>ਦੂਜਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Select circle center</source>
-        <translation type="unfinished" />
+        <translation>ਸਰਕਲ ਸੈਂਟਰ ਚੁਣੋ</translation>
     </message>
 </context>
 <context>
@@ -136,1793 +137,1796 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>ਦੂਰੀ ਨਿਰਧਾਰਤ ਕਰੋ (%1)
+ਜਾਂ [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>ਦੂਰੀ ਨਿਰਧਾਰਤ ਕਰੋ (ਕੋਣ %1 ਡਿਗਰੀ)
+ਜਾਂ [%2]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation type="unfinished">ਕੇਂਦਰ ਦਿਓ</translation>
+        <translation>ਸੈਂਟਰ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation type="unfinished" />
+        <translation>ਇੱਕ ਟੈਨਜੈਂਟ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation type="unfinished">ਨੰਬਰ ਦਿਓ:</translation>
+        <translation>ਨੰਬਰ ਦਾਖਲ ਕਰੋ:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation type="unfinished">ਠੀਕ ਗਿਣਤੀ ਨਹੀਂ ਹੈ। 1..9999 ਨਾਲ ਕੋਸ਼ਿਸ ਕਰੋ</translation>
+        <translation>ਵੈਧ ਨੰਬਰ ਨਹੀਂ। 1..9999 ਤੋਂ ਟ੍ਰਾਈ ਕਰੋ</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation type="unfinished">ਠੀਕ ਸਮੀਕਰਨ ਨਹੀਂ ਹੈ</translation>
+        <translation>ਵੈਧ ਐਕਸਪ੍ਰੈਸ਼ਨ ਨਹੀਂ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation type="unfinished" />
+        <translation>ਦਿਸ਼ਾ ਨਿਰਧਾਰਤ ਕਰੋ (x ਜਾਂ y) ਜਾਂ [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>ਦੂਰੀ ਨਿਰਧਾਰਤ ਕਰੋ (%1) ਜਾਂ [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>ਦੂਰੀ ਨਿਰਧਾਰਤ ਕਰੋ (%1 ਡਿਗਰੀ) ਜਾਂ [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਣ ਨਿਰਧਾਰਤ ਕਰੋ ਜਾਂ [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ ਜਾਂ [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਪਹਿਲਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਦੂਜਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਤੀਜਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਚੌਥਾ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਧੁਰਾ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਦਾ ਫੋਕਸ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਦੀ ਡਾਇਰੈਕਟ੍ਰਿਕਸ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਉੱਤੇ ਅੰਤਿਮ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation type="unfinished" />
+        <translation> ਵੰਡਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਲਾਕ ਹੈ।</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation type="unfinished" />
+        <translation> ਵੰਡਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਕਿਉਂਕਿ ਇਹ ਪੌਲੀਲਾਈਨ ਦਾ ਹਿੱਸਾ ਹੈ। ਪਹਿਲਾਂ ਪੌਲੀਲਾਈਨ ਫੈਲਾਓ।</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">ਰੇਖਾ</translation>
+        <translation>ਲਾਈਨ</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation type="unfinished">ਚਾਪ</translation>
+        <translation>ਆਰਕ</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">ਚੱਕਰ</translation>
+        <translation>ਸਰਕਲ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSplinePoints</name>
     <message>
         <source>Specify first control point</source>
-        <translation type="unfinished">ਪਹਿਲਾਂ ਕੰਟਰੋਲ ਬਿੰਦੂ ਦਿਓ</translation>
+        <translation>ਪਹਿਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation type="unfinished">ਅਗਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਜਾਂ [%1] ਦਿਓ</translation>
+        <translation>ਅਗਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ ਜਾਂ [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation type="unfinished">ਅਗਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਦਿਓ</translation>
+        <translation>ਅਗਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished">ਵਾਪਸੀ ਨਹੀਂ: ਹਾਲੇ ਲੋੜੀਦੀਆਂ ਇਕਾਈਆਂ ਨਹੀਂ ਦਿੱਤੀਆਂ ਹਨ।</translation>
+        <translation>ਅਣਡੰਨਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ: ਅਜੇ ਲੋੜੀਂਦੀਆਂ ਐਂਟੀਟੀਆਂ ਤੋਂ ਘੱਟ ਹਨ।</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation type="unfinished" />
+        <translation>ਅਣਡੰਨਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ: ਕੁਝ ਵੀ ਮੁੜ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation type="unfinished">ਝਰੋਖਾ ਜ਼ੂਮ(&amp;W)</translation>
+        <translation>&amp;ਵਿੰਡੋ ਜ਼ੂਮ</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation type="unfinished" />
+        <translation>ਜ਼ੂਮ &amp;ਪੈਨਿੰਗ</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation type="unfinished">ਇਕਾਈ ਚੁਣੋ</translation>
+        <translation>ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation type="unfinished">ਝਰੋਖਾ ਚੁਣੋ</translation>
+        <translation>ਵਿੰਡੋ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation type="unfinished" />
+        <translation>ਵਿੰਡੋ ਅਣਚੁਣੀ ਕਰੋ</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation type="unfinished">ਖਾਕਾ (ਨਾ-)ਚੁਣੋ(&amp;C)</translation>
+        <translation>(ਅਣ)ਚੁਣੋ &amp;ਕੰਟੂਰ</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation type="unfinished">ਕਾਂਟਵੀਆਂ ਇਕਾਈਆਂ ਚੁਣੋ</translation>
+        <translation>ਕਟਾਉਂਦੀਆਂ ਐਂਟੀਟੀਆਂ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation type="unfinished">ਕਾਂਟਵੀਆਂ ਇਕਾਈਆਂ ਨਾ-ਚੁਣੋ</translation>
+        <translation>ਕਟਾਉਂਦੀਆਂ ਐਂਟੀਟੀਆਂ ਅਣਚੁਣੀਆਂ ਕਰੋ</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation type="unfinished">ਪਰਤ (ਨ-)ਚੁਣੋ</translation>
+        <translation>(ਅਣ)ਚੁਣੋ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation type="unfinished">ਬਿੰਦੂ(&amp;P)</translation>
+        <translation>&amp;ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation type="unfinished">&amp;2 ਬਿੰਦੂ</translation>
+        <translation>&amp;2 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation type="unfinished">ਕੋਣ(&amp;A)</translation>
+        <translation>&amp;ਕੋਣ</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation type="unfinished">ਖਿਤਿਜੀ(&amp;H)</translation>
+        <translation>&amp;ਹਰੀਜ਼ੋਂਟਲ</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ</translation>
+        <translation>ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation type="unfinished">ਹੱਥ ਨਾਲ ਰੇਖਾ(&amp;F)</translation>
+        <translation>&amp;ਫ੍ਰੀਹੈਂਡ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੈਰਲਲ</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation type="unfinished">ਬਿੰਦੂ ਰਾਹੀਂ ਸਮਾਂਤਰ</translation>
+        <translation>ਪੈਰਲਲ ਬਿੰਦੂ ਰਾਹੀਂ</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished">ਚਤੁਰਭੁਜ</translation>
+        <translation>ਆਇਤ</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation type="unfinished">ਦੋ-ਖੰਡ</translation>
+        <translation>ਬਾਈਸੈਕਟਰ</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation type="unfinished">ਸਪਰਸ਼ ਰੇਖਾ (P,C)</translation>
+        <translation>ਟੈਨਜੈਂਟ (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation type="unfinished">ਸਪਰਸ਼ ਰੇਖਾ (C,C)</translation>
+        <translation>ਟੈਨਜੈਂਟ (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>ਟੈਨਜੈਂਟ &amp;ਆਰਥੋਗੋਨਲ</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ ਕਾਂਟ</translation>
+        <translation>ਆਰਥੋਗੋਨਲ</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished">ਅਨੁਸਾਰੀ ਕੋਣ</translation>
+        <translation>ਰਿਲੇਟਿਵ ਕੋਣ</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation type="unfinished">ਬਹੁਭੁਜ(ਕੇਂਦਰ, ਕੋਨਾ)(&amp;y)</translation>
+        <translation>ਪੌਲੀਗੌਨ (Cen,Cor)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation type="unfinished">ਬਹੁਭੁਜ(ਕੋਨਾ, ਕੋਨਾ)(&amp;n)</translation>
+        <translation>ਪੌਲੀਗੌਨ (Cor,Cor)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation type="unfinished">ਕੇਂਦਰ, ਬਿੰਦੂ(&amp;P)</translation>
+        <translation>ਸੈਂਟਰ, &amp;ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation type="unfinished">ਕੇਂਦਰ, ਅਰਧ-ਵਿਆਸ(&amp;R)</translation>
+        <translation>ਸੈਂਟਰ, &amp;ਰੇਡੀਅਸ</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation type="unfinished">2 ਬਿੰਦੂ</translation>
+        <translation>2 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation type="unfinished" />
+        <translation>2 ਬਿੰਦੂ, ਰੇਡੀਅਸ</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation type="unfinished">3 ਬਿੰਦੂ</translation>
+        <translation>3 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation type="unfinished">ਸਮਕੇਂਦਰੀ(&amp;C)</translation>
+        <translation>&amp;ਕੰਸੈਂਟ੍ਰਿਕ</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>ਸਰਕਲ &amp;ਇਨਸਕ੍ਰਾਈਬਡ</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation type="unfinished" />
+        <translation>ਟੈਨਜੈਂਟੀਅਲ 2 ਸਰਕਲ, ਰੇਡੀਅਸ</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation type="unfinished" />
+        <translation>ਟੈਨਜੈਂਟੀਅਲ 2 ਸਰਕਲ, 1 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation type="unfinished" />
+        <translation>ਟੈਨਜੈਂਟੀਅਲ &amp;3 ਸਰਕਲ</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation type="unfinished" />
+        <translation>ਟੈਨਜੈਂਟੀਅਲ, 2 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation type="unfinished">ਕੇਂਦਰ, ਬਿੰਦੂ, ਕੋਣ(&amp;C)</translation>
+        <translation>&amp;ਸੈਂਟਰ, ਬਿੰਦੂ, ਕੋਣ</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation type="unfinished">&amp;3 ਬਿੰਦੂ</translation>
+        <translation>&amp;3 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਕ &amp;ਟੈਨਜੈਂਟੀਅਲ</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation type="unfinished">ਅੰਡਾਕਾਰ(ਧੁਰਾ)(&amp;E)</translation>
+        <translation>&amp;ਐਲਿਪਸ (ਧੁਰਾ)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation type="unfinished" />
+        <translation>ਐਲਿਪਸ &amp;ਆਰਕ (ਧੁਰਾ)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation type="unfinished" />
+        <translation>ਐਲਿਪਸ &amp;ਫੋਕੀ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation type="unfinished" />
+        <translation>ਐਲਿਪਸ &amp;4 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>ਐਲਿਪਸ ਸੈਂਟਰ ਅਤੇ &amp;3 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>ਐਲਿਪਸ &amp;ਇਨਸਕ੍ਰਾਈਬਡ</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਪਲਾਈਨ</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਪਲਾਈਨ ਬਿੰਦੂਆਂ ਰਾਹੀਂ</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished">ਬਹੁਭੁਜ(&amp;P)</translation>
+        <translation>&amp;ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਨੋਡ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation type="unfinished" />
+        <translation>ਨੋਡ &amp;ਜੋੜੋ</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਨੋਡ ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation type="unfinished" />
+        <translation>ਦੋ ਨੋਡਾਂ ਵਿਚਾਲੇ &amp;ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸੈਗਮੈਂਟ ਟ੍ਰਿਮ ਕਰੋ</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਬਰਾਬਰ ਦੂਰੀ ਵਾਲੀਆਂ ਪੌਲੀਲਾਈਨਾਂ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished" />
+        <translation>ਮੌਜੂਦਾ &amp;ਸੈਗਮੈਂਟ ਤੋਂ ਪੌਲੀਲਾਈਨ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐੱਮ ਟੈਕਸਟ</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation type="unfinished">ਪਾਠ(&amp;T)</translation>
+        <translation>&amp;ਟੈਕਸਟ</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation type="unfinished">ਮੋਘਾ(&amp;H)</translation>
+        <translation>&amp;ਹੈਚ</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation type="unfinished" />
+        <translation>ਚਿੱਤਰ &amp;ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation type="unfinished">ਇਕਸਾਰ(&amp;A)</translation>
+        <translation>&amp;ਅਲਾਈਨਡ</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation type="unfinished">ਰੇਖਿਕ(&amp;L)</translation>
+        <translation>&amp;ਲੀਨੀਅਰ</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ(&amp;V)</translation>
+        <translation>&amp;ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation type="unfinished">ਰੇਡੀਅਲ(&amp;R)</translation>
+        <translation>&amp;ਰੇਡੀਅਲ</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation type="unfinished">ਡਾਈਮੈਟਰਿਕ(&amp;D)</translation>
+        <translation>&amp;ਡਾਇਮੀਟ੍ਰਿਕ</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation type="unfinished">ਕੋਣੀ(&amp;A)</translation>
+        <translation>&amp;ਐਂਗੂਲਰ</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation type="unfinished">ਲੀਡਰ(&amp;L)</translation>
+        <translation>&amp;ਲੀਡਰ</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation type="unfinished">ਗੁਣ(&amp;A)</translation>
+        <translation>&amp;ਐਟ੍ਰੀਬਿਊਟਸ</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished">ਹਟਾਓ(&amp;D)</translation>
+        <translation>&amp;ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation type="unfinished">ਹੱਥ ਨਾਲ ਕੀਤਾ ਹਟਾਓ</translation>
+        <translation>ਫ੍ਰੀਹੈਂਡ ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation type="unfinished">ਭੇਜੋ /  ਨਕਲ(&amp;M)</translation>
+        <translation>&amp;ਭੇਜੋ / ਕਾਪੀ</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation type="unfinished" />
+        <translation>ਦਿਸ਼ਾ &amp;ਉਲਟਾਓ</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation type="unfinished">ਘੁੰਮਾਓ(&amp;R)</translation>
+        <translation>&amp;ਘੁਮਾਓ</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation type="unfinished">ਪੈਮਾਨਾ(&amp;S)</translation>
+        <translation>&amp;ਸਕੇਲ</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation type="unfinished">ਪ੍ਰਤੀਬਿੰਬ(&amp;M)</translation>
+        <translation>&amp;ਮਿਰਰ</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation type="unfinished">ਦੋ ਘੁੰਮਾਓ(&amp;w)</translation>
+        <translation>ਦੋ ਘੁਮਾਓ</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation type="unfinished">ਵਿਸ਼ੇਸਤਾ(&amp;P)</translation>
+        <translation>&amp;ਗੁਣ</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation type="unfinished">ਛਾਂਟੋ(&amp;T)</translation>
+        <translation>&amp;ਟ੍ਰਿਮ</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation type="unfinished">Lengthen(&amp;L)</translation>
+        <translation>&amp;ਲੰਮਾ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਵੰਡੋ</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation type="unfinished">ਖਿੱਚੋ(&amp;S)</translation>
+        <translation>&amp;ਸਟ੍ਰੈਚ</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation type="unfinished">ਬੀਵੀਲ(&amp;B)</translation>
+        <translation>&amp;ਬੈਵਲ</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਫਿਲੈਟ</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation type="unfinished">ਸ਼ਬਦਾਂ ਨੂੰ ਅੱਖਰਾਂ ਵਿੱਚ ਫੈਲਾਉ(&amp;E)</translation>
+        <translation>&amp;ਟੈਕਸਟ ਨੂੰ ਅੱਖਰਾਂ ਵਿੱਚ ਫਟਾਓ</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation type="unfinished">ਖਾਕੇ ਦੇ ਅੰਦਰ ਬਿੰਦੂ</translation>
+        <translation>ਕੰਟੂਰ ਵਿਚਲਾ ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation type="unfinished">ਬਿੰਦੂ ਤੋਂ ਬਿੰਦੂ ਦੂਰੀ(&amp;D)</translation>
+        <translation>&amp;ਬਿੰਦੂ ਤੋਂ ਬਿੰਦੂ ਤੱਕ ਦੂਰੀ</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation type="unfinished">ਇਕਾਈ ਤੋਂ ਬਿੰਦੂ ਦੀ ਦੂਰੀ(&amp;D)</translation>
+        <translation>&amp;ਐਂਟੀਟੀ ਤੋਂ ਬਿੰਦੂ ਤੱਕ ਦੂਰੀ</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation type="unfinished" />
+        <translation>ਦੋ ਲਾਈਨਾਂ ਵਿਚਾਲੇ &amp;ਕੋਣ</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation type="unfinished">ਚੁਣੀਆਂ ਇਕਾਈਆਂ ਦੀ ਲੰਬਾਈ(&amp;T)</translation>
+        <translation>&amp;ਚੁਣੀਆਂ ਐਂਟੀਟੀਆਂ ਦੀ ਕੁੱਲ ਲੰਬਾਈ</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation type="unfinished" />
+        <translation>ਪਾਲੀਗੋਨਲ &amp;ਖੇਤਰ</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਚੋਣ ਸੰਕੇਤਕ</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished">ਵਾਪਸ(&amp;U)</translation>
+        <translation>&amp;ਅਣਡੰਨਾ</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished">ਮੁੜ ਪਹਿਲਾਂ(&amp;R)</translation>
+        <translation>&amp;ਮੁੜ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished">ਕੱਟੋ(&amp;t)</translation>
+        <translation>ਕੱਟੋ</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished">ਨਕਲ(&amp;C)</translation>
+        <translation>&amp;ਕਾਪੀ</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished">ਚੇਪੋ(&amp;P)</translation>
+        <translation>&amp;ਪੇਸਟ</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation type="unfinished" />
+        <translation>ਹੇਠਾਂ ਭੇਜੋ</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation type="unfinished" />
+        <translation>ਐਂਟੀਟੀ ਤੋਂ ਬਾਅਦ ਹੇਠਾਂ</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation type="unfinished" />
+        <translation>ਐਂਟੀਟੀ ਤੋਂ ਉੱਪਰ ਉਭਾਰੋ</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਪਰ ਭੇਜੋ</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">ਪਰਤ ਸ਼ਾਮਿਲ(&amp;A)</translation>
+        <translation>&amp;ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">ਬਲਾਕ ਹਟਾਓ(&amp;R)</translation>
+        <translation>&amp;ਲੇਅਰ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation type="unfinished">ਪਰਤ ਸੋਧ(&amp;E)</translation>
+        <translation>&amp;ਲੇਅਰ ਸੰਪਾਦਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਲਾਕ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਅਰ ਦਿਖਾਈ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਪ੍ਰਿੰਟ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਕੰਸਟ੍ਰਕਸ਼ਨ ਲੇਅਰ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਸ਼ਾਮਿਲ(&amp;A)</translation>
+        <translation>&amp;ਬਲਾਕ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਹਟਾਓ(&amp;R)</translation>
+        <translation>&amp;ਬਲਾਕ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਨਾਂ-ਤਬਦੀਲ(&amp;R)</translation>
+        <translation>&amp;ਬਲਾਕ ਨਾਮ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਸੋਧ(&amp;E)</translation>
+        <translation>&amp;ਬਲਾਕ ਸੰਪਾਦਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਬਲਾਕ ਸੰਭਾਲੋ</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਸ਼ਾਮਿਲ(&amp;I)</translation>
+        <translation>&amp;ਬਲਾਕ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation type="unfinished" />
+        <translation>ਬਲਾਕ ਦਿਖਾਈ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation type="unfinished">ਬਲਾਕ ਬਣਾਓ(&amp;C)</translation>
+        <translation>&amp;ਬਲਾਕ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਸ&amp;ਪਲੋਡ</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation type="unfinished">ਕਾਰਜ ਪਸੰਦ(&amp;A)</translation>
+        <translation>&amp;ਐਪਲੀਕੇਸ਼ਨ ਤਰਜੀਹਾਂ</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation type="unfinished">ਮੌਜੂਦਾ ਡਰਾਇੰਗ ਪਸੰਦ(&amp;D)</translation>
+        <translation>ਮੌਜੂਦਾ &amp;ਡ੍ਰਾਇੰਗ ਤਰਜੀਹਾਂ</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation type="unfinished">ਚੁਣਿਆ ਹਟਾਓ(&amp;D)</translation>
+        <translation>&amp;ਚੁਣਿਆ ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished">ਸਭ ਚੁਣੋ(&amp;A)</translation>
+        <translation>&amp;ਸਭ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation type="unfinished">ਸਭ ਨਾ-ਚੁਣੋ(&amp;A)</translation>
+        <translation>ਸਭ ਅਣਚੁਣਾ ਕਰੋ</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation type="unfinished">ਉਲਟ ਚੋਣ</translation>
+        <translation>ਚੋਣ ਉਲਟਾਓ</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished">ਅਕਾਰ ਵਧਾਓ(&amp;I)</translation>
+        <translation>&amp;ਜ਼ੂਮ ਇਨ</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished">ਅਕਾਰ ਘਟਾਓ(&amp;O)</translation>
+        <translation>&amp;ਜ਼ੂਮ ਆਊਟ</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation type="unfinished">ਸਵੈ-ਜ਼ੂਮ(&amp;A)</translation>
+        <translation>&amp;ਆਟੋ ਜ਼ੂਮ</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation type="unfinished" />
+        <translation>ਪਿਛਲੀ &amp;ਵਿਊ</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation type="unfinished">ਮੁੜ-ਖਿੱਚੋ(&amp;R)</translation>
+        <translation>&amp;ਮੁੜ ਡ੍ਰਾਅ</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished">ਨਵਾਂ(&amp;N)</translation>
+        <translation>&amp;ਨਵਾਂ</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਟੈਮਪਲੇਟ ਤੋਂ ਨਵਾਂ</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished">ਖੋਲੋ(&amp;O)...</translation>
+        <translation>&amp;ਖੋਲ੍ਹੋ...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">ਸੰਭਾਲੋ(&amp;S)</translation>
+        <translation>&amp;ਸੰਭਾਲੋ</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished">ਏਦਾਂ ਸੰਭਾਲੋ(&amp;a)...</translation>
+        <translation>ਸੰਭਾਲੋ &amp;ਜਿਵੇਂ...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਚਿੱਤਰ ਵਜੋਂ ਐਕਸਪੋਰਟ</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">ਬੰਦ ਕਰੋ(&amp;C)</translation>
+        <translation>&amp;ਬੰਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished">ਛਾਪੋ(&amp;P)...</translation>
+        <translation>&amp;ਪ੍ਰਿੰਟ...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>PDF ਵਜੋਂ ਐਕਸਪੋਰਟ</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="unfinished">ਛਪਾਈ ਝਲਕ(&amp;v)</translation>
+        <translation>ਪ੍ਰਿੰਟ ਪ੍ਰੀ&amp;ਵਿਊ</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">ਬਾਹਰ(&amp;Q)</translation>
+        <translation>&amp;ਛੱਡੋ</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation type="unfinished">ਬਲਾਕ(&amp;B)</translation>
+        <translation>&amp;ਬਲਾਕ</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੂਰਾ ਸਕ੍ਰੀਨ</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation type="unfinished">ਗਰਿੱਡ(&amp;G)</translation>
+        <translation>&amp;ਗ੍ਰਿਡ</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
         <comment>Toggle Grid</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation type="unfinished">ਡਰਾਫਟ(&amp;D)</translation>
+        <translation>&amp;ਡ੍ਰਾਫਟ</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation type="unfinished">ਸਥਿਤੀ ਪੱਟੀ(&amp;S)</translation>
+        <translation>&amp;ਸਟੇਟਸਬਾਰ</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
         <comment>Hide Statusbar</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation type="unfinished">ਕਮਾਂਡ ਰੇਖਾ ਉੱਤੇ ਫੋਕਸ(&amp;C)</translation>
+        <translation>&amp;ਕਮਾਂਡ ਲਾਈਨ ਉੱਤੇ ਫੋਕਸ</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਜੈੱਟ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">ਖੱਬਾ</translation>
+        <translation>ਖੱਬਾ</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">ਸੱਜਾ</translation>
+        <translation>ਸੱਜਾ</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਪਰ</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>ਹੇਠਾਂ</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished" />
+        <translation>ਫਲੋਟਿੰਗ</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>ਸਟਾਈਲ ਸ਼ੀਟ ਮੁੜ ਲੋਡ ਕਰੋ</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਵਾਈਸ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation type="unfinished" />
+        <translation>ਭੇਜੋ ਅਤੇ ਘੁਮਾਓ</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation type="unfinished" />
+        <translation>ਟ੍ਰਿਮ ਟੂ</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
-        <translation type="unfinished" />
+        <translation>ਆਫਸੈੱਟ</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>ਮੀਨੂ ਰਚਨਾਕਾਰ</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>ਟੂਲਬਾਰ ਰਚਨਾਕਾਰ</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
         <comment>Toggle Draft Mode</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਗੌਨ (Cen,Tan)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation type="unfinished">ਚਾਪ(&amp;A)</translation>
+        <translation>&amp;ਆਰਕ</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਾਰੇ ਲੇਅਰ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਾਰੇ ਲੇਅਰ ਲੁਕਾਓ</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਅਨਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਚੁਣੇ ਲੇਅਰ ਐਕਸਪੋਰਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>ਦਿਖਾਈ ਦੇ ਰਹੇ ਲੇਅਰ ਐਕਸਪੋਰਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਾਰੇ ਬਲਾਕ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਾਰੇ ਬਲਾਕ ਲੁਕਾਓ</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation type="unfinished" />
+        <translation>CA&amp;M/ਪਲੇਨ SVG ਵਜੋਂ ਐਕਸਪੋਰਟ...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਬੰਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਜੈੱਟ ਮੁੜ ਡੌਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਸੰਭਾਲੋ...</translation>
     </message>
     <message>
         <source>Cross</source>
-        <translation type="unfinished" />
+        <translation>ਕਰਾਸ</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਪ</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਪ (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਪ (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation type="unfinished" />
+        <translation>ਆਇਤ (1 ਬਿੰਦੂ)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation type="unfinished" />
+        <translation>ਆਇਤ (2 ਬਿੰਦੂ)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation type="unfinished" />
+        <translation>ਆਇਤ (3 ਬਿੰਦੂ)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation type="unfinished" />
+        <translation>ਤਾਰਾ</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation type="unfinished" />
+        <translation>ਤੋੜੋ/ਵੰਡੋ</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਗੈਪ</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਤੋਂ ਕੋਣ</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਥੋਗੋਨਲ ਤੋਂ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation type="unfinished" />
+        <translation>ਬਿੰਦੂ ਤੋਂ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation type="unfinished" />
+        <translation>ਸਲਾਈਸ/ਵੰਡ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation type="unfinished" />
+        <translation>ਸਲਾਈਸ/ਵੰਡ ਸਰਕਲ</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation type="unfinished" />
+        <translation>ਬਿੰਦੂਆਂ ਦੀ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਕ ਰਾਹੀਂ</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾ&amp;ਬੋਲਾ 4 ਬਿੰਦੂ</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ &amp;ਫੋਕਸ ਡਾਇਰੈਕਟ੍ਰਿਕਸ</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐਂਟੀਟੀ ਤੋਂ ਪੈਨ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐਂਟੀਟੀ ਤੋਂ ਪੈਨ ਚੁਣੋ (ਹੱਲ ਕੀਤਾ)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation type="unfinished" />
+        <translation>ਐਂਟੀਟੀ ਉੱਤੇ ਪੈਨ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਕਾਪੀ ਕਰੋ</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਜੁਆਇਨ</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished" />
+        <translation>ਡੁਪਲੀਕੇਟ</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਲੇਅਰ ਦੀ ਪੈਨ ਨਾਲ ਮੌਜੂਦਾ ਪੈਨ ਅੱਪਡੇਟ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>ਇਸ ਤਰ੍ਹਾਂ ਐਕਸਪੋਰਟ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
         <source>Saving layer "%1" as "%2" </source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ „%1“ ਨੂੰ „%2“ ਵਜੋਂ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ ਹੈ </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਚੁਣਨ ਲਈ ਐਂਟੀਟੀ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਲਾਗੂ ਕਰਨ ਲਈ ਐਂਟੀਟੀ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਚੁਣਨ ਲਈ ਐਂਟੀਟੀ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation type="unfinished" />
+        <translation>ਪ੍ਰਤੀਸ਼ਤ / ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation type="unfinished" />
+        <translation>ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation type="unfinished" />
+        <translation>ਅੰਤਿਮ ਬਿੰਦੂ ਨਿਰਧਾਰਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">ਪਿੱਛੇ</translation>
+        <translation>ਪਿੱਛੇ</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ ਹੱਲ ਕੀਤਾ</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation type="unfinished" />
+        <translation>ਰੇਡੀਅਸ ਸ਼ਿਫਟ:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ਪਰਤ:</translation>
+        <translation>ਲੇਅਰ:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਕ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਸਟੈਂਸ਼ਨ</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation type="unfinished" />
+        <translation>ਕੁੱਲ ਲੰਬਾਈ</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished" />
+        <translation>ਪ੍ਰਤੀਸ਼ਤ</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished" />
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished" />
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished" />
+        <translation>ਟਾਈਪ</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">ਕੋਣ:</translation>
+        <translation>ਕੋਣ:</translation>
     </message>
 </context>
 <context>
     <name>LC_DeviceOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਵਾਈਸ</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>ਸੰਭਾਲੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਰਾਬੋਲਾ ਕੰਟਰੋਲ ਬਿੰਦੂ ਕੋਲੀਨੀਅਰ ਨਹੀਂ ਹੋ ਸਕਦੇ</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ਪਰਤ:</translation>
+        <translation>ਲੇਅਰ:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation type="unfinished" />
+        <translation>ਥਾਂ ਤੇ</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation type="unfinished" />
+        <translation>X ਆਫਸੈੱਟ:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ ਹੱਲ ਕੀਤਾ</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation type="unfinished" />
+        <translation>Y ਆਫਸੈੱਟ:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation type="unfinished">ਪਰਤ ਵਿਵਸਥਾ</translation>
+        <translation>ਲੇਅਰ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation type="unfinished" />
+        <translation>ਮਾਤਾ ਲੇਅਰਾਂ ਦਾ ਪਾਥ:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਟਾਈਪ</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>ਜਾਣਕਾਰੀ ਵਾਲਾ</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished" />
+        <translation>ਸਧਾਰਨ</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished">ਮਾਪ</translation>
+        <translation>ਡਾਇਮੈਂਸ਼ਨ</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਕਲਪਿਕ ਸਥਿਤੀ</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation type="unfinished" />
+        <translation>ਇੱਕ ਕੰਸਟ੍ਰਕਸ਼ਨ ਲੇਅਰ ਵਿੱਚ ਅਨੰਤ ਸਿੱਧੀਆਂ ਲਾਈਨਾਂ ਵਾਲੀਆਂ ਐਂਟੀਟੀਆਂ ਹਨ ਜੋ ਜਿਓਮੈਟ੍ਰਿਕ ਬਣਾਉਣ ਲਈ ਵਰਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।
+       ਕੰਸਟ੍ਰਕਸ਼ਨ ਲੇਅਰ ਦੀ ਸਮੱਗਰੀ ਉਸ ਉੱਪਰ ਛਾਪਣ ਵਿੱਚ ਨਹੀਂ ਦਿਖਾਈ ਦੇਣੀ ਚਾਹੀਦੀ।</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਸਟ੍ਰਕਸ਼ਨ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation type="unfinished">ਪਰਤ ਨਾਂ:</translation>
+        <translation>ਲੇਅਰ ਦਾ ਨਾਮ:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation type="unfinished" />
+        <translation>ਵਰਚੁਅਲ ਲੇਅਰ ਨਾਮ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਕੰਡਰੀ ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਸੰਪਾਦਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation type="unfinished">ਮੂਲ ਪੈਨ</translation>
+        <translation>ਡਿਫੌਲਟ ਪੈਨ</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਨਾਮ ਬਦਲੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਟ੍ਰੀ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation type="unfinished" />
+        <translation>ਨਾਮਕਰਣ ਰੀਤੀ</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਲੈਵਲ ਨਾਮ ਵਿਭਾਜਕ</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਕੰਡਰੀ ਲੇਅਰ ਸਫਿਕਸ</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished" />
+        <translation>ਡਾਇਮੈਂਸ਼ਨਲ</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>ਜਾਣਕਾਰੀ ਵਾਲਾ</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation type="unfinished" />
+        <translation>ਵਿਕਲਪਿਕ ਸਥਿਤੀ </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation type="unfinished" />
+        <translation>ਨਾਮ ਡੁਪਲੀਕੇਟ ਕਰਨਾ</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="unfinished" />
+        <translation>ਪ੍ਰੀਫਿਕਸ</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation type="unfinished" />
+        <translation>ਸਫਿਕਸ</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਸਪਲੇਅ ਅਤੇ ਆਪਰੇਸ਼ਨ</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation type="unfinished" />
+        <translation>ਪੂਰਾ ਨਾਮ ਟੂਲਟਿੱਪ ਵਜੋਂ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਟਾਈਪ ਆਈਕਾਨ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation type="unfinished" />
+        <translation>ਇੰਡੈਂਟਡ ਲੇਅਰ ਨਾਮ ਵਿਖਾਓ। ਇੰਡੈਂਟ ਸਾਈਜ਼:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation type="unfinished" />
+        <translation>ਡ੍ਰੈਗ&amp;ਡ੍ਰੌਪ ਰਾਹੀਂ ਪੁਨਰਸੰਰਚਨਾ ਦੀ ਇਜਾਜ਼ਤ</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation type="unfinished" />
+        <translation>ਪ੍ਰਾਈਮਰੀ ਨਾਮ ਬਦਲਣ ਤੇ ਸੈਕੰਡਰੀ ਲੇਅਰਾਂ ਦਾ ਨਾਮ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation type="unfinished" />
+        <translation>ਹਾਈਲਾਈਟ ਫਿਲਟਰ ਮੋਡ ਵਿੱਚ ਮਿਲਦਾ ਆਈਟਮ</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation type="unfinished" />
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation type="unfinished" />
+        <translation>ਵਰਚੁਅਲ ਲੇਅਰ ਬੈਕਗ੍ਰਾਊਂਡ ਰੰਗ</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation type="unfinished" />
+        <translation>ਥ੍ਰੀਵਿਊ ਆਈਟਮਾਂ ਵਿਭਾਜਕ ਗ੍ਰਿਡ</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation type="unfinished" />
+        <translation>ਚੁਣੀਆਂ ਆਈਟਮਾਂ ਦਾ ਬੈਕਗ੍ਰਾਊਂਡ ਰੰਗ</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਲੇਅਰ ਬੈਕਗ੍ਰਾਊਂਡ ਰੰਗ</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਫੌਲਟ ਪੈਨ</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>ਨੌਰਮਲ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>ਡਾਇਮੈਂਸ਼ਨਲ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation type="unfinished" />
+        <translation>ਜਾਣਕਾਰੀ ਵਾਲੀ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਕਲਪਿਕ ਸਥਿਤੀ ਲੇਅਰ</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ ਚੁਣੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਲਟਰ</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished" />
+        <translation>ਮਿਲਦੇ ਲੇਅਰ ਨਾਮ ਲੱਭ ਰਿਹਾ ਹੈ</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>ਹਾਈਲਾਈਟ ਮੋਡ</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation type="unfinished">ਸਭ ਪਰਤਾਂ ਵੇਖਾਓ</translation>
+        <translation>ਸਾਰੀਆਂ ਲੇਅਰਾਂ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation type="unfinished">ਸਭ ਪਰਤਾਂ ਓਹਲੇ</translation>
+        <translation>ਸਾਰੀਆਂ ਲੇਅਰਾਂ ਲੁਕਾਓ</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਕੰਡਰੀ ਲੇਅਰਾਂ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation type="unfinished" />
+        <translation>ਸਿਰਫ ਐਕਟਿਵ ਲੇਅਰ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਫੈਲਾਓ</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਸਮੇਟੋ</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਕੰਡਰੀ ਸਮੇਟੋ</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਰੀਆਂ ਲੇਅਰਾਂ ਅਨਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਰੀਆਂ ਲੇਅਰਾਂ ਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation type="unfinished">ਇੱਕ ਪਰਤ ਸ਼ਾਮਿਲ</translation>
+        <translation>ਇੱਕ ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation type="unfinished" />
+        <translation>ਡਾਇਮੈਂਸ਼ਨ ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished">ਪਰਤ ਗੁਣ ਸੋਧ / ਨਾਂ-ਤਬਦੀਲ</translation>
+        <translation>ਲੇਅਰ ਐਟ੍ਰੀਬਿਊਟ ਬਦਲੋ / ਨਾਮ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation type="unfinished" />
+        <translation>ਫਲੈਟ ਲਿਸਟ ਮੋਡ)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation type="unfinished">ਪਰਤ ਮੇਨੂ</translation>
+        <translation>ਲੇਅਰ ਮੀਨੂ</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਚਾਈਲਡ ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਨਾਮ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਅਰਾਂ ਹਟਾਓ (ਸਬ-ਟ੍ਰੀ)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਟ੍ਰਕਚਰ ਕਾਪੀ ਕਰੋ (ਸਬ-ਟ੍ਰੀ)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਮੱਗਰੀ ਡੁਪਲੀਕੇਟ ਕਰੋ (ਸਬ-ਟ੍ਰੀ)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐਂਟੀਟੀ ਚੁਣੋ (ਸਬ-ਟ੍ਰੀ)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਅਰ &amp;ਐਟ੍ਰੀਬਿਊਟ ਸੰਪਾਦਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">ਬਲਾਕ ਹਟਾਓ(&amp;R)</translation>
+        <translation>&amp;ਲੇਅਰ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਡਾਇਮੈਂਸ਼ਨ ਸਬ-ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਇਨਫੋ ਸਬ-ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਵਿਕਲਪਿਕ ਵਿਊ ਸਬ-ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਬ-ਲੇਅਰ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>ਡਾਇਮੈਂਸ਼ਨਲ ਲੇਅਰ ਵਿੱਚ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation type="unfinished" />
+        <translation>ਇਨਫੋ ਲੇਅਰ ਵਿੱਚ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਕਲਪਿਕ ਸਥਿਤੀ ਲੇਅਰ ਵਿੱਚ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>ਨੌਰਮਲ ਲੇਅਰ ਵਿੱਚ ਬਦਲੋ</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਅਰ ਦੀਆਂ ਐਂਟੀਟੀਆਂ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਅਰ ਕਾਪੀ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਮੱਗਰੀ ਨਾਲ ਲੇਅਰ ਡੁਪਲੀਕੇਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>ਚੋਣ ਨੂੰ ਲੇਅਰ ਵਿੱਚ ਭੇਜੋ</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>ਚੋਣ ਨੂੰ ਲੇਅਰ ਵਿੱਚ ਡੁਪਲੀਕੇਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">ਪਰਤ ਸ਼ਾਮਿਲ(&amp;A)</translation>
+        <translation>&amp;ਲੇਅਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਹੋਰ ਲੇਅਰਾਂ ਫ੍ਰੀਜ਼ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਡੀਫ੍ਰੀਜ਼ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਫ੍ਰੀਜ਼ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਅਨਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਲਾਕ ਕਰੋ</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਲਈ ਪ੍ਰਿੰਟਿੰਗ ਸਮਰੱਥ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਭ ਲੇਅਰਾਂ ਲਈ ਪ੍ਰਿੰਟਿੰਗ ਅਸਮਰੱਥ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਖਾਲੀ ਲੇਅਰਾਂ ਲੱਭੋ ਅਤੇ ਹਟਾਓ</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>ਆਫਸੈੱਟ:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>ਫ੍ਰੀ</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">ਸ਼ੁਰੂ</translation>
+        <translation>ਸ਼ੁਰੂ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">ਅੰਤ</translation>
+        <translation>ਅੰਤ</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>ਰਿਲੇਟਿਵ</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">ਭਾਗ</translation>
+        <translation>ਵੰਡੋ</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਟਿਕ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">ਲੰਬਾਈ:</translation>
+        <translation>ਲੰਬਾਈ:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">ਕੋਣ:</translation>
+        <translation>ਕੋਣ:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਦੂਰੀ:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">ਕੋਣ:</translation>
+        <translation>ਕੋਣ:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਈਜ਼:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ ਕਾਂਟ</translation>
+        <translation>ਆਰਥੋਗੋਨਲ</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation type="unfinished" />
+        <translation>ਕਟਾਉਂਦੇ ਤੱਕ</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਕਸਡ ਲੰਬਾਈ</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation type="unfinished" />
+        <translation>ਅੰਤ ਆਫਸੈੱਟ:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">ਸ਼ੁਰੂ</translation>
+        <translation>ਸ਼ੁਰੂ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">ਅੰਤ</translation>
+        <translation>ਅੰਤ</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">ਲੰਬਾਈ:</translation>
+        <translation>ਲੰਬਾਈ:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਸਟੈਂਡ/ਟ੍ਰਿਮ</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਗਮੈਂਟ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਈ ਤਬਦੀਲੀ ਨਹੀਂ</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ ਬਣਾਓ</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation type="unfinished" />
+        <translation>ਐਟ੍ਰੀਬਿਊਟ:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਪੈਨ</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ ਲਾਈਨਾਂ</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">ਕੋਣ:</translation>
+        <translation>ਕੋਣ:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation type="unfinished" />
+        <translation>ਫਿੱਟ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">ਕੋਈ ਨਹੀਂ</translation>
+        <translation>ਕੋਈ ਨਹੀਂ</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">ਸ਼ੁਰੂ</translation>
+        <translation>ਸ਼ੁਰੂ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">ਅੰਤ</translation>
+        <translation>ਅੰਤ</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation type="unfinished" />
+        <translation>ਐਜ ਬਿੰਦੂ:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation type="unfinished" />
+        <translation>ਬਿੰਦੂਆਂ ਦੀ ਗਿਣਤੀ:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਕਸਡ ਦੂਰੀ</translation>
     </message>
 </context>
 <context>
@@ -1946,869 +1950,871 @@ or [%2]</source>
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਗਮੈਂਟ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation type="unfinished" />
+        <translation>ਚੁਣਿਆ ਹਟਾਓ</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਗੈਪ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਦੂਰੀ:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>ਫ੍ਰੀ</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation type="unfinished" />
+        <translation>ਗੈਪ ਆਕਾਰ:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">ਸ਼ੁਰੂ</translation>
+        <translation>ਸ਼ੁਰੂ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">ਅੰਤ</translation>
+        <translation>ਅੰਤ</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਸਨੈਪ:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਪੈਲੈਟ ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation type="unfinished" />
+        <translation>ਦਿਖਾਉਣ ਲਈ ਕਾਲਮ</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਟਾਈਪ ਨਾਮ</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ ਨਾਮ</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਟਾਈਪ ਆਈਕਾਨ</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ ਆਈਕਾਨ</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਚੌੜਾਈ ਆਈਕਾਨ</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਈਨ ਚੌੜਾਈ ਨਾਮ</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਪੈਨ ਬੈਕਗ੍ਰਾਊਂਡ:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation type="unfinished" />
+        <translation>ਸਾਰੀ ਟੇਬਲ ਰੋ ਐਕਟਿਵ ਪੈਨ ਲਈ ਬੋਲਡ ਹੈ</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation type="unfinished" />
+        <translation>ਗ੍ਰਿਡ ਰੰਗ:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation type="unfinished" />
+        <translation>ਮਿਲਦਾ ਆਈਟਮ ਰੰਗ:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation type="unfinished" />
+        <translation>ਕੇਸ-ਇਨਸੈਂਸਿਟਿਵ ਪੈਨ ਫਿਲਟਰਿੰਗ</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਟਰੋਲ ਕਰਦਾ ਹੈ ਕਿ ਟੇਬਲ ਆਈਟਮ ਲਈ ਟੂਲਟਿੱਪ ਵਿਖਾਈ ਜਾਵੇ ਜਾਂ ਨਾ</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation type="unfinished" />
+        <translation>ਟੇਬਲ ਆਈਟਮਾਂ ਲਈ ਟੂਲਟਿੱਪ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਫਾਈਲ:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation type="unfinished" />
+        <translation>ਰੰਗ ਨਾਮ ਵਿਖਾਓ ਜਿਵੇਂ</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation type="unfinished" />
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation type="unfinished" />
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation type="unfinished" />
+        <translation>ਸੰਭਵ ਤੌਰ ਤੇ ਕੁਦਰਤੀ ਨਾਮ</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation type="unfinished" />
+        <translation>ਜੇ ਪੈਨ ਨਾਲ ਕੋਈ ਐਂਟੀਟੀ ਚੁਣੀ ਨਾ ਜਾ ਸਕੇ ਤਾਂ ਇਨਫੋ ਮੈਸੇਜ ਵਿਖਾਓ</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation type="unfinished" />
+        <translation>ਟੇਬਲ ਆਈਟਮ ਤੇ ਡਬਲ ਕਲਿੱਕ ਤੇ</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished" />
+        <translation>ਕੁਝ ਨਾ ਕਰੋ</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਟ੍ਰੀਬਿਊਟ ਪੈਨ ਰਾਹੀਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation type="unfinished" />
+        <translation>ਡ੍ਰਾਇੰਗ ਪੈਨ ਰਾਹੀਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਪੈਲੈਟ</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਨਾਮ:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">ਰੰਗ:</translation>
+        <translation>ਰੰਗ:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਲਟਰ...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>ਹਾਈਲਾਈਟ ਮੋਡ</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished" />
+        <translation>ਟਾਈਪ:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">ਚੌੜਾਈ:</translation>
+        <translation>ਚੌੜਾਈ:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>ਸੈਟਿੰਗਾਂ</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਂਟੀਟੀ ਡ੍ਰਾਇੰਗ ਪੈਨ ਰਾਹੀਂ ਪੈਨ ਐਡੀਟਰ ਭਰੋ</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation type="unfinished" />
+        <translation>ਐਂਟੀਟੀ ਐਟ੍ਰੀਬਿਊਟ ਰਾਹੀਂ ਪੈਨ ਐਡੀਟਰ ਭਰੋ</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>ਡ੍ਰਾਇੰਗ ਪੈਨ ਰਾਹੀਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਐਟ੍ਰੀਬਿਊਟ ਰਾਹੀਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>ਸੰਭਾਲੋ</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਚੋਣ ਉੱਤੇ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation type="unfinished" />
+        <translation>ਮੌਜੂਦਾ ਪੈਨ ਰਾਹੀਂ ਐਡੀਟਰ ਪੈਨ ਭਰੋ</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਡੀਟਰ ਪੈਨ ਨੂੰ ਮੌਜੂਦਾ ਪੈਨ ਵਜੋਂ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation type="unfinished" />
+        <translation>ਮੌਜੂਦਾ ਲਈ</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਲੇਅਰ ਦੀ ਪੈਨ ਰਾਹੀਂ ਮੌਜੂਦਾ ਪੈਨ ਅੱਪਡੇਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਲੇਅਰ ਦੀ ਪੈਨ ਤੋਂ ਪੈਨ ਐਡੀਟਰ ਭਰੋ</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਟਿਵ ਲੇਅਰ ਤੋਂ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation type="unfinished" />
+        <translation>ਐਡੀਟਰ ਪੈਨ ਨੂੰ ਐਕਟਿਵ ਲੇਅਰ ਪੈਨ ਉੱਤੇ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਉੱਤੇ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation type="unfinished" />
+        <translation>ਚੁਣੀ ਪੈਨ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਮੀਨੂ</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੈਨ ਚੋਣ ਉੱਤੇ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਮੌਜੂਦਾ ਪੈਨ ਵਜੋਂ ਸੈੱਟ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐਕਟਿਵ ਲੇਅਰ ਉੱਤੇ ਪੈਨ ਲਾਗੂ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਐਟ੍ਰੀਬਿਊਟ ਪੈਨ ਵਾਲੀਆਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਡ੍ਰਾਇੰਗ ਪੈਨ ਵਾਲੀਆਂ ਐਂਟੀਟੀ ਚੁਣੋ</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੈਨ ਸੰਪਾਦਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੈਨ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਪੈਨ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਪੈਲੈਟ</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਫਾਈਲ ਦੀ ਥਾਂ ਬਦਲੀ ਗਈ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਐਪਲੀਕੇਸ਼ਨ ਰੀਸਟਾਰਟ ਕਰੋ ਤਾਂ ਜੋ ਨਵੀਂ ਪੈਨ ਫਾਈਲ ਵਰਤੀ ਜਾ ਸਕੇ।
+
+ਨੋਟ: ਜੇ ਤੁਸੀਂ ਰੀਸਟਾਰਟ ਤੋਂ ਬਿਨਾਂ ਐਡੀਟਰ ਰਾਹੀਂ ਪੈਨ ਸੰਭਾਲਦੇ ਹੋ ਤਾਂ ਪੈਲੈਟ ਤੋਂ ਮੌਜੂਦਾ ਪੈਨ ਨਵੀਂ ਫਾਈਲ ਵਿੱਚ ਸੰਭਾਲੇ ਜਾਣਗੇ ਅਤੇ ਇਸ ਲਈ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਓਵਰਰਾਈਟ ਹੋ ਜਾਵੇਗੀ।</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">ਉਚਾਈ:</translation>
+        <translation>ਉਚਾਈ:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>ਕਿਨਾਰੇ:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਨੇ:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation type="unfinished" />
+        <translation>ਅੰਦਰੂਨੀ ਆਕਾਰ</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">ਅਰਧ-ਵਿਆਸ:</translation>
+        <translation>ਰੇਡੀਅਸ:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਪਰ-ਖੱਬਾ</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਪਰ</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਪਰ-ਸੱਜਾ</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">ਖੱਬਾ</translation>
+        <translation>ਖੱਬਾ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">ਸੱਜਾ</translation>
+        <translation>ਸੱਜਾ</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation type="unfinished" />
+        <translation>ਹੇਠਾਂ-ਖੱਬਾ</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>ਹੇਠਾਂ</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation type="unfinished" />
+        <translation>ਹੇਠਾਂ-ਸੱਜਾ</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>ਸਿੱਧਾ</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>ਗੋਲ</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ਬੈਵਲ</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਸ਼ਿਫਟ</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ</translation>
+        <translation>ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ਖਿਤਿਜੀ</translation>
+        <translation>ਹਰੀਜ਼ੋਂਟਲ</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">ਚੌੜਾਈ:</translation>
+        <translation>ਚੌੜਾਈ:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ਬੇਸ ਐਂਗਲ:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਸ਼ਿਫਟ</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">ਅਰਧ-ਵਿਆਸ:</translation>
+        <translation>ਰੇਡੀਅਸ:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>ਕਿਨਾਰੇ:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਅੰਤ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਨੇ:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation type="unfinished" />
+        <translation>ਸ਼ੁਰੂ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਨਾ</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation type="unfinished" />
+        <translation>ਮੱਧ-ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation type="unfinished" />
+        <translation>ਮੱਧ-ਹਰੀਜ਼ੋਂਟਲ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ਬੇਸ ਐਂਗਲ:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>ਸਿੱਧਾ</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>ਗੋਲ</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ਬੈਵਲ</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ</translation>
+        <translation>ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ਖਿਤਿਜੀ</translation>
+        <translation>ਹਰੀਜ਼ੋਂਟਲ</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ਲੰਬਕਾਰੀ</translation>
+        <translation>ਵਰਟੀਕਲ</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ਖਿਤਿਜੀ</translation>
+        <translation>ਹਰੀਜ਼ੋਂਟਲ</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>ਕਿਨਾਰੇ:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation type="unfinished" />
+        <translation>ਚਤੁਰਭੁਜ</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਕਸਡ ਬੇਸ ਐਂਗਲ:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>ਸਿੱਧਾ</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>ਗੋਲ</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ਬੈਵਲ</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਨੇ:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਸ਼ਿਫਟ</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>ਲੰਬਾਈ Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">ਅਰਧ-ਵਿਆਸ:</translation>
+        <translation>ਰੇਡੀਅਸ:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation type="unfinished" />
+        <translation>ਫਿਕਸਡ ਅੰਦਰੂਨੀ ਕੋਣ:</translation>
     </message>
 </context>
 <context>
     <name>LC_SimpleTests</name>
     <message>
         <source>De&amp;bugging</source>
-        <translation type="unfinished">ਡੀਬੱਗਿੰਗ(&amp;b)</translation>
+        <translation>ਡੀ&amp;ਬੱਗਿੰਗ</translation>
     </message>
     <message>
         <source>Insert Image</source>
-        <translation type="unfinished" />
+        <translation>ਚਿੱਤਰ ਸ਼ਾਮਲ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">ਕੋਈ ਨਹੀਂ</translation>
+        <translation>ਕੋਈ ਨਹੀਂ</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ਦੋਵੇਂ</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">ਸ਼ੁਰੂ</translation>
+        <translation>ਸ਼ੁਰੂ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">ਅੰਤ</translation>
+        <translation>ਅੰਤ</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation type="unfinished" />
+        <translation>ਐਜ ਟਿਕ:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>ਰਿਲੇਟਿਵ</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>ਆਫਸੈੱਟ:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation type="unfinished" />
+        <translation>ਗਿਣਤੀ:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation type="unfinished" />
+        <translation>ਸ਼ੁਰੂਆਤੀ ਸਰਕਲ ਕੋਣ:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation type="unfinished" />
+        <translation>ਟਿਕ ਲੰਬਾਈ:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation type="unfinished" />
+        <translation>ਟਿਕ ਸਨੈਪ:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">ਕੋਣ:</translation>
+        <translation>ਕੋਣ:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">ਭਾਗ</translation>
+        <translation>ਵੰਡੋ</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">ਮੱਧ</translation>
+        <translation>ਮੱਧ</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation type="unfinished" />
+        <translation>ਫਿਕਸਡ </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">ਦੂਰੀ:</translation>
+        <translation>ਦੂਰੀ:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਰਮ</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation type="unfinished" />
+        <translation>ਅੰਦਰੂਨੀ ਰੇਡੀਅਸ</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation type="unfinished" />
+        <translation>ਬਾਹਰੀ ਰੇਡੀਅਸ</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation type="unfinished" />
+        <translation>ਸਮਮਿਤ</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished">ਅੰਕ:</translation>
+        <translation>ਨੰਬਰ:</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetFactory</name>
     <message>
         <source>Library Browser</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਇਬ੍ਰੇਰੀ ਬ੍ਰਾਊਜ਼ਰ</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation type="unfinished">ਕਮਾਂਡ ਲਾਇਨ</translation>
+        <translation>ਕਮਾਂਡ ਲਾਈਨ</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation type="unfinished" />
+        <translation>ਡੌਕ</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>ਫਲੋਟ</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation type="unfinished">ਰੇਖਾਵਾਂ</translation>
+        <translation>ਲਾਈਨਾਂ</translation>
     </message>
     <message>
         <source>Circles</source>
-        <translation type="unfinished">ਚੱਕਰ</translation>
+        <translation>ਸਰਕਲ</translation>
     </message>
     <message>
         <source>Freehand</source>
-        <translation type="unfinished" />
+        <translation>ਫ੍ਰੀਹੈਂਡ</translation>
     </message>
     <message>
         <source>Ellipses</source>
-        <translation type="unfinished">ਅੰਡਾਕਾਰ</translation>
+        <translation>ਐਲਿਪਸ</translation>
     </message>
     <message>
         <source>PolyLines</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">ਚੁਣੋ</translation>
+        <translation>ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished">ਮਾਪ</translation>
+        <translation>ਡਾਇਮੈਂਸ਼ਨ</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished">ਸੋਧੀ</translation>
+        <translation>ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Measure</source>
-        <translation type="unfinished" />
+        <translation>ਮਾਪ</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਜੈੱਟ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished" />
+        <translation>ਟੂਲਬਾਰ</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished" />
+        <translation>ਆਈਕਾਨ ਸਾਈਜ਼</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished" />
+        <translation>ਜਨਰਲ</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished" />
+        <translation>ਸਟਾਈਲ</translation>
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>ਸਟਾਈਲ ਸ਼ੀਟ</translation>
     </message>
     <message>
         <source>Statusbar</source>
-        <translation type="unfinished">ਸਥਿਤੀ ਪੱਟੀ</translation>
+        <translation>ਸਟੇਟਸਬਾਰ</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished" />
+        <translation>ਉਚਾਈ</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished" />
+        <translation>ਫੌਂਟ ਸਾਈਜ਼</translation>
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation type="unfinished" />
+        <translation>Qt ਸਟਾਈਲ ਸ਼ੀਟ ਦਾ ਪਾਥ ਦਾਖਲ ਕਰੋ।</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation type="unfinished" />
+        <translation>ਪਿਕਸਲ ਵਿੱਚ ਸਾਈਡ ਲੰਬਾਈ</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation type="unfinished" />
+        <translation>ਥੀਮਡ ਆਈਕਾਨ ਵਰਤੋ</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation type="unfinished" />
+        <translation>ਖੱਬੀ ਟੂਲਬਾਰ ਕਾਲਮ:</translation>
     </message>
 </context>
 <context>
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation type="unfinished" />
+        <translation>ਚੁਣੋ:</translation>
     </message>
     <message>
         <source>remove left</source>
-        <translation type="unfinished" />
+        <translation>ਖੱਬਾ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation type="unfinished" />
+        <translation>ਸੱਜਾ ਹਟਾਓ</translation>
     </message>
     <message>
         <source>remove 0'</source>
-        <translation type="unfinished" />
+        <translation>0' ਹਟਾਓ</translation>
     </message>
     <message>
         <source>remove 0"</source>
-        <translation type="unfinished" />
+        <translation>0" ਹਟਾਓ</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">ਰੇਖਾ ਅਨੁਸਾਰੀ ਕੋਣ ਚੋਣ</translation>
+        <translation>ਲਾਈਨ ਰਿਲੇਟਿਵ ਐਂਗਲ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished">ਖਾਲੀ ਥਾਂ:</translation>
+        <translation>ਸਪੇਸਿੰਗ:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਲੀ ਪੌਲੀਲਾਈਨ ਤੋਂ ਦੂਰੀ</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished" />
+        <translation>ਕਾਪੀਆਂ:</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetEnt</name>
     <message>
         <source>Select object:</source>
-        <translation type="unfinished" />
+        <translation>ਆਬਜੈਕਟ ਚੁਣੋ:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetPoint</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetSelect</name>
     <message>
         <source>Select objects:</source>
-        <translation type="unfinished" />
+        <translation>ਆਬਜੈਕਟ ਚੁਣੋ:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+        <translation>ਰੱਦ ਕਰੋ</translation>
     </message>
 </context>
 <context>
@@ -2899,23 +2905,23 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">ਫਾਇਲ</translation>
+        <translation>ਫਾਈਲ</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">ਸੋਧ</translation>
+        <translation>ਸੰਪਾਦਨ</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished">ਵੇਖੋ</translation>
+        <translation>ਦੇਖੋ</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished">ਪੈਨ</translation>
+        <translation>ਪੈਨ</translation>
     </message>
     <message>
         <source>Tool Options</source>
-        <translation type="unfinished">ਸੰਦ ਚੋਣ</translation>
+        <translation>ਟੂਲ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Layer List</source>
@@ -2987,398 +2993,404 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>ਆਟੋ-ਸੇਵ ਡ੍ਰਾਇੰਗ...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation type="unfinished" />
+        <translation>ਆਟੋ-ਸੇਵ ਡ੍ਰਾਇੰਗ</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਈਲ ਆਟੋ-ਸੇਵ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ
+%1
+ਕਿਰਪਾ ਕਰਕੇ ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ।
+ਆਟੋ-ਸੇਵ ਅਯੋਗ ਕੀਤਾ ਗਿਆ।</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished" />
+        <translation>ਇਮਪੋਰਟ</translation>
     </message>
     <message>
         <source>&amp;Toolbars</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਟੂਲਬਾਰ</translation>
     </message>
     <message>
         <source>Compiled on: %1</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਪਾਈਲ ਕੀਤਾ ਗਿਆ: %1</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished">ਵਰਜਨ: %1</translation>
+        <translation>ਵਰਜਨ: %1</translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation type="unfinished" />
+        <translation>ਚੇਤਾਵਨੀ: ਫਾਈਲ ਪਹਿਲਾਂ ਹੀ ਖੁੱਲ੍ਹੀ ਹੈ : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
-        <translation type="unfinished" />
+        <translation>ਫਾਈਲ ਸੰਭਾਲੀ ਨਹੀਂ ਜਾ ਸਕਦੀ </translation>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation type="unfinished" />
+        <translation> , ਕਿਰਪਾ ਕਰਕੇ ਫਾਈਲ ਨਾਮ ਅਤੇ ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ।</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation type="unfinished" />
+        <translation>ਵਰਟੀਕਲ &amp;ਟਾਈਲ</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation type="unfinished" />
+        <translation>ਟੈ&amp;ਬ ਮੋਡ</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation type="unfinished" />
+        <translation>ਟੈਮਪਲੇਟ ਤੋਂ ਨਵਾਂ ਦਸਤਾਵੇਜ਼: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation type="unfinished" />
+        <translation>ਟੈਮਪਲੇਟ ਚੋਣ ਰੱਦ ਕੀਤੀ ਗਈ</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation type="unfinished" />
+        <translation>ਆਟੋ-ਸੇਵ ਅਸਫਲ</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation type="unfinished" />
+        <translation>ਸਨੈਪ ਚੋਣ</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>ਇਸ ਤਰ੍ਹਾਂ ਐਕਸਪੋਰਟ</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਪਾਈਲਰ: ਕਲੈਂਗ %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਪਾਈਲਰ: ਜੀਐੱਨਯੂ ਜੀਸੀਸੀ %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished" />
+        <translation>ਕਿਊਟੀ ਵਰਜਨ: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation type="unfinished" />
+        <translation>ਡ੍ਰਾਫਟ ਮੋਡ</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>PDF ਵਜੋਂ ਐਕਸਪੋਰਟ</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished" />
+        <translation>ਐਕਸਪੋਰਟ</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ
+%1
+ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਦੀ ਮੌਜੂਦਗੀ ਅਤੇ ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ।</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>ਫਾਈਲ '%1' ਮੌਜੂਦ ਨਹੀਂ। ਖੋਲ੍ਹਣਾ ਰੱਦ ਕੀਤਾ ਗਿਆ</translation>
     </message>
     <message>
         <source>Categories</source>
-        <translation type="unfinished" />
+        <translation>ਸ਼੍ਰੇਣੀਆਂ</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਆਰਡਰ</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished" />
+        <translation>ਆਰਡਰ</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">ਚੁਣੋ</translation>
+        <translation>ਚੁਣੋ</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">ਰੇਖਾ</translation>
+        <translation>ਲਾਈਨ</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">ਚੱਕਰ</translation>
+        <translation>ਸਰਕਲ</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਕਰਵ</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished" />
+        <translation>ਕਰਵ</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished">ਅੰਡਾਕਾਰ</translation>
+        <translation>ਐਲਿਪਸ</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>ਪੌਲੀਲਾਈਨ</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation type="unfinished">ਮਾਪ</translation>
+        <translation>ਡਾਇਮੈਂਸ਼ਨ</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished">ਸੋਧੀ</translation>
+        <translation>ਬਦਲੋ</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished">ਜਾਣਕਾਰੀ</translation>
+        <translation>ਜਾਣਕਾਰੀ</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished" />
+        <translation>ਡੌਕ ਏਰੀਆ</translation>
     </message>
     <message>
         <source>Grid Status</source>
-        <translation type="unfinished" />
+        <translation>ਗ੍ਰਿਡ ਸਥਿਤੀ</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished" />
+        <translation>ਟੂਲਬਾਰ</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation type="unfinished" />
+        <translation>ਡੌਕਵਿਜੈੱਟ</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਵਾਈਸ ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>ਡਿਵਾਈਸ</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਆਪਸ਼ਨ</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation type="unfinished" />
+        <translation>ਪਲ&amp;ਗਿਨ</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation type="unfinished" />
+        <translation>ਡਾਇਮੈਂ&amp;ਸ਼ਨ</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>ਡੌਕ ਵਿਡ&amp;ਗੈੱਟ</translation>
     </message>
     <message>
         <source>Recent Files</source>
-        <translation type="unfinished" />
+        <translation>ਹਾਲੀਆ ਫਾਈਲਾਂ</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation type="unfinished" />
+        <translation>ਕੰਪਾਈਲਰ: ਮਾਈਕ੍ਰੋਸਾਫਟ ਵਿਜ਼ੂਅਲ ਸੀ++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>ਬੂਸਟ ਵਰਜਨ: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">ਨਕਲ</translation>
+        <translation>ਕਾਪੀ</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished" />
+        <translation>ਯੋਗਦਾਨ ਦੇਣ ਵਾਲੇ</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished" />
+        <translation>ਲਾਇਸੈਂਸ</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished" />
+        <translation>ਸਿਸਟਮ</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>ਟੂਲਬਾਰ ਰਚਨਾਕਾਰ</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>ਮੀਨੂ ਰਚਨਾਕਾਰ</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation type="unfinished" />
+        <translation>ਮੀਨੂ ਅਸਾਈਨਰ</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਟੂਲ</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਡ੍ਰਾਇੰਗ</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation type="unfinished" />
+        <translation>ਡ੍ਰਾਇੰਗ ਸੰਭਾਲੀ ਜਾ ਰਹੀ ਹੈ: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation type="unfinished" />
+        <translation>ਸੰਭਾਲਣਾ ਰੱਦ ਕੀਤਾ ਗਿਆ</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation type="unfinished">ਡਰਾਇੰਗ ਬੰਦ ਕਰੋ</translation>
+        <translation>ਡ੍ਰਾਇੰਗ ਬੰਦ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation type="unfinished" />
+        <translation>ਇਸ ਆਈਟਮ ਵਿੱਚ ਤਬਦੀਲੀਆਂ ਸੰਭਾਲੋ?
+%1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">ਸੰਭਾਲੋ(&amp;S)</translation>
+        <translation>&amp;ਸੰਭਾਲੋ</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished">ਏਦਾਂ ਸੰਭਾਲੋ(&amp;a)...</translation>
+        <translation>ਸੰਭਾਲੋ &amp;ਜਿਵੇਂ...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸੰਭਾਲੋ %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>%1 ਸੰਭਾਲੋ &amp;ਜਿਵੇਂ...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਵਿੰਡੋ ਮੋਡ</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਲੇਆਊਟ</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation type="unfinished" />
+        <translation>ਗੋਲ</translation>
     </message>
     <message>
         <source>Triangular</source>
-        <translation type="unfinished" />
+        <translation>ਤਿਕੋਣੀ</translation>
     </message>
     <message>
         <source>North</source>
-        <translation type="unfinished" />
+        <translation>ਉੱਤਰ</translation>
     </message>
     <message>
         <source>South</source>
-        <translation type="unfinished" />
+        <translation>ਦੱਖਣ</translation>
     </message>
     <message>
         <source>East</source>
-        <translation type="unfinished" />
+        <translation>ਪੂਰਬ</translation>
     </message>
     <message>
         <source>West</source>
-        <translation type="unfinished" />
+        <translation>ਪੱਛਮ</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਵਿਵਸਥਿਤ ਕਰੋ</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਮੈਕਸੀਮਾਈਜ਼ਡ</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਸੰਭਾਲਣਾ ਰੱਦ ਕੀਤਾ ਗਿਆ</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation type="unfinished" />
+        <translation>ਸਭ ਬੰਦ ਕਰਨਾ ਰੱਦ ਕੀਤਾ ਗਿਆ</translation>
     </message>
     <message>
         <source>The Code</source>
-        <translation type="unfinished" />
+        <translation>ਕੋਡ</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation type="unfinished" />
+        <translation>ਕਮਾਂਡ</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>ਫਲੋਟ</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation type="unfinished" />
+        <translation>ਡੌਕ</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਵਿਕੀ</translation>
     </message>
     <message>
         <source>User's &amp;Manual</source>
-        <translation type="unfinished" />
+        <translation>ਯੂਜ਼ਰ &amp;ਮੈਨੂਅਲ</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਕਮਾਂਡ</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਸਟਾਈਲ ਸ਼ੀਟ</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>ਵਿਡ&amp;ਗੈੱਟ</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਫੋਰਮ</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation type="unfinished" />
+        <translation>ਜ਼ੂਲਿਪ &amp;ਚੈਟ</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਰਿਲੀਜ਼ ਜਾਣਕਾਰੀ</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation type="unfinished" />
+        <translation>ਆਨ&amp;ਲਾਈਨ</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation type="unfinished" />
+        <translation>&amp;ਦਾਨ ਕਰੋ</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation type="unfinished" />
+        <translation>ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਪ੍ਰਿੰਟ ਪ੍ਰੀਵਿਊ ਵਿੱਚ ਸਕੇਲਿੰਗ ਅਤੇ ਪੋਜ਼ੀਸ਼ਨਿੰਗ ਐਡਜਸਟ ਕਰੋ।</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>ਪੈਨ ਪੈਲੈਟ</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation type="unfinished" />
+        <translation>ਲੇਅਰ ਟ੍ਰੀ</translation>
     </message>
 </context>
 <context>
@@ -13980,35 +13992,35 @@ This block cannot be inserted.</source>
     <name>WidgetCreator</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>ਫਰੇਮ</translation>
     </message>
     <message>
         <source>&gt;</source>
-        <translation type="unfinished" />
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>&lt;</source>
-        <translation type="unfinished" />
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>ਨਾਮ</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished" />
+        <translation>ਬਣਾਓ</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation type="unfinished" />
+        <translation>ਮਿਟਾਓ</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation type="unfinished" />
+        <translation>ਅਸਾਈਨ ਕਰੋ</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>ਅੱਪਡੇਟ</translation>
     </message>
 </context>
 <context>

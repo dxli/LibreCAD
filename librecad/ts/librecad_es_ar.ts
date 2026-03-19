@@ -4,11 +4,11 @@
     <name>ColorWizard</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Marco</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation>إضافة إلى المفضّلات</translation>
+        <translation>Agregar a favoritos</translation>
     </message>
     <message>
         <source>...</source>
@@ -19,84 +19,84 @@
     <name>ComboBoxOption</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Marco</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation>GroupBox</translation>
+        <translation>Grupo de casillas</translation>
     </message>
     <message>
         <source>Set</source>
-        <translation>المجموعة</translation>
+        <translation>Establecer</translation>
     </message>
 </context>
 <context>
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation>Parabola</translation>
+        <translation>Parábola</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometry</translation>
+        <translation>Geometría</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>النقاط على Spline</translation>
+        <translation>Puntos en spline</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation>نقاط المراقبة</translation>
+        <translation>Puntos de control</translation>
     </message>
 </context>
 <context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation>النقاط الجانبية</translation>
+        <translation>Puntos de spline</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometry</translation>
+        <translation>Geometría</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>مغلق</translation>
+        <translation>Cerrado</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation>النقاط الجانبية</translation>
+        <translation>Puntos de spline</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation>نقاط المراقبة</translation>
+        <translation>Puntos de control</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>النقاط على Spline</translation>
+        <translation>Puntos en spline</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation>Select arc entity</translation>
+        <translation>Seleccionar entidad de arco</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation>تحديد الموقع</translation>
+        <translation>Especificar ubicación del arco de cota</translation>
     </message>
 </context>
 <context>
@@ -104,32 +104,32 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation>نصف قطري = %1 صغير جداً للنقاط المختارة
-المسافة بين النقاط = %2 أكبر من قطر %3</translation>
+        <translation>radio=%1 es demasiado pequeño para los puntos seleccionados
+distancia entre puntos=%2 es mayor que el diámetro=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation>اختيار من مركزين دائريين محتملين</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify first point</source>
-        <translation>تحديد النقطة الأولى</translation>
+        <translation>Especificar primer punto</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>تحديد النقطة الثانية</translation>
+        <translation>Especificar segundo punto</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Select circle center</source>
-        <translation>مركز الدائرة المختارة</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -137,8 +137,8 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>تحديد المسافة (%1)
-أو [%2]</translation>
+        <translation>Especificar distancia (%1)
+o [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -146,55 +146,55 @@ or [%2]</source>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>تحديد المسافة (زاوية 1 كيلوغراما)
-أو [%2]</translation>
+        <translation>Especificar distancia (ángulo %1 grados)
+o [%2]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation>المركز</translation>
+        <translation type="unfinished">Especificar centro</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation>تَكَسّنْ a سمينة</translation>
+        <translation>Especificar una tangente</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>رقم الدخول:</translation>
+        <translation>Ingresar número:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>ليس رقم صحيح جرب 1..9999</translation>
+        <translation>Número no válido. Intente 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>لا تعبير صحيح</translation>
+        <translation>Expresión no válida</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>تحديد الاتجاه (x أو y) أو [%1]</translation>
+        <translation>Especificar dirección (x o y) o [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>تحديد المسافة (%1) أو [%2]</translation>
+        <translation>Especificar distancia (%1) o [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -202,423 +202,423 @@ or [%2]</source>
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>تحديد المسافة (%1 كيلوغرام) أو [%2]</translation>
+        <translation>Especificar distancia (%1 grados) o [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation>تحديد الزاوية أو [%2]</translation>
+        <translation>Especificar ángulo o [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation>نقطة محددة أو [%1]</translation>
+        <translation>Especificar punto o [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation>يرجى تحديد النقطة الأولى بشأن البارابولا</translation>
+        <translation>Especificar el primer punto en la parábola</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation>يرجى تحديد النقطة الثانية بشأن البارابولا</translation>
+        <translation>Especificar el segundo punto en la parábola</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation>يرجى تحديد النقطة الثالثة بشأن البارابولا</translation>
+        <translation>Especificar el tercer punto en la parábola</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation>تحديد النقطة الرابعة بشأن البارابولا</translation>
+        <translation>Especificar el cuarto punto en la parábola</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>Specify the Axis on parabola</translation>
+        <translation>Especificar el eje en la parábola</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation>تحديد تركيز البارابولا</translation>
+        <translation>Especificar el foco de la parábola</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>تحديد توجيه البارابولا</translation>
+        <translation>Especificar la directriz de la parábola</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation>تحديد نقطة البدء في البارابولا</translation>
+        <translation>Especificar el punto de inicio en la parábola</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation>تحديد النقطة النهائية على البارابولا</translation>
+        <translation>Especificar el punto final en la parábola</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>ليس مقسماً كما هو مقفل.</translation>
+        <translation> no se divide porque está bloqueada.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>لا ينقسم لأنه جزء من البوليلين توسيع البوليلين أولا.</translation>
+        <translation> no se divide porque forma parte de una polilínea. Expanda la polilínea primero.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>الخط</translation>
+        <translation>Línea</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation>Arc</translation>
+        <translation>Arco</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation>الدائرة</translation>
+        <translation>Círculo</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSplinePoints</name>
     <message>
         <source>Specify first control point</source>
-        <translation>تحديد نقطة المراقبة الأولى</translation>
+        <translation>Especificar primer punto de control</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation>تحديد نقطة المراقبة التالية أو [%1]</translation>
+        <translation>Especificar siguiente punto de control o [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation>تحديد نقطة المراقبة التالية</translation>
+        <translation>Especificar siguiente punto de control</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>لا يمكن التراجع: ليس هناك ما يكفي من الكيانات المحددة بعد.</translation>
+        <translation>No se puede deshacer: aún no se definieron suficientes entidades.</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation>لا شيء يمكن أن يكون أحمر.</translation>
+        <translation>No se puede deshacer: nada se puede rehacer.</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>(Window Zoom)</translation>
+        <translation>Zoom de &amp;ventana</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation>زووم بانينج</translation>
+        <translation>Zoom &amp;desplazamiento</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation>الكيان المختار</translation>
+        <translation>Seleccionar entidad</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation>Select Window</translation>
+        <translation>Seleccionar ventana</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation>Deselect Window</translation>
+        <translation>Deseleccionar ventana</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De-) Select 'Contour</translation>
+        <translation>(De)Seleccionar &amp;contorno</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation>الكيانات المختارة</translation>
+        <translation>Seleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation>الكيانات المختارة</translation>
+        <translation>Deseleccionar entidades intersectadas</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De-) Select Layer</translation>
+        <translation>(De)Seleccionar capa</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>" النقاط</translation>
+        <translation>&amp;Puntos</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation>' 2` النقاط</translation>
+        <translation>&amp;2 puntos</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation>" أنغل</translation>
+        <translation>&amp;Ángulo</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation>&amp;Horizontal</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>كتابي</translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation>الخط الحر</translation>
+        <translation>Línea a &amp;mano alzada</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation>بارايل</translation>
+        <translation>&amp;Paralela</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation>الموازية عبر النقطة</translation>
+        <translation>Paralela a través de punto</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation>Rectangle</translation>
+        <translation>Rectángulo</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation>قطاع الأعمال</translation>
+        <translation>Bisectriz</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation>Tangent (P,C)</translation>
+        <translation>Tangente (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation>Tangent (C,C)</translation>
+        <translation>Tangente (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation>Tangent ' Orthogonal</translation>
+        <translation>Tangente &amp;ortogonal</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Orthogonal</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation>الزاوية النسبية</translation>
+        <translation>Ángulo relativo</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Polygon (Cen,Cor)</translation>
+        <translation>Polí&amp;gono (Centro,Esquina)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation>Polygon (Cor,Cor)</translation>
+        <translation>Polígon&amp;o (Esquina,Esquina)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation>Center, "Point</translation>
+        <translation>Centro, &amp;punto</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation>Center, " Radius</translation>
+        <translation>Centro, &amp;radio</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation>2 Points</translation>
+        <translation>2 puntos</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation>2 Points, Radius</translation>
+        <translation>2 puntos, radio</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation>3 نقاط</translation>
+        <translation>3 puntos</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation>المركز</translation>
+        <translation>&amp;Concéntrico</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation>Circle " Inscribed</translation>
+        <translation>Círculo &amp;inscrito</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation>Tangential 2 Circles, Radius</translation>
+        <translation>Tangente 2 círculos, radio</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation>الدائرة 2، نقطة واحدة</translation>
+        <translation>Tangente 2 círculos, 1 punto</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation>الدائرة 3</translation>
+        <translation>Tangente &amp;3 círculos</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation>Tangential, 2 Points</translation>
+        <translation>Tangente, 2 p&amp;untos</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation>" مركز، نقطة، أنغلز</translation>
+        <translation>&amp;Centro, punto, ángulos</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation>' 3` النقاط</translation>
+        <translation>&amp;3 puntos</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation>Arc " Tangential</translation>
+        <translation>Arco &amp;tangente</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>" (المحور)</translation>
+        <translation>&amp;Elipse (eje)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation>Ellipse " Arc (Axis)</translation>
+        <translation>Elipse &amp;arco (eje)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation>Ellipse " Foci Point</translation>
+        <translation>Elipse &amp;puntos focales</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation>Ellipse ' 4 Point</translation>
+        <translation>Elipse &amp;4 puntos</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation>Ellipse Center and ' 3 Points</translation>
+        <translation>Centro de elipse y &amp;3 puntos</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation>Ellipse ' Inscribed</translation>
+        <translation>Elipse &amp;inscrita</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation>خط</translation>
+        <translation>&amp;Spline</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation>" عبر النقاط</translation>
+        <translation>&amp;Spline a través de puntos</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>" بولندا</translation>
+        <translation>&amp;Polilínea</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation>" العقد</translation>
+        <translation>&amp;Agregar nodo</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation>العقد</translation>
+        <translation>A&amp;gregar nodo</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation>? Delete node</translation>
+        <translation>&amp;Eliminar nodo</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation>تحذف عبارة " بين اثنين من العقد</translation>
+        <translation>Eliminar &amp;entre dos nodos</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation>" الأجزاء</translation>
+        <translation>&amp;Recortar segmentos</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation>Create " Equidistant Polylines</translation>
+        <translation>Crear polilíneas &amp;equidistantes</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation>Create Polyline from Existing ' segments</translation>
+        <translation>Crear polilínea a partir de &amp;segmentos existentes</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation>(MText)</translation>
+        <translation>&amp;Mtexto</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation>" Text</translation>
+        <translation>&amp;Texto</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation>هاتش</translation>
+        <translation>&amp;Sombreado</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation>Insert ' Image</translation>
+        <translation>Insertar &amp;imagen</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation>أنغولا</translation>
+        <translation>&amp;Alineada</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation>" لينار</translation>
+        <translation>&amp;Lineal</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation>"</translation>
+        <translation>&amp;Vertical</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation>"</translation>
+        <translation>&amp;Radial</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation>" القياس</translation>
+        <translation>&amp;Diámetral</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation>"</translation>
+        <translation>&amp;Angular</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation>"</translation>
+        <translation>&amp;Líder</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation>" الخصوم</translation>
+        <translation>&amp;Atributos</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>(Delete)</translation>
+        <translation>&amp;Eliminar</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation>تحذف مجانا</translation>
+        <translation>Eliminar a mano alzada</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation>" تحرك/عُلم</translation>
+        <translation>&amp;Mover / Copiar</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation>Revert direction</translation>
+        <translation>Revertir &amp;dirección</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -626,199 +626,199 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation>" روتاتي</translation>
+        <translation>&amp;Rotar</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation>" Scale</translation>
+        <translation>&amp;Escalar</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>السيد</translation>
+        <translation>&amp;Reflejar</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation>Rotate Two</translation>
+        <translation>Rotar d&amp;os</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation>" الممتلكات</translation>
+        <translation>&amp;Propiedades</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation>" تريم</translation>
+        <translation>&amp;Recortar</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation>" لينغ ثين</translation>
+        <translation>&amp;Alargar</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation>' Divide</translation>
+        <translation>&amp;Dividir</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation>" Stretch</translation>
+        <translation>&amp;Estirar</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation>♪ Bevel</translation>
+        <translation>&amp;Bisel</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation>" Fillet</translation>
+        <translation>&amp;Redondear</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation>" نشر النص في الرسائل</translation>
+        <translation>&amp;Explodir texto en letras</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation>نقطة داخل المخروط</translation>
+        <translation>Punto dentro del contorno</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation>" نقطة الابتعاد عن النقطة</translation>
+        <translation>&amp;Distancia punto a punto</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation>" هيئة المساعدة إلى نقطة</translation>
+        <translation>&amp;Distancia entidad a punto</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation>بين خطين</translation>
+        <translation>Án&amp;gulo entre dos líneas</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation>" مجموع طول الكيانات المختارة</translation>
+        <translation>&amp;Longitud total de entidades seleccionadas</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation>Polygonal ' Area</translation>
+        <translation>&amp;Área poligonal</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation>مؤشر الاختيار</translation>
+        <translation>Puntero de &amp;selección</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation>(Undo)</translation>
+        <translation>&amp;Deshacer</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>" Redo</translation>
+        <translation>&amp;Rehacer</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>Cut</translation>
+        <translation>Cor&amp;tar</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>" نسخ</translation>
+        <translation>&amp;Copiar</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>Paste</translation>
+        <translation>&amp;Pegar</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation>الانتقال إلى أسفل</translation>
+        <translation>mover al fondo</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation>أدنى بعد الكيان</translation>
+        <translation>bajar después de entidad</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation>زيادة على الكيان</translation>
+        <translation>subir sobre entidad</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation>إلى القمة</translation>
+        <translation>mover al frente</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>" لاير</translation>
+        <translation>&amp;Agregar capa</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>" Remove Layer</translation>
+        <translation>&amp;Eliminar capa</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation>" إيديت لاير</translation>
+        <translation>&amp;Editar capa</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Toggle Layer Lock</translation>
+        <translation>Alternar bloqueo de capa</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation>" Toggle Layer Visibility</translation>
+        <translation>&amp;Alternar visibilidad de capa</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation>Toggle Layer ' Print</translation>
+        <translation>Alternar impresión de capa</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Toggle " Construction Layer</translation>
+        <translation>Alternar capa de &amp;construcción</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation>" Block</translation>
+        <translation>&amp;Agregar bloque</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation>" Remove Block</translation>
+        <translation>&amp;Eliminar bloque</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation>" Rename Block</translation>
+        <translation>&amp;Renombrar bloque</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation>" Edit Block</translation>
+        <translation>&amp;Editar bloque</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation>محفوظ</translation>
+        <translation>&amp;Guardar bloque</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation>" Insert Block</translation>
+        <translation>&amp;Insertar bloque</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation>Toggle Block 'Visibility</translation>
+        <translation>Alternar visibilidad de bloque</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation>" Create Block</translation>
+        <translation>&amp;Crear bloque</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation>Explode</translation>
+        <translation>Ex&amp;plotar</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation>" أفضليات التطبيق</translation>
+        <translation>&amp;Preferencias de aplicación</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>الافتراضات الحالية</translation>
+        <translation>Preferencias de &amp;dibujo actual</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation>منتقاة</translation>
+        <translation>&amp;Eliminar seleccionados</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Select " All</translation>
+        <translation>Seleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation>Deselect ' all</translation>
+        <translation>Deseleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
@@ -826,83 +826,83 @@ or [%2]</source>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation>Invert Selection</translation>
+        <translation>Invertir selección</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>زوم In</translation>
+        <translation>Acercar</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>زوم أووت</translation>
+        <translation>Alejar</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation>(Auto Zoom</translation>
+        <translation>Zoom &amp;automático</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation>Previous " Viw</translation>
+        <translation>Vista &amp;anterior</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>" Redraw</translation>
+        <translation>&amp;Redibujar</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>جديدة</translation>
+        <translation>&amp;Nuevo</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation>New From " Template</translation>
+        <translation>Nuevo desde &amp;plantilla</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>...</translation>
+        <translation>&amp;Abrir...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>محفوظ</translation>
+        <translation>&amp;Guardar</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>إنقاذ...</translation>
+        <translation>Guardar &amp;como...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation>" التصدير كصورة</translation>
+        <translation>&amp;Exportar como imagen</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>" الخسارة</translation>
+        <translation>&amp;Cerrar</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation>....</translation>
+        <translation>&amp;Imprimir...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>Export as PDF</translation>
+        <translation>Exportar como PDF</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation>Print Preview</translation>
+        <translation>Pre&amp;visualizar impresión</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>" Quit</translation>
+        <translation>&amp;Salir</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>" Block</translation>
+        <translation>&amp;Bloque</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation>♪Fullscreen</translation>
+        <translation>&amp;Pantalla completa</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation>" Grid</translation>
+        <translation>&amp;Cuadrícula</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -911,11 +911,11 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation>" سرقة</translation>
+        <translation>&amp;Borrador</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation>" ستاتوسبار</translation>
+        <translation>&amp;Barra de estado</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
@@ -924,59 +924,59 @@ or [%2]</source>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation>Focus on "Command Line</translation>
+        <translation>Enfocar en línea de &amp;comandos</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation>خيارات النظام القضائي</translation>
+        <translation>Opciones de widget</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>يسار</translation>
+        <translation>Izquierda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>الحق</translation>
+        <translation>Derecha</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>القمة</translation>
+        <translation>Superior</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>الجزء السفلي</translation>
+        <translation>Inferior</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation>الطوابق</translation>
+        <translation>Flotante</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation>Reload Style Sheet</translation>
+        <translation>Recargar hoja de estilo</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation>البدائل</translation>
+        <translation>Opciones de dispositivo</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation>Motate</translation>
+        <translation>Mo&amp;ver y rotar</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation>Trim Two</translation>
+        <translation>Recor&amp;tar dos</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
-        <translation>Offset</translation>
+        <translation>Desplaza&amp;miento</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>Menu Creator</translation>
+        <translation>Creador de menús</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>Toolbar Creator</translation>
+        <translation>Creador de barras de herramientas</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
@@ -985,280 +985,280 @@ or [%2]</source>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation>Polygon (Cen,Tan)</translation>
+        <translation>Polí&amp;gono (Centro,Tangente)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation>" Arc</translation>
+        <translation>&amp;Arco</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation>" جميع الطبقات</translation>
+        <translation>&amp;Mostrar todas las capas</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation>" إرفعوا جميع الطبقات</translation>
+        <translation>&amp;Ocultar todas las capas</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation>جميع</translation>
+        <translation>&amp;Desbloquear todo</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation>♪</translation>
+        <translation>&amp;Bloquear todo</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>" Export Selected Layer(s)</translation>
+        <translation>&amp;Exportar capa(s) seleccionada(s)</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>Export "Visible Layer(s)</translation>
+        <translation>Exportar capa(s) &amp;visible(s)</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation>" جميع المباني</translation>
+        <translation>&amp;Mostrar todos los bloques</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation>" على جميع المباني</translation>
+        <translation>&amp;Ocultar todos los bloques</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation>"الصادرة كـ "سي إي إم" و "سف جي".</translation>
+        <translation>Exportar como CA&amp;M/SVG simple...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation>اغلق</translation>
+        <translation>Cerrar todo</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation>Re-dock Widgets</translation>
+        <translation>Reacoplar widgets</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation>أنقذوا.</translation>
+        <translation>Guardar to&amp;do...</translation>
     </message>
     <message>
         <source>Cross</source>
-        <translation>الصليب</translation>
+        <translation>Cruz</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation>ثعبان</translation>
+        <translation>Serpiente</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation>ثعبان (X)</translation>
+        <translation>Serpiente (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation>ثعبان (Y)</translation>
+        <translation>Serpiente (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation>Rectangle (1 Point)</translation>
+        <translation>Rectángulo (1 punto)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation>Rectangle (2 Points)</translation>
+        <translation>Rectángulo (2 puntos)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation>Rectangle (3 Points)</translation>
+        <translation>Rectángulo (3 puntos)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation>ستار</translation>
+        <translation>Estrella</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>كسر/ديفيد</translation>
+        <translation>Romper/Dividir</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>خط الفجوة</translation>
+        <translation>Separación de línea</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation>أنقل من الخط</translation>
+        <translation>Ángulo desde línea</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation>Orthogonal من الخط</translation>
+        <translation>Ortogonal desde línea</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation>من نقطة إلى خط</translation>
+        <translation>Desde punto a línea</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Slice/Divide Line</translation>
+        <translation>Cortar/Dividir línea</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Slice/Divide Circle</translation>
+        <translation>Cortar/Dividir círculo</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation>خط النقاط</translation>
+        <translation>Línea de puntos</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>من قِبل (آرك)</translation>
+        <translation>Por arco</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Parabola 4 points</translation>
+        <translation>Pará&amp;bola 4 puntos</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola ' Focus Directrix</translation>
+        <translation>Parábola &amp;foco directriz</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>" Pick Pen from Entity</translation>
+        <translation>&amp;Seleccionar lápiz de entidad</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>" Pick Pen from Entity (Resolved)</translation>
+        <translation>&amp;Seleccionar lápiz de entidad (resuelto)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation>Apply Pen to Entity</translation>
+        <translation>Aplicar lápiz a entidad</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation>نسخة</translation>
+        <translation>Copiar lápiz</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>خط الانضمام</translation>
+        <translation>Unión de líneas</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>ازدواج</translation>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>تحديث القلم الحالي من قِبَل المحامي</translation>
+        <translation>Actualizar lápiz actual con lápiz de capa activa</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
     <message>
         <source>Export as</source>
-        <translation>الصادرات</translation>
+        <translation>Exportar como</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
         <source>Saving layer "%1" as "%2" </source>
-        <translation>طبقة إنقاذ "%1" كـ"%2"</translation>
+        <translation>Guardando capa „%1“ como „%2“ </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>تحديد الكيان لاختيار القلم</translation>
+        <translation>Especificar entidad para seleccionar lápiz</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>تحديد الكيان لتطبيق القلم</translation>
+        <translation>Especificar entidad para aplicar lápiz</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>تحديد الكيان لاختيار القلم</translation>
+        <translation>Especificar entidad para seleccionar lápiz</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation>تحديد النسبة المئوية/نقطة البدء</translation>
+        <translation>Especificar porcentaje / punto de inicio</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation>تحديد نقطة البداية</translation>
+        <translation>Especificar punto de inicio</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>تحديد نقطة النهاية</translation>
+        <translation>Especificar punto final</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>النشاط</translation>
+        <translation>Activo</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation>Original: ENGLISH</translation>
+        <translation>Original</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>الأصلية</translation>
+        <translation>Original resuelto</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Radius Shift:</translation>
+        <translation>Desplazamiento de radio:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation>يستعاض عن القوس</translation>
+        <translation>Reemplazar arco</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>بين:</translation>
+        <translation>Lápiz:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation>التمديد</translation>
+        <translation>Extensión</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation>المجموع</translation>
+        <translation>Longitud total</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>النسبة المئوية</translation>
+        <translation>Porcentaje</translation>
     </message>
     <message>
         <source>X:</source>
@@ -1270,663 +1270,663 @@ or [%2]</source>
     </message>
     <message>
         <source>Type</source>
-        <translation>النوع</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
 </context>
 <context>
     <name>LC_DeviceOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation>الجهاز</translation>
+        <translation>Dispositivo</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>أنقذ</translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation>نقاط مراقبة البارابولا لا يمكن أن تكون شاملة</translation>
+        <translation>Los puntos de control de la parábola no pueden ser colineales</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation>Capa:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation>في المكان</translation>
+        <translation>En el lugar</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>الهدف العاشر:</translation>
+        <translation>Desplazamiento X:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation>النشاط</translation>
+        <translation>Activo</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation>Original: ENGLISH</translation>
+        <translation>Original</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>الأصلية</translation>
+        <translation>Original resuelto</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>{\pos(192,230)}</translation>
+        <translation>Desplazamiento Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>بين:</translation>
+        <translation>Lápiz:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation>Layer Settings</translation>
+        <translation>Configuración de capa</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>ملعب الوالدين:</translation>
+        <translation>Ruta de capas padre:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation>النوع</translation>
+        <translation>Tipo de capa</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>المعلومات</translation>
+        <translation>Informativa</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>المعيار</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>الأبعاد</translation>
+        <translation>Dimensiones</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation>الموقف البديل</translation>
+        <translation>Posición alternativa</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>ويوجد لدى شركة البناء كيانات ذات خطوط مستقيمة لا نهائية يُقصد استخدامها في البناء الجيولوجي.
-The contents of a Construction Layer should not appear in printedout.</translation>
+        <translation>Una capa de construcción tiene entidades de líneas rectas infinitas destinadas a la construcción geométrica.
+       El contenido de una capa de construcción no debe aparecer en la impresión.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>شركة البناء</translation>
+        <translation>Capa de construcción</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation>اسم لاير:</translation>
+        <translation>Nombre de capa:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation>Rename Virtual Layer</translation>
+        <translation>Renombrar capa virtual</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation>مضافا إليه:</translation>
+        <translation>Agregar capa secundaria</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>مضافا إليه</translation>
+        <translation>Agregar capa</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation>Edit Layer</translation>
+        <translation>Editar capa</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Default Pen</translation>
+        <translation>Lápiz predeterminado</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation>Rename Layer</translation>
+        <translation>Renombrar capa</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation>خيارات الاتجاهات</translation>
+        <translation>Opciones de árbol de capas</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>اتفاقية الاسم</translation>
+        <translation>Convención de nombres</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>الاسم من الرتبة المحلية</translation>
+        <translation>Separador de nombre de nivel de capa</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>Layer Suffixes</translation>
+        <translation>Sufijos de capas secundarias</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation>الأبعاد</translation>
+        <translation>Dimensiones</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>المعلومات</translation>
+        <translation>Informativa</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>الموقف البديل</translation>
+        <translation>Posición alternativa </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation>الاسم المزدوج</translation>
+        <translation>Duplicando nombre</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Prefijo</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation>Suffix</translation>
+        <translation>Sufijo</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation>التلاعب والعمليات</translation>
+        <translation>Visualización y operaciones</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>تظهر الاسم الكامل</translation>
+        <translation>Mostrar nombre completo como Tooltip</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>نوع الطبقة الراقية</translation>
+        <translation>Mostrar iconos de tipo de capa</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>تظهر أسماء الطبقات حجم الهوية:</translation>
+        <translation>Mostrar nombres de capas con sangría. Tamaño de sangría:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>السماح بإعادة الهيكلة عن طريق شركة DragDrop</translation>
+        <translation>Permitir reestructuración mediante arrastrar y soltar</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>Rename secondary layers on primary rename</translation>
+        <translation>Renombrar capas secundarias al renombrar primaria</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation>الألوان</translation>
+        <translation>Colores</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>مادة متطابقة في وضعية مرشحات بارزة</translation>
+        <translation>Elemento coincidente en modo filtro de resaltado</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation>1E90FF</translation>
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation>لون الخلفية الافتراضية</translation>
+        <translation>Color de fondo de capa virtual</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>شبكة فصلية</translation>
+        <translation>Cuadrícula separadora de elementos de vista triple</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation>مواد مختارة ذات لون خلفية</translation>
+        <translation>Color de fondo de elementos seleccionados</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>لون الخلفية</translation>
+        <translation>Color de fondo de capa activa</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>القلم</translation>
+        <translation>Lápices predeterminados</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation>Normal Layer</translation>
+        <translation>Capa normal</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation>Dimensional Layer</translation>
+        <translation>Capa de dimensiones</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation>مركز المعلومات</translation>
+        <translation>Capa informativa</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation>البديل</translation>
+        <translation>Capa de posición alternativa</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>ملوث مختار</translation>
+        <translation>Seleccionar color</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation>فيلم</translation>
+        <translation>Filtro</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>أبحث عن أسماء طبقات مطابقة</translation>
+        <translation>Buscando nombres de capa coincidentes</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Highlight Mode</translation>
+        <translation>Modo de resaltado</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>الترتيبات</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation>أظهروا جميع الطبقات</translation>
+        <translation>Mostrar todas las capas</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>إخفاء جميع الطبقات</translation>
+        <translation>Ocultar todas las capas</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation>مرشد ثانوي</translation>
+        <translation>Mostrar capas secundarias</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation>أظهر أن (لاير) فقط</translation>
+        <translation>Mostrar solo capa activa</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation>Expand All</translation>
+        <translation>Expandir todo</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>كل شيء</translation>
+        <translation>Contraer todo</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>التصفيق الثانوي</translation>
+        <translation>Contraer secundarias</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>فتح جميع الطبقات</translation>
+        <translation>Desbloquear todas las capas</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>أغلقوا جميع الطبقات</translation>
+        <translation>Bloquear todas las capas</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation>أضف طبقة</translation>
+        <translation>Agregar una capa</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>إضافة أبعاد</translation>
+        <translation>Agregar capa de dimensiones</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>إزالة طبقة</translation>
+        <translation>Eliminar capa</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>تعديل خصائص الطبقات/إعادة تسميتها</translation>
+        <translation>Modificar atributos de capa / renombrar</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation>القائمة الرئيسية</translation>
+        <translation>Modo lista plana)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>Layer Menu</translation>
+        <translation>Menú de capa</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>" الطفل</translation>
+        <translation>&amp;Agregar capa hija</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>" الاسم</translation>
+        <translation>&amp;Renombrar</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>" Remove Layers (Sub-Tree)</translation>
+        <translation>&amp;Eliminar capas (subárbol)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>" هيكل النسخ )الفرع الفرعي(</translation>
+        <translation>&amp;Copiar estructura (subárbol)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>" المضمون (الفرع الفرعي)</translation>
+        <translation>&amp;Duplicar contenido (subárbol)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>" الكيانات المنتخبة (Sub-Tree)</translation>
+        <translation>&amp;Seleccionar entidades (subárbol)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>" Edit Layer "</translation>
+        <translation>&amp;Editar &amp;atributos de capa</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>" Remove Layer</translation>
+        <translation>&amp;Eliminar capa</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>" الأبعاد الفرعية</translation>
+        <translation>&amp;Agregar subcapa de dimensiones</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>" Info Sub-Layer</translation>
+        <translation>&amp;Agregar subcapa de información</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>" بديل الرؤية الفرعية</translation>
+        <translation>&amp;Agregar subcapa de vista alternativa</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>" نقل الجنود الفرعيين</translation>
+        <translation>&amp;Eliminar subcapas</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation>Convert to Dimensional Layer</translation>
+        <translation>Convertir a capa de dimensiones</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>Convert to Info Layer</translation>
+        <translation>Convertir a capa informativa</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation>Convert to Alternative Position Layer</translation>
+        <translation>Convertir a capa de posición alternativa</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation>Convert to Normal Layer</translation>
+        <translation>Convertir a capa normal</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation>" كيانات لاير المنتخبة</translation>
+        <translation>&amp;Seleccionar entidades de la capa</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>" نسخة مطبعية</translation>
+        <translation>&amp;Crear copia de capa</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>" Layer with Content</translation>
+        <translation>&amp;Duplicar capa con contenido</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation>نقل الاختيار إلى لاير</translation>
+        <translation>Mover selección a capa</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation>اختيار مزدوج إلى لاير</translation>
+        <translation>Duplicar selección a capa</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>" لاير</translation>
+        <translation>&amp;Agregar capa</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>" Freeze Others Layers</translation>
+        <translation>&amp;Congelar otras capas</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>Defreeze All Layers</translation>
+        <translation>&amp;Descongelar todas las capas</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>" Freeze All Layers</translation>
+        <translation>&amp;Congelar todas las capas</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>" Unlock All Layers</translation>
+        <translation>&amp;Desbloquear todas las capas</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>" All Layers</translation>
+        <translation>&amp;Bloquear todas las capas</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Enable "Printing All Layers</translation>
+        <translation>Habilitar &amp;impresión de todas las capas</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>" Disable Printing All Layers</translation>
+        <translation>&amp;Deshabilitar impresión de todas las capas</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>" Find and Remove Empty Layers</translation>
+        <translation>&amp;Buscar y eliminar capas vacías</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>خارج:</translation>
+        <translation>Desplazamiento:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>مجانا</translation>
+        <translation>Libre</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>خط سناب:</translation>
+        <translation>Ajuste de línea:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relativo</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Divide</translation>
+        <translation>Dividir</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>Ajuste de marca:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>الاختصار:</translation>
+        <translation>Distancia de ajuste:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>الحجم:</translation>
+        <translation>Tamaño:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Orthogonal</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>إلى التقاطع</translation>
+        <translation>Hasta intersección</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation>Length</translation>
+        <translation>Longitud fija</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation>التعويض النهائي:</translation>
+        <translation>Desplazamiento final:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Ajuste:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Extend/Trim</translation>
+        <translation>Extender/Recortar</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation>الجزء الثاني</translation>
+        <translation>Agregar segmento</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation>لا تغيير</translation>
+        <translation>Sin cambios</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>الإبداع</translation>
+        <translation>Crear polilínea</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation>الخصائص:</translation>
+        <translation>Atributos:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation>Active Pen</translation>
+        <translation>Lápiz activo</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation>البند 1</translation>
+        <translation>Línea 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation>البند 2</translation>
+        <translation>Línea 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation>كلاهما</translation>
+        <translation>Ambas líneas</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation>إزالة الأصول</translation>
+        <translation>Eliminar originales</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation>الخط 2:</translation>
+        <translation>Línea 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation>الخط 1:</translation>
+        <translation>Línea 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>الخط الفارغ</translation>
+        <translation>Ajustar línea</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>لا</translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>كلاهما</translation>
+        <translation>Ambos</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation>نقطة الحضيض:</translation>
+        <translation>Puntos de borde:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation>عدد النقاط:</translation>
+        <translation>Número de puntos:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation>المختفين</translation>
+        <translation>Distancia fija</translation>
     </message>
 </context>
 <context>
@@ -1952,129 +1952,129 @@ The contents of a Construction Layer should not appear in printedout.</translati
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation>قطع الغيار</translation>
+        <translation>Eliminar segmentos</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>Remove Selected</translation>
+        <translation>Eliminar seleccionados</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Gap Snap:</translation>
+        <translation>Ajuste de brecha:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>الاختصار:</translation>
+        <translation>Distancia de ajuste:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>مجانا</translation>
+        <translation>Libre</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>Gap Size:</translation>
+        <translation>Tamaño de brecha:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>خط سناب:</translation>
+        <translation>Ajuste de línea:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>Pen Palette Settings</translation>
+        <translation>Configuración de paleta de lápiz</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation>ملوثات للعرض</translation>
+        <translation>Columnas a mostrar</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>الاسم من النوع</translation>
+        <translation>Nombre de tipo de línea</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation>اسم مستعار</translation>
+        <translation>Nombre de color</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation>خط من طراز Icon</translation>
+        <translation>Icono de tipo de línea</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation>Color Icon</translation>
+        <translation>Icono de color</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>خط الأرملة Icon</translation>
+        <translation>Icono de ancho de línea</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation>اسم الأرملة</translation>
+        <translation>Nombre de ancho de línea</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation>الألوان</translation>
+        <translation>Colores</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>معلومات أساسية:</translation>
+        <translation>Fondo de lápiz activo:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>طاولات كاملة جريئة للسجائر النشطة</translation>
+        <translation>Toda la fila de la tabla está en negrita para lápiz activo</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation>(غريد كولور)</translation>
+        <translation>Color de cuadrícula:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>البند المطابق:</translation>
+        <translation>Color de elemento coincidente:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>تصفية أقلام حساسة</translation>
+        <translation>Filtrado de lápices sin distinción de mayúsculas</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>مراقبة ما إذا كان سيتم عرض أداة لبند من الجداول أم لا</translation>
+        <translation>Controla si se muestra tooltip para elemento de tabla</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>أداة عرض لأصناف الجداول</translation>
+        <translation>Mostrar tooltip para elementos de tabla</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation>ملف بينز:</translation>
+        <translation>Archivo de lápices:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>اسم لون العرض</translation>
+        <translation>Mostrar nombre de color como</translation>
     </message>
     <message>
         <source>HEX</source>
@@ -2086,277 +2086,277 @@ The contents of a Construction Layer should not appear in printedout.</translati
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>الاسم الطبيعي حيثما أمكن</translation>
+        <translation>Nombre natural cuando sea posible</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>تُظهر رسالة معلومات إذا لم يتم اختيار أي كيان من قبل قلم المحكمة</translation>
+        <translation>Mostrar mensaje de información si ninguna entidad puede seleccionarse por lápiz</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>على النقرة المزدوجة على طاولة البند</translation>
+        <translation>Al doble clic en elemento de tabla</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>لا شيء</translation>
+        <translation>No hacer nada</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>اختيار الكيانات من خلال السمات</translation>
+        <translation>Seleccionar entidades por lápiz de atributos</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>بيع الكيانات بالقلم</translation>
+        <translation>Seleccionar entidades por lápiz de dibujo</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation>Pen Palette</translation>
+        <translation>Paleta de lápiz</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation>الاسم:</translation>
+        <translation>Nombre de lápiz:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation>كولور:</translation>
+        <translation>Color:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation>(فيلتر).</translation>
+        <translation>Filtro...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Highlight Mode</translation>
+        <translation>Modo de resaltado</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>النوع:</translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>الزوجة:</translation>
+        <translation>Ancho:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>الترتيبات</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Fill Pen Editor by Entity Drawing Pen</translation>
+        <translation>Llenar editor de lápiz con lápiz de dibujo de entidad</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Fill Pen Editor by Entity Attributes</translation>
+        <translation>Llenar editor de lápiz con atributos de entidad</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Entect Entities by Drawing Pen</translation>
+        <translation>Seleccionar entidades por lápiz de dibujo</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Entect Entributes by Pen Attributes</translation>
+        <translation>Seleccionar entidades por lápiz de atributos</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>أنقذ</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation>Apply Pen to Selection</translation>
+        <translation>Aplicar lápiz a selección</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Fill Editor Pen by Current Pen</translation>
+        <translation>Llenar lápiz de editor con lápiz actual</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>محرر تطبيقي</translation>
+        <translation>Aplicar lápiz de editor como lápiz actual</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation>to current</translation>
+        <translation>al actual</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>تحديث القلم الحالي من قِبَل المحامي</translation>
+        <translation>Actualizar lápiz actual con lápiz de capa activa</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>محررة (ميل بين) من سجن (لاير)</translation>
+        <translation>Llenar editor de lápiz desde lápiz de capa activa</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>اختر من لاير ناشط</translation>
+        <translation>Seleccionar de capa activa</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>محرر تطبيقي</translation>
+        <translation>Aplicar lápiz de editor a lápiz de capa activa</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation>طلب إلى لاير</translation>
+        <translation>Aplicar a capa</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation>Remove Selected Pen</translation>
+        <translation>Eliminar lápiz seleccionado</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation>حذف</translation>
+        <translation>Eliminar lápiz</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>Pens Menu</translation>
+        <translation>Menú de lápices</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>Apply Pen to Selection</translation>
+        <translation>&amp;Aplicar lápiz a selección</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>" As Current Pen</translation>
+        <translation>&amp;Establecer como lápiz actual</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>" يَعْملُ قلما إلى لاير ناشط</translation>
+        <translation>&amp;Aplicar lápiz a capa activa</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>" Entect Entributes Pen</translation>
+        <translation>&amp;Seleccionar entidades con lápiz de atributos</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>" Entities With Drawing Pen</translation>
+        <translation>&amp;Seleccionar entidades con lápiz de dibujo</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>" Idit Pen</translation>
+        <translation>&amp;Editar lápiz</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>" Remove Pen</translation>
+        <translation>&amp;Eliminar lápiz</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>" Remove Pens</translation>
+        <translation>&amp;Eliminar lápices</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation>Pen palette</translation>
+        <translation>Paleta de lápiz</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>تغيير موقع ملف القلم، يُرجى إعادة النظر في الطلب بحيث يُستخدم ملف قلم جديد.
+        <translation>La ubicación del archivo de lápices ha cambiado, reinicie la aplicación para usar el nuevo archivo.
 
-رجاءً لاحظْ بأنّ إذا أنت سَتَوفّرُ قلماً عن طريق المحرّرِ بدون إعادةِ، أقلامُ الحالية مِنْ النحلِ سَتُوفّرُ في الملفِ الجديدِ.</translation>
+Nota: Si guarda lápiz mediante el editor sin reiniciar, los lápices actuales de la paleta se guardarán en el nuevo archivo y se sobrescribirá el contenido existente.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>حسناً</translation>
+        <translation>Altura:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation>إدجز:</translation>
+        <translation>Bordes:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>Corners:</translation>
+        <translation>Esquinas:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation>الحجم الداخلي</translation>
+        <translation>Tamaño interior</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Length X:</translation>
+        <translation>Longitud X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Ajuste:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Length Y:</translation>
+        <translation>Longitud Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation>أعلى</translation>
+        <translation>Superior-izquierda</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>القمة</translation>
+        <translation>Superior</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation>اليمين الأعلى</translation>
+        <translation>Superior-derecha</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>يسار</translation>
+        <translation>Izquierda</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>الحق</translation>
+        <translation>Derecha</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>العمود السفلي</translation>
+        <translation>Inferior-izquierda</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>الجزء السفلي</translation>
+        <translation>Inferior</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>الحق</translation>
+        <translation>Inferior-derecha</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Straight</translation>
+        <translation>Recto</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation>الجولة</translation>
+        <translation>Redondeado</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Bisel</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>نوبة نوبة</translation>
+        <translation>Desplazamiento de ajuste</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>كلاهما</translation>
+        <translation>Ambos</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>كتابي</translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <source>Horizontal</source>
@@ -2364,94 +2364,94 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Width:</source>
-        <translation>الزوجة:</translation>
+        <translation>Ancho:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>في القاعدة:</translation>
+        <translation>Ángulo base:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>نوبة نوبة</translation>
+        <translation>Desplazamiento de ajuste</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation>إدجز:</translation>
+        <translation>Bordes:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>نهاية الحلقة:</translation>
+        <translation>Ajuste final:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>Corners:</translation>
+        <translation>Esquinas:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Length X:</translation>
+        <translation>Longitud X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>إبدأْ Snap:</translation>
+        <translation>Ajuste inicial:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation>Corner</translation>
+        <translation>Esquina</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>في منتصف العملية</translation>
+        <translation>Medio-vertical</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>منتصف الأفق</translation>
+        <translation>Medio-horizontal</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>في القاعدة:</translation>
+        <translation>Ángulo base:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Straight</translation>
+        <translation>Recto</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation>الجولة</translation>
+        <translation>Redondeado</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Bisel</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Length Y:</translation>
+        <translation>Longitud Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>كلاهما</translation>
+        <translation>Ambos</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>كتابي</translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <source>Horizontal</source>
@@ -2462,19 +2462,19 @@ Please note that if you'll save pen via editor without restart, current pens fro
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>كلاهما</translation>
+        <translation>Ambos</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation>كتابي</translation>
+        <translation>Vertical</translation>
     </message>
     <message>
         <source>Horizontal</source>
@@ -2482,341 +2482,341 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edges:</source>
-        <translation>إدجز:</translation>
+        <translation>Bordes:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Quadrangle</translation>
+        <translation>Cuadrángulo</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation>خط القاعدة الثابت:</translation>
+        <translation>Ángulo base fijo:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Length X:</translation>
+        <translation>Longitud X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Straight</translation>
+        <translation>Recto</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation>الجولة</translation>
+        <translation>Redondeado</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Bisel</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>Corners:</translation>
+        <translation>Esquinas:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>نوبة نوبة</translation>
+        <translation>Desplazamiento de ajuste</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Length Y:</translation>
+        <translation>Longitud Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation>"إنر أنجل"</translation>
+        <translation>Ángulo interior fijo:</translation>
     </message>
 </context>
 <context>
     <name>LC_SimpleTests</name>
     <message>
         <source>De&amp;bugging</source>
-        <translation>Debugging</translation>
+        <translation>Dep&amp;uración</translation>
     </message>
     <message>
         <source>Insert Image</source>
-        <translation>Insert Image</translation>
+        <translation>Insertar imagen</translation>
     </message>
 </context>
 <context>
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>لا</translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>كلاهما</translation>
+        <translation>Ambos</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>إيدج تيك:</translation>
+        <translation>Marca de borde:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relativo</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>خارج:</translation>
+        <translation>Desplazamiento:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation>الكونت:</translation>
+        <translation>Conteo:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>ابدأ السيرك</translation>
+        <translation>Ángulo inicial de círculo:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>Tick Length:</translation>
+        <translation>Longitud de marca:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>تيك دق:</translation>
+        <translation>Ajuste de marca:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Divide</translation>
+        <translation>Dividir</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation>الوظائف الثابتة</translation>
+        <translation>Fijo </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>المسافة:</translation>
+        <translation>Distancia:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Formulario</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Radius Inner</translation>
+        <translation>Radio interior</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Radiusخارجي</translation>
+        <translation>Radio exterior</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation>الرمز</translation>
+        <translation>Simétrico</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetFactory</name>
     <message>
         <source>Library Browser</source>
-        <translation>المكتبة</translation>
+        <translation>Navegador de biblioteca</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation>خط القيادة</translation>
+        <translation>Línea de comandos</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation>Acoplar</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation>Flotar</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation>خطوط</translation>
+        <translation>Líneas</translation>
     </message>
     <message>
         <source>Circles</source>
-        <translation>السيرك</translation>
+        <translation>Círculos</translation>
     </message>
     <message>
         <source>Freehand</source>
-        <translation>مجاني</translation>
+        <translation>A mano alzada</translation>
     </message>
     <message>
         <source>Ellipses</source>
-        <translation>الشحوم</translation>
+        <translation>Elipses</translation>
     </message>
     <message>
         <source>PolyLines</source>
-        <translation>بوليلين</translation>
+        <translation>Polilíneas</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>مختارة</translation>
+        <translation>Seleccionar</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>الأبعاد</translation>
+        <translation>Dimensiones</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>تعديل</translation>
+        <translation>Modificar</translation>
     </message>
     <message>
         <source>Measure</source>
-        <translation>القياس</translation>
+        <translation>Medir</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation>خيارات النظام القضائي</translation>
+        <translation>Opciones de widget</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation>Toolbar</translation>
+        <translation>Barra de herramientas</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation>Icon Size</translation>
+        <translation>Tamaño de icono</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>معلومات عامة</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>الشكل</translation>
+        <translation>Estilo</translation>
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation>Style Sheet</translation>
+        <translation>Hoja de estilo</translation>
     </message>
     <message>
         <source>Statusbar</source>
-        <translation>Statusbar</translation>
+        <translation>Barra de estado</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation>مرتفع</translation>
+        <translation>Altura</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation>حجم الفونت</translation>
+        <translation>Tamaño de fuente</translation>
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation>إدخلْ طريقَ a ورقة نمطِ Qt.</translation>
+        <translation>Ingrese la ruta de una hoja de estilo Qt.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation>طوله الجانبي</translation>
+        <translation>longitud lateral en píxeles</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation>استعملي أجهزة الإيكون</translation>
+        <translation>Usar iconos temáticos</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation>الأعمدة اليسرى:</translation>
+        <translation>Columnas de barra de herramientas izquierda:</translation>
     </message>
 </context>
 <context>
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation>اختيار:</translation>
+        <translation>seleccionar:</translation>
     </message>
     <message>
         <source>remove left</source>
-        <translation>إزالة الأمتعة</translation>
+        <translation>eliminar izquierda</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation>إزالة الحق</translation>
+        <translation>eliminar derecha</translation>
     </message>
     <message>
         <source>remove 0'</source>
-        <translation>إزالة صفر</translation>
+        <translation>eliminar 0'</translation>
     </message>
     <message>
         <source>remove 0"</source>
-        <translation>إزالة صفر</translation>
+        <translation>eliminar 0"</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>ألف - الخيارات المتصلة بالخط</translation>
+        <translation>Opciones de ángulo relativo de línea</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>Spacing:</translation>
+        <translation>Espaciado:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation>Distance from original polyline</translation>
+        <translation>Distancia desde polilínea original</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation>نسخ:</translation>
+        <translation>Copias:</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetEnt</name>
     <message>
         <source>Select object:</source>
-        <translation>المادة المختارة:</translation>
+        <translation>Seleccionar objeto:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetPoint</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetSelect</name>
     <message>
         <source>Select objects:</source>
-        <translation>الأشياء المختارة:</translation>
+        <translation>Seleccionar objetos:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -2907,23 +2907,23 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>File</source>
-        <translation>File</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Edit</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>View</translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Lápiz</translation>
     </message>
     <message>
         <source>Tool Options</source>
-        <translation>الخيارات المتعلقة باللجوء</translation>
+        <translation>Opciones de herramienta</translation>
     </message>
     <message>
         <source>Layer List</source>
@@ -2991,343 +2991,343 @@ Compruebe los permisos.</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>" بولندا</translation>
+        <translation>&amp;Polilínea</translation>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation>رسوم إنقاذ السيارات...</translation>
+        <translation>Guardado automático de dibujo...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation>الرسم الآلي</translation>
+        <translation>Dibujo guardado automáticamente</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation>لا يمكن إنقاذ الملف
+        <translation>No se puede guardar automáticamente el archivo
 %1
-من فضلك تحقق من الأذن
-معاقين من الإنقاذ.</translation>
+Verifique los permisos.
+Guardado automático deshabilitado.</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation>الواردات</translation>
+        <translation>Importar</translation>
     </message>
     <message>
         <source>&amp;Toolbars</source>
-        <translation>" حواجز "</translation>
+        <translation>&amp;Barras de herramientas</translation>
     </message>
     <message>
         <source>Compiled on: %1</source>
-        <translation>المجموع: 1 في المائة</translation>
+        <translation>Compilado el: %1</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation>النسبة المئوية 1</translation>
+        <translation>Versión: %1</translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation>تحذير: افتتح الملف بالفعل:</translation>
+        <translation>Advertencia: Archivo ya abierto : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
-        <translation>لا يمكن إنقاذ الملف</translation>
+        <translation>No se puede guardar el archivo </translation>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation>من فضلك تحقق من اسم الملف.</translation>
+        <translation> , verifique el nombre de archivo y los permisos.</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation>Tile ' Viertically</translation>
+        <translation>Mosaico &amp;vertical</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation>طراز Tab</translation>
+        <translation>Modo &amp;tabulador</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation>وثيقة جديدة من النموذج:</translation>
+        <translation>Nuevo documento desde plantilla: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation>النموذج المختار</translation>
+        <translation>Selección de plantilla cancelada</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation>فشل إنقاذ السيارات</translation>
+        <translation>Guardado automático fallido</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation>Snap Selection</translation>
+        <translation>Ajuste de selección</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation>الصادرات</translation>
+        <translation>Exportar como</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation>Compiler: Clang %1.%2.%3</translation>
+        <translation>Compilador: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation>Compiler: GNU GCC%1.%2.%3</translation>
+        <translation>Compilador: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation>نسبة مئوية(1)</translation>
+        <translation>Versión Qt: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation>مشروع مقترح</translation>
+        <translation>Modo borrador</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>Export as PDF</translation>
+        <translation>Exportar como PDF</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>الصادرات</translation>
+        <translation>Exportar</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation>لا يمكن فتح الملف
+        <translation>No se puede abrir el archivo
 %1
-يرجى التحقق من وجودها والإذن بها.</translation>
+Verifique su existencia y permisos.</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation>ادفعي %1 لا وجود له الافتتاح</translation>
+        <translation>El archivo '%1' no existe. Apertura cancelada</translation>
     </message>
     <message>
         <source>Categories</source>
-        <translation>الفئة</translation>
+        <translation>Categorías</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation>"</translation>
+        <translation>&amp;Orden</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation>الأمر</translation>
+        <translation>Orden</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>مختارة</translation>
+        <translation>Seleccionar</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>الخط</translation>
+        <translation>Línea</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation>الدائرة</translation>
+        <translation>Círculo</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation>"</translation>
+        <translation>&amp;Curva</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>المنحة</translation>
+        <translation>Curva</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation>Elipse</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>البعد</translation>
+        <translation>Dimensión</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>تعديل</translation>
+        <translation>Modificar</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>المعلومات</translation>
+        <translation>Información</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation>مناطق الرصيف</translation>
+        <translation>Áreas de acoplamiento</translation>
     </message>
     <message>
         <source>Grid Status</source>
-        <translation>Grid Status</translation>
+        <translation>Estado de cuadrícula</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation>Toolbars</translation>
+        <translation>Barras de herramientas</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation>الكلاب</translation>
+        <translation>Widgets de acoplamiento</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation>البدائل</translation>
+        <translation>Opciones de dispositivo</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation>الجهاز</translation>
+        <translation>Dispositivo</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>" الخيارات</translation>
+        <translation>&amp;Opciones</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation>Plugins</translation>
+        <translation>Co&amp;mplementos</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation>Dimension</translation>
+        <translation>Dime&amp;nsión</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation>Dock Widgets</translation>
+        <translation>Widgets de acopla&amp;miento</translation>
     </message>
     <message>
         <source>Recent Files</source>
-        <translation>الأفلام الأخيرة</translation>
+        <translation>Archivos recientes</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation>Compiler: Microsoft Visual C++</translation>
+        <translation>Compilador: Microsoft Visual C++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation>الصدر: %1.%2.%3</translation>
+        <translation>Versión Boost: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>نسخ</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation>المساهمون</translation>
+        <translation>Colaboradores</translation>
     </message>
     <message>
         <source>License</source>
-        <translation>الرخصة</translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <source>System</source>
-        <translation>النظام</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>Toolbar Creator</translation>
+        <translation>Creador de barra de herramientas</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>Menu Creator</translation>
+        <translation>Creador de menú</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation>Menu Assigner</translation>
+        <translation>Asignador de menú</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>" الأغبياء</translation>
+        <translation>&amp;Herramientas</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation>" سحب</translation>
+        <translation>&amp;Dibujos</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation>رسوم الادخار: 1 في المائة</translation>
+        <translation>Guardando dibujo: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation>تم إلغاء</translation>
+        <translation>Guardado cancelado</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation>الإغلاق</translation>
+        <translation>Cerrando dibujo</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation>أحتفظ بالتغييرات في البند التالي؟
+        <translation>¿Guardar cambios en el siguiente elemento?
 %1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>محفوظ</translation>
+        <translation>&amp;Guardar</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>إنقاذ...</translation>
+        <translation>Guardar &amp;como...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation>٪</translation>
+        <translation>&amp;Guardar %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation>انقذ ٪.</translation>
+        <translation>Guardar %1 &amp;como...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation>" ويندو</translation>
+        <translation>Modo &amp;ventana</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation>" لا</translation>
+        <translation>&amp;Diseño</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation>مستديرة</translation>
+        <translation>Redondeado</translation>
     </message>
     <message>
         <source>Triangular</source>
-        <translation>الثلاثي</translation>
+        <translation>Triangular</translation>
     </message>
     <message>
         <source>North</source>
-        <translation>الشمال</translation>
+        <translation>Norte</translation>
     </message>
     <message>
         <source>South</source>
-        <translation>الجنوب</translation>
+        <translation>Sur</translation>
     </message>
     <message>
         <source>East</source>
-        <translation>الشرق</translation>
+        <translation>Este</translation>
     </message>
     <message>
         <source>West</source>
-        <translation>غربا</translation>
+        <translation>Oeste</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation>" غريب</translation>
+        <translation>&amp;Organizar</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation>"</translation>
+        <translation>&amp;Maximizado</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation>انقذوا جميعكم ألغيوا</translation>
+        <translation>Guardar todo cancelado</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation>أغلقوا كل شيء</translation>
+        <translation>Cerrar todo cancelado</translation>
     </message>
     <message>
         <source>The Code</source>
-        <translation>القانون</translation>
+        <translation>El código</translation>
     </message>
     <message>
         <source>Cmd</source>
@@ -3335,64 +3335,64 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation>Flotar</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation>Dock</translation>
+        <translation>Acoplar</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
-        <translation>ويكي</translation>
+        <translation>&amp;Wiki</translation>
     </message>
     <message>
         <source>User's &amp;Manual</source>
-        <translation>مستخدم</translation>
+        <translation>Manual del &amp;usuario</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation>" اللجان</translation>
+        <translation>&amp;Comandos</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation>" الصفائح النمطية</translation>
+        <translation>&amp;Hojas de estilo</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation>الأرامل</translation>
+        <translation>Wid&amp;gets</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation>المحفل</translation>
+        <translation>&amp;Foro</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation>زوليب تشات</translation>
+        <translation>Zulip &amp;Chat</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation>المعلومات</translation>
+        <translation>&amp;Información de versión</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation>على الخط</translation>
+        <translation>En &amp;línea</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation>المانحون</translation>
+        <translation>&amp;Donar</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>يرجى تعديل التوسيع والوضع في الطبعة الأولية أولا.</translation>
+        <translation>Ajuste primero la escala y posición en la vista previa de impresión.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation>Pen Palette</translation>
+        <translation>Paleta de lápiz</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>Layer Tree</translation>
+        <translation>Árbol de capas</translation>
     </message>
 </context>
 <context>
@@ -3400,30 +3400,30 @@ Please check its existence and permissions.</source>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>الهروب</translation>
+        <translation>escape</translation>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>سبيسبار: استعيدت طريقة التصوير إلى الوضع الطبيعي</translation>
+        <translation>Barra espaciadora: modo de ajuste restaurado a normal</translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>الفضاء: وضع مؤقتاً طريقة للضرب بالمجان</translation>
+        <translation>Barra espaciadora: modo de ajuste temporalmente establecido en libre</translation>
     </message>
 </context>
 <context>
     <name>QG_ActiveLayerName</name>
     <message>
         <source>Selection</source>
-        <translation>الاختيار</translation>
+        <translation>Selección</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَنَدَّدُ /</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Current Layer</source>
-        <translation>الحالية</translation>
+        <translation>Capa actual</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -3431,11 +3431,11 @@ Please check its existence and permissions.</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>▪DOCTYPE HTML PUBLIC "-/W3C/DTD HTML 4.0//EN"http://www.w3.org/TR/REC-html40/strict.dtd".
-▪ / / / / / / / / / / / / / / / / / / / /
+        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
 p, li { white-space: pre-wrap; }
-/style /thetyle /head; Methodbody=" font-family: 'Helvetica'; font-size:7pt; font- weight:400; font-style:normal; &gt;
-' 2` أسلوب السحب: ' الحاجز: 0px؛ الهامش - بوتوم: 0px؛ الهامش:0px؛ الهامش الحق:0x؛ اسم الفريق العامل الحالي</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Nombre de la capa activa actual&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -3523,27 +3523,27 @@ en otra ventana</translation>
     </message>
     <message>
         <source>Create Block</source>
-        <translation>Create Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add an empty block</source>
-        <translation>أضف كتلة فارغة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>save the active block to a file</source>
-        <translation>أنقذوا المبنى النشط إلى ملف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove block</source>
-        <translation>لبنة إزالة الألغام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Filter</source>
-        <translation>فيلم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Looking for matching block names</source>
-        <translation>أبحث عن أسماء متطابقة</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3598,65 +3598,65 @@ en otra ventana</translation>
     </message>
     <message>
         <source>Dark Red</source>
-        <translation>الظلام الأحمر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Yellow</source>
-        <translation>أصفر الظلام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Green</source>
-        <translation>الظلام الأخضر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Cyan</source>
-        <translation>سيان الظلام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Blue</source>
-        <translation>الظلام الأزرق</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Magenta</source>
-        <translation>دارك ماجينتا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation>جراي الظلام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom</source>
-        <translation>العرف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>/ColorBox</source>
-        <translation>/ColorBox</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>الذرة</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CommandEdit</name>
     <message>
         <source>clear</source>
-        <translation>واضح</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CommandHistory</name>
     <message>
         <source>&amp;Copy</source>
-        <translation>" نسخ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Select " All</translation>
+        <translation type="unfinished">Seleccionar &amp;todo</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>آمن</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3671,36 +3671,36 @@ en otra ventana</translation>
     </message>
     <message>
         <source>Unknown command: %1</source>
-        <translation>أمر غير معروف: ٪١</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command history and output</source>
-        <translation>تاريخ القيادة والناتج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>الهروب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command line</source>
-        <translation>خط القيادة</translation>
+        <translation type="unfinished">Línea de comandos</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation>Cmd</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3715,7 +3715,7 @@ en otra ventana</translation>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3750,29 +3750,29 @@ en otra ventana</translation>
     </message>
     <message>
         <source>÷ (Division)</source>
-        <translation>?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>⌀ (Diameter)</source>
-        <translation>) (Diameter)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>π (Pi)</source>
-        <translation>(بي)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  Format of the dimension text, &lt; &gt; can be used as a placeholder for the dimension measuring value/p of/body of</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3827,12 +3827,11 @@ en otra ventana</translation>
     <message>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>Apply attributes also to all sub-entities of selected INSERT.
-This recursively modifies all entities of the Block itself.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Apply attributes Block-deep</source>
-        <translation>خصائص التطبيق</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3971,62 +3970,62 @@ This recursively modifies all entities of the Block itself.</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>المنطقة</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgImage</name>
     <message>
         <source>Image</source>
-        <translation>الصورة</translation>
+        <translation type="unfinished">Imagen</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation type="unfinished">Capa:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometry</translation>
+        <translation type="unfinished">Geometría</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>الزوجة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Height:</source>
-        <translation>حسناً</translation>
+        <translation type="unfinished">Altura:</translation>
     </message>
     <message>
         <source>insert (x):</source>
-        <translation>يدرج ما يلي:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale:</source>
-        <translation>Scale:</translation>
+        <translation type="unfinished">Escala:</translation>
     </message>
     <message>
         <source>Size (px):</source>
-        <translation>الحجم:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>path:</source>
-        <translation>الطريق:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>insert (y):</source>
-        <translation>يضاف (ذ):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select an image file</source>
-        <translation>اختيار ملف الصور</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4053,11 +4052,7 @@ This recursively modifies all entities of the Block itself.</translation>
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>font size="+1"&lt;
-/ font&gt;
-■ تنبيه
-الرجاء اختيار الوحدة التي تريد استخدامها للرسومات الجديدة ولهجتك المفضلة
-(يمكنك تغيير هذه الأماكن لاحقا)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4104,11 +4099,11 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Scale X:</source>
-        <translation>Scale X:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale Y:</source>
-        <translation>Scale Y:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4143,630 +4138,630 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>ID: </source>
-        <translation>الهوية:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgMText</name>
     <message>
         <source>MText</source>
-        <translation>MText</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation type="unfinished">Capa:</translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>:</translation>
+        <translation type="unfinished">&amp;Altura:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
-        <translation>" خط التبديل المباعدة</translation>
+        <translation type="unfinished">&amp;Espacio entre líneas por defecto</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation>Alt+D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alignment</source>
-        <translation>الإلغاء</translation>
+        <translation type="unfinished">Alineamiento</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation>اليمين</translation>
+        <translation type="unfinished">Arriba derecha</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation>اليسار</translation>
+        <translation type="unfinished">Arriba izquierda</translation>
     </message>
     <message>
         <source>Middle Left</source>
-        <translation>اليسار الأوسط</translation>
+        <translation type="unfinished">Medio izquierda</translation>
     </message>
     <message>
         <source>Middle Center</source>
-        <translation>المركز الأوسط</translation>
+        <translation type="unfinished">Medio centro</translation>
     </message>
     <message>
         <source>Middle Right</source>
-        <translation>الشرق الأوسط</translation>
+        <translation type="unfinished">Medio derecha</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation>الجزء الأيسر</translation>
+        <translation type="unfinished">Abajo izquierda</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation>الجزء السفلي</translation>
+        <translation type="unfinished">Abajo derecha</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation>مركز القاعدة</translation>
+        <translation type="unfinished">Abajo centro</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation>المركز الأعلى</translation>
+        <translation type="unfinished">Arriba centro</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>أنغل</translation>
+        <translation type="unfinished">Ángulo</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>النص:</translation>
+        <translation type="unfinished">Texto:</translation>
     </message>
     <message>
         <source>Clear Text</source>
-        <translation>نص واضح</translation>
+        <translation type="unfinished">Limpiar Texto</translation>
     </message>
     <message>
         <source>Load Text From File</source>
-        <translation>نسخة من الملف</translation>
+        <translation type="unfinished">Cargar texto desde archivo</translation>
     </message>
     <message>
         <source>Save Text To File</source>
-        <translation>حفظ النص إلى الملف</translation>
+        <translation type="unfinished">Guardar texto en Archivo</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>قطع</translation>
+        <translation type="unfinished">Cortar</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>نسخ</translation>
+        <translation type="unfinished">Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Paste</translation>
+        <translation type="unfinished">Pegar</translation>
     </message>
     <message>
         <source>Insert Symbol</source>
-        <translation>الرمز</translation>
+        <translation type="unfinished">Insertar símbolo</translation>
     </message>
     <message>
         <source>Degree (°)</source>
-        <translation>درجة (درجة)</translation>
+        <translation type="unfinished">Grados (°)</translation>
     </message>
     <message>
         <source>Plus / Minus (±)</source>
-        <translation>زائد/مينوس ()</translation>
+        <translation type="unfinished">Más / Menos (±)</translation>
     </message>
     <message>
         <source>At (@)</source>
-        <translation>At (@)</translation>
+        <translation type="unfinished">Arroba (@)</translation>
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>(ب)</translation>
+        <translation type="unfinished">Numeral (#)</translation>
     </message>
     <message>
         <source>Dollar ($)</source>
-        <translation>دولار</translation>
+        <translation type="unfinished">Moneda ($)</translation>
     </message>
     <message>
         <source>Copyright (©)</source>
-        <translation>حقوق التأليف والنشر</translation>
+        <translation type="unfinished">Copyright (©)</translation>
     </message>
     <message>
         <source>Registered (®)</source>
-        <translation>مسجل (خ)</translation>
+        <translation type="unfinished">Registrado (®)</translation>
     </message>
     <message>
         <source>Paragraph (§)</source>
-        <translation>الفقرة (الباب)</translation>
+        <translation type="unfinished">Parágrafo (§)</translation>
     </message>
     <message>
         <source>Pi (π)</source>
-        <translation>Pi (the)</translation>
+        <translation type="unfinished">Pi (π)</translation>
     </message>
     <message>
         <source>Pound (£)</source>
-        <translation>£ (£)</translation>
+        <translation type="unfinished">Libra (£)</translation>
     </message>
     <message>
         <source>Yen (¥)</source>
-        <translation>يين )يون(</translation>
+        <translation type="unfinished">Yen (¥)</translation>
     </message>
     <message>
         <source>Times (×)</source>
-        <translation>الوقت (x)</translation>
+        <translation type="unfinished">Multiplicar (×)</translation>
     </message>
     <message>
         <source>Division (÷)</source>
-        <translation>الشعبة (الشعبة)</translation>
+        <translation type="unfinished">Dividir (÷)</translation>
     </message>
     <message>
         <source>Insert Unicode</source>
-        <translation>Insert Unicode</translation>
+        <translation type="unfinished">Insertar Unicode</translation>
     </message>
     <message>
         <source>Page:</source>
-        <translation>الصفحة</translation>
+        <translation type="unfinished">Página:</translation>
     </message>
     <message>
         <source>Char:</source>
-        <translation>شار:</translation>
+        <translation type="unfinished">Char:</translation>
     </message>
     <message>
         <source>[0000-007F] Basic Latin</source>
-        <translation>[0000-007F] أساسية</translation>
+        <translation type="unfinished">[0000-007F] Basic Latin</translation>
     </message>
     <message>
         <source>[0080-00FF] Latin-1 Supplementary</source>
-        <translation>[0080-00FF]</translation>
+        <translation type="unfinished">[0080-00FF] Latin-1 Supplementary</translation>
     </message>
     <message>
         <source>[0100-017F] Latin Extended-A</source>
-        <translation>[0100-017F] Latin Extended- ألف</translation>
+        <translation type="unfinished">[0100-017F] Latin Extended-A</translation>
     </message>
     <message>
         <source>[0180-024F] Latin Extended-B</source>
-        <translation>[0180-024F] Latin Extended-B</translation>
+        <translation type="unfinished">[0180-024F] Latin Extended-B</translation>
     </message>
     <message>
         <source>[0250-02AF] IPA Extensions</source>
-        <translation>[0250-02AF] IPA extensions</translation>
+        <translation type="unfinished">[0250-02AF] IPA Extensions</translation>
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation>[02B0-02FF] Spacing Modifier Letters</translation>
+        <translation type="unfinished">[02B0-02FF] Spacing Modifier Letters</translation>
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
-        <translation>[0300-036F] Combining Diacritical Marks</translation>
+        <translation type="unfinished">[0300-036F] Combining Diacritical Marks</translation>
     </message>
     <message>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation>[0370-03FF] Greek and Coptic</translation>
+        <translation type="unfinished">[0370-03FF] Greek and Coptic</translation>
     </message>
     <message>
         <source>[0400-04FF] Cyrillic</source>
-        <translation>[0400-04FF] Cyrillic</translation>
+        <translation type="unfinished">[0400-04FF] Cyrillic</translation>
     </message>
     <message>
         <source>[0500-052F] Cyrillic Supplementary</source>
-        <translation>[0500-052F]</translation>
+        <translation type="unfinished">[0500-052F] Cyrillic Supplementary</translation>
     </message>
     <message>
         <source>[0530-058F] Armenian</source>
-        <translation>[0530-058F] Armenian</translation>
+        <translation type="unfinished">[0530-058F] Armenian</translation>
     </message>
     <message>
         <source>[0590-05FF] Hebrew</source>
-        <translation>[0590-05FF]</translation>
+        <translation type="unfinished">[0590-05FF] Hebrew</translation>
     </message>
     <message>
         <source>[0600-06FF] Arabic</source>
-        <translation>[0600-06FF] Arabic</translation>
+        <translation type="unfinished">[0600-06FF] Arabic</translation>
     </message>
     <message>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-074F] Syriac</translation>
+        <translation type="unfinished">[0700-074F] Syriac</translation>
     </message>
     <message>
         <source>[0780-07BF] Thaana</source>
-        <translation>[0780-07BF] ثانا</translation>
+        <translation type="unfinished">[0780-07BF] Thaana</translation>
     </message>
     <message>
         <source>[0900-097F] Devanagari</source>
-        <translation>[0900-097F] Devanagari</translation>
+        <translation type="unfinished">[0900-097F] Devanagari</translation>
     </message>
     <message>
         <source>[0980-09FF] Bengali</source>
-        <translation>[0980-09FF] Bengali</translation>
+        <translation type="unfinished">[0980-09FF] Bengali</translation>
     </message>
     <message>
         <source>[0A00-0A7F] Gurmukhi</source>
-        <translation>[0A00-0A7F] غورموخي</translation>
+        <translation type="unfinished">[0A00-0A7F] Gurmukhi</translation>
     </message>
     <message>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation>[0A80-0AFF] Gujarati</translation>
+        <translation type="unfinished">[0A80-0AFF] Gujarati</translation>
     </message>
     <message>
         <source>[0B00-0B7F] Oriya</source>
-        <translation>[0B00-0B7F] Oriya</translation>
+        <translation type="unfinished">[0B00-0B7F] Oriya</translation>
     </message>
     <message>
         <source>[0B80-0BFF] Tamil</source>
-        <translation>[0B80-0BFF] Tamil</translation>
+        <translation type="unfinished">[0B80-0BFF] Tamil</translation>
     </message>
     <message>
         <source>[0C00-0C7F] Telugu</source>
-        <translation>[0C00-0C7F] Telugu</translation>
+        <translation type="unfinished">[0C00-0C7F] Telugu</translation>
     </message>
     <message>
         <source>[0C80-0CFF] Kannada</source>
-        <translation>[0C80-0CFF] Kannada</translation>
+        <translation type="unfinished">[0C80-0CFF] Kannada</translation>
     </message>
     <message>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation>[0D00-0D7F] Malayalam</translation>
+        <translation type="unfinished">[0D00-0D7F] Malayalam</translation>
     </message>
     <message>
         <source>[0D80-0DFF] Sinhala</source>
-        <translation>[0D80-0DFF] Sinhala</translation>
+        <translation type="unfinished">[0D80-0DFF] Sinhala</translation>
     </message>
     <message>
         <source>[0E00-0E7F] Thai</source>
-        <translation>[0E00-0E7F] تايلند</translation>
+        <translation type="unfinished">[0E00-0E7F] Thai</translation>
     </message>
     <message>
         <source>[0E80-0EFF] Lao</source>
-        <translation>[0E80-0EFF] Lao</translation>
+        <translation type="unfinished">[0E80-0EFF] Lao</translation>
     </message>
     <message>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation>[0F00-0FFF] Tibetan</translation>
+        <translation type="unfinished">[0F00-0FFF] Tibetan</translation>
     </message>
     <message>
         <source>[1000-109F] Myanmar</source>
-        <translation>[1000-109F] Myanmar</translation>
+        <translation type="unfinished">[1000-109F] Myanmar</translation>
     </message>
     <message>
         <source>[10A0-10FF] Georgian</source>
-        <translation>[10A0-10FF] Georgian</translation>
+        <translation type="unfinished">[10A0-10FF] Georgian</translation>
     </message>
     <message>
         <source>[1100-11FF] Hangul Jamo</source>
-        <translation>[1100-11FF] Hangul Jamo</translation>
+        <translation type="unfinished">[1100-11FF] Hangul Jamo</translation>
     </message>
     <message>
         <source>[1200-137F] Ethiopic</source>
-        <translation>[1200-137F] Ethiopic</translation>
+        <translation type="unfinished">[1200-137F] Ethiopic</translation>
     </message>
     <message>
         <source>[13A0-13FF] Cherokee</source>
-        <translation>[13A0-13FF]</translation>
+        <translation type="unfinished">[13A0-13FF] Cherokee</translation>
     </message>
     <message>
         <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
-        <translation>[1400-167F] Unified Canadian Aboriginal Syllabic</translation>
+        <translation type="unfinished">[1400-167F] Unified Canadian Aboriginal Syllabic</translation>
     </message>
     <message>
         <source>[1680-169F] Ogham</source>
-        <translation>[1680-169F] Ogham</translation>
+        <translation type="unfinished">[1680-169F] Ogham</translation>
     </message>
     <message>
         <source>[16A0-16FF] Runic</source>
-        <translation>[16A0-16FF] Runic</translation>
+        <translation type="unfinished">[16A0-16FF] Runic</translation>
     </message>
     <message>
         <source>[1700-171F] Tagalog</source>
-        <translation>[1700-171F] Tagalog</translation>
+        <translation type="unfinished">[1700-171F] Tagalog</translation>
     </message>
     <message>
         <source>[1720-173F] Hanunoo</source>
-        <translation>[1720-173F] Hanunoo</translation>
+        <translation type="unfinished">[1720-173F] Hanunoo</translation>
     </message>
     <message>
         <source>[1740-175F] Buhid</source>
-        <translation>[1740-175F] Buhid</translation>
+        <translation type="unfinished">[1740-175F] Buhid</translation>
     </message>
     <message>
         <source>[1760-177F] Tagbanwa</source>
-        <translation>[1760-177F] Tagbanwa</translation>
+        <translation type="unfinished">[1760-177F] Tagbanwa</translation>
     </message>
     <message>
         <source>[1780-17FF] Khmer</source>
-        <translation>[1780-17FF] Khmer</translation>
+        <translation type="unfinished">[1780-17FF] Khmer</translation>
     </message>
     <message>
         <source>[1800-18AF] Mongolian</source>
-        <translation>[1800-18AF] Mongolian</translation>
+        <translation type="unfinished">[1800-18AF] Mongolian</translation>
     </message>
     <message>
         <source>[1E00-1EFF] Latin Extended Additional</source>
-        <translation>[1E00-1EFF] Latin Extended Additional</translation>
+        <translation type="unfinished">[1E00-1EFF] Latin Extended Additional</translation>
     </message>
     <message>
         <source>[1F00-1FFF] Greek Extended</source>
-        <translation>[1F00-1FFF] Greek Extended</translation>
+        <translation type="unfinished">[1F00-1FFF] Greek Extended</translation>
     </message>
     <message>
         <source>[2000-206F] General Punctuation</source>
-        <translation>[2000-206F] General Punctuation</translation>
+        <translation type="unfinished">[2000-206F] General Punctuation</translation>
     </message>
     <message>
         <source>[2070-209F] Superscripts and Subscripts</source>
-        <translation>[2070-209F] Superscripts and Subscripts</translation>
+        <translation type="unfinished">[2070-209F] Superscripts and Subscripts</translation>
     </message>
     <message>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation>[20A0-20CF] Currency Symbols</translation>
+        <translation type="unfinished">[20A0-20CF] Currency Symbols</translation>
     </message>
     <message>
         <source>[20D0-20FF] Combining Marks for Symbols</source>
-        <translation>[20D0-20FF] Combining Marks for Symbols</translation>
+        <translation type="unfinished">[20D0-20FF] Combining Marks for Symbols</translation>
     </message>
     <message>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation>[2100-214F] Letterlike Symbols</translation>
+        <translation type="unfinished">[2100-214F] Letterlike Symbols</translation>
     </message>
     <message>
         <source>[2150-218F] Number Forms</source>
-        <translation>[2150-218F] Number Forms</translation>
+        <translation type="unfinished">[2150-218F] Number Forms</translation>
     </message>
     <message>
         <source>[2190-21FF] Arrows</source>
-        <translation>[2190-21FF] السهم</translation>
+        <translation type="unfinished">[2190-21FF] Arrows</translation>
     </message>
     <message>
         <source>[2200-22FF] Mathematical Operators</source>
-        <translation>[2200-22FF] صانعو رياضيات</translation>
+        <translation type="unfinished">[2200-22FF] Mathematical Operators</translation>
     </message>
     <message>
         <source>[2300-23FF] Miscellaneous Technical</source>
-        <translation>[2300-23FF]</translation>
+        <translation type="unfinished">[2300-23FF] Miscellaneous Technical</translation>
     </message>
     <message>
         <source>[2400-243F] Control Pictures</source>
-        <translation>[2400-243F] Pictures Control</translation>
+        <translation type="unfinished">[2400-243F] Control Pictures</translation>
     </message>
     <message>
         <source>[2440-245F] Optical Character Recognition</source>
-        <translation>[2440-245F] Optical Character Recognition</translation>
+        <translation type="unfinished">[2440-245F] Optical Character Recognition</translation>
     </message>
     <message>
         <source>[2460-24FF] Enclosed Alphanumerics</source>
-        <translation>[2460-24FF] En closed Alphanumerics</translation>
+        <translation type="unfinished">[2460-24FF] Enclosed Alphanumerics</translation>
     </message>
     <message>
         <source>[2500-257F] Box Drawing</source>
-        <translation>[2500-257F] Box Drawing</translation>
+        <translation type="unfinished">[2500-257F] Box Drawing</translation>
     </message>
     <message>
         <source>[2580-259F] Block Elements</source>
-        <translation>[2580-259F] Block Elements</translation>
+        <translation type="unfinished">[2580-259F] Block Elements</translation>
     </message>
     <message>
         <source>[25A0-25FF] Geometric Shapes</source>
-        <translation>[25A0-25FF] Geometric Shapes</translation>
+        <translation type="unfinished">[25A0-25FF] Geometric Shapes</translation>
     </message>
     <message>
         <source>[2600-26FF] Miscellaneous Symbols</source>
-        <translation>[2600-26FF] Other Symbols</translation>
+        <translation type="unfinished">[2600-26FF] Miscellaneous Symbols</translation>
     </message>
     <message>
         <source>[2700-27BF] Dingbats</source>
-        <translation>[2700-27BF] Dingbats</translation>
+        <translation type="unfinished">[2700-27BF] Dingbats</translation>
     </message>
     <message>
         <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
-        <translation>[27C0-27EF] Other Mathematical Symbols- ألف</translation>
+        <translation type="unfinished">[27C0-27EF] Miscellaneous Mathematical Symbols-A</translation>
     </message>
     <message>
         <source>[27F0-27FF] Supplemental Arrows-A</source>
-        <translation>[27F0-27FF] Additionalal Arrows- ألف</translation>
+        <translation type="unfinished">[27F0-27FF] Supplemental Arrows-A</translation>
     </message>
     <message>
         <source>[2800-28FF] Braille Patterns</source>
-        <translation>[2800-28FF] Braille Patterns</translation>
+        <translation type="unfinished">[2800-28FF] Braille Patterns</translation>
     </message>
     <message>
         <source>[2900-297F] Supplemental Arrows-B</source>
-        <translation>[2900-297F] Additionalal Arrows-B</translation>
+        <translation type="unfinished">[2900-297F] Supplemental Arrows-B</translation>
     </message>
     <message>
         <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
-        <translation>[2980-29FF] variety Mathematical Symbols-B</translation>
+        <translation type="unfinished">[2980-29FF] Miscellaneous Mathematical Symbols-B</translation>
     </message>
     <message>
         <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
-        <translation>[2A00-2AFF] Additionalal Mathematical Operators</translation>
+        <translation type="unfinished">[2A00-2AFF] Supplemental Mathematical Operators</translation>
     </message>
     <message>
         <source>[2E80-2EFF] CJK Radicals Supplement</source>
-        <translation>[2E80-2EFF] CJK Radicals supplement</translation>
+        <translation type="unfinished">[2E80-2EFF] CJK Radicals Supplement</translation>
     </message>
     <message>
         <source>[2F00-2FDF] Kangxi Radicals</source>
-        <translation>[2F00-2FDF] Kangxi Radicals</translation>
+        <translation type="unfinished">[2F00-2FDF] Kangxi Radicals</translation>
     </message>
     <message>
         <source>[2FF0-2FFF] Ideographic Description Characters</source>
-        <translation>[2FF0-2FFF] Ideographic Description Characters</translation>
+        <translation type="unfinished">[2FF0-2FFF] Ideographic Description Characters</translation>
     </message>
     <message>
         <source>[3000-303F] CJK Symbols and Punctuation</source>
-        <translation>[3000-303F] CJK Symbols and Punctuation</translation>
+        <translation type="unfinished">[3000-303F] CJK Symbols and Punctuation</translation>
     </message>
     <message>
         <source>[3040-309F] Hiragana</source>
-        <translation>[3040-309F] Hiragana</translation>
+        <translation type="unfinished">[3040-309F] Hiragana</translation>
     </message>
     <message>
         <source>[30A0-30FF] Katakana</source>
-        <translation>[30A0-30FF] Katakana</translation>
+        <translation type="unfinished">[30A0-30FF] Katakana</translation>
     </message>
     <message>
         <source>[3100-312F] Bopomofo</source>
-        <translation>[3100-312F] Bopomofo</translation>
+        <translation type="unfinished">[3100-312F] Bopomofo</translation>
     </message>
     <message>
         <source>[3130-318F] Hangul Compatibility Jamo</source>
-        <translation>[3130-318F] Holdul Compatibility Jamo</translation>
+        <translation type="unfinished">[3130-318F] Hangul Compatibility Jamo</translation>
     </message>
     <message>
         <source>[3190-319F] Kanbun</source>
-        <translation>[3190-319F] Kanbun</translation>
+        <translation type="unfinished">[3190-319F] Kanbun</translation>
     </message>
     <message>
         <source>[31A0-31BF] Bopomofo Extended</source>
-        <translation>[31A0-31BF] Bopomofo Extended</translation>
+        <translation type="unfinished">[31A0-31BF] Bopomofo Extended</translation>
     </message>
     <message>
         <source>[3200-32FF] Enclosed CJK Letters and Months</source>
-        <translation>[3200-32FF] En closed CJK Letters and Months</translation>
+        <translation type="unfinished">[3200-32FF] Enclosed CJK Letters and Months</translation>
     </message>
     <message>
         <source>[3300-33FF] CJK Compatibility</source>
-        <translation>[3300-33FF] CJK Compatibility</translation>
+        <translation type="unfinished">[3300-33FF] CJK Compatibility</translation>
     </message>
     <message>
         <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
-        <translation>[3400-4DBF] CJK Unified Ideographs extension A</translation>
+        <translation type="unfinished">[3400-4DBF] CJK Unified Ideographs Extension A</translation>
     </message>
     <message>
         <source>[4E00-9FAF] CJK Unified Ideographs</source>
-        <translation>[4E00-9FAF] CJK Unified Ideographs</translation>
+        <translation type="unfinished">[4E00-9FAF] CJK Unified Ideographs</translation>
     </message>
     <message>
         <source>[A000-A48F] Yi Syllables</source>
-        <translation>[A000-A48F] Yi Syllables</translation>
+        <translation type="unfinished">[A000-A48F] Yi Syllables</translation>
     </message>
     <message>
         <source>[A490-A4CF] Yi Radicals</source>
-        <translation>[A490-A4CF] Yi Radicals</translation>
+        <translation type="unfinished">[A490-A4CF] Yi Radicals</translation>
     </message>
     <message>
         <source>[AC00-D7AF] Hangul Syllables</source>
-        <translation>[AC00-D7AF] هانغول</translation>
+        <translation type="unfinished">[AC00-D7AF] Hangul Syllables</translation>
     </message>
     <message>
         <source>[D800-DBFF] High Surrogates</source>
-        <translation>[D800-DBFF] High Surrogates</translation>
+        <translation type="unfinished">[D800-DBFF] High Surrogates</translation>
     </message>
     <message>
         <source>[DC00-DFFF] Low Surrogate Area</source>
-        <translation>[DC00-DFFF] المساحة المنخفضة</translation>
+        <translation type="unfinished">[DC00-DFFF] Low Surrogate Area</translation>
     </message>
     <message>
         <source>[E000-F8FF] Private Use Area</source>
-        <translation>[E000-F8FF] Private Use Area</translation>
+        <translation type="unfinished">[E000-F8FF] Private Use Area</translation>
     </message>
     <message>
         <source>[F900-FAFF] CJK Compatibility Ideographs</source>
-        <translation>[F900-FAFF] CJK Compatibility Ideographs</translation>
+        <translation type="unfinished">[F900-FAFF] CJK Compatibility Ideographs</translation>
     </message>
     <message>
         <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
-        <translation>[FB00-FB4F] Alphabetic Presentation Forms</translation>
+        <translation type="unfinished">[FB00-FB4F] Alphabetic Presentation Forms</translation>
     </message>
     <message>
         <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
-        <translation>[FB50-FDFF] Arabic Presentation Forms- ألف</translation>
+        <translation type="unfinished">[FB50-FDFF] Arabic Presentation Forms-A</translation>
     </message>
     <message>
         <source>[FE00-FE0F] Variation Selectors</source>
-        <translation>[FE00-FE0F] Variation Selectors</translation>
+        <translation type="unfinished">[FE00-FE0F] Variation Selectors</translation>
     </message>
     <message>
         <source>[FE20-FE2F] Combining Half Marks</source>
-        <translation>[FE20-FE2F] Combining half Marks</translation>
+        <translation type="unfinished">[FE20-FE2F] Combining Half Marks</translation>
     </message>
     <message>
         <source>[FE30-FE4F] CJK Compatibility Forms</source>
-        <translation>[FE30-FE4F] CJK Compatibility Forms</translation>
+        <translation type="unfinished">[FE30-FE4F] CJK Compatibility Forms</translation>
     </message>
     <message>
         <source>[FE50-FE6F] Small Form Variants</source>
-        <translation>[FE50-FE6F] الاستمارة الصغيرة</translation>
+        <translation type="unfinished">[FE50-FE6F] Small Form Variants</translation>
     </message>
     <message>
         <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
-        <translation>[FE70-FEFF] Arabic Presentation Forms-B</translation>
+        <translation type="unfinished">[FE70-FEFF] Arabic Presentation Forms-B</translation>
     </message>
     <message>
         <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
-        <translation>[FF00-FFEF] نهض وفولويد</translation>
+        <translation type="unfinished">[FF00-FFEF] Halfwidth and Fullwidth Forms</translation>
     </message>
     <message>
         <source>[FFF0-FFFF] Specials</source>
-        <translation>[FF0... Specials</translation>
+        <translation type="unfinished">[FFF0-FFFF] Specials</translation>
     </message>
     <message>
         <source>[10300-1032F] Old Italic</source>
-        <translation>[10300-1032F] قديمة</translation>
+        <translation type="unfinished">[10300-1032F] Old Italic</translation>
     </message>
     <message>
         <source>[10330-1034F] Gothic</source>
-        <translation>[10330-1034F] Gothic</translation>
+        <translation type="unfinished">[10330-1034F] Gothic</translation>
     </message>
     <message>
         <source>[10400-1044F] Deseret</source>
-        <translation>[10400-1044F] الصحراء</translation>
+        <translation type="unfinished">[10400-1044F] Deseret</translation>
     </message>
     <message>
         <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
-        <translation>[1D000-1D0FF] Byzantine Musical Symbols</translation>
+        <translation type="unfinished">[1D000-1D0FF] Byzantine Musical Symbols</translation>
     </message>
     <message>
         <source>[1D100-1D1FF] Musical Symbols</source>
-        <translation>[1D100-1D1FF] Musical Symbols</translation>
+        <translation type="unfinished">[1D100-1D1FF] Musical Symbols</translation>
     </message>
     <message>
         <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
-        <translation>[1D400-1D7FF] تصوّر الرياضيات</translation>
+        <translation type="unfinished">[1D400-1D7FF] Mathematical Alphanumeric Symbols</translation>
     </message>
     <message>
         <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
-        <translation>[20000-2A6DF] CJK Unified Ideographs extension B</translation>
+        <translation type="unfinished">[20000-2A6DF] CJK Unified Ideographs Extension B</translation>
     </message>
     <message>
         <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
-        <translation>[2F800-2FA1F] CJK Compatibility Ideographs supplement</translation>
+        <translation type="unfinished">[2F800-2FA1F] CJK Compatibility Ideographs Supplement</translation>
     </message>
     <message>
         <source>[E0000-E007F] Tags</source>
-        <translation>[E00-E007F] Tags</translation>
+        <translation type="unfinished">[E0000-E007F] Tags</translation>
     </message>
     <message>
         <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
-        <translation>منطقة الاستخدام الخاص التكميلي ألف</translation>
+        <translation type="unfinished">[F0000-FFFFD] Supplementary Private Use Area-A</translation>
     </message>
     <message>
         <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
-        <translation>[100000-10FFFD] منطقة الاستخدام الخاص التكميلي</translation>
+        <translation type="unfinished">[100000-10FFFD] Supplementary Private Use Area-B</translation>
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>مقياس (ث)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Line spacing:</source>
-        <translation>المباعدة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font Settings</source>
-        <translation>Font Settings</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font:</source>
-        <translation>Font:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text Direction</source>
-        <translation>النص</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left to right</source>
-        <translation>يسار إلى اليمين</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right to left</source>
-        <translation>اليمين إلى اليسار</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4797,7 +4792,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4828,15 +4823,15 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move/Copy Options</source>
-        <translation>خيارات النقل/النسخ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies. Maximum 100</source>
-        <translation>عدد النسخ. الحد الأقصى 100</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4875,11 +4870,11 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5047,267 +5042,267 @@ Pre&amp;cisión:</translation>
     </message>
     <message>
         <source>Crosshair</source>
-        <translation>الصليب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left crosshair with isometric grid</source>
-        <translation>الصليب الأيسر مع شبكة قياسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left</source>
-        <translation>يسار</translation>
+        <translation type="unfinished">Izquierdo</translation>
     </message>
     <message>
         <source>Top crosshair with isometric grid</source>
-        <translation>مركز الصدع العلوي مع شبكة قياسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Top</source>
-        <translation>القمة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right crosshair with isometric grid</source>
-        <translation>صليب يمين مع شبكة قياسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right</source>
-        <translation>الحق</translation>
+        <translation type="unfinished">Derecho</translation>
     </message>
     <message>
         <source>Use orthogonal grid</source>
-        <translation>استخدام شبكة أوتهوجون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Orthogonal Grid</source>
-        <translation>Orthogonal Grid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use isometric grid</source>
-        <translation>شبكة قياسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Isometric Grid</source>
-        <translation>Isometric Grid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tick size:</source>
-        <translation>حجم التذاكر:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  حجم التذكرة وضعه إلى صفر سيعطل البُعد سهم البعد لن يُستَخلص عندما يُمكّن البُعد من التدخّل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation type="unfinished">Horizontal</translation>
     </message>
     <message>
         <source>General Scale:</source>
-        <translation>الجنرال سكالي:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  Scale to multiply all dimension values</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension geometries.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>œuvrehtml ' shead ' ' homme/ ' hommebody toScale to multiply all dimension geometries</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text style:</source>
-        <translation>أسلوب النص:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>'.' (Period)</source>
-        <translation>'</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>',' (Comma)</source>
-        <translation>'، ' (Comma)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Decimal separator:</source>
-        <translation>المفصل العشري:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Linear units:</source>
-        <translation>وحدات خطية:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Color:</source>
-        <translation>كولور:</translation>
+        <translation type="unfinished">Color:</translation>
     </message>
     <message>
         <source>Length Factor:</source>
-        <translation>المصانع:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular units:</source>
-        <translation>الوحدات المحلية:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Linear zeros:</source>
-        <translation>الصف صفر:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Format units</source>
-        <translation>الوحدات الشكلية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  الفجوة الفاصلة حول النص/النسخة المرجعية/المجموعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text size &amp; position</source>
-        <translation>حجم النص</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length to enlarge over dimension line</source>
-        <translation>طول الخط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  حجم السهم ·a name= "result box"/without effect when tick size a name="result box"/is other than 0/p&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width:</source>
-        <translation>الزوجة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation>خطوط البعد، السهام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular zeros:</source>
-        <translation>الأصفار العصبية:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular precision:</source>
-        <translation>الدقة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enlarge:</source>
-        <translation>توسيع:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Offset:</source>
-        <translation>خارج:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Linear precision:</source>
-        <translation>دقة خطية:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  Text alignment œa name="result box"/.relative to the dimension line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Aligned</source>
-        <translation>منحاز</translation>
+        <translation type="unfinished">Alineado</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  خروج من نقطة المنشأ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text alignment:</source>
-        <translation>مواءمة النصوص:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Extension lines</source>
-        <translation>خطوط التمديد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fixed length:</source>
-        <translation>المدة المحددة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Format</source>
-        <translation>الشكل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>:</translation>
+        <translation type="unfinished">&amp;Altura:</translation>
     </message>
     <message>
         <source>&amp;Width:</source>
-        <translation>"Width:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Orientation</source>
-        <translation>التوجيه</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Margins</source>
-        <translation>Margins</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bottom</source>
-        <translation>الجزء السفلي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of pages</source>
-        <translation>عدد الصفحات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Horizontally:</source>
-        <translation>:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Vertically:</source>
-        <translation>في الواقع:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fixed extension line length</source>
-        <translation>طول خط التمديد الثابت</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Splines</source>
-        <translation>" Splines</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>" النقاط</translation>
+        <translation type="unfinished">&amp;Puntos</translation>
     </message>
     <message>
         <source>Point Style</source>
-        <translation>نقطة نمط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Point Size</source>
-        <translation>حجم النقطة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dwg Units</source>
-        <translation>Dwg Units</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Size relative to screen</source>
-        <translation>الحجم بالنسبة للشاشة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Size in drawing units</source>
-        <translation>الحجم في وحدات الرسم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>(0 =&gt; 5% relative to screen size)</source>
-        <translation>(0 = 5% مقارنة بحجم الشاشة)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Architectural (metric)</source>
-        <translation>الهندسة المعمارية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>من أجل استمارة "المحفوظات" يجب أن تكون الوحدة جاهزة للمتر.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Screen %</source>
-        <translation>النسبة المئوية</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5406,350 +5401,342 @@ Pre&amp;cisión:</translation>
     </message>
     <message>
         <source>&amp;Meta Grid Color:</source>
-        <translation>&amp;Meta Grid Color:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Program Defaults</source>
-        <translation>البرنامج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing unit.</source>
-        <translation>وحدة الرسم.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Time between automatic saving of the document in minutes.</source>
-        <translation>الوقت بين الادخار التلقائي للوثيقة في دقائق.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>When set, LibreCAD will automatically generate a backup of your current drawing.</source>
-        <translation>عندما تجهز، (ليبريكاد) سيولد تلقائياً دعم لرسمك الحالي.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto backup</source>
-        <translation>الدعم الآلي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Template:</source>
-        <translation>النموذج:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>St&amp;art Handle Color:</source>
-        <translation>(ستارت هاندل كولور)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Handle Color:</source>
-        <translation>&amp;Handle Color:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;End Handle Color:</source>
-        <translation>&amp;End Handle Color:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation>الألوان الخرافية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator:</source>
-        <translation>مؤشر Snap:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation>Anti-aliasing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
-        <translation>تعديل طبقة كيانات مختارة، عند تنشيط طبقة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear Settings</source>
-        <translation>المقاصة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restores program geometry/layout to original state</source>
-        <translation>يستعيد البرنامج الهندسة/النقل إلى الولاية الأصلية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layout</source>
-        <translation>#</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restores the program to its original state</source>
-        <translation>يعيد البرنامج إلى حالته الأصلية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All</source>
-        <translation>كل شيء</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation>Scrollbars</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation>خطوط مؤشرات خط الأساس</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation>شكل مؤشر الفجوة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation>اختبئوا عندما تنفجر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start in tab mode</source>
-        <translation>ابدأي في وضعية التذاكر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Startup</source>
-        <translation>البداية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Display loading screen</source>
-        <translation>شاشات التحميل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start with main window maximized</source>
-        <translation>ابدأ بالنوافذ الرئيسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enable CAD dockwidgets</source>
-        <translation>Enable CAD dockwidgets</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enable CAD toolbars</source>
-        <translation>حواجز أدوات تمكينية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation>1E90FF</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear settings</source>
-        <translation>أماكن واضحة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>This will also include custom menus and toolbars. Continue?</source>
-        <translation>وسيشمل ذلك أيضاً التنويم العرفي وحواجز الأدوات. أكمل؟?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  وعند التمكين من ذلك، فإن تنشيط طبقة ما من شأنه أن يعدل جميع الكيانات المختارة إلى تلك الطبعة الجديدة. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to new layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Variable File:</source>
-        <translation>الملف المتغير:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation>Minimal Grid Spacing (px):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>N&amp;umber of preview entities:</source>
-        <translation>Number of preview entities:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Don't use native OS file open dialog</source>
-        <translation>لا تَستعملُ ملفَ محلي مفتوحَ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto-panning</source>
-        <translation>الاستقلال الذاتي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide the relative-&amp;zero marker</source>
-        <translation>اخفي علامة الوسيم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alt+Z</source>
-        <translation>Alt+Z</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Visualize the entity under the cursor</source>
-        <translation>تصور الكيان تحت الستار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Mouse-over effects</source>
-        <translation>آثار الانتقال</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Relative-Zero Marker Color:</source>
-        <translation>ملصقات زرّية ذات صلة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto save time (minutes):</source>
-        <translation>وقت إنقاذ السيارات (دقائق):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
-        <translation>يُستشفُ الإتجاهَ عندما يَستعملُ عجلةَ الفأرَ مَع مفتاحِ شيفت.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert horizontal scrolling direction</source>
-        <translation>الاتجاه الأفقي المنحرف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
-        <translation>يَتَجْفّرُ الإتجاهَ عندما يَستعملُ عجلةَ الفأرَ مَع مفتاحِ Ctrl.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert vertical scrolling direction</source>
-        <translation>الاتجاه العمودي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts zoom direction when using mouse wheel.</source>
-        <translation>يَتجنّبُ إتّجاهَ زووم عندما يَستعملُ عجلةَ الفأرَ.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert zoom direction</source>
-        <translation>Invert zoom direction</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>لوحة المفاتيح</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Evaluate commands when SPACE BAR is pressed</source>
-        <translation>يقيّم الأوامر عندما يضغط سوبيس بار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle free snap mode when SPACE BAR is pressed</source>
-        <translation>تَضْربُ مُحرّرَةَ عندما SPACE BAR</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>CAD Preferences</source>
-        <translation>CAD Preferences</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Automatically zoom drawing when opening</source>
-        <translation>رسم الزوم الآلي عند الافتتاح</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>ترجمة: جزء من ملف المكتبة ويجب أن تكون ملفات دكسف المكتبة الرمزية في التوجيهات الفرعية لهذا الملف. "تُعرض الأسماء الفرعية في "المكتبة (بروس)" "المكتبة (بروسبان)"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>آخر ملفات مفتوحة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  "مُؤقتاً لِتَنَقُّع المُحرّرِ عندما يُضْحَطُ الحاجز الفضائي ويُشغّلُ نافذة القيادة"</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsMakerCam</name>
     <message>
         <source>Layers</source>
-        <translation>Layers</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export invisible layers</source>
-        <translation>الطبقات الخفية للصادرات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export visible construction layers</source>
-        <translation>طبقات البناء المرئية للصادرات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Blocks</source>
-        <translation>حواجز</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Convert blocks to safe inline SVG content</source>
-        <translation>Convert blocks to safe inline SVG content</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ellipses / Ellipse arcs</source>
-        <translation>Ellipses / Ellipse arc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Approximate ellipses and ellipse arcs with cubic béziers</source>
-        <translation>النسيج التقريبي وقوس النسيج مع المربيات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export as CAM/plain SVG</source>
-        <translation>Export as CAM/plain SVG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default width of elements, mm</source>
-        <translation>البارود الافتراضي للعناصر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Images</source>
-        <translation>الصور</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Raster Image export</source>
-        <translation>تصدير الصور</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash/Dot Lines</source>
-        <translation>خطوط الداش/الدبابات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of the pattern, mm</source>
-        <translation>طول النمط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bake dash/dot lines to SVG path</source>
-        <translation>Bake dash/dot lines to SVG path</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
 that has been set invisibe ("display: none" or "visibility: hidden").</source>
-        <translation>ماكركام حتى تشرين الثاني/نوفمبر 2014 لا يخفي محتوى SVG
-لقد تم وضعه في النسيان "لا شيء" أو "القابلية للاختباء".</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
 because it does not take into account the reference point in the &lt;use&gt;.</source>
-        <translation>ماكركام حتى تشرين الثاني/نوفمبر 2014 لا يمكن التعامل بشكل صحيح مع القطع
-لأنها لا تأخذ في الحسبان النقطة المرجعية في نظام " الفرز " .</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, 
 when they are created using the &lt;ellipse&gt; tag  with a rotation in 
 the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.</source>
-        <translation>لا يمكن للكيمياء حتى آذار/مارس 2015 أن يكشفوا عن الأنابيب و القوس المصنوعة بشكل صحيح
-عندما يُنشأون بإستخدام بطاقة الـ"سيليبس" مع تناوب في
-The transform. attribute or as ventpath. using elliptic arc segments.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
 but avoided in some CAM's.</source>
-        <translation>يمكن أن تكون الصور المصدّرة مفيدة في محرري شركة SVG (Inkscape, etc)
-ولكن تجنب في بعض CAM.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
-        <translation>العديد من الـ (ماكركام) و(إليزككام) و(لاسر ويب) يتجاهلون أسلوب الخط الفاشل
-الذي يمكن أن يكون مفيداً في ليزركو من خشب الخشب أو للحرف الورقي.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default width of elements can affect some CAM's/SVG Editors, 
 but ignored by other</source>
-        <translation>البارود الافتراضي للعناصر يمكن أن يؤثر على بعض محرري CAM/SVG،
-ولكنهم يتجاهلون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of line pattern related to zoom, 
 so default step value required for baking</source>
-        <translation>طول النمط المتصل بالزوم
-لذا قيمة الخطوة الافتراضية المطلوبة للخبز</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Points</source>
-        <translation>النقاط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export Points</source>
-        <translation>نقاط التصدير</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>مسألة ما إذا كان ينبغي تصدير نقاط التصدير</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5786,19 +5773,19 @@ so default step value required for baking</source>
     <name>QG_DlgPolyline</name>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished">Polilínea</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation type="unfinished">Capa:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometry</translation>
+        <translation type="unfinished">Geometría</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>مغلق</translation>
+        <translation type="unfinished">Cerrar</translation>
     </message>
 </context>
 <context>
@@ -5837,7 +5824,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5880,7 +5867,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5915,27 +5902,27 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale by the same factor at both x- and y- directions</source>
-        <translation>Scale by the same factor at both x- and y- directions</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Isotropic Scaling</source>
-        <translation>Isotropic Scaling</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  البحث عن النسب حول المركز حسب نقطة مرجعية ونقطة هدف</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6541,59 +6528,59 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>لاير:</translation>
+        <translation type="unfinished">Capa:</translation>
     </message>
     <message>
         <source>Font settings</source>
-        <translation>أماكن العمل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Oblique:</source>
-        <translation>Oblique:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width factor:</source>
-        <translation>عامل الزواج:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font:</source>
-        <translation>Font:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Left</source>
-        <translation>خط الأساس</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Right</source>
-        <translation>خط الأساس</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Center</source>
-        <translation>مركز خط الأساس</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fit</source>
-        <translation>Fit</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>مقياس (ث)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A&amp;ligned</source>
-        <translation>A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Middle</source>
-        <translation>" ميدل</translation>
+        <translation type="unfinished">&amp;Punto medio</translation>
     </message>
 </context>
 <context>
@@ -6604,7 +6591,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>again Still No Text supplied.</source>
-        <translation>مرة أخرى لا يوجد نص مزود.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Close</source>
@@ -6612,91 +6599,91 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Discard All</source>
-        <translation>تم التخلص منها</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Discard</source>
-        <translation>Discard</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_FileDialog</name>
     <message>
         <source>Drawing Exchange DXF 2000 %1</source>
-        <translation>الصرف DXF 2000 %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF R12 %1</source>
-        <translation>الصرف DXF R12%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>LFF Font %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>QCad Font %1</source>
-        <translation>QCad Font %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Jww Drawing %1</source>
-        <translation>سحب ٪ 1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange %1</source>
-        <translation>٪ بورصة الرسم</translation>
+        <translation type="unfinished">DXF %1</translation>
     </message>
     <message>
         <source>QCad 1.x file %1</source>
-        <translation>QCad 1.x file %1</translation>
+        <translation type="unfinished">LibreCAD 1.x file %1</translation>
     </message>
     <message>
         <source>Drawing Exchange DXF 2007 %1</source>
-        <translation>الصرف DXF 2007 %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF 2004 %1</source>
-        <translation>الصرف DXF 2004 %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF R14 %1</source>
-        <translation>الصرف DXF R14٪1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block</source>
         <comment>block file</comment>
-        <translation>Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing</source>
         <comment>drawing file</comment>
-        <translation>الرسم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open %1</source>
-        <translation>مفتوحة 1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Save %1 As</source>
-        <translation>توفير النسبة المئوية 1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg Drawing %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Untitled</source>
-        <translation>غير مترجم</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_GraphicView</name>
     <message>
         <source>Edit Properties</source>
-        <translation>Edit Properties</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Edit Block</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6735,35 +6722,35 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Colouring</source>
-        <translation>اللون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Black / White</source>
-        <translation>أسود/أبيض</translation>
+        <translation type="unfinished">Blanco / Negro</translation>
     </message>
     <message>
         <source>Coloured</source>
-        <translation>ملونة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Borders</source>
-        <translation>الحدود</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Top / Bottom - Border:</source>
-        <translation>الطابق العلوي - الحدود:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left / Right - Border:</source>
-        <translation>يسار/يمين - الحدود:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>set same size</source>
-        <translation>نفس الحجم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>B&amp;lack</source>
-        <translation>Black</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6790,12 +6777,11 @@ so default step value required for baking</source>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
 The contents of a Construction Layer should not appear in printout.</source>
-        <translation>ويوجد لدى شركة البناء كيانات ذات خطوط مستقيمة لا نهائية يُقصد استخدامها في البناء الجيولوجي.
-The contents of a Construction Layer should not appear in printedout.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>شركة البناء</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6838,59 +6824,59 @@ The contents of a Construction Layer should not appear in printedout.</translati
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>أبحث عن أسماء طبقات مطابقة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit Layer &amp;Attributes</source>
-        <translation>Edit Layer ' Atributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer &amp;Visibility</source>
-        <translation>Toggle Layer 'Visibility</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer &amp;Printing</source>
-        <translation>Toggle Layer " Printing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Toggle " Construction Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>فتح جميع الطبقات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>أغلقوا جميع الطبقات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>إزالة طبقة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Filter</source>
-        <translation>فيلم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Unlock all Layers</source>
-        <translation>" حجب جميع المحامين</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Lock all Layers</source>
-        <translation>" تضرب جميع المحامين</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Toggle Layer Lock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>" Export Selected Layer(s)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>Export "Visible Layer(s)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6905,11 +6891,11 @@ The contents of a Construction Layer should not appear in printedout.</translati
     </message>
     <message>
         <source>Refresh</source>
-        <translation>التجديد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rebuild</source>
-        <translation>إعادة البناء</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7008,27 +6994,27 @@ The contents of a Construction Layer should not appear in printedout.</translati
     </message>
     <message>
         <source>Dot (tiny)</source>
-        <translation>Dot (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash (tiny)</source>
-        <translation>داش (القصدير)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash Dot (tiny)</source>
-        <translation>داش دوت (قصدير)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Divide (tiny)</source>
-        <translation>Divide (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (tiny)</source>
-        <translation>المركز (القصد)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Border (tiny)</source>
-        <translation>الحدود (القصد)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7051,40 +7037,36 @@ The contents of a Construction Layer should not appear in printedout.</translati
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>▪DOCTYPE HTML PUBLIC "-/W3C/DTD HTML 4.0//EN"http://www.w3.org/TR/REC-html40/strict.dtd".
-▪ / / / / / / / / / / / / / / / / / / / /
-p, li { white-space: pre-wrap; }
-/style /thetyle /head; Methodbody=" font-family: 'Ubuntu'; font-size:11pt; font- weight:400; font-style:normal; &gt;
-' 1` أسلوب ' ' الحاجز: 0px؛ الحاجز: 0px؛ الهامش: 0px؛ الهامش - الحق: 0px؛ 0. Hint about left/right mouse blue actions</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_PenToolBar</name>
     <message>
         <source>Line color</source>
-        <translation>لون الخط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line width</source>
-        <translation>خط الاستطلاع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line type</source>
-        <translation>النوع الخطي</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_PolylineOptions</name>
     <message>
         <source>wrong action type</source>
-        <translation>النوع الخطأ</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_RecentFiles</name>
     <message>
         <source>&amp;%1 %2</source>
-        <translation>نسبة مئوية</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7095,11 +7077,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Selected</source>
-        <translation>مختارة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Total Length</source>
-        <translation>المجموع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -7107,11 +7089,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>▪DOCTYPE HTML PUBLIC "-/W3C/DTD HTML 4.0//EN"http://www.w3.org/TR/REC-html40/strict.dtd".
-▪ / / / / / / / / / / / / / / / / / / / /
-p, li { white-space: pre-wrap; }
-/style /thetyle /head; Methodbody=" font-family: 'Helvetica'; font-size:7pt; font- weight:400; font-style:normal; &gt;
-' 1` أسلوب ' الحاجز: 0px؛ الهامش -بوتوم:0px؛ الهامش:0px؛ الحاجز: 0px؛ -qt-block-indent:0؛ النص:0x؛ &gt;Number of selected entities/p&lt;/body&lt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -7119,142 +7097,138 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>▪DOCTYPE HTML PUBLIC "-/W3C/DTD HTML 4.0//EN"http://www.w3.org/TR/REC-html40/strict.dtd".
-▪ / / / / / / / / / / / / / / / / / / / /
-p, li { white-space: pre-wrap; }
-/style /thetyle /head; Methodbody=" font-family: 'Helvetica'; font-size:7pt; font- weight:400; font-style:normal; &gt;
-Top method=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0x; &gt;tal length of selected entities/p&gt;.&lt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_SnapToolBar</name>
     <message>
         <source>Snap</source>
-        <translation>Snap</translation>
+        <translation type="unfinished">Forzar cursor</translation>
     </message>
     <message>
         <source>Snap to Endpoints</source>
-        <translation>Snap to Endpoints</translation>
+        <translation type="unfinished">Forzar a extremos</translation>
     </message>
     <message>
         <source>Snap to equidistant points of entity</source>
-        <translation>Snap to equidistant points of entity</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to center points</source>
-        <translation>الاختناق إلى نقاط الوسط</translation>
+        <translation type="unfinished">Forzar al centro</translation>
     </message>
     <message>
         <source>Snap to intersections automatically</source>
-        <translation>التسلل إلى التقاطعات تلقائياً</translation>
+        <translation type="unfinished">Forzar a punto de intersección ficticia</translation>
     </message>
     <message>
         <source>Snap to closest point on entity</source>
-        <translation>Snap to closest point on entity</translation>
+        <translation type="unfinished">Forzar a punto más cercano</translation>
     </message>
     <message>
         <source>Snap to point with given distance to endpoint</source>
-        <translation>Snap to point with given distance to endpoint</translation>
+        <translation type="unfinished">Forzar a una distancia desde el extremo</translation>
     </message>
     <message>
         <source>Snap to intersections manually</source>
-        <translation>تسلل إلى التقاطعات يدوياً</translation>
+        <translation type="unfinished">Forzar a punto de intersección ficticia</translation>
     </message>
     <message>
         <source>Snap to grid</source>
-        <translation>Snap to grid</translation>
+        <translation type="unfinished">Forzar a Grilla</translation>
     </message>
     <message>
         <source>Restrict Horizontally</source>
-        <translation>Restrict Horizontal</translation>
+        <translation type="unfinished">Restringir verticalmente</translation>
     </message>
     <message>
         <source>Restrict Vertically</source>
-        <translation>Restrict Vertically</translation>
+        <translation type="unfinished">Restringir verticalmente</translation>
     </message>
     <message>
         <source>Move relative Zero</source>
-        <translation>نقل قريب صفر</translation>
+        <translation type="unfinished">Desplazar el Cero relativo</translation>
     </message>
     <message>
         <source>Lock relative Zero</source>
-        <translation>لوك قريب زيرو</translation>
+        <translation type="unfinished">Bloquear el Cero relativo</translation>
     </message>
     <message>
         <source>Free Snap</source>
-        <translation>Free Snap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on grid</source>
-        <translation>Snap on grid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on Endpoints</source>
-        <translation>Snap on Endpoints</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on Entity</source>
-        <translation>Snap on Entity</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Center</source>
-        <translation>Snap Center</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Middle</source>
-        <translation>Snap Middle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Distance</source>
-        <translation>Snap Distance</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Intersection</source>
-        <translation>Snap Intersection</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Horizontal</source>
-        <translation>Restrict Horizontal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Vertical</source>
-        <translation>مقصورة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Orthogonal</source>
-        <translation>Restrict Orthogonal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Nothing</source>
-        <translation>لا شيء</translation>
+        <translation type="unfinished">Sin restricciones</translation>
     </message>
     <message>
         <source>Set relative zero position</source>
-        <translation>نقطة الصفر النسبية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lock relative zero position</source>
-        <translation>القفل النسبي صفر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Exclusive Snap Mode</source>
-        <translation>Exclusive Snap Mode</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Relative zero position is %1</source>
-        <translation>النسبة المئوية للنقطة الصفرية النسبية(1)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>locked</source>
-        <translation>مقفل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unlocked</source>
-        <translation>غير مقفل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>الدليل المتوسط</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7428,126 +7402,116 @@ Top method=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0p
     <message>
         <source>Layer "%1" and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>(لاير) (%1) وجميع الكيانات عليها سيتم إزالتها
-هذا الإجراء لا يمكن أن يُبطل.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer "0" can never be removed.</source>
-        <translation>لاير "0" لا يمكن إزالتها.</translation>
+        <translation type="unfinished" />
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform />
+            <numerusform />
         </translation>
     </message>
     <message>
         <source>Listed layers and all entities on them will be removed.</source>
-        <translation>وسيتم إزالة الطبقات المدرجة في القائمة وجميع الكيانات المدرجة فيها.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning: this action can NOT be undone!</source>
-        <translation>تحذير: هذا الإجراء لا يمكن أن يُبطل!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning: layer "0" can never be removed.</source>
-        <translation>تحذير: طبقة "0" لا يمكن إزالتها.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layers for removal:</source>
-        <translation>المطالِبين للإبعاد:</translation>
+        <translation type="unfinished" />
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform />
+            <numerusform />
         </translation>
     </message>
     <message>
         <source>Listed blocks and all their entities will be removed.</source>
-        <translation>وستُحذف من القائمة جميع كياناتها.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Blocks for removal:</source>
-        <translation>حواجز للإبعاد:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>الاسم الفارغ لا يسمح به.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>محاولة لخلق طبقة مع اسم مزدوج. اسم طبقة مزدوج
-[%1].
-يرجى تحديد اسم مختلف.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Error</source>
-        <translation>الرعب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>قائمة الخيوط الفصلية فارغة لن يكون من الممكن بناء شجرة طبقات
-يرجى تحديد قيمة مختلفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>القيمة غير المستقرة توفر ٪ 1 لون.
-يرجى تحديد قيمة مختلفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>إزالة الطبقات الفارغة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>Layer(s) without entities found, yet they are filtered and not visible.
-
-تصفية القناع والتكرار.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>لا توجد طبقات بدون وجود كيانات لا شيء لإزالته.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>مضافا إليه</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>هذه طبقة الأطفال موجودة بالفعل
-[%1].
-يرجى تحديد اسم مختلف.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>هذه طبقة الأطفال موجودة بالفعل
-[%1].</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>ولا يمكن إضافة طبقة ديمنسية إلا لطبقة نشطة عادية.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>التحرّك</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>الاختيار المزدوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Replace "By Layer" value to source layers values?
@@ -7555,95 +7519,88 @@ Please specify a different name.</source>
 If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
 
 If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>تُستبدل قيمة "باي لاير" بقيم طبقات المصدر؟
-
-إذا كان نعم - كيانات مع أقلام "باي لاير" ستنظر على طبقة جديدة بالضبط كما في الطبقات السابقة وقيمة "باي لاير" ستستبدل بقلم حلو
-
-إذا بقيّت قيم (باي لاير) وبالتالي فإن أقل من طبقة الهدف سيحدد قلماً لهذه الكيانات.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>Layer DialogEx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>القيمة غير المستقرة تم توفيرها لللون الواحد
-يرجى تحديد قيمة مختلفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>طريق غير سليم إلى ملف أقلام.
-%1
-يرجى تحديد قيمة مختلفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>قلم إزالة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>سيتم إزالة (بين) من (باليت) ولن تتأثر كيانات الرسم.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Are you sure you'd like to proceed?</source>
-        <translation>هل أنت متأكد من أنك تريد المضي قدما؟?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>Pen for removal:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>إزالة القلم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>ستُزال القلنسوة من (باليت)، ولن تتأثر كيانات الرسم.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>Pens for removal:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>الكيانات المختارة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>لا توجد كيانات تطابق القلم على طبقات مرئية.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>وتوجد هذه الكيانات على طبقات مجمدة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>وتوجد هذه الكيانات على طبقات مغلقة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>الرجاء استخدام صفات قلم مختلفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>وضع القلم حسب الكيان</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>الرجاء اختيار كيان واحد فقط لاختيار وضع قلم.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>بيانات القلم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>غير قادر على توفير بيانات أقلام الرصاص لملف معين هل ترغب في تحديد المسار الصحيح للملف؟?</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7728,3045 +7685,3045 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Meter</source>
-        <translation>Meter</translation>
+        <translation type="unfinished">Metros</translation>
     </message>
     <message>
         <source>Centimeter</source>
-        <translation>Centimeter</translation>
+        <translation type="unfinished">Centímetros</translation>
     </message>
     <message>
         <source>Millimeter</source>
-        <translation>مليتر</translation>
+        <translation type="unfinished">Milímetros</translation>
     </message>
     <message>
         <source>Kilometer</source>
-        <translation>كيلومترات</translation>
+        <translation type="unfinished">Kilómetros</translation>
     </message>
     <message>
         <source>Inch</source>
-        <translation>Inch</translation>
+        <translation type="unfinished">Pulgadas</translation>
     </message>
     <message>
         <source>Foot</source>
-        <translation>القدم</translation>
+        <translation type="unfinished">Pies</translation>
     </message>
     <message>
         <source>Mile</source>
-        <translation>ميل</translation>
+        <translation type="unfinished">Millas</translation>
     </message>
     <message>
         <source>Microinch</source>
-        <translation>Microinch</translation>
+        <translation type="unfinished">Micropulgadas</translation>
     </message>
     <message>
         <source>Mil</source>
-        <translation>ميل</translation>
+        <translation type="unfinished">Mil</translation>
     </message>
     <message>
         <source>Yard</source>
-        <translation>يارد</translation>
+        <translation type="unfinished">Yarda</translation>
     </message>
     <message>
         <source>Angstrom</source>
-        <translation>Angstrom</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Nanometer</source>
-        <translation>Nanometer</translation>
+        <translation type="unfinished">Nanómetro</translation>
     </message>
     <message>
         <source>Micron</source>
-        <translation>Micron</translation>
+        <translation type="unfinished">Micrón</translation>
     </message>
     <message>
         <source>Decimeter</source>
-        <translation>مقياس</translation>
+        <translation type="unfinished">Decímetro</translation>
     </message>
     <message>
         <source>Decameter</source>
-        <translation>المقياس</translation>
+        <translation type="unfinished">Decámetro</translation>
     </message>
     <message>
         <source>Hectometer</source>
-        <translation>Hectometer</translation>
+        <translation type="unfinished">Hectómetro</translation>
     </message>
     <message>
         <source>Gigameter</source>
-        <translation>Gigameter</translation>
+        <translation type="unfinished">GigaMetro</translation>
     </message>
     <message>
         <source>Astro</source>
-        <translation>Astro</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lightyear</source>
-        <translation>لايت</translation>
+        <translation type="unfinished">Años luz</translation>
     </message>
     <message>
         <source>Parsec</source>
-        <translation>Parsec</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Loading..</source>
-        <translation>التعبئة.</translation>
+        <translation type="unfinished">Buscando...</translation>
     </message>
     <message>
         <source>Loading File %1..</source>
-        <translation>التعبئة ٪.</translation>
+        <translation type="unfinished">Cargando Archivo %1..</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation>التعبئة...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter an integer number</source>
-        <translation>أدخل رقم البخار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LibreCAD query</source>
-        <translation>LibreCAD query</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter a number</source>
-        <translation>أدخل رقم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter text</source>
-        <translation>في النص</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>LFF Font %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Jww %1</source>
-        <translation>وزن الجسم الواحد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scalable Vector Graphics</source>
-        <translation>Scalable Vector Graphics</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>SGI Black &amp; White</source>
-        <translation>SGI Black " White</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript</source>
-        <translation>الوظائف المعينة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript Format</source>
-        <translation>النموذج الأولي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript Interchange</source>
-        <translation>التبادل الوظيفي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Windows Icon</source>
-        <translation>Windows Icon</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>JPEG 2000</source>
-        <translation>JPEG 2000</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ZSoft Paintbrush</source>
-        <translation>ZSoft Paintbrush</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>PC Paint</source>
-        <translation>PC Paint</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>SGI-Bilddatei</source>
-        <translation>SGI-Bilddatei</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Targa Image File</source>
-        <translation>طراز Targa Image File</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tagged Image File Format</source>
-        <translation>طراز Image</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Old Drawing Exchange %1</source>
-        <translation>بورصة السحب القديمة()</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Opened dwg file version %1.</source>
-        <translation>نسخة من ملف دوج مفتوح ٪1.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unknown error opening dwg file</source>
-        <translation>خطأ غير معروف فتح ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>can't open this dwg file</source>
-        <translation>لا يمكن فتح ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unsupported dwg version</source>
-        <translation>نسخة دوج غير مدعومة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading file header in dwg file</source>
-        <translation>خطأ في قراءة الملف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading header vars in dwg file</source>
-        <translation>خطأ في قراءة المتفوقين في ملف الجرعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading classes in dwg file</source>
-        <translation>غلطة قراءة الفصول في ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading offsets in dwg file</source>
-        <translation>مقاييس الخطأ في ملف الجرعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading tables in dwg file</source>
-        <translation>طاولات قراءة خاطئة في ملف دوغ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading entities in dwg file</source>
-        <translation>خطأ في قراءة الكيانات في ملف الجرعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg Drawing %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>File on disk modified. Please save to another file to avoid data loss! File modified: %1</source>
-        <translation>تم تعديل الملف الرجاء توفير ملف آخر لتجنب فقدان البيانات! File modified: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
-        <translation>وفشل الهاتش بسبب ثغرة = 1 في المائة بين (نسبة 2 في المائة و3 في المائة) و(نسبة مئوية 5 في المائة)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning</source>
-        <translation>تحذير</translation>
+        <translation type="unfinished">Aviso</translation>
     </message>
     <message>
         <source>error reading blocks in dwg file</source>
-        <translation>كتل قراءة الخطأ في ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading objects in dwg file</source>
-        <translation>خطأ في قراءة الأشياء في ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>: duplicated command: %1 is already taken by %2</source>
-        <translation>: ازدواجية القيادة: النسبة المئوية 1 أخذت بالفعل بنسبة مئوية(2)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>point</source>
         <comment>draw point</comment>
-        <translation>النقطة</translation>
+        <translation type="unfinished">punto</translation>
     </message>
     <message>
         <source>po</source>
         <comment>draw point</comment>
-        <translation>♪</translation>
+        <translation type="unfinished">pt</translation>
     </message>
     <message>
         <source>line</source>
         <comment>draw line</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished">línea</translation>
     </message>
     <message>
         <source>li</source>
         <comment>draw line</comment>
-        <translation>li</translation>
+        <translation type="unfinished">li</translation>
     </message>
     <message>
         <source>l</source>
         <comment>draw line</comment>
-        <translation>l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>بوليلين</translation>
+        <translation type="unfinished">Polilinea</translation>
     </message>
     <message>
         <source>pl</source>
         <comment>draw polyline</comment>
-        <translation>pl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>free</source>
         <comment>draw freehand line</comment>
-        <translation>مجانا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fhl</source>
         <comment>draw freehand line</comment>
-        <translation>fhl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>التلميذ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spl</source>
         <comment>draw spline</comment>
-        <translation>شظية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spline2</source>
         <comment>spline through points</comment>
-        <translation>المخطط العام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>stp</source>
         <comment>spline through points</comment>
-        <translation>stp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ptp</source>
         <comment>parallel through point</comment>
-        <translation>ptp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation>bisect</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bi</source>
         <comment>angle bisector</comment>
-        <translation>ثنائي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tanpc</source>
         <comment>tangent point and circle</comment>
-        <translation>tanpc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ortho</source>
         <comment>perpendicular line</comment>
-        <translation>ortho</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect</source>
         <comment>draw rectangle</comment>
-        <translation>الحساب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>polygon2v</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>poly2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>poly2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle</source>
         <comment>draw circle</comment>
-        <translation>دائرة</translation>
+        <translation type="unfinished">círculo</translation>
     </message>
     <message>
         <source>ci</source>
         <comment>draw circle</comment>
-        <translation>ci</translation>
+        <translation type="unfinished">ci</translation>
     </message>
     <message>
         <source>c2</source>
         <comment>circle 2 points</comment>
-        <translation>c2</translation>
+        <translation type="unfinished">c2</translation>
     </message>
     <message>
         <source>c3</source>
         <comment>circle 3 points</comment>
-        <translation>c3</translation>
+        <translation type="unfinished">c3</translation>
     </message>
     <message>
         <source>tan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>tan3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ct3</source>
         <comment>circle tangent to 3</comment>
-        <translation>ct3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation>ellipseinscribed</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ei</source>
         <comment>inscribed ellipse</comment>
-        <translation>ei</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ie</source>
         <comment>inscribed ellipse</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>hatch</source>
         <comment>draw hatch</comment>
-        <translation>هاتش</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ha</source>
         <comment>draw hatch</comment>
-        <translation>ها</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mtext</source>
         <comment>draw mtext</comment>
-        <translation>mtext</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mtxt</source>
         <comment>draw mtext</comment>
-        <translation>mtx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>text</source>
         <comment>draw text</comment>
-        <translation>نص</translation>
+        <translation type="unfinished">text</translation>
     </message>
     <message>
         <source>txt</source>
         <comment>draw text</comment>
-        <translation>txt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>regen</source>
         <comment>zoom - redraw</comment>
-        <translation>regen</translation>
+        <translation type="unfinished">regenerar</translation>
     </message>
     <message>
         <source>redraw</source>
         <comment>zoom - redraw</comment>
-        <translation>إعادة سحب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rg</source>
         <comment>zoom - redraw</comment>
-        <translation>rg</translation>
+        <translation type="unfinished">rd</translation>
     </message>
     <message>
         <source>zr</source>
         <comment>zoom - redraw</comment>
-        <translation>zr</translation>
+        <translation type="unfinished">zr</translation>
     </message>
     <message>
         <source>zoomwindow</source>
         <comment>zoom - window</comment>
-        <translation>zoomwindow</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zw</source>
         <comment>zoom - window</comment>
-        <translation>zw</translation>
+        <translation type="unfinished">zv</translation>
     </message>
     <message>
         <source>zoomauto</source>
         <comment>zoom - auto</comment>
-        <translation>زووماتو</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>za</source>
         <comment>zoom - auto</comment>
-        <translation>za</translation>
+        <translation type="unfinished">za</translation>
     </message>
     <message>
         <source>zoompan</source>
         <comment>zoom - pan</comment>
-        <translation>زومبان</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zp</source>
         <comment>zoom - pan</comment>
-        <translation>zp</translation>
+        <translation type="unfinished">zt</translation>
     </message>
     <message>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation>zoomprevious</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zv</source>
         <comment>zoom - previous</comment>
-        <translation>zv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>kill</source>
         <comment>kill all actions</comment>
-        <translation>قتل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>k</source>
         <comment>kill all actions</comment>
-        <translation>k</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>غير صحيح</translation>
+        <translation type="unfinished">deshacer</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo cycle</comment>
-        <translation>ش</translation>
+        <translation type="unfinished">d</translation>
     </message>
     <message>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>إعادة</translation>
+        <translation type="unfinished">rehacer</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo cycle</comment>
-        <translation>r</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimaligned</source>
         <comment>dimension - aligned</comment>
-        <translation>dimarange</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimhorizontal</source>
         <comment>dimension - horizontal</comment>
-        <translation>نهاية الموسم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dh</source>
         <comment>dimension - horizontal</comment>
-        <translation>dh</translation>
+        <translation type="unfinished">ch</translation>
     </message>
     <message>
         <source>dimvertical</source>
         <comment>dimension - vertical</comment>
-        <translation>فظي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dv</source>
         <comment>dimension - vertical</comment>
-        <translation>dv</translation>
+        <translation type="unfinished">cv</translation>
     </message>
     <message>
         <source>dimlinear</source>
         <comment>dimension - linear</comment>
-        <translation>ثنائي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dl</source>
         <comment>dimension - linear</comment>
-        <translation>♪</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimangular</source>
         <comment>dimension - angular</comment>
-        <translation>ثنائي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dan</source>
         <comment>dimension - angular</comment>
-        <translation>dan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimradial</source>
         <comment>dimension - radial</comment>
-        <translation>dimradial</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimdiametric</source>
         <comment>dimension - diametric</comment>
-        <translation>المقاييس</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimdiameter</source>
         <comment>dimension - diametric</comment>
-        <translation>قطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dd</source>
         <comment>dimension - diametric</comment>
-        <translation>d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimleader</source>
         <comment>dimension - leader</comment>
-        <translation>متصدر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ld</source>
         <comment>dimension - leader</comment>
-        <translation>ld</translation>
+        <translation type="unfinished">lc</translation>
     </message>
     <message>
         <source>dimregen</source>
         <comment>dimension - regenerate</comment>
-        <translation>dimregen</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictnothing</source>
         <comment>restrict - nothing</comment>
-        <translation>لا يقيد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rn</source>
         <comment>restrict - nothing</comment>
-        <translation>rn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictorthogonal</source>
         <comment>restrict - orthogonal</comment>
-        <translation>التقييد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rr</source>
         <comment>restrict - orthogonal</comment>
-        <translation>rr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restricthorizontal</source>
         <comment>restrict - horizontal</comment>
-        <translation>التقييد الأفقي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rh</source>
         <comment>restrict - horizontal</comment>
-        <translation>ح</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictvertical</source>
         <comment>restrict - vertical</comment>
-        <translation>القيود الافتراضية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rv</source>
         <comment>restrict - vertical</comment>
-        <translation>rv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mv</source>
         <comment>modify - move (copy)</comment>
-        <translation>mv</translation>
+        <translation type="unfinished">mm</translation>
     </message>
     <message>
         <source>bev</source>
         <comment>modify - bevel</comment>
-        <translation>bev</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ch</source>
         <comment>modify - bevel</comment>
-        <translation />
+        <translation type="unfinished">ch</translation>
     </message>
     <message>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation>في</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>قطع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>div</source>
         <comment>modify - divide (cut)</comment>
-        <translation>div</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mi</source>
         <comment>modify -  mirror</comment>
-        <translation>أنا</translation>
+        <translation type="unfinished">mp</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>modify -  revert direction</comment>
-        <translation>إلغاء</translation>
+        <translation type="unfinished">inv</translation>
     </message>
     <message>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation />
+        <translation type="unfinished">mr</translation>
     </message>
     <message>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>sz</translation>
+        <translation type="unfinished">me</translation>
     </message>
     <message>
         <source>tm</source>
         <comment>modify - trim (extend)</comment>
-        <translation>tm</translation>
+        <translation type="unfinished">Cortar segmentos</translation>
     </message>
     <message>
         <source>tm2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>tm2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>le</source>
         <comment>modify - lengthen</comment>
-        <translation>le</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>ss</translation>
+        <translation type="unfinished">ms</translation>
     </message>
     <message>
         <source>er</source>
         <comment>modify - delete (erase)</comment>
-        <translation>..</translation>
+        <translation type="unfinished">mb</translation>
     </message>
     <message>
         <source>del</source>
         <comment>modify - delete (erase)</comment>
-        <translation>del</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>xp</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>xp</translation>
+        <translation type="unfinished">mx</translation>
     </message>
     <message>
         <source>snapfree</source>
         <comment>snap - free</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>os</source>
         <comment>snap - free</comment>
-        <translation>os</translation>
+        <translation type="unfinished">nf</translation>
     </message>
     <message>
         <source>snapcenter</source>
         <comment>snap - center</comment>
-        <translation>المفاجئة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sc</source>
         <comment>snap - center</comment>
-        <translation>sc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapdist</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>عاصفة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sd</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>sd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapend</source>
         <comment>snap - end points</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>se</source>
         <comment>snap - end points</comment>
-        <translation>se</translation>
+        <translation type="unfinished">ff</translation>
     </message>
     <message>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>مصيدة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sg</source>
         <comment>snap - grid</comment>
-        <translation>كيلوغرام</translation>
+        <translation type="unfinished">fr</translation>
     </message>
     <message>
         <source>snapintersection</source>
         <comment>snap - intersection</comment>
-        <translation>قطع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>si</source>
         <comment>snap - intersection</comment>
-        <translation>si</translation>
+        <translation type="unfinished">fi</translation>
     </message>
     <message>
         <source>snapmiddle</source>
         <comment>snap - middle points</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sm</source>
         <comment>snap - middle points</comment>
-        <translation>sm</translation>
+        <translation type="unfinished">fm</translation>
     </message>
     <message>
         <source>snaponentity</source>
         <comment>snap - on entity</comment>
-        <translation>السخرية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sn</source>
         <comment>snap - on entity</comment>
-        <translation>sn</translation>
+        <translation type="unfinished">fc</translation>
     </message>
     <message>
         <source>np</source>
         <comment>snap - on entity</comment>
-        <translation>np</translation>
+        <translation type="unfinished">fp</translation>
     </message>
     <message>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>مصمم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rz</source>
         <comment>set relative zero position</comment>
-        <translation>rz</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation>مختارة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sa</source>
         <comment>Select all entities</comment>
-        <translation>sa</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>deselectall</source>
         <comment>deselect all entities</comment>
-        <translation>deselectall</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tn</source>
         <comment>deselect all entities</comment>
-        <translation />
+        <translation type="unfinished">tn</translation>
     </message>
     <message>
         <source>attr</source>
         <comment>modify attribute</comment>
-        <translation>عطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ma</source>
         <comment>modify attribute</comment>
-        <translation>أمي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>prop</source>
         <comment>modify properties</comment>
-        <translation>الدعامة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist</source>
         <comment>distance point to point</comment>
-        <translation>لا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dpp</source>
         <comment>distance point to point</comment>
-        <translation>dpp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ang</source>
         <comment>measure angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">ang</translation>
     </message>
     <message>
         <source>angle</source>
-        <translation>زاوية</translation>
+        <translation type="unfinished">ángulo</translation>
     </message>
     <message>
         <source>dpi</source>
-        <translation>dpi</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>close</source>
-        <translation>قريبا</translation>
+        <translation type="unfinished">cerrar</translation>
     </message>
     <message>
         <source>chord length</source>
-        <translation>طول المدة</translation>
+        <translation type="unfinished">longitud de la cuerda</translation>
     </message>
     <message>
         <source>columns</source>
-        <translation>الأعمدة</translation>
+        <translation type="unfinished">columnas</translation>
     </message>
     <message>
         <source>columnspacing</source>
-        <translation>الأعمدة المباعدة</translation>
+        <translation type="unfinished">espacio entre columnas</translation>
     </message>
     <message>
         <source>factor</source>
-        <translation>العامل</translation>
+        <translation type="unfinished">factor</translation>
     </message>
     <message>
         <source>length</source>
-        <translation>طول المدة</translation>
+        <translation type="unfinished">longitud</translation>
     </message>
     <message>
         <source>number</source>
-        <translation>العدد</translation>
+        <translation type="unfinished">número</translation>
     </message>
     <message>
         <source>radius</source>
-        <translation>radius</translation>
+        <translation type="unfinished">radio</translation>
     </message>
     <message>
         <source>rows</source>
-        <translation>الصفوف</translation>
+        <translation type="unfinished">filas</translation>
     </message>
     <message>
         <source>rowspacing</source>
-        <translation>الصفوف</translation>
+        <translation type="unfinished">espacio entre filas</translation>
     </message>
     <message>
         <source>through</source>
-        <translation>من خلال</translation>
+        <translation type="unfinished">a través de</translation>
     </message>
     <message>
         <source>trim</source>
-        <translation>trim</translation>
+        <translation type="unfinished">recortar</translation>
     </message>
     <message>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">ang</translation>
     </message>
     <message>
         <source>an</source>
         <comment>angle</comment>
-        <translation>a</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>center</source>
-        <translation>المركز</translation>
+        <translation type="unfinished">centro</translation>
     </message>
     <message>
         <source>cen</source>
         <comment>center</comment>
-        <translation>cen</translation>
+        <translation type="unfinished">cen</translation>
     </message>
     <message>
         <source>ce</source>
         <comment>center</comment>
-        <translation>ce</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cl</source>
         <comment>chord length</comment>
-        <translation>cl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c</source>
         <comment>close</comment>
-        <translation>ج</translation>
+        <translation type="unfinished">c</translation>
     </message>
     <message>
         <source>cols</source>
         <comment>columns</comment>
-        <translation>سلاسل</translation>
+        <translation type="unfinished">cols</translation>
     </message>
     <message>
         <source>co</source>
         <comment>columns</comment>
-        <translation>co</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>الأعمدة المباعدة</translation>
+        <translation type="unfinished">espacio entre columnas</translation>
     </message>
     <message>
         <source>colspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>التواطؤ</translation>
+        <translation type="unfinished">espaciocols</translation>
     </message>
     <message>
         <source>cs</source>
         <comment>columnspacing for inserts</comment>
-        <translation>(ج)</translation>
+        <translation type="unfinished">ec</translation>
     </message>
     <message>
         <source>fact</source>
         <comment>factor</comment>
-        <translation>الحقيقة</translation>
+        <translation type="unfinished">fact</translation>
     </message>
     <message>
         <source>f</source>
         <comment>factor</comment>
-        <translation>و</translation>
+        <translation type="unfinished">f</translation>
     </message>
     <message>
         <source>help</source>
-        <translation>المساعدة</translation>
+        <translation type="unfinished">ayuda</translation>
     </message>
     <message>
         <source>?</source>
         <comment>help</comment>
-        <translation>؟?</translation>
+        <translation type="unfinished">?</translation>
     </message>
     <message>
         <source>length</source>
         <comment>length</comment>
-        <translation>طول المدة</translation>
+        <translation type="unfinished">longitud</translation>
     </message>
     <message>
         <source>len</source>
         <comment>length</comment>
-        <translation>لين</translation>
+        <translation type="unfinished">long</translation>
     </message>
     <message>
         <source>l</source>
         <comment>length</comment>
-        <translation>l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>طولها 1</translation>
+        <translation type="unfinished">longitud 1</translation>
     </message>
     <message>
         <source>len1</source>
         <comment>length1</comment>
-        <translation>len1</translation>
+        <translation type="unfinished">long1</translation>
     </message>
     <message>
         <source>l1</source>
         <comment>length1</comment>
-        <translation>1</translation>
+        <translation type="unfinished">l1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>الطول</translation>
+        <translation type="unfinished">longitud 2</translation>
     </message>
     <message>
         <source>len2</source>
         <comment>length2</comment>
-        <translation>len2</translation>
+        <translation type="unfinished">long2</translation>
     </message>
     <message>
         <source>l2</source>
         <comment>length2</comment>
-        <translation>l2</translation>
+        <translation type="unfinished">l2</translation>
     </message>
     <message>
         <source>number</source>
         <comment>number</comment>
-        <translation>العدد</translation>
+        <translation type="unfinished">número</translation>
     </message>
     <message>
         <source>num</source>
         <comment>number</comment>
-        <translation>num</translation>
+        <translation type="unfinished">num</translation>
     </message>
     <message>
         <source>n</source>
         <comment>number</comment>
-        <translation>n</translation>
+        <translation type="unfinished">n</translation>
     </message>
     <message>
         <source>ra</source>
         <comment>radius</comment>
-        <translation>را</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>معكوس</translation>
+        <translation type="unfinished">invertido</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation>إلغاء</translation>
+        <translation type="unfinished">inv</translation>
     </message>
     <message>
         <source>row</source>
         <comment>row</comment>
-        <translation>الصف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>الصفوف</translation>
+        <translation type="unfinished">espacio entre filas</translation>
     </message>
     <message>
         <source>rs</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rs</translation>
+        <translation type="unfinished">ef</translation>
     </message>
     <message>
         <source>text</source>
-        <translation>نص</translation>
+        <translation type="unfinished">text</translation>
     </message>
     <message>
         <source>t</source>
         <comment>text</comment>
-        <translation>♪</translation>
+        <translation type="unfinished">t</translation>
     </message>
     <message>
         <source>t</source>
         <comment>through</comment>
-        <translation>♪</translation>
+        <translation type="unfinished">t</translation>
     </message>
     <message>
         <source>undo</source>
-        <translation>غير صحيح</translation>
+        <translation type="unfinished">deshacer</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo</comment>
-        <translation>ش</translation>
+        <translation type="unfinished">d</translation>
     </message>
     <message>
         <source>redo</source>
-        <translation>إعادة</translation>
+        <translation type="unfinished">rehacer</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo</comment>
-        <translation>r</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>back</source>
-        <translation>العودة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>b</source>
         <comment>back</comment>
-        <translation>(ب)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>paperoffset</source>
-        <translation>الأوراق</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>graphoffset</source>
-        <translation>الرسم البياني</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command: %1 (%2)</source>
-        <translation>القيادة: ٪١ )٪٢(</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>RS_Commands:: command not found: %1</source>
-        <translation>RS Commands: command not found: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command not found: %1</source>
-        <translation>لم يتم العثور على القيادة: ٪</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Accepted keycode: %1</source>
-        <translation>الرمز الرئيسي المقبول: النسبة المئوية(1)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Available commands:</source>
-        <translation>الأوامر المتاحة:</translation>
+        <translation type="unfinished">Comandos disponibles:</translation>
     </message>
     <message>
         <source>None</source>
         <comment>unknown length unit</comment>
-        <translation>لا</translation>
+        <translation type="unfinished">Ninguno</translation>
     </message>
     <message>
         <source>error reading file metadata in dwg file</source>
-        <translation>الخطأ في قراءة البيانات الفوقية في ملف دوج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator error for input: </source>
-        <translation>خطأ في حساب المدخلات:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bw</source>
-        <translation>bw</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>blackwhite</source>
-        <translation>أسود</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>color</source>
-        <translation>اللون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>di</source>
         <comment>modify - divide (cut)</comment>
-        <translation>الدين</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>t2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mp</source>
         <comment>modify properties</comment>
-        <translation>mp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block</source>
-        <translation>Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Circle</source>
-        <translation>الدائرة</translation>
+        <translation type="unfinished">Círculo</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>المنحة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit</source>
-        <translation>Edit</translation>
+        <translation type="unfinished">Edición</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation type="unfinished">Elipse</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>File</translation>
+        <translation type="unfinished">Archivo</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>البعد</translation>
+        <translation type="unfinished">Dimensiones</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>المعلومات</translation>
+        <translation type="unfinished">Info</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation>Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line</source>
-        <translation>الخط</translation>
+        <translation type="unfinished">Línea</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>تعديل</translation>
+        <translation type="unfinished">Modificar</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>الخيارات</translation>
+        <translation type="unfinished">Opciones</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>أخرى</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished">Polilínea</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>التقييد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select</source>
-        <translation>مختارة</translation>
+        <translation type="unfinished">Seleccionar</translation>
     </message>
     <message>
         <source>Snap</source>
-        <translation>Snap</translation>
+        <translation type="unfinished">Forzar cursor</translation>
     </message>
     <message>
         <source>Snap Extras</source>
-        <translation>Snap Extras</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>View</source>
-        <translation>View</translation>
+        <translation type="unfinished">Vista</translation>
     </message>
     <message>
         <source>Widgets</source>
-        <translation>الأرامل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Creators</source>
-        <translation>المبتكرون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All</source>
-        <translation>كل شيء</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid objects removed:</source>
-        <translation>الأجسام العالقة التي أزيلت:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen Wizard</source>
-        <translation>بين الساحر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select objects</source>
-        <translation>الأشياء المختارة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Apply to selected</source>
-        <translation>Apply to selected</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove</source>
-        <translation>إزالة الألغام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>You must input a distance first.</source>
-        <translation>يجب أن تقطع مسافة أولاً.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cal</source>
-        <translation>عيار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator mode: On</source>
-        <translation>أسلوب المحاسبة:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator mode: Off</source>
-        <translation>طريقة الحاسب:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>License</source>
-        <translation>الرخصة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No %1 layers found</source>
-        <translation>No %1 layers found</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>line2p</source>
         <comment>draw line</comment>
-        <translation>السطر 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineang</source>
         <comment>angled line</comment>
-        <translation>الخط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>la</source>
         <comment>angled line</comment>
-        <translation>لا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linehor</source>
         <comment>horizontal line</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lh</source>
         <comment>horizontal line</comment>
-        <translation>lh</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linever</source>
         <comment>vertical line</comment>
-        <translation>خط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lv</source>
         <comment>vertical line</comment>
-        <translation>lv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linerec</source>
         <comment>draw rectangle</comment>
-        <translation>السطر(ج)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re</source>
         <comment>draw rectangle</comment>
-        <translation>إعادة</translation>
+        <translation type="unfinished">re</translation>
     </message>
     <message>
         <source>linepar</source>
         <comment>create parallel</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineoff</source>
         <comment>create parallel</comment>
-        <translation>الخصم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pa</source>
         <comment>create parallel</comment>
-        <translation>أبي</translation>
+        <translation type="unfinished">zt</translation>
     </message>
     <message>
         <source>ll</source>
         <comment>create parallel</comment>
-        <translation>ll</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineparthro</source>
         <comment>parallel through point</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lp</source>
         <comment>parallel through point</comment>
-        <translation>lp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linebisect</source>
         <comment>angle bisector</comment>
-        <translation>الفرز</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetancp</source>
         <comment>tangent point and circle</comment>
-        <translation>linetancp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lt</source>
         <comment>tangent point and circle</comment>
-        <translation>lt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetan2c</source>
         <comment>tangent two circles</comment>
-        <translation>السطر ٢)ج(</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lc</source>
         <comment>tangent two circles</comment>
-        <translation>lc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetancper</source>
         <comment>tangent line and circle</comment>
-        <translation>الكاتب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>or</source>
         <comment>tangent line and circle</comment>
-        <translation>أو</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineperp</source>
         <comment>perpendicular line</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lo</source>
         <comment>perpendicular line</comment>
-        <translation>lo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linerelang</source>
         <comment>relative line</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lr</source>
         <comment>relative line</comment>
-        <translation>lr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygoncencor</source>
         <comment>polygon centre point</comment>
-        <translation>البوليجونسينكور</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pp</source>
         <comment>polygon centre point</comment>
-        <translation>pp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polycp</source>
         <comment>polygon centre point</comment>
-        <translation>polycp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pcp</source>
         <comment>polygon centre point</comment>
-        <translation>pcp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygoncentan</source>
         <comment>polygon centre vertex</comment>
-        <translation>polygoncentan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pv</source>
         <comment>polygon centre vertex</comment>
-        <translation>pv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polyct</source>
         <comment>polygon centre vertex</comment>
-        <translation>polyct</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>p2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c</source>
         <comment>draw circle</comment>
-        <translation>ج</translation>
+        <translation type="unfinished">c</translation>
     </message>
     <message>
         <source>circle2p</source>
         <comment>circle 2 points</comment>
-        <translation>circ2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c2p</source>
         <comment>circle 2 points</comment>
-        <translation>c2p</translation>
+        <translation type="unfinished">c2p</translation>
     </message>
     <message>
         <source>circle2pr</source>
         <comment>circle 2 points radius</comment>
-        <translation>الدائرة 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cc</source>
         <comment>circle 2 points radius</comment>
-        <translation>cc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle3p</source>
         <comment>circle 3 points</comment>
-        <translation>الدائرة 3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c3p</source>
         <comment>circle 3 points</comment>
-        <translation>c3p</translation>
+        <translation type="unfinished">c3p</translation>
     </message>
     <message>
         <source>circlecr</source>
         <comment>circle point radius</comment>
-        <translation>الدائرة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cr</source>
         <comment>circle point radius</comment>
-        <translation>cr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ccr</source>
         <comment>circle point radius</comment>
-        <translation>ccr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2cp</source>
         <comment>circle 2 tangent point</comment>
-        <translation>circtan2cp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tr</source>
         <comment>circle 2 tangent point</comment>
-        <translation>tr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2p</source>
         <comment>circle tangent 2 points</comment>
-        <translation>circtan2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>td</source>
         <comment>circle tangent 2 points</comment>
-        <translation>td</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2cr</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>الدائرة 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tc</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>tc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>الدائرة 3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t3</source>
         <comment>circle tangent to 3</comment>
-        <translation>t3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arc</source>
         <comment>arc point radius</comment>
-        <translation>arc</translation>
+        <translation type="unfinished">arco</translation>
     </message>
     <message>
         <source>ar</source>
         <comment>arc point radius</comment>
-        <translation>ar</translation>
+        <translation type="unfinished">ar</translation>
     </message>
     <message>
         <source>a</source>
         <comment>arc point radius</comment>
-        <translation>(أ)</translation>
+        <translation type="unfinished">a</translation>
     </message>
     <message>
         <source>arc3p</source>
         <comment>draw 3pt arc</comment>
-        <translation>arc3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a3</source>
         <comment>draw 3pt arc</comment>
-        <translation>(أ) 3</translation>
+        <translation type="unfinished">a3</translation>
     </message>
     <message>
         <source>arctan</source>
         <comment>arc tangent</comment>
-        <translation>arctan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>at</source>
         <comment>arc tangent</comment>
-        <translation>في</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sf</source>
         <comment>draw spline</comment>
-        <translation>sf</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sp</source>
         <comment>spline through points</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arcellc2ax</source>
         <comment>arc ellipse</comment>
-        <translation>arcellc2ax</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ae</source>
         <comment>arc ellipse</comment>
-        <translation>ae</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fh</source>
         <comment>draw freehand line</comment>
-        <translation>و</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipsec2p</source>
         <comment>ellipse axis</comment>
-        <translation>ellipsec2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ea</source>
         <comment>ellipse axis</comment>
-        <translation>ea</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipse3p</source>
         <comment>ellipse foci</comment>
-        <translation>ellipse3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ef</source>
         <comment>ellipse foci</comment>
-        <translation>ef</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipse4p</source>
         <comment>ellipse 4 point</comment>
-        <translation>ellipse4p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>e4</source>
         <comment>ellipse 4 point</comment>
-        <translation>e4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipsec3p</source>
         <comment>ellipse center 3 point</comment>
-        <translation>ellipsec3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>e3</source>
         <comment>ellipse center 3 point</comment>
-        <translation>e3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plineadd</source>
         <comment>pl add node</comment>
-        <translation>plinead</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pi</source>
         <comment>pl add node</comment>
-        <translation>pi</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plineapp</source>
         <comment>pl append node</comment>
-        <translation>plineapp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pn</source>
         <comment>pl append node</comment>
-        <translation>pn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinedel</source>
         <comment>pl delete node</comment>
-        <translation>خط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pd</source>
         <comment>pl delete node</comment>
-        <translation>pd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinedeltwn</source>
         <comment>pl del between nodes</comment>
-        <translation>ملصق</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pr</source>
         <comment>pl del between nodes</comment>
-        <translation>pr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinetrm</source>
         <comment>pl trim segments</comment>
-        <translation>plinetrm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pt</source>
         <comment>pl trim segments</comment>
-        <translation>pt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinepar</source>
         <comment>pl equidistant</comment>
-        <translation>plinepar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pe</source>
         <comment>pl equidistant</comment>
-        <translation>pe</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinejoin</source>
         <comment>pl join</comment>
-        <translation>plinejoin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pj</source>
         <comment>pl join</comment>
-        <translation>pj</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sx</source>
         <comment>deselect all entities</comment>
-        <translation>س</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>invertselect</source>
         <comment>invert select</comment>
-        <translation>اللافتر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>is</source>
         <comment>invert select</comment>
-        <translation>هو</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ds</source>
         <comment>dimension - aligned</comment>
-        <translation>ds</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimradius</source>
         <comment>dimension - radial</comment>
-        <translation>dimradius</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dr</source>
         <comment>dimension - radial</comment>
-        <translation>د</translation>
+        <translation type="unfinished">cl</translation>
     </message>
     <message>
         <source>da</source>
         <comment>dimension - angular</comment>
-        <translation>♪</translation>
+        <translation type="unfinished">ca</translation>
     </message>
     <message>
         <source>dg</source>
         <comment>dimension - regenerate</comment>
-        <translation>dg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmove</source>
         <comment>modify - move (copy)</comment>
-        <translation>modmove</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modrotate</source>
         <comment>modify - rotate</comment>
-        <translation>الموز</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modscale</source>
         <comment>modify - scale</comment>
-        <translation>النطاق</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmirror</source>
         <comment>modify -  mirror</comment>
-        <translation>modmirror</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmovrot</source>
         <comment>modify - move rotate</comment>
-        <translation>modmovrot</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mr</source>
         <comment>modify - move rotate</comment>
-        <translation>mr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mod2rot</source>
         <comment>modify - rotate2</comment>
-        <translation>mod2rot</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>r2</source>
         <comment>modify - rotate2</comment>
-        <translation>r2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modrevert</source>
         <comment>modify -  revert direction</comment>
-        <translation>modrevert</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>md</source>
         <comment>modify -  revert direction</comment>
-        <translation>md</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modtrim</source>
         <comment>modify - trim (extend)</comment>
-        <translation>الطراز</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modtrim2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>modtrim2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modlengthen</source>
         <comment>modify - lengthen</comment>
-        <translation>modlengthen</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modoffset</source>
         <comment>modify - offset</comment>
-        <translation>modoffset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mo</source>
         <comment>modify - offset</comment>
-        <translation>#</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moff</source>
         <comment>modify - offset</comment>
-        <translation>moff</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modbevel</source>
         <comment>modify - bevel</comment>
-        <translation>modbevel</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modfillet</source>
         <comment>modify - fillet</comment>
-        <translation>موديل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moddivide</source>
         <comment>modify - divide (cut)</comment>
-        <translation>moddivide</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modstretch</source>
         <comment>modify - stretch</comment>
-        <translation>نموذج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modproperties</source>
         <comment>modify properties</comment>
-        <translation>الأشكال</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modattr</source>
         <comment>modify attribute</comment>
-        <translation>modattr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modexpltext</source>
         <comment>explode text strings</comment>
-        <translation>النموذج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>xt</source>
         <comment>explode text strings</comment>
-        <translation>xt</translation>
+        <translation type="unfinished">me</translation>
     </message>
     <message>
         <source>modexplode</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>وسيط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moddelete</source>
         <comment>modify - delete (erase)</comment>
-        <translation>moddelete</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infodistance</source>
         <comment>distance point to point</comment>
-        <translation>المعلومات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>id</source>
         <comment>distance point to point</comment>
-        <translation>id</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infodistep</source>
         <comment>distance entity to point</comment>
-        <translation>المعلومات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ii</source>
         <comment>distance entity to point</comment>
-        <translation>ii</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dep</source>
         <comment>distance entity to point</comment>
-        <translation>dep</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infoangle</source>
         <comment>measure angle</comment>
-        <translation>المعلومات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ia</source>
         <comment>measure angle</comment>
-        <translation>ia</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infoarea</source>
         <comment>measure area</comment>
-        <translation>infoarea</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>aa</source>
         <comment>measure area</comment>
-        <translation>aa</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mt</source>
         <comment>draw mtext</comment>
-        <translation>m</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tx</source>
         <comment>draw text</comment>
-        <translation>tx</translation>
+        <translation type="unfinished">tx</translation>
     </message>
     <message>
         <source>so</source>
         <comment>snap - free</comment>
-        <translation>هكذا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ki</source>
         <comment>kill all actions</comment>
-        <translation>ki</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>un</source>
         <comment>undo cycle</comment>
-        <translation>غير معقول</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rd</source>
         <comment>redo cycle</comment>
-        <translation>rd</translation>
+        <translation type="unfinished">rd</translation>
     </message>
     <message>
         <source>drawpref</source>
         <comment>drawing preferences</comment>
-        <translation>السحب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dp</source>
         <comment>drawing preferences</comment>
-        <translation>dp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>equation</source>
-        <translation>المعادلة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation>طولها 1</translation>
+        <translation type="unfinished">longitud 1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation>الطول</translation>
+        <translation type="unfinished">longitud 2</translation>
     </message>
     <message>
         <source>eqn</source>
         <comment>equation</comment>
-        <translation>eqn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>eq</source>
         <comment>equation</comment>
-        <translation>eq</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom</source>
         <comment>Paper format</comment>
-        <translation>العرف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A0</source>
         <comment>Paper format</comment>
-        <translation>A0</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A1</source>
         <comment>Paper format</comment>
-        <translation>ألف 1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A2</source>
         <comment>Paper format</comment>
-        <translation>ألف 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A3</source>
         <comment>Paper format</comment>
-        <translation>A3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A4</source>
         <comment>Paper format</comment>
-        <translation>A4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Letter / ANSI A</source>
         <comment>Paper format</comment>
-        <translation>رسالة / ANSI A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Legal</source>
         <comment>Paper format</comment>
-        <translation>Legal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tabloid / ANSI B</source>
         <comment>Paper format</comment>
-        <translation>Tabloid / ANSI B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI C</source>
         <comment>Paper format</comment>
-        <translation>ANSI C</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI D</source>
         <comment>Paper format</comment>
-        <translation>ANSI D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI E</source>
         <comment>Paper format</comment>
-        <translation>ANSI E</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch A</source>
         <comment>Paper format</comment>
-        <translation>Arch A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch B</source>
         <comment>Paper format</comment>
-        <translation>Arch B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch C</source>
         <comment>Paper format</comment>
-        <translation>Arch C</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch D</source>
         <comment>Paper format</comment>
-        <translation>Arch D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch E</source>
         <comment>Paper format</comment>
-        <translation>Arch E</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>custom</source>
         <comment>Paper format</comment>
-        <translation>العرف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a0</source>
         <comment>Paper format</comment>
-        <translation>a0</translation>
+        <translation type="unfinished">a0</translation>
     </message>
     <message>
         <source>a1</source>
         <comment>Paper format</comment>
-        <translation>(أ)(1)</translation>
+        <translation type="unfinished">a1</translation>
     </message>
     <message>
         <source>a2</source>
         <comment>Paper format</comment>
-        <translation>(أ)</translation>
+        <translation type="unfinished">a2</translation>
     </message>
     <message>
         <source>a3</source>
         <comment>Paper format</comment>
-        <translation>(أ) 3</translation>
+        <translation type="unfinished">a3</translation>
     </message>
     <message>
         <source>a4</source>
         <comment>Paper format</comment>
-        <translation>4</translation>
+        <translation type="unfinished">a4</translation>
     </message>
     <message>
         <source>letter</source>
         <comment>Paper format</comment>
-        <translation>رسالة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>legal</source>
         <comment>Paper format</comment>
-        <translation>القانون</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tabloid</source>
         <comment>Paper format</comment>
-        <translation>tabloid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi c</source>
         <comment>Paper format</comment>
-        <translation>asi c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi d</source>
         <comment>Paper format</comment>
-        <translation>asi d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi e</source>
         <comment>Paper format</comment>
-        <translation>asi e</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch a</source>
         <comment>Paper format</comment>
-        <translation>(أ)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch b</source>
         <comment>Paper format</comment>
-        <translation>(ب)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch c</source>
         <comment>Paper format</comment>
-        <translation>أرتش)ج(</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch d</source>
         <comment>Paper format</comment>
-        <translation>أرسطو(د)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch e</source>
         <comment>Paper format</comment>
-        <translation>arch e</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DWG support is not complete!</source>
-        <translation>دعم الفريق العامل غير مكتمل!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>If this file fails to open try an older DWG format</source>
-        <translation>If this file fails to open try an older DWG format</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>or try to find a converter to make it a DXF file.</source>
-        <translation>أو محاولة للعثور على محول لجعله ملف DXF.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Information</source>
-        <translation>المعلومات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Error</source>
         <comment>fileImport</comment>
-        <translation>الرعب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Import error:</source>
         <comment>fileImport</comment>
-        <translation>خطأ الاستيراد:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
-        <translation>وعلى أية حال، هناك بعض الكيانات التي تم تحديدها.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
-        <translation>إذا فتحت الملف الآن، قد لا يكون الرسم كامل أو غير قابل للاستعمال.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
-        <translation>تجاهل الخطأ وفتح الملف؟?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>لا يوجد خطأ في الـ دي إكس إف/ دي</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>خطأ فتح ملف DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>نسخة غير مدعومة من ملف DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة بيانات DXF/DWG meta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>خطأ في قراءة ملف DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG header dara</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>خطأ قراءة DXF/DWG head dara</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة خريطة الجسم DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة أصناف DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة الجداول DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>خطأ في قراءة الـ DXF/DWG blocks</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة DXF/DWG entities</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة المادة DXF/DWG objects</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة أجزاء DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>الخطأ في قراءة الرمز DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>undefined error</source>
         <comment>RS_FilterInterface</comment>
-        <translation>خطأ غير محدد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>usage: </source>
-        <translation>الاستخدام:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> [options] &lt;dxf_files&gt;</source>
-        <translation>[الخيارات]</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> *.dxf</source>
-        <translation>*dxf</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation>- طباعة جميع الملفات dxf لملفات pdf مع نفس الأسماء.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> -o some.pdf *.dxf</source>
-        <translation>*.dxf</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>- طباعة جميع الملفات dxf إلى 'ssome.pdf ' ملف.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
-        <translation>التأقلم والرسم المركزي للصفحة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto center drawing on page.</source>
-        <translation>مركز السيارات على الصفحة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print grayscale.</source>
-        <translation>طباعة رمادية.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print monochrome (black/white).</source>
-        <translation>Unchrome (black/white).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paper size (Width x Height) in mm.</source>
         <comment>WxH</comment>
-        <translation>حجم الورق (Width x Height) في مم.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output resolution (DPI).</source>
         <comment>integer</comment>
-        <translation>قرار بشأن النواتج.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
-        <translation>جدول النواتج E.g.: 0.01 (for 1:100 scale).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paper margins in mm (integer or float).</source>
-        <translation>هوامش الورق في مليمترات (متفجرات أو عائمة).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print on multiple pages (Horiz. x Vert.).</source>
-        <translation>طبع على صفحات متعددة (Horiz. x Vert).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output PDF file.</source>
         <comment>file</comment>
-        <translation>Proput PDF file.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Target output directory.</source>
-        <translation>دليل النواتج المستهدفة.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;dxf_files&gt;</source>
-        <translation>?"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Input DXF file(s)</source>
-        <translation>Input DXF file(s)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Keycode mode</source>
-        <translation>طريقة الرموز الرئيسية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Load command file</source>
-        <translation>ملف القيادة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paste multiple commands</source>
-        <translation>أوامر متعددة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Combine all layers</source>
-        <translation>تركيب جميع الطبقات</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>الشاحنه "%1" موجودة بالفعل هل تريد استبداله؟?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>/CustomColor%1</source>
-        <translation>/CustomColor%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>الذرة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>noname</source>
         <comment>default layer name</comment>
-        <translation>الاسم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>خط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>sli</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>slinex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>slix</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliney</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>حيل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>rly</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>rect1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>الحساب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>rect3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>شرائح</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>sll</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slicec</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>نجم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>st</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>الصليب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>cx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>النقاط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>نقاط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>الخلل(ج)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>cba</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>ازدواج</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>dup</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>السطر</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>lj</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>انفصال</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>(ب)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>الفجوة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>gl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>parabola4p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>pl4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>parabolafd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>زاوية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>rortoline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>الدوار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>النقطة 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>ضربة قلبية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>ضربة سريعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>smm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>anglerel</source>
-        <translation>زاوية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>start</source>
-        <translation>البدء</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>offset</source>
-        <translation>التعويض</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linesnap</source>
-        <translation>خطوط الهاتف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>دغدغة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>width</source>
-        <translation>شعر مستعار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>height</source>
-        <translation>الارتفاع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pos</source>
-        <translation>بو</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>size</source>
-        <translation>الحجم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bevels</source>
-        <translation>الخفافيش</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nopoly</source>
-        <translation>nopoly</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>usepoly</source>
-        <translation>الاستخدام</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corners</source>
-        <translation>زوايا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>str</source>
-        <translation>str</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>round</source>
-        <translation>الجولة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap1</source>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topl</source>
-        <translation>topl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>top</source>
-        <translation>أعلى</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topr</source>
-        <translation>topr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>left</source>
-        <translation>يسار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>middle</source>
-        <translation>وسط</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>right</source>
-        <translation>الحق</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottoml</source>
-        <translation>أسفل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottom</source>
-        <translation>أسفل</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottomr</source>
-        <translation>القاع</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>الفشار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapshift</source>
-        <translation />
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizein</source>
-        <translation>الحجم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizeout</source>
-        <translation>الحجم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>hor</source>
-        <translation>hor</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>vert</source>
-        <translation>منحرف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap2</source>
-        <translation>المشهد 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corner</source>
-        <translation>الزاوية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>منتصف المنعطف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>منتصف الهضبة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>quad</source>
-        <translation>أربعة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>noquad</source>
-        <translation>noquad</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>زاوية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edges</source>
-        <translation>الحواف</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-none</source>
-        <translation>حافة واحدة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-both</source>
-        <translation>الحافة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-start</source>
-        <translation>الحافة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-end</source>
-        <translation>حافة نهاية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>end</source>
-        <translation>النهاية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>both</source>
-        <translation>كلاهما</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>none</source>
-        <translation>لا</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fit</source>
-        <translation>مناسبة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nofit</source>
-        <translation>nofit</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>غير محدد</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>dist flex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>distance</source>
-        <translation>المسافة</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sym</source>
-        <translation>sym</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nosym</source>
-        <translation>nosym</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>لا يوجد نمط يرجى تحديد مسار نمطي في الأفضليات التطبيقية</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Hatch:: loading pattern failed: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>PenTB</source>
-        <translation>PenTB</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Layer</source>
-        <translation>بواسطة لاير</translation>
+        <translation type="unfinished">Por Capa</translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation>(بلوك)</translation>
+        <translation type="unfinished">Por Bloque</translation>
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>-غير متغير</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>User Color</source>
-        <translation>المستعمل كولور</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>عيار</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>الحساب</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>-غيرت</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>ByLayer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>ByBlock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default</source>
-        <translation>التقصير</translation>
+        <translation type="unfinished">Por Defecto</translation>
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0.00 ملم</translation>
+        <translation type="unfinished">0.00mm</translation>
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0.05 ملم</translation>
+        <translation type="unfinished">0.05mm</translation>
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0.09 ملم</translation>
+        <translation type="unfinished">0.09mm</translation>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0.13mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0.15 ملم</translation>
+        <translation type="unfinished">0.15mm</translation>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0.18mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0.20 ملم</translation>
+        <translation type="unfinished">0.20mm</translation>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0.25mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0.30 ملم</translation>
+        <translation type="unfinished">0.30mm</translation>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0.35mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0.40 ملم</translation>
+        <translation type="unfinished">0.40mm</translation>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0.50 ملم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0.53 ملم</translation>
+        <translation type="unfinished">0.53mm</translation>
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0.60 ملم</translation>
+        <translation type="unfinished">0.60mm</translation>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0.70 ملم</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0.80 ملم</translation>
+        <translation type="unfinished">0.80mm</translation>
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0.90 ملم</translation>
+        <translation type="unfinished">0.90mm</translation>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1.00mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1.06 ملم</translation>
+        <translation type="unfinished">1.06mm</translation>
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1.20 ملم</translation>
+        <translation type="unfinished">1.20mm</translation>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1.40mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1.58 ملم</translation>
+        <translation type="unfinished">1.58mm</translation>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2.00mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11 ملم</translation>
+        <translation type="unfinished">2.11mm</translation>
     </message>
 </context>
 <context>
@@ -10824,24 +10781,24 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Block cannot contain an insert of itself.</source>
-        <translation>القفل لا يمكن أن يحتوي على إضافة لنفسه.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> has nested insert of current block in:
 </source>
-        <translation>)أ( أضيفت القفل الحالي إلى:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>
 This block cannot be inserted.</source>
-        <translation>هذا المبنى لا يمكن ادخاله.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksSave</name>
     <message>
         <source>No block activated to save</source>
-        <translation>لم يتم تفعيل أي حجب</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -11053,7 +11010,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify end angle or [angle/chord length]</source>
-        <translation>تحديد الزاوية النهائية أو [الطول الزماني/الفصلي]</translation>
+        <translation>Especificar ángulo final o [ángulo/longitud de cuerda]</translation>
     </message>
 </context>
 <context>
@@ -11080,7 +11037,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify startpoint or [center]</source>
-        <translation>تحديد نقطة البداية أو [المركز]</translation>
+        <translation>Especificar punto inicial o [centro]</translation>
     </message>
 </context>
 <context>
@@ -11103,7 +11060,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>تحديد نقطة النهاية</translation>
+        <translation>Especificar punto final</translation>
     </message>
 </context>
 <context>
@@ -11126,7 +11083,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify point on circle</source>
-        <translation>تحديد نقطة في الدائرة</translation>
+        <translation>Especificar punto en círculo</translation>
     </message>
 </context>
 <context>
@@ -11203,193 +11160,193 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>radius=%1 is invalid (expression)</source>
-        <translation>radius=%1 باطل (الإكتئاب)</translation>
+        <translation>radio=%1 no es válido (expresión)</translation>
     </message>
     <message>
         <source>radius=%1 is invalid (negative)</source>
-        <translation>radius=%1 باطل (غير مؤثر)</translation>
+        <translation>radio=%1 no es válido (negativo)</translation>
     </message>
     <message>
         <source>radius=%1 is invalid (zero)</source>
-        <translation>radius=%1 باطل (zero)</translation>
+        <translation>radio=%1 no es válido (cero)</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>حدد الخط الأول</translation>
+        <translation>Especificar la primera línea</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>تحديد الخط الثاني</translation>
+        <translation>Especificar la segunda línea</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>تحديد الخط الثالث</translation>
+        <translation>Especificar la tercera línea</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan1_2P</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the first point on the tangent circle</source>
-        <translation>حدد النقطة الأولى على الدائرة الشيطانية</translation>
+        <translation>Especificar el primer punto en el círculo tangente</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the second point on the tangent circle</source>
-        <translation>حدد النقطة الثانية على الدائرة الشيطانية</translation>
+        <translation>Especificar el segundo punto en el círculo tangente</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>إختار مركز الدائرة الشيطانية</translation>
+        <translation>Seleccionar el centro del círculo tangente</translation>
     </message>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>يحدد خطاً/ملحقاً/مجلة</translation>
+        <translation>Especificar una línea/arco/círculo</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2</name>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>يُحدد السطر الأول/الملحق/الدائرة</translation>
+        <translation>Especificar la primera línea/arco/círculo</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>يحدد السطر الثاني/الرباط/الدائرة</translation>
+        <translation>Especificar la segunda línea/arco/círculo</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>إختار مركز الدائرة الشيطانية</translation>
+        <translation>Seleccionar el centro del círculo tangente</translation>
     </message>
     <message>
         <source>Invalid expression '%1' for radius</source>
-        <translation>تعبير غير مقصود "%1" للأشعة</translation>
+        <translation>Expresión no válida „%1“ para radio</translation>
     </message>
     <message>
         <source>Invalid negative radius '%1'</source>
-        <translation>نصف قطر سالب غير قابل للانقراض</translation>
+        <translation>Radio negativo no válido „%1“</translation>
     </message>
     <message>
         <source>Invalid zero radius '%1'</source>
-        <translation>شعاع صفري غير ثابت</translation>
+        <translation>Radio cero no válido „%1“</translation>
     </message>
     <message>
         <source>No tangent circle possible for radius '%1'</source>
-        <translation>لا توجد دائرة للدبابات يمكن أن تصل إلى نصف قطر</translation>
+        <translation>No es posible círculo tangente para radio „%1“</translation>
     </message>
     <message>
         <source>No common tangential circle for radius '%1'</source>
-        <translation>لا توجد دائرة سماوية مشتركة من أجل نصف قطر</translation>
+        <translation>No hay círculo tangente común para radio „%1“</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2_1P</name>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>يحدد خطاً/ملحقاً/مجلة</translation>
+        <translation>Especificar una línea/arco/círculo</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the another arc/circle</source>
-        <translation>تُحدّد القوس الآخر/الدائرة</translation>
+        <translation>Especificar el otro arco/círculo</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify a point on the tangent circle</source>
-        <translation>حدد نقطة على الدائرة الشيطانية</translation>
+        <translation>Especificar un punto en el círculo tangente</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>إختار مركز الدائرة الشيطانية</translation>
+        <translation>Seleccionar el centro del círculo tangente</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan3</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>إختار مركز الدائرة الشيطانية</translation>
+        <translation>Seleccionar el centro del círculo tangente</translation>
     </message>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>يُحدد السطر الأول/الملحق/الدائرة</translation>
+        <translation>Especificar la primera línea/arco/círculo</translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>يحدد السطر الثاني/الرباط/الدائرة</translation>
+        <translation>Especificar la segunda línea/arco/círculo</translation>
     </message>
     <message>
         <source>Specify the third line/arc/circle</source>
-        <translation>يحدد السطر الثالث/الأرج/الدائرة</translation>
+        <translation>Especificar la tercera línea/arco/círculo</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipse4Points</name>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>تحديد النقطة الأولى على النسيج</translation>
+        <translation>Especificar el primer punto en la elipse</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>يرجى تحديد النقطة الثانية على النسيج</translation>
+        <translation>Especificar el segundo punto en la elipse</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>يرجى تحديد النقطة الثالثة على النسيج</translation>
+        <translation>Especificar el tercer punto en la elipse</translation>
     </message>
     <message>
         <source>Specify the fourth point on ellipse</source>
-        <translation>يرجى تحديد النقطة الرابعة على النسيج</translation>
+        <translation>Especificar el cuarto punto en la elipse</translation>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>لا يمكن أن يُحدّد على نحو فريد</translation>
+        <translation>No se puede determinar de forma única una elipse</translation>
     </message>
 </context>
 <context>
@@ -11431,93 +11388,93 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawEllipseCenter3Points</name>
     <message>
         <source>Specify the center of ellipse</source>
-        <translation>تحديد مركز إلليبسي</translation>
+        <translation>Especificar el centro de la elipse</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>تحديد النقطة الأولى على النسيج</translation>
+        <translation>Especificar el primer punto en la elipse</translation>
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>يرجى تحديد النقطة الثانية على النسيج</translation>
+        <translation>Especificar el segundo punto en la elipse</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>يرجى تحديد النقطة الثالثة على النسيج</translation>
+        <translation>Especificar el tercer punto en la elipse</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseFociPoint</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>لا تعبير صحيح</translation>
+        <translation>Expresión no válida</translation>
     </message>
     <message>
         <source>Specify first focus of ellipse</source>
-        <translation>تحديد نقطة التركيز الأولى على النسيج</translation>
+        <translation>Especificar primer foco de la elipse</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify second focus of ellipse</source>
-        <translation>تحديد التركيز الثاني على النسيج</translation>
+        <translation>Especificar segundo foco de la elipse</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify a point on ellipse or total distance to foci</source>
-        <translation>تحديد نقطة على النسيج أو المسافة الإجمالية إلى الجنين</translation>
+        <translation>Especificar un punto en la elipse o distancia total a focos</translation>
     </message>
     <message>
         <source>specify a point on ellipse, or total distance to foci</source>
-        <translation>تحديد نقطة على النسيج، أو المسافة الكاملة إلى الجنين</translation>
+        <translation>especificar un punto en la elipse o distancia total a focos</translation>
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation>النسبة المئوية الإجمالية للمسافة 1 أصغر من المسافة بين الجنين</translation>
+        <translation>La distancia total %1 es menor que la distancia entre focos</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>حدد الخط الأول</translation>
+        <translation>Especificar la primera línea</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>تحديد الخط الثاني</translation>
+        <translation>Especificar la segunda línea</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>تحديد الخط الثالث</translation>
+        <translation>Especificar la tercera línea</translation>
     </message>
     <message>
         <source>Specify the fourth line</source>
-        <translation>تحديد الخط الرابع</translation>
+        <translation>Especificar la cuarta línea</translation>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>لا يمكن أن يُحدّد على نحو فريد</translation>
+        <translation>No se puede determinar de forma única una elipse</translation>
     </message>
 </context>
 <context>
@@ -11532,27 +11489,27 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Hatch Error: Invalid contour found!</source>
-        <translation>تم العثور على كونور غير مستقر!</translation>
+        <translation>Error de sombreado: ¡contorno no válido encontrado!</translation>
     </message>
     <message>
         <source>Hatch Error: Pattern not found!</source>
-        <translation>(باتر) لم يعثر عليه!</translation>
+        <translation>Error de sombreado: ¡patrón no encontrado!</translation>
     </message>
     <message>
         <source>Hatch Error: Contour or pattern too small!</source>
-        <translation>!</translation>
+        <translation>Error de sombreado: ¡contorno o patrón demasiado pequeño!</translation>
     </message>
     <message>
         <source>Hatch Error: Contour too big!</source>
-        <translation>!</translation>
+        <translation>Error de sombreado: ¡contorno demasiado grande!</translation>
     </message>
     <message>
         <source>Hatch Error: Undefined Error!</source>
-        <translation>خطأ غير محدد!</translation>
+        <translation>Error de sombreado: ¡error indefinido!</translation>
     </message>
     <message>
         <source>Total hatch area = %1</source>
-        <translation>المساحة الإجمالية للهاتش = 1 في المائة</translation>
+        <translation>Área total de sombreado = %1</translation>
     </message>
 </context>
 <context>
@@ -11583,7 +11540,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Enter dpi:</source>
-        <translation>ادخلي</translation>
+        <translation>Ingresar dpi:</translation>
     </message>
 </context>
 <context>
@@ -11610,15 +11567,15 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
-        <translation>Can not close sequence of lines: Not enough entities defined yet, or already closed.</translation>
+        <translation>No se puede cerrar la secuencia de líneas: no hay suficientes entidades definidas aún, o ya está cerrada.</translation>
     </message>
     <message>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>بداية التاريخ</translation>
+        <translation>No se puede deshacer: se alcanzó el inicio del historial</translation>
     </message>
     <message>
         <source>Cannot redo: End of history reached</source>
-        <translation>لا يمكن إعادة العمل: تم التوصل إلى نهاية التاريخ</translation>
+        <translation>No se puede rehacer: se alcanzó el final del historial</translation>
     </message>
 </context>
 <context>
@@ -11681,7 +11638,7 @@ This block cannot be inserted.</source>
     <message>
         <source>Number sector lines not in range: </source>
         <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation>عدد الخطوط القطاعية غير المتراوحة:</translation>
+        <translation>Número de líneas de sector fuera de rango: </translation>
     </message>
 </context>
 <context>
@@ -11718,19 +11675,19 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawLineOrthTan</name>
     <message>
         <source>Select a line</source>
-        <translation>اختيار خط</translation>
+        <translation>Seleccionar una línea</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Select circle, arc or ellipse</source>
-        <translation>الدائرة المختارة أو القوس أو النسيج</translation>
+        <translation>Seleccionar círculo, arco o elipse</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
 </context>
 <context>
@@ -11798,54 +11755,54 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawLinePolygonCenCor</name>
     <message>
         <source>Specify center</source>
-        <translation>المركز</translation>
+        <translation>Especificar centro</translation>
     </message>
     <message>
         <source>Specify a corner</source>
-        <translation>حدد زاوية</translation>
+        <translation>Especificar una esquina</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>رقم الدخول:</translation>
+        <translation>Ingresar número:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>ليس رقم صحيح جرب 1..9999</translation>
+        <translation>Número no válido. Intente 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>لا تعبير صحيح</translation>
+        <translation>Expresión no válida</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLinePolygonCorCor</name>
     <message>
         <source>Specify first corner</source>
-        <translation>تحديد الزاوية الأولى</translation>
+        <translation>Especificar primera esquina</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify second corner</source>
-        <translation>تحديد الزاوية الثانية</translation>
+        <translation>Especificar segunda esquina</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>ليس رقم صحيح جرب 1..9999</translation>
+        <translation>Número no válido. Intente 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression.</source>
-        <translation>ليس تعبير صحيح.</translation>
+        <translation>Expresión no válida.</translation>
     </message>
 </context>
 <context>
@@ -11921,34 +11878,34 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>الدائرة الأولى المختارة/الألياف/البارابولا</translation>
+        <translation>Seleccionar primer círculo/elipse/parábola</translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>الدائرة الثانية المختارة/الألياف/البارابولا</translation>
+        <translation>Seleccionar segundo círculo/elipse/parábola</translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>إختار خط الشتات أقرب إلى الستار</translation>
+        <translation>Seleccionar la línea tangente más cercana al cursor</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawMText</name>
     <message>
         <source>Specify insertion point</source>
-        <translation>يرجى تحديد نقطة الإدراج</translation>
+        <translation>Especificar punto de inserción</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation>نص الدخول:</translation>
+        <translation>Ingresar texto:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
 </context>
 <context>
@@ -11966,47 +11923,47 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawPolyline</name>
     <message>
         <source>Specify first point</source>
-        <translation>تحديد النقطة الأولى</translation>
+        <translation>Especificar primer punto</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Specify next point or [%1]</source>
-        <translation>يحدد النقطة التالية أو [%1]</translation>
+        <translation>Especificar siguiente punto o [%1]</translation>
     </message>
     <message>
         <source>Cannot close sequence of lines: Not enough entities defined yet.</source>
-        <translation>Can not close sequence of lines: Not enough entities defined yet.</translation>
+        <translation>No se puede cerrar la secuencia de líneas: no hay suficientes entidades definidas aún.</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>لا يمكن التراجع: ليس هناك ما يكفي من الكيانات المحددة بعد.</translation>
+        <translation>No se puede deshacer: no hay suficientes entidades definidas aún.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>تحديد النقطة التالية</translation>
+        <translation>Especificar siguiente punto</translation>
     </message>
     <message>
         <source>Enter the end point x</source>
-        <translation>أدخل النقطة النهائية X</translation>
+        <translation>Ingresar punto final x</translation>
     </message>
     <message>
         <source>Enter number of polylines</source>
-        <translation>عدد الشركات</translation>
+        <translation>Ingresar número de polilíneas</translation>
     </message>
     <message>
         <source>equation</source>
-        <translation>المعادلة</translation>
+        <translation>ecuación</translation>
     </message>
     <message>
         <source>Enter an equation, f(x)</source>
-        <translation>أدخل معادلة، (و)</translation>
+        <translation>Ingresar una ecuación, f(x)</translation>
     </message>
     <message>
         <source>x</source>
@@ -12014,19 +11971,19 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Enter the start point x</source>
-        <translation>أدخل نقطة البداية X</translation>
+        <translation>Ingresar punto inicial x</translation>
     </message>
     <message>
         <source>The entered x is invalid.</source>
-        <translation>الدخان × باطل.</translation>
+        <translation>La x ingresada no es válida.</translation>
     </message>
     <message>
         <source>The step size entered is invalid.</source>
-        <translation>حجم خطوته غير صحيح.</translation>
+        <translation>El tamaño de paso ingresado no es válido.</translation>
     </message>
     <message>
         <source>The value x entered is invalid.</source>
-        <translation>القيمة (إكس) غير صحيحة.</translation>
+        <translation>El valor x ingresado no es válido.</translation>
     </message>
 </context>
 <context>
@@ -12076,7 +12033,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>تحديد النقطة الثانية</translation>
+        <translation>Especificar segundo punto</translation>
     </message>
 </context>
 <context>
@@ -12105,11 +12062,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionEditUndo</name>
     <message>
         <source>Nothing to undo!</source>
-        <translation>لا شيء للتراجع!</translation>
+        <translation>¡Nada para deshacer!</translation>
     </message>
     <message>
         <source>Nothing to redo!</source>
-        <translation>لا شيء للتراجع!</translation>
+        <translation>¡Nada para rehacer!</translation>
     </message>
 </context>
 <context>
@@ -12136,14 +12093,14 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Angle: %1</source>
-        <translation>Angle: %1</translation>
+        <translation>Ángulo: %1</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Circumference: %1</source>
-        <translation>النسبة المئوية 1</translation>
+        <translation>Circunferencia: %1</translation>
     </message>
     <message>
         <source>Point: %1/%2</source>
@@ -12163,11 +12120,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Closing Point: %1/%2</source>
-        <translation>نقطة الإغلاق: ٪1/٪2</translation>
+        <translation>Punto de cierre: %1/%2</translation>
     </message>
     <message>
         <source>Area: %1 %2^2</source>
-        <translation>المنطقة: ٪١٪٢</translation>
+        <translation>Área: %1 %2²</translation>
     </message>
 </context>
 <context>
@@ -12190,7 +12147,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Distance: %1 Cartesian: (%2 , %3), Polar: (%4&lt;%5)</source>
-        <translation>Distance: %1 Cartesian: (%2, %3), Polar: (%4%5)</translation>
+        <translation>Distancia: %1 Cartesiano: (%2 , %3), Polar: (%4&lt;%5)</translation>
     </message>
 </context>
 <context>
@@ -12351,7 +12308,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation>الكيان يجب أن يكون خطاً أو دائرياً أو ملقطاً أو متقاطعاً.</translation>
+        <translation>La entidad debe ser una línea, arco, círculo, elipse o spline de interpolación.</translation>
     </message>
 </context>
 <context>
@@ -12386,23 +12343,23 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Parent of second entity is nullptr</source>
-        <translation>أب الكيان الثاني باطل</translation>
+        <translation>Padre de la segunda entidad es nullptr</translation>
     </message>
     <message>
         <source>One of the chosen entities is nullptr</source>
-        <translation>One of the chosen entities is nullptr</translation>
+        <translation>Una de las entidades elegidas es nullptr</translation>
     </message>
     <message>
         <source>Parent of first entity is nullptr</source>
-        <translation>والد أول كيان لاغبار</translation>
+        <translation>Padre de la primera entidad es nullptr</translation>
     </message>
     <message>
         <source>First entity is nullptr</source>
-        <translation>الكيان الأول باطل</translation>
+        <translation>Primera entidad es nullptr</translation>
     </message>
     <message>
         <source>Second entity is nullptr</source>
-        <translation>الكيان الثاني باطل</translation>
+        <translation>Segunda entidad es nullptr</translation>
     </message>
 </context>
 <context>
@@ -12420,11 +12377,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionModifyEntity</name>
     <message>
         <source>Click on entity to modify</source>
-        <translation>اضغط على الكيان لتعديله</translation>
+        <translation>Haga clic en entidad para modificar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -12466,7 +12423,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Invalid number of copies, use %1 </source>
-        <translation>عدد غير كاف من النسخ، استخدام النسبة المئوية(1)</translation>
+        <translation>Número de copias no válido, use %1 </translation>
     </message>
 </context>
 <context>
@@ -12500,11 +12457,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionModifyOffset</name>
     <message>
         <source>Specify direction of offset</source>
-        <translation>تحديد اتجاه التعويض</translation>
+        <translation>Especificar dirección de desplazamiento</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
 </context>
 <context>
@@ -12519,11 +12476,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify rotation center</source>
-        <translation>مركز التناوب</translation>
+        <translation>Especificar centro de rotación</translation>
     </message>
     <message>
         <source>Specify target point to rotate to</source>
-        <translation>تحديد نقطة الهدف للتناوب</translation>
+        <translation>Especificar punto objetivo para rotar</translation>
     </message>
 </context>
 <context>
@@ -12569,7 +12526,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation>تحديد الكيان الأول أو الدخول إلى دائرة الأشعة</translation>
+        <translation>Especificar primera entidad o ingresar radio &lt;%1&gt;</translation>
     </message>
 </context>
 <context>
@@ -12584,11 +12541,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>مركز تحديد النطاق</translation>
+        <translation>Especificar centro de escala</translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>تحديد نقطة الهدف</translation>
+        <translation>Especificar punto objetivo</translation>
     </message>
 </context>
 <context>
@@ -12676,374 +12633,374 @@ This block cannot be inserted.</source>
     <name>RS_ActionOrder</name>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Choose entity for order</source>
-        <translation>الكيان المختار</translation>
+        <translation>Elegir entidad para ordenar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineAdd</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Adding point is invalid.</source>
-        <translation>نقطة الإضافة باطلة.</translation>
+        <translation>Punto de agregado no válido.</translation>
     </message>
     <message>
         <source>Adding point is not on entity.</source>
-        <translation>نقطة الإضافه ليست على الكيان.</translation>
+        <translation>Punto de agregado no está en la entidad.</translation>
     </message>
     <message>
         <source>Specify polyline to add nodes</source>
-        <translation>تحديد البوليلين لإضافة العقد</translation>
+        <translation>Especificar polilínea para agregar nodos</translation>
     </message>
     <message>
         <source>Specify adding node's point</source>
-        <translation>تحديد إضافة نقطة العقد</translation>
+        <translation>Especificar punto del nodo a agregar</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineAppend</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Click somewhere near the beginning or end of existing polyline.</source>
-        <translation>انقر في مكان ما قرب بداية أو نهاية البوليلين الحالي.</translation>
+        <translation>Haga clic cerca del inicio o final de la polilínea existente.</translation>
     </message>
     <message>
         <source>Specify the polyline somewhere near the beginning or end point</source>
-        <translation>حدد البوليلين في مكان ما قرب البداية أو النهاية</translation>
+        <translation>Especificar la polilínea cerca del punto inicial o final</translation>
     </message>
     <message>
         <source>Specify next point or [%1]</source>
-        <translation>يحدد النقطة التالية أو [%1]</translation>
+        <translation>Especificar siguiente punto o [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>تحديد النقطة التالية</translation>
+        <translation>Especificar siguiente punto</translation>
     </message>
     <message>
         <source>Can not append nodes in a closed polyline.</source>
-        <translation>لا يُمكنُ أَنْ يَتذيعَ الأوعيةَ في بوليصةِ مغلقةِ.</translation>
+        <translation>No se pueden agregar nodos en una polilínea cerrada.</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>لا يمكن التراجع: ليس هناك ما يكفي من الكيانات المحددة بعد.</translation>
+        <translation>No se puede deshacer: no hay suficientes entidades definidas aún.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineDel</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Specify polyline to delete node</source>
-        <translation>تحديد البوليلين لحذف العقد</translation>
+        <translation>Especificar polilínea para eliminar nodo</translation>
     </message>
     <message>
         <source>Specify deleting node's point</source>
-        <translation>حددوا حذف نقطة النويد</translation>
+        <translation>Especificar punto del nodo a eliminar</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>نقطة الإنزال باطلة.</translation>
+        <translation>Punto de eliminación no válido.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>نقطة الإنزال ليست على الكيان.</translation>
+        <translation>Punto de eliminación no está en la entidad.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineDelBetween</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>نقطة الإنزال ليست على الكيان.</translation>
+        <translation>Punto de eliminación no está en la entidad.</translation>
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
-        <translation>تحديد البوليلين للحذف بين العقدين</translation>
+        <translation>Especificar polilínea para eliminar entre dos nodos</translation>
     </message>
     <message>
         <source>Specify first node</source>
-        <translation>حدد العقد الأول</translation>
+        <translation>Especificar primer nodo</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify second node</source>
-        <translation>حدد العقد الثاني</translation>
+        <translation>Especificar segundo nodo</translation>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>نقطة الإنزال باطلة.</translation>
+        <translation>Punto de eliminación no válido.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineEquidistant</name>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Choose the original polyline</source>
-        <translation>اختر البوليلين الأصلي</translation>
+        <translation>Elegir la polilínea original</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineSegment</name>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Choose one of the segments on the original polyline</source>
-        <translation>اختيار أحد الأجزاء على البوليلين الأصلي</translation>
+        <translation>Elegir uno de los segmentos de la polilínea original</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Entity can not be a closed polyline.</source>
-        <translation>الكيان لا يمكن أن يكون بوليلاً مغلقاً.</translation>
+        <translation>La entidad no puede ser una polilínea cerrada.</translation>
     </message>
     <message>
         <source>Polyline created</source>
-        <translation>Poly created</translation>
+        <translation>Polilínea creada</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineTrim</name>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>No Entity found.</source>
-        <translation>لا يوجد كيان.</translation>
+        <translation>No se encontró entidad.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>الكيان يجب أن يكون بوليلين.</translation>
+        <translation>La entidad debe ser una polilínea.</translation>
     </message>
     <message>
         <source>Specifying point is invalid.</source>
-        <translation>نقطة التحديد باطلة.</translation>
+        <translation>Punto especificado no válido.</translation>
     </message>
     <message>
         <source>No Segment found on entity.</source>
-        <translation>لا يوجد جزء على الكيان.</translation>
+        <translation>No se encontró segmento en la entidad.</translation>
     </message>
     <message>
         <source>Specify polyline to trim</source>
-        <translation>تحديد البوليلين إلى ثلاثة</translation>
+        <translation>Especificar polilínea para recortar</translation>
     </message>
     <message>
         <source>Specify first segment</source>
-        <translation>يحدد الجزء الأول</translation>
+        <translation>Especificar primer segmento</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>العودة</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <source>Specify second segment</source>
-        <translation>يحدد الجزء الثاني</translation>
+        <translation>Especificar segundo segmento</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPrintPreview</name>
     <message>
         <source>RS_ActionPrintPreview::fit(): Invalid paper size</source>
-        <translation>RS ActionPrintPreview:fit(): Invalid paper size</translation>
+        <translation>RS_ActionPrintPreview::fit(): Tamaño de papel no válido</translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates by (%1, %2)</source>
-        <translation>طباعة معادلة في الإحداثيات الورقية (%1, %2)</translation>
+        <translation>Desplazamiento de impresión en coordenadas de papel por (%1, %2)</translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates by (%1, %2)</source>
-        <translation>طباعة معادلة في الإحداثيات البيانية (%1, %2)</translation>
+        <translation>Desplazamiento de impresión en coordenadas de gráfico por (%1, %2)</translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates</source>
-        <translation>طباعة معادلة في إحداثيات الرسم البياني</translation>
+        <translation>Desplazamiento de impresión en coordenadas de gráfico</translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates</source>
-        <translation>مطبوع قابل في الإحداثيات الورقية</translation>
+        <translation>Desplazamiento de impresión en coordenadas de papel</translation>
     </message>
     <message>
         <source>: select printout offset coordinates</source>
-        <translation>:: اختيار إحداثيات معادلة للطباعة</translation>
+        <translation>: seleccionar coordenadas de desplazamiento de impresión</translation>
     </message>
     <message>
         <source>type in offset from command line to offset printout</source>
-        <translation>نوع مقابل من خط القيادة لتعويض الطباعة</translation>
+        <translation>ingresar desplazamiento desde línea de comandos para desplazar impresión</translation>
     </message>
     <message>
         <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>ويتجاهل التعويض المطبوع الصفر النسبي. Ignoring '@</translation>
+        <translation>El desplazamiento de impresión ignora cero relativo. Ignorando „@“</translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation>طبعة باللغة السوداء/الغربية</translation>
+        <translation>Impresión en blanco y negro</translation>
     </message>
     <message>
         <source>Printout in color</source>
-        <translation>الطباعة باللون</translation>
+        <translation>Impresión en color</translation>
     </message>
     <message>
         <source>RS_ActionPrintPreview::calcPagesNum(): Limit of pages has been exceeded.</source>
-        <translation>RS ActionPrintPreview:calcPagesNum(): Limit of pages has been beyond.</translation>
+        <translation>RS_ActionPrintPreview::calcPagesNum(): Se ha excedido el límite de páginas.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelect</name>
     <message>
         <source>Select to modify attributes</source>
-        <translation>اختيار تعديل السمات</translation>
+        <translation>Seleccionar para modificar atributos</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Select to delete</source>
-        <translation>اختيار حذف</translation>
+        <translation>Seleccionar para eliminar</translation>
     </message>
     <message>
         <source>Select to delete immediately</source>
-        <translation>اختيار حذفها فورا</translation>
+        <translation>Seleccionar para eliminar inmediatamente</translation>
     </message>
     <message>
         <source>Select to move</source>
-        <translation>اختيار للتحرك</translation>
+        <translation>Seleccionar para mover</translation>
     </message>
     <message>
         <source>Select to rotate</source>
-        <translation>اختيار للتناوب</translation>
+        <translation>Seleccionar para rotar</translation>
     </message>
     <message>
         <source>Select to scale</source>
-        <translation>مختارة إلى الحجم</translation>
+        <translation>Seleccionar para escalar</translation>
     </message>
     <message>
         <source>Select to mirror</source>
-        <translation>اختيار المرآة</translation>
+        <translation>Seleccionar para reflejar</translation>
     </message>
     <message>
         <source>Select to move and rotate</source>
-        <translation>اختيار للتحرك والتناوب</translation>
+        <translation>Seleccionar para mover y rotar</translation>
     </message>
     <message>
         <source>Select for two axis rotation</source>
-        <translation>اختيار محورين للتناوب</translation>
+        <translation>Seleccionar para rotación de dos ejes</translation>
     </message>
     <message>
         <source>Select to explode text</source>
-        <translation>اختيار انفجار النص</translation>
+        <translation>Seleccionar para explotar texto</translation>
     </message>
     <message>
         <source>Select to create block</source>
-        <translation>اختيار لخلق كتلة</translation>
+        <translation>Seleccionar para crear bloque</translation>
     </message>
     <message>
         <source>Select to copy</source>
-        <translation>اختيار النسخ</translation>
+        <translation>Seleccionar para copiar</translation>
     </message>
     <message>
         <source>Select to cut</source>
-        <translation>اختيار قطع</translation>
+        <translation>Seleccionar para cortar</translation>
     </message>
     <message>
         <source>No entity selected!</source>
-        <translation>لا يوجد كيان مختار!</translation>
+        <translation>¡Ninguna entidad seleccionada!</translation>
     </message>
     <message>
         <source>Select to create offset</source>
-        <translation>اختيار إنشاء</translation>
+        <translation>Seleccionar para crear desplazamiento</translation>
     </message>
     <message>
         <source>Select entities to order</source>
-        <translation>اختيار الكيانات للأمر</translation>
+        <translation>Seleccionar entidades para ordenar</translation>
     </message>
     <message>
         <source>Select to explode block</source>
-        <translation>اختيار الانفجار</translation>
+        <translation>Seleccionar para explotar bloque</translation>
     </message>
     <message>
         <source>Select to revert direction</source>
-        <translation>اختيار العودة إلى الاتجاه</translation>
+        <translation>Seleccionar para revertir dirección</translation>
     </message>
 </context>
 <context>
@@ -13088,7 +13045,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Click and drag for the selection window</source>
-        <translation>انقر وسحب من نافذة الاختيار</translation>
+        <translation>Haga clic y arrastre para la ventana de selección</translation>
     </message>
 </context>
 <context>
@@ -13103,7 +13060,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Set &amp;Relative Zero</source>
-        <translation>ثابت صفر</translation>
+        <translation>Establecer &amp;cero relativo</translation>
     </message>
 </context>
 <context>
@@ -13140,15 +13097,15 @@ This block cannot be inserted.</source>
     <name>RS_ActionZoomPan</name>
     <message>
         <source>Click and drag to pan zoom</source>
-        <translation>إضغطْ وسحبْ إلى بنزوومِ</translation>
+        <translation>Haga clic y arrastre para desplazar zoom</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Zoom panning</source>
-        <translation>مقلاة زووم</translation>
+        <translation>Desplazamiento de zoom</translation>
     </message>
 </context>
 <context>
@@ -13174,129 +13131,129 @@ This block cannot be inserted.</source>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>مشروع</translation>
+        <translation>Borrador</translation>
     </message>
 </context>
 <context>
     <name>TextFileViewer</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Marco</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation>الخيارات القطبية</translation>
+        <translation>Opciones de arco</translation>
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation>على مدار الساعة</translation>
+        <translation>Sentido antihorario</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>Clockwise</translation>
+        <translation>Sentido horario</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation>خيارات القطبية</translation>
+        <translation>Opciones de arco tangente</translation>
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation>Radius of the tangential arc</translation>
+        <translation>Radio del arco tangente</translation>
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>مجموع الزاوية الفرعية للقوس الشيطاني</translation>
+        <translation>Ángulo subtendido total del arco tangente</translation>
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Radius</translation>
+        <translation>Radio</translation>
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>أنغل</translation>
+        <translation>Ángulo</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation>الخيارات البديلة</translation>
+        <translation>Opciones de bisel</translation>
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation>تحقق من كل من الكيانين إلى الخريف</translation>
+        <translation>Marcar para recortar ambas entidades al bisel</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation>Recortar</translation>
     </message>
     <message>
         <source>Length 1:</source>
-        <translation>Length 1:</translation>
+        <translation>Longitud 1:</translation>
     </message>
     <message>
         <source>Length 2:</source>
-        <translation>الجناح 2:</translation>
+        <translation>Longitud 2:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation>الخيارات الدائرة</translation>
+        <translation>Opciones de círculo</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation>Circle Tangential2 Options</translation>
+        <translation>Opciones de círculo tangente 2</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُستَخدَمُ / /      BAR  Radius of the tangential cycle to draw/p&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radio del círculo tangente a dibujar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation>Radius of tangential cycle</translation>
+        <translation>Radio del círculo tangente</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation>خيارات البعد الخطي</translation>
+        <translation>Opciones de cota lineal</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation>خيارات البعد</translation>
+        <translation>Opciones de cota</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation>لابل:</translation>
+        <translation>Etiqueta:</translation>
     </message>
     <message>
         <source>⌀</source>
@@ -13312,7 +13269,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>π</source>
-        <translation />
+        <translation>π</translation>
     </message>
     <message>
         <source>×</source>
@@ -13320,7 +13277,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>÷</source>
-        <translation>♪</translation>
+        <translation>÷</translation>
     </message>
     <message>
         <source>...</source>
@@ -13331,23 +13288,23 @@ This block cannot be inserted.</source>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Insert Options</translation>
+        <translation>Opciones de inserción</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>خط التناوب</translation>
+        <translation>Ángulo de rotación</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>المفاعل:</translation>
+        <translation>Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scale Factor</translation>
+        <translation>Factor de escala</translation>
     </message>
     <message>
         <source>DPI</source>
@@ -13355,193 +13312,193 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation>إدارة شؤون الإعلام</translation>
+        <translation>DPI de imagen</translation>
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Insert Options</translation>
+        <translation>Opciones de inserción</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>خط التناوب</translation>
+        <translation>Ángulo de rotación</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>المفاعل:</translation>
+        <translation>Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scale Factor</translation>
+        <translation>Factor de escala</translation>
     </message>
     <message>
         <source>Array:</source>
-        <translation>آري:</translation>
+        <translation>Matriz:</translation>
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation>عدد كولومنز</translation>
+        <translation>Número de columnas</translation>
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation>عدد الأرصفة</translation>
+        <translation>Número de filas</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>Spacing:</translation>
+        <translation>Espaciado:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation>Column Spacing</translation>
+        <translation>Espaciado de columnas</translation>
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation>Row Spacing</translation>
+        <translation>Espaciado de filas</translation>
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation>خيارات ملحقات المكتبة</translation>
+        <translation>Opciones de inserción de biblioteca</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>خط التناوب</translation>
+        <translation>Ángulo de rotación</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>المفاعل:</translation>
+        <translation>Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scale Factor</translation>
+        <translation>Factor de escala</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation>خط الخيارات</translation>
+        <translation>Opciones de ángulo de línea</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>زاوية الخط</translation>
+        <translation>Ángulo de línea</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>طول الخط</translation>
+        <translation>Longitud de línea</translation>
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation>Snap Point:</translation>
+        <translation>Punto de ajuste:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>ابدأ</translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>الشرق الأوسط</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>النهاية</translation>
+        <translation>Fin</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation>خيارات قطاع الأعمال</translation>
+        <translation>Opciones de bisectriz de línea</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation>طول القطاع</translation>
+        <translation>Longitud de bisectriz</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation>Number of bisectors to create</translation>
+        <translation>Número de bisectrices a crear</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation>الخيارات</translation>
+        <translation>Opciones de línea</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>تشكيلة مخزن مغلق من الخطوط</translation>
+        <translation>Formar contorno cerrado a partir de líneas dibujadas</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>اقترب</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>فك الخط الأخير</translation>
+        <translation>Deshacer el último dibujo de línea</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>أعد آخر رسم</translation>
+        <translation>Rehacer el último dibujo de línea</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Redo</translation>
+        <translation>Rehacer</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>الخيارات</translation>
+        <translation>Opciones de línea</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation>التوجيه:</translation>
+        <translation>Dirección:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polilínea</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>نعم</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>أنغل</translation>
+        <translation>Ángulo</translation>
     </message>
     <message>
         <source>X</source>
@@ -13549,362 +13506,362 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relativo</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>فك الخط الأخير</translation>
+        <translation>Deshacer el último dibujo de línea</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>تشكيلة مخزن مغلق من الخطوط</translation>
+        <translation>Formar contorno cerrado a partir de líneas dibujadas</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>اقترب</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>أعد آخر رسم</translation>
+        <translation>Rehacer el último dibujo de línea</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Redo</translation>
+        <translation>Rehacer</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation>النقطة</translation>
+        <translation>Punto</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation>الخيارات الموازية</translation>
+        <translation>Opciones de línea paralela</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>المسافة:</translation>
+        <translation>Distancia:</translation>
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation>Distance to original entity</translation>
+        <translation>Distancia a entidad original</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>عدد الموازيات التي تخلق</translation>
+        <translation>Número de paralelas a crear</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation>خط مواز من خلال الخيارات</translation>
+        <translation>Opciones de línea paralela a través de</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>عدد الموازيات التي تخلق</translation>
+        <translation>Número de paralelas a crear</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Polygon Options</translation>
+        <translation>Opciones de polígono</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>عدد الحواف</translation>
+        <translation>Número de aristas</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Polygon Options</translation>
+        <translation>Opciones de polígono</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>العدد:</translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>عدد الحواف</translation>
+        <translation>Número de aristas</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>ألف - الخيارات المتصلة بالخط</translation>
+        <translation>Opciones de ángulo relativo de línea</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>زاوية الخط</translation>
+        <translation>Ángulo de línea</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>طول الخط</translation>
+        <translation>Longitud de línea</translation>
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>الخيارات</translation>
+        <translation>Opciones de texto</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>النص:</translation>
+        <translation>Texto:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation>تعديل خيارات التوريد</translation>
+        <translation>Opciones de modificación de desplazamiento</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>المسافة:</translation>
+        <translation>Distancia:</translation>
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation>مقتطف من الكيان الأصلي</translation>
+        <translation>Desplazamiento desde entidad original</translation>
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation>خيارات التناوب</translation>
+        <translation>Opciones de mover y rotar</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation>الخيارات المتعددة</translation>
+        <translation>Opciones de polilínea</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>اقترب</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>الخط</translation>
+        <translation>Línea</translation>
     </message>
     <message>
         <source>Tangential</source>
-        <translation>Tangential</translation>
+        <translation>Tangente</translation>
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation>Tan Radius</translation>
+        <translation>Radio tangente</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>أنغل</translation>
+        <translation>Ángulo</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation>مكافحة كلوكوز</translation>
+        <translation>Sentido antihorario</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>Clockwise</translation>
+        <translation>Sentido horario</translation>
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation>خيارات العرض المطبوع</translation>
+        <translation>Opciones de vista previa de impresión</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُغلق على القيمة الحالية/القيمة الحالية/المجموعة/المجموعة</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La escala de impresión está bloqueada al valor actual&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>fixed</source>
-        <translation>ثابتة</translation>
+        <translation>fijo</translation>
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation>الضحك الأسود/الأسلوب الأبيض</translation>
+        <translation>Alternar modo blanco y negro</translation>
     </message>
     <message>
         <source>Center to page</source>
-        <translation>مركز الصفحات</translation>
+        <translation>Centrar en página</translation>
     </message>
     <message>
         <source>Fit to page</source>
-        <translation>مناسب للصفحة</translation>
+        <translation>Ajustar a página</translation>
     </message>
     <message>
         <source>Apply Print Scale to line width</source>
-        <translation>تطبيق المطبوع Scale إلى خط الاستطلاع</translation>
+        <translation>Aplicar escala de impresión a ancho de línea</translation>
     </message>
     <message>
         <source>Calculate number of pages needed to contain the drawing</source>
-        <translation>حساب عدد الصفحات اللازمة لاحتواء الرسم</translation>
+        <translation>Calcular número de páginas necesarias para contener el dibujo</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>◂ يُذكر أن الرؤوس/الهيئات الفرعية هي: المقياس المطبعي: رسم الحجم/الحجم/الترتيبات/الترتيبات</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;tamaño impreso : tamaño de dibujo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation>خيارات الجولة</translation>
+        <translation>Opciones de redondeo</translation>
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation>تحقق من كل الحافة إلى الجولة</translation>
+        <translation>Marcar para recortar ambas aristas al redondeo</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation>Recortar</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Radio:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Snap Distance Options</translation>
+        <translation>Opciones de distancia de ajuste</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>المسافة:</translation>
+        <translation>Distancia:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Snap Distance Options</translation>
+        <translation>Opciones de distancia de ajuste</translation>
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation>النقاط المتوسطة:</translation>
+        <translation>Puntos medios:</translation>
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation>عدد نقاط الانقسام المتوازنة</translation>
+        <translation>Número de puntos de división equidistantes</translation>
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation>الخيارات الشاملة</translation>
+        <translation>Opciones de spline</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation>درجة:</translation>
+        <translation>Grado:</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>مغلق</translation>
+        <translation>Cerrado</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation>Deshacer</translation>
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>الخيارات</translation>
+        <translation>Opciones de texto</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>النص:</translation>
+        <translation>Texto:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>انجل:</translation>
+        <translation>Ángulo:</translation>
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation>المبلغ</translation>
+        <translation>Opciones de cantidad de recorte</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation>توقف القيم السلبية للثأر والقيم الإيجابية للتوسع.</translation>
+        <translation>Distancia. Valores negativos para recortar, positivos para extender.</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Length:</translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation>توقف القيم السلبية للثأر والقيم الإيجابية للتوسع وتُتجاهل الإشارة السلبية عند التقريب إلى الطول الكلي النهائي.</translation>
+        <translation>Distancia. Valores negativos para recortar, positivos para extender. El signo negativo se ignora al recortar a longitud total final.</translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation>ويُستخدم طول المدخلات كطول إجمالي بعد الترميم، بدلاً من زيادة الطول</translation>
+        <translation>La longitud ingresada se usa como longitud total después de recortar, en lugar de aumento de longitud</translation>
     </message>
 </context>
 <context>
     <name>WidgetCreator</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Marco</translation>
     </message>
     <message>
         <source>&gt;</source>
@@ -13912,27 +13869,27 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>&lt;</source>
-        <translation>○</translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>الاسم</translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation>الإبداع</translation>
+        <translation>Crear</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation>تدمير</translation>
+        <translation>Destruir</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>Assign</translation>
+        <translation>Asignar</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>آخر</translation>
+        <translation>Actualizar</translation>
     </message>
 </context>
 <context>

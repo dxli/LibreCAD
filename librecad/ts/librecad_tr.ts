@@ -64,7 +64,7 @@
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation>Parabola</translation>
+        <translation>Parabol</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>Spline</translation>
+        <translation>Eğri Çizgideki Noktalar</translation>
     </message>
     <message>
         <source>Control Points</source>
@@ -167,8 +167,8 @@ noktalar arasındaki mesafe=%2 çap=%3 den daha büyük</translation>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>Mesafe (%1)
-(% 2)</translation>
+        <translation>Mesafeyi belirtin (%1)
+veya [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -176,7 +176,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Back</source>
-        <translation>Geri dön</translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Y</source>
@@ -185,8 +185,8 @@ or [%2]</source>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>Uzaklığı ( %1 deg)
-(% 2)</translation>
+        <translation>Mesafeyi belirtin (açı %1 derece)
+veya [%2]</translation>
     </message>
 </context>
 <context>
@@ -216,15 +216,15 @@ or [%2]</source>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>Yön (x veya y) veya [%1]</translation>
+        <translation>Yönü belirtin (x veya y) veya [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Geri dön</translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>Mesafe (%1) veya [%2]</translation>
+        <translation>Mesafeyi belirtin (%1) veya [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -236,96 +236,96 @@ or [%2]</source>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>Mesafe (%1 deg) veya [%2]</translation>
+        <translation>Mesafeyi belirtin (%1 derece) veya [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation>Açı veya [%2]</translation>
+        <translation>Açıyı belirtin veya [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation>Nokta veya [%1]</translation>
+        <translation>Noktayı belirtin veya [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation>Parabola'daki ilk noktayı belirtin</translation>
+        <translation>Parabol üzerindeki ilk noktayı belirtin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation>Parabola'daki ikinci noktayı belirtin</translation>
+        <translation>Parabol üzerindeki ikinci noktayı belirtin</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Geri dön</translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation>Parabola'daki üçüncü noktayı belirtin</translation>
+        <translation>Parabol üzerindeki üçüncü noktayı belirtin</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation>Parabola'daki dördüncü noktayı belirtin</translation>
+        <translation>Parabol üzerindeki dördüncü noktayı belirtin</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>Parabola'da Axis'i açın</translation>
+        <translation>Parabol üzerindeki ekseni belirtin</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation>Parabola'nın odağını belirtin</translation>
+        <translation>Parabolün odak noktasını belirtin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>Parabola'nın doğrudanrix'ini belirtin</translation>
+        <translation>Parabolün direktriksini belirtin</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Geri dön</translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation>Parabola'daki başlangıç noktasını belirtin</translation>
+        <translation>Parabol üzerindeki başlangıç noktasını belirtin</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation>Parabola'daki son noktayı belirtin</translation>
+        <translation>Parabol üzerindeki bitiş noktasını belirtin</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>kilitli olduğu gibi bölünmüş değildir.</translation>
+        <translation> kilitli olduğu için bölünemez.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>poliline parçası olduğu gibi bölünmüş değildir. İlk önce poliline genişletin.</translation>
+        <translation> çoklu çizginin parçası olduğu için bölünemez. Önce çoklu çizgiyi genişletin.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Line</translation>
+        <translation>Çizgi</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation>Arc</translation>
+        <translation>Yay</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation>Circle</translation>
+        <translation>Çember</translation>
     </message>
 </context>
 <context>
@@ -1071,7 +1071,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Cross</source>
-        <translation>Cross</translation>
+        <translation>Çapraz</translation>
     </message>
     <message>
         <source>Snake</source>
@@ -1087,91 +1087,91 @@ or [%2]</source>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation>Rect Fukushima (1 Point)</translation>
+        <translation>Dikdörtgen (1 Nokta)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation>Rectcoat (2 Puan)</translation>
+        <translation>Dikdörtgen (2 Nokta)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation>Rect Fukushima (3 Puan)</translation>
+        <translation>Dikdörtgen (3 Nokta)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation>Star</translation>
+        <translation>Yıldız</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>Break/Divide</translation>
+        <translation>Kır/Böl</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>Line Gap</translation>
+        <translation>Çizgi Boşluğu</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation>Line From Line</translation>
+        <translation>Çizgiden Açı</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation>Orthogonal From Line</translation>
+        <translation>Çizgiden Dik Açılı</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation>From Point To Line</translation>
+        <translation>Noktadan Çizgiye</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Slice/Divide Line</translation>
+        <translation>Çizgiyi Dilimle/Böl</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Slice/Divide Circle</translation>
+        <translation>Çemberi Dilimle/Böl</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation>Noktaların uzunluğu</translation>
+        <translation>Nokta Çizgisi</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>Yemin olsun</translation>
+        <translation>Yay ile</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;bola 4 puan</translation>
+        <translation>Para&amp;bol 4 nokta</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola &amp;Focus Directrix</translation>
+        <translation>Parabol &amp;Odak Direktriks</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>&amp;Pick Pen Entity</translation>
+        <translation>Varlıktan &amp;kalem seç</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>&amp;Pick Pen Entity (Resolution)</translation>
+        <translation>Varlıktan &amp;kalem seç (Çözümlenmiş)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation>Pen'i Entity'ye Uygulama</translation>
+        <translation>Varlığa kalem uygula</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation>Kopyalama Peni</translation>
+        <translation>Kalem kopyala</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>Line Katıl</translation>
+        <translation>Çizgi Birleştirme</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicate</translation>
+        <translation>Çoğalt</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Update Current Pen Tarafından Active Katman' Pen</translation>
+        <translation>Geçerli kalemi aktif katmanın kalemiyle güncelle</translation>
     </message>
 </context>
 <context>
@@ -1192,49 +1192,49 @@ or [%2]</source>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Kalemi seçmek için varlık</translation>
+        <translation>Kalem seçmek için varlığı belirtin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>Kalem uygulamak için varlık</translation>
+        <translation>Kalem uygulamak için varlığı belirtin</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Kalemi seçmek için varlık</translation>
+        <translation>Kalem seçmek için varlığı belirtin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation>Yüzde / başlangıç noktası</translation>
+        <translation>Yüzde / başlangıç noktası belirtin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation>Başlangıç noktanızı girin</translation>
+        <translation>Başlangıç noktasını belirtin</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>Bitiş noktası</translation>
+        <translation>Bitiş noktasını belirtin</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Geri dön</translation>
+        <translation>Geri</translation>
     </message>
 </context>
 <context>
@@ -1253,11 +1253,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Orijinal Yeniden Çözüldü</translation>
+        <translation>Orijinal Çözümlenmiş</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Radius Shift:</translation>
+        <translation>Yarıçap Kaydırma:</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1265,11 +1265,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation>Ayırma Ekle</translation>
+        <translation>Yayı değiştir</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Pen:</translation>
+        <translation>Kalem:</translation>
     </message>
 </context>
 <context>
@@ -1280,11 +1280,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Extension</source>
-        <translation>Extension</translation>
+        <translation>Uzantı</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation>Toplam uzunluğu</translation>
+        <translation>Toplam Uzunluk</translation>
     </message>
     <message>
         <source>Percent</source>
@@ -1300,11 +1300,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipi</translation>
+        <translation>Tür</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Boyut:</translation>
+        <translation>Açı:</translation>
     </message>
 </context>
 <context>
@@ -1326,7 +1326,7 @@ or [%2]</source>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation>Parabola kontrol noktaları kollinear olamaz</translation>
+        <translation>Parabol kontrol noktaları doğrusal olamaz</translation>
     </message>
 </context>
 <context>
@@ -1341,11 +1341,11 @@ or [%2]</source>
     </message>
     <message>
         <source>In Place</source>
-        <translation>In Place</translation>
+        <translation>Yerinde</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>Offset X:</translation>
+        <translation>X Ofset:</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1357,15 +1357,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Orijinal Yeniden Çözüldü</translation>
+        <translation>Orijinal Çözümlenmiş</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>Offset Y:</translation>
+        <translation>Y Ofset:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Pen:</translation>
+        <translation>Kalem:</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>Ebeveyn Katmanları Yolu:</translation>
+        <translation>Üst Katmanlar Yolu:</translation>
     </message>
     <message>
         <source>Layer Type</source>
@@ -1384,7 +1384,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Informational</source>
-        <translation>Bilgi</translation>
+        <translation>Bilgilendirici</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -1392,21 +1392,21 @@ or [%2]</source>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>Ölçüler</translation>
+        <translation>Boyutlar</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation>Alternatif Pozisyon</translation>
+        <translation>Alternatif Konum</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Bir İnşaat Katmanı geometrik inşaat için kullanılmak üzere tasarlanmış sonsuz düz hatların varlığına sahiptir.
-Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
+        <translation>Yapı katmanı, geometrik inşaat için kullanılan sonsuz düz çizgi varlıkları içerir.
+       Yapı katmanının içeriği baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>İnşaat Katmanı</translation>
+        <translation>Yapı Katmanı</translation>
     </message>
     <message>
         <source>Layer Name:</source>
@@ -1414,94 +1414,94 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation>Rename Virtual Katman</translation>
+        <translation>Sanal Katmanı Yeniden Adlandır</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation>Orta Katman ekle</translation>
+        <translation>İkincil Katman Ekle</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Ekle Katman ekle</translation>
+        <translation>Katman Ekle</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation>Edit Katman</translation>
+        <translation>Katmanı Düzenle</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Tembel Kalemi</translation>
+        <translation>Varsayılan Kalem</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation>Rename Katmanı</translation>
+        <translation>Katmanı Yeniden Adlandır</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation>Katmanlar Ağaç Seçenekleri</translation>
+        <translation>Katman Ağacı Seçenekleri</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>Naming Convention</translation>
+        <translation>Adlandırma Kuralı</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>Katman Seviye Adı Dikt</translation>
+        <translation>Katman Düzeyi Ad Ayırıcı</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>Orta Katman Suffixes</translation>
+        <translation>İkincil Katman Son Ekleri</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation>Boyut</translation>
+        <translation>Boyutsal</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>Bilgi</translation>
+        <translation>Bilgilendirici</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>Alternatif Pozisyon</translation>
+        <translation>Alternatif Konum </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation>Duplicating Name</translation>
+        <translation>Çoğaltma Adı</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Ön Ek</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation>Suffix</translation>
+        <translation>Son Ek</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation>Ekran ve Operasyonlar</translation>
+        <translation>Görüntüleme ve İşlemler</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>Full name as ToolTip</translation>
+        <translation>Tam adı araç ipucu olarak göster</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>Show katmanı türü ikonları</translation>
+        <translation>Katman türü simgelerini göster</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>Gösterilen tabaka isimleri. Ident büyüklüğü:</translation>
+        <translation>Girintili katman adlarını göster. Girinti boyutu:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>Drag&amp;Drop ile yeniden yapılandırmasına izin verin</translation>
+        <translation>Sürükle&amp;Bırak ile yeniden yapılandırmaya izin ver</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>İlk olarak ikincil katmanlar</translation>
+        <translation>Birincil yeniden adlandırmada ikincil katmanları da yeniden adlandır</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -1509,7 +1509,7 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>Filtre modunu vurgulayan öğe</translation>
+        <translation>Vurgu filtre modunda eşleşen öğe</translation>
     </message>
     <message>
         <source>#1E90FF</source>
@@ -1517,23 +1517,23 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation>Sanal katman arka renk</translation>
+        <translation>Sanal katman arka plan rengi</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>Threeview item selübü</translation>
+        <translation>Üç görünüm öğesi ayırıcı ızgarası</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation>Seçilmiş öğeler arka renk</translation>
+        <translation>Seçili öğeler arka plan rengi</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>Aktif katman arka renk</translation>
+        <translation>Aktif katman arka plan rengi</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>Varsayılan Pens</translation>
+        <translation>Varsayılan Kalemler</translation>
     </message>
     <message>
         <source>Normal Layer</source>
@@ -1541,19 +1541,19 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation>Boyutlu Katman</translation>
+        <translation>Boyutsal Katman</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation>Bilgisel Katman</translation>
+        <translation>Bilgilendirici Katman</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation>Alternatif Pozisyon Katmanı Katmanı</translation>
+        <translation>Alternatif Konum Katmanı</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>Renk seçin</translation>
+        <translation>Renk Seç</translation>
     </message>
 </context>
 <context>
@@ -1564,11 +1564,11 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Eşleştirme katmanı isimleri için bakmak</translation>
+        <translation>Eşleşen katman adları aranıyor</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Highlight Mode Mode</translation>
+        <translation>Vurgu Modu</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1580,179 +1580,179 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>Tüm katmanlar Gizle</translation>
+        <translation>Tüm katmanları gizle</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation>Orta Katmanları Göster</translation>
+        <translation>İkincil Katmanları Göster</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation>Aktif Katmanı Sadece Göster</translation>
+        <translation>Sadece Aktif Katmanı Göster</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation>Tüm genişletin</translation>
+        <translation>Tümünü Genişlet</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>Bütün Filmler</translation>
+        <translation>Tümünü Daralt</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>Colalt Secondary</translation>
+        <translation>İkincili Daralt</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>Bütün katmanlar</translation>
+        <translation>Tüm katmanların kilidini aç</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>Tüm tabakaları kilitle</translation>
+        <translation>Tüm katmanları kilitle</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation>Bir katman ekleyin</translation>
+        <translation>Bir katman ekle</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>Boyut Katmanı ekle</translation>
+        <translation>Boyutlar katmanı ekle</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>Kaldır tabakası</translation>
+        <translation>Katmanı kaldır</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>Modify katman özellikleri / yeniden adlandırma</translation>
+        <translation>Katman özniteliklerini değiştir / yeniden adlandır</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation>Flat List Mode)</translation>
+        <translation>Düz Liste Modu)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>Katman Menü</translation>
+        <translation>Katman Menüsü</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>Ayrıca Çocuk Katmanı</translation>
+        <translation>&amp;Alt Katman Ekle</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>&amp;Rename</translation>
+        <translation>&amp;Yeniden Adlandır</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>VeRemove Katmanları (Sub-Tree)</translation>
+        <translation>&amp;Katmanları Kaldır (Alt Ağaç)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>&amp;Copy Structure (Sub-Tree)</translation>
+        <translation>&amp;Yapıyı Kopyala (Alt Ağaç)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>&amp;Duplicate Content (Sub-Tree)</translation>
+        <translation>&amp;İçeriği Çoğalt (Alt Ağaç)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>Ve Entities (Sub-Tree)</translation>
+        <translation>&amp;Varlıkları Seç (Alt Ağaç)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>&amp;Edit Katman &amp; Attributes</translation>
+        <translation>Katman &amp;Özniteliklerini &amp;Düzenle</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;Remove Katman</translation>
+        <translation>Katmanı &amp;Kaldır</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>&amp;Add Dimension Sub-Layer</translation>
+        <translation>&amp;Boyutlar Alt Katmanı Ekle</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>&amp;Add Info Sub-Layer</translation>
+        <translation>&amp;Bilgi Alt Katmanı Ekle</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>&amp;Add Alternative View Sub-Layer</translation>
+        <translation>&amp;Alternatif Görünüm Alt Katmanı Ekle</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>&amp;Remove Sub-katmanları</translation>
+        <translation>&amp;Alt Katmanları Kaldır</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation>Boyutlu Katmana Dönüştürün</translation>
+        <translation>Boyutsal Katmana Dönüştür</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>Bilgi Katmanına Dönüştürül</translation>
+        <translation>Bilgi Katmana Dönüştür</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation>Alternatif Pozisyon Katmanına Dönüştürül</translation>
+        <translation>Alternatif Konum Katmana Dönüştür</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation>Normal Katmana Dönüştürün</translation>
+        <translation>Normal Katmana Dönüştür</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation>Ve Katmanın Entities'ini seçin</translation>
+        <translation>Katmanın &amp;Varlıklarını Seç</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>&amp; Create Katman Copy</translation>
+        <translation>Katman &amp;Kopyası Oluştur</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>&amp;Duplicate Katman with Content</translation>
+        <translation>&amp;İçerikli Katmanı Çoğalt</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation>Katmana Seçimi</translation>
+        <translation>Seçimi Katmana Taşı</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation>Katmanlı Seçme</translation>
+        <translation>Seçimi Katmana Çoğalt</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>Ve ek Katman</translation>
+        <translation>Katman &amp;Ekle</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>Ve Freeze Diğerleri Katmanlar</translation>
+        <translation>Diğer Katmanları &amp;Dondur</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>Ve Bütün Katmanlar</translation>
+        <translation>Tüm Katmanları &amp;Çöz</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>Ve Freeze Tüm Katmanlar</translation>
+        <translation>Tüm Katmanları &amp;Dondur</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>Ve Tüm Katmanlar</translation>
+        <translation>Tüm Katmanların &amp;Kilidini Aç</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>&amp;Lock Tüm Katmanlar</translation>
+        <translation>Tüm Katmanları &amp;Kilitle</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Enable &amp; Writeing All Katmans</translation>
+        <translation>Tüm Katmanların &amp;Yazdırmasını Etkinleştir</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>&amp;Disable Printing All Katmans</translation>
+        <translation>Tüm Katmanların Yazdırmasını &amp;Devre Dışı Bırak</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>Ve Boş Katmanları Bulun ve</translation>
+        <translation>&amp;Boş Katmanları Bul ve Kaldır</translation>
     </message>
 </context>
 <context>
@@ -1763,15 +1763,15 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>Ofset:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Ücretsiz</translation>
+        <translation>Serbest</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1779,23 +1779,23 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Line Snap:</translation>
+        <translation>Çizgi Yapışması:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Göreceli</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Bölün</translation>
+        <translation>Böl</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>İşaret Yapışması:</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -1803,11 +1803,11 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Boyut:</translation>
+        <translation>Açı:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Snap Distance:</translation>
+        <translation>Yapışma Mesafesi:</translation>
     </message>
 </context>
 <context>
@@ -1818,7 +1818,7 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Boyut:</translation>
+        <translation>Açı:</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -1826,23 +1826,23 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Orthogonal</translation>
+        <translation>Dik Açılı</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>Intersection</translation>
+        <translation>Kesişime</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation>Sabit uzunluğu</translation>
+        <translation>Sabit Uzunluk</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation>End dengeleme:</translation>
+        <translation>Bitiş ofseti:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1850,7 +1850,7 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -1858,7 +1858,7 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Yapışma:</translation>
     </message>
 </context>
 <context>
@@ -1869,51 +1869,51 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Uzat /Trim</translation>
+        <translation>Uzat/Kırp</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation>Add segment</translation>
+        <translation>Segment ekle</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation>Hiçbir değişiklik yok</translation>
+        <translation>Değişiklik yok</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu Çizgi Oluştur</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation>Attributes:</translation>
+        <translation>Öznitelikler:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation>Aktif Pen Aktif Kalem</translation>
+        <translation>Aktif Kalem</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation>Line 1</translation>
+        <translation>Çizgi 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation>Line 2</translation>
+        <translation>Çizgi 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation>Her iki satır da</translation>
+        <translation>Her iki çizgi</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation>Orijinalleri Kaldırın</translation>
+        <translation>Orijinalleri kaldır</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation>Line 2:</translation>
+        <translation>Çizgi 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation>Line 1:</translation>
+        <translation>Çizgi 1:</translation>
     </message>
 </context>
 <context>
@@ -1924,35 +1924,35 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Boyut:</translation>
+        <translation>Açı:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>Fit Line</translation>
+        <translation>Çizgiyi Uydur</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbir şey yok</translation>
+        <translation>Yok</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>Her ikisi de her ikisi de</translation>
+        <translation>Her İkisi</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation>Edge Points:</translation>
+        <translation>Kenar Noktaları:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation>Sayı sayısı:</translation>
+        <translation>Nokta sayısı:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
@@ -2006,11 +2006,11 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation>Kaldır Segmentler</translation>
+        <translation>Segmentleri Kaldır</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>İndirin</translation>
+        <translation>Seçiliyi Kaldır</translation>
     </message>
 </context>
 <context>
@@ -2021,23 +2021,23 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Gap Snap:</translation>
+        <translation>Boşluk Yapışması:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Snap Distance:</translation>
+        <translation>Yapışma Mesafesi:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Ücretsiz</translation>
+        <translation>Serbest</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>Gap Boyut:</translation>
+        <translation>Boşluk Boyutu:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2045,26 +2045,26 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Line Snap:</translation>
+        <translation>Çizgi Yapışması:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>Penpak Ayarları</translation>
+        <translation>Kalem Paleti Ayarları</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation>Köşeleri görüntülemek için</translation>
+        <translation>Görüntülenecek sütunlar</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>Line Type Name</translation>
+        <translation>Çizgi Türü Adı</translation>
     </message>
     <message>
         <source>Color Name</source>
@@ -2072,19 +2072,19 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation>Line Type Icon</translation>
+        <translation>Çizgi Türü Simgesi</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation>Renk Icon</translation>
+        <translation>Renk Simgesi</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>Line Genişlik Icon</translation>
+        <translation>Çizgi Kalınlığı Simgesi</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation>Line Genişlik Name Name</translation>
+        <translation>Çizgi Kalınlığı Adı</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -2092,39 +2092,39 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>Aktif Pen Arka Plan:</translation>
+        <translation>Aktif Kalem Arka Planı:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>Entire masası satırları aktif kalem için cesur</translation>
+        <translation>Aktif kalem için tüm tablo satırı kalın</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation>Grid Color:</translation>
+        <translation>Izgara Rengi:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>Matched Item Color:</translation>
+        <translation>Eşleşen Öğe Rengi:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>Case-in sensitive pens filtreleme</translation>
+        <translation>Büyük/küçük harf duyarsız kalem filtreleme</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>Alettipin masa eşyası için gösterileceğini kontrol eder veya değil</translation>
+        <translation>Tablo öğesi için araç ipucunun gösterilip gösterilmeyeceğini kontrol eder</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>Masa öğeleri için araçtipi göster</translation>
+        <translation>Tablo öğeleri için araç ipucu göster</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation>Pens dosyası:</translation>
+        <translation>Kalem dosyası:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>Show colorn name as as as</translation>
+        <translation>Renk adını şöyle göster</translation>
     </message>
     <message>
         <source>HEX</source>
@@ -2132,42 +2132,42 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation>127</translation>
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>Mümkün olan doğal adı</translation>
+        <translation>Mümkünse doğal ad</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>Show info message if no entities may be selected by pen</translation>
+        <translation>Kalemle varlık seçilemiyorsa bilgi mesajı göster</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>DoubleClick on table item</translation>
+        <translation>Tablo öğesine çift tıklama</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Hiçbir şey yapmayın</translation>
+        <translation>Hiçbir şey yapma</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>Özelliğe göre varlıkları seçin pen</translation>
+        <translation>Öznitelik kalemiyle varlıkları seç</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>Kalemi çizerek varlıkları seçin</translation>
+        <translation>Çizim kalemiyle varlıkları seç</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation>Pencar</translation>
+        <translation>Kalem Paleti</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation>Pen Name:</translation>
+        <translation>Kalem Adı:</translation>
     </message>
     <message>
         <source>Color:</source>
@@ -2179,15 +2179,15 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Highlight Mode Mode</translation>
+        <translation>Vurgu Modu</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Tipi:</translation>
+        <translation>Tür:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Genişlik:</translation>
+        <translation>Kalınlık:</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2195,19 +2195,19 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Kalem Editörünü Entity Drawing Pen Editor</translation>
+        <translation>Varlık Çizim Kalemiyle Kalem Düzenleyicisini Doldur</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Add Editor Tarafından Entity Attributes</translation>
+        <translation>Varlık Öznitelikleriyle Kalem Düzenleyicisini Doldur</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Entities By Drawing Pen</translation>
+        <translation>Çizim Kalemiyle Varlıkları Seç</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Pen Attributes</translation>
+        <translation>Kalem Öznitelikleriyle Varlıkları Seç</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2215,95 +2215,95 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation>Seç Pen To Selection</translation>
+        <translation>Seçime Kalem Uygula</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Fill Editor Pen Tarafından Current Pen</translation>
+        <translation>Düzenleyici Kalemini Geçerli Kalemle Doldur</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>Uygulama Editör Pen As Current Pen</translation>
+        <translation>Düzenleyici Kalemini Geçerli Kalem Olarak Uygula</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation>mevcut</translation>
+        <translation>geçerliye</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Update Current Pen Tarafından Active Katman' Pen</translation>
+        <translation>Geçerli Kalemi Aktif Katman Kalemiyle Güncelle</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>Aktif Katman'ın Pen Editor'inden doldurun</translation>
+        <translation>Kalem Düzenleyicisini Aktif Katman Kaleminden Doldur</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>Aktif Katmandan Alın</translation>
+        <translation>Aktif Katmandan Seç</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>Editör Pen'i Aktif Katman Pen</translation>
+        <translation>Düzenleyici Kalemini Aktif Katman Kalemine Uygula</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation>Katmanlara Uygulayın</translation>
+        <translation>Katmana Uygula</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation>Seçilmiş Pen</translation>
+        <translation>Seçili Kalemi Kaldır</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation>Delete Pen</translation>
+        <translation>Kalemi Sil</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>Pens Menu</translation>
+        <translation>Kalem Menüsü</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>&amp;Apply Pen To Selection</translation>
+        <translation>Seçime &amp;Kalem Uygula</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>&amp;Set As Current Pen</translation>
+        <translation>&amp;Geçerli Kalem Olarak Ayarla</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>&amp;Apply Pen To Active Katman</translation>
+        <translation>Aktif Katmana &amp;Kalem Uygula</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>Ve Entities With Attributes Pen</translation>
+        <translation>Öznitelik Kalemiyle &amp;Varlıkları Seç</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>Ve Entities With Drawing Pen</translation>
+        <translation>Çizim Kalemiyle &amp;Varlıkları Seç</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>&amp;Edit Pen</translation>
+        <translation>Kalemi &amp;Düzenle</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>&amp;Remove Pen</translation>
+        <translation>Kalemi &amp;Kaldır</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>&amp;Remove Pens</translation>
+        <translation>Kalemleri &amp;Kaldır</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation>Penet</translation>
+        <translation>Kalem paleti</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>Pens dosyasının yeri değişti, lütfen uygulamayı yeniden başlatın, böylece yeni pens dosyası kullanılacaktır.
+        <translation>Kalem dosyası konumu değişti, yeni kalem dosyasının kullanılabilmesi için uygulamayı yeniden başlatın.
 
-Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kalemler yeni dosyada kurtarılacak ve bu nedenle mevcut içerik aşırı sağlanacak.</translation>
+Not: Düzenleyici üzerinden yeniden başlatmadan kalem kaydederseniz, paletten mevcut kalemler yeni dosyaya kaydedilecek ve mevcut içerik üzerine yazılacaktır.</translation>
     </message>
 </context>
 <context>
@@ -2314,7 +2314,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu Çizgi</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -2322,7 +2322,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Edges:</translation>
+        <translation>Kenarlar:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2330,7 +2330,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Size inner</source>
-        <translation>İç Boyut</translation>
+        <translation>İç boyut</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2338,11 +2338,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Yarıçap:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Yapışma:</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2350,19 +2350,19 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Top-left</source>
-        <translation>Top-left</translation>
+        <translation>Sol üst</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Top</translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation>Top-right</translation>
+        <translation>Sağ üst</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Sol sol sol</translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2370,11 +2370,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Right</source>
-        <translation>Doğru</translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>Sub-left</translation>
+        <translation>Sol alt</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -2382,11 +2382,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>Sub-right</translation>
+        <translation>Sağ alt</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Doğru</translation>
+        <translation>Düz</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2394,15 +2394,15 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Pah</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap değişim</translation>
+        <translation>Yapışma kaydırma</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>Her ikisi de her ikisi de</translation>
+        <translation>Her İkisi</translation>
     </message>
     <message>
         <source>Vertical</source>
@@ -2418,7 +2418,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Ayak:</translation>
+        <translation>Taban Açısı:</translation>
     </message>
 </context>
 <context>
@@ -2429,23 +2429,23 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap değişim</translation>
+        <translation>Yapışma kaydırma</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Yarıçap:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Edges:</translation>
+        <translation>Kenarlar:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu Çizgi</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>End Snap:</translation>
+        <translation>Bitiş Yapışması:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2457,19 +2457,19 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>Start Snap:</translation>
+        <translation>Başlangıç Yapışması:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation>Corner</translation>
+        <translation>Köşe</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>Mid-Vertical</translation>
+        <translation>Orta Dikey</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>Mid-Horizontal</translation>
+        <translation>Orta Yatay</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2477,11 +2477,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Ayak:</translation>
+        <translation>Taban Açısı:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Doğru</translation>
+        <translation>Düz</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2489,7 +2489,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Pah</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2497,7 +2497,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Both</source>
-        <translation>Her ikisi de her ikisi de</translation>
+        <translation>Her İkisi</translation>
     </message>
     <message>
         <source>Vertical</source>
@@ -2516,11 +2516,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu Çizgi</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>Her ikisi de her ikisi de</translation>
+        <translation>Her İkisi</translation>
     </message>
     <message>
         <source>Vertical</source>
@@ -2532,15 +2532,15 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Edges:</translation>
+        <translation>Kenarlar:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Quadrangle</translation>
+        <translation>Dörtgen</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation>Sabit Base Angle:</translation>
+        <translation>Sabit Taban Açısı:</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2548,7 +2548,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Straight</source>
-        <translation>Doğru</translation>
+        <translation>Düz</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2556,7 +2556,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Pah</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2564,7 +2564,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap değişim</translation>
+        <translation>Yapışma kaydırma</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2572,11 +2572,11 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Yarıçap:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation>Sabit İç Boyut:</translation>
+        <translation>Sabit İç Açı:</translation>
     </message>
 </context>
 <context>
@@ -2598,55 +2598,55 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>None</source>
-        <translation>Hiçbir şey yok</translation>
+        <translation>Yok</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>Her ikisi de her ikisi de</translation>
+        <translation>Her İkisi</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Bitiş</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>Edge Tick:</translation>
+        <translation>Kenar İşareti:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Göreceli</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>Ofset:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation>Kont:</translation>
+        <translation>Sayı:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>Circle Angle'a başlayın:</translation>
+        <translation>Başlangıç Çember Açısı:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>Uzunluk:</translation>
+        <translation>İşaret Uzunluğu:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>Tavşan:</translation>
+        <translation>İşaret yapışması:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Boyut:</translation>
+        <translation>Açı:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Bölün</translation>
+        <translation>Böl</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2654,7 +2654,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Fixed </source>
-        <translation>Sabit</translation>
+        <translation>Sabit </translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -2669,19 +2669,19 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Radius İç</translation>
+        <translation>İç Yarıçap</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu Çizgi</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Radius Dış</translation>
+        <translation>Dış Yarıçap</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation>Symmetric</translation>
+        <translation>Simetrik</translation>
     </message>
     <message>
         <source>Number:</source>
@@ -2795,7 +2795,7 @@ Lütfen yeniden başlatmadan kalemden tasarruf ederseniz, paletten mevcut kaleml
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation>Sol araçbar sütunları:</translation>
+        <translation>Sol araç çubuğu sütunları:</translation>
     </message>
 </context>
 <context>
@@ -3434,15 +3434,15 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>Lütfen önce baskıda ölçeklendirme ve konumlandırma ayarlama.</translation>
+        <translation>Lütfen önce yazdırma önizlemesinde ölçekleme ve konumlandırmayı ayarlayın.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation>Pencar</translation>
+        <translation>Kalem Paleti</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>Katman</translation>
+        <translation>Katman Ağacı</translation>
     </message>
 </context>
 <context>
@@ -3454,11 +3454,11 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>Spacebar: Makyaj modunu normalleştirmek için restore edin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>Spacebar: geçici olarak doping modunu serbest bırakmak için ayarlayın</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3765,7 +3765,7 @@ pencerede düzenle</translation>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3812,17 +3812,17 @@ pencerede düzenle</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Boyut metninin şekli, &lt;&gt; boyut ölçüm değeri için bir yer sahibi olarak kullanılabilir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4021,7 +4021,7 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
     </message>
     <message>
         <source>Area</source>
-        <translation>Alan Alanı</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5679,15 +5679,15 @@ Lütfen yeni çizimler için kullanmak istediğiniz birimi ve tercih ettiğiniz 
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span tarzı=" font-family:'-apple-system','BlinkMacSystemFont', 'Segoe UI', 'Noto Sans','Helvetica', 'Arial',' Bölüm kütüphane klasörü. Sembol kütüphanesi dxf dosyaları bu klasörün alt yönlendirmelerinde bulunmalıdır. Alt adlar Kütüphane Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;span tarzı=" font-aile:'BlinkMacSystemFont', 'Segoe UI', 'Nototica Sans','Helve', 'Arial','</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>Son açılan dosyalar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Alanbar bastırıldığında Temporly ücretsiz çırpınma ve komut penceresi etkinleştirilir&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5794,15 +5794,15 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation>Noktalar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export Points</source>
-        <translation>İhracat Noktaları</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>Ihracat puanları ne olursa olsun</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5988,7 +5988,7 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Merkezin etrafındaki ölçekleme oranları bir referans noktası ve bir hedef noktası bulun.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6669,11 +6669,11 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Discard All</source>
-        <translation>Discard All</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Discard</source>
-        <translation>Discard</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -6753,7 +6753,7 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Edit Block</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7311,7 +7311,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>Snap Manual Orta</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -7494,9 +7494,8 @@ Bu işlem geri alınamaz.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n katmanı sil</numerusform>
         </translation>
     </message>
     <message>
@@ -7517,9 +7516,8 @@ Bu işlem geri alınamaz.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n bloğu kaldır</numerusform>
         </translation>
     </message>
     <message>
@@ -7532,79 +7530,70 @@ Bu işlem geri alınamaz.</translation>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>Katman boş adı izin verilmez.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>Duplicating adı ile katman oluşturmaya çalışın. Duplicated tabaka adı
-[%1].
-Lütfen farklı bir isim belirt.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Error</source>
-        <translation>Hata hatası</translation>
+        <translation type="unfinished">Hata</translation>
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>Katman listesi ayırıcı dizesi boş. Katman ağacı oluşturmak mümkün olmayacaktır.
-Lütfen farklı bir değeri belirtin.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>Invalid değeri %1 renk sağlar.
-Lütfen farklı bir değeri belirtin.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>Boş tabakaları kaldır</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>Katman(s) bulunan varlıklar olmadan, ancak filtrelenmiş ve görünmezler.
-
-Clear filtreleme maskesi ve tekrar.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>Hiçbir varlık bulunamadı, kaldırmak için hiçbir şey.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Ekle Katman ekle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>Böyle bir çocuk katmanı zaten mevcut
-[%1].
-Lütfen farklı bir isim belirt.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>Böyle bir çocuk katmanı zaten mevcut
-[%1].</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>Boyut tabakası sadece normal aktif katman için eklenebilir.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>Move Selection</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>Duplicate Selection</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Replace "By Layer" value to source layers values?
@@ -7612,95 +7601,88 @@ Lütfen farklı bir isim belirt.</translation>
 If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
 
 If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>“Köpek tarafından” değeri kaynak tabaka değerleri için değiştirin mi?
-
-Eğer Evet - "Köpek" kalemleri ile varlıklar, önceki katmanlarda olduğu gibi yeni katmanlara bakacak ve "Kırk" değeri çözülecektir.
-
-No - "By Katman" değerleri kalır ve bu tür varlıklar için kalem tanımlayacaktır.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>Katman DialogEx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>Invalid değeri %1 renk için sağlanır.
-Lütfen farklı bir değeri belirtin.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>Invalid yolu pens file.
-%1 %1
-Lütfen farklı bir değeri belirtin.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>Kaldır kalem</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Pen paletten kaldırılacak, çizim varlıklar etkilenmeyecek.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Are you sure you'd like to proceed?</source>
-        <translation>Devam etmek istediğinizden emin misiniz?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>Kaldırılması için Pen:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>Kalemleri Kaldırın</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Pens paletten kaldırılacak, çizim varlıklar etkilenmeyecek.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>Kaldırılması için Pens:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>Entities seçin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>Görünen katmanlarda kalem oynayan varlıklar yoktur.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>Bu tür varlıklar donmuş tabakalarda mevcuttur.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>Bu tür varlıklar kilitli tabakalarda bulunur.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>Lütfen farklı kalem özelliklerini kullanın.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>Varlık tarafından kalem</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>Lütfen pen ayarı almak için sadece bir varlık seçin.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>Pens Data</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>Pens dosyasını belirtebilmek için kullanılamaz. Dosyaya doğru yolu belirtmek ister misiniz?</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -10224,616 +10206,616 @@ Do you want to replace it?</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>sline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>sli</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>slinex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>kesix</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation>rlx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliney</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliy</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>rly</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>ret1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>ret2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>ret3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>dilim</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>sll</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>dilim</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>yıldız yıldızı</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>st</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>haç</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>cx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>linepoints</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>lpoints</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>criclebyarc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>cba</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>tekrar tekrar tekrar tekrar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>dup</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>linejoin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>lj</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>breakdivide</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>b</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>boşluk</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>gl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>parabola4p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>pl4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>parabolafd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>açısı</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>rortoline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>rort</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>point2line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished">ç2lv</translation>
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>yavaş orta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>lemanual</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>smm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>anglerel</source>
-        <translation>açısı</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>start</source>
-        <translation>start</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>offset</source>
-        <translation>dengeleme</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linesnap</source>
-        <translation>linenap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>ticksnap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>width</source>
-        <translation>genişliği</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>height</source>
-        <translation>yüksek yüksek yükseklik</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pos</source>
-        <translation>arka arka arka arka</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>size</source>
-        <translation>boyut büyüklüğü</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bevels</source>
-        <translation>bevels</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nopoly</source>
-        <translation>hiçbirpoli</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>usepoly</source>
-        <translation>kullanımı</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corners</source>
-        <translation>köşe köşe köşeleri</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>str</source>
-        <translation>str</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>round</source>
-        <translation>yuvarlak</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap1</source>
-        <translation>snap1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topl</source>
-        <translation>topl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>top</source>
-        <translation>top top</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topr</source>
-        <translation>topr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>left</source>
-        <translation>sol sol sol sol sol soldan ayrıldı</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>middle</source>
-        <translation>orta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>right</source>
-        <translation>doğru</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottoml</source>
-        <translation>alt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottom</source>
-        <translation>alt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottomr</source>
-        <translation>alt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>snapcorner</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapshift</source>
-        <translation>snapchange</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizein</source>
-        <translation>boyut</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizeout</source>
-        <translation>boyut</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>hor</source>
-        <translation>korkunç</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>vert</source>
-        <translation>vert</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap2</source>
-        <translation>snap2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corner</source>
-        <translation>köşe</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>orta-vert</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>orta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>quad</source>
-        <translation>kud</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>noquad</source>
-        <translation>hayır</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>açı inner</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edges</source>
-        <translation>kenarlar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-none</source>
-        <translation>kenar-none</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-both</source>
-        <translation>kenar-hem</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-start</source>
-        <translation>kenar-start</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-end</source>
-        <translation>kenar-zaman</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>end</source>
-        <translation>end</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>both</source>
-        <translation>her ikisi de her ikisi de</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>none</source>
-        <translation>hiçbir kimse hiçbir şey yok</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fit</source>
-        <translation>sığ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nofit</source>
-        <translation>hayır hayır</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>dist fixed</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>dist flex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>distance</source>
-        <translation>uzak mesafe mesafe</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sym</source>
-        <translation>sym</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nosym</source>
-        <translation>hayır</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>Hatch: Hiçbir desen bulunamadı. Please set pattern road in application tercihleri</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Hatch: yükleme modeli başarısız oldu: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>PenTB</source>
-        <translation>PenTB</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Layer</source>
-        <translation>Tarafından Katman</translation>
+        <translation type="unfinished">Katmana göre</translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation>By Block</translation>
+        <translation type="unfinished">Bloğa göre</translation>
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>- Unchanged -</translation>
+        <translation type="unfinished">- Değişmedi -</translation>
     </message>
     <message>
         <source>User Color</source>
-        <translation>Kullanıcı Renkleri</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>cal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>hesaplama</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>-Unchanged-</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>ByLayer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>ByBlock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default</source>
-        <translation>Varsayılan olarak</translation>
+        <translation type="unfinished">Varsyılan</translation>
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0.00mm</translation>
+        <translation type="unfinished">0.00mm</translation>
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0.05mm</translation>
+        <translation type="unfinished">0.05mm</translation>
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0.09mm</translation>
+        <translation type="unfinished">0.09mm</translation>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0.13mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0.15mm</translation>
+        <translation type="unfinished">0.15mm</translation>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0.18mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0.20mm</translation>
+        <translation type="unfinished">0.20mm</translation>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0.25mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0.30mm</translation>
+        <translation type="unfinished">0.30mm</translation>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0.35mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0.40mm</translation>
+        <translation type="unfinished">0.40mm</translation>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0.50mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0,53mm</translation>
+        <translation type="unfinished">0.53mm</translation>
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0.60mm</translation>
+        <translation type="unfinished">0.60mm</translation>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0.70mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0.80mm</translation>
+        <translation type="unfinished">0.80mm</translation>
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0.90mm</translation>
+        <translation type="unfinished">0.90mm</translation>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1.00mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1.06mm</translation>
+        <translation type="unfinished">1.06mm</translation>
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1.20mm</translation>
+        <translation type="unfinished">1.20mm</translation>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1.40mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1.58mm</translation>
+        <translation type="unfinished">1.58mm</translation>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2.00mmISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11mm</translation>
+        <translation type="unfinished">2.11mm</translation>
     </message>
 </context>
 <context>
@@ -11983,15 +11965,15 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>İlk çember /ellipse /parabola</translation>
+        <translation>İlk çember/elips/parabolü seçin</translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>İkinci çember /ellipse /parabola</translation>
+        <translation>İkinci çember/elips/parabolü seçin</translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>Tangent çizgisini eğrilere en yakın şekilde seçin</translation>
+        <translation>İmlece en yakın teğet çizgiyi seçin</translation>
     </message>
 </context>
 <context>
@@ -12642,11 +12624,11 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>Konum</translation>
+        <translation>Ölçek merkezini belirtin</translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>€ hedef noktası</translation>
+        <translation>Hedef noktayı belirtin</translation>
     </message>
 </context>
 <context>
@@ -13232,7 +13214,7 @@ Bu blok eklenemez.</translation>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>Tas taslağı</translation>
+        <translation>Taslak</translation>
     </message>
 </context>
 <context>
@@ -13583,7 +13565,7 @@ Bu blok eklenemez.</translation>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>Line Seçenekleri</translation>
+        <translation>Çizgi Seçenekleri</translation>
     </message>
     <message>
         <source>Direction:</source>
@@ -13591,7 +13573,7 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Çoklu çizgi</translation>
     </message>
     <message>
         <source>Y</source>
@@ -13599,7 +13581,7 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Yüz</translation>
+        <translation>Açı</translation>
     </message>
     <message>
         <source>X</source>
@@ -13607,35 +13589,35 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Göreceli</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Undo the last line çizim</translation>
+        <translation>Son çizgi çizimini geri al</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation>Geri al</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Form a kapalı bir çizgi çizildi</translation>
+        <translation>Çizilen çizgilerden kapalı kontur oluştur</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Close</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Redo son çizgi çizim</translation>
+        <translation>Son çizgi çizimini yinele</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Redo</translation>
+        <translation>Yinele</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation>Point</translation>
+        <translation>Nokta</translation>
     </message>
 </context>
 <context>
@@ -13853,7 +13835,7 @@ Bu blok eklenemez.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed boyut: çizim boyutu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;yazdırılan boyut : çizim boyutu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>

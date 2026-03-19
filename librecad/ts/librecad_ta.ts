@@ -4,99 +4,99 @@
     <name>ColorWizard</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>சட்டகம்</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished" />
+        <translation>பிடித்தவையில் சேர்</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished" />
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>ComboBoxOption</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>சட்டகம்</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation type="unfinished" />
+        <translation>குழு பெட்டி</translation>
     </message>
     <message>
         <source>Set</source>
-        <translation type="unfinished" />
+        <translation>அமை</translation>
     </message>
 </context>
 <context>
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலா</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished" />
+        <translation>வடிவியல்</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>ஸ்ப்லைன் மீதான புள்ளிகள்</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>கட்டுப்பாட்டு புள்ளிகள்</translation>
     </message>
 </context>
 <context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation type="unfinished" />
+        <translation>ஸ்ப்லைன் புள்ளிகள்</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished" />
+        <translation>வடிவியல்</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation type="unfinished" />
+        <translation>மூடப்பட்டது</translation>
     </message>
     <message>
         <source>Spline Points</source>
-        <translation type="unfinished" />
+        <translation>ஸ்ப்லைன் புள்ளிகள்</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished" />
+        <translation>கட்டுப்பாட்டு புள்ளிகள்</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished" />
+        <translation>ஸ்ப்லைன் மீதான புள்ளிகள்</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation type="unfinished" />
+        <translation>வளைவு உருப்படியைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation type="unfinished" />
+        <translation>பரிமாண வளைவு இருப்பிடத்தை குறிப்பிடு</translation>
     </message>
 </context>
 <context>
@@ -104,31 +104,32 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation type="unfinished" />
+        <translation>ஆரம்=%1 தேர்ந்தெடுக்கப்பட்ட புள்ளிகளுக்கு மிகச் சிறியது
+புள்ளிகளுக்கிடையிலான தூரம்=%2 விட்டத்தை விட பெரியது=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation type="unfinished" />
+        <translation>இரண்டு சாத்தியமான வட்ட மையங்களிலிருந்து தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Specify first point</source>
-        <translation type="unfinished" />
+        <translation>முதல் புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation type="unfinished" />
+        <translation>இரண்டாவது புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Select circle center</source>
-        <translation type="unfinished" />
+        <translation>வட்ட மையத்தைத் தேர்ந்தெடு</translation>
     </message>
 </context>
 <context>
@@ -136,3230 +137,3243 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>தூரத்தை குறிப்பிடு (%1)
+அல்லது [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>தூரத்தை குறிப்பிடு (கோணம் %1 டிகிரி)
+அல்லது [%2]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation type="unfinished" />
+        <translation>மையத்தை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation type="unfinished" />
+        <translation>தொடுவை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation type="unfinished" />
+        <translation>எண்ணை உள்ளிடு:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation type="unfinished" />
+        <translation>செல்லாத எண். 1..9999 முயற்சி செய்</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation type="unfinished" />
+        <translation>செல்லாத வெளிப்பாடு</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation type="unfinished" />
+        <translation>திசையை குறிப்பிடு (x அல்லது y) அல்லது [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>தூரத்தை குறிப்பிடு (%1) அல்லது [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished" />
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished" />
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>தூரத்தை குறிப்பிடு (%1 டிகிரி) அல்லது [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation type="unfinished" />
+        <translation>கோணத்தை குறிப்பிடு அல்லது [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>புள்ளியை குறிப்பிடு அல்லது [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் முதல் புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் இரண்டாவது புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் மூன்றாவது புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் நான்காவது புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் அச்சை குறிப்பிடு</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவின் குவியத்தை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவின் நேரடியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் தொடக்க புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation type="unfinished" />
+        <translation>பரபோலாவில் முடிவு புள்ளியை குறிப்பிடு</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation type="unfinished" />
+        <translation> பிரிக்கப்படவில்லை ஏனெனில் அது பூட்டப்பட்டுள்ளது.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation type="unfinished" />
+        <translation> பிரிக்கப்படவில்லை ஏனெனில் அது பாலிலைன் பகுதியாக உள்ளது. முதலில் பாலிலைனை விரிவாக்கு.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished" />
+        <translation>கோடு</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation type="unfinished" />
+        <translation>வளைவு</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished" />
+        <translation>வட்டம்</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSplinePoints</name>
     <message>
         <source>Specify first control point</source>
-        <translation type="unfinished" />
+        <translation>முதல் கட்டுப்பாட்டு புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>அடுத்த கட்டுப்பாட்டு புள்ளியை குறிப்பிடு அல்லது [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation type="unfinished" />
+        <translation>அடுத்த கட்டுப்பாட்டு புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished" />
+        <translation>பின்வாங்க முடியாது: இன்னும் போதுமான உருப்படிகள் வரையறுக்கப்படவில்லை.</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation type="unfinished" />
+        <translation>பின்வாங்க முடியாது: எதுவும் மீண்டும் செய்ய முடியாது.</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation type="unfinished" />
+        <translation>&amp;சாளர பெரிதாக்கம்</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation type="unfinished" />
+        <translation>பெரிதாக்கம் &amp;பன்னிங்</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation type="unfinished" />
+        <translation>உருப்படியைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation type="unfinished" />
+        <translation>சாளரத்தைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Deselect Window</source>
-        <translation type="unfinished" />
+        <translation>சாளரத்தைத் தேர்வுநீக்கு</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation type="unfinished" />
+        <translation>(தேர்வுநீக்கு) &amp;வெளிவரை</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>குறுக்கீடு உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>குறுக்கீடு உருப்படிகளைத் தேர்வுநீக்கு</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation type="unfinished" />
+        <translation>(தேர்வுநீக்கு) அடுக்கு</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;புள்ளிகள்</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;2 புள்ளிகள்</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation type="unfinished" />
+        <translation>&amp;கோணம்</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation type="unfinished" />
+        <translation>&amp;கிடைமட்ட</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>செங்குத்து</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation type="unfinished" />
+        <translation>&amp;கைவிடு கோடு</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation type="unfinished" />
+        <translation>&amp;இணை</translation>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation type="unfinished" />
+        <translation>புள்ளி வழியாக இணை</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished" />
+        <translation>செவ்வகம்</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation type="unfinished" />
+        <translation>இருபிரிப்பு</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation type="unfinished" />
+        <translation>தொடு (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation type="unfinished" />
+        <translation>தொடு (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>தொடு &amp;ஒருங்கிணை</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>ஒருங்கிணை</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished" />
+        <translation>தொடர்புடைய கோணம்</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation type="unfinished" />
+        <translation>பல&amp;கோணம் (Cen,Cor)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation type="unfinished" />
+        <translation>பலகோணம் (Cor,Cor)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation type="unfinished" />
+        <translation>மையம், &amp;புள்ளி</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation type="unfinished" />
+        <translation>மையம், &amp;ஆரம்</translation>
     </message>
     <message>
         <source>2 Points</source>
-        <translation type="unfinished" />
+        <translation>2 புள்ளிகள்</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation type="unfinished" />
+        <translation>2 புள்ளிகள், ஆரம்</translation>
     </message>
     <message>
         <source>3 Points</source>
-        <translation type="unfinished" />
+        <translation>3 புள்ளிகள்</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஒருமுக</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>வட்டம் &amp;உள்நுழை</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation type="unfinished" />
+        <translation>தொடு 2 வட்டங்கள், ஆரம்</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation type="unfinished" />
+        <translation>தொடு 2 வட்டங்கள், 1 புள்ளி</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation type="unfinished" />
+        <translation>தொடு &amp;3 வட்டங்கள்</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation type="unfinished" />
+        <translation>தொடு, 2 ப&amp;ுள்ளிகள்</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation type="unfinished" />
+        <translation>&amp;மையம், புள்ளி, கோணங்கள்</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>&amp;3 புள்ளிகள்</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation type="unfinished" />
+        <translation>வளைவு &amp;தொடு</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation type="unfinished" />
+        <translation>&amp;எலிப்ஸ் (அச்சு)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ் &amp;வளைவு (அச்சு)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ் &amp;குவிய புள்ளி</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ் &amp;4 புள்ளி</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ் மையம் மற்றும் &amp;3 புள்ளிகள்</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ் &amp;உள்நுழை</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஸ்ப்லைன்</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஸ்ப்லைன் புள்ளிகள் வழியாக</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished" />
+        <translation>&amp;பாலிலைன்</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation type="unfinished" />
+        <translation>&amp;முனை சேர்</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation type="unfinished" />
+        <translation>&amp;சேர்க்க முனை</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation type="unfinished" />
+        <translation>&amp;முனை நீக்கு</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation type="unfinished" />
+        <translation>இரு முனைகளுக்கு &amp;இடையில் நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished" />
+        <translation>&amp;வெட்டு பிரிவுகள்</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation type="unfinished" />
+        <translation>&amp;சமதூர பாலிலைன்களை உருவாக்கு</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished" />
+        <translation>இருக்கும் &amp;பிரிவுகளிலிருந்து பாலிலைன் உருவாக்கு</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation type="unfinished" />
+        <translation>&amp;எம்டெக்ஸ்ட்</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation type="unfinished" />
+        <translation>&amp;உரை</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஷ்ராஃபிங்</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation type="unfinished" />
+        <translation>&amp;படத்தை செருகு</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation type="unfinished" />
+        <translation>&amp;சீரமைக்கப்பட்ட</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation type="unfinished" />
+        <translation>&amp;நேரியல்</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
-        <translation type="unfinished" />
+        <translation>&amp;செங்குத்து</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation type="unfinished" />
+        <translation>&amp;ரேடியல்</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation type="unfinished" />
+        <translation>&amp;விட்டம்</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation type="unfinished" />
+        <translation>&amp;கோண</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation type="unfinished" />
+        <translation>&amp;தலைவன்</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;பண்புகள்</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished" />
+        <translation>&amp;நீக்கு</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation type="unfinished" />
+        <translation>கைவிடு நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;நகர்த்து / நகலெடு</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation type="unfinished" />
+        <translation>திசையை &amp;திருப்பு</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation type="unfinished" />
+        <translation>&amp;சுழற்று</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation type="unfinished" />
+        <translation>&amp;அளவு</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation type="unfinished" />
+        <translation>&amp;பிரதிபலிப்பு</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation type="unfinished" />
+        <translation>திருப்பு &amp;இரண்டு</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation type="unfinished" />
+        <translation>&amp;பண்புகள்</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation type="unfinished" />
+        <translation>&amp;வெட்டு</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation type="unfinished" />
+        <translation>&amp;நீட்டு</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation type="unfinished" />
+        <translation>&amp;பிரி</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation type="unfinished" />
+        <translation>&amp;நீட்டு</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation type="unfinished" />
+        <translation>&amp;விளிம்பு</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation type="unfinished" />
+        <translation>&amp;வளைவு</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation type="unfinished" />
+        <translation>&amp;உரையை எழுத்துக்களாக வெடி</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation type="unfinished" />
+        <translation>வெளிவரைக்குள் புள்ளி</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;புள்ளி முதல் புள்ளி வரை தூரம்</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;உருப்படி முதல் புள்ளி வரை தூரம்</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation type="unfinished" />
+        <translation>இரு கோடுகளுக்கு இடையிலான &amp;கோணம்</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்ந்தெடுக்கப்பட்ட உருப்படிகளின் மொத்த நீளம்</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation type="unfinished" />
+        <translation>பலகோண &amp;பரப்பு</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்வு சுட்டி</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation type="unfinished" />
+        <translation>&amp;பின்வாங்கு</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation type="unfinished" />
+        <translation>&amp;மீண்டும் செய்</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation type="unfinished" />
+        <translation>வெ&amp;ட்டு</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;நகலெடு</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஒட்டு</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation type="unfinished" />
+        <translation>கீழே நகர்த்து</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation type="unfinished" />
+        <translation>உருப்படிக்குப் பின் கீழே</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation type="unfinished" />
+        <translation>உருப்படிக்கு மேல் உயர்த்து</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation type="unfinished" />
+        <translation>மேல் நகர்த்து</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு திருத்து</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு பூட்டை மாற்று</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு தெரிவுநிலையை மாற்று</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு &amp;அச்சை மாற்று</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;கட்டுமான அடுக்கை மாற்று</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி சேர்</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி பெயர் மாற்று</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி திருத்து</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி சேமி</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி செருகு</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation type="unfinished" />
+        <translation>தொகுதி &amp;தெரிவுநிலையை மாற்று</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி உருவாக்கு</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation type="unfinished" />
+        <translation>வெ&amp;டி</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation type="unfinished" />
+        <translation>&amp;பயன்பாட்டு விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation type="unfinished" />
+        <translation>தற்போதைய &amp;வரைபட விருப்பங்கள்</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்ந்தெடுக்கப்பட்டதை நீக்கு</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்தையும் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்தையும் தேர்வுநீக்கு</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
-        <translation type="unfinished" />
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation type="unfinished" />
+        <translation>தேர்வை தலைகீழாக்கு</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished" />
+        <translation>பெரிதாக்கு &amp;உள்ளே</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished" />
+        <translation>பெரிதாக்கு &amp;வெளியே</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation type="unfinished" />
+        <translation>&amp;தானியங்கி பெரிதாக்கம்</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation type="unfinished" />
+        <translation>முந்தைய &amp;பார்வை</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation type="unfinished" />
+        <translation>&amp;மீண்டும் வரை</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished" />
+        <translation>&amp;புதிய</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation type="unfinished" />
+        <translation>&amp;வார்ப்பிலிருந்து புதிய</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished" />
+        <translation>&amp;திற...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished" />
+        <translation>&amp;சேமி</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>சேமி &amp;என...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation type="unfinished" />
+        <translation>&amp;படமாக ஏற்றுமதி</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished" />
+        <translation>&amp;மூடு</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation type="unfinished" />
+        <translation>&amp;அச்சிடு...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>PDF ஆக ஏற்றுமதி</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation type="unfinished" />
+        <translation>அச்சு முன்&amp;பார்வை</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished" />
+        <translation>&amp;வெளியேறு</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation type="unfinished" />
+        <translation>&amp;தொகுதி</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation type="unfinished" />
+        <translation>&amp;முழுத்திரை</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation type="unfinished" />
+        <translation>&amp;கட்டம்</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
         <comment>Toggle Grid</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation type="unfinished" />
+        <translation>&amp;வரைவு</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation type="unfinished" />
+        <translation>&amp;நிலைப் பட்டி</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
         <comment>Hide Statusbar</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation type="unfinished" />
+        <translation>&amp;கட்டளை வரியில் கவனம்</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>விட்ஜெட் விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished" />
+        <translation>இடது</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished" />
+        <translation>வலது</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>மேல்</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>கீழ்</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation type="unfinished" />
+        <translation>மிதக்கும்</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>பாணி தாளை மீண்டும் ஏற்று</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>சாதன விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation type="unfinished" />
+        <translation>நக&amp;ர்த்து மற்றும் சுழற்று</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation type="unfinished" />
+        <translation>வெ&amp;ட்டு இரண்டு</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
-        <translation type="unfinished" />
+        <translation>ஆ&amp;ஃப்செட்</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>மெனு உருவாக்கி</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>கருவிப்பட்டை உருவாக்கி</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
         <comment>Toggle Draft Mode</comment>
-        <translation type="unfinished" />
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation type="unfinished" />
+        <translation>பல&amp;கோணம் (Cen,Tan)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation type="unfinished" />
+        <translation>&amp;வளைவு</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் காட்டு</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் மறை</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்தையும் திற</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்தையும் பூட்டு</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்ந்தெடுக்கப்பட்ட அடுக்குகளை ஏற்றுமதி</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation type="unfinished" />
+        <translation>&amp;தெரியும் அடுக்குகளை ஏற்றுமதி</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து தொகுதிகளையும் காட்டு</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து தொகுதிகளையும் மறை</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation type="unfinished" />
+        <translation>CA&amp;M/எளிய SVG ஆக ஏற்றுமதி...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished" />
+        <translation>அனைத்தையும் மூடு</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation type="unfinished" />
+        <translation>விட்ஜெட்களை மீண்டும் பொருத்து</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation type="unfinished" />
+        <translation>அ&amp;னைத்தையும் சேமி...</translation>
     </message>
     <message>
         <source>Cross</source>
-        <translation type="unfinished" />
+        <translation>குறுக்கு</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation type="unfinished" />
+        <translation>பாம்பு</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation type="unfinished" />
+        <translation>பாம்பு (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation type="unfinished" />
+        <translation>பாம்பு (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation type="unfinished" />
+        <translation>செவ்வகம் (1 புள்ளி)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation type="unfinished" />
+        <translation>செவ்வகம் (2 புள்ளிகள்)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation type="unfinished" />
+        <translation>செவ்வகம் (3 புள்ளிகள்)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation type="unfinished" />
+        <translation>நட்சத்திரம்</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation type="unfinished" />
+        <translation>பிரி/பிரிக்க</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation type="unfinished" />
+        <translation>கோடு இடைவெளி</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation type="unfinished" />
+        <translation>கோட்டிலிருந்து கோணம்</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation type="unfinished" />
+        <translation>கோட்டிலிருந்து ஒருங்கிணை</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation type="unfinished" />
+        <translation>புள்ளியிலிருந்து கோடு</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation type="unfinished" />
+        <translation>வெட்டு/பிரி கோடு</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation type="unfinished" />
+        <translation>வெட்டு/பிரி வட்டம்</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation type="unfinished" />
+        <translation>புள்ளிகளின் கோடு</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation type="unfinished" />
+        <translation>வளைவு வழியாக</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation type="unfinished" />
+        <translation>பர&amp;போலா 4 புள்ளிகள்</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation type="unfinished" />
+        <translation>பரபோலா &amp;குவிய நேரடி</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation type="unfinished" />
+        <translation>&amp;உருப்படியிலிருந்து பென்னைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation type="unfinished" />
+        <translation>&amp;உருப்படியிலிருந்து பென்னைத் தேர்ந்தெடு (தீர்க்கப்பட்டது)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation type="unfinished" />
+        <translation>உருப்படிக்கு பென்னைப் பயன்படுத்து</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation type="unfinished" />
+        <translation>பென் நகலெடு</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation type="unfinished" />
+        <translation>கோடு இணைப்பு</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished" />
+        <translation>நகல்</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கின் பென்னால் தற்போதைய பென்னை புதுப்பி</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி செய்</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
         <source>Saving layer "%1" as "%2" </source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு "%1" ஐ "%2" ஆக சேமிக்கிறது </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>பென்னைத் தேர்ந்தெடுக்க உருப்படியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation type="unfinished" />
+        <translation>பென்னைப் பயன்படுத்த உருப்படியை குறிப்பிடு</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>பென்னைத் தேர்ந்தெடுக்க உருப்படியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation type="unfinished" />
+        <translation>சதவீதம் / தொடக்க புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation type="unfinished" />
+        <translation>தொடக்க புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation type="unfinished" />
+        <translation>முடிவு புள்ளியை குறிப்பிடு</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished" />
+        <translation>பின்</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>செயலில்</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>அசல்</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>அசல் தீர்க்கப்பட்டது</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation type="unfinished" />
+        <translation>ஆர மாற்றம்:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation type="unfinished" />
+        <translation>வளைவை மாற்று</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>பென்:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished" />
+        <translation>நீட்டிப்பு</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation type="unfinished" />
+        <translation>மொத்த நீளம்</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished" />
+        <translation>சதவீதம்</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished" />
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished" />
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished" />
+        <translation>வகை</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>கோணம்:</translation>
     </message>
 </context>
 <context>
     <name>LC_DeviceOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>சாதனம்</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>சேமி</translation>
     </message>
 </context>
 <context>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation type="unfinished" />
+        <translation>பரபோலா கட்டுப்பாட்டு புள்ளிகள் நேர்கோட்டில் இருக்க முடியாது</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation type="unfinished" />
+        <translation>இடத்தில்</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation type="unfinished" />
+        <translation>ஆஃப்செட் X:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>செயலில்</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>அசல்</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>அசல் தீர்க்கப்பட்டது</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation type="unfinished" />
+        <translation>ஆஃப்செட் Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>பென்:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு அமைப்புகள்</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation type="unfinished" />
+        <translation>பெற்றோர் அடுக்குகள் பாதை:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு வகை</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>தகவல்</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished" />
+        <translation>சாதாரண</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished" />
+        <translation>பரிமாணங்கள்</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation type="unfinished" />
+        <translation>மாற்று நிலை</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation type="unfinished" />
+        <translation>ஒரு கட்டுமான அடுக்கு எல்லையற்ற நேர்கோடுகளின் உருப்படிகளைக் கொண்டுள்ளது, வடிவியல் கட்டுமானத்திற்கு பயன்படுத்தப்படும்.
+       கட்டுமான அடுக்கின் உள்ளடக்கங்கள் அச்சில் தோன்றக்கூடாது.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>கட்டுமான அடுக்கு</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு பெயர்:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation type="unfinished" />
+        <translation>மெய்நிகர் அடுக்கை மறுபெயரிடு</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation type="unfinished" />
+        <translation>இரண்டாம் அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு திருத்து</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation type="unfinished" />
+        <translation>இயல்புநிலை பென்</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு மறுபெயரிடு</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு மர விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation type="unfinished" />
+        <translation>பெயரிடல் மரபு</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு நிலை பெயர் பிரிப்பான்</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation type="unfinished" />
+        <translation>இரண்டாம் அடுக்கு பின்னொட்டுகள்</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished" />
+        <translation>பரிமாண</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>தகவல்</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation type="unfinished" />
+        <translation>மாற்று நிலை </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation type="unfinished" />
+        <translation>பெயர் நகலெடுப்பு</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="unfinished" />
+        <translation>முன்னொட்டு</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation type="unfinished" />
+        <translation>பின்னொட்டு</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation type="unfinished" />
+        <translation>காட்சி மற்றும் செயல்பாடுகள்</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation type="unfinished" />
+        <translation>முழு பெயரை கருவி உதவியாக காட்டு</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு வகை ஐகான்களை காட்டு</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation type="unfinished" />
+        <translation>உள்வாங்கிய அடுக்கு பெயர்களை காட்டு. உள்வாங்கல் அளவு:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation type="unfinished" />
+        <translation>இழுத்து&amp;விடு வழியாக மறுசீரமைப்பை அனுமதி</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation type="unfinished" />
+        <translation>முதன்மை மறுபெயரிடலில் இரண்டாம் அடுக்குகளை மறுபெயரிடு</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>வண்ணங்கள்</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation type="unfinished" />
+        <translation>சிறப்பு வடிகட்டி பயன்முறையில் பொருந்திய உருப்படி</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation type="unfinished" />
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation type="unfinished" />
+        <translation>மெய்நிகர் அடுக்கு பின்புல வண்ணம்</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation type="unfinished" />
+        <translation>மூன்று பார்வை உருப்படிகள் பிரிப்பான் கட்டம்</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடுக்கப்பட்ட உருப்படிகள் பின்புல வண்ணம்</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கு பின்புல வண்ணம்</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation type="unfinished" />
+        <translation>இயல்புநிலை பென்கள்</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>சாதாரண அடுக்கு</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>பரிமாண அடுக்கு</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation type="unfinished" />
+        <translation>தகவல் அடுக்கு</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>மாற்று நிலை அடுக்கு</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished" />
+        <translation>வண்ணத்தைத் தேர்ந்தெடு</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation type="unfinished" />
+        <translation>வடிகட்டி</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished" />
+        <translation>பொருந்தும் அடுக்கு பெயர்களைத் தேடுகிறது</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>சிறப்பு பயன்முறை</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>அமைப்புகள்</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation type="unfinished" />
+        <translation>அனைத்து அடுக்குகளையும் காட்டு</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation type="unfinished" />
+        <translation>அனைத்து அடுக்குகளையும் மறை</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation type="unfinished" />
+        <translation>இரண்டாம் அடுக்குகளை காட்டு</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கை மட்டும் காட்டு</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished" />
+        <translation>அனைத்தையும் விரிவாக்கு</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished" />
+        <translation>அனைத்தையும் சுருக்கு</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation type="unfinished" />
+        <translation>இரண்டாம் அடுக்குகளை சுருக்கு</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation type="unfinished" />
+        <translation>அனைத்து அடுக்குகளையும் திற</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation type="unfinished" />
+        <translation>அனைத்து அடுக்குகளையும் பூட்டு</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation type="unfinished" />
+        <translation>ஒரு அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation type="unfinished" />
+        <translation>பரிமாண அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு நீக்கு</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு பண்புகளை மாற்று / மறுபெயரிடு</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation type="unfinished" />
+        <translation>தட்டையான பட்டியல் பயன்முறை)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு பட்டியல்</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;குழந்தை அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation type="unfinished" />
+        <translation>&amp;மறுபெயரிடு</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்குகளை நீக்கு (துணை மரம்)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;அமைப்பை நகலெடு (துணை மரம்)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;உள்ளடக்கத்தை நகலெடு (துணை மரம்)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;உருப்படிகளைத் தேர்ந்தெடு (துணை மரம்)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு &amp;பண்புகளைத் திருத்து</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;பரிமாண துணை அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;தகவல் துணை அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;மாற்று பார்வை துணை அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;துணை அடுக்குகளை நீக்கு</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>பரிமாண அடுக்காக மாற்று</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation type="unfinished" />
+        <translation>தகவல் அடுக்காக மாற்று</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>மாற்று நிலை அடுக்காக மாற்று</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>சாதாரண அடுக்காக மாற்று</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கின் உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு நகலை உருவாக்கு</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation type="unfinished" />
+        <translation>&amp;உள்ளடக்கத்துடன் அடுக்கை நகலெடு</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>தேர்வை அடுக்குக்கு நகர்த்து</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>தேர்வை அடுக்குக்கு நகலெடு</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;அடுக்கு சேர்</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;மற்ற அடுக்குகளை உறைய வை</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் உருகச் செய்</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் உறைய வை</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் திற</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் பூட்டு</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளையும் அச்சிட அனுமதி</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;அனைத்து அடுக்குகளின் அச்சை முடக்கு</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;வெற்று அடுக்குகளை கண்டுபிடித்து நீக்கு</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>ஆஃப்செட்:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>சுதந்திரம்</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>தொடக்கம்</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>முடிவு</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>கோடு ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>உறவு</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished" />
+        <translation>பிரி</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation type="unfinished" />
+        <translation>டிக் ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished" />
+        <translation>நீளம்:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>கோணம்:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் தூரம்:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>கோணம்:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished" />
+        <translation>அளவு:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>ஒருங்கிணை</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation type="unfinished" />
+        <translation>குறுக்கீட்டிற்கு</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation type="unfinished" />
+        <translation>நிலையான நீளம்</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation type="unfinished" />
+        <translation>முடிவு ஆஃப்செட்:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>தொடக்கம்</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>முடிவு</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished" />
+        <translation>நீளம்:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப்:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation type="unfinished" />
+        <translation>நீட்டு/வெட்டு</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation type="unfinished" />
+        <translation>பிரிவு சேர்</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation type="unfinished" />
+        <translation>மாற்றம் இல்லை</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன் உருவாக்கு</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation type="unfinished" />
+        <translation>பண்புகள்:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation type="unfinished" />
+        <translation>செயலில் பென்</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation type="unfinished" />
+        <translation>கோடு 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation type="unfinished" />
+        <translation>கோடு 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation type="unfinished" />
+        <translation>இரு கோடுகளும்</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation type="unfinished" />
+        <translation>அசல்களை நீக்கு</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation type="unfinished" />
+        <translation>கோடு 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation type="unfinished" />
+        <translation>கோடு 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>கோணம்:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation type="unfinished" />
+        <translation>பொருத்து கோடு</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>எதுவும் இல்லை</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>இரண்டும்</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>தொடக்கம்</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>முடிவு</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation type="unfinished" />
+        <translation>விளிம்பு புள்ளிகள்:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation type="unfinished" />
+        <translation>புள்ளிகளின் எண்ணிக்கை:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation type="unfinished" />
+        <translation>நிலையான தூரம்</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation type="unfinished" />
+        <translation>பிரிவுகளை நீக்கு</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடுக்கப்பட்டதை நீக்கு</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation type="unfinished" />
+        <translation>இடைவெளி ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் தூரம்:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>சுதந்திரம்</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation type="unfinished" />
+        <translation>இடைவெளி அளவு:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>தொடக்கம்</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>முடிவு</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>கோடு ஸ்னாப்:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation type="unfinished" />
+        <translation>பென் பாலெட் அமைப்புகள்</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation type="unfinished" />
+        <translation>காட்ட வேண்டிய நெடுவரிசைகள்</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation type="unfinished" />
+        <translation>கோடு வகை பெயர்</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation type="unfinished" />
+        <translation>வண்ண பெயர்</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation type="unfinished" />
+        <translation>கோடு வகை ஐகான்</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation type="unfinished" />
+        <translation>வண்ண ஐகான்</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation type="unfinished" />
+        <translation>கோடு அகல ஐகான்</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation type="unfinished" />
+        <translation>கோடு அகல பெயர்</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>வண்ணங்கள்</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation type="unfinished" />
+        <translation>செயலில் பென் பின்னணி:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation type="unfinished" />
+        <translation>செயலில் பென்னுக்கு முழு அட்டவணை வரி தடிமலாக உள்ளது</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation type="unfinished" />
+        <translation>கட்ட வண்ணம்:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation type="unfinished" />
+        <translation>பொருந்திய உருப்படி வண்ணம்:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation type="unfinished" />
+        <translation>வகை உணர்வில்லாத பென் வடிகட்டல்</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation type="unfinished" />
+        <translation>அட்டவணை உருப்படிக்கு கருவி உதவி காட்டப்படுமா என்பதை கட்டுப்படுத்தும்</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation type="unfinished" />
+        <translation>அட்டவணை உருப்படிகளுக்கு கருவி உதவி காட்டு</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation type="unfinished" />
+        <translation>பென் கோப்பு:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation type="unfinished" />
+        <translation>வண்ண பெயரை இவ்வாறு காட்டு</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation type="unfinished" />
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation type="unfinished" />
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation type="unfinished" />
+        <translation>இயல்பான பெயர் சாத்தியமான இடத்தில்</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation type="unfinished" />
+        <translation>பென் மூலம் எந்த உருப்படிகளும் தேர்ந்தெடுக்க முடியாவிட்டால் தகவல் செய்தியை காட்டு</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation type="unfinished" />
+        <translation>அட்டவணை உருப்படியில் இருமுறை சொடுக்கினால்</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished" />
+        <translation>எதுவும் செய்யாதே</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation type="unfinished" />
+        <translation>பண்பு பென் மூலம் உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation type="unfinished" />
+        <translation>வரை பென் மூலம் உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>பென் பாலெட்</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation type="unfinished" />
+        <translation>பென் பெயர்:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished" />
+        <translation>வண்ணம்:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation type="unfinished" />
+        <translation>வடிகட்டி...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>சிறப்பு பயன்முறை</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished" />
+        <translation>வகை:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished" />
+        <translation>அகலம்:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>அமைப்புகள்</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>உருப்படி வரை பென் மூலம் பென் எடிட்டரை நிரப்பு</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation type="unfinished" />
+        <translation>உருப்படி பண்புகள் மூலம் பென் எடிட்டரை நிரப்பு</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>வரை பென் மூலம் உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation type="unfinished" />
+        <translation>பென் பண்புகள் மூலம் உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished" />
+        <translation>சேமி</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>தேர்வுக்கு பென்னைப் பயன்படுத்து</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation type="unfinished" />
+        <translation>தற்போதைய பென் மூலம் எடிட்டர் பென்னை நிரப்பு</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>எடிட்டர் பென்னை தற்போதைய பென்னாக பயன்படுத்து</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation type="unfinished" />
+        <translation>தற்போதைக்கு</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கின் பென் மூலம் தற்போதைய பென்னை புதுப்பி</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கின் பென் மூலம் பென் எடிட்டரை நிரப்பு</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation type="unfinished" />
+        <translation>செயலில் உள்ள அடுக்கிலிருந்து தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation type="unfinished" />
+        <translation>எடிட்டர் பென்னை செயலில் உள்ள அடுக்கு பென்னுக்கு பயன்படுத்து</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation type="unfinished" />
+        <translation>அடுக்குக்கு பயன்படுத்து</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடுக்கப்பட்ட பென்னை நீக்கு</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation type="unfinished" />
+        <translation>பென்னை நீக்கு</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation type="unfinished" />
+        <translation>பென் பட்டியல்</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்வுக்கு பென்னைப் பயன்படுத்து</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;தற்போதைய பென்னாக அமை</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;செயலில் உள்ள அடுக்குக்கு பென்னைப் பயன்படுத்து</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;பண்பு பென் கொண்ட உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;வரை பென் கொண்ட உருப்படிகளைத் தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;பென்னை திருத்து</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;பென்னை நீக்கு</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation type="unfinished" />
+        <translation>&amp;பென்களை நீக்கு</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation type="unfinished" />
+        <translation>பென் பாலெட்</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="unfinished" />
+        <translation>பென் கோப்பின் இருப்பிடம் மாற்றப்பட்டுள்ளது, புதிய பென் கோப்பைப் பயன்படுத்த பயன்பாட்டை மறுதொடக்கம் செய்யவும்.
+
+குறிப்பு: எடிட்டர் வழியாக பென்னை மறுதொடக்கம் இல்லாமல் சேமித்தால், பாலெட்டிலிருந்து தற்போதைய பென்கள் புதிய கோப்பில் சேமிக்கப்படும் மற்றும் அதன் இருக்கும் உள்ளடக்கம் மேலெழுதப்படும்.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished" />
+        <translation>உயரம்:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>விளிம்புகள்:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>மூலைகள்:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation type="unfinished" />
+        <translation>உள் அளவு</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>ஆரம்:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation type="unfinished" />
+        <translation>மேல்-இடது</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished" />
+        <translation>மேல்</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation type="unfinished" />
+        <translation>மேல்-வலது</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished" />
+        <translation>இடது</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished" />
+        <translation>வலது</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation type="unfinished" />
+        <translation>கீழ்-இடது</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished" />
+        <translation>கீழ்</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation type="unfinished" />
+        <translation>கீழ்-வலது</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>நேரான</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>வட்ட</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>விளிம்பு</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் மாற்றம்</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>இரண்டும்</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>செங்குத்து</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>கிடைமட்ட</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished" />
+        <translation>அகலம்:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>அடிப்படை கோணம்:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் மாற்றம்</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>ஆரம்:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>விளிம்புகள்:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation type="unfinished" />
+        <translation>முடிவு ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>மூலைகள்:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation type="unfinished" />
+        <translation>தொடக்க ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation type="unfinished" />
+        <translation>மூலை</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation type="unfinished" />
+        <translation>நடு-செங்குத்து</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation type="unfinished" />
+        <translation>நடு-கிடைமட்ட</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>அடிப்படை கோணம்:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>நேரான</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>வட்ட</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>விளிம்பு</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>இரண்டும்</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>செங்குத்து</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>கிடைமட்ட</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>இரண்டும்</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished" />
+        <translation>செங்குத்து</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished" />
+        <translation>கிடைமட்ட</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>விளிம்புகள்:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation type="unfinished" />
+        <translation>நாற்கரம்</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>நிலையான அடிப்படை கோணம்:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>நேரான</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>வட்ட</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>விளிம்பு</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>மூலைகள்:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் மாற்றம்</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>நீளம் Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished" />
+        <translation>ஆரம்:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation type="unfinished" />
+        <translation>நிலையான உள் கோணம்:</translation>
     </message>
 </context>
 <context>
     <name>LC_SimpleTests</name>
     <message>
         <source>De&amp;bugging</source>
-        <translation type="unfinished" />
+        <translation>பிழைத்திருத்த&amp;ம்</translation>
     </message>
     <message>
         <source>Insert Image</source>
-        <translation type="unfinished" />
+        <translation>படத்தை செருகு</translation>
     </message>
 </context>
 <context>
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>எதுவும் இல்லை</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>இரண்டும்</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished" />
+        <translation>தொடக்கம்</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished" />
+        <translation>முடிவு</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation type="unfinished" />
+        <translation>விளிம்பு டிக்:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>உறவு</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished" />
+        <translation>ஆஃப்செட்:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation type="unfinished" />
+        <translation>எண்ணிக்கை:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation type="unfinished" />
+        <translation>தொடக்க வட்ட கோணம்:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation type="unfinished" />
+        <translation>டிக் நீளம்:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation type="unfinished" />
+        <translation>டிக் ஸ்னாப்:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished" />
+        <translation>கோணம்:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished" />
+        <translation>பிரி</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished" />
+        <translation>நடு</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation type="unfinished" />
+        <translation>நிலையான </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished" />
+        <translation>தூரம்:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished" />
+        <translation>படிவம்</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation type="unfinished" />
+        <translation>உள் ஆரம்</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation type="unfinished" />
+        <translation>வெளி ஆரம்</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation type="unfinished" />
+        <translation>சமச்சீர்</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished" />
+        <translation>எண்ணிக்கை:</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetFactory</name>
     <message>
         <source>Library Browser</source>
-        <translation type="unfinished" />
+        <translation>நூலக உலாவி</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation type="unfinished" />
+        <translation>கட்டளை வரி</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation type="unfinished" />
+        <translation>பொருத்து</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>மிதக்கும்</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation type="unfinished" />
+        <translation>கோடுகள்</translation>
     </message>
     <message>
         <source>Circles</source>
-        <translation type="unfinished" />
+        <translation>வட்டங்கள்</translation>
     </message>
     <message>
         <source>Freehand</source>
-        <translation type="unfinished" />
+        <translation>கைவிடு</translation>
     </message>
     <message>
         <source>Ellipses</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ்கள்</translation>
     </message>
     <message>
         <source>PolyLines</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்கள்</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished" />
+        <translation>பரிமாணங்கள்</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished" />
+        <translation>மாற்று</translation>
     </message>
     <message>
         <source>Measure</source>
-        <translation type="unfinished" />
+        <translation>அளவிடு</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation type="unfinished" />
+        <translation>விட்ஜெட் விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation type="unfinished" />
+        <translation>கருவிப்பட்டை</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation type="unfinished" />
+        <translation>ஐகான் அளவு</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished" />
+        <translation>பொது</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished" />
+        <translation>பாணி</translation>
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation type="unfinished" />
+        <translation>பாணி தாள்</translation>
     </message>
     <message>
         <source>Statusbar</source>
-        <translation type="unfinished" />
+        <translation>நிலைப் பட்டி</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished" />
+        <translation>உயரம்</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished" />
+        <translation>எழுத்துரு அளவு</translation>
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation type="unfinished" />
+        <translation>Qt பாணி தாளின் பாதையை உள்ளிடு.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation type="unfinished" />
+        <translation>பக்க நீளம் பிக்சல்களில்</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation type="unfinished" />
+        <translation>தீம் ஐகான்களைப் பயன்படுத்து</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation type="unfinished" />
+        <translation>இடது கருவிப்பட்டை நெடுவரிசைகள்:</translation>
     </message>
 </context>
 <context>
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடு:</translation>
     </message>
     <message>
         <source>remove left</source>
-        <translation type="unfinished" />
+        <translation>இடதை நீக்கு</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation type="unfinished" />
+        <translation>வலதை நீக்கு</translation>
     </message>
     <message>
         <source>remove 0'</source>
-        <translation type="unfinished" />
+        <translation>0' ஐ நீக்கு</translation>
     </message>
     <message>
         <source>remove 0"</source>
-        <translation type="unfinished" />
+        <translation>0" ஐ நீக்கு</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished" />
+        <translation>கோடு தொடர்புடைய கோண விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation type="unfinished" />
+        <translation>இடைவெளி:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished" />
+        <translation>அசல் பாலிலைனிலிருந்து தூரம்</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished" />
+        <translation>நகல்கள்:</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetEnt</name>
     <message>
         <source>Select object:</source>
-        <translation type="unfinished" />
+        <translation>பொருளைத் தேர்ந்தெடு:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetPoint</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
 </context>
 <context>
     <name>QC_ActionGetSelect</name>
     <message>
         <source>Select objects:</source>
-        <translation type="unfinished" />
+        <translation>பொருள்களைத் தேர்ந்தெடு:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>ரத்து செய்</translation>
     </message>
 </context>
 <context>
     <name>QC_ApplicationWindow</name>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished" />
+        <translation>&amp;கோப்பு</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished" />
+        <translation>&amp;திருத்து</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished" />
+        <translation>&amp;பார்வை</translation>
     </message>
     <message>
         <source>&amp;Select</source>
-        <translation type="unfinished" />
+        <translation>&amp;தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>&amp;Line</source>
-        <translation type="unfinished" />
+        <translation>&amp;கோடு</translation>
     </message>
     <message>
         <source>&amp;Circle</source>
-        <translation type="unfinished" />
+        <translation>&amp;வட்டம்</translation>
     </message>
     <message>
         <source>&amp;Ellipse</source>
-        <translation type="unfinished" />
+        <translation>&amp;எலிப்ஸ்</translation>
     </message>
     <message>
         <source>&amp;Modify</source>
-        <translation type="unfinished" />
+        <translation>&amp;மாற்று</translation>
     </message>
     <message>
         <source>&amp;Info</source>
-        <translation type="unfinished" />
+        <translation>&amp;தகவல்</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished" />
+        <translation>பற்றி</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished" />
+        <translation>&amp;உதவி</translation>
     </message>
     <message>
         <source>&amp;Cascade</source>
-        <translation type="unfinished" />
+        <translation>&amp;காஸ்கேட்</translation>
     </message>
     <message>
         <source>&amp;Tile</source>
-        <translation type="unfinished" />
+        <translation>&amp;பலகை</translation>
     </message>
     <message>
         <source>Tile &amp;Horizontally</source>
-        <translation type="unfinished" />
+        <translation>பலகை &amp;கிடைமட்டமாக</translation>
     </message>
     <message>
         <source>Creating new file...</source>
-        <translation type="unfinished" />
+        <translation>புதிய கோப்பை உருவாக்குகிறது...</translation>
     </message>
     <message>
         <source>unnamed document %1</source>
-        <translation type="unfinished" />
+        <translation>பெயரிடப்படாத ஆவணம் %1</translation>
     </message>
     <message>
         <source>Loaded document: </source>
-        <translation type="unfinished" />
+        <translation>ஏற்றப்பட்ட ஆவணம்: </translation>
     </message>
     <message>
         <source>Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>திறப்பு நிறுத்தப்பட்டது</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished" />
+        <translation>அச்சிடுகிறது...</translation>
     </message>
     <message>
         <source>Exiting application...</source>
-        <translation type="unfinished" />
+        <translation>பயன்பாட்டிலிருந்து வெளியேறுகிறது...</translation>
     </message>
     <message>
         <source>Layer List</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு பட்டியல்</translation>
     </message>
     <message>
         <source>Block List</source>
-        <translation type="unfinished" />
+        <translation>தொகுதி பட்டியல்</translation>
     </message>
     <message>
         <source>Print preview for %1</source>
-        <translation type="unfinished" />
+        <translation>%1 க்கான அச்சு முன்னோட்டம்</translation>
     </message>
     <message>
         <source>New Drawing created.</source>
-        <translation type="unfinished" />
+        <translation>புதிய வரைபடம் உருவாக்கப்பட்டது.</translation>
     </message>
     <message>
         <source>Saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>வரைபடத்தை சேமிக்கிறது...</translation>
     </message>
     <message>
         <source>Saved drawing: %1</source>
-        <translation type="unfinished" />
+        <translation>சேமிக்கப்பட்ட வரைபடம்: %1</translation>
     </message>
     <message>
         <source>Exporting drawing...</source>
-        <translation type="unfinished" />
+        <translation>வரைபடத்தை ஏற்றுமதி செய்கிறது...</translation>
     </message>
     <message>
         <source>Exported: %1</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி செய்யப்பட்டது: %1</translation>
     </message>
     <message>
         <source>Exporting...</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி செய்கிறது...</translation>
     </message>
     <message>
         <source>Export complete</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி முடிந்தது</translation>
     </message>
     <message>
         <source>Export failed!</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி தோல்வியுற்றது!</translation>
     </message>
     <message>
         <source>Printing complete</source>
-        <translation type="unfinished" />
+        <translation>அச்சு முடிந்தது</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation type="unfinished" />
+        <translation>கட்டளை வரி</translation>
     </message>
     <message>
         <source>Block '%1'</source>
-        <translation type="unfinished" />
+        <translation>தொகுதி '%1'</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check the permissions.</source>
-        <translation type="unfinished" />
+        <translation>கோப்பைத் திறக்க முடியாது
+%1
+தயவுசெய்து அனுமதிகளை சரிபார்க்கவும்.</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation type="unfinished" />
+        <translation>&amp;பாலிலைன்</translation>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>தானியங்கி சேமிப்பு வரைபடம்...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation type="unfinished" />
+        <translation>தானியங்கி சேமிக்கப்பட்ட வரைபடம்</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation type="unfinished" />
+        <translation>கோப்பை தானியங்கி சேமிக்க முடியாது
+%1
+தயவுசெய்து அனுமதிகளை சரிபார்க்கவும்.
+தானியங்கி சேமிப்பு முடக்கப்பட்டது.</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished" />
+        <translation>இறக்குமதி</translation>
     </message>
     <message>
         <source>&amp;Toolbars</source>
-        <translation type="unfinished" />
+        <translation>&amp;கருவிப்பட்டைகள்</translation>
     </message>
     <message>
         <source>Compiled on: %1</source>
-        <translation type="unfinished" />
+        <translation>கம்பைல் செய்யப்பட்டது: %1</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished" />
+        <translation>பதிப்பு: %1</translation>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation type="unfinished" />
+        <translation>எச்சரிக்கை: கோப்பு ஏற்கனவே திறக்கப்பட்டுள்ளது : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
-        <translation type="unfinished" />
+        <translation>கோப்பை சேமிக்க முடியாது </translation>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation type="unfinished" />
+        <translation> , தயவுசெய்து கோப்பு பெயர் மற்றும் அனுமதிகளை சரிபார்க்கவும்.</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation type="unfinished" />
+        <translation>பலகை &amp;செங்குத்தாக</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation type="unfinished" />
+        <translation>த&amp;ாவல் பயன்முறை</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation type="unfinished" />
+        <translation>வார்ப்பிலிருந்து புதிய ஆவணம்: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation type="unfinished" />
+        <translation>வார்ப்பு தேர்வு நிறுத்தப்பட்டது</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation type="unfinished" />
+        <translation>தானியங்கி சேமிப்பு தோல்வியுற்றது</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished" />
+        <translation>கோப்பு</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished" />
+        <translation>திருத்து</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished" />
+        <translation>பார்வை</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation type="unfinished" />
+        <translation>ஸ்னாப் தேர்வு</translation>
     </message>
     <message>
         <source>Tool Options</source>
-        <translation type="unfinished" />
+        <translation>கருவி விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி செய்</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>கம்பைலர்: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>கம்பைலர்: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished" />
+        <translation>Qt பதிப்பு: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation type="unfinished" />
+        <translation>வரைவு பயன்முறை</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation type="unfinished" />
+        <translation>PDF ஆக ஏற்றுமதி</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished" />
+        <translation>ஏற்றுமதி</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation type="unfinished" />
+        <translation>கோப்பைத் திறக்க முடியாது
+%1
+அதன் இருப்பு மற்றும் அனுமதிகளை சரிபார்க்கவும்.</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>கோப்பு '%1' இல்லை. திறப்பு நிறுத்தப்பட்டது</translation>
     </message>
     <message>
         <source>Categories</source>
-        <translation type="unfinished" />
+        <translation>வகைகள்</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished" />
+        <translation>&amp;வரிசை</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished" />
+        <translation>வரிசை</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished" />
+        <translation>தேர்ந்தெடு</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished" />
+        <translation>கோடு</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished" />
+        <translation>வட்டம்</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation type="unfinished" />
+        <translation>&amp;வளைவு</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished" />
+        <translation>வளைவு</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished" />
+        <translation>எலிப்ஸ்</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished" />
+        <translation>பாலிலைன்</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation type="unfinished" />
+        <translation>பரிமாணம்</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation type="unfinished" />
+        <translation>மாற்று</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished" />
+        <translation>தகவல்</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished" />
+        <translation>பென்</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished" />
+        <translation>சமீபத்திய கோப்பைத் திறக்கிறது...</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished" />
+        <translation>பொருத்து பகுதிகள்</translation>
     </message>
     <message>
         <source>Grid Status</source>
-        <translation type="unfinished" />
+        <translation>கட்ட நிலை</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished" />
+        <translation>கருவிப்பட்டைகள்</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation type="unfinished" />
+        <translation>பொருத்து விட்ஜெட்கள்</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation type="unfinished" />
+        <translation>சாதன விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished" />
+        <translation>சாதனம்</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished" />
+        <translation>&amp;விருப்பங்கள்</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation type="unfinished" />
+        <translation>ப்ல&amp;கின்கள்</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation type="unfinished" />
+        <translation>பரி&amp;மாணம்</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>பொருத்து வி&amp;ட்ஜெட்கள்</translation>
     </message>
     <message>
         <source>Recent Files</source>
-        <translation type="unfinished" />
+        <translation>சமீபத்திய கோப்புகள்</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation type="unfinished" />
+        <translation>கம்பைலர்: மைக்ரோசாப்ட் விஷுவல் சி++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>பூஸ்ட் பதிப்பு: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished" />
+        <translation>நகலெடு</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation type="unfinished" />
+        <translation>பங்களிப்பாளர்கள்</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished" />
+        <translation>உரிமம்</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished" />
+        <translation>கணினி</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation type="unfinished" />
+        <translation>கருவிப்பட்டை உருவாக்கி</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation type="unfinished" />
+        <translation>மெனு உருவாக்கி</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation type="unfinished" />
+        <translation>மெனு ஒதுக்கீடு</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation type="unfinished" />
+        <translation>&amp;கருவிகள்</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation type="unfinished" />
+        <translation>&amp;வரைபடங்கள்</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation type="unfinished" />
+        <translation>வரைபடத்தை சேமிக்கிறது: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation type="unfinished" />
+        <translation>சேமிப்பு ரத்து செய்யப்பட்டது</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation type="unfinished" />
+        <translation>வரைபடத்தை மூடுகிறது</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation type="unfinished" />
+        <translation>பின்வரும் உருப்படிக்கு மாற்றங்களை சேமிக்கவா?
+%1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished" />
+        <translation>&amp;சேமி</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>சேமி &amp;என...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation type="unfinished" />
+        <translation>&amp;சேமி %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation type="unfinished" />
+        <translation>%1 ஐ &amp;என சேமி...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation type="unfinished" />
+        <translation>&amp;சாளர பயன்முறை</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation type="unfinished" />
+        <translation>&amp;அமைப்பு</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation type="unfinished" />
+        <translation>வட்டமான</translation>
     </message>
     <message>
         <source>Triangular</source>
-        <translation type="unfinished" />
+        <translation>முக்கோண</translation>
     </message>
     <message>
         <source>North</source>
-        <translation type="unfinished" />
+        <translation>வடக்கு</translation>
     </message>
     <message>
         <source>South</source>
-        <translation type="unfinished" />
+        <translation>தெற்கு</translation>
     </message>
     <message>
         <source>East</source>
-        <translation type="unfinished" />
+        <translation>கிழக்கு</translation>
     </message>
     <message>
         <source>West</source>
-        <translation type="unfinished" />
+        <translation>மேற்கு</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation type="unfinished" />
+        <translation>&amp;ஏற்பாடு செய்</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation type="unfinished" />
+        <translation>&amp;அதிகபட்சம்</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation type="unfinished" />
+        <translation>அனைத்தையும் சேமி ரத்து செய்யப்பட்டது</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation type="unfinished" />
+        <translation>அனைத்தையும் மூடு ரத்து செய்யப்பட்டது</translation>
     </message>
     <message>
         <source>The Code</source>
-        <translation type="unfinished" />
+        <translation>குறியீடு</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation type="unfinished" />
+        <translation>Cmd</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation type="unfinished" />
+        <translation>மிதக்கும்</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation type="unfinished" />
+        <translation>பொருத்து</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
-        <translation type="unfinished" />
+        <translation>&amp;விக்கி</translation>
     </message>
     <message>
         <source>User's &amp;Manual</source>
-        <translation type="unfinished" />
+        <translation>பயனரின் &amp;கையேடு</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation type="unfinished" />
+        <translation>&amp;கட்டளைகள்</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation type="unfinished" />
+        <translation>&amp;பாணி தாள்கள்</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>வி&amp;ட்ஜெட்கள்</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation type="unfinished" />
+        <translation>&amp;மன்றம்</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation type="unfinished" />
+        <translation>Zulip &amp;உரையாடல்</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation type="unfinished" />
+        <translation>&amp;வெளியீடு தகவல்</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation type="unfinished" />
+        <translation>ஆன்&amp;லைன்</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation type="unfinished" />
+        <translation>&amp;நன்கொடை</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation type="unfinished" />
+        <translation>முதலில் அச்சு முன்னோட்டத்தில் அளவு மற்றும் நிலைப்படுத்தலை சரிசெய்யவும்.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>பென் பாலெட்</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation type="unfinished" />
+        <translation>அடுக்கு மரம்</translation>
     </message>
 </context>
 <context>
@@ -13702,35 +13716,35 @@ This block cannot be inserted.</source>
     <name>WidgetCreator</name>
     <message>
         <source>Frame</source>
-        <translation type="unfinished" />
+        <translation>சட்டகம்</translation>
     </message>
     <message>
         <source>&gt;</source>
-        <translation type="unfinished" />
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>&lt;</source>
-        <translation type="unfinished" />
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>பெயர்</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished" />
+        <translation>உருவாக்கு</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation type="unfinished" />
+        <translation>அழி</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation type="unfinished" />
+        <translation>ஒதுக்கு</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>புதுப்பி</translation>
     </message>
 </context>
 </TS>

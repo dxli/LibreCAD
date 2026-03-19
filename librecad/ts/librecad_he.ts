@@ -12,7 +12,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -56,7 +56,7 @@
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation>Parabola</translation>
+        <translation>פרבולה</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -64,22 +64,22 @@
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation>גיאומטריה</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>נקודות על Spline</translation>
+        <translation>נקודות על הספליין</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation>נקודות שליטה</translation>
+        <translation>נקודות בקרה</translation>
     </message>
 </context>
 <context>
     <name>DlgSplinePoints</name>
     <message>
         <source>SplinePoints</source>
-        <translation>SplinePoints</translation>
+        <translation>נקודות ספליין</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -159,8 +159,8 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>המונחים:%1)
-או [%]</translation>
+        <translation>ציין מרחק (%1)
+או [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -168,7 +168,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation>חזור</translation>
     </message>
     <message>
         <source>Y</source>
@@ -177,8 +177,8 @@ or [%2]</source>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>המונחים:angle%1 deg
-או [%]</translation>
+        <translation>ציין מרחק (זווית %1 מעלות)
+או [%2]</translation>
     </message>
 </context>
 <context>
@@ -189,7 +189,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation>תגית: tangent</translation>
+        <translation>ציין טנגנט</translation>
     </message>
     <message>
         <source>Enter number:</source>
@@ -208,15 +208,15 @@ or [%2]</source>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>המונחים: x or y</translation>
+        <translation>ציין כיוון (x או y) או [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation>חזור</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>סמן מרחק (%1) או</translation>
+        <translation>ציין מרחק (%1) או [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -228,84 +228,84 @@ or [%2]</source>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>סמן מרחק (%1 deg) או</translation>
+        <translation>ציין מרחק (%1 מעלות) או [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation>זווית או [%]</translation>
+        <translation>ציין זווית או [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation>נקודת ציון או [%1]</translation>
+        <translation>ציין נקודה או [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation>ציין את הנקודה הראשונה על parabola</translation>
+        <translation>ציין את הנקודה הראשונה על הפרבולה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation>בטל</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation>ציין את הנקודה השנייה על parabola</translation>
+        <translation>ציין את הנקודה השנייה על הפרבולה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation>חזור</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation>ציין את הנקודה השלישית על parabola</translation>
+        <translation>ציין את הנקודה השלישית על הפרבולה</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation>ציין את הנקודה הרביעית על parabola</translation>
+        <translation>ציין את הנקודה הרביעית על הפרבולה</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>ציין את הציר על פרבולה</translation>
+        <translation>ציין את הציר על הפרבולה</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation>תגית: parabola</translation>
+        <translation>ציין את המוקד של הפרבולה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation>בטל</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>תגית: The Directrix of Parabola</translation>
+        <translation>ציין את הישר המנחה של הפרבולה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation>חזור</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation>ציין את נקודת ההתחלה על parabola</translation>
+        <translation>ציין את נקודת ההתחלה על הפרבולה</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation>המונחים: the end point on parabola</translation>
+        <translation>ציין את נקודת הסיום על הפרבולה</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>הוא לא מחולק כמו שהוא נעול.</translation>
+        <translation> לא מחולק כי הוא נעול.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>הוא לא מחולק כפי שהוא חלק מפולילין. קודם כל להרחיב את פולילין.</translation>
+        <translation> לא מחולק כי הוא חלק מפוליליין. הרחב את הפוליליין קודם.</translation>
     </message>
     <message>
         <source>Line</source>
@@ -313,7 +313,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Arc</source>
-        <translation>Arc</translation>
+        <translation>קשת</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -355,11 +355,11 @@ or [%2]</source>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>ו-Window Zoom</translation>
+        <translation>זום &amp;חלון</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation>Z&amp;Panning</translation>
+        <translation>זום &amp;הזזה</translation>
     </message>
     <message>
         <source>Select Entity</source>
@@ -375,7 +375,7 @@ or [%2]</source>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De-select &amp;Contour)</translation>
+        <translation>(בטל)בחר &amp;קו מתאר</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
@@ -387,7 +387,7 @@ or [%2]</source>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De-select Layer)</translation>
+        <translation>(בטל)בחר שכבה</translation>
     </message>
     <message>
         <source>&amp;Points</source>
@@ -419,7 +419,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation>המונחים: point</translation>
+        <translation>מקביל דרך נקודה</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -427,23 +427,23 @@ or [%2]</source>
     </message>
     <message>
         <source>Bisector</source>
-        <translation>Bisector</translation>
+        <translation>ביסקטר</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation>Tangent (P,C)</translation>
+        <translation>טנגנט (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation>Tangent (C,C)</translation>
+        <translation>טנגנט (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation>Tangent &amp; Orthogonal</translation>
+        <translation>טנגנט &amp;אורתוגונלי</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Orthogonal</translation>
+        <translation>אורתוגונלי</translation>
     </message>
     <message>
         <source>Relative angle</source>
@@ -451,11 +451,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>פול &amp;ygon (Cen,Cor)</translation>
+        <translation>פוליגון (מרכז,פינה)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation>Polygo &amp;n (Cor,Cor)</translation>
+        <translation>פוליגון (פינה,פינה)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
@@ -479,28 +479,28 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation>&amp;concentric</translation>
+        <translation>&amp;קונצנטרי</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation>מעגל וכתוב</translation>
+        <translation>מעגל &amp;כתוב</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation>2 עיגולים, רדוס</translation>
+        <translation>טנגנטי ל-2 מעגלים, רדיוס</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation>2 עיגולים, 1 נקודה</translation>
+        <translation>טנגנטי ל-2 מעגלים, 1 נקודה</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation>עיגולים ו-3</translation>
+        <translation>טנגנטי ל-&amp;3 מעגלים</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation>2 P&amp;Oints</translation>
+        <translation>טנגנטי, 2 נקודות</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
@@ -512,31 +512,31 @@ or [%2]</source>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation>Arc &amp;Tangential</translation>
+        <translation>קשת &amp;טנגנטית</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>ואליפס (Axis)</translation>
+        <translation>&amp;אליפסה (צירים)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation>Ellipse &amp; Arc (Axis)</translation>
+        <translation>קשת אליפסה (ציר)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation>Ellipse &amp; Foci Point</translation>
+        <translation>מוקדי אליפסה</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation>Ellipse &amp; 4 Point</translation>
+        <translation>אליפסה &amp;4 נקודות</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation>מרכז אליפס ו-3 נקודות</translation>
+        <translation>מרכז אליפסה ו-&amp;3 נקודות</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation>Ellipse &amp; Inrated</translation>
+        <translation>אליפסה &amp;כתובה</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -548,39 +548,39 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>המונחים:</translation>
+        <translation>&amp;פוליליין</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation>תגית: node</translation>
+        <translation>&amp;הוסף צומת</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation>A&amp;Fend Node</translation>
+        <translation>&amp;הוסף צומת</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation>תגית: node</translation>
+        <translation>&amp;מחק צומת</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation>המונחים: two nodes</translation>
+        <translation>מחק &amp;בין שני צמתים</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation>המונחים:</translation>
+        <translation>&amp;חתוך קטעים</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation>יצירת &amp; Equidistant Polylines</translation>
+        <translation>צור פוליליינים &amp;שווים מרחק</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation>יצירת פולילין מפני קיימות ופעולות</translation>
+        <translation>צור פוליליין מקטעים קיימים</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation>ו-MText</translation>
+        <translation>טקסט &amp;מרובה</translation>
     </message>
     <message>
         <source>&amp;Text</source>
@@ -588,7 +588,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation>&amp; Hatch</translation>
+        <translation>&amp;האצ'</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
@@ -612,11 +612,11 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation>&amp;Diametric</translation>
+        <translation>&amp;קוטרי</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation>&amp; Angular</translation>
+        <translation>&amp;זוויתי</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
@@ -632,7 +632,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation>המונחים: freehand</translation>
+        <translation>מחק יד חופשית</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
@@ -660,7 +660,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation>רוטט T&amp;wo</translation>
+        <translation>סובב ש&amp;ניים</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
@@ -672,7 +672,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation>ו-Lengthen</translation>
+        <translation>&amp;הארך</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -688,7 +688,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation>&amp; Fillet</translation>
+        <translation>&amp;עיגול</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
@@ -696,7 +696,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation>המונחים: contour</translation>
+        <translation>נקודה בתוך קו מתאר</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
@@ -716,7 +716,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation>Polygonal &amp;area</translation>
+        <translation>&amp;שטח פוליגוני</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
@@ -784,7 +784,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>המונחים: toggle &amp;construction Layer</translation>
+        <translation>החלף שכבת &amp;בנייה</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
@@ -868,7 +868,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>&amp; Return</translation>
+        <translation>&amp;צייר מחדש</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -950,7 +950,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation>אפשרויות Widget</translation>
+        <translation>אפשרויות ווידג'ט</translation>
     </message>
     <message>
         <source>Left</source>
@@ -986,7 +986,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation>טרנדים 2</translation>
+        <translation>חת&amp;וך שניים</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
@@ -1007,7 +1007,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation>פול &amp;ygon (Cen,Tan)</translation>
+        <translation>פוליגון (מרכז,טנגנט)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
@@ -1047,7 +1047,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation>CA&amp;M / Pro SVG.</translation>
+        <translation>ייצא כ-CAM/SVG פשוט...</translation>
     </message>
     <message>
         <source>Close All</source>
@@ -1055,7 +1055,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation>Re-dock Widgets</translation>
+        <translation>עגן מחדש ווידג'טים</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
@@ -1063,7 +1063,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Cross</source>
-        <translation>צלב הצלב</translation>
+        <translation>צלב</translation>
     </message>
     <message>
         <source>Snake</source>
@@ -1079,91 +1079,91 @@ or [%2]</source>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation>Rectangle (1 נקודה)</translation>
+        <translation>מלבן (1 נקודה)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation>Rectangle (2 נקודות)</translation>
+        <translation>מלבן (2 נקודות)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation>Rectangle (3 נקודות)</translation>
+        <translation>מלבן (3 נקודות)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation>כוכב כוכבים</translation>
+        <translation>כוכב</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>פרידה / Divide</translation>
+        <translation>שבירה/חלוקה</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>Line Gap</translation>
+        <translation>פער קו</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation>המונחים: line</translation>
+        <translation>זווית מקו</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation>Orthogonal from Line</translation>
+        <translation>אורתוגונלי מקו</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation>מתוך Point to Line</translation>
+        <translation>מנקודה לקו</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Slice/Divide Line</translation>
+        <translation>חתוך/חלק קו</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Slice/Divide Circle</translation>
+        <translation>חתוך/חלק מעגל</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation>קו הנקודות</translation>
+        <translation>קו של נקודות</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>על ידי Arc</translation>
+        <translation>על ידי קשת</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;bola 4 נקודות</translation>
+        <translation>פרבולה 4 נקודות</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola &amp; Focus Directrix</translation>
+        <translation>פרבולה &amp;מוקד-ישר מנחה</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>Pick Pen From Entity</translation>
+        <translation>&amp;בחר עט מישות</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>Pick Pen From Entity (Resolved)</translation>
+        <translation>&amp;בחר עט מישות (פתור)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation>המונחים: Entity</translation>
+        <translation>החל עט על ישות</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation>עותק Pen</translation>
+        <translation>העתק עט</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>קו הצטרף</translation>
+        <translation>חיבור קו</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>המונחים</translation>
+        <translation>שכפל</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>המונחים: Active Layer</translation>
+        <translation>עדכן עט נוכחי בעט של השכבה הפעילה</translation>
     </message>
 </context>
 <context>
@@ -1184,49 +1184,49 @@ or [%2]</source>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>המונחים: take the Pen</translation>
+        <translation>ציין ישות לבחור את העט</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation>בטל</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>המונחים: take pen</translation>
+        <translation>ציין ישות להחיל עט</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>המונחים: take the Pen</translation>
+        <translation>ציין ישות לבחור את העט</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation>בטל</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation>אחוז ממוצע / Start-point</translation>
+        <translation>ציין אחוז / נקודת התחלה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation>בטל</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation>נקודת התחלה</translation>
+        <translation>ציין נקודת התחלה</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>המונחים: end point</translation>
+        <translation>ציין נקודת סיום</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation>חזור</translation>
     </message>
 </context>
 <context>
@@ -1245,11 +1245,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>פתרון מקורי</translation>
+        <translation>מקורי פתור</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Radius Shift:</translation>
+        <translation>הזזת רדיוס:</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1257,7 +1257,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation>להחליף קשת</translation>
+        <translation>החלף קשת</translation>
     </message>
     <message>
         <source>Pen:</source>
@@ -1276,7 +1276,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Total Length</source>
-        <translation>אורך מוחלט</translation>
+        <translation>אורך כולל</translation>
     </message>
     <message>
         <source>Percent</source>
@@ -1296,7 +1296,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית:</translation>
     </message>
 </context>
 <context>
@@ -1318,7 +1318,7 @@ or [%2]</source>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation>נקודות שליטה פארבולה לא יכולות להיות קולינאריות</translation>
+        <translation>נקודות הבקרה של הפרבולה לא יכולות להיות קולינאריות</translation>
     </message>
 </context>
 <context>
@@ -1337,7 +1337,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>X:</translation>
+        <translation>הזזה X:</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1349,11 +1349,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>פתרון מקורי</translation>
+        <translation>מקורי פתור</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>הקודם Y:</translation>
+        <translation>הזזה Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
@@ -1364,27 +1364,27 @@ or [%2]</source>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation>הגדרות שכבתיות</translation>
+        <translation>הגדרות שכבה</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>שביל הורות:</translation>
+        <translation>נתיב שכבות הורה:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation>שכבה Type</translation>
+        <translation>סוג שכבה</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>מידע</translation>
+        <translation>אינפורמטיבי</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>נורמלי</translation>
+        <translation>רגיל</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>ממדים</translation>
+        <translation>מידות</translation>
     </message>
     <message>
         <source>Alternative Position</source>
@@ -1393,8 +1393,8 @@ or [%2]</source>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>שכבת בנייה יש ישויות של קווים סטרייטים אינסופיים שנועדו לשמש לבנייה גיאומטרית.
-התוכן של שכבת בנייה לא אמור להופיע בדפוס.</translation>
+        <translation>שכבת בנייה מכילה ישויות של קווים ישרים אינסופיים המיועדים לבנייה גיאומטרית.
+       תוכן שכבת בנייה לא אמור להופיע בהדפסה.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
@@ -1406,94 +1406,94 @@ or [%2]</source>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation>המונחים Virtual Layer</translation>
+        <translation>שנה שם שכבה וירטואלית</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation>תגית: Secondary Layer</translation>
+        <translation>הוסף שכבה משנית</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>הוסף Layer</translation>
+        <translation>הוסף שכבה</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation>Edit Layer</translation>
+        <translation>ערוך שכבה</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Default Pen</translation>
+        <translation>עט ברירת מחדל</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation>שם מקור: Layer</translation>
+        <translation>שנה שם שכבה</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation>אפשרויות עץ</translation>
+        <translation>אפשרויות עץ שכבות</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>האמנה</translation>
+        <translation>מוסכמות שמות</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>שם המילה Level Name Separator</translation>
+        <translation>מפריד שמות רמות שכבה</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>תגית: Layer Suffixes</translation>
+        <translation>סיומות שכבות משניות</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation>מימד</translation>
+        <translation>מידות</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>מידע</translation>
+        <translation>אינפורמטיבי</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>מיקום חלופי</translation>
+        <translation>מיקום חלופי </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation>שם בדוי</translation>
+        <translation>שם לשכפול</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>תיקון</translation>
+        <translation>קידומת</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation>תיקון סופי</translation>
+        <translation>סיומת</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation>תצוגה ותפעול</translation>
+        <translation>תצוגה ופעולות</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>שם מלא: ToolTip</translation>
+        <translation>הצג שם מלא כחלון מידע</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>תגית: type icons</translation>
+        <translation>הצג סמלי סוג שכבה</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>הצג שמות שכבתיים מזוהמים. גודל Ident:</translation>
+        <translation>הצג שמות שכבה עם כניסה. גודל כניסה:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>ניתן להורות מחדש באמצעות דרגו &amp; Drop</translation>
+        <translation>אפשר בנייה מחדש באמצעות גרירה</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>שם המחבר: Renameשכבות משניות על שם מקורי</translation>
+        <translation>שנה שם שכבות משניות בעת שינוי שם ראשי</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -1501,7 +1501,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>פריט מותאם במצב מסנן</translation>
+        <translation>פריט תואם במצב סינון הדגשה</translation>
     </message>
     <message>
         <source>#1E90FF</source>
@@ -1509,58 +1509,58 @@ or [%2]</source>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation>רקע שכבתי וירטואלי</translation>
+        <translation>צבע רקע של שכבה וירטואלית</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>3 תמונות פריטים מפרידים</translation>
+        <translation>רשת הפרדה של פריטי תצוגה שלוש</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation>פריטים נבחרים רקע</translation>
+        <translation>צבע רקע של פריטים נבחרים</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>צבע רקע Activeשכב</translation>
+        <translation>צבע רקע של שכבה פעילה</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>Default Pens</translation>
+        <translation>עטים ברירת מחדל</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation>שכבה נורמלית</translation>
+        <translation>שכבה רגילה</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation>שכבת הממדים</translation>
+        <translation>שכבה מידות</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation>שכבת מידע</translation>
+        <translation>שכבה אינפורמטיבית</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation>שכבת מיקום חלופית</translation>
+        <translation>שכבה מיקום חלופי</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>צבע נבחר</translation>
+        <translation>בחר צבע</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation>מסנן</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>חיפוש שמות שכבתיים</translation>
+        <translation>מחפש שמות שכבות תואמים</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>מצב תאורה גבוה</translation>
+        <translation>מצב הדגשה</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1572,35 +1572,35 @@ or [%2]</source>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>להסתיר את כל השכבות</translation>
+        <translation>הסתר את כל השכבות</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation>תגית: Secondary Layers</translation>
+        <translation>הצג שכבות משניות</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation>תגית: Active Layer</translation>
+        <translation>הצג רק שכבה פעילה</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation>להרחיב את הכל</translation>
+        <translation>הרחב הכל</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>כל</translation>
+        <translation>כווץ הכל</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>תגית: Secondary</translation>
+        <translation>כווץ משניות</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>לנתק את כל השכבות</translation>
+        <translation>בטל נעילה של כל השכבות</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>לנעול את כל השכבות</translation>
+        <translation>נעל את כל השכבות</translation>
     </message>
     <message>
         <source>Add a layer</source>
@@ -1608,143 +1608,143 @@ or [%2]</source>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>המונחים Layer</translation>
+        <translation>הוסף שכבת מידות</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>הסרת שכבה</translation>
+        <translation>הסר שכבה</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>שינוי תכונות שכבתיות / rename</translation>
+        <translation>שנה תכונות שכבה / שנה שם</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation>מצב רשימה שטוח)</translation>
+        <translation>מצב רשימה שטוחה)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>התפריט Layer</translation>
+        <translation>תפריט שכבה</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>תגית: Child Layer</translation>
+        <translation>&amp;הוסף שכבה ילד</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>המונחים</translation>
+        <translation>&amp;שנה שם</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>&amp; Remove Layers (Sub-Tree)</translation>
+        <translation>&amp;הסר שכבות (תת-עץ)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>מבנה (Sub-Tree)</translation>
+        <translation>&amp;העתק מבנה (תת-עץ)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>תוכן מבוסס (Sub-Tree)</translation>
+        <translation>&amp;שכפל תוכן (תת-עץ)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>Entities (Sub-Tree)</translation>
+        <translation>&amp;בחר ישויות (תת-עץ)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>תגית: Layer &amp; Attributes</translation>
+        <translation>&amp;ערוך &amp;תכונות שכבה</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>Remove Layer</translation>
+        <translation>&amp;הסר שכבה</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>תגית: Dimensions Sub-Layer</translation>
+        <translation>&amp;הוסף תת-שכבת מידות</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>תגית: Sub-Layer</translation>
+        <translation>&amp;הוסף תת-שכבה אינפורמטיבית</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>תגית: Alternative View Sub-Layer</translation>
+        <translation>&amp;הוסף תת-שכבת תצוגה חלופית</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>Remove Sub-layers</translation>
+        <translation>&amp;הסר תת-שכבות</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation>המונחים: Dimensional Layer</translation>
+        <translation>המר לשכבת מידות</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>עקבו אחרי Info Layer</translation>
+        <translation>המר לשכבה אינפורמטיבית</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation>המונחים: Alternative Position Layer</translation>
+        <translation>המר לשכבת מיקום חלופי</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation>המונחים: Normal Layer</translation>
+        <translation>המר לשכבה רגילה</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation>אפשרויות ל-Select Layer's Entities</translation>
+        <translation>&amp;בחר ישויות של שכבה</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>תגית: Layer Copy</translation>
+        <translation>&amp;צור עותק שכבה</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>המונחים: content</translation>
+        <translation>&amp;שכפל שכבה עם תוכן</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation>עקבו אחרי Layer</translation>
+        <translation>העבר בחירה לשכבה</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation>בחירה לשכבה</translation>
+        <translation>שכפל בחירה לשכבה</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>תגית: Layer</translation>
+        <translation>&amp;הוסף שכבה</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>להקפיא אחרים</translation>
+        <translation>&amp;הקפא שכבות אחרות</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>תגית: All Layers</translation>
+        <translation>&amp;הפשר כל השכבות</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>All Layers</translation>
+        <translation>&amp;הקפא כל השכבות</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>Unlock All Layers</translation>
+        <translation>&amp;בטל נעילה של כל השכבות</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>כל השכבות</translation>
+        <translation>&amp;נעל את כל השכבות</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Enable &amp;Printing All Layers</translation>
+        <translation>אפשר &amp;הדפסה של כל השכבות</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>הדפסת כל שכבות</translation>
+        <translation>&amp;בטל הדפסה של כל השכבות</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>למצוא ולהסיר שכבות ריקות</translation>
+        <translation>&amp;מצא והסר שכבות ריקות</translation>
     </message>
 </context>
 <context>
@@ -1755,19 +1755,19 @@ or [%2]</source>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>הזזה:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>חינם</translation>
+        <translation>חופשי</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>התחלה</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>End</source>
@@ -1775,19 +1775,19 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>קו Snap:</translation>
+        <translation>הצמדה לקו:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>יחסי</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>חלוקה</translation>
+        <translation>חלק</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>הצמדה לסימן:</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -1795,11 +1795,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Snap Distance:</translation>
+        <translation>מרחק הצמדה:</translation>
     </message>
 </context>
 <context>
@@ -1810,7 +1810,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית:</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -1818,11 +1818,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Orthogonal</translation>
+        <translation>אורתוגונלי</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>לשלב</translation>
+        <translation>לנקודת חיתוך</translation>
     </message>
     <message>
         <source>Fixed Length</source>
@@ -1830,15 +1830,15 @@ or [%2]</source>
     </message>
     <message>
         <source>End offset:</source>
-        <translation>סוף התחלה:</translation>
+        <translation>הזזה סופית:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>התחלה</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>End</source>
@@ -1850,7 +1850,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>הצמדה:</translation>
     </message>
 </context>
 <context>
@@ -1861,27 +1861,27 @@ or [%2]</source>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Extend/Trim</translation>
+        <translation>הרחב/חתוך</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation>הוסף</translation>
+        <translation>הוסף קטע</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation>אין שינוי</translation>
+        <translation>ללא שינוי</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>יצירת Polyline</translation>
+        <translation>צור פוליליין</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation>Attributes:</translation>
+        <translation>תכונות:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation>Active Pen</translation>
+        <translation>עט פעיל</translation>
     </message>
     <message>
         <source>Line 1</source>
@@ -1897,7 +1897,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation>הסרת המקור</translation>
+        <translation>הסר מקוריים</translation>
     </message>
     <message>
         <source>Line 2:</source>
@@ -1916,15 +1916,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>קו Fit Line</translation>
+        <translation>התאם קו</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>אף אחד לא</translation>
+        <translation>ללא</translation>
     </message>
     <message>
         <source>Both</source>
@@ -1932,7 +1932,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>התחלה</translation>
     </message>
     <message>
         <source>End</source>
@@ -1966,11 +1966,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation>הסרת Segments</translation>
+        <translation>הסר קטעים</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>להסיר נבחר</translation>
+        <translation>הסר נבחר</translation>
     </message>
 </context>
 <context>
@@ -1981,27 +1981,27 @@ or [%2]</source>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Snap:</translation>
+        <translation>הצמדה לפער:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Snap Distance:</translation>
+        <translation>מרחק הצמדה:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>חינם</translation>
+        <translation>חופשי</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>גודל הפער:</translation>
+        <translation>גודל פער:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>התחלה</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>End</source>
@@ -2009,22 +2009,22 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>קו Snap:</translation>
+        <translation>הצמדה לקו:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>הגדרות Penette</translation>
+        <translation>הגדרות פלטת עטים</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation>העמודים לתצוגה</translation>
+        <translation>עמודות להצגה</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>שם הסוג</translation>
+        <translation>שם סוג קו</translation>
     </message>
     <message>
         <source>Color Name</source>
@@ -2032,7 +2032,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation>סוג אייקון</translation>
+        <translation>סמל סוג קו</translation>
     </message>
     <message>
         <source>Color Icon</source>
@@ -2040,11 +2040,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>קו Width Icon</translation>
+        <translation>סמל רוחב קו</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation>שם אינטרנט Width Name</translation>
+        <translation>שם רוחב קו</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -2052,31 +2052,31 @@ or [%2]</source>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>Active Pen: רקע</translation>
+        <translation>רקע עט פעיל:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>טבלה שלמה היא אמיצה עבור עט פעיל</translation>
+        <translation>כל שורת הטבלה מודגשת עבור עט פעיל</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation>צבע אפור:</translation>
+        <translation>צבע רשת:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>עקבו אחרי Item Color:</translation>
+        <translation>צבע פריט תואם:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>עטים רגישים במקרה</translation>
+        <translation>סינון עטים ללא הבחנה בין אותיות גדולות וקטנות</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>בקרה אם כלי יוצג עבור פריט שולחן או לא</translation>
+        <translation>שולט האם יוצג חלון מידע עבור פריט בטבלה או לא</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>Show Tooltip for Table פריטים</translation>
+        <translation>הצג חלון מידע עבור פריטי טבלה</translation>
     </message>
     <message>
         <source>Pens file:</source>
@@ -2084,7 +2084,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>שם צבעוני כמו</translation>
+        <translation>הצג שם צבע כ</translation>
     </message>
     <message>
         <source>HEX</source>
@@ -2096,34 +2096,34 @@ or [%2]</source>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>שם טבעי שבו ניתן</translation>
+        <translation>שם טבעי כאשר אפשרי</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>הצג הודעה מידע אם לא ניתן לבחור ישויות על ידי עט</translation>
+        <translation>הצג הודעת מידע אם אין ישויות שניתן לבחור בעט</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>לחץ כפול על פריט שולחן</translation>
+        <translation>על לחיצה כפולה על פריט בטבלה</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>לא לעשות כלום</translation>
+        <translation>אל תעשה דבר</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>גופים נבחרים על ידי תכונות</translation>
+        <translation>בחר ישויות לפי עט תכונות</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>גופים נבחרים על ידי ציור עט</translation>
+        <translation>בחר ישויות לפי עט ציור</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation>פנט</translation>
+        <translation>פלטת עטים</translation>
     </message>
     <message>
         <source>Pen Name:</source>
@@ -2135,11 +2135,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Filter...</source>
-        <translation>פילטר...</translation>
+        <translation>מסנן...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>מצב תאורה גבוה</translation>
+        <translation>מצב הדגשה</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -2147,7 +2147,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation>רוחב:</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -2155,115 +2155,115 @@ or [%2]</source>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Fill Pen Editor של Entity Drawing Pen</translation>
+        <translation>מלא עורך עט בעט ציור ישות</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Fill Pen Editor by Entity Attributes</translation>
+        <translation>מלא עורך עט בתכונות ישות</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>אפשרויות ל Entities by Drawing Pen</translation>
+        <translation>בחר ישויות לפי עט ציור</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>המונחים: Pen Attributes</translation>
+        <translation>בחר ישויות לפי תכונות עט</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>להציל</translation>
+        <translation>שמור</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation>החל את הפין לבחירה</translation>
+        <translation>החל עט על הבחירה</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Fill Editor Pen By Current Pen</translation>
+        <translation>מלא עט עורך בעט נוכחי</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>המונחים: law</translation>
+        <translation>החל עט עורך כעט נוכחי</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation>זרם</translation>
+        <translation>לנוכחי</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>המונחים: Active Layer</translation>
+        <translation>עדכן עט נוכחי בעט שכבה פעילה</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>ארכיון תגים: Active Layer's Pen</translation>
+        <translation>מלא עורך עט מעט שכבה פעילה</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>תגית: Active Layer</translation>
+        <translation>בחר משכבה פעילה</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>עקבו אחרי Active Layer Pen</translation>
+        <translation>החל עט עורך לעט שכבה פעילה</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation>החל שכבת</translation>
+        <translation>החל על שכבה</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation>להסיר עט נבחר</translation>
+        <translation>הסר עט נבחר</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation>ניקוי הפין</translation>
+        <translation>מחק עט</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>תפריט הפין</translation>
+        <translation>תפריט עטים</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>ובטחון לבחירה</translation>
+        <translation>&amp;החל עט על הבחירה</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>תגית: Current Pen</translation>
+        <translation>&amp;הגדר כעט נוכחי</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>עקבו אחרי Active Layer</translation>
+        <translation>&amp;החל עט על שכבה פעילה</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>תגיות קשורות Attributes Pen</translation>
+        <translation>&amp;בחר ישויות עם עט תכונות</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>תגיות קשורות Drawing Pen</translation>
+        <translation>&amp;בחר ישויות עם עט ציור</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>עריכה Pen</translation>
+        <translation>&amp;ערוך עט</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>תגית: Pen</translation>
+        <translation>&amp;הסר עט</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>תגית: Pens</translation>
+        <translation>&amp;הסר עטים</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation>לוח</translation>
+        <translation>פלטת עטים</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>מיקום קובץ עטים משתנה, אנא הפעל מחדש את היישום כל כך חדש קובץ עטים ישמש.
+        <translation>מיקום קובץ העטים שונה, אנא הפעל מחדש את האפליקציה כדי להשתמש בקובץ עטים חדש.
 
-אנא שימו לב שאם תציל עט באמצעות עורך ללא הפעלה מחדש, עטים נוכחיים מן הצבעים יישמרו בקובץ החדש, ולכן התוכן הקיים של זה יהיה מוגזם.</translation>
+שימו לב שאם תשמרו עט דרך העורך ללא הפעלה מחדש, העטים הנוכחיים מהפלטה יישמרו בקובץ החדש ולכן התוכן הקיים יוחלף.</translation>
     </message>
 </context>
 <context>
@@ -2274,7 +2274,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>פוליליין</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -2282,11 +2282,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edges:</source>
-        <translation>המונחים:</translation>
+        <translation>קצוות:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>תגית:</translation>
+        <translation>פינות:</translation>
     </message>
     <message>
         <source>Size inner</source>
@@ -2298,11 +2298,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation>רדיוס:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>הצמדה:</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2310,39 +2310,39 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Top-left</source>
-        <translation>השמאל העליון</translation>
+        <translation>שמאל-עליון</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Top</translation>
+        <translation>עליון</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation>Top-right</translation>
+        <translation>ימין-עליון</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>השמאל</translation>
+        <translation>שמאל</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>ימין צודק</translation>
+        <translation>ימין</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>מימין לשמאל</translation>
+        <translation>שמאל-תחתון</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>תחתית</translation>
+        <translation>תחתון</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>המונחים: right</translation>
+        <translation>ימין-תחתון</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2354,11 +2354,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>שפה</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap Shift</translation>
+        <translation>הזזת הצמדה</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2366,19 +2366,19 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Vertical</source>
-        <translation>המונחים</translation>
+        <translation>אנכי</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation>אופקי</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation>רוחב:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית בסיס:</translation>
     </message>
 </context>
 <context>
@@ -2389,27 +2389,27 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap Shift</translation>
+        <translation>הזזת הצמדה</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation>רדיוס:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation>המונחים:</translation>
+        <translation>קצוות:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>פוליליין</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>סוף Snap:</translation>
+        <translation>הצמדה סופית:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>תגית:</translation>
+        <translation>פינות:</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2417,7 +2417,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>התחל Snap:</translation>
+        <translation>הצמדה התחלתית:</translation>
     </message>
     <message>
         <source>Corner</source>
@@ -2425,19 +2425,19 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>בינוני-Vertical</translation>
+        <translation>אמצע אנכי</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>Mid-Horizontal</translation>
+        <translation>אמצע אופקי</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית בסיס:</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2449,7 +2449,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>שפה</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2461,11 +2461,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Vertical</source>
-        <translation>המונחים</translation>
+        <translation>אנכי</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation>אופקי</translation>
     </message>
 </context>
 <context>
@@ -2476,7 +2476,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>פוליליין</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2484,23 +2484,23 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Vertical</source>
-        <translation>המונחים</translation>
+        <translation>אנכי</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation>אופקי</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation>המונחים:</translation>
+        <translation>קצוות:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Quadrangle</translation>
+        <translation>רביעון</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית בסיס קבועה:</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2516,15 +2516,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>שפה</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation>תגית:</translation>
+        <translation>פינות:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap Shift</translation>
+        <translation>הזזת הצמדה</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2532,7 +2532,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation>רדיוס:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
@@ -2558,7 +2558,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>None</source>
-        <translation>אף אחד לא</translation>
+        <translation>ללא</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2566,7 +2566,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>התחלה</translation>
     </message>
     <message>
         <source>End</source>
@@ -2574,15 +2574,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>צוק:</translation>
+        <translation>סימן קצה:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>יחסי</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>הזזה:</translation>
     </message>
     <message>
         <source>Count:</source>
@@ -2590,31 +2590,31 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>התחל מעגל זווית:</translation>
+        <translation>זווית התחלת מעגל:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>אורך:</translation>
+        <translation>אורך סימן:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>טייפ:</translation>
+        <translation>הצמדה לסימן:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation>זווית:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>חלוקה</translation>
+        <translation>חלק</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation>אמצע</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation>קבוע</translation>
+        <translation>קבוע </translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -2629,19 +2629,19 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Radius Inner</translation>
+        <translation>רדיוס פנימי</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>פוליליין</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Redus Outer</translation>
+        <translation>רדיוס חיצוני</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation>סימפמטרי</translation>
+        <translation>סימטרי</translation>
     </message>
     <message>
         <source>Number:</source>
@@ -2684,7 +2684,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>PolyLines</source>
-        <translation>PolyLines</translation>
+        <translation>פוליליינים</translation>
     </message>
     <message>
         <source>Select</source>
@@ -2707,7 +2707,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation>אפשרויות Widget</translation>
+        <translation>אפשרויות ווידג'ט</translation>
     </message>
     <message>
         <source>Toolbar</source>
@@ -2743,7 +2743,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation>בדקו את הנתיב של גיליון בסגנון Qt.</translation>
+        <translation>הזן את הנתיב של גיליון סגנון Qt.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
@@ -2751,11 +2751,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation>השתמש בסמלים</translation>
+        <translation>השתמש באייקונים עם ערכת נושא</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation>עמודים שמאליים:</translation>
+        <translation>עמודות סרגל כלים שמאלי:</translation>
     </message>
 </context>
 <context>
@@ -2774,18 +2774,18 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>remove 0'</source>
-        <translation>להסיר 0</translation>
+        <translation>הסר 0'</translation>
     </message>
     <message>
         <source>remove 0"</source>
-        <translation>להסיר 0</translation>
+        <translation>הסר 0"</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>אפשרויות ANGELECT</translation>
+        <translation>אפשרויות זווית יחסית של קו</translation>
     </message>
     <message>
         <source>Spacing:</source>
@@ -2793,7 +2793,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation>מרחק מהפולילין המקורי</translation>
+        <translation>מרחק מהפוליליין המקורי</translation>
     </message>
     <message>
         <source>Copies:</source>
@@ -2877,15 +2877,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>&amp;Cascade</source>
-        <translation>ו-Cascade</translation>
+        <translation>&amp;קסקייד</translation>
     </message>
     <message>
         <source>&amp;Tile</source>
-        <translation>וטריילר</translation>
+        <translation>&amp;אריח</translation>
     </message>
     <message>
         <source>Tile &amp;Horizontally</source>
-        <translation>Tile &amp; Horizontally</translation>
+        <translation>אריח &amp;אופקי</translation>
     </message>
     <message>
         <source>Creating new file...</source>
@@ -2897,11 +2897,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Loaded document: </source>
-        <translation>מסמך טעון:</translation>
+        <translation>מסמך טעון: </translation>
     </message>
     <message>
         <source>Opening aborted</source>
-        <translation>פתיחה</translation>
+        <translation>פתיחה בוטלה</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -2971,31 +2971,31 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <source>Cannot open the file
 %1
 Please check the permissions.</source>
-        <translation>לא יכול לפתוח את הקובץ
+        <translation>לא ניתן לפתוח את הקובץ
 %1
-אנא בדוק את הרשאות.</translation>
+בדוק הרשאות.</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>המונחים:</translation>
+        <translation>&amp;פוליליין</translation>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation>עיצוב אוטומטי...</translation>
+        <translation>שומר ציור אוטומטית...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation>ציור אוטומטי</translation>
+        <translation>ציור נשמר אוטומטית</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation>Cannot Auto-save הקובץ
+        <translation>לא ניתן לשמור אוטומטית את הקובץ
 %1
-אנא בדוק את הרשאות.
-נכות אוטומטית.</translation>
+בדוק הרשאות.
+שמירה אוטומטית מושבתת.</translation>
     </message>
     <message>
         <source>Import</source>
@@ -3015,95 +3015,95 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation>אזהרה: קובץ כבר נפתח:</translation>
+        <translation>אזהרה: הקובץ כבר פתוח : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
-        <translation>לא יכול להציל את הקובץ</translation>
+        <translation>לא ניתן לשמור את הקובץ </translation>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation>אנא בדוק את שם הקובץ ואת הרשאות.</translation>
+        <translation> , בדוק את שם הקובץ והרשאות.</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation>Tile &amp;Vertly</translation>
+        <translation>אריח &amp;אנכי</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation>מצב T&amp;B</translation>
+        <translation>מצב &amp;לשוניות</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation>מסמך חדש מתבנית:</translation>
+        <translation>מסמך חדש מתבנית: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation>תבנית Aborted</translation>
+        <translation>בחירת תבנית בוטלה</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation>חיסכון אוטומטי נכשל</translation>
+        <translation>שמירה אוטומטית נכשלה</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>File</translation>
+        <translation>קובץ</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Editעריכה</translation>
+        <translation>עריכה</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>View</translation>
+        <translation>תצוגה</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation>Snap Selection</translation>
+        <translation>הצמדה לבחירה</translation>
     </message>
     <message>
         <source>Tool Options</source>
-        <translation>אפשרויות</translation>
+        <translation>אפשרויות כלי</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation>ייצוא</translation>
+        <translation>ייצא כ</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation>Compiler: Clang%1.%2.%3</translation>
+        <translation>מהדר: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation>GNU GCC%1.%3.%</translation>
+        <translation>מהדר: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation>תגית: %1</translation>
+        <translation>גרסת Qt: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation>המונחים: Draft Mode</translation>
+        <translation>מצב טיוטה</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>יצוא PDF</translation>
+        <translation>ייצא כ-PDF</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>יצוא</translation>
+        <translation>ייצוא</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation>לא יכול לפתוח את הקובץ
+        <translation>לא ניתן לפתוח את הקובץ
 %1
-אנא בדוק את קיומו ואת הרשאות.</translation>
+בדוק את קיומו והרשאות.</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation>"%1" לא קיים. פתיחה</translation>
+        <translation>הקובץ '%1' לא קיים. פתיחה בוטלה</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3111,11 +3111,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation>הזמנה</translation>
+        <translation>&amp;סדר</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation>הזמנה</translation>
+        <translation>סדר</translation>
     </message>
     <message>
         <source>Select</source>
@@ -3131,27 +3131,27 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation>&amp; Curve</translation>
+        <translation>&amp;עקומה</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curve</translation>
+        <translation>עקומה</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation>אליפסה</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>פוליליין</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>המימד</translation>
+        <translation>מידה</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>Modify</translation>
+        <translation>שנה</translation>
     </message>
     <message>
         <source>Info</source>
@@ -3159,51 +3159,51 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Pen</source>
-        <translation>הפין</translation>
+        <translation>עט</translation>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation>פתח את הקובץ האחרון...</translation>
+        <translation>פותח קובץ אחרון...</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation>אזורי דוק</translation>
+        <translation>אזורי עגינה</translation>
     </message>
     <message>
         <source>Grid Status</source>
-        <translation>מצב גריידי</translation>
+        <translation>מצב רשת</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation>ארגזים</translation>
+        <translation>סרגלי כלים</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation>תגית: Dockwidgets</translation>
+        <translation>ווידג'טים מעוגנים</translation>
     </message>
     <message>
         <source>Device Options</source>
-        <translation>אפשרויות התקן</translation>
+        <translation>אפשרויות מכשיר</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation>התקן</translation>
+        <translation>מכשיר</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>אפשרויות</translation>
+        <translation>&amp;אפשרויות</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation>המונחים:</translation>
+        <translation>ת&amp;וספות</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation>Dime &amp;nsion</translation>
+        <translation>מיד&amp;ה</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation>דוק Wid &amp;gets</translation>
+        <translation>וויד&amp;ג'טים מעוגנים</translation>
     </message>
     <message>
         <source>Recent Files</source>
@@ -3211,7 +3211,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation>Microsoft Visual C++</translation>
+        <translation>מהדר: Microsoft Visual C++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
@@ -3223,7 +3223,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Contributors</source>
-        <translation>Contributors</translation>
+        <translation>תורמים</translation>
     </message>
     <message>
         <source>License</source>
@@ -3235,73 +3235,73 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>בורא עולם</translation>
+        <translation>יוצר סרגל כלים</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>תפריט הבורא</translation>
+        <translation>יוצר תפריט</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation>תגית: Assigner</translation>
+        <translation>מקצה תפריט</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;tools</translation>
+        <translation>&amp;כלים</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation>ו-Drawings</translation>
+        <translation>&amp;ציורים</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation>חיסכון: %1</translation>
+        <translation>שומר ציור: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation>חיסכון בוטלה</translation>
+        <translation>שמירה בוטלה</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation>סגירת</translation>
+        <translation>סוגר ציור</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation>לחסוך שינויים ב הפריט הבא?
+        <translation>שמור שינויים בפריט הבא?
 %1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>ו-Save</translation>
+        <translation>&amp;שמור</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>הצילו ואס...</translation>
+        <translation>שמור &amp;כ...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation>%1</translation>
+        <translation>&amp;שמור %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation>חסוך %1 &amp;as...</translation>
+        <translation>שמור %1 &amp;כ...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation>המונחים:Window Mode</translation>
+        <translation>מצב &amp;חלון</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation>ו-Layout</translation>
+        <translation>&amp;פריסה</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation>עגול</translation>
+        <translation>מעוגל</translation>
     </message>
     <message>
         <source>Triangular</source>
-        <translation>Triangular</translation>
+        <translation>משולש</translation>
     </message>
     <message>
         <source>North</source>
@@ -3321,19 +3321,19 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation>וסידור</translation>
+        <translation>&amp;סדר</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation>&amp;Maximized</translation>
+        <translation>&amp;מוגדל</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation>להציל את הכל בוטלה</translation>
+        <translation>שמור הכל בוטל</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation>כל ביטול</translation>
+        <translation>סגור הכל בוטל</translation>
     </message>
     <message>
         <source>The Code</source>
@@ -3341,68 +3341,68 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Cmd</source>
-        <translation>Cmd</translation>
+        <translation>פקודה</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation>צף</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation>דוק</translation>
+        <translation>עגן</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
-        <translation>ויסקי</translation>
+        <translation>&amp;ויקי</translation>
     </message>
     <message>
         <source>User's &amp;Manual</source>
-        <translation>User's &amp; Manual</translation>
+        <translation>&amp;מדריך למשתמש</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation>&amp;Commands</translation>
+        <translation>&amp;פקודות</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation>ו-Style Sheets</translation>
+        <translation>גיליונות &amp;סגנון</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation>Wid &amp;gets</translation>
+        <translation>וויד&amp;ג'טים</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation>&amp; Forum</translation>
+        <translation>&amp;פורום</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation>Zulip &amp;Chat</translation>
+        <translation>&amp;צ'אט Zulip</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation>עדכון מידע</translation>
+        <translation>מידע &amp;גרסה</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation>On &amp;line</translation>
+        <translation>ב&amp;אינטרנט</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation>ו-Doate</translation>
+        <translation>&amp;תרום</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>אנא התאימו את קנה המידה והמיקום בדפוס בתצוגה מקדימה ראשונה.</translation>
+        <translation>אנא התאם קנה מידה ומיקום בתצוגה מקדימה של הדפסה קודם.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation>פנט</translation>
+        <translation>פלטת עטים</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>שכבת עץ</translation>
+        <translation>עץ שכבות</translation>
     </message>
 </context>
 <context>
@@ -3410,30 +3410,30 @@ Please check its existence and permissions.</source>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>בריחה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>Spacebar: Refiling Mode to Normal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>Spacebar: להגדיר באופן זמני מצב ריצוף בחינם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_ActiveLayerName</name>
     <message>
         <source>Selection</source>
-        <translation>בחירת בחירה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Current Layer</source>
-        <translation>שכבה נוכחית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -3441,283 +3441,278 @@ Please check its existence and permissions.</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC - /W3C /DTD HTML 4.0/EN" http: www.w3.org/TR/REC-html40/מוגבל.
-&lt;html&gt; &lt;head&gt; &lt;meta name="qrichtext" contentPSK /&gt; &lt;style Type="text/css"
-P, Li {לבן-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style="גופן-משפחה: 'Helvetica'; בגודל גופני 7pt; משקל גופני:400; סגנון גופני: נורמלי; '
-&lt;p סגנון=" שולי-top:0px; שולי-bottom:0px; שולי-שמאל:0px; שולי-right:0px;-qt-block-indent:0; טקסט-indent:0px;" שם ה- Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_BlockDialog</name>
     <message>
         <source>Block Settings</source>
-        <translation>הגדרות בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block Name:</source>
-        <translation>שם בלוק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Renaming Block</source>
-        <translation>רן בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>לא יכול להיקרא בלוק. בלוק בשם "%1" כבר קיים.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_BlockWidget</name>
     <message>
         <source>Rename the active block</source>
-        <translation>שם מקור: The Activeblock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit the active block
 in a separate window</source>
-        <translation>Edit the Activeblock
-בחלון נפרד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Insert the active block</source>
-        <translation>הכנס את הבלוק הפעיל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block Menu</source>
-        <translation>התפריט בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Defreeze all Blocks</source>
-        <translation>כל הבלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Freeze all Blocks</source>
-        <translation>לשחרר את כל הבלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation>תגית: Block</translation>
+        <translation type="unfinished">הוסף &amp;בלוק</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation>לחסום</translation>
+        <translation type="unfinished">ה&amp;סר בלוק</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation>תגית: Block</translation>
+        <translation type="unfinished">ע&amp;רוך בלוק</translation>
     </message>
     <message>
         <source>&amp;Toggle Visibility</source>
-        <translation>תגית: Visibility</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Show all blocks</source>
-        <translation>הצג את כל בלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide all blocks</source>
-        <translation>להסתיר את כל המכשולים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation>שם מקור: Block</translation>
+        <translation type="unfinished">שינוי &amp;שם לבלוק</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation>תגית: Block</translation>
+        <translation type="unfinished">ה&amp;כנס בלוק</translation>
     </message>
     <message>
         <source>&amp;Create New Block</source>
-        <translation>חדש בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Create Block</source>
-        <translation>ליצור בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add an empty block</source>
-        <translation>הוסף בלוק ריק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>save the active block to a file</source>
-        <translation>שמור את הבלוק הפעיל לקובץ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove block</source>
-        <translation>הסרת בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Looking for matching block names</source>
-        <translation>חיפוש שמות בלוק</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_ColorBox</name>
     <message>
         <source>By Layer</source>
-        <translation>על ידי Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Block</source>
-        <translation>על ידי Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Red</source>
-        <translation>אדום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Yellow</source>
-        <translation>צהוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Green</source>
-        <translation>ירוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cyan</source>
-        <translation>Cyan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Blue</source>
-        <translation>כחול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Magenta</source>
-        <translation>Magenta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Black / White</source>
-        <translation>שחור / לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Gray</source>
-        <translation>אפור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Light Gray</source>
-        <translation>אור אפור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unchanged</source>
-        <translation>שינוי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Red</source>
-        <translation>אדום כהה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Yellow</source>
-        <translation>צהוב כהה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Green</source>
-        <translation>ירוק כהה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Cyan</source>
-        <translation>שחור Cyan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Blue</source>
-        <translation>כחול כהה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Magenta</source>
-        <translation>תגית: Dark Magenta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation>אפור כהה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom</source>
-        <translation>מותאם אישית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>/ColorBox</source>
-        <translation>תגית:ColorBox</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Custom Picked</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CommandEdit</name>
     <message>
         <source>clear</source>
-        <translation>ברור</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CommandHistory</name>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp; Copy</translation>
+        <translation type="unfinished">ה&amp;עתק</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>בחר והכל</translation>
+        <translation type="unfinished">בחר &amp;הכל</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Clear</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CommandWidget</name>
     <message>
         <source>Command Line</source>
-        <translation>פיקוד קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command:</source>
-        <translation>פיקוד:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unknown command: %1</source>
-        <translation>פקודה לא ידועה: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command history and output</source>
-        <translation>היסטוריה ופלט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>בריחה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dock</source>
-        <translation>דוק</translation>
+        <translation type="unfinished">מעוגן</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Float</translation>
+        <translation type="unfinished">צף</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation>קו פיקוד</translation>
+        <translation type="unfinished">שורת פקודה</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation>Cmd</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_CoordinateWidget</name>
     <message>
         <source>Coordinates</source>
-        <translation>לתאם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3725,337 +3720,336 @@ in a separate window</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DimensionLabelEditor</name>
     <message>
         <source>Dimension Label Editor</source>
-        <translation>מותג</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimension Label:</source>
-        <translation>תוויות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Label:</source>
-        <translation>תוויות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Insert:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>° (Degree)</source>
-        <translation>(Degree)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>± (Plus / Minus)</source>
-        <translation>± (Plus / Minus)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>× (Times)</source>
-        <translation>× (Times)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>÷ (Division)</source>
-        <translation>÷ (Division)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>⌀ (Diameter)</source>
-        <translation>⌀ (Diameter)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>π (Pi)</source>
-        <translation>π (Pi)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; פורמט הטקסט ממדי, &lt; &gt; ניתן להשתמש בו כבעל מקום עבור ערך המדידה המדידה&lt;/body&gt;&lt;/body&gt;&lt;/html&gt;&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgArc</name>
     <message>
         <source>Arc</source>
-        <translation>Arc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (y):</source>
-        <translation>מרכז (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (x):</source>
-        <translation>מרכז (x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start Angle:</source>
-        <translation>התחל זווית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>End Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Reversed</source>
-        <translation>הכומר</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgAttributes</name>
     <message>
         <source>Attributes</source>
-        <translation>Attributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>החל תכונות גם לכל sub-entities של INSERT שנבחר.
-הדבר מקנה מחדש את כל הישויות של הבלוק עצמו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Apply attributes Block-deep</source>
-        <translation>המונחים: block-deep</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgCircle</name>
     <message>
         <source>Circle</source>
-        <translation>מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (y):</source>
-        <translation>מרכז (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (x):</source>
-        <translation>מרכז (x):</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgDimLinear</name>
     <message>
         <source>Linear Dimension</source>
-        <translation>אתר Linear Dimension</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgDimension</name>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>המימד</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgEllipse</name>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Center (y):</source>
-        <translation>מרכז (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (x):</source>
-        <translation>מרכז (x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>End Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start Angle:</source>
-        <translation>התחל זווית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rotation:</source>
-        <translation>רוטציה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Minor:</source>
-        <translation>קטן:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Major:</source>
-        <translation>גדול:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Reversed</source>
-        <translation>הכומר</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgHatch</name>
     <message>
         <source>Choose Hatch Attributes</source>
-        <translation>בחר Hatch Attributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pattern</source>
-        <translation>תבנית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale:</source>
-        <translation>סולם:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation>למלא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Preview</source>
-        <translation>ביקורת</translation>
+        <translation type="unfinished">תצוגה מקדימה</translation>
     </message>
     <message>
         <source>Enable Preview</source>
-        <translation>אפשרות Preview</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Area</source>
-        <translation>שטח</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgImage</name>
     <message>
         <source>Image</source>
-        <translation>תמונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Height:</source>
-        <translation>גובה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>insert (x):</source>
-        <translation>כניסה (x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale:</source>
-        <translation>סולם:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Size (px):</source>
-        <translation>גודל (px):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>path:</source>
-        <translation>נתיב:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>insert (y):</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select an image file</source>
-        <translation>בחר קובץ תמונה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgInitial</name>
     <message>
         <source>Welcome</source>
-        <translation>ברוכים הבאים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default Unit:</source>
-        <translation>יחידת Default:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>GUI Language:</source>
-        <translation>שפה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command Language:</source>
-        <translation>שפת פיקוד:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
@@ -4063,236 +4057,232 @@ This recursively modifies all entities of the Block itself.</source>
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>&lt;font size=" +1" &lt;b&gt; ברוכים הבאים ל- LibreCAD&lt;/b&gt;
-&lt;/font&gt;
-&lt;br&gt;
-נא לבחור את היחידה שברצונך להשתמש עבור רישומים חדשים ואת השפה המועדפת עליך.
-(אפשר לשנות את ההגדרות מאוחר יותר)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgInsert</name>
     <message>
         <source>Insert</source>
-        <translation>הכנס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Insertion point (x):</source>
-        <translation>המונחים:x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Insertion point (y):</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rows:</source>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Columns:</source>
-        <translation>העמודים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Row Spacing:</source>
-        <translation>Row Spacing:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Column Spacing:</source>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale X:</source>
-        <translation>סולם X:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale Y:</source>
-        <translation>סולם Y:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgLine</name>
     <message>
         <source>Line</source>
-        <translation>קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>End point (x):</source>
-        <translation>נקודה סופית (x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>End point (y):</source>
-        <translation>סוף נקודה (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start point (y):</source>
-        <translation>נקודת התחלה (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start point (x):</source>
-        <translation>נקודת התחלה (x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ID: </source>
-        <translation>מזהה:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgMText</name>
     <message>
         <source>MText</source>
-        <translation>MText</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>ו-Height:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Default line spacing</source>
-        <translation>קו ספיגה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alt+D</source>
-        <translation>Alt+D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alignment</source>
-        <translation>Alignment</translation>
+        <translation type="unfinished">ישור</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation>Top ימין</translation>
+        <translation type="unfinished">פינה ימנית עליונה</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation>למעלה שמאל</translation>
+        <translation type="unfinished">פינה שמאלית עליונה</translation>
     </message>
     <message>
         <source>Middle Left</source>
-        <translation>שמאל</translation>
+        <translation type="unfinished">מרכז שמאל</translation>
     </message>
     <message>
         <source>Middle Center</source>
-        <translation>מרכז הביניים</translation>
+        <translation type="unfinished">מרכז מרכז</translation>
     </message>
     <message>
         <source>Middle Right</source>
-        <translation>זכות ביניים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation>שמאל תחתית</translation>
+        <translation type="unfinished">פינה שמאלית תחתונה</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation>זכות תחתית</translation>
+        <translation type="unfinished">פינה ימנית תחתונה</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation>מרכז תחתית</translation>
+        <translation type="unfinished">למטה במרכז</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation>מרכז Top</translation>
+        <translation type="unfinished">למעלה במרכז</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>זווית</translation>
+        <translation type="unfinished">זווית</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear Text</source>
-        <translation>טקסט ברור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Load Text From File</source>
-        <translation>עקבו אחרי File</translation>
+        <translation type="unfinished">טען מקובץ טקסט</translation>
     </message>
     <message>
         <source>Save Text To File</source>
-        <translation>שמור טקסט לקובץ</translation>
+        <translation type="unfinished">שמור לקובץ טקסט</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>לחתוך</translation>
+        <translation type="unfinished">גזור</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>העתק</translation>
+        <translation type="unfinished">העתק</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>הגייה</translation>
+        <translation type="unfinished">הדבק</translation>
     </message>
     <message>
         <source>Insert Symbol</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished">הוסך סימן</translation>
     </message>
     <message>
         <source>Degree (°)</source>
-        <translation>דרגה ( °)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Plus / Minus (±)</source>
-        <translation>בנוסף / Minus (±)</translation>
+        <translation type="unfinished">חיבור / חיסור (±)</translation>
     </message>
     <message>
         <source>At (@)</source>
-        <translation>(@)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>האש (#)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dollar ($)</source>
-        <translation>דולר ()</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Copyright (©)</source>
-        <translation>זכויות יוצרים (SO)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Registered (®)</source>
-        <translation>רשום (®)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paragraph (§)</source>
-        <translation>סעיף (סעיף)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pi (π)</source>
-        <translation>פי (π)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pound (£)</source>
-        <translation>פאונד (£)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Yen (¥)</source>
@@ -4300,7 +4290,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Times (×)</source>
-        <translation>זמנים (x)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Division (÷)</source>
@@ -4320,591 +4310,591 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>[0000-007F] Basic Latin</source>
-        <translation>(0000-007F) לטינית בסיסית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0080-00FF] Latin-1 Supplementary</source>
-        <translation>[0080-00FF] Latin-1ary</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0100-017F] Latin Extended-A</source>
-        <translation>[0100-017F] Latin Extended- A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0180-024F] Latin Extended-B</source>
-        <translation>[0180-024F] Latin Extended-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0250-02AF] IPA Extensions</source>
-        <translation>[0250-02AF] הרחבת IPA</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation>[02B0-02FF] מכתבים משתנים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
-        <translation>[0300-036F] שילוב של מארקים קריטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation>[0370-03FF] יווני ו-Cאופטיקה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0400-04FF] Cyrillic</source>
-        <translation>(04-04FF) Cyrillic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0500-052F] Cyrillic Supplementary</source>
-        <translation>(0500-052F) Cyrillic Supplementary</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0530-058F] Armenian</source>
-        <translation>(0530-058F) ארמני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0590-05FF] Hebrew</source>
-        <translation>[059] העברית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0600-06FF] Arabic</source>
-        <translation>[060067] ערבית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-07] סוריה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0780-07BF] Thaana</source>
-        <translation>[0780-07] Thaana</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0900-097F] Devanagari</source>
-        <translation>[0900-097F] Devanagari</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0980-09FF] Bengali</source>
-        <translation>[0980-09FF] Bengali</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0A00-0A7F] Gurmukhi</source>
-        <translation>[0A00-0A7F] גורמו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation>[0A80-0AFF] Gujarati</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0B00-0B7F] Oriya</source>
-        <translation>[0B00-0B7F] Oriya</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0B80-0BFF] Tamil</source>
-        <translation>(0B80-0BFF)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0C00-0C7F] Telugu</source>
-        <translation>[0C00-0C7F] Telugu</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0C80-0CFF] Kannada</source>
-        <translation>[0C80-0CFF] Kannada</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation>[0D00-0D7F] מלאאלאם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0D80-0DFF] Sinhala</source>
-        <translation>[0D80-0DFF] Sinhala</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0E00-0E7F] Thai</source>
-        <translation>[0E00-0E7F] תאילנד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0E80-0EFF] Lao</source>
-        <translation>[0E80-0EFF] Lao</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation>[0F00-0FFF] הטיבטית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1000-109F] Myanmar</source>
-        <translation>(1000-109F) מיאנמר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10A0-10FF] Georgian</source>
-        <translation>[10A0-10FF] גאורגיה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1100-11FF] Hangul Jamo</source>
-        <translation>1300-11FF: Hangul Jamo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1200-137F] Ethiopic</source>
-        <translation>(1200-137F) Ethiopic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[13A0-13FF] Cherokee</source>
-        <translation>[13] צ'ירוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
-        <translation>1700-167F) Unified Canadian Abריג'י סילביק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1680-169F] Ogham</source>
-        <translation>880-169F) Ogham</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[16A0-16FF] Runic</source>
-        <translation>0-16FF - Runic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1700-171F] Tagalog</source>
-        <translation>[1700-171F] Tagalog</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1720-173F] Hanunoo</source>
-        <translation>1720-173F) Hanunoo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1740-175F] Buhid</source>
-        <translation>[1740-175F] בויד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1760-177F] Tagbanwa</source>
-        <translation>[1760-177F] Tagbanwa</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1780-17FF] Khmer</source>
-        <translation>1780-17FF</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1800-18AF] Mongolian</source>
-        <translation>1800-18AF) מונגוליה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1E00-1EFF] Latin Extended Additional</source>
-        <translation>[1E00-1EFF] לטינית מורחבת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1F00-1FFF] Greek Extended</source>
-        <translation>[1F00-1FFF] יווני מורחב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2000-206F] General Punctuation</source>
-        <translation>(2000-206F) הגנרל טיהור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2070-209F] Superscripts and Subscripts</source>
-        <translation>[2070-209F] Superscripts and Subscripts</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation>[20A0-20CF] מטבעות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20D0-20FF] Combining Marks for Symbols</source>
-        <translation>[20D0-20FF] שילוב מארקים עבור סמלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation>6.200-214F) Letterlike Symbols</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2150-218F] Number Forms</source>
-        <translation>53-218F) מספר טפסים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2190-21FF] Arrows</source>
-        <translation>990-21 חץ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2200-22FF] Mathematical Operators</source>
-        <translation>[2200-22FF] מפעילי מתמטיקה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2300-23FF] Miscellaneous Technical</source>
-        <translation>[2300-23FF] טכנית מסולנית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2400-243F] Control Pictures</source>
-        <translation>2400-243F תמונות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2440-245F] Optical Character Recognition</source>
-        <translation>[24-245F] זיהוי תווים אופטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2460-24FF] Enclosed Alphanumerics</source>
-        <translation>[2460-24FF] סוגרים את אלפאנומריקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2500-257F] Box Drawing</source>
-        <translation>[2500-257F] Box Drawing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2580-259F] Block Elements</source>
-        <translation>[2580-259F] בלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[25A0-25FF] Geometric Shapes</source>
-        <translation>[25A0-25FF] Geometric Shapes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2600-26FF] Miscellaneous Symbols</source>
-        <translation>[2600FF] סמלים מזוייפים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2700-27BF] Dingbats</source>
-        <translation>2700-27BF) Dingbats</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
-        <translation>[27C-27EF] סימנים מתמטיים מסולניים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[27F0-27FF] Supplemental Arrows-A</source>
-        <translation>[27F0-27FF] חץ משלים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2800-28FF] Braille Patterns</source>
-        <translation>(2800-28FF) Braille Patterns</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2900-297F] Supplemental Arrows-B</source>
-        <translation>[2900-297F] חץ-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
-        <translation>[2980-29FF] סימנים מתמטיים מסולניים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
-        <translation>[2A00-2AFF] אופרות מתמטיות נוספות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2E80-2EFF] CJK Radicals Supplement</source>
-        <translation>(2E80-2EFF) CJK Radicals Supplement</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2F00-2FDF] Kangxi Radicals</source>
-        <translation>[2F00-2FDF] Kangxi Radicals</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2FF0-2FFF] Ideographic Description Characters</source>
-        <translation>[2FF0-2FFF] דמויות תיאור אידיאולוגיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3000-303F] CJK Symbols and Punctuation</source>
-        <translation>(3000-303F) CJK Symbols and Puncation</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3040-309F] Hiragana</source>
-        <translation>[3040-309F] הייגן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[30A0-30FF] Katakana</source>
-        <translation>[30A0-30FF] קתרינה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3100-312F] Bopomofo</source>
-        <translation>[3100-312F] Bopomofo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3130-318F] Hangul Compatibility Jamo</source>
-        <translation>[31-318F] Hangul Compatibility Jamo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3190-319F] Kanbun</source>
-        <translation>[31319F] קנבון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[31A0-31BF] Bopomofo Extended</source>
-        <translation>[31A0-31BF] Bopomofo Extended</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3200-32FF] Enclosed CJK Letters and Months</source>
-        <translation>[3200-32FF] סגרו מכתבים וחודשים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3300-33FF] CJK Compatibility</source>
-        <translation>[3300-33FF] CJK Compatibility</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
-        <translation>[3400-4DBF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[4E00-9FAF] CJK Unified Ideographs</source>
-        <translation>[4E00-9FAF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[A000-A48F] Yi Syllables</source>
-        <translation>(A000-A48F) ייוותר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[A490-A4CF] Yi Radicals</source>
-        <translation>(A490-A4CF) יו רדיקלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[AC00-D7AF] Hangul Syllables</source>
-        <translation>[AC00-D7AF] Hangul Syllables</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[D800-DBFF] High Surrogates</source>
-        <translation>(D800-DBFF) High Surrogates</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[DC00-DFFF] Low Surrogate Area</source>
-        <translation>[DC00-DFFF] אזור חקירה נמוך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[E000-F8FF] Private Use Area</source>
-        <translation>אזור השימוש הפרטי (E000-F8FF)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[F900-FAFF] CJK Compatibility Ideographs</source>
-        <translation>(F900-FAFF) CJK Compatibility Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
-        <translation>[FB00-FB4F] מצגות אלפביתיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
-        <translation>[FB50-FDFF] מיצג ערבי A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE00-FE0F] Variation Selectors</source>
-        <translation>(FE00-FE0F) Variation Selectors</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE20-FE2F] Combining Half Marks</source>
-        <translation>[FE20-FE2F] שילוב חצי מארק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE30-FE4F] CJK Compatibility Forms</source>
-        <translation>[FE30-FE4F] CJK Compatibility Forms</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE50-FE6F] Small Form Variants</source>
-        <translation>(FE50-FE6F) Small Form Variants</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
-        <translation>[FE70-FEFF] מיצגים ערביים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
-        <translation>[FF00-FFEF] טפסים חציוויים ומלאי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FFF0-FFFF] Specials</source>
-        <translation>[FFF0-FFFFFF] מיוחדים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10300-1032F] Old Italic</source>
-        <translation>[10300-1032F] הישן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10330-1034F] Gothic</source>
-        <translation>[10330-1034F] גותית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10400-1044F] Deseret</source>
-        <translation>[10400-1044F] Deseret</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
-        <translation>[1D000-1D0FF] סמלים מוזיקליים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D100-1D1FF] Musical Symbols</source>
-        <translation>[1D100-1D1FF] תווים מוזיקליים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
-        <translation>[1D400-1D7FF] סמלים מתמטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
-        <translation>[20000-2A6DF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
-        <translation>(2F800-2FA1F) CJK Compatibility Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[E0000-E007F] Tags</source>
-        <translation>(E0000-E007F) תגיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
-        <translation>(F0000-FFFFFFD) שטח שימוש פרטי משלים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
-        <translation>[100000-10FFFD] שימוש פרטי בתוספת שטח-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diameter (⌀)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Line spacing:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font Settings</source>
-        <translation>הגדרות דיבור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font:</source>
-        <translation>פונט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text Direction</source>
-        <translation>כיוון טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left to right</source>
-        <translation>לשמאל to right</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right to left</source>
-        <translation>ימין לשמאל</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgMirror</name>
     <message>
         <source>Mirroring Options</source>
-        <translation>אפשרויות מראות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgMove</name>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Multiple Copies</source>
-        <translation>ראשי תיבות של Multiple Copies</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move/Copy Options</source>
-        <translation>אפשרויות ל-Copy Options</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies. Maximum 100</source>
-        <translation>מספר עותקים מקסימום 100</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgMoveRotate</name>
     <message>
         <source>Move/Rotate Options</source>
-        <translation>אפשרויות ל-Rotate Options</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Angle (a):</source>
-        <translation>&amp; Angle (a):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Multiple Copies</source>
-        <translation>ראשי תיבות של Multiple Copies</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsDrawing</name>
     <message>
         <source>Main Unit</source>
-        <translation>יחידה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length</source>
-        <translation>אורך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Decimal</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scientific</source>
@@ -4920,7 +4910,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Fractional</source>
-        <translation>הונאה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle</source>
@@ -4928,7 +4918,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Decimal Degrees</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radians</source>
@@ -4940,7 +4930,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>linear</source>
-        <translation>ליניארי</translation>
+        <translation type="unfinished">קווי</translation>
     </message>
     <message>
         <source>angular</source>
@@ -4956,15 +4946,15 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Deg/min/sec</source>
-        <translation>Deg/min</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Gradians</source>
-        <translation>אפוטרופוסים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Surveyor's units</source>
-        <translation>יחידות הסקר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Options</source>
@@ -4972,7 +4962,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
-        <translation>עבור פורמטים באורך 'Engineering' ו-'Architectural', יש להגדיר את היחידה לאינץ'.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arrow size:</source>
@@ -4980,7 +4970,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Dimension line gap:</source>
-        <translation>פער קו מימדי:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Preferences</source>
@@ -5004,11 +4994,11 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>&amp;Main drawing unit:</source>
-        <translation>יחידת הציור העיקרית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Format:</source>
-        <translation>פורמט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>P&amp;recision:</source>
@@ -5016,11 +5006,11 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>F&amp;ormat:</source>
-        <translation>F&amp;ormat:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pre&amp;cision:</source>
-        <translation>עדיפות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Dimensions</source>
@@ -5052,15 +5042,15 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Number of line segments per spline patch:</source>
-        <translation>מספר פלחי קו לכל תיקון:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Crosshair</source>
-        <translation>צלב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left crosshair with isometric grid</source>
-        <translation>עקבו אחרי Isometric Network</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left</source>
@@ -5068,7 +5058,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Top crosshair with isometric grid</source>
-        <translation>ראשי תיבות של Isometric Network</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Top</source>
@@ -5076,7 +5066,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Right crosshair with isometric grid</source>
-        <translation>עקבו אחרי Isometric Network</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right</source>
@@ -5084,27 +5074,27 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Use orthogonal grid</source>
-        <translation>שימוש ברשת Orthogonal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Orthogonal Grid</source>
-        <translation>Orthogonal Grid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use isometric grid</source>
-        <translation>שימוש ברשת isometric</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Isometric Grid</source>
-        <translation>Isometric Grid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tick size:</source>
-        <translation>גודל טיק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; גודל ה-Dick הגדר את זה ל 0 תבטל את מדקת הממד. חצים ממד לא יימשכו כאשר ניתן לדגמת ממד.&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;&lt;/html&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Horizontal</source>
@@ -5112,15 +5102,15 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>General Scale:</source>
-        <translation>סולם כללי:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; קנה מידה להכפיל את כל ערכי הממד.&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;&lt;/body&gt;html&gt;&gt;&lt;/body&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension geometries.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale כדי להכפיל את כל סוגי הגיאוגרפיה ממדיים.&lt;/p&gt;body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text style:</source>
@@ -5128,11 +5118,11 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>'.' (Period)</source>
-        <translation>(Period)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>',' (Comma)</source>
-        <translation>"Comma" (Comma)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Decimal separator:</source>
@@ -5140,625 +5130,617 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>Linear units:</source>
-        <translation>יחידות קואר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Color:</source>
-        <translation>צבע:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length Factor:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular units:</source>
-        <translation>יחידות Angular:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Linear zeros:</source>
-        <translation>קואר אפס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Format units</source>
-        <translation>פורמט יחידות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; פער מרחק סביב טקסט&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text size &amp; position</source>
-        <translation>גודל טקסט ומיקום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length to enlarge over dimension line</source>
-        <translation>אורך להרחבת קו הממד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; גודל החץ של המימד &lt;a name="result box"/&gt;ללא אפקט כאשר גודל קרציות &lt;a name="result box"/&gt; הוא אחר מ- 0&lt;/p&gt;&lt;/body&gt;html&gt;&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation>קווים ממדיים, חצים וטעים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular zeros:</source>
-        <translation>Angular Zeros:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angular precision:</source>
-        <translation>דיוק ngular:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enlarge:</source>
-        <translation>Enlarge:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Linear precision:</source>
-        <translation>דיוק קוויר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; היערכות טקסט &lt;a name="result box" /&gt;relative to the Dimension line.&lt;/p&gt;&lt;/body&gt;html&gt;&lt;/&gt;&gt;html&gt;&lt;/&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Aligned</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; מקור:&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text alignment:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Extension lines</source>
-        <translation>הרחבת שורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fixed length:</source>
-        <translation>אורך קבוע:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Format</source>
-        <translation>פורמט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>ו-Height:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Width:</source>
-        <translation>וWidth:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Orientation</source>
-        <translation>אוריינטציה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Margins</source>
-        <translation>Margins</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bottom</source>
-        <translation>תחתית</translation>
+        <translation type="unfinished">למטה</translation>
     </message>
     <message>
         <source>Number of pages</source>
-        <translation>מספר הדפים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Horizontally:</source>
-        <translation>Horizontally:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Vertically:</source>
-        <translation>באופן רציני:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fixed extension line length</source>
-        <translation>קו הרחבה קבוע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Splines</source>
-        <translation>&amp; Splines</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>נקודות</translation>
+        <translation type="unfinished">נקודות</translation>
     </message>
     <message>
         <source>Point Style</source>
-        <translation>סגנון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Point Size</source>
-        <translation>גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dwg Units</source>
-        <translation>יחידות Dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Size relative to screen</source>
-        <translation>גודל יחסית למסך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Size in drawing units</source>
-        <translation>גודל של יחידות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>(0 =&gt; 5% relative to screen size)</source>
-        <translation>(=5% ביחס לגודל המסך)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Architectural (metric)</source>
-        <translation>אדריכלות (metric)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>לתבנית באורך "Architectural (metric)" יש להגדיר את היחידה למנטר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Screen %</source>
-        <translation>%</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsGeneral</name>
     <message>
         <source>Preferences</source>
-        <translation>העדפות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Translations:</source>
-        <translation>תרגום:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Patterns:</source>
-        <translation>תבניות Hatch:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fonts:</source>
-        <translation>פונטים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Part Libraries:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Language</source>
-        <translation>שפה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Graphic View</source>
-        <translation>תצוגה גרפית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Application Preferences</source>
-        <translation>דרישות Preferences</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Defaults for new drawings</source>
-        <translation>סימנים לציורים חדשים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Appearance</source>
-        <translation>&amp; Appearance</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;GUI Language:</source>
-        <translation>שפה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Command Language:</source>
-        <translation>שפה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Paths</source>
-        <translation>&amp;Paths</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Defaults</source>
-        <translation>ו-Defaults</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Unit:</source>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Backgr&amp;ound:</source>
-        <translation>מקרר וסאונד:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>G&amp;rid Color:</source>
-        <translation>צבע G&amp;rid:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Meta Grid Color:</source>
-        <translation>ו-Meta Grid Color:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A&amp;utomatically scale grid</source>
-        <translation>רשת A&amp;utomaticly scale</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>S&amp;elected Color:</source>
-        <translation>צבע נבחר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Highlighted Color:</source>
-        <translation>צבע מואר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please restart the application to apply all changes.</source>
-        <translation>אנא הפעל מחדש את היישום כדי ליישם את כל השינויים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alt+S</source>
-        <translation>Alt+S</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alt+U</source>
-        <translation>Alt+U</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Program Defaults</source>
-        <translation>תוכנית Defaults</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing unit.</source>
-        <translation>יחידת ציור.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Time between automatic saving of the document in minutes.</source>
-        <translation>זמן בין חיסכון אוטומטי של המסמך תוך דקות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>When set, LibreCAD will automatically generate a backup of your current drawing.</source>
-        <translation>כאשר נקבע, LibreCAD יפיק באופן אוטומטי גיבוי של הציור הנוכחי שלך.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto backup</source>
-        <translation>גיבוי אוטומטי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Template:</source>
-        <translation>תבנית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>St&amp;art Handle Color:</source>
-        <translation>צבע St&amp;art Handle:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Handle Color:</source>
-        <translation>צבע Handle:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;End Handle Color:</source>
-        <translation>סוף צבע:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation>צבעים גרפיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator:</source>
-        <translation>Snap אינדיקטור:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation>אנטישמיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
-        <translation>Modify שכבת ישויות נבחרות, ב-שכבת הפעלה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear Settings</source>
-        <translation>הגדרות ברורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restores program geometry/layout to original state</source>
-        <translation>שחזור תוכנית גיאומטריה / עיכוב למדינה מקורית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layout</source>
-        <translation>Layout</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restores the program to its original state</source>
-        <translation>לשחזר את התוכנית למדינה המקורית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All</source>
-        <translation>הכל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation>Scrollbars</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation>Snap אינדיקטור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation>תבנית Snap אינדיקטור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation>תגית: When Craping</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start in tab mode</source>
-        <translation>התחל במצב הכרטיסיה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Startup</source>
-        <translation>סטארטאפ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Display loading screen</source>
-        <translation>מסך טעינה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start with main window maximized</source>
-        <translation>התחל עם החלון הראשי למקסם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enable CAD dockwidgets</source>
-        <translation>בסביבה הקרובה של EnableCAD Dockwidgets</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enable CAD toolbars</source>
-        <translation>מלונות ב CAD Toolbars</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation>#1E90FF</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear settings</source>
-        <translation>הגדרות ברורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>This will also include custom menus and toolbars. Continue?</source>
-        <translation>זה יכלול גם תפריטים ועמודי כלים. ממשיכים?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; כאשר ניתן, הפעלת שכבה תשנה את כל הגופים שנבחרו לשכבה חדשה זו. כדי לשנות שכבה של ישויות מרובות: תחילה לבחור ישויות צורך; להפעיל שכבה בשכבה widget. זה הופך את כל הגופים שנבחרו להשתייך לשכבה החדשה.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Variable File:</source>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation>Minimal Grid Spacing (p&amp;x):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>N&amp;umber of preview entities:</source>
-        <translation>N &amp;umber של ישויות תצוגה מקדימה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Don't use native OS file open dialog</source>
-        <translation>אל תשתמש ב- Native OS קובץ דיאלוג פתוח</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto-panning</source>
-        <translation>Auto-paning</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide the relative-&amp;zero marker</source>
-        <translation>עקבו אחרי The יחסית- &amp; Zero Marker</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Alt+Z</source>
-        <translation>אלט+Z</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Visualize the entity under the cursor</source>
-        <translation>דמיין את הישות תחת cursor</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Mouse-over effects</source>
-        <translation>השפעות על עכברים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Relative-Zero Marker Color:</source>
-        <translation>&amp;Relative-Zero Marker Color:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto save time (minutes):</source>
-        <translation>זמן לחסוך ( דקות):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
-        <translation>למנוע לגלול כיוון בעת שימוש גלגל העכבר עם מפתח Shift.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert horizontal scrolling direction</source>
-        <translation>המונחים: soundingכיוון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
-        <translation>למנוע לגלול כיוון בעת שימוש גלגל העכבר עם מפתח Ctrl.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert vertical scrolling direction</source>
-        <translation>המונחים: soundingכיוון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inverts zoom direction when using mouse wheel.</source>
-        <translation>מונע את כיוון ה-Zoom בעת שימוש בגלגל העכבר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invert zoom direction</source>
-        <translation>המונחים: zoomכיוון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>הגדרות Keyboard</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Evaluate commands when SPACE BAR is pressed</source>
-        <translation>פקודות הערכה כאשר SPACE BAR הוא לחץ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle free snap mode when SPACE BAR is pressed</source>
-        <translation>עקבו אחרי SPACE BAR</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>CAD Preferences</source>
-        <translation>CAD העדפות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Automatically zoom drawing when opening</source>
-        <translation>ציור גן עדן אוטומטי בעת פתיחה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt; סגנון &lt;font-Family:'-apple-system','Blink MacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial's-Arial's-serif's,'s Color Emoji', Uegoe UImo's U'mego U's U's U'm'm'm'm'm's'm'm'm'm'm'm'm'm'm'm'm'm'm's's's's's's U's U'mto San'mto Sans's's'mto Sans',','mto Sans','mto Sans'mto Sans','mto Sans'mto Sans'mto Sans'mto Sans', 'Helve',',',', 'Helve,',',',',',',',',', תיקיית ספריה חלקית קובץ ספריית הסמל Dxf חייב להיות ממוקם subdirectories של תיקיה זו. השמות תת-קרקעיים יוצגו בדפדפן הספרייה.&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;p&gt; &lt;span style="פונט-משפחה: '-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans'&lt;/i' ,'Helvetica's-Arial's-serif's Color Emo','s", Ujimo's,'s: Ujimo', UI', UI's: UI's: UJack: UI's: UI's Dock: UJack: UJack: UJack: UJack's Dock &amp;'s Dock: , UJack's Dock &amp;'s: DR-Jack: DR-Jack: DR-Jack: , , , , VJack: ,'s Dock &amp;'Ric's Dock &amp;'s Dock'Tgoul: Eff's Dock &amp;'s: ,'s Dock's Dock: ,'Dget: Eff'T</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>פתח אחרון קבצים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; התכווצויות חופשיות באופן זמני כאשר ה-Spacebar נלחץ וחלון הפיקוד מופעל&lt;/p&gt;&lt;/body&gt;html&gt;&lt;/body&gt;html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsMakerCam</name>
     <message>
         <source>Layers</source>
-        <translation>שכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export invisible layers</source>
-        <translation>רשומות בלתי נראות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export visible construction layers</source>
-        <translation>שכבות בנייה גלויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Blocks</source>
-        <translation>בלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Convert blocks to safe inline SVG content</source>
-        <translation>המרת בלוקים לתוכן בטוח Inline SVG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ellipses / Ellipse arcs</source>
-        <translation>אליפס / Ellipse arcs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Approximate ellipses and ellipse arcs with cubic béziers</source>
-        <translation>Approximate ellipses ו-Ellipse arcs עם מאק béziers</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export as CAM/plain SVG</source>
-        <translation>המונחים: CAM / Explain SVG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default width of elements, mm</source>
-        <translation>רוחב של אלמנטים, מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Images</source>
-        <translation>תמונות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Raster Image export</source>
-        <translation>Raster Image יצוא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash/Dot Lines</source>
-        <translation>המונחים: dot Lines</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of the pattern, mm</source>
-        <translation>אורך התבנית, מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bake dash/dot lines to SVG path</source>
-        <translation>קווי Be dash/dot ל-SVG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
 that has been set invisibe ("display: none" or "visibility: hidden").</source>
-        <translation>MakerCAM נכון לנובמבר 2014 אינו מסתיר תוכן SVG
-זה מוגדר Invisibe ("הציג: לא" או "אפשרות: חבוי").</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
 because it does not take into account the reference point in the &lt;use&gt;.</source>
-        <translation>MakerCAM נכון לנובמבר 2014 אינו יכול להתמודד כראוי עם בלוקים.
-כי זה לא לוקח בחשבון את נקודת ההתייחסות ב &lt;use&gt;.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, 
 when they are created using the &lt;ellipse&gt; tag  with a rotation in 
 the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.</source>
-        <translation>MakerCAM נכון למרץ 2015 לא יכול להציג ellipses ו-Ellipse arcs כראוי,
-כאשר הם נוצרים באמצעות תג &lt;ellipse&gt; עם סיבוב
-&lt;transform&gt; תכונה או כ &lt;path&gt; באמצעות פלחי קשת אלפיים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
 but avoided in some CAM's.</source>
-        <translation>תמונות מייצאות יכולות להיות מועילות בעורכי SVG (Inkscape, וכו '),
-אבל להימנע מ-CAM.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
-        <translation>רבים CAM's (MakerCAM, EleskCAM, LaserWeb) להתעלם מסגנון קו מלוטש / מוזנח,
-אשר יכול להיות שימושי בלחיצת לייזר של plywood או עבור ניירפט.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default width of elements can affect some CAM's/SVG Editors, 
 but ignored by other</source>
-        <translation>רוחב של אלמנטים יכול להשפיע על כמה CAM's/SVG Editors,
-התעלמו על ידי אחרים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of line pattern related to zoom, 
 so default step value required for baking</source>
-        <translation>אורך תבנית קו הקשורה לגן עדן,
-ערך שלב ברירת מחדל הנדרש לאפיה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Points</source>
-        <translation>נקודות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Export Points</source>
-        <translation>נקודות יצוא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>בין אם לייצא נקודות</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -5772,217 +5754,217 @@ so default step value required for baking</source>
     <name>QG_DlgPoint</name>
     <message>
         <source>Point</source>
-        <translation>Point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Position (y):</source>
-        <translation>מיקום (y):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Position (x):</source>
-        <translation>מיקום (x):</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgPolyline</name>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>סגור</translation>
+        <translation type="unfinished">סגור</translation>
     </message>
 </context>
 <context>
     <name>QG_DlgRotate</name>
     <message>
         <source>Rotation Options</source>
-        <translation>אפשרויות רוטציה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Multiple Copies:</source>
-        <translation>ו-Multiple Copies:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Angle (a):</source>
-        <translation>&amp; Angle (a):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgRotate2</name>
     <message>
         <source>Rotate Two Options</source>
-        <translation>רוטט 2 אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Multiple Copies</source>
-        <translation>ראשי תיבות של Multiple Copies</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle (&amp;a):</source>
-        <translation>זווית (&amp;a):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle (&amp;b):</source>
-        <translation>זווית ( &amp;b):</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgScale</name>
     <message>
         <source>Scaling Options</source>
-        <translation>אפשרויות Scaling</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of copies</source>
-        <translation>מספר עותקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;attributes</source>
-        <translation>שימוש ב- &amp;ttributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Use current &amp;layer</source>
-        <translation>שימוש נוכחי &amp;layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Delete Original</source>
-        <translation>תגית: Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Keep Original</source>
-        <translation>עקבו אחרי Original</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Multiple Copies</source>
-        <translation>ראשי תיבות של Multiple Copies</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale by the same factor at both x- and y- directions</source>
-        <translation>גודל על ידי אותו גורם ב- x- ו- y-כיוונים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Isotropic Scaling</source>
-        <translation>Isotropic Scaling</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; מצא את יחסי הסקאלה סביב המרכז על ידי נקודת התייחסות ונקודת יעד.&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_DlgSpline</name>
     <message>
         <source>Spline</source>
-        <translation>Spline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>גאומטריה</translation>
+        <translation type="unfinished">גאומטריה</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Closed</source>
-        <translation>סגור</translation>
+        <translation type="unfinished">סגור</translation>
     </message>
 </context>
 <context>
     <name>QG_DlgText</name>
     <message>
         <source>Text</source>
-        <translation>טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text:</source>
-        <translation>טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clear Text</source>
-        <translation>טקסט ברור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Load Text From File</source>
@@ -6022,11 +6004,11 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Middle Center</source>
-        <translation>מרכז הביניים</translation>
+        <translation type="unfinished">מרכז מרכז</translation>
     </message>
     <message>
         <source>Middle Right</source>
-        <translation>זכות ביניים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bottom Left</source>
@@ -6050,7 +6032,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Degree (°)</source>
-        <translation>דרגה ( °)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Plus / Minus (±)</source>
@@ -6058,997 +6040,996 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>At (@)</source>
-        <translation>(@)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>האש (#)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dollar ($)</source>
-        <translation>דולר ()</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Copyright (©)</source>
-        <translation>זכויות יוצרים (SO)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Registered (®)</source>
-        <translation>רשום (®)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paragraph (§)</source>
-        <translation>סעיף (סעיף)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pi (π)</source>
-        <translation>פי (π)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pound (£)</source>
-        <translation>פאונד (£)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Yen (¥)</source>
-        <translation>Yen (ין)</translation>
+        <translation type="unfinished">יאן יפני(¥)</translation>
     </message>
     <message>
         <source>Times (×)</source>
-        <translation>זמנים (x)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Division (÷)</source>
-        <translation>הדיוויזיה (÷)</translation>
+        <translation type="unfinished">חלוקה (÷)</translation>
     </message>
     <message>
         <source>Insert Unicode</source>
-        <translation>הכנס Unicode</translation>
+        <translation type="unfinished">הוסף יוניקוד</translation>
     </message>
     <message>
         <source>Page:</source>
-        <translation>עמוד:</translation>
+        <translation type="unfinished">עמוד:</translation>
     </message>
     <message>
         <source>Char:</source>
-        <translation>תגית:</translation>
+        <translation type="unfinished">תו:</translation>
     </message>
     <message>
         <source>[0000-007F] Basic Latin</source>
-        <translation>(0000-007F) לטינית בסיסית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0080-00FF] Latin-1 Supplementary</source>
-        <translation>[0080-00FF] Latin-1ary</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0100-017F] Latin Extended-A</source>
-        <translation>[0100-017F] Latin Extended- A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0180-024F] Latin Extended-B</source>
-        <translation>[0180-024F] Latin Extended-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0250-02AF] IPA Extensions</source>
-        <translation>[0250-02AF] הרחבת IPA</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation>[02B0-02FF] מכתבים משתנים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
-        <translation>[0300-036F] שילוב של מארקים קריטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation>[0370-03FF] יווני ו-Cאופטיקה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0400-04FF] Cyrillic</source>
-        <translation>(04-04FF) Cyrillic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0500-052F] Cyrillic Supplementary</source>
-        <translation>(0500-052F) Cyrillic Supplementary</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0530-058F] Armenian</source>
-        <translation>(0530-058F) ארמני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0590-05FF] Hebrew</source>
-        <translation>[059] העברית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0600-06FF] Arabic</source>
-        <translation>[060067] ערבית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-07] סוריה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0780-07BF] Thaana</source>
-        <translation>[0780-07] Thaana</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0900-097F] Devanagari</source>
-        <translation>[0900-097F] Devanagari</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0980-09FF] Bengali</source>
-        <translation>[0980-09FF] Bengali</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0A00-0A7F] Gurmukhi</source>
-        <translation>[0A00-0A7F] גורמו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation>[0A80-0AFF] Gujarati</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0B00-0B7F] Oriya</source>
-        <translation>[0B00-0B7F] Oriya</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0B80-0BFF] Tamil</source>
-        <translation>(0B80-0BFF)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0C00-0C7F] Telugu</source>
-        <translation>[0C00-0C7F] Telugu</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0C80-0CFF] Kannada</source>
-        <translation>[0C80-0CFF] Kannada</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation>[0D00-0D7F] מלאאלאם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0D80-0DFF] Sinhala</source>
-        <translation>[0D80-0DFF] Sinhala</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0E00-0E7F] Thai</source>
-        <translation>[0E00-0E7F] תאילנד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0E80-0EFF] Lao</source>
-        <translation>[0E80-0EFF] Lao</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation>[0F00-0FFF] הטיבטית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1000-109F] Myanmar</source>
-        <translation>(1000-109F) מיאנמר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10A0-10FF] Georgian</source>
-        <translation>[10A0-10FF] גאורגיה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1100-11FF] Hangul Jamo</source>
-        <translation>1300-11FF: Hangul Jamo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1200-137F] Ethiopic</source>
-        <translation>(1200-137F) Ethiopic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[13A0-13FF] Cherokee</source>
-        <translation>[13] צ'ירוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
-        <translation>1700-167F) Unified Canadian Abריג'י סילביק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1680-169F] Ogham</source>
-        <translation>880-169F) Ogham</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[16A0-16FF] Runic</source>
-        <translation>0-16FF - Runic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1700-171F] Tagalog</source>
-        <translation>[1700-171F] Tagalog</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1720-173F] Hanunoo</source>
-        <translation>1720-173F) Hanunoo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1740-175F] Buhid</source>
-        <translation>[1740-175F] בויד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1760-177F] Tagbanwa</source>
-        <translation>[1760-177F] Tagbanwa</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1780-17FF] Khmer</source>
-        <translation>1780-17FF</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1800-18AF] Mongolian</source>
-        <translation>1800-18AF) מונגוליה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1E00-1EFF] Latin Extended Additional</source>
-        <translation>[1E00-1EFF] לטינית מורחבת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1F00-1FFF] Greek Extended</source>
-        <translation>[1F00-1FFF] יווני מורחב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2000-206F] General Punctuation</source>
-        <translation>(2000-206F) הגנרל טיהור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2070-209F] Superscripts and Subscripts</source>
-        <translation>[2070-209F] Superscripts and Subscripts</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation>[20A0-20CF] מטבעות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20D0-20FF] Combining Marks for Symbols</source>
-        <translation>[20D0-20FF] שילוב מארקים עבור סמלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation>6.200-214F) Letterlike Symbols</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2150-218F] Number Forms</source>
-        <translation>53-218F) מספר טפסים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2190-21FF] Arrows</source>
-        <translation>990-21 חץ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2200-22FF] Mathematical Operators</source>
-        <translation>[2200-22FF] מפעילי מתמטיקה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2300-23FF] Miscellaneous Technical</source>
-        <translation>[2300-23FF] טכנית מסולנית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2400-243F] Control Pictures</source>
-        <translation>2400-243F תמונות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2440-245F] Optical Character Recognition</source>
-        <translation>[24-245F] זיהוי תווים אופטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2460-24FF] Enclosed Alphanumerics</source>
-        <translation>[2460-24FF] סוגרים את אלפאנומריקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2500-257F] Box Drawing</source>
-        <translation>[2500-257F] Box Drawing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2580-259F] Block Elements</source>
-        <translation>[2580-259F] בלוקים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[25A0-25FF] Geometric Shapes</source>
-        <translation>[25A0-25FF] Geometric Shapes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2600-26FF] Miscellaneous Symbols</source>
-        <translation>[2600FF] סמלים מזוייפים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2700-27BF] Dingbats</source>
-        <translation>2700-27BF) Dingbats</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
-        <translation>[27C-27EF] סימנים מתמטיים מסולניים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[27F0-27FF] Supplemental Arrows-A</source>
-        <translation>[27F0-27FF] חץ משלים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2800-28FF] Braille Patterns</source>
-        <translation>(2800-28FF) Braille Patterns</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2900-297F] Supplemental Arrows-B</source>
-        <translation>[2900-297F] חץ-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
-        <translation>[2980-29FF] סימנים מתמטיים מסולניים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
-        <translation>[2A00-2AFF] אופרות מתמטיות נוספות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2E80-2EFF] CJK Radicals Supplement</source>
-        <translation>(2E80-2EFF) CJK Radicals Supplement</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2F00-2FDF] Kangxi Radicals</source>
-        <translation>[2F00-2FDF] Kangxi Radicals</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2FF0-2FFF] Ideographic Description Characters</source>
-        <translation>[2FF0-2FFF] דמויות תיאור אידיאולוגיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3000-303F] CJK Symbols and Punctuation</source>
-        <translation>(3000-303F) CJK Symbols and Puncation</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3040-309F] Hiragana</source>
-        <translation>[3040-309F] הייגן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[30A0-30FF] Katakana</source>
-        <translation>[30A0-30FF] קתרינה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3100-312F] Bopomofo</source>
-        <translation>[3100-312F] Bopomofo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3130-318F] Hangul Compatibility Jamo</source>
-        <translation>[31-318F] Hangul Compatibility Jamo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3190-319F] Kanbun</source>
-        <translation>[31319F] קנבון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[31A0-31BF] Bopomofo Extended</source>
-        <translation>[31A0-31BF] Bopomofo Extended</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3200-32FF] Enclosed CJK Letters and Months</source>
-        <translation>[3200-32FF] סגרו מכתבים וחודשים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3300-33FF] CJK Compatibility</source>
-        <translation>[3300-33FF] CJK Compatibility</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
-        <translation>[3400-4DBF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[4E00-9FAF] CJK Unified Ideographs</source>
-        <translation>[4E00-9FAF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[A000-A48F] Yi Syllables</source>
-        <translation>(A000-A48F) ייוותר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[A490-A4CF] Yi Radicals</source>
-        <translation>(A490-A4CF) יו רדיקלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[AC00-D7AF] Hangul Syllables</source>
-        <translation>[AC00-D7AF] Hangul Syllables</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[D800-DBFF] High Surrogates</source>
-        <translation>(D800-DBFF) High Surrogates</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[DC00-DFFF] Low Surrogate Area</source>
-        <translation>[DC00-DFFF] אזור חקירה נמוך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[E000-F8FF] Private Use Area</source>
-        <translation>אזור השימוש הפרטי (E000-F8FF)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[F900-FAFF] CJK Compatibility Ideographs</source>
-        <translation>(F900-FAFF) CJK Compatibility Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
-        <translation>[FB00-FB4F] מצגות אלפביתיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
-        <translation>[FB50-FDFF] מיצג ערבי A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE00-FE0F] Variation Selectors</source>
-        <translation>(FE00-FE0F) Variation Selectors</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE20-FE2F] Combining Half Marks</source>
-        <translation>[FE20-FE2F] שילוב חצי מארק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE30-FE4F] CJK Compatibility Forms</source>
-        <translation>[FE30-FE4F] CJK Compatibility Forms</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE50-FE6F] Small Form Variants</source>
-        <translation>(FE50-FE6F) Small Form Variants</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
-        <translation>[FE70-FEFF] מיצגים ערביים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
-        <translation>[FF00-FFEF] טפסים חציוויים ומלאי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[FFF0-FFFF] Specials</source>
-        <translation>[FFF0-FFFFFF] מיוחדים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10300-1032F] Old Italic</source>
-        <translation>[10300-1032F] הישן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10330-1034F] Gothic</source>
-        <translation>[10330-1034F] גותית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[10400-1044F] Deseret</source>
-        <translation>[10400-1044F] Deseret</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
-        <translation>[1D000-1D0FF] סמלים מוזיקליים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D100-1D1FF] Musical Symbols</source>
-        <translation>[1D100-1D1FF] תווים מוזיקליים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
-        <translation>[1D400-1D7FF] סמלים מתמטיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
-        <translation>[20000-2A6DF] CJK Unified Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
-        <translation>(2F800-2FA1F) CJK Compatibility Ideographs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[E0000-E007F] Tags</source>
-        <translation>(E0000-E007F) תגיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
-        <translation>(F0000-FFFFFFD) שטח שימוש פרטי משלים A A A A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
-        <translation>[100000-10FFFD] שימוש פרטי בתוספת שטח-B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>ו-Height:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer:</source>
-        <translation>שכבה:</translation>
+        <translation type="unfinished">שכבה:</translation>
     </message>
     <message>
         <source>Font settings</source>
-        <translation>הגדרות דיבור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Oblique:</source>
-        <translation>Obblique:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width factor:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font:</source>
-        <translation>פונט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Left</source>
-        <translation>שמאל בסיס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Right</source>
-        <translation>המונחים: right</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Baseline Center</source>
-        <translation>מרכז בסיס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fit</source>
-        <translation>Fit</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diameter (⌀)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A&amp;ligned</source>
-        <translation>A&amp;ligned</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Middle</source>
-        <translation>ו-Middle</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_ExitDialog</name>
     <message>
         <source>QCad</source>
-        <translation>QCad</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>again Still No Text supplied.</source>
-        <translation>שוב אין טקסט מספק.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Discard All</source>
-        <translation>כל הפרטים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Discard</source>
-        <translation>Discard</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_FileDialog</name>
     <message>
         <source>Drawing Exchange DXF 2000 %1</source>
-        <translation>החלפת DXF 2000%</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF R12 %1</source>
-        <translation>ההרחבה DXF R12%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>QCad Font %1</source>
-        <translation>QCad Font%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Jww Drawing %1</source>
-        <translation>עקבו אחרי %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange %1</source>
-        <translation>עקבו אחרי Exchange%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>QCad 1.x file %1</source>
-        <translation>QCad 1.x File %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF 2007 %1</source>
-        <translation>החלפה DXF 2007 %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF 2004 %1</source>
-        <translation>החלפה DXF 2004%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange DXF R14 %1</source>
-        <translation>החלפת DXF R14%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block</source>
         <comment>block file</comment>
-        <translation>בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing</source>
         <comment>drawing file</comment>
-        <translation>ציור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open %1</source>
-        <translation>%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Save %1 As</source>
-        <translation>%1 כמו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>המונחים:1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Untitled</source>
-        <translation>ללא שם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_GraphicView</name>
     <message>
         <source>Edit Properties</source>
-        <translation>Edit Properties</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Edit Block</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_ImageOptionsDialog</name>
     <message>
         <source>Image Export Options</source>
-        <translation>אפשרויות ליצוא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Bitmap Size</source>
-        <translation>גודל Bitmap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Height:</source>
-        <translation>גובה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Background</source>
-        <translation>רקע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>White</source>
-        <translation>לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Resolution:</source>
-        <translation>החלטה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>auto</source>
-        <translation>רכב</translation>
+        <translation type="unfinished">אוטומטי</translation>
     </message>
     <message>
         <source>Colouring</source>
-        <translation>צבע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Black / White</source>
-        <translation>שחור / לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Coloured</source>
-        <translation>צבעוני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Borders</source>
-        <translation>גבולות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Top / Bottom - Border:</source>
-        <translation>עמוד הבית / Border:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Left / Right - Border:</source>
-        <translation>שמאל / ימין - גבולות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>set same size</source>
-        <translation>להגדיר אותו גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>B&amp;lack</source>
-        <translation>B &amp;lack</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_LayerBox</name>
     <message>
         <source>- Unchanged -</source>
-        <translation>שינוי -</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_LayerDialog</name>
     <message>
         <source>Layer Settings</source>
-        <translation>הגדרות שכבתיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation>שם שכבה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Default Pen</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
 The contents of a Construction Layer should not appear in printout.</source>
-        <translation>שכבת בנייה יש ישויות של קווים סטרייטים אינסופיים שנועדו לשמש לבנייה גיאומטרית.
-התוכן של שכבת בנייה לא אמור להופיע בדפוס.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>שכבת בנייה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_LayerWidget</name>
     <message>
         <source>Show all layers</source>
-        <translation>הצג את כל השכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>להסתיר את כל השכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add a layer</source>
-        <translation>הוסף שכבה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>שינוי תכונות שכבתיות / rename</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>התפריט Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Defreeze all Layers</source>
-        <translation>תגית: All Layers</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Freeze all Layers</source>
-        <translation>להקפיא את כל שכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>תגית: Layer</translation>
+        <translation type="unfinished">&amp;הוסף שכבה</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>Remove Layer</translation>
+        <translation type="unfinished">ה&amp;סר שכבה</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>חיפוש שמות שכבתיים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit Layer &amp;Attributes</source>
-        <translation>Edit Layer &amp; Attributes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer &amp;Visibility</source>
-        <translation>עקבו אחרי Layer &amp;Visibility</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer &amp;Printing</source>
-        <translation>עקבו אחרי Layer &amp;Printing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>המונחים: toggle &amp;construction Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>לנתק את כל השכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>לנעול את כל השכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>הסרת שכבה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Unlock all Layers</source>
-        <translation>כל שכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&amp;Lock all Layers</source>
-        <translation>עקבו אחרי All Layers</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>המונחים: Loc &amp;k</translation>
+        <translation type="unfinished">שנה &amp;נעילת שכבה</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>ו-Export Selected Layer(s)</translation>
+        <translation type="unfinished">&amp;יצא שכבות נבחרות</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>ייצוא &amp; Visible Layer(s)</translation>
+        <translation type="unfinished">יצא שכבות &amp;מוצגות</translation>
     </message>
 </context>
 <context>
     <name>QG_LibraryWidget</name>
     <message>
         <source>Directories</source>
-        <translation>מנהלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Insert</source>
-        <translation>הכנס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Refresh</source>
-        <translation>מרעננים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rebuild</source>
-        <translation>ReBuild</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_LineTypeBox</name>
     <message>
         <source>By Layer</source>
-        <translation>על ידי Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Block</source>
-        <translation>על ידי Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No Pen</source>
-        <translation>לא עט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Continuous</source>
-        <translation>רציף מתמשך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dot</source>
-        <translation>Dot</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dot (small)</source>
-        <translation>Dot (קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dot (large)</source>
-        <translation>Dot (large)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash</source>
-        <translation>דאש</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash (small)</source>
-        <translation>דאש (קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash (large)</source>
-        <translation>דאש (large)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash Dot</source>
-        <translation>דש דואט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash Dot (small)</source>
-        <translation>דש דוט (קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash Dot (large)</source>
-        <translation>Dash Dot (large)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Divide</source>
-        <translation>חלוקה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Divide (small)</source>
-        <translation>(קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Divide (large)</source>
-        <translation>פיצול (large)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center</source>
-        <translation>מרכז המרכז</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (small)</source>
-        <translation>מרכז (קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (large)</source>
-        <translation>מרכז (large)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Border</source>
-        <translation>גבולות הגבול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Border (small)</source>
-        <translation>הגבול (קטן)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Border (large)</source>
-        <translation>הגבול (גדול)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>שינוי -</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dot (tiny)</source>
-        <translation>Dot (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash (tiny)</source>
-        <translation>דאש (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dash Dot (tiny)</source>
-        <translation>Dash Dot (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Divide (tiny)</source>
-        <translation>פיצול (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center (tiny)</source>
-        <translation>מרכז (tiny)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Border (tiny)</source>
-        <translation>גבול (tiny)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_MouseWidget</name>
     <message>
         <source>Mouse</source>
-        <translation>עכבר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Right</source>
-        <translation>ימין צודק</translation>
+        <translation type="unfinished">ימין</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>השמאל</translation>
+        <translation type="unfinished">שמאל</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -7056,55 +7037,51 @@ The contents of a Construction Layer should not appear in printout.</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC - /W3C /DTD HTML 4.0/EN" http: www.w3.org/TR/REC-html40/מוגבל.
-&lt;html&gt; &lt;head&gt; &lt;meta name="qrichtext" contentPSK /&gt; &lt;style Type="text/css"
-P, Li {לבן-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style="גופן-משפחה: 'Ubuntu'; גודל גופן 11pt; משקל גופני:400; סגנון גופני: נורמלי; '
-&lt;p סגנון=" שולי-top:0px; שולי-bottom:0px; שולי-שמאל:0px; שולי-right:0px;-qt-block-indent:0; טקסט-indent:0px; &lt;span style="גופן-משפחה: 'Helvetica'; font- Sizept;" עקבו אחרי left/right העכבר פעולות&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_PenToolBar</name>
     <message>
         <source>Line color</source>
-        <translation>צבע קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line width</source>
-        <translation>קו רוחב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line type</source>
-        <translation>סוג Line</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_PolylineOptions</name>
     <message>
         <source>wrong action type</source>
-        <translation>פעולה שגויה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_RecentFiles</name>
     <message>
         <source>&amp;%1 %2</source>
-        <translation>%2</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_SelectionWidget</name>
     <message>
         <source>Selection</source>
-        <translation>בחירת בחירה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Selected</source>
-        <translation>נבחר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Total Length</source>
-        <translation>אורך מוחלט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -7112,11 +7089,7 @@ P, Li {לבן-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC - /W3C /DTD HTML 4.0/EN" http: www.w3.org/TR/REC-html40/מוגבל.
-&lt;html&gt; &lt;head&gt; &lt;meta name="qrichtext" contentPSK /&gt; &lt;style Type="text/css"
-P, Li {לבן-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style="גופן-משפחה: 'Helvetica'; בגודל גופני 7pt; משקל גופני:400; סגנון גופני: נורמלי; '
-&lt;p סגנון=" שולי-top:0px; שולי-bottom:0px; שולי-שמאל:0px; שולי-right:0px;-qt-block-indent:0; טקסט-indent:0px; מספר של ישויות נבחרות&lt;/p&gt;&lt;/p&gt;body&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&gt;&lt;/html&gt;&gt;&lt;/html&gt;&lt;/html&gt;&gt;&lt;/html&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
@@ -7124,327 +7097,313 @@ P, Li {לבן-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
 &lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC - /W3C /DTD HTML 4.0/EN" http: www.w3.org/TR/REC-html40/מוגבל.
-&lt;html&gt; &lt;head&gt; &lt;meta name="qrichtext" contentPSK /&gt; &lt;style Type="text/css"
-P, Li {לבן-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style="גופן-משפחה: 'Helvetica'; בגודל גופני 7pt; משקל גופני:400; סגנון גופני: נורמלי; '
-&lt;p סגנון=" שולי-top:0px; שולי-bottom:0px; שולי-שמאל:0px; שולי-right:0px;-qt-block-indent:0; טקסט-indent:0px;&gt; אורך מוחלט של ישויות נבחרות&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&lt;/html&gt;&gt;&lt;/html&gt;&gt;&lt;/html&gt;&lt;/html&gt;&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_SnapToolBar</name>
     <message>
         <source>Snap</source>
-        <translation>Snap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to Endpoints</source>
-        <translation>Snap to Endpoints</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to equidistant points of entity</source>
-        <translation>Snap to Equidistant נקודות של ישות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to center points</source>
-        <translation>Snap to Center נקודות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to intersections automatically</source>
-        <translation>Snap to Junction באופן אוטומטי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to closest point on entity</source>
-        <translation>סנייפ לנקודה הקרובה ביותר בישות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to point with given distance to endpoint</source>
-        <translation>Snap to Point with Giving Distance to endpoint</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to intersections manually</source>
-        <translation>Snap to Junction באופן ידני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap to grid</source>
-        <translation>Snap to Network</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Horizontally</source>
-        <translation>הגבלת Horizontally</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Vertically</source>
-        <translation>המונחים: Vertly</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move relative Zero</source>
-        <translation>עקבו אחרי Zero</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lock relative Zero</source>
-        <translation>תגית: Zero</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Free Snap</source>
-        <translation>Snap חינם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on grid</source>
-        <translation>Snap ברשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on Endpoints</source>
-        <translation>Snap On Endpoints</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap on Entity</source>
-        <translation>Snap on Entity</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Center</source>
-        <translation>מרכז Snap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Middle</source>
-        <translation>Snap Middle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Distance</source>
-        <translation>Snap Distance</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Intersection</source>
-        <translation>Snap Interסעיף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Horizontal</source>
-        <translation>הגבלת Horizontal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Vertical</source>
-        <translation>המונחים Vertical</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Orthogonal</source>
-        <translation>המונחים: Orthogonal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restrict Nothing</source>
-        <translation>הגבלת שום דבר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Set relative zero position</source>
-        <translation>הגדרת מצב אפס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lock relative zero position</source>
-        <translation>מיקום 0</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Exclusive Snap Mode</source>
-        <translation>מצב Snap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Relative zero position is %1</source>
-        <translation>קיבולת אפסית היא %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>locked</source>
-        <translation>נעול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unlocked</source>
-        <translation>נעול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>Snap Middle Manual</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_WidgetPen</name>
     <message>
         <source>Pen</source>
-        <translation>הפין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line type:</source>
-        <translation>סוג קו:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Color:</source>
-        <translation>צבע:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QG_WidthBox</name>
     <message>
         <source>By Layer</source>
-        <translation>על ידי Layer</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QMessageBox</name>
     <message>
         <source>Warning</source>
-        <translation>אזהרה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove Layer</source>
-        <translation>להסיר שכבה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer "%1" can never be removed.</source>
-        <translation>שכבה "%1" לעולם לא ניתן להסיר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer Dialog</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove Block</source>
-        <translation>להסיר בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block "%1" and all its entities will be removed.</source>
-        <translation>חסם "%1" וכל ישויותיו יוסרו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer Properties</source>
-        <translation>שכבה Properties</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>שכבה עם שם "%1" כבר קיימת. נא לציין שם אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer "%1" and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>שכבת "%1" וכל הגופים עליה יוסרו.
-פעולה זו לא יכולה להיות בלתי מזוינת.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer "0" can never be removed.</source>
-        <translation>שכבת "0" לעולם לא ניתן להסיר.</translation>
+        <translation type="unfinished" />
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform />
+            <numerusform />
         </translation>
     </message>
     <message>
         <source>Listed layers and all entities on them will be removed.</source>
-        <translation>השכבות המרשימות וכל הגופים עליהם יוסרו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning: this action can NOT be undone!</source>
-        <translation>אזהרה: פעולה זו לא יכולה להיות בלתי מזוינת!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning: layer "0" can never be removed.</source>
-        <translation>אזהרה: "0" לעולם לא ניתן להסיר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layers for removal:</source>
-        <translation>שכבות להסרת:</translation>
+        <translation type="unfinished" />
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+            <numerusform />
+            <numerusform />
         </translation>
     </message>
     <message>
         <source>Listed blocks and all their entities will be removed.</source>
-        <translation>בלוקים מפורסמים וכל הגופים שלהם יוסרו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Blocks for removal:</source>
-        <translation>בלוקים להסרת:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>שם ריק לא מותר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>נסו ליצור שכבה עם שם שכפול. שם שכבתי מורכב
-[%1]
-נא לציין שם אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Error</source>
-        <translation>טעות שגיאה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>מיתר רשימת ה-Sparator הוא ריק. לא ניתן לבנות עץ שכבות.
-אנא ציינו ערך אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>ערך לא חוקי מספק צבע %1.
-אנא ציינו ערך אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>הסרת שכבות ריקות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>שכבה (s) ללא ישויות שנמצאו, אך הם מסוננים ולא גלויים.
-
-פילטר מסיכה וחזר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>לא נמצאו שכבות ללא ישויות, אין מה להסיר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>הוסף Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>שכבת ילדים כזו כבר קיימת
-[%1]
-נא לציין שם אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>שכבת ילדים כזו כבר קיימת
-[%1].</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>ניתן להוסיף שכבה ממדית רק עבור שכבה פעילה רגילה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>שינוי הבחירה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>בחירה מדויקת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Replace "By Layer" value to source layers values?
@@ -7452,3248 +7411,3240 @@ Please specify a different name.</source>
 If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
 
 If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>להחליף ערך "על ידי שכבה" לערכי קוד?
-
-אם כן - ישויות עם עטים "על ידי שכבה" יסתכלו על שכבה חדשה בדיוק כמו בשכבות קודמות וערך "על ידי שכבה" יוחלפו על ידי עטים נפתרים.
-
-אם לא - ערכי "בשכבת שכבה" נשארים וכל כך עט של שכבת היעד יגדיר עט עבור ישויות כאלה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>ערך לא חוקי סיפק ל-%1 צבע.
-אנא ציינו ערך אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>נתיב לא חוקי לקובץ עטים.
-%1
-אנא ציינו ערך אחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>להסיר עט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>הפין יוסר מן הצבעים, ישויות הציור לא יושפעו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Are you sure you'd like to proceed?</source>
-        <translation>אתה בטוח שהיית רוצה להמשיך?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>עונש להסרת:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>להסיר עטים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>פנינים יוסרו מן הצבעים, ישויות הציור לא יושפעו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>עונש להסרת:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>אפשרויות בחירה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>אין גופים שמתאימים לעט על שכבות גלויות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>ישויות כאלה קיימות בשכבות קפואות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>ישויות כאלה קיימות בשכבות נעולות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>אנא השתמש בתכונות עט שונות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>הגדר עט על ידי ישות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>אנא בחרו רק ישות אחת לבחור את הגדרת העט.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>חיסכון בנתונים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>לא ניתן לחסוך נתונים של עטים לקובץ עטים שצוין. רוצה לציין דרך נכונה לקובץ?</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Save Drawing As</source>
-        <translation>להציל את הציור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>%1 already exists.
 Do you want to replace it?</source>
-        <translation>%1 כבר קיים.
-רוצים להחליף אותו?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open Drawing</source>
-        <translation>ציור פתוח</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Open Image</source>
-        <translation>תמונה פתוחה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Windows Bitmap</source>
-        <translation>Windows bitmap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Joint Photographic Experts Group</source>
-        <translation>קבוצת מומחים לצילום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Multiple-image Network Graphics</source>
-        <translation>תמונות מרובות Network Graphics</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Portable Bit Map</source>
-        <translation>עקבו אחרי bit Map</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Portable Grey Map</source>
-        <translation>מפה אפורה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Portable Network Graphic</source>
-        <translation>Mobile Network Graphic</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Portable Pixel Map</source>
-        <translation>עקבו אחרי Pixel Map</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>X Bitmap Format</source>
-        <translation>X bitmap Format</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>X Pixel Map</source>
-        <translation>X Pixel Map</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Graphics Interchange Format</source>
-        <translation>פורמט Interchange</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Drawing Exchange %1</source>
-        <translation>עקבו אחרי Exchange%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>QCad 1.x file %1</source>
-        <translation>QCad 1.x File %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Font %1</source>
-        <translation>%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All Files (*.*)</source>
-        <translation>כל הקבצים (*)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Inch</source>
-        <translation>Inch</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Foot</source>
-        <translation>רגליים ברגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Mile</source>
-        <translation>מייל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Millimeter</source>
-        <translation>מילימטר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Centimeter</source>
-        <translation>Centimeter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Meter</source>
-        <translation>Meter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Kilometer</source>
-        <translation>מיילמטר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Microinch</source>
-        <translation>מיקרו אינץ'</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Mil</source>
-        <translation>מייל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Yard</source>
-        <translation>יארד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angstrom</source>
-        <translation>Angstrom</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Nanometer</source>
-        <translation>ננומטר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Micron</source>
-        <translation>מיקרו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Decimeter</source>
-        <translation>משמעת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Decameter</source>
-        <translation>Decameter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hectometer</source>
-        <translation>מסוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Gigameter</source>
-        <translation>Gigameter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Astro</source>
-        <translation>אסטרוטרופיה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Lightyear</source>
-        <translation>שנות אור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Parsec</source>
-        <translation>Parsec</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Loading..</source>
-        <translation>טעינה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Loading File %1..</source>
-        <translation>עקבו אחרי File%1.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Loading...</source>
-        <translation>לטעון...</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter an integer number</source>
-        <translation>הזן מספר integer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LibreCAD query</source>
-        <translation>תגית: LibreCAD</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter a number</source>
-        <translation>הזן מספר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>enter text</source>
-        <translation>היכנס טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Jww %1</source>
-        <translation>%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scalable Vector Graphics</source>
-        <translation>Scalable Vector Graphics</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>SGI Black &amp; White</source>
-        <translation>שחור ולבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript</source>
-        <translation>עקבו אחרי PostScript</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript Format</source>
-        <translation>פורמט PostScript</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Encapsulated PostScript Interchange</source>
-        <translation>עקבו אחרי PostScript Interchange</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Windows Icon</source>
-        <translation>Windows Icon</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>JPEG 2000</source>
-        <translation>JPEG 2000</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ZSoft Paintbrush</source>
-        <translation>ZSoft Paintbrush</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>PC Paint</source>
-        <translation>PC Paint</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>SGI-Bilddatei</source>
-        <translation>SGI-Bilddatei</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Targa Image File</source>
-        <translation>תגית: Targa Image</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tagged Image File Format</source>
-        <translation>תגית: File Format</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Old Drawing Exchange %1</source>
-        <translation>המונחים: exchange</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Opened dwg file version %1.</source>
-        <translation>Open dwg file version %1.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unknown error opening dwg file</source>
-        <translation>קובץ שגיאה לא ידוע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>can't open this dwg file</source>
-        <translation>לא יכול לפתוח קובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unsupported dwg version</source>
-        <translation>גרסת dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading file header in dwg file</source>
-        <translation>צילום: file header in dwg file</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading header vars in dwg file</source>
-        <translation>שם הסרטון: header vars in dwg file</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading classes in dwg file</source>
-        <translation>שיעורי קריאה בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading offsets in dwg file</source>
-        <translation>שגיאות קריאה בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading tables in dwg file</source>
-        <translation>טבלאות קריאה בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading entities in dwg file</source>
-        <translation>שגיאות קריאה בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>המונחים:1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>File on disk modified. Please save to another file to avoid data loss! File modified: %1</source>
-        <translation>File on Disk Mod אנא שמור לקובץ אחר כדי למנוע אובדן נתונים! תגית: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
-        <translation>Hatch נכשלה בשל פער=%1 בין (%2,%3) לבין (% 4,% 5)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Warning</source>
-        <translation>אזהרה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading blocks in dwg file</source>
-        <translation>שגיאות קריאה בלוקים בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading objects in dwg file</source>
-        <translation>טעות לקרוא חפצים בקובץ dwg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All Image Files (%1)</source>
-        <translation>All Image Files (%1)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>: duplicated command: %1 is already taken by %2</source>
-        <translation>פקודה משוכפלת:%1 כבר נלקח על ידי %2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>point</source>
         <comment>draw point</comment>
-        <translation>נקודה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>po</source>
         <comment>draw point</comment>
-        <translation>חזיר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>line</source>
         <comment>draw line</comment>
-        <translation>קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>li</source>
         <comment>draw line</comment>
-        <translation>מכסה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>l</source>
         <comment>draw line</comment>
-        <translation>l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>פולי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pl</source>
         <comment>draw polyline</comment>
-        <translation>בשפע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>free</source>
         <comment>draw freehand line</comment>
-        <translation>חינם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fhl</source>
         <comment>draw freehand line</comment>
-        <translation>fhl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spl</source>
         <comment>draw spline</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>spline2</source>
         <comment>spline through points</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>stp</source>
         <comment>spline through points</comment>
-        <translation>stp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ptp</source>
         <comment>parallel through point</comment>
-        <translation>ptp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation>bisect</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bi</source>
         <comment>angle bisector</comment>
-        <translation>דו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tanpc</source>
         <comment>tangent point and circle</comment>
-        <translation>שיזוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ortho</source>
         <comment>perpendicular line</comment>
-        <translation>אות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect</source>
         <comment>draw rectangle</comment>
-        <translation>תיקון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>פוליגון2v</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>poly2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>פולי2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle</source>
         <comment>draw circle</comment>
-        <translation>מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ci</source>
         <comment>draw circle</comment>
-        <translation>ci</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c2</source>
         <comment>circle 2 points</comment>
-        <translation>c2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c3</source>
         <comment>circle 3 points</comment>
-        <translation>c3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ct3</source>
         <comment>circle tangent to 3</comment>
-        <translation>ct3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ei</source>
         <comment>inscribed ellipse</comment>
-        <translation>ei</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ie</source>
         <comment>inscribed ellipse</comment>
-        <translation>ie</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>hatch</source>
         <comment>draw hatch</comment>
-        <translation>בכי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ha</source>
         <comment>draw hatch</comment>
-        <translation>הו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mtext</source>
         <comment>draw mtext</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mtxt</source>
         <comment>draw mtext</comment>
-        <translation>mtxt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>text</source>
         <comment>draw text</comment>
-        <translation>טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>txt</source>
         <comment>draw text</comment>
-        <translation>txt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>regen</source>
         <comment>zoom - redraw</comment>
-        <translation>regen</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>redraw</source>
         <comment>zoom - redraw</comment>
-        <translation>מחדש</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rg</source>
         <comment>zoom - redraw</comment>
-        <translation>rg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zr</source>
         <comment>zoom - redraw</comment>
-        <translation>zr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zoomwindow</source>
         <comment>zoom - window</comment>
-        <translation>גן החיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zw</source>
         <comment>zoom - window</comment>
-        <translation>zw</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zoomauto</source>
         <comment>zoom - auto</comment>
-        <translation>zoomauto</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>za</source>
         <comment>zoom - auto</comment>
-        <translation>za</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zoompan</source>
         <comment>zoom - pan</comment>
-        <translation>גן החיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zp</source>
         <comment>zoom - pan</comment>
-        <translation>zp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation>גן החיות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>zv</source>
         <comment>zoom - previous</comment>
-        <translation>zv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>kill</source>
         <comment>kill all actions</comment>
-        <translation>להרוג</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>k</source>
         <comment>kill all actions</comment>
-        <translation>k</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>לא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>u</source>
         <comment>undo cycle</comment>
-        <translation>u</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>אדום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>r</source>
         <comment>redo cycle</comment>
-        <translation>r</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimaligned</source>
         <comment>dimension - aligned</comment>
-        <translation>dimaligned</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimhorizontal</source>
         <comment>dimension - horizontal</comment>
-        <translation>dimhorizontal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dh</source>
         <comment>dimension - horizontal</comment>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimvertical</source>
         <comment>dimension - vertical</comment>
-        <translation>dimvertical</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dv</source>
         <comment>dimension - vertical</comment>
-        <translation>dv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimlinear</source>
         <comment>dimension - linear</comment>
-        <translation>דילמה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dl</source>
         <comment>dimension - linear</comment>
-        <translation>dl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimangular</source>
         <comment>dimension - angular</comment>
-        <translation>dimangular</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dan</source>
         <comment>dimension - angular</comment>
-        <translation>dan</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimradial</source>
         <comment>dimension - radial</comment>
-        <translation>dimradial</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimdiametric</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiametric</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimdiameter</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiameter</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dd</source>
         <comment>dimension - diametric</comment>
-        <translation>d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimleader</source>
         <comment>dimension - leader</comment>
-        <translation>dimleader</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ld</source>
         <comment>dimension - leader</comment>
-        <translation>ld</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimregen</source>
         <comment>dimension - regenerate</comment>
-        <translation>dimregen</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictnothing</source>
         <comment>restrict - nothing</comment>
-        <translation>לא להגביל שום דבר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rn</source>
         <comment>restrict - nothing</comment>
-        <translation>er</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictorthogonal</source>
         <comment>restrict - orthogonal</comment>
-        <translation>המונחים: closed</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rr</source>
         <comment>restrict - orthogonal</comment>
-        <translation>rr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restricthorizontal</source>
         <comment>restrict - horizontal</comment>
-        <translation>הגבלות על proizontal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rh</source>
         <comment>restrict - horizontal</comment>
-        <translation>rh</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>restrictvertical</source>
         <comment>restrict - vertical</comment>
-        <translation>הגבלות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rv</source>
         <comment>restrict - vertical</comment>
-        <translation>rv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mv</source>
         <comment>modify - move (copy)</comment>
-        <translation>mv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bev</source>
         <comment>modify - bevel</comment>
-        <translation>bev</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ch</source>
         <comment>modify - bevel</comment>
-        <translation>כל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation>fi</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>לחתוך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>div</source>
         <comment>modify - divide (cut)</comment>
-        <translation>div</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mi</source>
         <comment>modify -  mirror</comment>
-        <translation>מייל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rev</source>
         <comment>modify -  revert direction</comment>
-        <translation>מחדש</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation>ro</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>sz</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tm</source>
         <comment>modify - trim (extend)</comment>
-        <translation>tm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tm2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>tm2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>le</source>
         <comment>modify - lengthen</comment>
-        <translation>le</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>s</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>er</source>
         <comment>modify - delete (erase)</comment>
-        <translation>er</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>del</source>
         <comment>modify - delete (erase)</comment>
-        <translation>דל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>xp</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>xp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapfree</source>
         <comment>snap - free</comment>
-        <translation>נקי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>os</source>
         <comment>snap - free</comment>
-        <translation>os</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapcenter</source>
         <comment>snap - center</comment>
-        <translation>מרכז</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sc</source>
         <comment>snap - center</comment>
-        <translation>מספר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapdist</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sd</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>s</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapend</source>
         <comment>snap - end points</comment>
-        <translation>עקבו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>se</source>
         <comment>snap - end points</comment>
-        <translation>זרע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>עקבו אחרי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sg</source>
         <comment>snap - grid</comment>
-        <translation>s</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapintersection</source>
         <comment>snap - intersection</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>si</source>
         <comment>snap - intersection</comment>
-        <translation>אח</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmiddle</source>
         <comment>snap - middle points</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sm</source>
         <comment>snap - middle points</comment>
-        <translation>s</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snaponentity</source>
         <comment>snap - on entity</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sn</source>
         <comment>snap - on entity</comment>
-        <translation>הנחנח</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>np</source>
         <comment>snap - on entity</comment>
-        <translation>np</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>תגית: zero</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rz</source>
         <comment>set relative zero position</comment>
-        <translation>rz</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation>בוחרים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sa</source>
         <comment>Select all entities</comment>
-        <translation>חבל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>deselectall</source>
         <comment>deselect all entities</comment>
-        <translation>סלקטו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tn</source>
         <comment>deselect all entities</comment>
-        <translation>tn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>attr</source>
         <comment>modify attribute</comment>
-        <translation>attr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ma</source>
         <comment>modify attribute</comment>
-        <translation>אמא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>prop</source>
         <comment>modify properties</comment>
-        <translation>פרופיל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist</source>
         <comment>distance point to point</comment>
-        <translation>דיסק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dpp</source>
         <comment>distance point to point</comment>
-        <translation>dp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ang</source>
         <comment>measure angle</comment>
-        <translation>אנג</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angle</source>
-        <translation>זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dpi</source>
-        <translation>dpi</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>close</source>
-        <translation>קרוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>chord length</source>
-        <translation>אורך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>columns</source>
-        <translation>עמודות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>columnspacing</source>
-        <translation>תגית:spacing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>factor</source>
-        <translation>גורם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length</source>
-        <translation>אורך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>number</source>
-        <translation>מספר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>radius</source>
-        <translation>רדיוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rows</source>
-        <translation>שורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rowspacing</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>through</source>
-        <translation>דרך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>trim</source>
-        <translation>שלישי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>אנג</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>an</source>
         <comment>angle</comment>
-        <translation>a</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>center</source>
-        <translation>מרכז</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cen</source>
         <comment>center</comment>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ce</source>
         <comment>center</comment>
-        <translation>ce</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cl</source>
         <comment>chord length</comment>
-        <translation>קליטה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c</source>
         <comment>close</comment>
-        <translation>c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cols</source>
         <comment>columns</comment>
-        <translation>קולות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>co</source>
         <comment>columns</comment>
-        <translation>קו משותף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>תגית:spacing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>colspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>עקבו אחרי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cs</source>
         <comment>columnspacing for inserts</comment>
-        <translation>cs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fact</source>
         <comment>factor</comment>
-        <translation>עובדה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>f</source>
         <comment>factor</comment>
-        <translation>f</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>help</source>
-        <translation>עזרה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>?</source>
         <comment>help</comment>
-        <translation>??</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length</source>
         <comment>length</comment>
-        <translation>אורך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>len</source>
         <comment>length</comment>
-        <translation>len</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>l</source>
         <comment>length</comment>
-        <translation>l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>אורך1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>len1</source>
         <comment>length1</comment>
-        <translation>len1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>l1</source>
         <comment>length1</comment>
-        <translation>l1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>אורך 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>len2</source>
         <comment>length2</comment>
-        <translation>len2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>l2</source>
         <comment>length2</comment>
-        <translation>l2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>number</source>
         <comment>number</comment>
-        <translation>מספר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>num</source>
         <comment>number</comment>
-        <translation>מספר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>n</source>
         <comment>number</comment>
-        <translation>n</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ra</source>
         <comment>radius</comment>
-        <translation>ra</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>הפוך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation>מחדש</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>row</source>
         <comment>row</comment>
-        <translation>שורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rs</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rs</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>text</source>
-        <translation>טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t</source>
         <comment>text</comment>
-        <translation>t</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t</source>
         <comment>through</comment>
-        <translation>t</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>undo</source>
-        <translation>לא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>u</source>
         <comment>undo</comment>
-        <translation>u</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>redo</source>
-        <translation>אדום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>r</source>
         <comment>redo</comment>
-        <translation>r</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>b</source>
         <comment>back</comment>
-        <translation>b</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>paperoffset</source>
-        <translation>ניירoffset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>graphoffset</source>
-        <translation>גרף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command: %1 (%2)</source>
-        <translation>Command:%1 (%2)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>RS_Commands:: command not found: %1</source>
-        <translation>RS Commands: פקודה לא נמצאה: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Command not found: %1</source>
-        <translation>שליטה לא נמצאה: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Accepted keycode: %1</source>
-        <translation>קוד מפתח: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Available commands:</source>
-        <translation>פקודות זמינות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>None</source>
         <comment>unknown length unit</comment>
-        <translation>אף אחד לא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading file metadata in dwg file</source>
-        <translation>צילום קובץ metadata in dwg file</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator error for input: </source>
-        <translation>שגיאות חישוב עבור קלט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bw</source>
-        <translation>bw</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>blackwhite</source>
-        <translation>שחור לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>color</source>
-        <translation>צבע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>di</source>
         <comment>modify - divide (cut)</comment>
-        <translation>די</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>t2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mp</source>
         <comment>modify properties</comment>
-        <translation>mp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block</source>
-        <translation>בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Circle</source>
-        <translation>מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curve</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Edit</source>
-        <translation>Editעריכה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>File</source>
-        <translation>File</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Dimension</source>
-        <translation>המימד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Info</source>
-        <translation>מידע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Layer</source>
-        <translation>שכבה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line</source>
-        <translation>קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Modify</source>
-        <translation>Modify</translation>
+        <translation type="unfinished">שנה</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished">אפשרויות</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>אחרים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Restriction</source>
-        <translation>הגבלות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select</source>
-        <translation>בחר</translation>
+        <translation type="unfinished">בחרו</translation>
     </message>
     <message>
         <source>Snap</source>
-        <translation>Snap</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Extras</source>
-        <translation>Snap Extras</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>View</source>
-        <translation>View</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Widgets</source>
-        <translation>Widgets</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Creators</source>
-        <translation>בורא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>All</source>
-        <translation>הכל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid objects removed:</source>
-        <translation>פריטים לא חוקיים הוסרו:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Pen Wizard</source>
-        <translation>קוסם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select objects</source>
-        <translation>אובייקטים נבחרים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Apply to selected</source>
-        <translation>החל שנבחר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Remove</source>
-        <translation>להסיר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>You must input a distance first.</source>
-        <translation>קודם כל צריך להזיז מרחק.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cal</source>
-        <translation>cal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator mode: On</source>
-        <translation>המונחים: On</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculator mode: Off</source>
-        <translation>המונחים: off</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>License</source>
-        <translation>רישיון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No %1 layers found</source>
-        <translation>No %1 שכבות נמצאו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>line2p</source>
         <comment>draw line</comment>
-        <translation>קו 2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineang</source>
         <comment>angled line</comment>
-        <translation>קונגו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>la</source>
         <comment>angled line</comment>
-        <translation>la</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linehor</source>
         <comment>horizontal line</comment>
-        <translation>קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lh</source>
         <comment>horizontal line</comment>
-        <translation>lh</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linever</source>
         <comment>vertical line</comment>
-        <translation>קוver</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lv</source>
         <comment>vertical line</comment>
-        <translation>lv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linerec</source>
         <comment>draw rectangle</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re</source>
         <comment>draw rectangle</comment>
-        <translation>מחדש</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linepar</source>
         <comment>create parallel</comment>
-        <translation>קו מפריד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineoff</source>
         <comment>create parallel</comment>
-        <translation>lineoff</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pa</source>
         <comment>create parallel</comment>
-        <translation>אבא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ll</source>
         <comment>create parallel</comment>
-        <translation>ll</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineparthro</source>
         <comment>parallel through point</comment>
-        <translation>קו מפריד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lp</source>
         <comment>parallel through point</comment>
-        <translation>דולפינים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linebisect</source>
         <comment>angle bisector</comment>
-        <translation>המונחים: linebisect</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetancp</source>
         <comment>tangent point and circle</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lt</source>
         <comment>tangent point and circle</comment>
-        <translation>lt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetan2c</source>
         <comment>tangent two circles</comment>
-        <translation>קו 2c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lc</source>
         <comment>tangent two circles</comment>
-        <translation>lc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linetancper</source>
         <comment>tangent line and circle</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>or</source>
         <comment>tangent line and circle</comment>
-        <translation>או</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lineperp</source>
         <comment>perpendicular line</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lo</source>
         <comment>perpendicular line</comment>
-        <translation>lol</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linerelang</source>
         <comment>relative line</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lr</source>
         <comment>relative line</comment>
-        <translation>l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygoncencor</source>
         <comment>polygon centre point</comment>
-        <translation>polygoncencor</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pp</source>
         <comment>polygon centre point</comment>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polycp</source>
         <comment>polygon centre point</comment>
-        <translation>polycp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pcp</source>
         <comment>polygon centre point</comment>
-        <translation>pcp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polygoncentan</source>
         <comment>polygon centre vertex</comment>
-        <translation>פוליגון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pv</source>
         <comment>polygon centre vertex</comment>
-        <translation>pv</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>polyct</source>
         <comment>polygon centre vertex</comment>
-        <translation>פוליקט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>p2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c</source>
         <comment>draw circle</comment>
-        <translation>c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle2p</source>
         <comment>circle 2 points</comment>
-        <translation>מעגל 2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c2p</source>
         <comment>circle 2 points</comment>
-        <translation>c2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle2pr</source>
         <comment>circle 2 points radius</comment>
-        <translation>מעגל 2pr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cc</source>
         <comment>circle 2 points radius</comment>
-        <translation>cc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circle3p</source>
         <comment>circle 3 points</comment>
-        <translation>מעגל 3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>c3p</source>
         <comment>circle 3 points</comment>
-        <translation>c3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circlecr</source>
         <comment>circle point radius</comment>
-        <translation>מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cr</source>
         <comment>circle point radius</comment>
-        <translation>cr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ccr</source>
         <comment>circle point radius</comment>
-        <translation>ccr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2cp</source>
         <comment>circle 2 tangent point</comment>
-        <translation>עיגול 2cpp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tr</source>
         <comment>circle 2 tangent point</comment>
-        <translation>tr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2p</source>
         <comment>circle tangent 2 points</comment>
-        <translation>עיגול 2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>td</source>
         <comment>circle tangent 2 points</comment>
-        <translation>td</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan2cr</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>מעגל 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tc</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>tc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>circletan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>עיגול 3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>t3</source>
         <comment>circle tangent to 3</comment>
-        <translation>t3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arc</source>
         <comment>arc point radius</comment>
-        <translation>קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ar</source>
         <comment>arc point radius</comment>
-        <translation>ar</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a</source>
         <comment>arc point radius</comment>
-        <translation>a</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arc3p</source>
         <comment>draw 3pt arc</comment>
-        <translation>קשת3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a3</source>
         <comment>draw 3pt arc</comment>
-        <translation>a3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arctan</source>
         <comment>arc tangent</comment>
-        <translation>קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>at</source>
         <comment>arc tangent</comment>
-        <translation>at</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sf</source>
         <comment>draw spline</comment>
-        <translation>sf</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sp</source>
         <comment>spline through points</comment>
-        <translation>sp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arcellc2ax</source>
         <comment>arc ellipse</comment>
-        <translation>arcellc2ax</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ae</source>
         <comment>arc ellipse</comment>
-        <translation>ae</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fh</source>
         <comment>draw freehand line</comment>
-        <translation>fh</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipsec2p</source>
         <comment>ellipse axis</comment>
-        <translation>ellipsec2p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ea</source>
         <comment>ellipse axis</comment>
-        <translation>ea</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipse3p</source>
         <comment>ellipse foci</comment>
-        <translation>3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ef</source>
         <comment>ellipse foci</comment>
-        <translation>ef</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipse4p</source>
         <comment>ellipse 4 point</comment>
-        <translation>3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>e4</source>
         <comment>ellipse 4 point</comment>
-        <translation>e4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ellipsec3p</source>
         <comment>ellipse center 3 point</comment>
-        <translation>ellipsec3p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>e3</source>
         <comment>ellipse center 3 point</comment>
-        <translation>e3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plineadd</source>
         <comment>pl add node</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pi</source>
         <comment>pl add node</comment>
-        <translation>pi</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plineapp</source>
         <comment>pl append node</comment>
-        <translation>plineapp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pn</source>
         <comment>pl append node</comment>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinedel</source>
         <comment>pl delete node</comment>
-        <translation>plinedel</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pd</source>
         <comment>pl delete node</comment>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinedeltwn</source>
         <comment>pl del between nodes</comment>
-        <translation>plinedeltwn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pr</source>
         <comment>pl del between nodes</comment>
-        <translation>pr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinetrm</source>
         <comment>pl trim segments</comment>
-        <translation>plinetrm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pt</source>
         <comment>pl trim segments</comment>
-        <translation>pt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinepar</source>
         <comment>pl equidistant</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pe</source>
         <comment>pl equidistant</comment>
-        <translation>pe</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plinejoin</source>
         <comment>pl join</comment>
-        <translation>plinejoin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pj</source>
         <comment>pl join</comment>
-        <translation>pj</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sx</source>
         <comment>deselect all entities</comment>
-        <translation>sx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>invertselect</source>
         <comment>invert select</comment>
-        <translation>invertselect</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>is</source>
         <comment>invert select</comment>
-        <translation>הוא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ds</source>
         <comment>dimension - aligned</comment>
-        <translation>d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dimradius</source>
         <comment>dimension - radial</comment>
-        <translation>dimradius</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dr</source>
         <comment>dimension - radial</comment>
-        <translation>ד"ר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>da</source>
         <comment>dimension - angular</comment>
-        <translation>da</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dg</source>
         <comment>dimension - regenerate</comment>
-        <translation>dg</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmove</source>
         <comment>modify - move (copy)</comment>
-        <translation>modmove</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modrotate</source>
         <comment>modify - rotate</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modscale</source>
         <comment>modify - scale</comment>
-        <translation>מודול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmirror</source>
         <comment>modify -  mirror</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modmovrot</source>
         <comment>modify - move rotate</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mr</source>
         <comment>modify - move rotate</comment>
-        <translation>mr</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mod2rot</source>
         <comment>modify - rotate2</comment>
-        <translation>mod2rot</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>r2</source>
         <comment>modify - rotate2</comment>
-        <translation>r2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modrevert</source>
         <comment>modify -  revert direction</comment>
-        <translation>modrevert</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>md</source>
         <comment>modify -  revert direction</comment>
-        <translation>md</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modtrim</source>
         <comment>modify - trim (extend)</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modtrim2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>modtrim2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modlengthen</source>
         <comment>modify - lengthen</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modoffset</source>
         <comment>modify - offset</comment>
-        <translation>modoffset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mo</source>
         <comment>modify - offset</comment>
-        <translation>mo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moff</source>
         <comment>modify - offset</comment>
-        <translation>moff</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modbevel</source>
         <comment>modify - bevel</comment>
-        <translation>modbevel</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modfillet</source>
         <comment>modify - fillet</comment>
-        <translation>modfillet</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moddivide</source>
         <comment>modify - divide (cut)</comment>
-        <translation>moddivide</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modstretch</source>
         <comment>modify - stretch</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modproperties</source>
         <comment>modify properties</comment>
-        <translation>מודלים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modattr</source>
         <comment>modify attribute</comment>
-        <translation>מודול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modexpltext</source>
         <comment>explode text strings</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>xt</source>
         <comment>explode text strings</comment>
-        <translation>xt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>modexplode</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>מודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>moddelete</source>
         <comment>modify - delete (erase)</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infodistance</source>
         <comment>distance point to point</comment>
-        <translation>מידע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>id</source>
         <comment>distance point to point</comment>
-        <translation>id</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infodistep</source>
         <comment>distance entity to point</comment>
-        <translation>מידע על</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ii</source>
         <comment>distance entity to point</comment>
-        <translation>ii</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dep</source>
         <comment>distance entity to point</comment>
-        <translation>dep</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infoangle</source>
         <comment>measure angle</comment>
-        <translation>מידע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ia</source>
         <comment>measure angle</comment>
-        <translation>ia</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>infoarea</source>
         <comment>measure area</comment>
-        <translation>מידע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>aa</source>
         <comment>measure area</comment>
-        <translation>aa</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mt</source>
         <comment>draw mtext</comment>
-        <translation>mt</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tx</source>
         <comment>draw text</comment>
-        <translation>tx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>so</source>
         <comment>snap - free</comment>
-        <translation>כך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ki</source>
         <comment>kill all actions</comment>
-        <translation>קי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>un</source>
         <comment>undo cycle</comment>
-        <translation>לא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rd</source>
         <comment>redo cycle</comment>
-        <translation>rd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>drawpref</source>
         <comment>drawing preferences</comment>
-        <translation>איפור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dp</source>
         <comment>drawing preferences</comment>
-        <translation>dp</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>equation</source>
-        <translation>משוואה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation>אורך1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation>אורך 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>eqn</source>
         <comment>equation</comment>
-        <translation>eqn</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>eq</source>
         <comment>equation</comment>
-        <translation>eq</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom</source>
         <comment>Paper format</comment>
-        <translation>מותאם אישית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A0</source>
         <comment>Paper format</comment>
-        <translation>0</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A1</source>
         <comment>Paper format</comment>
-        <translation>A1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A2</source>
         <comment>Paper format</comment>
-        <translation>A2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A3</source>
         <comment>Paper format</comment>
-        <translation>A3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>A4</source>
         <comment>Paper format</comment>
-        <translation>A4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Letter / ANSI A</source>
         <comment>Paper format</comment>
-        <translation>מכתב / ANSI A</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Legal</source>
         <comment>Paper format</comment>
-        <translation>חוקי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tabloid / ANSI B</source>
         <comment>Paper format</comment>
-        <translation>תגית: ANSI B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI C</source>
         <comment>Paper format</comment>
-        <translation>ANSI C</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI D</source>
         <comment>Paper format</comment>
-        <translation>ANSI D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ANSI E</source>
         <comment>Paper format</comment>
-        <translation>ANSI</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch A</source>
         <comment>Paper format</comment>
-        <translation>קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch B</source>
         <comment>Paper format</comment>
-        <translation>קשת B</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch C</source>
         <comment>Paper format</comment>
-        <translation>קשת C</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch D</source>
         <comment>Paper format</comment>
-        <translation>ארצ' D</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Arch E</source>
         <comment>Paper format</comment>
-        <translation>ארצ' E</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>custom</source>
         <comment>Paper format</comment>
-        <translation>מותאם אישית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a0</source>
         <comment>Paper format</comment>
-        <translation>0</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a1</source>
         <comment>Paper format</comment>
-        <translation>1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a2</source>
         <comment>Paper format</comment>
-        <translation>a2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a3</source>
         <comment>Paper format</comment>
-        <translation>a3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>a4</source>
         <comment>Paper format</comment>
-        <translation>a4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>letter</source>
         <comment>Paper format</comment>
-        <translation>מכתב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>legal</source>
         <comment>Paper format</comment>
-        <translation>חוקי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>tabloid</source>
         <comment>Paper format</comment>
-        <translation>תגית:loid</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi c</source>
         <comment>Paper format</comment>
-        <translation>c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi d</source>
         <comment>Paper format</comment>
-        <translation>asi d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ansi e</source>
         <comment>Paper format</comment>
-        <translation>e</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch a</source>
         <comment>Paper format</comment>
-        <translation>קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch b</source>
         <comment>Paper format</comment>
-        <translation>קשת b</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch c</source>
         <comment>Paper format</comment>
-        <translation>קשת c</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch d</source>
         <comment>Paper format</comment>
-        <translation>קשת d</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>arch e</source>
         <comment>Paper format</comment>
-        <translation>קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DWG support is not complete!</source>
-        <translation>התמיכה אינה שלמה!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>If this file fails to open try an older DWG format</source>
-        <translation>אם קובץ זה אינו נפתח, נסה פורמט DWG מבוגר יותר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>or try to find a converter to make it a DXF file.</source>
-        <translation>נסו למצוא ממיר כדי להפוך אותו לקובץ DXF.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Information</source>
-        <translation>מידע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Error</source>
         <comment>fileImport</comment>
-        <translation>טעות שגיאה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Import error:</source>
         <comment>fileImport</comment>
-        <translation>טעות יבוא:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
-        <translation>בכל מקרה, יש כמה ישויות שזוהו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
-        <translation>אם אתה פותח את הקובץ עכשיו, הציור עשוי להיות לא שלם או בלתי אפשרי.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
-        <translation>להתעלם מהשגיאה ולפתוח את הקובץ?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>טעות DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>קובץ DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>קובץ DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>מידע על DXF/DWG meta</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>צילום: DXF / DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG header dara</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>צילום: DXF/DWG Header dara</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>צילום: DXF/DWG Object Map</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>טעות לקרוא DXF / DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>טבלאות DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>dXF/DWG חוסם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>תגיות DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>תגיות: DXF / DWG אובייקטים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>צילום: DXF / DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>קוד DXF/DWG</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>undefined error</source>
         <comment>RS_FilterInterface</comment>
-        <translation>טעות בלתי מוגדרת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>usage: </source>
-        <translation>שימוש:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> [options] &lt;dxf_files&gt;</source>
-        <translation>&lt;dxf files&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> *.dxf</source>
-        <translation>*</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation>הדפס את כל הקבצים dxf לקובץ pdf עם אותם שמות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> -o some.pdf *.dxf</source>
-        <translation>קצת.pdf *</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>- להדפיס את כל הקבצים dxf לקובץ "some.pdf".</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
-        <translation>התאמה אוטומטית וציור מרכז לדף.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Auto center drawing on page.</source>
-        <translation>ציור מרכז אוטומטי בעמוד.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print grayscale.</source>
-        <translation>הדפסה אפורה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print monochrome (black/white).</source>
-        <translation>מונוכרום (שחור/לבן).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paper size (Width x Height) in mm.</source>
         <comment>WxH</comment>
-        <translation>גודל נייר (Width x High) ב mm.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output resolution (DPI).</source>
         <comment>integer</comment>
-        <translation>החלטה (DPI).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
-        <translation>סולם בחוץ E.g: 0.01 (עבור 1:100 קנה מידה).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paper margins in mm (integer or float).</source>
-        <translation>שולי נייר ב mm (integer או צף).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Print on multiple pages (Horiz. x Vert.).</source>
-        <translation>הדפסה על דפים מרובים (Horiz. x Vert).</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Output PDF file.</source>
         <comment>file</comment>
-        <translation>קובץ PDF Output.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Target output directory.</source>
-        <translation>מנהל פלט מטרות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;dxf_files&gt;</source>
-        <translation>&lt;dxf files&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Input DXF file(s)</source>
-        <translation>קובץ DXF(s)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Keycode mode</source>
-        <translation>המונחים: keycode</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Load command file</source>
-        <translation>קובץ פקודה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Paste multiple commands</source>
-        <translation>פקודות מרובות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Combine all layers</source>
-        <translation>לשלב את כל השכבות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>"%1" כבר קיים. רוצים להחליף אותו?</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>/CustomColor%1</source>
-        <translation>/CustomColor%1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Custom Picked</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>noname</source>
         <comment>default layer name</comment>
-        <translation>אין שם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>sli</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>תגית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>slinex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>סלקס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation>rlx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliy</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>נדיר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>ret1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>פרוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>ll</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>פרוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>סלאק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>כוכב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>st</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>צלב הצלב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>cx</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>נקודות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>נקודות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>ביקורת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>cba</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>משוכפל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>dup</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>קוjoin</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>lj</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>פרידה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>bd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>פער</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>קרחונים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>parabola4p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>pl4</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>parabolafd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>rortoline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>נקודה 2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>תגית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>smm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>anglerel</source>
-        <translation>זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>start</source>
-        <translation>להתחיל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>offset</source>
-        <translation>offset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>linesnap</source>
-        <translation>קווים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>קרציות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>width</source>
-        <translation>רוחב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>height</source>
-        <translation>גובה הגובה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>pos</source>
-        <translation>נקבוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>size</source>
-        <translation>גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bevels</source>
-        <translation>bevels</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nopoly</source>
-        <translation>ללא מילים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>usepoly</source>
-        <translation>שימוש בpoly</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corners</source>
-        <translation>פינות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>str</source>
-        <translation>str</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>round</source>
-        <translation>עגול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap1</source>
-        <translation>תמונה1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topl</source>
-        <translation>topl</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>top</source>
-        <translation>העליון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>topr</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>left</source>
-        <translation>שמאל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>middle</source>
-        <translation>אמצע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>right</source>
-        <translation>ימין צודק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottoml</source>
-        <translation>תחתית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottom</source>
-        <translation>תחתית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>bottomr</source>
-        <translation>תחתית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>snaper</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snapshift</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizein</source>
-        <translation>גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sizeout</source>
-        <translation>גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>hor</source>
-        <translation>hor</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>vert</source>
-        <translation>vert</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>snap2</source>
-        <translation>2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>corner</source>
-        <translation>פינה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>אמצע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>אמצע ההר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>quad</source>
-        <translation>quad</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>noquad</source>
-        <translation>noquad</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>ממזר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edges</source>
-        <translation>הקצוות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-none</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-both</source>
-        <translation>קצה - both</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-start</source>
-        <translation>קצה-start</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>edge-end</source>
-        <translation>קצה-end</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>end</source>
-        <translation>סוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>both</source>
-        <translation>שניהם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>none</source>
-        <translation>אף אחד לא</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fit</source>
-        <translation>מתאים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nofit</source>
-        <translation>לא מתאים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>t flex</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>distance</source>
-        <translation>מרחק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>sym</source>
-        <translation>סימס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>nosym</source>
-        <translation>nosym</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>אייל: שום דפוס לא נמצא. אנא הגדרת נתיב דפוס בהעדפות יישום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Hatch: דפוס הטעינה נכשל: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>PenTB</source>
-        <translation>PenTB</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Layer</source>
-        <translation>על ידי Layer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>By Block</source>
-        <translation>על ידי Block</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>שינוי -</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>User Color</source>
-        <translation>User Color</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>cal</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>חישוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>- Unchanged-</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>ByLayer</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>ByBlock</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0.00mm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0.05 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0.09mm</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0.13mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0.15 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0.18mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0.20 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0.25mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0.30 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0.35mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0.40 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0.50 מ"מ ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0.53 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0.60 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0.70mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0.80 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0.90 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1.00mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1.06 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1.20 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1.40 מ"מ ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1.58 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2.00mm ISO</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11 מ"מ</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksCreate</name>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksInsert</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">הזן זווית:</translation>
     </message>
     <message>
         <source />
@@ -10701,774 +10652,774 @@ Do you want to replace it?</source>
     </message>
     <message>
         <source>Enter factor:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">הזן מכפיל:</translation>
     </message>
     <message>
         <source>Enter columns:</source>
-        <translation>עמודות כניסה:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter rows:</source>
-        <translation>שורות נכנסות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter column spacing:</source>
-        <translation>כניסה בעמודה ספאק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter row spacing:</source>
-        <translation>היכנסו ל-Sing:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Block cannot contain an insert of itself.</source>
-        <translation>בלוק לא יכול להכיל את עצמו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source> has nested insert of current block in:
 </source>
-        <translation>הוספת בלוק נוכחי ב:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>
 This block cannot be inserted.</source>
-        <translation>לא ניתן להכניס את הבלוק הזה.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksSave</name>
     <message>
         <source>No block activated to save</source>
-        <translation>שום בלוק לא מופעל כדי להציל</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDefault</name>
     <message>
         <source>Choose second edge</source>
-        <translation>בחרו קצה שני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDimAligned</name>
     <message>
         <source>Specify first extension line origin</source>
-        <translation>קו הארכה ראשון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second extension line origin</source>
-        <translation>המונחים: different line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify dimension line location</source>
-        <translation>המונחים: Dimension line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension text:</source>
-        <translation>טקסט ממד:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDimAngular</name>
     <message>
         <source>Select first line</source>
-        <translation>בחר קו ראשון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select second line</source>
-        <translation>בחר קו שני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify dimension arc line location</source>
-        <translation>המונחים: Dimension arc line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension text:</source>
-        <translation>טקסט ממד:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDimDiametric</name>
     <message>
         <source>Not a circle or arc entity</source>
-        <translation>לא מעגל או ישות קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Select arc or circle entity</source>
-        <translation>בחירת קשת או ישות מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify dimension line location</source>
-        <translation>המונחים: Dimension line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension text:</source>
-        <translation>טקסט ממד:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDimLeader</name>
     <message>
         <source>Specify target point</source>
-        <translation>נקודת יעד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>המונחים: next point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Finish</source>
-        <translation>סיום</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDimLinear</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify first extension line origin</source>
-        <translation>קו הארכה ראשון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second extension line origin</source>
-        <translation>המונחים: different line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify dimension line location</source>
-        <translation>המונחים: Dimension line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension text:</source>
-        <translation>טקסט ממד:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension line angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDimRadial</name>
     <message>
         <source>Not a circle or arc entity</source>
-        <translation>לא מעגל או ישות קשת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Select arc or circle entity</source>
-        <translation>בחירת קשת או ישות מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify dimension line position or enter angle:</source>
-        <translation>מיקום קו המימד או הזן זווית:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter dimension text:</source>
-        <translation>טקסט ממד:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawArc</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Not a valid chord length</source>
-        <translation>לא אורך סטנדרד חוקי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify center</source>
-        <translation>מרכז</translation>
+        <translation type="unfinished">ציין מרכז</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify radius</source>
-        <translation>רדיוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify start angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify included angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify chord length:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify end angle or [angle/chord length]</source>
-        <translation>סמן זווית סיום או [אורך סבך / ריבוע]</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawArc3P</name>
     <message>
         <source>Invalid arc data.</source>
-        <translation>נתוני קשת בלתי חוקיים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>נקודה שנייה</translation>
+        <translation type="unfinished">ציין נקודה שנייה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify endpoint</source>
-        <translation>המונחים endpoint</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify startpoint or [center]</source>
-        <translation>נקודת התחלה או [מרכז]</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawArcTangential</name>
     <message>
         <source>Specify base entity</source>
-        <translation>המונחים בסיס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify end angle</source>
-        <translation>המונחים: end</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>המונחים: end point</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircle</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify center</source>
-        <translation>מרכז</translation>
+        <translation type="unfinished">ציין מרכז</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify point on circle</source>
-        <translation>נקודת ציון על מעגל</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircle2P</name>
     <message>
         <source>Invalid Circle data.</source>
-        <translation>נתוני מעגל לא חוקיים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify first point</source>
-        <translation>נקודה ראשונה</translation>
+        <translation type="unfinished">ציין נקודה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>נקודה שנייה</translation>
+        <translation type="unfinished">ציין נקודה שנייה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircle3P</name>
     <message>
         <source>Invalid circle data.</source>
-        <translation>נתוני מעגל בלתי חוקיים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify first point</source>
-        <translation>נקודה ראשונה</translation>
+        <translation type="unfinished">ציין נקודה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>נקודה שנייה</translation>
+        <translation type="unfinished">ציין נקודה שנייה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify third point</source>
-        <translation>נקודה שלישית</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleCR</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify circle center</source>
-        <translation>מרכז המעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify circle radius</source>
-        <translation>רדיוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>radius=%1 is invalid (expression)</source>
-        <translation>רדיוס=%1 אינו חוקי (ביטוי)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>radius=%1 is invalid (negative)</source>
-        <translation>רדיוס=%1 אינו חוקי (שלילי)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>radius=%1 is invalid (zero)</source>
-        <translation>רדיוס=%1 אינו חוקי (אפס)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>ציין את השורה הראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>ציין את השורה השנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>ציין את השורה השלישית</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan1_2P</name>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the first point on the tangent circle</source>
-        <translation>ציין את הנקודה הראשונה על מעגל שיזוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify the second point on the tangent circle</source>
-        <translation>ציין את הנקודה השנייה על מעגל שיזוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>בחר את מרכז המעגל הטנט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>המונחים: a line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2</name>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>המונחים: first line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>תגית: The Second Line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>בחר את מרכז המעגל הטנט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid expression '%1' for radius</source>
-        <translation>ביטוי לא חוקי "%1" עבור רדיוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid negative radius '%1'</source>
-        <translation>רדיוס שלילי "%1"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Invalid zero radius '%1'</source>
-        <translation>Invalid Zeroרדיוס "%1"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No tangent circle possible for radius '%1'</source>
-        <translation>אין מעגל שיזוף אפשרי עבור רדיוס "%1"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No common tangential circle for radius '%1'</source>
-        <translation>אין מעגל משותף לרדיוס "%1"</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2_1P</name>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>המונחים: a line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the another arc/circle</source>
-        <translation>תגית: arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify a point on the tangent circle</source>
-        <translation>ציין נקודה על המעגל הטנט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>בחר את מרכז המעגל הטנט</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan3</name>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>בחר את מרכז המעגל הטנט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>המונחים: first line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>תגית: The Second Line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the third line/arc/circle</source>
-        <translation>המונחים: Third line/arc/circle</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipse4Points</name>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>ציין את הנקודה הראשונה ב-Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>ציין את הנקודה השנייה על allipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>ציין את הנקודה השלישית ב-Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the fourth point on ellipse</source>
-        <translation>ציין את הנקודה הרביעית ב-Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>לא ניתן לקבוע באופן ייחודי אליפס</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseAxis</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify ellipse center</source>
-        <translation>מרכז ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify endpoint of major axis</source>
-        <translation>נקודת קצה של ציר גדול</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify endpoint or length of minor axis:</source>
-        <translation>נקודת קצה או אורך של ציר קטן:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify start angle</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify end angle</source>
-        <translation>המונחים: end</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseCenter3Points</name>
     <message>
         <source>Specify the center of ellipse</source>
-        <translation>המונחים: the center of ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>ציין את הנקודה הראשונה ב-Ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>ציין את הנקודה השנייה על allipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>ציין את הנקודה השלישית ב-Ellipse</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseFociPoint</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify first focus of ellipse</source>
-        <translation>מוקד ראשון של ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second focus of ellipse</source>
-        <translation>מוקד שני של ellipse</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify a point on ellipse or total distance to foci</source>
-        <translation>ציין נקודה על allipse או מרחק מוחלט ל-</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>specify a point on ellipse, or total distance to foci</source>
-        <translation>ציין נקודה על allipse, או מרחק מוחלט ליריבים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation>%1 הוא קטן ממרחק בין אויב</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>ציין את השורה הראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>ציין את השורה השנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>ציין את השורה השלישית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the fourth line</source>
-        <translation>ציין את השורה הרביעית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>לא ניתן לקבוע באופן ייחודי אליפס</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawHatch</name>
     <message>
         <source>Invalid hatch area. Please check that the entities chosen form one or more closed contours.</source>
-        <translation>אזור בטנה לא חוקי אנא בדוק כי הגופים שנבחרו ליצור קוטור אחד או יותר סגור.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch created successfully.</source>
-        <translation>הכובען יצר בהצלחה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Error: Invalid contour found!</source>
-        <translation>שגיאה: סיור לא חוקי נמצא!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Error: Pattern not found!</source>
-        <translation>טעות: דפוס לא נמצא!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Error: Contour or pattern too small!</source>
-        <translation>שגיאה: קוטור או דפוס קטן מדי!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Error: Contour too big!</source>
-        <translation>טעות: קוטור גדול מדי!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Hatch Error: Undefined Error!</source>
-        <translation>טעות: טעות בלתי מוגדרת!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Total hatch area = %1</source>
-        <translation>שטח הבטן הכולל = %1</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawImage</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">הזן זווית:</translation>
     </message>
     <message>
         <source />
@@ -11476,212 +11427,212 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Enter factor:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">הזן מכפיל:</translation>
     </message>
     <message>
         <source>Enter dpi:</source>
-        <translation>Enter dpi:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLine</name>
     <message>
         <source>Specify first point</source>
-        <translation>נקודה ראשונה</translation>
+        <translation type="unfinished">ציין נקודה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next point or [%1]</source>
-        <translation>הנקודה הבאה או [%1]</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>המונחים: next point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
-        <translation>לא ניתן לסגור רצף של קווים: לא מספיק ישויות שהוגדרו עדיין, או שכבר נסגרו.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>לא ניתן לעשות: תחילת ההיסטוריה הגיעה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot redo: End of history reached</source>
-        <translation>Cannot Redo: סוף ההיסטוריה הגיעה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineAngle</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify position</source>
-        <translation>מיקום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">הזן זווית:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Enter length:</source>
-        <translation>אורך כניסה:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineBisector</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Select first line</source>
-        <translation>בחר קו ראשון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select second line</source>
-        <translation>בחר קו שני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Enter bisector length:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter number of bisectors:</source>
-        <translation>הזן מספר Bisectors:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number sector lines not in range: </source>
         <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation>מספר קווים לא בטווח:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineFree</name>
     <message>
         <source>Click and drag to draw a line</source>
-        <translation>לחץ וגרור כדי לצייר קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineHorVert</name>
     <message>
         <source>Specify first point</source>
-        <translation>נקודה ראשונה</translation>
+        <translation type="unfinished">ציין נקודה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>נקודה שנייה</translation>
+        <translation type="unfinished">ציין נקודה שנייה</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineOrthTan</name>
     <message>
         <source>Select a line</source>
-        <translation>בחר קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select circle, arc or ellipse</source>
-        <translation>מעגל נבחר, קשת או אליפס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineParallel</name>
     <message>
         <source>Specify Distance &lt;%1&gt; or select entity or [%2]</source>
-        <translation>ציין מרחק &lt;%&gt; או ישות בחירה או [%]</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>מספר כניסה:</translation>
+        <translation type="unfinished">הזן מספר:</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..99</source>
-        <translation>לא מספר חוקי. נסה 1.99</translation>
+        <translation type="unfinished">לא מספר חוקי. נסה 1..99</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineParallelThrough</name>
     <message>
         <source>Select entity</source>
-        <translation>ישות נבחרת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify through point</source>
-        <translation>המונחים through point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Not a valid number. Try 1..99</source>
-        <translation>לא מספר חוקי. נסה 1.99</translation>
+        <translation type="unfinished">לא מספר חוקי. נסה 1..99</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
 </context>
 <context>
@@ -11695,414 +11646,414 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawLinePolygonCenCor</name>
     <message>
         <source>Specify center</source>
-        <translation>מרכז</translation>
+        <translation type="unfinished">ציין מרכז</translation>
     </message>
     <message>
         <source>Specify a corner</source>
-        <translation>תגית: a Corner</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>מספר כניסה:</translation>
+        <translation type="unfinished">הזן מספר:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>לא מספר חוקי. נסה 1.99</translation>
+        <translation type="unfinished">לא מספר חוקי. נסה 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLinePolygonCorCor</name>
     <message>
         <source>Specify first corner</source>
-        <translation>פינה ראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second corner</source>
-        <translation>פינה שנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>לא מספר חוקי. נסה 1.99</translation>
+        <translation type="unfinished">לא מספר חוקי. נסה 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression.</source>
-        <translation>לא ביטוי חוקי.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineRectangle</name>
     <message>
         <source>Specify first corner</source>
-        <translation>פינה ראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second corner</source>
-        <translation>פינה שנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineRelAngle</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Select base entity</source>
-        <translation>הישות הבסיסית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify position</source>
-        <translation>מיקום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineTangent1</name>
     <message>
         <source>Specify point</source>
-        <translation>המונחים point</translation>
+        <translation type="unfinished">ציין נקודה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select circle, arc or ellipse</source>
-        <translation>מעגל נבחר, קשת או אליפס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLineTangent2</name>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>בחר מעגל ראשון /ellipse /parabola</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>עיגול שני / אליפסיה /parabola</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>בחרו את השורה הקרובה ביותר ל-cursor</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawMText</name>
     <message>
         <source>Specify insertion point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation>היכנס טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawPoint</name>
     <message>
         <source>Specify location</source>
-        <translation>מיקום</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawPolyline</name>
     <message>
         <source>Specify first point</source>
-        <translation>נקודה ראשונה</translation>
+        <translation type="unfinished">ציין נקודה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next point or [%1]</source>
-        <translation>הנקודה הבאה או [%1]</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>המונחים: next point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot close sequence of lines: Not enough entities defined yet.</source>
-        <translation>אי אפשר לסגור רצף של קווים: לא מספיק ישויות שהוגדרו עדיין.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>אי אפשר לעשות זאת: לא מספיק גופים שהוגדרו עדיין.</translation>
+        <translation type="unfinished">לא ניתן לבטל: לא מספיק אובייקטים הוגדרו.</translation>
     </message>
     <message>
         <source>Enter the end point x</source>
-        <translation>היכנס לנקודה הסופית x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter number of polylines</source>
-        <translation>מספר Enter of Polylines</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>equation</source>
-        <translation>משוואה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter an equation, f(x)</source>
-        <translation>היכנס למשוואה, f(x)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter the start point x</source>
-        <translation>הזן את נקודת ההתחלה x</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The entered x is invalid.</source>
-        <translation>X נכנס אינו חוקי.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The step size entered is invalid.</source>
-        <translation>גודל הצעד נכנס הוא לא חוקי.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The value x entered is invalid.</source>
-        <translation>הערך x נכנס הוא בלתי חוקי.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionDrawSpline</name>
     <message>
         <source>Specify first control point</source>
-        <translation>נקודת בקרה ראשונה</translation>
+        <translation type="unfinished">ציין נקודת בקרה ראשונה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation>נקודת בקרה הבאה או [%1]</translation>
+        <translation type="unfinished">ציין את נקודת הבקרה הבאה או [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation>המונחים: next control</translation>
+        <translation type="unfinished">ציין את נקודת הבקרה הבאה</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>אי אפשר לעשות זאת: לא מספיק גופים שהוגדרו עדיין.</translation>
+        <translation type="unfinished">לא ניתן לבטל: לא מספיק אובייקטים הוגדרו.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawText</name>
     <message>
         <source>Specify insertion point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation>היכנס טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>נקודה שנייה</translation>
+        <translation type="unfinished">ציין נקודה שנייה</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionEditCopy</name>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionEditPaste</name>
     <message>
         <source>Set reference point</source>
-        <translation>המונחים: point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionEditUndo</name>
     <message>
         <source>Nothing to undo!</source>
-        <translation>שום דבר לא לעשות!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Nothing to redo!</source>
-        <translation>שום דבר לא אדום!</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionInfoAngle</name>
     <message>
         <source>Lines are parallel</source>
-        <translation>קווים מקבילים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify first line</source>
-        <translation>המונחים: first line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second line</source>
-        <translation>קו שני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Angle: %1</source>
-        <translation>אנגלית: %1</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionInfoArea</name>
     <message>
         <source>Circumference: %1</source>
-        <translation>המונחים: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Point: %1/%2</source>
-        <translation>%1/%2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify first point of polygon</source>
-        <translation>נקודה ראשונה של פוליגון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next point of polygon</source>
-        <translation>נקודה הבאה של פוליגון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Closing Point: %1/%2</source>
-        <translation>המונחים:%1 /%2</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Area: %1 %2^2</source>
-        <translation>שטח: %12</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionInfoDist</name>
     <message>
         <source>Specify first point of distance</source>
-        <translation>נקודה ראשונה של מרחק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point of distance</source>
-        <translation>נקודה שנייה של מרחק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Distance: %1 Cartesian: (%2 , %3), Polar: (%4&lt;%5)</source>
-        <translation>מרחק:%1 קרטסיאן: (%2 ,%3), Polar: (% 4&lt;%5)</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionInfoDist2</name>
     <message>
         <source>Distance: %1</source>
-        <translation>מרחק: %1</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify entity</source>
-        <translation>המונחים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify point</source>
@@ -12117,11 +12068,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionInfoInside</name>
     <message>
         <source>Point is inside selected contour.</source>
-        <translation>הנקודה היא בתוך קווי מתאר נבחרים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Point is outside selected contour.</source>
-        <translation>הנקודה היא מחוץ לקוטור שנבחר.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify point</source>
@@ -12182,7 +12133,7 @@ This block cannot be inserted.</source>
     <name>RS_ActionLockRelativeZero</name>
     <message>
         <source>(Un-)&amp;Lock Relative Zero</source>
-        <translation>(Un-) &amp;Lock Relative Zero</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -12248,14 +12199,14 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation>Entity חייב להיות קו, קשת, מעגל, אליפזה או ספירה של אינטרפולציה.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyDeleteFree</name>
     <message>
         <source>Specify first break point on a polyline</source>
-        <translation>נקודת הפסקה ראשונה בפולילין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
@@ -12263,1538 +12214,1538 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify second break point on the same polyline</source>
-        <translation>נקודה שנייה על אותו פולילין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Entities not in the same polyline.</source>
-        <translation>לא באותה פולילין.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Parent of second entity is not a polyline</source>
-        <translation>הורה של ישות שנייה אינו פולילין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Parent of first entity is not a polyline</source>
-        <translation>הורה של ישות ראשונה אינו פולילין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Parent of second entity is nullptr</source>
-        <translation>ההורה של ישות שנייה הוא אפסופטר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>One of the chosen entities is nullptr</source>
-        <translation>אחד הגופים הנבחרים הוא אפספור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Parent of first entity is nullptr</source>
-        <translation>הורות של ישות ראשונה היא אפסופטר</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>First entity is nullptr</source>
-        <translation>הישות הראשונה היא אפספור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Second entity is nullptr</source>
-        <translation>ישות שנייה היא אפספור</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyDeleteQuick</name>
     <message>
         <source>Pick entity to delete</source>
-        <translation>סלקציה למחוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyEntity</name>
     <message>
         <source>Click on entity to modify</source>
-        <translation>לחץ על הישות לשנות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyMirror</name>
     <message>
         <source>Specify first point of mirror line</source>
-        <translation>נקודה ראשונה של קו המראה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second point of mirror line</source>
-        <translation>נקודה שנייה של קו המראה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyMove</name>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>נקודת יעד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Invalid number of copies, use %1 </source>
-        <translation>מספר בלתי חוקי של עותקים, שימוש ב %1</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyMoveRotate</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>נקודת יעד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Enter rotation angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyOffset</name>
     <message>
         <source>Specify direction of offset</source>
-        <translation>המונחים: offset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyRotate</name>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify rotation center</source>
-        <translation>מרכז הסיבוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify target point to rotate to</source>
-        <translation>נקודת יעד ברורה כדי לסובב</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyRotate2</name>
     <message>
         <source>Specify absolute reference point</source>
-        <translation>נקודת ההתייחסות המוחלטת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify relative reference point</source>
-        <translation>נקודת ההתייחסות היחסית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionModifyRound</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify second entity</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Enter radius:</source>
-        <translation>רדיוס נכנס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation>ציין ישות ראשונה או כניסה לרדיוס &lt;%1&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyScale</name>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>מרכז סולם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>נקודת יעד</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyStretch</name>
     <message>
         <source>Specify first corner</source>
-        <translation>פינה ראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second corner</source>
-        <translation>פינה שנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify reference point</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished">ציין נקודת יחוס</translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>נקודת יעד</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyTrim</name>
     <message>
         <source>Select first trim entity</source>
-        <translation>בחירת ישות טרימה ראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select limiting entity</source>
-        <translation>הגבלת הישות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Select second trim entity</source>
-        <translation>בחירת ישות שנייה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select entity to trim</source>
-        <translation>גוף נבחר ל- Trim</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionModifyTrimAmount</name>
     <message>
         <source>No entity found. </source>
-        <translation>שום ישות לא נמצאה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The chosen Entity is in a block. Please edit the block.</source>
-        <translation>הישות הנבחרת נמצאת בבלוק. נא לערוך את הבלוק.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The chosen Entity is not an atomic entity or cannot be trimmed.</source>
-        <translation>הישות שנבחרה אינה ישות אטומית או אינה יכולה להיות מפורצת.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>לא ביטוי חוקי</translation>
+        <translation type="unfinished">ביטוי לא חוקי</translation>
     </message>
     <message>
         <source>Select entity to trim or enter distance:</source>
-        <translation>גוף נבחר למשולש או להזין מרחק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionOrder</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Choose entity for order</source>
-        <translation>בחר ישות להזמנת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineAdd</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Adding point is invalid.</source>
-        <translation>נקודה נוספת היא לא חוקית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Adding point is not on entity.</source>
-        <translation>נקודת תוספת אינה על ישות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify polyline to add nodes</source>
-        <translation>המונחים: nodes</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify adding node's point</source>
-        <translation>המונחים: node's point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineAppend</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Click somewhere near the beginning or end of existing polyline.</source>
-        <translation>לחץ על מקום סמוך לתחילתו או לסוף הפולילין הקיים.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify the polyline somewhere near the beginning or end point</source>
-        <translation>ציין את פולילין איפשהו ליד נקודת התחלה או סוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify next point or [%1]</source>
-        <translation>הנקודה הבאה או [%1]</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify next point</source>
-        <translation>המונחים: next point</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Can not append nodes in a closed polyline.</source>
-        <translation>לא ניתן להוסיף צמתים בפולילין סגור.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>אי אפשר לעשות זאת: לא מספיק גופים שהוגדרו עדיין.</translation>
+        <translation type="unfinished">לא ניתן לבטל: לא מספיק אובייקטים הוגדרו.</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineDel</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify polyline to delete node</source>
-        <translation>המונחים: node</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify deleting node's point</source>
-        <translation>המונחים: node</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>הנקודה היא לא חוקית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>הנקודה היא לא על ישות.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineDelBetween</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>הנקודה היא לא על ישות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify polyline to delete between two nodes</source>
-        <translation>ציין פולילין למחוק בין שני צמתים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify first node</source>
-        <translation>המונחים: first node</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify second node</source>
-        <translation>המונחים: second node</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>הנקודה היא לא חוקית.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineEquidistant</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Choose the original polyline</source>
-        <translation>בחרו את הפולילין המקורי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineSegment</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Choose one of the segments on the original polyline</source>
-        <translation>בחר אחד הקטעים בפולילין המקורי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Entity can not be a closed polyline.</source>
-        <translation>אי אפשר להיות פולילין סגור.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Polyline created</source>
-        <translation>Polyline נוצר</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionPolylineTrim</name>
     <message>
         <source>No Entity found.</source>
-        <translation>לא נמצאו נטיות.</translation>
+        <translation type="unfinished">גוף לא נמצא.</translation>
     </message>
     <message>
         <source>Entity must be a polyline.</source>
-        <translation>הישות חייבת להיות פולינית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specifying point is invalid.</source>
-        <translation>נקודת ציון היא לא חוקית.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No Segment found on entity.</source>
-        <translation>שום סגמנט לא נמצא בישות.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Specify polyline to trim</source>
-        <translation>המונחים: trim</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify first segment</source>
-        <translation>המונחים: first space</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Specify second segment</source>
-        <translation>סעיף שני</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionPrintPreview</name>
     <message>
         <source>RS_ActionPrintPreview::fit(): Invalid paper size</source>
-        <translation>RS ActionPrintPreview:fit(: Invalid נייר גודל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout offset in paper coordinates by (%1, %2)</source>
-        <translation>הורדת הדפסה בתיאום נייר (%1,%2)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout offset in graph coordinates by (%1, %2)</source>
-        <translation>Printout offset בקואורדינטות גרפיות (%1,%2)</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout offset in graph coordinates</source>
-        <translation>Printout offset ב גרפים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout offset in paper coordinates</source>
-        <translation>Printout offset in נייר לתאם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>: select printout offset coordinates</source>
-        <translation>תגית: printoutset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>type in offset from command line to offset printout</source>
-        <translation>המונחים: offset from command line to offset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>הורדת הדפסה מתעלמת מאפס יחסי. מתוך "@"</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation>הדפסה בשחור/לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Printout in color</source>
-        <translation>הדפסה בצבע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>RS_ActionPrintPreview::calcPagesNum(): Limit of pages has been exceeded.</source>
-        <translation>RS ActionPrintPreview:calcPagesNum (: הגבלת העמודים עלתה.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionSelect</name>
     <message>
         <source>Select to modify attributes</source>
-        <translation>בחר לשנות תכונות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Select to delete</source>
-        <translation>בחר למחוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to delete immediately</source>
-        <translation>בחר למחוק מיד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to move</source>
-        <translation>בחר לעבור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to rotate</source>
-        <translation>בחר לסובב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to scale</source>
-        <translation>בחר סולם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to mirror</source>
-        <translation>בחר במראה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to move and rotate</source>
-        <translation>בחרו לנוע ולסובב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select for two axis rotation</source>
-        <translation>בחירת שני סיבוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to explode text</source>
-        <translation>בחר לפוצץ טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to create block</source>
-        <translation>בחר ליצור בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to copy</source>
-        <translation>בחר להעתיק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to cut</source>
-        <translation>בחר לחתוך</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No entity selected!</source>
-        <translation>שום ישות לא נבחרה!</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to create offset</source>
-        <translation>בחרו ליצור Offset</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select entities to order</source>
-        <translation>גופים נבחרים כדי להזמין</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to explode block</source>
-        <translation>אפשרות לפוצץ בלוק</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select to revert direction</source>
-        <translation>בחרו לחזור לכיוון</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionSelectContour</name>
     <message>
         <source>Entity must be an Atomic Entity.</source>
-        <translation>הישות חייבת להיות ישות אטומית.</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionSelectIntersected</name>
     <message>
         <source>Choose first point of intersection line</source>
-        <translation>בחר נקודת מפנה ראשונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Choose second point of intersection line</source>
-        <translation>בחר נקודה שנייה של קו צומת</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectWindow</name>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Choose second edge</source>
-        <translation>בחרו קצה שני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Click and drag for the selection window</source>
-        <translation>לחץ וגרור לחלון הבחירה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionSetRelativeZero</name>
     <message>
         <source>Set relative Zero</source>
-        <translation>תגית: Zero</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Set &amp;Relative Zero</source>
-        <translation>תגית: Zero</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionSnapIntersectionManual</name>
     <message>
         <source>I&amp;ntersection Manually</source>
-        <translation>I &amp;nterסעיף באופן ידני</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Select first entity</source>
-        <translation>בחר ישות ראשונה</translation>
+        <translation type="unfinished">בחר גוף ראשון</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
     <message>
         <source>Select second entity</source>
-        <translation>בחר ישות שנייה</translation>
+        <translation type="unfinished">בחר גוף שני</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionToolRegenerateDimensions</name>
     <message>
         <source>Regenerated %1 dimension entities</source>
-        <translation>המונחים:%</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>No dimension entities found</source>
-        <translation>לא נמצאו ישויות ממד</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionZoomPan</name>
     <message>
         <source>Click and drag to pan zoom</source>
-        <translation>לחץ וגרור ל pan Zoom</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Zoom panning</source>
-        <translation>ZOOB</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>RS_ActionZoomWindow</name>
     <message>
         <source>Specify first edge</source>
-        <translation>המונחים First Edge</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished">ביטול</translation>
     </message>
     <message>
         <source>Specify second edge</source>
-        <translation>המונחים Second Edge</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Back</source>
-        <translation>בחזרה</translation>
+        <translation type="unfinished">חזור</translation>
     </message>
 </context>
 <context>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>Draft</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>TextFileViewer</name>
     <message>
         <source>Frame</source>
-        <translation>מסגרת</translation>
+        <translation type="unfinished">מסגרת</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation>הנגדי</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>שעון חכם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation>אפשרויות: Tangential Arc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation>Radius of the tangential arc</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>Total subtending זווית של קשת שיזוף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>רדוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>זווית</translation>
+        <translation type="unfinished">זווית</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation>בדקו את שני הגופים להתגלות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length 1:</source>
-        <translation>אורך 1:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length 2:</source>
-        <translation>אורך 2:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation>אפשרויות מעגל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation>עיגול Tangential2 אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; Radius of the tangential Circle toמשוך&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation>Radius of tangential Circle</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation>אפשרויות: Linear Dimension Options</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Label:</source>
-        <translation>תוויות:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>⌀</source>
-        <translation>⌀</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>°</source>
-        <translation>°</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>±</source>
-        <translation>±</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>π</source>
-        <translation>π</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>×</source>
-        <translation>×</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>÷</source>
-        <translation>÷</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>...</source>
-        <translation>......</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Factor:</source>
-        <translation>גורם:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>סולם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation>DPI של תמונה</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Factor:</source>
-        <translation>גורם:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>סולם</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Array:</source>
-        <translation>ארי:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation>מספר העמודים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation>מספר Rows</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>ספיגה:</translation>
+        <translation type="unfinished">מרווח:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation>עמוד הבית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation>Row Spacing</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation>אפשרויות כניסה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Factor:</source>
-        <translation>גורם:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>סולם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation>אפשרויות קו זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line angle</source>
-        <translation>קו זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length:</source>
-        <translation>אורך:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of line</source>
-        <translation>אורך קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation>Snap Point:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Middle</source>
-        <translation>תיכון</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>End</source>
-        <translation>סוף</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation>אפשרויות Bisector</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length:</source>
-        <translation>אורך:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation>אורך Bisector</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation>מספר הבקטורים ליצירת</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>יצירת קונוס סגור מן השורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Close</source>
-        <translation>סגור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Undo the last line Drawing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Redo השורה האחרונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Redo</source>
-        <translation>Redo</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Direction:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle</source>
-        <translation>זווית</translation>
+        <translation type="unfinished">זווית</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Undo the last line Drawing</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>יצירת קונוס סגור מן השורות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Close</source>
-        <translation>סגור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Redo השורה האחרונה</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Redo</source>
-        <translation>Redo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Point</source>
-        <translation>Point</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation>אפשרויות מקבילים</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance:</source>
-        <translation>מרחק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation>מרחק לישות מקורית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>מספר מקבילות ליצירת</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation>קו מקביל באמצעות אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>מספר מקבילות ליצירת</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation>אפשרויות Polygon</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>מספר הקצוות</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation>אפשרויות Polygon</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number:</source>
-        <translation>מספר:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>מספר הקצוות</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>אפשרויות ANGELECT</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line angle</source>
-        <translation>קו זווית</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length:</source>
-        <translation>אורך:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length of line</source>
-        <translation>אורך קו</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>אפשרויות טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text:</source>
-        <translation>טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation>שינוי אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance:</source>
-        <translation>מרחק:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation>אכזבה מהישות המקורית</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation>אפשרויות רוטט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation>אפשרויות Polyline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Close</source>
-        <translation>סגור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Line</source>
-        <translation>קו</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tangential</source>
-        <translation>Anential</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation>טאן רדוס</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle</source>
-        <translation>זווית</translation>
+        <translation type="unfinished">זווית</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation>שעון נגד</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>שעון חכם</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation>מפרט אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;p&gt;Print Scale נעול לשווי הנוכחי&lt;/p&gt;&lt;/body&gt;&lt;/body&gt;html&gt;&lt;/&gt;&gt;</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>fixed</source>
-        <translation>קבוע</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation>מצב שחור / לבן</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Center to page</source>
-        <translation>מרכז לדף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Fit to page</source>
-        <translation>מתאים לדף</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Apply Print Scale to line width</source>
-        <translation>Apply Print Scale to line</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Calculate number of pages needed to contain the drawing</source>
-        <translation>חישוב מספר הדפים הדרושים כדי להכיל את הציור</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt; &lt;head/&gt; &lt;body&gt;&lt;p&gt;printed size: drawing size&lt;/p&gt;&lt;/body&gt;html&gt;&lt;/body&gt;&gt;</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation>אפשרויות עגולות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation>בדקו את שני הקצוות לסיבוב</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Radius:</source>
-        <translation>רדוס:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>אפשרויות Snap Distance</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance:</source>
-        <translation>מרחק:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>אפשרויות Snap Distance</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation>נקודות ביניים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation>מספר נקודות חלוקה שוויוניות</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation>אפשרויות Spline</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Degree:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Closed</source>
-        <translation>סגור</translation>
+        <translation type="unfinished">סגור</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Undo</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>אפשרויות טקסט</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Text:</source>
-        <translation>טקסט:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Angle:</source>
-        <translation>המונחים:</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation>מינימום אפשרויות</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation>מרחק. ערכים שליליים עבור trimming, ערכים חיוביים להרחבה.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Length:</source>
-        <translation>אורך:</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation>מרחק. ערכים שליליים עבור trimming, ערכים חיוביים להרחבה. סימנים שליליים מתעלמים כאשר הם מתפרשים עד הסוף.</translation>
+        <translation type="unfinished" />
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation>אורך הקלט משמש כאורך מוחלט לאחר הזינוק, במקום עלייה ממושכת</translation>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -13805,7 +13756,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>&gt;</source>
-        <translation>&gt;&gt;</translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>&lt;</source>
@@ -13813,23 +13764,23 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation>שם השם</translation>
+        <translation>שם</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation>יצירת</translation>
+        <translation>צור</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation>להשמיד</translation>
+        <translation>הרס</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>חתימה</translation>
+        <translation>הקצה</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>עדכון Update</translation>
+        <translation>עדכן</translation>
     </message>
 </context>
 <context>

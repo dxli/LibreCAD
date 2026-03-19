@@ -64,23 +64,23 @@
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation type="unfinished" />
+        <translation>პარაბოლა</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ფენა:</translation>
+        <translation>ფენა:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished">გეომეტრია</translation>
+        <translation>გეომეტრია</translation>
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation type="unfinished">წერტილები სპლაინზე</translation>
+        <translation>სპლაინზე მყოფი წერტილები</translation>
     </message>
     <message>
         <source>Control Points</source>
-        <translation type="unfinished">საკონტროლო წერტილები</translation>
+        <translation>კონტროლის წერტილები</translation>
     </message>
 </context>
 <context>
@@ -118,7 +118,7 @@
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation type="unfinished" />
+        <translation>აირჩიეთ მრუდი ენტიტეტი</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ ზომის მრუდის მდებარეობა</translation>
     </message>
 </context>
 <context>
@@ -134,11 +134,12 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation type="unfinished" />
+        <translation>რადიუსი=%1 ძალიან მცირეა არჩეული წერტილებისთვის
+წერტილებს შორის მანძილი=%2 მეტია დიამეტრზე=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation type="unfinished" />
+        <translation>აირჩიეთ ორი შესაძლო წრის ცენტრიდან</translation>
     </message>
     <message>
         <source>Specify first point</source>
@@ -166,24 +167,26 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მანძილი (%1)
+ან [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">უკან</translation>
+        <translation>უკან</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მანძილი (კუთხე %1 გრადუსი)
+ან [%2]</translation>
     </message>
 </context>
 <context>
@@ -213,116 +216,116 @@ or [%2]</source>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მიმართულება (x ან y) ან [%1]</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">უკან</translation>
+        <translation>უკან</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მანძილი (%1) ან [%2]</translation>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation type="unfinished">Y</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მანძილი (%1 გრადუსი) ან [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ კუთხე ან [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ წერტილი ან [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ პირველი წერტილი პარაბოლაზე</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">გაუქმება</translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მეორე წერტილი პარაბოლაზე</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">უკან</translation>
+        <translation>უკან</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მესამე წერტილი პარაბოლაზე</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ მეოთხე წერტილი პარაბოლაზე</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ ღერძი პარაბოლაზე</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ პარაბოლის ფოკუსი</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">გაუქმება</translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ პარაბოლის დირექტრისა</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">უკან</translation>
+        <translation>უკან</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ საწყისი წერტილი პარაბოლაზე</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ საბოლოო წერტილი პარაბოლაზე</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation type="unfinished" />
+        <translation> ვერ იყოფა, რადგან დაბლოკილია.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation type="unfinished" />
+        <translation> ვერ იყოფა, რადგან პოლილაინის ნაწილია. ჯერ გააფართოვეთ პოლილაინი.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">ხაზი</translation>
+        <translation>ხაზი</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation type="unfinished">რკალი</translation>
+        <translation>მრუდი</translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation type="unfinished">წრე</translation>
+        <translation>წრე</translation>
     </message>
 </context>
 <context>
@@ -349,11 +352,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished" />
+        <translation>ვერ გაუქმდება: ჯერ საკმარისი ენტიტეტები არ არის განსაზღვრული.</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation type="unfinished" />
+        <translation>ვერ გაუქმდება: არაფერია გასაკეთებელი.</translation>
     </message>
 </context>
 <context>
@@ -364,11 +367,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation type="unfinished" />
+        <translation>გადიდება &amp;პანორამირება</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტის არჩევა</translation>
     </message>
     <message>
         <source>Select Window</source>
@@ -380,19 +383,19 @@ or [%2]</source>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation type="unfinished" />
+        <translation>(გა)არჩევა &amp;კონტურის</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>გადაკვეთილი ენტიტეტების არჩევა</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation type="unfinished" />
+        <translation>გადაკვეთილი ენტიტეტების არჩევის გაუქმება</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation type="unfinished" />
+        <translation>(გა)არჩევა ფენის</translation>
     </message>
     <message>
         <source>&amp;Points</source>
@@ -424,7 +427,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Parallel through point</source>
-        <translation type="unfinished" />
+        <translation>პარალელური წერტილის გავლით</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -436,15 +439,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation type="unfinished" />
+        <translation>მხები (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation type="unfinished" />
+        <translation>მხები (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation type="unfinished" />
+        <translation>მხები &amp;ორთოგონალური</translation>
     </message>
     <message>
         <source>Orthogonal</source>
@@ -452,15 +455,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished" />
+        <translation>შედარებითი კუთხე</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation type="unfinished" />
+        <translation>მრავალკუთხა (ცენტრი,კუთხე)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation type="unfinished" />
+        <translation>მრავალკუთხა (კუთხე,კუთხე)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
@@ -488,28 +491,28 @@ or [%2]</source>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>წრე &amp;ჩასმული</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation type="unfinished" />
+        <translation>მხები 2 წრე, რადიუსი</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation type="unfinished" />
+        <translation>მხები 2 წრე, 1 წერტილი</translation>
     </message>
     <message>
         <source>Tangential &amp;3 Circles</source>
-        <translation type="unfinished" />
+        <translation>მხები &amp;3 წრე</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation type="unfinished" />
+        <translation>მხები, 2 წერტილი</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation type="unfinished" />
+        <translation>&amp;ცენტრი, წერტილი, კუთხეები</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
@@ -521,27 +524,27 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ელიფსი (ღერძი)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation type="unfinished" />
+        <translation>ელიფსი &amp;მრუდი (ღერძი)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation type="unfinished" />
+        <translation>ელიფსი &amp;ფოკუსის წერტილი</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation type="unfinished" />
+        <translation>ელიფსი &amp;4 წერტილი</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation type="unfinished" />
+        <translation>ელიფსის ცენტრი და &amp;3 წერტილი</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation type="unfinished" />
+        <translation>ელიფსი &amp;ჩასმული</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -549,7 +552,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Spline through points</source>
-        <translation type="unfinished" />
+        <translation>&amp;სპლაინი წერტილებით</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
@@ -573,19 +576,19 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation type="unfinished" />
+        <translation>&amp;სეგმენტების მოჭრა</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation type="unfinished" />
+        <translation>შექმნა &amp;თანაბარი მანძილის პოლილაინების</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation type="unfinished" />
+        <translation>შექმნა პოლილაინი არსებული &amp;სეგმენტებიდან</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation type="unfinished" />
+        <translation>&amp;მრავალხაზიანი ტექსტი</translation>
     </message>
     <message>
         <source>&amp;Text</source>
@@ -593,7 +596,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Hatch</source>
-        <translation type="unfinished" />
+        <translation>&amp;ჰაჩი</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
@@ -617,7 +620,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation type="unfinished" />
+        <translation>&amp;დიამეტრალური</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
@@ -689,7 +692,7 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation type="unfinished" />
+        <translation>&amp;ჩასმა</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
@@ -697,35 +700,35 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation type="unfinished" />
+        <translation>&amp;ტექსტის აფეთქება ასოებად</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation type="unfinished" />
+        <translation>წერტილი კონტურში</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;მანძილი წერტილიდან წერტილამდე</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation type="unfinished" />
+        <translation>&amp;მანძილი ენტიტეტიდან წერტილამდე</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation type="unfinished" />
+        <translation>კ&amp;უთხე ორ ხაზს შორის</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation type="unfinished" />
+        <translation>&amp;არჩეული ენტიტეტების საერთო სიგრძე</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation type="unfinished" />
+        <translation>მრავალკუთხა &amp;ფართობი</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation type="unfinished" />
+        <translation>&amp;არჩევის მაჩვენებელი</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
@@ -749,15 +752,15 @@ or [%2]</source>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation type="unfinished" />
+        <translation>ქვემოთ გადატანა</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტის შემდეგ დაწევა</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტის ზემოთ აწევა</translation>
     </message>
     <message>
         <source>move to top</source>
@@ -777,19 +780,19 @@ or [%2]</source>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished" />
+        <translation>ფენის ჩაკეტვის გადართვა</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation type="unfinished" />
+        <translation>ფენის ხილვადობის &amp;გადართვა</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation type="unfinished" />
+        <translation>ფენის &amp;ბეჭდვის გადართვა</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>მშენებლობის ფენის გადართვა</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
@@ -817,7 +820,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation type="unfinished" />
+        <translation>ბლოკის ხილვადობის გადართვა</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
@@ -833,7 +836,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation type="unfinished" />
+        <translation>მიმდინარე &amp;ნახატის პარამეტრები</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
@@ -991,7 +994,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation type="unfinished" />
+        <translation>ორის &amp;მოჭრა</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
@@ -1012,7 +1015,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation type="unfinished" />
+        <translation>მრავალკუთხა (ცენტრი,მხები)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
@@ -1044,15 +1047,15 @@ or [%2]</source>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;ყველა ბლოკის ჩვენება</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation type="unfinished" />
+        <translation>&amp;ყველა ბლოკის დამალვა</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation type="unfinished" />
+        <translation>ექსპორტი როგორც CA&amp;M/უბრალო SVG...</translation>
     </message>
     <message>
         <source>Close All</source>
@@ -1060,7 +1063,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation type="unfinished" />
+        <translation>ვიჯეტების ხელახლა დოკირება</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
@@ -1068,107 +1071,107 @@ or [%2]</source>
     </message>
     <message>
         <source>Cross</source>
-        <translation type="unfinished" />
+        <translation>ჯვარი</translation>
     </message>
     <message>
         <source>Snake</source>
-        <translation type="unfinished" />
+        <translation>გველი</translation>
     </message>
     <message>
         <source>Snake (X)</source>
-        <translation type="unfinished" />
+        <translation>გველი (X)</translation>
     </message>
     <message>
         <source>Snake (Y)</source>
-        <translation type="unfinished" />
+        <translation>გველი (Y)</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation type="unfinished" />
+        <translation>მართკუთხა (1 წერტილი)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation type="unfinished" />
+        <translation>მართკუთხა (2 წერტილი)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation type="unfinished" />
+        <translation>მართკუთხა (3 წერტილი)</translation>
     </message>
     <message>
         <source>Star</source>
-        <translation type="unfinished" />
+        <translation>ვარსკვლავი</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation type="unfinished" />
+        <translation>გაწყვეტა/გაყოფა</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation type="unfinished" />
+        <translation>ხაზის შუალედი</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation type="unfinished" />
+        <translation>კუთხე ხაზიდან</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation type="unfinished" />
+        <translation>ორთოგონალური ხაზიდან</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation type="unfinished" />
+        <translation>წერტილიდან ხაზამდე</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation type="unfinished" />
+        <translation>ხაზის დაჭრა/გაყოფა</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation type="unfinished" />
+        <translation>წრის დაჭრა/გაყოფა</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation type="unfinished" />
+        <translation>წერტილების ხაზი</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation type="unfinished" />
+        <translation>მრუდით</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation type="unfinished" />
+        <translation>პარა&amp;ბოლა 4 წერტილი</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation type="unfinished" />
+        <translation>პარაბოლა &amp;ფოკუსი დირექტრისა</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation type="unfinished" />
+        <translation>&amp;ენტიტეტიდან პენის არჩევა</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ენტიტეტიდან პენის არჩევა (გადაწყვეტილი)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტზე პენის გადატანა</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation type="unfinished" />
+        <translation>პენის კოპირება</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation type="unfinished" />
+        <translation>ხაზის შეერთება</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished" />
+        <translation>დუბლიკატი</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>მიმდინარე პენის განახლება აქტიური ფენის პენით</translation>
     </message>
 </context>
 <context>
@@ -1182,126 +1185,126 @@ or [%2]</source>
     <name>LC_ActionLayersExport</name>
     <message>
         <source>Saving layer "%1" as "%2" </source>
-        <translation type="unfinished" />
+        <translation>ფენის შენახვა „%1“ როგორც „%2“ </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ ენტიტეტი პენის ასარჩევად</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">გაუქმება</translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ ენტიტეტი პენის გადასატანად</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ ენტიტეტი პენის ასარჩევად</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">გაუქმება</translation>
+        <translation>გაუქმება</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ პროცენტი / საწყისი წერტილი</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">გაუქმება</translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ საწყისი წერტილი</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation type="unfinished" />
+        <translation>მიუთითეთ საბოლოო წერტილი</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">უკან</translation>
+        <translation>უკან</translation>
     </message>
 </context>
 <context>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>აქტიური</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>ორიგინალი</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>ორიგინალი გადაწყვეტილი</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation type="unfinished" />
+        <translation>რადიუსის გადაწევა:</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ფენა:</translation>
+        <translation>ფენა:</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation type="unfinished" />
+        <translation>მრუდის ჩანაცვლება</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>პენი:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished" />
+        <translation>გაგრძელება</translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation type="unfinished">ჯამური სიგრძე</translation>
+        <translation>სრული სიგრძე</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished" />
+        <translation>პროცენტი</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished" />
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished" />
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished" />
+        <translation>ტიპი</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">კუთხე:</translation>
+        <translation>კუთხე:</translation>
     </message>
 </context>
 <context>
@@ -1323,636 +1326,637 @@ or [%2]</source>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation type="unfinished" />
+        <translation>პარაბოლის კონტროლის წერტილები ვერ იქნება კოლინეარული</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished">ფენა:</translation>
+        <translation>ფენა:</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation type="unfinished" />
+        <translation>ადგილზე</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation type="unfinished" />
+        <translation>X ოფსეტი:</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished" />
+        <translation>აქტიური</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>ორიგინალი</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation type="unfinished" />
+        <translation>ორიგინალი გადაწყვეტილი</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation type="unfinished" />
+        <translation>Y ოფსეტი:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation type="unfinished" />
+        <translation>პენი:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation type="unfinished" />
+        <translation>ფენის პარამეტრები</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation type="unfinished" />
+        <translation>მშობელი ფენების ბილიკი:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation type="unfinished" />
+        <translation>ფენის ტიპი</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>ინფორმაციული</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished" />
+        <translation>ნორმალური</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation type="unfinished">ზომები</translation>
+        <translation>ზომები</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation type="unfinished" />
+        <translation>ალტერნატიული პოზიცია</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation type="unfinished" />
+        <translation>მშენებლობის ფენა შეიცავს უსასრულო სწორი ხაზების ენტიტეტებს გეომეტრიული მშენებლობისთვის.
+       მშენებლობის ფენის შიგთავსი არ უნდა გამოჩნდეს ბეჭდვაში.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation type="unfinished" />
+        <translation>მშენებლობის ფენა</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation type="unfinished">ფენის სახელი:</translation>
+        <translation>ფენის სახელი:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation type="unfinished" />
+        <translation>ვირტუალური ფენის სახელის შეცვლა</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation type="unfinished" />
+        <translation>მეორადი ფენის დამატება</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation type="unfinished" />
+        <translation>ფენის დამატება</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation type="unfinished" />
+        <translation>ფენის რედაქტირება</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation type="unfinished" />
+        <translation>ნაგულისხმევი პენი</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation type="unfinished" />
+        <translation>ფენის სახელის შეცვლა</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation type="unfinished" />
+        <translation>ფენების ხის პარამეტრები</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation type="unfinished" />
+        <translation>დასახელების წესი</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation type="unfinished" />
+        <translation>ფენის დონის სახელის გამყოფი</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation type="unfinished" />
+        <translation>მეორადი ფენების სუფიქსები</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished" />
+        <translation>ზომითი</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation type="unfinished" />
+        <translation>ინფორმაციული</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation type="unfinished" />
+        <translation>ალტერნატიული პოზიცია </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation type="unfinished" />
+        <translation>სახელის დუბლირება</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="unfinished" />
+        <translation>პრეფიქსი</translation>
     </message>
     <message>
         <source>Suffix</source>
-        <translation type="unfinished" />
+        <translation>სუფიქსი</translation>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation type="unfinished" />
+        <translation>ჩვენება და ოპერაციები</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation type="unfinished" />
+        <translation>სრული სახელის ჩვენება ინსტრუმენტის მინიშნებად</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation type="unfinished" />
+        <translation>ფენის ტიპის ხატულების ჩვენება</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation type="unfinished" />
+        <translation>ინდენტირებული ფენის სახელების ჩვენება. ინდენტის ზომა:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation type="unfinished" />
+        <translation>სტრუქტურის გადაწყობის დაშვება Drag&amp;Drop-ით</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation type="unfinished" />
+        <translation>მეორადი ფენების სახელის შეცვლა ძირითადის შეცვლისას</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>ფერები</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation type="unfinished" />
+        <translation>დამთხვევი ელემენტი გამოჩენის ფილტრის რეჟიმში</translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation type="unfinished">#1E90FF</translation>
+        <translation>#1E90FF</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation type="unfinished" />
+        <translation>ვირტუალური ფენის ფონის ფერი</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation type="unfinished" />
+        <translation>სამი ხედის ელემენტების გამყოფი ბადე</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation type="unfinished" />
+        <translation>არჩეული ელემენტების ფონის ფერი</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation type="unfinished" />
+        <translation>აქტიური ფენის ფონის ფერი</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation type="unfinished" />
+        <translation>ნაგულისხმევი პენები</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>ნორმალური ფენა</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>ზომითი ფენა</translation>
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation type="unfinished" />
+        <translation>ინფორმაციული ფენა</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>ალტერნატიული პოზიციის ფენა</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation type="unfinished" />
+        <translation>ფერის არჩევა</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeWidget</name>
     <message>
         <source>Filter</source>
-        <translation type="unfinished">ფილტრი</translation>
+        <translation>ფილტრი</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished" />
+        <translation>ფენის სახელების ძებნა</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>გამოჩენის რეჟიმი</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>პარამეტრები</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation type="unfinished">ყველა ფენის შექმნა</translation>
+        <translation>ყველა ფენის ჩვენება</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation type="unfinished">ყველა ფენის დამალვა</translation>
+        <translation>ყველა ფენის დამალვა</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation type="unfinished" />
+        <translation>მეორადი ფენების ჩვენება</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation type="unfinished" />
+        <translation>მხოლოდ აქტიური ფენის ჩვენება</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished" />
+        <translation>ყველას გაშლა</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished" />
+        <translation>ყველას ჩაკეცვა</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation type="unfinished" />
+        <translation>მეორადის ჩაკეცვა</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation type="unfinished">ყველა ფენის განბლოკვა</translation>
+        <translation>ყველა ფენის განბლოკვა</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation type="unfinished">ყველა ფენის დაბლოკვა</translation>
+        <translation>ყველა ფენის დაბლოკვა</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation type="unfinished">ფენის დამატება</translation>
+        <translation>ფენის დამატება</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation type="unfinished" />
+        <translation>ზომების ფენის დამატება</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation type="unfinished">ფენის წაშლა</translation>
+        <translation>ფენის წაშლა</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished" />
+        <translation>ფენის ატრიბუტების შეცვლა / სახელის შეცვლა</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation type="unfinished" />
+        <translation>ბრტყელი სიის რეჟიმი)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation type="unfinished">ფენის მენიუ</translation>
+        <translation>ფენის მენიუ</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;შვილობილი ფენის დამატება</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation type="unfinished" />
+        <translation>&amp;სახელის შეცვლა</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ფენების წაშლა (ქვე-ხე)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;სტრუქტურის კოპირება (ქვე-ხე)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;შიგთავსის დუბლირება (ქვე-ხე)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation type="unfinished" />
+        <translation>&amp;ენტიტეტების არჩევა (ქვე-ხე)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation type="unfinished" />
+        <translation>ფენის &amp;ატრიბუტების &amp;რედაქტირება</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">&amp;ფენის წაშლა</translation>
+        <translation>&amp;ფენის წაშლა</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ზომების ქვე-ფენის დამატება</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ინფორმაციის ქვე-ფენის დამატება</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;ალტერნატიული ხედის ქვე-ფენის დამატება</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ქვე-ფენების წაშლა</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation type="unfinished" />
+        <translation>ზომით ფენად გადაკეთება</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation type="unfinished" />
+        <translation>ინფორმაციულ ფენად გადაკეთება</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation type="unfinished" />
+        <translation>ალტერნატიული პოზიციის ფენად გადაკეთება</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation type="unfinished" />
+        <translation>ნორმალურ ფენად გადაკეთება</translation>
     </message>
     <message>
         <source>&amp;Select Layer's Entities</source>
-        <translation type="unfinished" />
+        <translation>ფენის ენტიტეტების &amp;არჩევა</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation type="unfinished" />
+        <translation>ფენის &amp;კოპიის შექმნა</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation type="unfinished" />
+        <translation>ფენის &amp;დუბლირება შიგთავსით</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>არჩევის გადატანა ფენაში</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation type="unfinished" />
+        <translation>არჩევის დუბლირება ფენაში</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">&amp;ფენის დამატება</translation>
+        <translation>ფენის &amp;დამატება</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation type="unfinished" />
+        <translation>სხვა ფენების &amp;გაყინვა</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;გალღობა</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;გაყინვა</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;განბლოკვა</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;დაბლოკვა</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;ბეჭდვის ჩართვა</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation type="unfinished" />
+        <translation>ყველა ფენის &amp;ბეჭდვის გამორთვა</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation type="unfinished" />
+        <translation>&amp;ცარიელი ფენების პოვნა და წაშლა</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished">წანაცვლება:</translation>
+        <translation>ოფსეტი:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>თავისუფალი</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">დასაწყისი</translation>
+        <translation>დაწყება</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">დასასრული</translation>
+        <translation>დასასრული</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>ხაზის სნაპი:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>შედარებითი</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">გაყოფა</translation>
+        <translation>გაყოფა</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation type="unfinished" />
+        <translation>ნიშნის სნაპი:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">ხანგრძლივობა:</translation>
+        <translation>სიგრძე:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">კუთხე:</translation>
+        <translation>კუთხე:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>სნაპის მანძილი:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">კუთხე:</translation>
+        <translation>კუთხე:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished" />
+        <translation>ზომა:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation type="unfinished">ორთოგონალური</translation>
+        <translation>ორთოგონალური</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation type="unfinished" />
+        <translation>გადაკვეთამდე</translation>
     </message>
     <message>
         <source>Fixed Length</source>
-        <translation type="unfinished" />
+        <translation>ფიქსირებული სიგრძე</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation type="unfinished" />
+        <translation>დასასრულის ოფსეტი:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">დასაწყისი</translation>
+        <translation>დაწყება</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">დასასრული</translation>
+        <translation>დასასრული</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">ხანგრძლივობა:</translation>
+        <translation>სიგრძე:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>სნაპი:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation type="unfinished" />
+        <translation>გაგრძელება/მოჭრა</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation type="unfinished" />
+        <translation>სეგმენტის დამატება</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation type="unfinished" />
+        <translation>ცვლილება არა</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation type="unfinished" />
+        <translation>პოლილაინის შექმნა</translation>
     </message>
     <message>
         <source>Attributes:</source>
-        <translation type="unfinished" />
+        <translation>ატრიბუტები:</translation>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation type="unfinished" />
+        <translation>აქტიური პენი</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation type="unfinished" />
+        <translation>ხაზი 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation type="unfinished" />
+        <translation>ხაზი 2</translation>
     </message>
     <message>
         <source>Both lines</source>
-        <translation type="unfinished" />
+        <translation>ორივე ხაზი</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation type="unfinished" />
+        <translation>ორიგინალების წაშლა</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation type="unfinished" />
+        <translation>ხაზი 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation type="unfinished" />
+        <translation>ხაზი 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">კუთხე:</translation>
+        <translation>კუთხე:</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation type="unfinished" />
+        <translation>ხაზის მორგება</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>არაფერი</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ორივე</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">დასაწყისი</translation>
+        <translation>დაწყება</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">დასასრული</translation>
+        <translation>დასასრული</translation>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation type="unfinished" />
+        <translation>კიდის წერტილები:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation type="unfinished" />
+        <translation>წერტილების რაოდენობა:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation type="unfinished" />
+        <translation>ფიქსირებული მანძილი</translation>
     </message>
 </context>
 <context>
@@ -1998,579 +2002,581 @@ or [%2]</source>
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation type="unfinished" />
+        <translation>სეგმენტების წაშლა</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation type="unfinished" />
+        <translation>არჩეულის წაშლა</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation type="unfinished" />
+        <translation>გაპის სნაპი:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation type="unfinished" />
+        <translation>სნაპის მანძილი:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation type="unfinished" />
+        <translation>თავისუფალი</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation type="unfinished" />
+        <translation>გაპის ზომა:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">დასაწყისი</translation>
+        <translation>დაწყება</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">დასასრული</translation>
+        <translation>დასასრული</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation type="unfinished" />
+        <translation>ხაზის სნაპი:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation type="unfinished" />
+        <translation>პენის პალიტრის პარამეტრები</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation type="unfinished" />
+        <translation>საჩვენებელი სვეტები</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation type="unfinished" />
+        <translation>ხაზის ტიპის სახელი</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation type="unfinished" />
+        <translation>ფერის სახელი</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation type="unfinished" />
+        <translation>ხაზის ტიპის ხატულა</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation type="unfinished" />
+        <translation>ფერის ხატულა</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation type="unfinished" />
+        <translation>ხაზის სიგანის ხატულა</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation type="unfinished" />
+        <translation>ხაზის სიგანის სახელი</translation>
     </message>
     <message>
         <source>Colors</source>
-        <translation type="unfinished" />
+        <translation>ფერები</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation type="unfinished" />
+        <translation>აქტიური პენის ფონი:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation type="unfinished" />
+        <translation>აქტიური პენის მთლიანი მწკრივი სქელია</translation>
     </message>
     <message>
         <source>Grid Color:</source>
-        <translation type="unfinished" />
+        <translation>ბადის ფერი:</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation type="unfinished" />
+        <translation>დამთხვევი ელემენტის ფერი:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation type="unfinished" />
+        <translation>დიდი/პატარა ასოების გაუთვალისწინებელი პენების გაფილტვრა</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation type="unfinished" />
+        <translation>აკონტროლებს ხდება თუ არა ინსტრუმენტის მინიშნების ჩვენება ცხრილის ელემენტზე</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation type="unfinished" />
+        <translation>ცხრილის ელემენტებზე ინსტრუმენტის მინიშნების ჩვენება</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation type="unfinished" />
+        <translation>პენების ფაილი:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation type="unfinished" />
+        <translation>ფერის სახელის ჩვენება როგორც</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation type="unfinished" />
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
-        <translation type="unfinished" />
+        <translation>RGB</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation type="unfinished" />
+        <translation>ბუნებრივი სახელი სადაც შესაძლებელია</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation type="unfinished" />
+        <translation>ინფორმაციული შეტყობინების ჩვენება თუ პენით ენტიტეტი არ აირჩევა</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation type="unfinished" />
+        <translation>ცხრილის ელემენტზე ორმაგი დაწკაპუნებისას</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished" />
+        <translation>არაფერი</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტების არჩევა ატრიბუტების პენით</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტების არჩევა ხატვის პენით</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>პენის პალიტრა</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation type="unfinished" />
+        <translation>პენის სახელი:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">ფერი:</translation>
+        <translation>ფერი:</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation type="unfinished" />
+        <translation>ფილტრი...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation type="unfinished" />
+        <translation>გამოჩენის რეჟიმი</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished" />
+        <translation>ტიპი:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">სიგანე:</translation>
+        <translation>სიგანე:</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished" />
+        <translation>პარამეტრები</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>პენის რედაქტორის შევსება ენტიტეტის ხატვის პენით</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation type="unfinished" />
+        <translation>პენის რედაქტორის შევსება ენტიტეტის ატრიბუტებით</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტების არჩევა ხატვის პენით</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation type="unfinished" />
+        <translation>ენტიტეტების არჩევა პენის ატრიბუტებით</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">შენახვა</translation>
+        <translation>შენახვა</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>პენის გადატანა არჩევაზე</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation type="unfinished" />
+        <translation>რედაქტორის პენის შევსება მიმდინარე პენით</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>რედაქტორის პენის გადატანა მიმდინარე პენად</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation type="unfinished" />
+        <translation>მიმდინარეზე</translation>
     </message>
     <message>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation type="unfinished" />
+        <translation>მიმდინარე პენის განახლება აქტიური ფენის პენით</translation>
     </message>
     <message>
         <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation type="unfinished" />
+        <translation>პენის რედაქტორის შევსება აქტიური ფენის პენიდან</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation type="unfinished" />
+        <translation>არჩევა აქტიური ფენიდან</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation type="unfinished" />
+        <translation>რედაქტორის პენის გადატანა აქტიური ფენის პენზე</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation type="unfinished" />
+        <translation>ფენაზე გადატანა</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation type="unfinished" />
+        <translation>არჩეული პენის წაშლა</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation type="unfinished" />
+        <translation>პენის წაშლა</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation type="unfinished" />
+        <translation>პენების მენიუ</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation type="unfinished" />
+        <translation>&amp;პენის გადატანა არჩევაზე</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;მიმდინარე პენად დაყენება</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation type="unfinished" />
+        <translation>&amp;პენის გადატანა აქტიურ ფენაზე</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ენტიტეტების არჩევა ატრიბუტების პენით</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;ენტიტეტების არჩევა ხატვის პენით</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;პენის რედაქტირება</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation type="unfinished" />
+        <translation>&amp;პენის წაშლა</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation type="unfinished" />
+        <translation>&amp;პენების წაშლა</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation type="unfinished" />
+        <translation>პენის პალიტრა</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="unfinished" />
+        <translation>პენების ფაილის მდებარეობა შეიცვალა, გთხოვთ გადატვირთოთ პროგრამა ახალი ფაილის გამოსაყენებლად.
+
+გაითვალისწინეთ: თუ რედაქტორით შეინახავთ პენს გადატვირთვის გარეშე, პალიტრის მიმდინარე პენები შეინახება ახალ ფაილში და არსებული შიგთავსი გადაიწერება.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">პოლიხაზი</translation>
+        <translation>პოლილაინი</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">სიმაღლე:</translation>
+        <translation>სიმაღლე:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>კიდეები:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>კუთხეები:</translation>
     </message>
     <message>
         <source>Size inner</source>
-        <translation type="unfinished" />
+        <translation>შიდა ზომა</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">რადიუსი:</translation>
+        <translation>რადიუსი:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation type="unfinished" />
+        <translation>სნაპი:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation type="unfinished" />
+        <translation>ზედა-მარცხენა</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished">თავში</translation>
+        <translation>ზედა</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation type="unfinished" />
+        <translation>ზედა-მარჯვენა</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">მარცხენა</translation>
+        <translation>მარცხენა</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">მარჯვენა</translation>
+        <translation>მარჯვენა</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation type="unfinished" />
+        <translation>ქვედა-მარცხენა</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished">ბოლოში</translation>
+        <translation>ქვედა</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation type="unfinished" />
+        <translation>ქვედა-მარჯვენა</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>სწორი</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>მრგვალი</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ჩასმული</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>სნაპის გადაწევა</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ორივე</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ვერტიკალური</translation>
+        <translation>ვერტიკალური</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ჰორიზონტალური</translation>
+        <translation>ჰორიზონტალური</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">სიგანე:</translation>
+        <translation>სიგანე:</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ძირითადი კუთხე:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>სნაპის გადაწევა</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">რადიუსი:</translation>
+        <translation>რადიუსი:</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>კიდეები:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">პოლიხაზი</translation>
+        <translation>პოლილაინი</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation type="unfinished" />
+        <translation>დასასრულის სნაპი:</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>კუთხეები:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation type="unfinished" />
+        <translation>დაწყების სნაპი:</translation>
     </message>
     <message>
         <source>Corner</source>
-        <translation type="unfinished" />
+        <translation>კუთხე</translation>
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation type="unfinished" />
+        <translation>შუა-ვერტიკალური</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation type="unfinished" />
+        <translation>შუა-ჰორიზონტალური</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ძირითადი კუთხე:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>სწორი</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>მრგვალი</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ჩასმული</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე Y:</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ორივე</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ვერტიკალური</translation>
+        <translation>ვერტიკალური</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ჰორიზონტალური</translation>
+        <translation>ჰორიზონტალური</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">პოლიხაზი</translation>
+        <translation>პოლილაინი</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ორივე</translation>
     </message>
     <message>
         <source>Vertical</source>
-        <translation type="unfinished">ვერტიკალური</translation>
+        <translation>ვერტიკალური</translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation type="unfinished">ჰორიზონტალური</translation>
+        <translation>ჰორიზონტალური</translation>
     </message>
     <message>
         <source>Edges:</source>
-        <translation type="unfinished" />
+        <translation>კიდეები:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation type="unfinished" />
+        <translation>ოთხკუთხედი</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation type="unfinished" />
+        <translation>ფიქსირებული ძირითადი კუთხე:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე X:</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished" />
+        <translation>სწორი</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished" />
+        <translation>მრგვალი</translation>
     </message>
     <message>
         <source>Bevel</source>
-        <translation type="unfinished" />
+        <translation>ჩასმული</translation>
     </message>
     <message>
         <source>Corners:</source>
-        <translation type="unfinished" />
+        <translation>კუთხეები:</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation type="unfinished" />
+        <translation>სნაპის გადაწევა</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation type="unfinished" />
+        <translation>სიგრძე Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation type="unfinished">რადიუსი:</translation>
+        <translation>რადიუსი:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
-        <translation type="unfinished" />
+        <translation>ფიქსირებული შიდა კუთხე:</translation>
     </message>
 </context>
 <context>
@@ -2588,98 +2594,98 @@ Please note that if you'll save pen via editor without restart, current pens fro
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished" />
+        <translation>არაფერი</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="unfinished" />
+        <translation>ორივე</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">დასაწყისი</translation>
+        <translation>დაწყება</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished">დასასრული</translation>
+        <translation>დასასრული</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation type="unfinished" />
+        <translation>კიდის ნიშანი:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation type="unfinished" />
+        <translation>შედარებითი</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation type="unfinished">წანაცვლება:</translation>
+        <translation>ოფსეტი:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation type="unfinished" />
+        <translation>რაოდენობა:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation type="unfinished" />
+        <translation>დაწყების წრის კუთხე:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation type="unfinished" />
+        <translation>ნიშნის სიგრძე:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation type="unfinished" />
+        <translation>ნიშნის სნაპი:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">კუთხე:</translation>
+        <translation>კუთხე:</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation type="unfinished">გაყოფა</translation>
+        <translation>გაყოფა</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation type="unfinished">შუა</translation>
+        <translation>შუა</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation type="unfinished" />
+        <translation>ფიქსირებული </translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation type="unfinished">მანძილი:</translation>
+        <translation>მანძილი:</translation>
     </message>
 </context>
 <context>
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">ფორმა</translation>
+        <translation>ფორმა</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation type="unfinished" />
+        <translation>შიდა რადიუსი</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation type="unfinished">პოლიხაზი</translation>
+        <translation>პოლილაინი</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation type="unfinished" />
+        <translation>გარე რადიუსი</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation type="unfinished" />
+        <translation>სიმეტრიული</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation type="unfinished">რიცხვი:</translation>
+        <translation>რიცხვი:</translation>
     </message>
 </context>
 <context>
@@ -2777,19 +2783,19 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation type="unfinished" />
+        <translation>შეიყვანეთ Qt სტილის ფაილის ბილიკი.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation type="unfinished" />
+        <translation>გვერდის სიგრძე პიქსელებში</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation type="unfinished" />
+        <translation>თემატური ხატულების გამოყენება</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation type="unfinished" />
+        <translation>მარცხენა ინსტრუმენტთა ზოლის სვეტები:</translation>
     </message>
 </context>
 <context>
@@ -2819,7 +2825,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished" />
+        <translation>ხაზის შედარებითი კუთხის პარამეტრები</translation>
     </message>
     <message>
         <source>Spacing:</source>
@@ -2827,7 +2833,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation type="unfinished" />
+        <translation>მანძილი ორიგინალ პოლილაინიდან</translation>
     </message>
     <message>
         <source>Copies:</source>
@@ -2935,7 +2941,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>გახსნა შეწყვეტილია</translation>
     </message>
     <message>
         <source>Printing...</source>
@@ -2943,7 +2949,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Exiting application...</source>
-        <translation type="unfinished" />
+        <translation>პროგრამიდან გამოსვლა...</translation>
     </message>
     <message>
         <source>Layer List</source>
@@ -2955,27 +2961,27 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Print preview for %1</source>
-        <translation type="unfinished" />
+        <translation>ბეჭდვის წინასწარი ნახვა %1-ისთვის</translation>
     </message>
     <message>
         <source>New Drawing created.</source>
-        <translation type="unfinished" />
+        <translation>ახალი ნახატი შექმნილია.</translation>
     </message>
     <message>
         <source>Saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>ნახატის შენახვა...</translation>
     </message>
     <message>
         <source>Saved drawing: %1</source>
-        <translation type="unfinished" />
+        <translation>შენახული ნახატი: %1</translation>
     </message>
     <message>
         <source>Exporting drawing...</source>
-        <translation type="unfinished" />
+        <translation>ნახატის ექსპორტი...</translation>
     </message>
     <message>
         <source>Exported: %1</source>
-        <translation type="unfinished" />
+        <translation>ექსპორტირებული: %1</translation>
     </message>
     <message>
         <source>Exporting...</source>
@@ -2983,7 +2989,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Export complete</source>
-        <translation type="unfinished" />
+        <translation>ექსპორტი დასრულებულია</translation>
     </message>
     <message>
         <source>Export failed!</source>
@@ -3005,7 +3011,9 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <source>Cannot open the file
 %1
 Please check the permissions.</source>
-        <translation type="unfinished" />
+        <translation>ფაილის გახსნა ვერ მოხერხდა
+%1
+გთხოვთ შეამოწმოთ ნებართვები.</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
@@ -3013,18 +3021,21 @@ Please check the permissions.</source>
     </message>
     <message>
         <source>Auto-saving drawing...</source>
-        <translation type="unfinished" />
+        <translation>ნახატის ავტო-შენახვა...</translation>
     </message>
     <message>
         <source>Auto-saved drawing</source>
-        <translation type="unfinished" />
+        <translation>ავტო-შენახული ნახატი</translation>
     </message>
     <message>
         <source>Cannot auto-save the file
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation type="unfinished" />
+        <translation>ფაილის ავტო-შენახვა ვერ მოხერხდა
+%1
+გთხოვთ შეამოწმოთ ნებართვები.
+ავტო-შენახვა გამორთულია.</translation>
     </message>
     <message>
         <source>Import</source>
@@ -3036,7 +3047,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Compiled on: %1</source>
-        <translation type="unfinished" />
+        <translation>კომპილირებული: %1</translation>
     </message>
     <message>
         <source>Version: %1</source>
@@ -3044,7 +3055,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Warning: File already opened : </source>
-        <translation type="unfinished" />
+        <translation>გაფრთხილება: ფაილი უკვე გახსნილია : </translation>
     </message>
     <message>
         <source>Cannot save the file </source>
@@ -3052,7 +3063,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source> , please check the filename and permissions.</source>
-        <translation type="unfinished" />
+        <translation> , გთხოვთ შეამოწმოთ ფაილის სახელი და ნებართვები.</translation>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
@@ -3060,19 +3071,19 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation type="unfinished" />
+        <translation>&amp;ჩანართების რეჟიმი</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation type="unfinished" />
+        <translation>ახალი დოკუმენტი შაბლონიდან: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation type="unfinished" />
+        <translation>შაბლონის არჩევა შეწყვეტილია</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation type="unfinished" />
+        <translation>ავტო-შენახვა ვერ მოხერხდა</translation>
     </message>
     <message>
         <source>File</source>
@@ -3100,19 +3111,19 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>კომპილატორი: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>კომპილატორი: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation type="unfinished" />
+        <translation>Qt ვერსია: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation type="unfinished" />
+        <translation>ნახაზის რეჟიმი</translation>
     </message>
     <message>
         <source>Export as PDF</source>
@@ -3126,11 +3137,13 @@ Auto-save disabled.</source>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation type="unfinished" />
+        <translation>ფაილის გახსნა ვერ მოხერხდა
+%1
+გთხოვთ შეამოწმოთ არსებობა და ნებართვები.</translation>
     </message>
     <message>
         <source>File '%1' does not exist. Opening aborted</source>
-        <translation type="unfinished" />
+        <translation>ფაილი „%1“ არ არსებობს. გახსნა შეწყვეტილია</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3190,11 +3203,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Opening recent file...</source>
-        <translation type="unfinished" />
+        <translation>ბოლო ფაილის გახსნა...</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation type="unfinished" />
+        <translation>დოკის ზონები</translation>
     </message>
     <message>
         <source>Grid Status</source>
@@ -3206,7 +3219,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation type="unfinished" />
+        <translation>დოკის ვიჯეტები</translation>
     </message>
     <message>
         <source>Device Options</source>
@@ -3230,7 +3243,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation type="unfinished" />
+        <translation>დოკის ვიჯეტები</translation>
     </message>
     <message>
         <source>Recent Files</source>
@@ -3238,11 +3251,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation type="unfinished" />
+        <translation>კომპილატორი: Microsoft Visual C++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation type="unfinished" />
+        <translation>Boost ვერსია: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -3270,7 +3283,7 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation type="unfinished" />
+        <translation>მენიუს მიმნიჭებელი</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
@@ -3295,7 +3308,8 @@ Please check its existence and permissions.</source>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation type="unfinished" />
+        <translation>შევინახო ცვლილებები შემდეგ ელემენტში?
+%1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -3404,15 +3418,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation type="unfinished" />
+        <translation>Zulip &amp;ჩატი</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation type="unfinished" />
+        <translation>&amp;გამოშვების ინფორმაცია</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation type="unfinished" />
+        <translation>&amp;ონლაინ</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
@@ -3420,15 +3434,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation type="unfinished" />
+        <translation>გთხოვთ ჯერ შეცვალოთ მასშტაბი და პოზიცია ბეჭდვის წინასწარ ნახვაში.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation type="unfinished" />
+        <translation>პენის პალიტრა</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation type="unfinished" />
+        <translation>ფენების ხე</translation>
     </message>
 </context>
 <context>
