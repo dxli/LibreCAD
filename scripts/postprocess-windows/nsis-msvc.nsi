@@ -173,9 +173,7 @@ Section "Main Section" SecMain
   File /nonfatal "${TRANSLATIONS_DIR}\qtbase_*.qm"
   File /nonfatal "*.qm"
   File /nonfatal "librecad\ts\*.qm"
-  File /nonfatal "windows\translations\*.qm"
-  File /nonfatal "..\..\windows\translations\*.qm"
-  File /nonfatal "..\..\generated\Release\translations\*.qm"
+  File /nonfatal "..\..\librecad\ts\*.qm"
 
   ; === Package LFF fonts ===
   SetOutPath "$INSTDIR\resources\fonts"
