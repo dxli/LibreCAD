@@ -116,7 +116,7 @@ void RS_ActionModifyScale::mouseMoveEvent(QMouseEvent* e) {
             break;
 
         default:
-            return;
+            break;
         }
     }
 
