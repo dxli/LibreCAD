@@ -30,17 +30,18 @@ if NOT exist windows\LibreCAD.exe (
 )
 
 rem Improved windeployqt: verbose, force copy, standard plugin subdirs
-echo windepolyqt: Current directory is: %CD%
 dir windows\
 rem mkdir windows\ts
-dir librecad\ts\*.ts
 mkdir windows\translations
 for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
     lrelease.exe "%%f"
 )
 rem lrelease.exe librecad\ts\*.ts -qm windows\ts\
-windeployqt.exe --release windows\LibreCAD.exe --translationdir librecad\ts --verbose 2 --force
-dir librecad\ts
+echo windepolyqt: Current directory is: %CD%
+windeployqt.exe --release windows\LibreCAD.exe librecad\ts --verbose 2 --force
+dir windows\translations
+copy windows\translations\* librecad\ts\
+dir librecad\ts\
 
 echo [INFO] Extracting version (SCMREVISION)...
 set SCMREVISION=unknown
