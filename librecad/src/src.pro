@@ -1103,7 +1103,7 @@ TRANSLATIONS = \
     ../ts/librecad_he.ts \
     ../ts/librecad_hi.ts \
     ../ts/librecad_hu.ts \
-    ../ts/librecad_id_ID.ts \
+    ../ts/librecad_id_id.ts \
     ../ts/librecad_it.ts \
     ../ts/librecad_ja.ts \
     ../ts/librecad_ka.ts \
