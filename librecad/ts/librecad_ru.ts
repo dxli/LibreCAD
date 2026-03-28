@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
     <name>ColorWizard</name>
@@ -76,7 +77,7 @@
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>Очки в Spline</translation>
+        <translation>Точки на сплайне</translation>
     </message>
     <message>
         <source>Control Points</source>
@@ -172,7 +173,7 @@ or [%2]</source>
     </message>
     <message>
         <source>X</source>
-        <translation>XX</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Back</source>
@@ -185,7 +186,7 @@ or [%2]</source>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>Укажите расстояние (угол %1 градуса)
+        <translation>Укажите расстояние (угол %1 град.)
 или [%2]</translation>
     </message>
 </context>
@@ -228,7 +229,7 @@ or [%2]</source>
     </message>
     <message>
         <source>X</source>
-        <translation>XX</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>Y</source>
@@ -236,7 +237,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>Укажите расстояние (%1 град) или [%2]</translation>
+        <translation>Укажите расстояние (%1 град.) или [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
@@ -255,7 +256,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
@@ -275,7 +276,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>Укажите ось на параболе</translation>
+        <translation>Укажите ось параболы</translation>
     </message>
 </context>
 <context>
@@ -286,11 +287,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>Укажите режиссуру параболы</translation>
+        <translation>Укажите директрису параболы</translation>
     </message>
     <message>
         <source>Back</source>
@@ -309,11 +310,11 @@ or [%2]</source>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>он не разделен, так как закрыт.</translation>
+        <translation> не делится, так как заблокирован.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>не делится, так как является частью полилина. Сначала расширьте полилин.</translation>
+        <translation> не делится, так как является частью полилинии. Сначала расширьте полилинию.</translation>
     </message>
     <message>
         <source>Line</source>
@@ -321,7 +322,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Arc</source>
-        <translation>Арка</translation>
+        <translation>Дуга</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -1103,11 +1104,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>Раздвоение / Divide</translation>
+        <translation>Разрыв/Разделение</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>Разрыв линий</translation>
+        <translation>Промежуток линии</translation>
     </message>
     <message>
         <source>Angle From Line</source>
@@ -1115,7 +1116,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation>Ортогональный от линии</translation>
+        <translation>Ортогональная от линии</translation>
     </message>
     <message>
         <source>From Point To Line</source>
@@ -1123,11 +1124,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Дивидендная линия / Divide Line</translation>
+        <translation>Разрез/Разделение линии</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Дивидендный круг / Divide Circle</translation>
+        <translation>Разрез/Разделение круга</translation>
     </message>
     <message>
         <source>Line of Points</source>
@@ -1135,43 +1136,43 @@ or [%2]</source>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>Арка</translation>
+        <translation>По дуге</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;bola 4 балла</translation>
+        <translation>Пара&amp;бола 4 точки</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola и Focus Directrix</translation>
+        <translation>Парабола &amp;фокус-директриса</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>Pick Pen от компании</translation>
+        <translation>&amp;Взять стиль из объекта</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>Pick Pen From Entity (недоступная ссылка)</translation>
+        <translation>&amp;Взять стиль из объекта (разрешённый)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation>Применять Pen к Entity</translation>
+        <translation>Применить стиль к объекту</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation>Копировать ручку</translation>
+        <translation>Копировать стиль</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>Line присоединится</translation>
+        <translation>Соединение линий</translation>
     </message>
     <message>
         <source>Duplicate</source>
         <translation>Дублировать</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Оригинальное название: Active Layer' Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Обновить текущий стиль стилем активного слоя</translation>
     </message>
 </context>
 <context>
@@ -1184,34 +1185,34 @@ or [%2]</source>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
-        <source>Saving layer "%1" as "%2" </source>
-        <translation>Сохранить слои "% 1" как "% 2" </translation>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation>Сохранить слои &quot;% 1&quot; как &quot;% 2&quot; </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Укажите сущность, чтобы выбрать ручку</translation>
+        <translation>Укажите объект для выбора стиля</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>Указать предприятие для применения ручки</translation>
+        <translation>Укажите объект для применения стиля</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Укажите сущность, чтобы выбрать ручку</translation>
+        <translation>Укажите объект для выбора стиля</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -1222,7 +1223,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Specify start point</source>
@@ -1253,11 +1254,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Оригинальное решение</translation>
+        <translation>Оригинал разрешённый</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Радиус Сдвиг:</translation>
+        <translation>Смещение радиуса:</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1269,7 +1270,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Пен:</translation>
+        <translation>Стиль:</translation>
     </message>
 </context>
 <context>
@@ -1280,7 +1281,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Extension</source>
-        <translation>Продление</translation>
+        <translation>Расширение</translation>
     </message>
     <message>
         <source>Total Length</source>
@@ -1288,7 +1289,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Percent</source>
-        <translation>%</translation>
+        <translation>Процент</translation>
     </message>
     <message>
         <source>X:</source>
@@ -1296,7 +1297,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Y:</source>
-        <translation>У:</translation>
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Type</source>
@@ -1345,7 +1346,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>Offset X:</translation>
+        <translation>Смещение X:</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1357,26 +1358,26 @@ or [%2]</source>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Оригинальное решение</translation>
+        <translation>Оригинал разрешённый</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>Оффсет Y:</translation>
+        <translation>Смещение Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Пен:</translation>
+        <translation>Стиль:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation>Настройки слоев</translation>
+        <translation>Параметры слоя</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>Путь родителей:</translation>
+        <translation>Путь родительских слоёв:</translation>
     </message>
     <message>
         <source>Layer Type</source>
@@ -1388,7 +1389,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation>Нормальный</translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>Dimensions</source>
@@ -1401,16 +1402,16 @@ or [%2]</source>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Строительный слой имеет объекты бесконечных прямых линий, предназначенных для использования в геометрической конструкции.
-Содержимое строительного слоя не должно отображаться в распечатке.</translation>
+        <translation>Слой конструкции содержит объекты бесконечных прямых линий, предназначенные для геометрического построения.
+       Содержимое слоя конструкции не должно появляться на печати.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>Строительный слой</translation>
+        <translation>Слой конструкции</translation>
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation>Название слоя:</translation>
+        <translation>Имя слоя:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
@@ -1430,30 +1431,30 @@ or [%2]</source>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>По умолчанию Pen</translation>
+        <translation>Стиль по умолчанию</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation>Название Layer</translation>
+        <translation>Переименовать слой</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation>Варианты деревьев слоев</translation>
+        <translation>Параметры дерева слоёв</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>Конвенция об именах</translation>
+        <translation>Соглашение об именах</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>Сепаратор имен уровня уровня</translation>
+        <translation>Разделитель имён уровней слоёв</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>Суффиксы вторичного слоя</translation>
+        <translation>Суффиксы вторичных слоёв</translation>
     </message>
     <message>
         <source>Dimensional</source>
@@ -1465,11 +1466,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>Альтернативная позиция</translation>
+        <translation>Альтернативная позиция </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation>Дублирующее имя</translation>
+        <translation>Дублирование имени</translation>
     </message>
     <message>
         <source>Prefix</source>
@@ -1481,27 +1482,27 @@ or [%2]</source>
     </message>
     <message>
         <source>Display and Operations</source>
-        <translation>Дисплей и операции</translation>
+        <translation>Отображение и операции</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>Полное название ToolTip</translation>
+        <translation>Показывать полное имя как подсказку</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>Показать иконки типа layer</translation>
+        <translation>Показывать иконки типов слоёв</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>Покажи имена изогнутых слоев. Идентифицируемый размер:</translation>
+        <translation>Показывать отступы имён слоёв. Размер отступа:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>Реструктуризация через Drag&amp;Drop</translation>
+        <translation>Разрешить реструктуризацию через перетаскивание</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>Переименовать вторичные слои на первичное переименование</translation>
+        <translation>Переименовывать вторичные слои при переименовании основного</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -1509,7 +1510,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>Соответствующий элемент в режиме фильтра выделения</translation>
+        <translation>Совпадающий элемент в режиме выделения фильтра</translation>
     </message>
     <message>
         <source>#1E90FF</source>
@@ -1521,23 +1522,23 @@ or [%2]</source>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>Трехзвенная сетка разделителя элементов</translation>
+        <translation>Сетка разделителя элементов трёхвидового просмотра</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation>Выбранные предметы фонового цвета</translation>
+        <translation>Цвет фона выбранных элементов</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>Активный слой фонового цвета</translation>
+        <translation>Цвет фона активного слоя</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>Ручки по умолчанию</translation>
+        <translation>Стили по умолчанию</translation>
     </message>
     <message>
         <source>Normal Layer</source>
-        <translation>Нормальный слой</translation>
+        <translation>Обычный слой</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
@@ -1549,11 +1550,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation>Альтернативный слой позиции</translation>
+        <translation>Слой альтернативной позиции</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>Выберите цвет</translation>
+        <translation>Выбрать цвет</translation>
     </message>
 </context>
 <context>
@@ -1564,11 +1565,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Ищите подходящие названия слоев</translation>
+        <translation>Поиск совпадающих имён слоёв</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Режим освещения</translation>
+        <translation>Режим выделения</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1592,15 +1593,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Expand All</source>
-        <translation>Расширить все</translation>
+        <translation>Развернуть всё</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>Крах всех</translation>
+        <translation>Свернуть всё</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>Коллапс вторичный</translation>
+        <translation>Свернуть вторичные</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
@@ -1616,7 +1617,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>Добавить размеры Layer</translation>
+        <translation>Добавить слой размеров</translation>
     </message>
     <message>
         <source>Remove layer</source>
@@ -1628,87 +1629,87 @@ or [%2]</source>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation>Режим плоского списка</translation>
+        <translation>Режим плоского списка)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>Меню уровня</translation>
+        <translation>Меню слоя</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>Добавить детский слой</translation>
+        <translation>&amp;Добавить дочерний слой</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>Оригинальное название</translation>
+        <translation>&amp;Переименовать</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>&amp;Remove Layers (поддержка)</translation>
+        <translation>&amp;Удалить слои (поддерево)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>&amp;Copy Structure (поддержка дерева)</translation>
+        <translation>&amp;Копировать структуру (поддерево)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>Дублированный контент (поддержка)</translation>
+        <translation>&amp;Дублировать содержимое (поддерево)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>Суб-дерево (Sub-Tree)</translation>
+        <translation>&amp;Выбрать объекты (поддерево)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>Обсуждение Layer &amp;Attributes</translation>
+        <translation>&amp;Редактировать &amp;атрибуты слоя</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp; Удалить слой</translation>
+        <translation>&amp;Удалить слой</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>&amp;Add Размеры подслой</translation>
+        <translation>&amp;Добавить подслой размеров</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>Обсуждение Info Sub-Layer</translation>
+        <translation>&amp;Добавить информационный подслой</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>Альтернативный вид Sub-Layer</translation>
+        <translation>&amp;Добавить подслой альтернативного вида</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>&amp; Удалить подслои</translation>
+        <translation>&amp;Удалить подслой</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation>Преобразование в размерный слой</translation>
+        <translation>Преобразовать в размерный слой</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>Преобразование в информационный слой</translation>
+        <translation>Преобразовать в информационный слой</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation>Преобразование в альтернативный слой позиции</translation>
+        <translation>Преобразовать в слой альтернативной позиции</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation>Преобразование в нормальный слой</translation>
+        <translation>Преобразовать в обычный слой</translation>
     </message>
     <message>
-        <source>&amp;Select Layer's Entities</source>
-        <translation>Предприятия Select Layer</translation>
+        <source>&amp;Select Layer&apos;s Entities</source>
+        <translation>&amp;Выбрать объекты слоя</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>Создать Layer Copy</translation>
+        <translation>&amp;Создать копию слоя</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>Дублированный слой с контентом</translation>
+        <translation>&amp;Дублировать слой с содержимым</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
@@ -1716,43 +1717,43 @@ or [%2]</source>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation>Дублированный выбор уровня</translation>
+        <translation>Дублировать выбор в слой</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>&amp;Add Слой</translation>
+        <translation>&amp;Добавить слой</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>Заморозить другие слои</translation>
+        <translation>&amp;Заморозить другие слои</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>&amp;Defreeze Все слои</translation>
+        <translation>&amp;Разморозить все слои</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>и заморозить все слои</translation>
+        <translation>&amp;Заморозить все слои</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>и разблокировать все слои</translation>
+        <translation>&amp;Разблокировать все слои</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>&amp;Lock Все слои</translation>
+        <translation>&amp;Заблокировать все слои</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Включить и распечатать все слои</translation>
+        <translation>Включить &amp;печать всех слоёв</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>Отказоустойчивая печать всех слоев</translation>
+        <translation>&amp;Отключить печать всех слоёв</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>&amp;Find &amp; Remove Пустые слои</translation>
+        <translation>&amp;Найти и удалить пустые слои</translation>
     </message>
 </context>
 <context>
@@ -1763,19 +1764,19 @@ or [%2]</source>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Оффсет:</translation>
+        <translation>Смещение:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Бесплатно</translation>
+        <translation>Свободно</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Начинать</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>End</source>
@@ -1783,19 +1784,19 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Линия Snap:</translation>
+        <translation>Привязка линии:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Рель</translation>
+        <translation>Относительно</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Разделять</translation>
+        <translation>Разделить</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>Привязка отметки:</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -1807,7 +1808,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Расстояние Snap:</translation>
+        <translation>Расстояние привязки:</translation>
     </message>
 </context>
 <context>
@@ -1826,11 +1827,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Ортогональный</translation>
+        <translation>Ортогональная</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>Пересечение</translation>
+        <translation>До пересечения</translation>
     </message>
     <message>
         <source>Fixed Length</source>
@@ -1838,15 +1839,15 @@ or [%2]</source>
     </message>
     <message>
         <source>End offset:</source>
-        <translation>Конечный зачет:</translation>
+        <translation>Смещение конца:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Начинать</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>End</source>
@@ -1858,7 +1859,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Снэп:</translation>
+        <translation>Привязка:</translation>
     </message>
 </context>
 <context>
@@ -1869,7 +1870,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Расширение/Trim</translation>
+        <translation>Продлить/Обрезать</translation>
     </message>
     <message>
         <source>Add segment</source>
@@ -1881,7 +1882,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>Создание полилайна</translation>
+        <translation>Создать полилинию</translation>
     </message>
     <message>
         <source>Attributes:</source>
@@ -1889,7 +1890,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Active Pen</source>
-        <translation>Активная ручка</translation>
+        <translation>Активный стиль</translation>
     </message>
     <message>
         <source>Line 1</source>
@@ -1928,11 +1929,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>Fit Line</translation>
+        <translation>Подогнать линию</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Никто</translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Both</source>
@@ -1940,7 +1941,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Start</source>
-        <translation>Начинать</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>End</source>
@@ -1948,15 +1949,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Edge Points:</source>
-        <translation>Крайние точки:</translation>
+        <translation>Точки края:</translation>
     </message>
     <message>
         <source>Number of points:</source>
-        <translation>Количество баллов:</translation>
+        <translation>Количество точек:</translation>
     </message>
     <message>
         <source>Fixed Distance</source>
-        <translation>Фиксированная дистанция</translation>
+        <translation>Фиксированное расстояние</translation>
     </message>
 </context>
 <context>
@@ -2006,7 +2007,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>Удалить выбранный</translation>
+        <translation>Удалить выбранное</translation>
     </message>
 </context>
 <context>
@@ -2017,27 +2018,27 @@ or [%2]</source>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Gap Snap:</translation>
+        <translation>Привязка промежутка:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Расстояние Snap:</translation>
+        <translation>Расстояние привязки:</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Бесплатно</translation>
+        <translation>Свободно</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>Размер разрыва:</translation>
+        <translation>Размер промежутка:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Начинать</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>End</source>
@@ -2045,42 +2046,42 @@ or [%2]</source>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Линия Snap:</translation>
+        <translation>Привязка линии:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>Настройки Pen Palette</translation>
+        <translation>Параметры палитры стилей</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation>Колонны для показа</translation>
+        <translation>Отображаемые столбцы</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>Тип строки Имя</translation>
+        <translation>Имя типа линии</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation>Цветное имя</translation>
+        <translation>Имя цвета</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation>Икона линейного типа</translation>
+        <translation>Иконка типа линии</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation>Цветная икона</translation>
+        <translation>Иконка цвета</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>Линейная широтная икона</translation>
+        <translation>Иконка ширины линии</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation>Название линии Width</translation>
+        <translation>Имя ширины линии</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -2088,11 +2089,11 @@ or [%2]</source>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>Активный Pen Background:</translation>
+        <translation>Фон активного стиля:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>Весь столовый ряд смелый для активной ручки</translation>
+        <translation>Вся строка таблицы выделена жирным для активного стиля</translation>
     </message>
     <message>
         <source>Grid Color:</source>
@@ -2100,31 +2101,31 @@ or [%2]</source>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>Соответствует цвету предмета:</translation>
+        <translation>Цвет совпадающего элемента:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>Фильтрация нечувствительных к делу ручек</translation>
+        <translation>Фильтрация стилей без учета регистра</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>Контроль того, будет ли показан инструментарий для элемента таблицы или нет</translation>
+        <translation>Управляет отображением подсказки для элемента таблицы</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>Показать инструментарий для столов</translation>
+        <translation>Показывать подсказки для элементов таблицы</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation>Файл с ручками:</translation>
+        <translation>Файл стилей:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>Показать цветное имя</translation>
+        <translation>Показывать имя цвета как</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation>ЭКС</translation>
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
@@ -2132,15 +2133,15 @@ or [%2]</source>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>Натуральное название по возможности</translation>
+        <translation>Естественное имя где возможно</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>Показать информационное сообщение, если никакие объекты не могут быть выбраны пером</translation>
+        <translation>Показывать информационное сообщение, если объекты не могут быть выбраны стилем</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>Двойной клик по столу</translation>
+        <translation>При двойном клике по элементу таблицы</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2148,22 +2149,22 @@ or [%2]</source>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>Выберите объекты по атрибутам pen</translation>
+        <translation>Выбрать объекты по стилю атрибутов</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>Выберите объекты, рисуя ручку</translation>
+        <translation>Выбрать объекты по стилю рисования</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation>Пэн Палетт</translation>
+        <translation>Палитра стилей</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation>Имя пени:</translation>
+        <translation>Имя стиля:</translation>
     </message>
     <message>
         <source>Color:</source>
@@ -2175,7 +2176,7 @@ or [%2]</source>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Режим освещения</translation>
+        <translation>Режим выделения</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -2191,115 +2192,115 @@ or [%2]</source>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Разработчик: Entity Drawing Pen</translation>
+        <translation>Заполнить редактор стилей стилем рисования объекта</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Заполните Pen Editor по атрибутам организации</translation>
+        <translation>Заполнить редактор стилей атрибутами объекта</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Выберите объекты, нарисовав ручку</translation>
+        <translation>Выбрать объекты по стилю рисования</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Выберите объекты по атрибутам Pen</translation>
+        <translation>Выбрать объекты по стилю атрибутов</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Спасти</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation>Нажмите Pen для выбора</translation>
+        <translation>Применить стиль к выделению</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Редактор Pen by Current Pen</translation>
+        <translation>Заполнить стиль редактора текущим стилем</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>Редактор Пен как текущая ручка</translation>
+        <translation>Применить стиль редактора как текущий</translation>
     </message>
     <message>
         <source>to current</source>
-        <translation>текущий</translation>
+        <translation>к текущему</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Оригинальное название: Active Layer' Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Обновить текущий стиль стилем активного слоя</translation>
     </message>
     <message>
-        <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>Редактор ручки Active Layer's Pen</translation>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
+        <translation>Заполнить редактор стилем активного слоя</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>Выберите Active Layer</translation>
+        <translation>Взять из активного слоя</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>Редактор Pen для Active Layer Pen</translation>
+        <translation>Применить стиль редактора к стилю активного слоя</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation>Нанести на слой</translation>
+        <translation>Применить к слою</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation>Удалить выбранную ручку</translation>
+        <translation>Удалить выбранный стиль</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation>Удалить Pen</translation>
+        <translation>Удалить стиль</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>Меню пенсов</translation>
+        <translation>Меню стилей</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>Используйте Pen для выбора</translation>
+        <translation>&amp;Применить стиль к выделению</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>&amp;Set как ручка</translation>
+        <translation>&amp;Установить как текущий стиль</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>&amp; Apply Pen для активного слоя</translation>
+        <translation>&amp;Применить стиль к активному слою</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>Выберите объекты с атрибутами Pen</translation>
+        <translation>&amp;Выбрать объекты со стилем атрибутов</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>&amp;Select Entities с рисунком</translation>
+        <translation>&amp;Выбрать объекты со стилем рисования</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>Исполнитель: Pen</translation>
+        <translation>&amp;Редактировать стиль</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>Скачать Pen</translation>
+        <translation>&amp;Удалить стиль</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>Удалить Pens</translation>
+        <translation>&amp;Удалить стили</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation>Ручная палитра</translation>
+        <translation>Палитра стилей</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
-Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>Местонахождение файла ручки изменено, пожалуйста, перезагрузите приложение, чтобы использовать новый файл ручки.
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+        <translation>Расположение файла стилей изменено, перезапустите приложение, чтобы использовать новый файл.
 
-Обратите внимание, что если вы сохраните ручку через редактор без перезагрузки, текущие ручки из палитры будут сохранены в новом файле, и, следовательно, существующее содержимое будет перезагружено.</translation>
+Примечание: если вы сохраните стиль через редактор без перезапуска, текущие стили из палитры будут сохранены в новом файле и существующий контент будет перезаписан.</translation>
     </message>
 </context>
 <context>
@@ -2310,7 +2311,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Полилин</translation>
+        <translation>Полилиния</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -2318,7 +2319,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Эджес:</translation>
+        <translation>Края:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2338,7 +2339,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Снэп:</translation>
+        <translation>Привязка:</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2346,43 +2347,43 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Top-left</source>
-        <translation>Верхний левый</translation>
+        <translation>Слева-сверху</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Топ</translation>
+        <translation>Сверху</translation>
     </message>
     <message>
         <source>Top-right</source>
-        <translation>Верхний правый</translation>
+        <translation>Справа-сверху</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Левый</translation>
+        <translation>Слева</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Правильно</translation>
+        <translation>Справа</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>Снизу слева</translation>
+        <translation>Слева-снизу</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Нижняя часть</translation>
+        <translation>Снизу</translation>
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>Снизу справа</translation>
+        <translation>Справа-снизу</translation>
     </message>
     <message>
         <source>Straight</source>
-        <translation>Прямой</translation>
+        <translation>Прямо</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2390,11 +2391,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Бевел</translation>
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Смена смены</translation>
+        <translation>Смещение привязки</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2425,7 +2426,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Смена смены</translation>
+        <translation>Смещение привязки</translation>
     </message>
     <message>
         <source>Radius:</source>
@@ -2433,15 +2434,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Эджес:</translation>
+        <translation>Края:</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Полилин</translation>
+        <translation>Полилиния</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>Конец Snap:</translation>
+        <translation>Привязка конца:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2453,7 +2454,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>Старт Snap:</translation>
+        <translation>Привязка начала:</translation>
     </message>
     <message>
         <source>Corner</source>
@@ -2461,15 +2462,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>Средневертикальный</translation>
+        <translation>Середина-вертикаль</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>Средний горизонтальный</translation>
+        <translation>Середина-горизонталь</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>Base Angle:</source>
@@ -2477,7 +2478,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Straight</source>
-        <translation>Прямой</translation>
+        <translation>Прямо</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2485,7 +2486,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Бевел</translation>
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2512,7 +2513,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Полилин</translation>
+        <translation>Полилиния</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2528,11 +2529,11 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edges:</source>
-        <translation>Эджес:</translation>
+        <translation>Края:</translation>
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Четыреугольник</translation>
+        <translation>Четырёхугольник</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
@@ -2544,7 +2545,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Straight</source>
-        <translation>Прямой</translation>
+        <translation>Прямо</translation>
     </message>
     <message>
         <source>Round</source>
@@ -2552,7 +2553,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Бевел</translation>
+        <translation>Скос</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2560,7 +2561,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Смена смены</translation>
+        <translation>Смещение привязки</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2594,7 +2595,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>None</source>
-        <translation>Никто</translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2602,7 +2603,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Start</source>
-        <translation>Начинать</translation>
+        <translation>Начало</translation>
     </message>
     <message>
         <source>End</source>
@@ -2610,31 +2611,31 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>Эдж Тик:</translation>
+        <translation>Отметка края:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Рель</translation>
+        <translation>Относительно</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Оффсет:</translation>
+        <translation>Смещение:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation>Считай:</translation>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>Начало кругового угла:</translation>
+        <translation>Угол начала круга:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>Длина тика:</translation>
+        <translation>Длина отметки:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>Скриншоты:</translation>
+        <translation>Привязка отметки:</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -2642,15 +2643,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Divide</source>
-        <translation>Разделять</translation>
+        <translation>Разделить</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Средний</translation>
+        <translation>Середина</translation>
     </message>
     <message>
         <source>Fixed </source>
-        <translation>Фиксированный</translation>
+        <translation>Фиксированный </translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -2665,15 +2666,15 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Радиус внутри</translation>
+        <translation>Внутренний радиус</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Полилин</translation>
+        <translation>Полилиния</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Радиус наружу</translation>
+        <translation>Внешний радиус</translation>
     </message>
     <message>
         <source>Symmetric</source>
@@ -2681,7 +2682,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Number:</source>
-        <translation>Номер:</translation>
+        <translation>Количество:</translation>
     </message>
 </context>
 <context>
@@ -2791,7 +2792,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation>Колонны левой панели инструментов:</translation>
+        <translation>Столбцы левой панели инструментов:</translation>
     </message>
 </context>
 <context>
@@ -2809,12 +2810,12 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <translation>Убрать справа</translation>
     </message>
     <message>
-        <source>remove 0'</source>
-        <translation>убрать 0'</translation>
+        <source>remove 0&apos;</source>
+        <translation>убрать 0&apos;</translation>
     </message>
     <message>
-        <source>remove 0"</source>
-        <translation>убрать 0"</translation>
+        <source>remove 0&quot;</source>
+        <translation>убрать 0&quot;</translation>
     </message>
 </context>
 <context>
@@ -3024,8 +3025,8 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <translation>Командная строка</translation>
     </message>
     <message>
-        <source>Block '%1'</source>
-        <translation>Блок '%1'</translation>
+        <source>Block &apos;%1&apos;</source>
+        <translation>Блок &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Cannot open the file
@@ -3146,8 +3147,8 @@ Please check its existence and permissions.</source>
 Проверьте его наличие и права доступа.</translation>
     </message>
     <message>
-        <source>File '%1' does not exist. Opening aborted</source>
-        <translation>Файл '%1' не существует. Операция прервана</translation>
+        <source>File &apos;%1&apos; does not exist. Opening aborted</source>
+        <translation>Файл &apos;%1&apos; не существует. Операция прервана</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3393,7 +3394,7 @@ Please check its existence and permissions.</source>
         <translation>&amp;Вики</translation>
     </message>
     <message>
-        <source>User's &amp;Manual</source>
+        <source>User&apos;s &amp;Manual</source>
         <translation>Руководство &amp;пользователя</translation>
     </message>
     <message>
@@ -3430,15 +3431,15 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>Пожалуйста, сначала настройте масштабирование и позиционирование в предварительном просмотре печати.</translation>
+        <translation>Сначала настройте масштаб и позиционирование в предварительном просмотре печати.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation>Пэн Палетт</translation>
+        <translation>Палитра стилей</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>Слоеное дерево</translation>
+        <translation>Дерево слоёв</translation>
     </message>
 </context>
 <context>
@@ -3450,11 +3451,11 @@ Please check its existence and permissions.</source>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>Spacebar: восстановлен режим щелчка в норме</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>Spacebar: временно установит режим щелчка для свободного щелчка</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3472,16 +3473,16 @@ Please check its existence and permissions.</source>
         <translation>Текущий слой</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Название текущего активного слоя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Название текущего активного слоя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -3499,8 +3500,8 @@ p, li { white-space: pre-wrap; }
         <translation>Переименование блока</translation>
     </message>
     <message>
-        <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>Переименование блока невозможно. Блок "%1" уже существует.</translation>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation>Переименование блока невозможно. Блок &quot;%1&quot; уже существует.</translation>
     </message>
 </context>
 <context>
@@ -3761,7 +3762,7 @@ in a separate window</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3808,17 +3809,17 @@ in a separate window</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Формат текста размерности, &lt;&gt; может использоваться в качестве заполнителя для значения измерения размерности&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4017,7 +4018,7 @@ This recursively modifies all entities of the Block itself.</source>
     </message>
     <message>
         <source>Area</source>
-        <translation>Район</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4094,12 +4095,12 @@ This recursively modifies all entities of the Block itself.</source>
         <translation>Язык команд:</translation>
     </message>
     <message>
-        <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>&lt;font size="+1"&gt;&lt;b&gt;Добро пожаловать в LibreCAD&lt;/b&gt;
+        <translation>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Добро пожаловать в LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Выберите желаемые единицы измерения для новых чертежей и предпочитаемый язык.&lt;br&gt;
@@ -4999,7 +5000,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Градианы</translation>
     </message>
     <message>
-        <source>Surveyor's units</source>
+        <source>Surveyor&apos;s units</source>
         <translation>Геодезические единицы</translation>
     </message>
     <message>
@@ -5007,8 +5008,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Параметры</translation>
     </message>
     <message>
-        <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
-        <translation>Для форматов длин 'Инженерный' и 'Архитектурный' в качестве единиц измерения должны быть выбраны дюймы.</translation>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
+        <translation>Для форматов длин &apos;Инженерный&apos; и &apos;Архитектурный&apos; в качестве единиц измерения должны быть выбраны дюймы.</translation>
     </message>
     <message>
         <source>Arrow size:</source>
@@ -5139,7 +5140,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Длина засечки:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Засечки на размерных линиях. Установите 0 для отключения засечек. Стрелок на концах размерных линий не будет, если засечки включены.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -5163,12 +5164,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Стиль текста:</translation>
     </message>
     <message>
-        <source>'.' (Period)</source>
-        <translation>'.' (Точка)</translation>
+        <source>&apos;.&apos; (Period)</source>
+        <translation>&apos;.&apos; (Точка)</translation>
     </message>
     <message>
-        <source>',' (Comma)</source>
-        <translation>',' (Запятая)</translation>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation>&apos;,&apos; (Запятая)</translation>
     </message>
     <message>
         <source>Decimal separator:</source>
@@ -5211,8 +5212,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Длина увеличения размерной линии</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Размер стрелок.&lt;a name="result_box"/&gt;Не имеет эффекта, если размер засечки&lt;a name="result_box"/&gt;не равен 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Размер стрелок.&lt;a name=&quot;result_box&quot;/&gt;Не имеет эффекта, если размер засечки&lt;a name=&quot;result_box&quot;/&gt;не равен 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -5243,8 +5244,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Линейная точность:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Выравнивание текста&lt;a name="result_box"/&gt;относительно размерной линии.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Выравнивание текста&lt;a name=&quot;result_box&quot;/&gt;относительно размерной линии.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Aligned</source>
@@ -5347,8 +5348,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Архитектурный (метрический)</translation>
     </message>
     <message>
-        <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>Для формата длины 'Архитектурный (метрический)' единицей измерения должно быть установлено значение метр.</translation>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation>Для формата длины &apos;Архитектурный (метрический)&apos; единицей измерения должно быть установлено значение метр.</translation>
     </message>
     <message>
         <source>Screen %</source>
@@ -5594,7 +5595,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>N&amp;количество объектов предварительного просмотра:</translation>
     </message>
     <message>
-        <source>Don't use native OS file open dialog</source>
+        <source>Don&apos;t use native OS file open dialog</source>
         <translation>Не используйте открытый диалог с родным файлом OS</translation>
     </message>
     <message>
@@ -5674,16 +5675,16 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation>Автоматически увеличить чертеж при открытии</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt; Часть папки библиотеки. Библиотека символов dxf файлов должна располагаться в подкаталогах этой папки. Имена подпапок будут отображаться в Браузере библиотеки.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color: #1f2328; background-color: #ffffff;"&gt;(Меню: Widgets &gt; Dock Widgets &gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>Откройте последние открытые файлы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Временно переключать свободный щелчок при нажатии пробела и активации командного окна &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5746,9 +5747,9 @@ Please choose the unit you want to use for new drawings and your preferred langu
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
-that has been set invisibe ("display: none" or "visibility: hidden").</source>
-        <translation>MakerCAM по состоянию на ноябрь 2014 года не скрывает содержимое SVG 
-которое было установлено невидимым ("отображение: нет" или "видимость: скрыто").</translation>
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
+        <translation>MakerCAM по состоянию на ноябрь 2014 года не скрывает содержимое SVG&#xa0;
+которое было установлено невидимым (&quot;отображение: нет&quot; или &quot;видимость: скрыто&quot;).</translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
@@ -5766,20 +5767,20 @@ the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.<
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
-but avoided in some CAM's.</source>
-        <translation>Экспортированные изображения могут быть использованы в SVG редакторах (Inkscape и т.д.), 
-но некоторые CAM'ы будут отброшены.</translation>
+but avoided in some CAM&apos;s.</source>
+        <translation>Экспортированные изображения могут быть использованы в SVG редакторах (Inkscape и т.д.),&#xa0;
+но некоторые CAM&apos;ы будут отброшены.</translation>
     </message>
     <message>
-        <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
-        <translation>Многие CAM'ы(MakerCAM, EleskCAM, LaserWeb) игнорируют стиль пунктирной линии, 
+        <translation>Многие CAM&apos;ы(MakerCAM, EleskCAM, LaserWeb) игнорируют стиль пунктирной линии,&#xa0;
 который может быть полезен при лазерной резке фанеры или для изготовления поделок из бумаги. </translation>
     </message>
     <message>
-        <source>Default width of elements can affect some CAM's/SVG Editors, 
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
 but ignored by other</source>
-        <translation>Ширина элементов по умолчанию может влиять на некоторые редакторы CAM/SVG, 
+        <translation>Ширина элементов по умолчанию может влиять на некоторые редакторы CAM/SVG,&#xa0;
 но игнорироваться другими</translation>
     </message>
     <message>
@@ -5790,15 +5791,15 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Points</source>
-        <translation>Точки</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Points</source>
-        <translation>Экспортные точки</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>Что такое экспортные точки</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5984,7 +5985,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Найдите коэффициенты масштабирования вокруг центра по опорной точке и целевой точке.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6665,11 +6666,11 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Discard All</source>
-        <translation>Отбросить все</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>Выбрасывать</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6749,7 +6750,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Редактировать блок</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7099,16 +7100,16 @@ The contents of a Construction Layer should not appear in printout.</source>
         <translation>Левая</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Подсказка для действий по левой и правой кнопкам мыши&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Подсказка для действий по левой и правой кнопкам мыши&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7155,28 +7156,28 @@ p, li { white-space: pre-wrap; }
         <translation>Полная длина</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Число выбранных объектов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Число выбранных объектов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Суммарная длина выбранных объектов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Суммарная длина выбранных объектов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7307,7 +7308,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>Среднее руководство Snap</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7455,8 +7456,8 @@ p, li { white-space: pre-wrap; }
         <translation>Удалить слой</translation>
     </message>
     <message>
-        <source>Layer "%1" can never be removed.</source>
-        <translation>Слой "%1" никогда нельзя удалить.</translation>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation>Слой &quot;%1&quot; никогда нельзя удалить.</translation>
     </message>
     <message>
         <source>Layer Dialog</source>
@@ -7467,30 +7468,31 @@ p, li { white-space: pre-wrap; }
         <translation>Удалить блок</translation>
     </message>
     <message>
-        <source>Block "%1" and all its entities will be removed.</source>
-        <translation>Блок "%1" и все его объекты будут удалены.</translation>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation>Блок &quot;%1&quot; и все его объекты будут удалены.</translation>
     </message>
     <message>
         <source>Layer Properties</source>
         <translation>Свойства слоя</translation>
     </message>
     <message>
-        <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>Слой "%1" уже существует. Укажите другое имя.</translation>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation>Слой &quot;%1&quot; уже существует. Укажите другое имя.</translation>
     </message>
     <message>
-        <source>Layer "%1" and all entities on it will be removed.
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>Слой "%1" и всё его содержимое будет удалено.
+        <translation>Слой &quot;%1&quot; и всё его содержимое будет удалено.
 Это действие будет НЕВОЗМОЖНО отменить.</translation>
     </message>
     <message>
-        <source>Layer "0" can never be removed.</source>
-        <translation>Слой "0" никогда не может быть удален.</translation>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation>Слой &quot;0&quot; никогда не может быть удален.</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Удалить %n слой(ы)<numerusform>Удалить слой %n</numerusform>
+        <translation>
+            <numerusform>Удалить слой %n</numerusform>
             <numerusform>Удалить %n слоя</numerusform>
             <numerusform>Удалить %n слоев</numerusform>
         </translation>
@@ -7504,8 +7506,8 @@ This action can NOT be undone.</source>
         <translation>Предупреждение: это действие не может быть отменено!</translation>
     </message>
     <message>
-        <source>Warning: layer "0" can never be removed.</source>
-        <translation>Предупреждение: слой "0" никогда не может быть удален.</translation>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation>Предупреждение: слой &quot;0&quot; никогда не может быть удален.</translation>
     </message>
     <message>
         <source>Layers for removal:</source>
@@ -7513,7 +7515,8 @@ This action can NOT be undone.</source>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Удалить %n блок(ы)<numerusform>Удалить блок %n</numerusform>
+        <translation>
+            <numerusform>Удалить блок %n</numerusform>
             <numerusform>Удалить %n блока</numerusform>
             <numerusform>Удалить %n блоков</numerusform>
         </translation>
@@ -7528,175 +7531,159 @@ This action can NOT be undone.</source>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>Пустые названия не допускаются.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>Попробуйте создать слой с дублирующим названием. Имя дублированного слоя
-[%1].
-Пожалуйста, укажите другое имя.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Ошибка</translation>
+        <translation type="unfinished">Ошибка</translation>
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>Струна разделителя списка слоев пуста. Строить деревья не получится.
-Пожалуйста, укажите другое значение.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>Недействительное значение обеспечивает цвет %1.
-Пожалуйста, укажите другое значение.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>Удалить пустые слои</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>Слой(ы) без найденных сущностей, но они фильтруются и не видны.
-
-Чистая фильтрующая маска и повторение.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>Никаких слоев без найденных сущностей, ничего, чтобы удалить.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Добавить слой</translation>
+        <translation type="unfinished">Добавить слой</translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>Такой детский слой уже существует для
-[%1].
-Пожалуйста, укажите другое имя.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>Такой детский слой уже существует для
-[%1].</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>Размерный слой может быть добавлен только для нормального активного слоя.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>Переместить выбор</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>Дублированный выбор</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace "By Layer" value to source layers values?
+        <source>Replace &quot;By Layer&quot; value to source layers values?
 
-If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
 
-If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>Заменить значение "по уровню" на значения слоев источника?
-
-Если да — объекты с ручками «по уровню» будут смотреться на новом слое точно так же, как на предыдущих слоях, и значение «по уровню» будет заменено решенными ручками.
-
-Если нет - значения "по уровню" остаются, и поэтому перо целевого слоя будет определять перо для таких объектов.</translation>
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>Слой DialogEx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>Недействительное значение для цвета %1.
-Пожалуйста, укажите другое значение.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>Недействительный путь к файлу ручки.
-%1
-Пожалуйста, укажите другое значение.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>Удалить ручку</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Ручка будет удалена из палитры, рисование объектов не будет затронуто.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you'd like to proceed?</source>
-        <translation>Вы уверены, что хотите продолжить?</translation>
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>Ручка для удаления:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>Удалить ручки</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Ручки будут сняты с палитры, рисование объектов не будет затронуто.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>Ручки для удаления:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>Выбрать организации</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>Нет сущностей, которые соответствуют перу на видимых слоях.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>Такие сущности существуют на замороженных слоях.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>Такие сущности существуют на запертых слоях.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>Пожалуйста, используйте различные атрибуты ручки.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>Устанавливаем ручку лицом</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>Пожалуйста, выберите только одну сущность, чтобы выбрать настройку ручки.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>Экономия данных Pens</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>Невозможно сохранить данные ручки в указанный файл ручки. Хотите указать правильный путь к файлу?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7956,7 +7943,7 @@ Do you want to replace it?</source>
         <translation>неизвестная ошибка при открытии файла DWG</translation>
     </message>
     <message>
-        <source>can't open this dwg file</source>
+        <source>can&apos;t open this dwg file</source>
         <translation>невозможно открыть данный файл DWG</translation>
     </message>
     <message>
@@ -10136,8 +10123,8 @@ Do you want to replace it?</source>
         <translation> -o некоторые файлы.pdf *.dxf</translation>
     </message>
     <message>
-        <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>-- распечатать все dxf-файлы в файл 'some.pdf'.</translation>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation>-- распечатать все dxf-файлы в файл &apos;some.pdf&apos;.</translation>
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
@@ -10211,8 +10198,8 @@ Do you want to replace it?</source>
         <translation>Комбинировать все слои</translation>
     </message>
     <message>
-        <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>Файл "% 1" уже существует. Вы хотите заменить его?</translation>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation>Файл &quot;% 1&quot; уже существует. Вы хотите заменить его?</translation>
     </message>
     <message>
         <source>/CustomColor%1</source>
@@ -10230,616 +10217,616 @@ Do you want to replace it?</source>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>прямой</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>слизь</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>слинекс</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>слизь</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation>рлкс</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>скользкий</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>слизистый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>редко</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>рект1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>рект2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>рект3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>слизь</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>sll</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>ломтик</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>звезда</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>ствол</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>крест</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>х</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>точки линии</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>точка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>криклеярк</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>кба</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>дублировать</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>окурок</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>линейный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>л</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>расщепление</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>bd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>разрыв</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>глюк</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>парабола4p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>пл4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>параболаф</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>угол</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>сортолин</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>рог</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>точка 2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished">p2l</translation>
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>стрелковый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>быстрый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>смм</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
-        <translation>х</translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>anglerel</source>
-        <translation>угловой</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>start</source>
-        <translation>начинать</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>offset</source>
-        <translation>смещения</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linesnap</source>
-        <translation>линейный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>щекотка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>width</source>
-        <translation>ширинка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>height</source>
-        <translation>высота</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pos</source>
-        <translation>позы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>size</source>
-        <translation>размер</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bevels</source>
-        <translation>скосы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nopoly</source>
-        <translation>неполный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usepoly</source>
-        <translation>использовать</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corners</source>
-        <translation>углы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>str</source>
-        <translation>наклон</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>round</source>
-        <translation>круглый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap1</source>
-        <translation>щелчок</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topl</source>
-        <translation>умножать</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>top</source>
-        <translation>вершина</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topr</source>
-        <translation>топор</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>left</source>
-        <translation>левый</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>middle</source>
-        <translation>середина</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>right</source>
-        <translation>правильно</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottoml</source>
-        <translation>дно</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottom</source>
-        <translation>дно</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottomr</source>
-        <translation>нижний</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>щелчок</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapshift</source>
-        <translation>быстрое смещение</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizein</source>
-        <translation>размер</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizeout</source>
-        <translation>размер</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hor</source>
-        <translation>рога</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vert</source>
-        <translation>поворот</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap2</source>
-        <translation>щелчок</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corner</source>
-        <translation>угол</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>средняя вершина</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>средний</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quad</source>
-        <translation>квадроцикл</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noquad</source>
-        <translation>квадроцикл</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>angle inner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edges</source>
-        <translation>края</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-none</source>
-        <translation>без края</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-both</source>
-        <translation>кромка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-start</source>
-        <translation>крайний старт</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-end</source>
-        <translation>крайний</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>end</source>
-        <translation>конец</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>both</source>
-        <translation>оба</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation>ни одного</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fit</source>
-        <translation>подходящий</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nofit</source>
-        <translation>пригодный</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>dist fixed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>dist flex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>distance</source>
-        <translation>расстояние</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sym</source>
-        <translation>сим</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nosym</source>
-        <translation>сим</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>Хэтч: не найдено никакой закономерности. Пожалуйста, установите путь шаблона в предпочтениях приложений</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Хэтч:: модель загрузки не удалась: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PenTB</source>
-        <translation>ПенТБ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Layer</source>
-        <translation>Слой</translation>
+        <translation type="unfinished">По слою</translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation>Блокировать</translation>
+        <translation type="unfinished">По блоку</translation>
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>- Без изменений -</translation>
+        <translation type="unfinished">- Без изменений -</translation>
     </message>
     <message>
         <source>User Color</source>
-        <translation>Цвет пользователя</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>каль</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>расчет</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>- Без изменений</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>ByLayer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>Блокировка</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>По умолчанию</translation>
+        <translation type="unfinished">По умолчанию</translation>
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0,00 мм</translation>
+        <translation type="unfinished">0.00мм</translation>
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0,05 мм</translation>
+        <translation type="unfinished">0.05мм</translation>
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0,09 мм</translation>
+        <translation type="unfinished">0.09мм</translation>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0.13 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0,15 мм</translation>
+        <translation type="unfinished">0.15мм</translation>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0,18 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0,20 мм</translation>
+        <translation type="unfinished">0.20мм</translation>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0,25 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0,30 мм</translation>
+        <translation type="unfinished">0.30мм</translation>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0,35 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0,40 мм</translation>
+        <translation type="unfinished">0.40мм</translation>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0.50 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0,53 мм</translation>
+        <translation type="unfinished">0.53мм</translation>
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0,60 мм</translation>
+        <translation type="unfinished">0.60мм</translation>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0,70 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0,80 мм</translation>
+        <translation type="unfinished">0.80мм</translation>
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0,90 мм</translation>
+        <translation type="unfinished">0.90мм</translation>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1.00 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1.06 мм</translation>
+        <translation type="unfinished">1.06мм</translation>
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1.20 мм</translation>
+        <translation type="unfinished">1.20мм</translation>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1.40 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1.58 мм</translation>
+        <translation type="unfinished">1.58мм</translation>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2.00 ммИСО</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11 мм</translation>
+        <translation type="unfinished">2.11мм</translation>
     </message>
 </context>
 <context>
@@ -11358,24 +11345,24 @@ This block cannot be inserted.</source>
         <translation>Укажите центр касательной к окружности</translation>
     </message>
     <message>
-        <source>Invalid expression '%1' for radius</source>
-        <translation>Недопустимое выражение '%1' для радиуса</translation>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation>Недопустимое выражение &apos;%1&apos; для радиуса</translation>
     </message>
     <message>
-        <source>Invalid negative radius '%1'</source>
-        <translation>Недопустимый отрицательный радиус '%1'</translation>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation>Недопустимый отрицательный радиус &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>Invalid zero radius '%1'</source>
-        <translation>Недопустимый нулевой радиус '%1'</translation>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation>Недопустимый нулевой радиус &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>No tangent circle possible for radius '%1'</source>
-        <translation>Касательная к окружности для радиуса '%1' невозможна</translation>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation>Касательная к окружности для радиуса &apos;%1&apos; невозможна</translation>
     </message>
     <message>
-        <source>No common tangential circle for radius '%1'</source>
-        <translation>Нет общей касательной к окружности для радиуса '%1'</translation>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation>Нет общей касательной к окружности для радиуса &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -11989,15 +11976,15 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>Выберите первый круг/эллипс/парабола</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>Выберите второй круг/эллипс/парабола</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>Выберите линию касания, ближайшую к курсору</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12341,8 +12328,8 @@ This block cannot be inserted.</source>
         <translation>Вставить библиотечный объект</translation>
     </message>
     <message>
-        <source>Cannot open file '%1'</source>
-        <translation>Невозможно открыть файл '%1'</translation>
+        <source>Cannot open file &apos;%1&apos;</source>
+        <translation>Невозможно открыть файл &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -12648,11 +12635,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>Укажите масштабный центр</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>Укажите целевую точку</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12782,7 +12769,7 @@ This block cannot be inserted.</source>
         <translation>Укажите ломаную для добавления вершин</translation>
     </message>
     <message>
-        <source>Specify adding node's point</source>
+        <source>Specify adding node&apos;s point</source>
         <translation>Укажите точку добавляемой вершины</translation>
     </message>
 </context>
@@ -12852,7 +12839,7 @@ This block cannot be inserted.</source>
         <translation>Укажите ломаную для удаления вершины</translation>
     </message>
     <message>
-        <source>Specify deleting node's point</source>
+        <source>Specify deleting node&apos;s point</source>
         <translation>Укажите удаляемую вершину</translation>
     </message>
     <message>
@@ -13015,8 +13002,8 @@ This block cannot be inserted.</source>
         <translation>введите отступы при печати из командной строки</translation>
     </message>
     <message>
-        <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>Игнорирование относительного нуля в смещении вывода на печать. Игнорирование '@'</translation>
+        <source>Printout offset ignores relative zero. Ignoring &apos;@&apos;</source>
+        <translation>Игнорирование относительного нуля в смещении вывода на печать. Игнорирование &apos;@&apos;</translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
@@ -13238,7 +13225,7 @@ This block cannot be inserted.</source>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>Проект</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13589,59 +13576,59 @@ This block cannot be inserted.</source>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>Линейные опции</translation>
+        <translation type="unfinished">Параметры линии</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation>Направление:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Полилин</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished">Y</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Угол</translation>
+        <translation type="unfinished">Угол</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>XX</translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Рель</translation>
+        <translation type="unfinished">Относительно</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Отменить последнюю строчку</translation>
+        <translation type="unfinished">Отменить последнюю начерченную линию</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Снять</translation>
+        <translation type="unfinished">Отменить</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Форма замкнутого контура из нарисованных линий</translation>
+        <translation type="unfinished">Создать замкнутый контур из существующих линий</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation type="unfinished">Закрыть</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Красный последний рисунок линии</translation>
+        <translation type="unfinished">Повторить последнюю начерченную линию</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Реда</translation>
+        <translation type="unfinished">Повторить</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation>Точка</translation>
+        <translation type="unfinished">Точка</translation>
     </message>
 </context>
 <context>
@@ -13859,7 +13846,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size: drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

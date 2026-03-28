@@ -30,17 +30,18 @@ if NOT exist windows\LibreCAD.exe (
 )
 
 rem Improved windeployqt: verbose, force copy, standard plugin subdirs
-echo windepolyqt: Current directory is: %CD%
 dir windows\
-mkdir windows\ts
-windeployqt.exe --release windows\LibreCAD.exe --verbose 2 --force
-dir librecad\ts\*.ts
-    for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
-      lrelease.exe "%%f" -qm ..\..\windows\ts\
-    )
+rem mkdir windows\ts
+mkdir windows\translations
+for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
+    lrelease.exe "%%f"
+)
 rem lrelease.exe librecad\ts\*.ts -qm windows\ts\
-dir windows\ts
-rem windeployqt.exe windows\LibreCAD.exe --release --verbose 2 --force
+echo windepolyqt: Current directory is: %CD%
+windeployqt.exe --release windows\LibreCAD.exe librecad\ts --verbose 2 --force
+dir windows\translations
+copy windows\translations\* librecad\ts\
+dir librecad\ts\
 
 echo [INFO] Extracting version (SCMREVISION)...
 set SCMREVISION=unknown
@@ -75,14 +76,14 @@ if NOT "_%MSYSGIT_DIR%"=="_" (
 
 if "!SCMREVISION!"=="unknown" (
     echo [WARNING] Could not extract version. Using hardcoded default.
-    set SCMREVISION=2.2.1.3
+    set SCMREVISION=2.2.1.5
 )
 
 echo "SCMREVISION=%SCMREVISION%"
 
 :: Input string (e.g., 2.2.1.3-*, 2.2.2-alpha)
 set "input=%SCMREVISION%"
-if "!input!"=="" set "input=2.2.2-alpha*"
+if "!input!"=="" set "input=2.2.1-rc*"
 
 :: 1. Scan for the first character that is NOT 0-9 or .
 set "CLEAN_VERSION="

@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="ro_RO">
 <context>
     <name>ColorWizard</name>
@@ -48,7 +49,7 @@
     <name>DlgParabola</name>
     <message>
         <source>Parabola</source>
-        <translation>Parabola</translation>
+        <translation>Parabolă</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -60,7 +61,7 @@
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>Puncte pe Spline</translation>
+        <translation>Puncte pe spline</translation>
     </message>
     <message>
         <source>Control Points</source>
@@ -110,7 +111,7 @@
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation>Specifică localizarea arcului de dimensiune</translation>
+        <translation>Specificați locația arcului de cotă</translation>
     </message>
 </context>
 <context>
@@ -118,12 +119,12 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation>raza=% 1 este prea mică pentru punctele selectate
-distanța dintre puncte=%2 este mai mare decât diametrul = % 3</translation>
+        <translation>raza=%1 este prea mică pentru punctele selectate
+distanța dintre puncte=%2 este mai mare decât diametrul=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
-        <translation>Selectaţi din două posibile centre de cerc</translation>
+        <translation>Selectați dintre două centre posibile de cerc</translation>
     </message>
     <message>
         <source>Specify first point</source>
@@ -131,11 +132,11 @@ distanța dintre puncte=%2 este mai mare decât diametrul = % 3</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>A se preciza al doilea punct</translation>
+        <translation>Specificați al doilea punct</translation>
     </message>
     <message>
         <source>Back</source>
@@ -151,8 +152,8 @@ distanța dintre puncte=%2 este mai mare decât diametrul = % 3</translation>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>Specifică distanța (% 1)
-fie [% 2]</translation>
+        <translation>Specificați distanța (%1)
+sau [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -169,15 +170,15 @@ fie [% 2]</translation>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>A se specifica distanța (unghiul% 1 deg)
-fie [% 2]</translation>
+        <translation>Specificați distanța (unghi %1 grade)
+sau [%2]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation>Specifică centrul</translation>
+        <translation>Specificați centrul</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
@@ -189,18 +190,18 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>Nu este un număr valid. Încearcă 1..9999</translation>
+        <translation>Număr invalid. Încercați 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>Nu este o expresie validă</translation>
+        <translation>Expresie invalidă</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>A se specifica direcția (x sau y) sau [% 1]</translation>
+        <translation>Specificați direcția (x sau y) sau [%1]</translation>
     </message>
     <message>
         <source>Back</source>
@@ -208,7 +209,7 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>Specificați distanța (% 1) sau [% 2]</translation>
+        <translation>Specificați distanța (%1) sau [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -220,30 +221,30 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>A se specifica distanța (% 1 deg) sau [% 2]</translation>
+        <translation>Specificați distanța (%1 grade) sau [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation>A se specifica unghiul sau [% 2]</translation>
+        <translation>Specificați unghiul sau [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation>A se preciza punctul sau [% 1]</translation>
+        <translation>Specificați punctul sau [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation>A se preciza primul punct privind parabola</translation>
+        <translation>Specificați primul punct pe parabolă</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation>A se preciza al doilea punct privind parabola</translation>
+        <translation>Specificați al doilea punct pe parabolă</translation>
     </message>
     <message>
         <source>Back</source>
@@ -251,30 +252,30 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation>A se preciza al treilea punct privind parabola</translation>
+        <translation>Specificați al treilea punct pe parabolă</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation>A se preciza al patrulea punct privind parabola</translation>
+        <translation>Specificați al patrulea punct pe parabolă</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>A se specifica axa pe parabolă</translation>
+        <translation>Specificați axa pe parabolă</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation>A se preciza punctul central al parabola</translation>
+        <translation>Specificați focarul parabolei</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>A se preciza directrixul de parabolă</translation>
+        <translation>Specificați directrixul parabolei</translation>
     </message>
     <message>
         <source>Back</source>
@@ -282,22 +283,22 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation>A se preciza punctul de plecare pentru parabolă</translation>
+        <translation>Specificați punctul de start pe parabolă</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation>A se preciza punctul final privind parabola</translation>
+        <translation>Specificați punctul final pe parabolă</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>nu este împărţită aşa cum este încuiată.</translation>
+        <translation> nu este împărțit deoarece este blocat.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>nu este divizat deoarece face parte din poliline. Extindeţi întâi polilina.</translation>
+        <translation> nu este împărțit deoarece face parte din polilinie. Extindeți mai întâi polilinia.</translation>
     </message>
     <message>
         <source>Line</source>
@@ -320,11 +321,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation>Specifică următorul punct de control sau [% 1]</translation>
+        <translation>Specificați următorul punct de control sau [%1]</translation>
     </message>
     <message>
         <source>Back</source>
@@ -332,34 +333,34 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation>A se preciza următorul punct de control</translation>
+        <translation>Specificați următorul punct de control</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>Nu se poate anula: Nu sunt încă suficiente entități definite.</translation>
+        <translation>Nu se poate anula: nu sunt definite încă suficiente entități.</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation>Nimic nu poate fi refăcut.</translation>
+        <translation>Nu se poate anula: nimic nu poate fi refăcut.</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>&amp; Zoom</translation>
+        <translation>Zoom &amp;fereastră</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation>Zoom &amp; Panning</translation>
+        <translation>Zoom &amp;panoramare</translation>
     </message>
     <message>
         <source>Select Entity</source>
-        <translation>Alegeți entitatea</translation>
+        <translation>Selectați entitate</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation>Alegeți fereastra</translation>
+        <translation>Selectați fereastră</translation>
     </message>
     <message>
         <source>Deselect Window</source>
@@ -367,35 +368,35 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De-) Selectează &amp;contour</translation>
+        <translation>(Des)Selectați &amp;contur</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation>Alegeți entitățile intersectate</translation>
+        <translation>Selectați entități intersectate</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation>Deselectează entitățile intersectate</translation>
+        <translation>Deselectați entități intersectate</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De-)Select strat</translation>
+        <translation>(Des)Selectați strat</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>&amp; Puncte</translation>
+        <translation>&amp;Puncte</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
-        <translation>&amp;2 Puncte</translation>
+        <translation>&amp;2 puncte</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation>&amp; Angle</translation>
+        <translation>&amp;Unghi</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
-        <translation>&amp; Orizontal</translation>
+        <translation>&amp;Orizontal</translation>
     </message>
     <message>
         <source>Vertical</source>
@@ -403,11 +404,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation>Linia &amp; liberă</translation>
+        <translation>Linie &amp;libră</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation>&amp; Paralel</translation>
+        <translation>&amp;Paralel</translation>
     </message>
     <message>
         <source>Parallel through point</source>
@@ -415,27 +416,27 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation>Rectangle</translation>
+        <translation>Dreptunghi</translation>
     </message>
     <message>
         <source>Bisector</source>
-        <translation>Bisector</translation>
+        <translation>Bisectoar</translation>
     </message>
     <message>
         <source>Tangent (P,C)</source>
-        <translation>Tangent (P,C)</translation>
+        <translation>Tangentă (P,C)</translation>
     </message>
     <message>
         <source>Tangent (C,C)</source>
-        <translation>Tangent (C,C)</translation>
+        <translation>Tangentă (C,C)</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation>Tangent și ortogonal</translation>
+        <translation>Tangentă &amp;ortogonală</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Ortogonală</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>Relative angle</source>
@@ -443,7 +444,7 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Pol&amp;ygon (Cen,Cor)</translation>
+        <translation>Pol&amp;igon (Cen,Cor)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
@@ -451,11 +452,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation>Centru, &amp; punct</translation>
+        <translation>Centru, &amp;punct</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation>Centru, &amp; Radius</translation>
+        <translation>Centru, &amp;rază</translation>
     </message>
     <message>
         <source>2 Points</source>
@@ -471,11 +472,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Concentric</source>
-        <translation>&amp; Concentric</translation>
+        <translation>&amp;Concentric</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation>Cerc &amp; înscris</translation>
+        <translation>Cerc &amp;inscris</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
@@ -492,47 +493,47 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation>Tangenţial, 2 P&amp;oint</translation>
+        <translation>Tangential, 2 p&amp;uncte</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation>&amp; Centru, punct, unghiuri</translation>
+        <translation>&amp;Centru, punct, unghiuri</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
-        <translation>&amp;3 Puncte</translation>
+        <translation>&amp;3 puncte</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation>Arc &amp; tangenţial</translation>
+        <translation>Arc &amp;tangential</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>&amp; Elipsă (Axis)</translation>
+        <translation>&amp;Elipsă (axă)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation>Elipsă și Arc (Axis)</translation>
+        <translation>Elipsă &amp;arc (axă)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation>Punct Elipse &amp; Foci</translation>
+        <translation>Elipsă &amp;focar</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation>Elipsă &amp; 4 Punct</translation>
+        <translation>Elipsă &amp;4 puncte</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation>Centrul de elipsă și &amp;3 puncte</translation>
+        <translation>Centru elipsă și &amp;3 puncte</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation>&amp; Înscriere elipsă</translation>
+        <translation>Elipsă &amp;inscrisă</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
-        <translation>&amp; Aliniază</translation>
+        <translation>&amp;Spline</translation>
     </message>
     <message>
         <source>&amp;Spline through points</source>
@@ -540,35 +541,35 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>&amp; Polilină</translation>
+        <translation>&amp;Polilinie</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation>&amp; Adaugă nod</translation>
+        <translation>&amp;Adăugați nod</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation>Nodul A&amp;ppend</translation>
+        <translation>A&amp;nexați nod</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation>&amp; Șterge nodul</translation>
+        <translation>&amp;Ștergeți nod</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation>Șterge &amp; între două noduri</translation>
+        <translation>Ștergeți &amp;între două noduri</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation>Segmente &amp; Trim</translation>
+        <translation>&amp;Decupați segmente</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation>Creează &amp; linii polistante</translation>
+        <translation>Creați polilinii &amp;echidistante</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation>Creează linie de poliester din &amp;segmente existente</translation>
+        <translation>Creați polilinie din &amp;segmente existente</translation>
     </message>
     <message>
         <source>&amp;MText</source>
@@ -576,7 +577,7 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Text</source>
-        <translation>&amp; Text</translation>
+        <translation>&amp;Text</translation>
     </message>
     <message>
         <source>&amp;Hatch</source>
@@ -588,11 +589,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation>&amp; Aliniat</translation>
+        <translation>&amp;Aliniat</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation>&amp; Linear</translation>
+        <translation>&amp;Linear</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
@@ -600,23 +601,23 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Radial</source>
-        <translation>&amp; Radial</translation>
+        <translation>&amp;Radial</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation>&amp;Diametrie</translation>
+        <translation>&amp;Diametral</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation>&amp;Angular</translation>
+        <translation>&amp;Unghiular</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation>&amp; Lider</translation>
+        <translation>&amp;Indicator</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation>&amp; Atribute</translation>
+        <translation>&amp;Atribute</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -628,11 +629,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation>Mutare / Copiere</translation>
+        <translation>&amp;Mutare / Copiere</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation>&amp; Revertizează direcția</translation>
+        <translation>In&amp;versați direcția</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -640,15 +641,15 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Rotate</source>
-        <translation>&amp; Rotește</translation>
+        <translation>&amp;Rotire</translation>
     </message>
     <message>
         <source>&amp;Scale</source>
-        <translation>&amp; Scară</translation>
+        <translation>&amp;Scalare</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp; Mirror</translation>
+        <translation>&amp;Oglindire</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
@@ -668,11 +669,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
-        <translation>&amp; Divide</translation>
+        <translation>&amp;Împărțiți</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation>&amp; Întinde</translation>
+        <translation>&amp;Întindeți</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
@@ -684,7 +685,7 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation>&amp; Explodează textul în litere</translation>
+        <translation>&amp;Explodați textul în litere</translation>
     </message>
     <message>
         <source>Point inside contour</source>
@@ -692,147 +693,147 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation>Punct de &amp; distanță în punct</translation>
+        <translation>&amp;Distanță punct la punct</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation>Entitatea de &amp;distanță în punct</translation>
+        <translation>&amp;Distanță entitate la punct</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation>O &amp;gle între două linii</translation>
+        <translation>U&amp;nghi între două linii</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
-        <translation>Durata &amp; totală a entităților selectate</translation>
+        <translation>&amp;Lungimea totală a entităților selectate</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation>Aria poligonală</translation>
+        <translation>&amp;Suprafață poligonală</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation>&amp; Punct de selecție</translation>
+        <translation>&amp;Indicator selecție</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
-        <translation>&amp; Desfă</translation>
+        <translation>&amp;Anulare</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>&amp; Redă</translation>
+        <translation>&amp;Refacere</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>Cu &amp;t</translation>
+        <translation>Tă&amp;iere</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp; Copiază</translation>
+        <translation>&amp;Copiere</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp; Paste</translation>
+        <translation>&amp;Lipire</translation>
     </message>
     <message>
         <source>move to bottom</source>
-        <translation>trece la partea de jos</translation>
+        <translation>mutați în jos</translation>
     </message>
     <message>
         <source>lower after entity</source>
-        <translation>mai mică după entitate</translation>
+        <translation>coborâți după entitate</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation>ridicare peste entitate</translation>
+        <translation>ridicați peste entitate</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation>mută în vârf</translation>
+        <translation>mutați în sus</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>&amp; Adaugă plan</translation>
+        <translation>&amp;Adăugați strat</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp; Elimină stratul</translation>
+        <translation>&amp;Eliminați strat</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation>Strat &amp; Edit</translation>
+        <translation>&amp;Editați strat</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Comută stratul Loc&amp;k</translation>
+        <translation>Comutați b&amp;locarea stratului</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation>&amp; Comută vizibilitatea straturilor</translation>
+        <translation>&amp;Comutați vizibilitatea stratului</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation>Comută plan și imprimantă</translation>
+        <translation>Comutați &amp;imprimarea stratului</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Comută &amp; plan de construcție</translation>
+        <translation>Comutați stratul de &amp;construcție</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation>&amp; Adaugă bloc</translation>
+        <translation>&amp;Adăugați bloc</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation>&amp; Înlătură blocul</translation>
+        <translation>&amp;Eliminați bloc</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation>&amp; Redenumește blocul</translation>
+        <translation>&amp;Redenumiți bloc</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation>Bloc &amp; Edit</translation>
+        <translation>&amp;Editați bloc</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation>&amp; Salvează blocul</translation>
+        <translation>&amp;Salvați bloc</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation>&amp;Inserează blocul</translation>
+        <translation>&amp;Inserați bloc</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation>Comută &amp; vizibilitatea blocului</translation>
+        <translation>Comutați &amp;vizibilitatea blocului</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation>&amp; Creează bloc</translation>
+        <translation>&amp;Creați bloc</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation>Ex&amp;plodă</translation>
+        <translation>Ex&amp;plodați</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation>Preferințe &amp; aplicare</translation>
+        <translation>&amp;Preferințe aplicație</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>Preferințe curente de tragere</translation>
+        <translation>Preferințe &amp;desen curent</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation>&amp; Șterge selecția</translation>
+        <translation>&amp;Ștergeți selectat</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Selectează &amp; tot</translation>
+        <translation>Selectați &amp;tot</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation>Deselectează &amp; tot</translation>
+        <translation>Deselectați &amp;tot</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
@@ -840,83 +841,83 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Invert Selection</source>
-        <translation>Inversează selecția</translation>
+        <translation>Inversați selecția</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>Mărește În</translation>
+        <translation>Zoom &amp;+</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>&amp; Mărește</translation>
+        <translation>Zoom &amp;-</translation>
     </message>
     <message>
         <source>&amp;Auto Zoom</source>
-        <translation>Mărește &amp; automat</translation>
+        <translation>Zoom &amp;automat</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation>Precedent</translation>
+        <translation>&amp;Vizualizare anterioară</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>&amp; Redraw</translation>
+        <translation>&amp;Redesenare</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>&amp; Nou</translation>
+        <translation>&amp;Nou</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation>Nou din &amp; Tempulă</translation>
+        <translation>Nou din &amp;șablon</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp; Deschide...</translation>
+        <translation>&amp;Deschidere...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp; Salvează</translation>
+        <translation>&amp;Salvare</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>Salvează &amp;as...</translation>
+        <translation>Salvare &amp;ca...</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation>&amp; Exportă ca imagine</translation>
+        <translation>&amp;Exportați ca imagine</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Închide</translation>
+        <translation>&amp;Închidere</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation>&amp; Tipărește...</translation>
+        <translation>&amp;Imprimare...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>Exportă ca PDF</translation>
+        <translation>Exportați ca PDF</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation>Previzualizează</translation>
+        <translation>Previzualizare im&amp;primare</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp; Renunță</translation>
+        <translation>&amp;Ieșire</translation>
     </message>
     <message>
         <source>&amp;Block</source>
-        <translation>&amp; Bloc</translation>
+        <translation>&amp;Bloc</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation>&amp; Ecran complet</translation>
+        <translation>&amp;Ecran complet</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
-        <translation>&amp; Grid</translation>
+        <translation>&amp;Grilă</translation>
     </message>
     <message>
         <source>Ctrl+G</source>
@@ -925,11 +926,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation>&amp; Draft</translation>
+        <translation>&amp;Schita</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
-        <translation>&amp; Statusbar</translation>
+        <translation>Bara de &amp;stare</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
@@ -938,11 +939,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation>Concentrează-te pe linia &amp;Comandă</translation>
+        <translation>Focalizare pe linia de &amp;comandă</translation>
     </message>
     <message>
         <source>Widget Options</source>
-        <translation>Opțiuni control</translation>
+        <translation>Opțiuni widget</translation>
     </message>
     <message>
         <source>Left</source>
@@ -950,7 +951,7 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Corect</translation>
+        <translation>Dreapta</translation>
     </message>
     <message>
         <source>Top</source>
@@ -962,11 +963,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Floating</source>
-        <translation>Plutitor</translation>
+        <translation>Flotant</translation>
     </message>
     <message>
         <source>Reload Style Sheet</source>
-        <translation>Reîncarcă foaia de stil</translation>
+        <translation>Reîncărcați foaia de stil</translation>
     </message>
     <message>
         <source>Device Options</source>
@@ -974,11 +975,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation>Mută și rotește</translation>
+        <translation>Mu&amp;tați și rotiți</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation>Doi</translation>
+        <translation>De&amp;cupați doi</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
@@ -986,11 +987,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>Creator meniu</translation>
+        <translation>Creator de meniu</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>Creator bara de unelte</translation>
+        <translation>Creator de bară de instrumente</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
@@ -999,59 +1000,59 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation>Pol&amp;ygon (Cen, Tan)</translation>
+        <translation>Pol&amp;igon (Cen,Tan)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation>&amp; Arc</translation>
+        <translation>&amp;Arc</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation>Arată toate straturile</translation>
+        <translation>&amp;Arătați toate straturile</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation>Ascunde toate straturile</translation>
+        <translation>&amp;Ascundeți toate straturile</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation>&amp; Deblochează toate</translation>
+        <translation>&amp;Deblocați totul</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation>&amp; Închide toate</translation>
+        <translation>&amp;Blocați totul</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>&amp; Exportare plan selectat (s)</translation>
+        <translation>&amp;Exportați strat(urile) selectate</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>Exportă și plan vizibil (s)</translation>
+        <translation>Exportați &amp;straturile vizibile</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation>Arată toate blocurile</translation>
+        <translation>&amp;Arătați toate blocurile</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation>Ascunde toate blocurile</translation>
+        <translation>&amp;Ascundeți toate blocurile</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation>Exportă ca CA&amp;M/splain SVG...</translation>
+        <translation>Exportați ca CA&amp;M/SVG simplu...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation>Închide tot</translation>
+        <translation>Închideți toate</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation>Widget-uri Re- dock</translation>
+        <translation>Redocați widget-urile</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation>Salvează A&amp;ll...</translation>
+        <translation>Salvați t&amp;ot...</translation>
     </message>
     <message>
         <source>Cross</source>
@@ -1071,15 +1072,15 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Rectangle (1 Point)</source>
-        <translation>Rectangle (1 punct)</translation>
+        <translation>Dreptunghi (1 punct)</translation>
     </message>
     <message>
         <source>Rectangle (2 Points)</source>
-        <translation>Rectangle (2 puncte)</translation>
+        <translation>Dreptunghi (2 puncte)</translation>
     </message>
     <message>
         <source>Rectangle (3 Points)</source>
-        <translation>Rectangle (3 puncte)</translation>
+        <translation>Dreptunghi (3 puncte)</translation>
     </message>
     <message>
         <source>Star</source>
@@ -1087,11 +1088,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>Break/Divide</translation>
+        <translation>Împărțire/Decupare</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>Linie Gap</translation>
+        <translation>Interval linie</translation>
     </message>
     <message>
         <source>Angle From Line</source>
@@ -1099,118 +1100,118 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
-        <translation>Ortogonală din linie</translation>
+        <translation>Ortogonal din linie</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation>De la punct la linie</translation>
+        <translation>Din punct în linie</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Linia de felii/dividee</translation>
+        <translation>Decupare/Împărțire linie</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Cercul de felii/dividee</translation>
+        <translation>Decupare/Împărțire cerc</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation>Linia de puncte</translation>
+        <translation>Linie de puncte</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>De Arc</translation>
+        <translation>Prin arc</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;bola 4 puncte</translation>
+        <translation>Para&amp;bolă 4 puncte</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola &amp; Focus Directrix</translation>
+        <translation>Parabolă &amp;focar directrix</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>&amp; Alege stiloul injector din entitate</translation>
+        <translation>&amp;Alegeți stilou din entitate</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>&amp; Alege stiloul injector (pen- ul) din entitate (rezolvat)</translation>
+        <translation>&amp;Alegeți stilou din entitate (rezolvat)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
-        <translation>Aplică Pen la Entitate</translation>
+        <translation>Aplicați stiloul la entitate</translation>
     </message>
     <message>
         <source>Copy Pen</source>
-        <translation>Copiază stiloul injector</translation>
+        <translation>Copiați stiloul</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>Line Join</translation>
+        <translation>Îmbinare linie</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicat</translation>
+        <translation>Duplicare</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Actualizează stiloul injector (pen- ul) curent după Active Layer' Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Actualizați stiloul curent cu stiloul stratului activ</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFileExportMakerCam</name>
     <message>
         <source>Export as</source>
-        <translation>Exportă ca</translation>
+        <translation>Exportați ca</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
-        <source>Saving layer "%1" as "%2" </source>
-        <translation>Salvarea stratului "% 1 " ca "% 2 "</translation>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation>Salvare strat &quot;%1&quot; ca &quot;%2&quot; </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Specificaţi entitatea care alege stiloul injector (pen- ul)</translation>
+        <translation>Specificați entitatea pentru a alege stiloul</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>Specifică entitatea care aplică stiloul injector (pen- ul)</translation>
+        <translation>Specificați entitatea pentru a aplica stiloul</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Specificaţi entitatea care alege stiloul injector (pen- ul)</translation>
+        <translation>Specificați entitatea pentru a alege stiloul</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation>A se preciza procentul / punctul de pornire</translation>
+        <translation>Specificați procentul / punctul de start</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation>Anulare</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation>Specificați punctul de pornire</translation>
+        <translation>Specificați punctul de start</translation>
     </message>
     <message>
         <source>Specify end point</source>
@@ -1225,7 +1226,7 @@ fie [% 2]</translation>
     <name>LC_CircleByArcOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1237,11 +1238,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Rezolvat original</translation>
+        <translation>Original rezolvat</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Radius Shift:</translation>
+        <translation>Decalaj rază:</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1249,22 +1250,22 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Replace arc</source>
-        <translation>Înlocuiește arcul</translation>
+        <translation>Înlocuiți arcul</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Pen:</translation>
+        <translation>Stilou:</translation>
     </message>
 </context>
 <context>
     <name>LC_CrossOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation>Extinderea</translation>
+        <translation>Extensie</translation>
     </message>
     <message>
         <source>Total Length</source>
@@ -1295,7 +1296,7 @@ fie [% 2]</translation>
     <name>LC_DeviceOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Device</source>
@@ -1303,21 +1304,21 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvează</translation>
+        <translation>Salvare</translation>
     </message>
 </context>
 <context>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation>Punctele de control Parabola nu pot fi colinare</translation>
+        <translation>Punctele de control ale parabolei nu pot fi coliniare</translation>
     </message>
 </context>
 <context>
     <name>LC_DuplicateOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1325,11 +1326,11 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation>În loc</translation>
+        <translation>Pe loc</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>Offset X:</translation>
+        <translation>Decalaj X:</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1341,30 +1342,30 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Original Resolved</source>
-        <translation>Rezolvat original</translation>
+        <translation>Original rezolvat</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>Offset Y:</translation>
+        <translation>Decalaj Y:</translation>
     </message>
     <message>
         <source>Pen:</source>
-        <translation>Pen:</translation>
+        <translation>Stilou:</translation>
     </message>
 </context>
 <context>
     <name>LC_LayerDialogEx</name>
     <message>
         <source>Layer Settings</source>
-        <translation>Configurări plan</translation>
+        <translation>Setări strat</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>Calea straturilor parentale:</translation>
+        <translation>Cale straturi părinte:</translation>
     </message>
     <message>
         <source>Layer Type</source>
-        <translation>Tip plan</translation>
+        <translation>Tip strat</translation>
     </message>
     <message>
         <source>Informational</source>
@@ -1380,13 +1381,13 @@ fie [% 2]</translation>
     </message>
     <message>
         <source>Alternative Position</source>
-        <translation>Poziția alternativă</translation>
+        <translation>Poziție alternativă</translation>
     </message>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Un strat de construcţii are entităţi de linii drepte infinite destinate utilizării pentru construcţii geometrice.
-Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</translation>
+        <translation>Un strat de construcție conține entități de linii drepte infinite destinate construcției geometrice.
+       Conținutul unui strat de construcție nu trebuie să apară la imprimare.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
@@ -1394,31 +1395,31 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Layer Name:</source>
-        <translation>Nume plan:</translation>
+        <translation>Nume strat:</translation>
     </message>
     <message>
         <source>Rename Virtual Layer</source>
-        <translation>Redenumește plan virtual</translation>
+        <translation>Redenumiți strat virtual</translation>
     </message>
     <message>
         <source>Add Secondary Layer</source>
-        <translation>Adaugă plan secundar</translation>
+        <translation>Adăugați strat secundar</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Adaugă plan</translation>
+        <translation>Adăugați strat</translation>
     </message>
     <message>
         <source>Edit Layer</source>
-        <translation>Editează plan</translation>
+        <translation>Editați strat</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Pen implicit</translation>
+        <translation>Stilou implicit</translation>
     </message>
     <message>
         <source>Rename Layer</source>
-        <translation>Redenumește plan</translation>
+        <translation>Redenumiți strat</translation>
     </message>
 </context>
 <context>
@@ -1429,15 +1430,15 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>Convenţia privind nominalizarea</translation>
+        <translation>Convenție de denumire</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>Separator nume nivel</translation>
+        <translation>Separator nume nivel strat</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>Suffixe secundare ale straturilor</translation>
+        <translation>Sufixe straturi secundare</translation>
     </message>
     <message>
         <source>Dimensional</source>
@@ -1449,11 +1450,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>Poziția alternativă</translation>
+        <translation>Poziție alternativă </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
-        <translation>Nume duplicat</translation>
+        <translation>Duplicare nume</translation>
     </message>
     <message>
         <source>Prefix</source>
@@ -1469,23 +1470,23 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>Arată numele complet ca ToolTip</translation>
+        <translation>Afișați numele complet ca info-balon</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>Arată pictograme de tip strat</translation>
+        <translation>Afișați pictograme tip strat</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>Arată numele straturilor. Dimensiune identificare:</translation>
+        <translation>Afișați nume straturi indentate. Dimensiune indentare:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>Permite restructurarea prin Drag&amp;Drop</translation>
+        <translation>Permiteți restructurare prin tragere&amp;eliberare</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>Redenumește straturile secundare pe redenumirea primară</translation>
+        <translation>Redenumiți straturile secundare la redenumirea primarului</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -1493,7 +1494,7 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>Se potrivesc elementul în modul filtrul de evidențiere</translation>
+        <translation>Element corespunzător în modul de evidențiere filtru</translation>
     </message>
     <message>
         <source>#1E90FF</source>
@@ -1505,19 +1506,19 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>Grilă de separare a elementelor Threeview</translation>
+        <translation>Grilă separator elemente vedere triplă</translation>
     </message>
     <message>
         <source>Selected items background color</source>
-        <translation>Culoarea de fundal a elementelor selectate</translation>
+        <translation>Culoare fundal elemente selectate</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>Culoare de fundal strat activ</translation>
+        <translation>Culoare fundal strat activ</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>Stilouri injectoare (pen- uri) implicite</translation>
+        <translation>Stilouri implicite</translation>
     </message>
     <message>
         <source>Normal Layer</source>
@@ -1529,15 +1530,15 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Informational Layer</source>
-        <translation>Strat informativ</translation>
+        <translation>Strat informațional</translation>
     </message>
     <message>
         <source>Alternative Position Layer</source>
-        <translation>Strat de poziție alternativă</translation>
+        <translation>Strat poziție alternativă</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>Alegeți culoarea</translation>
+        <translation>Selectați culoare</translation>
     </message>
 </context>
 <context>
@@ -1548,47 +1549,47 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Caut nume de straturi asortate</translation>
+        <translation>Căutare nume straturi corespunzătoare</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Arată modul</translation>
+        <translation>Mod evidențiere</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configurări</translation>
+        <translation>Setări</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation>Arată toate straturile</translation>
+        <translation>Arătați toate straturile</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>Ascunde toate straturile</translation>
+        <translation>Ascundeți toate straturile</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation>Afișează straturile secundare</translation>
+        <translation>Arătați straturile secundare</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
-        <translation>Arată doar stratul activ</translation>
+        <translation>Arătați doar stratul activ</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation>Extinde tot</translation>
+        <translation>Extindeți totul</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>Se prăbuşeşte toate</translation>
+        <translation>Restrângeți totul</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>Colaps secundar</translation>
+        <translation>Restrângeți secundarele</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>Deblocare toate straturile</translation>
+        <translation>Deblocați toate straturile</translation>
     </message>
     <message>
         <source>Lock all layers</source>
@@ -1596,158 +1597,158 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Add a layer</source>
-        <translation>Adaugă un strat</translation>
+        <translation>Adăugați un strat</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>Adaugă dimensiuni Strat</translation>
+        <translation>Adăugați strat dimensiuni</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>Elimină stratul</translation>
+        <translation>Eliminați strat</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>Modifică atributele straturilor / redenumește</translation>
+        <translation>Modificați atribute strat / redenumiți</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
-        <translation>Modul listă plană)</translation>
+        <translation>Mod listă plată)</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>Meniu plan</translation>
+        <translation>Meniu strat</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>&amp; Adaugă plan de copii</translation>
+        <translation>&amp;Adăugați strat copil</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>&amp; Redenumește</translation>
+        <translation>&amp;Redenumiți</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>&amp; Deplasarea straturilor (sub- Tree)</translation>
+        <translation>&amp;Eliminați straturile (sub-arbore)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>Structura &amp; copie (sub- Tree)</translation>
+        <translation>&amp;Copiați structura (sub-arbore)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>Conținut &amp; duplicat (sub- Tree)</translation>
+        <translation>&amp;Duplicați conținutul (sub-arbore)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>Entități alese (Subtree)</translation>
+        <translation>&amp;Selectați entități (sub-arbore)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>&amp; Edit Layer &amp;Atributes</translation>
+        <translation>&amp;Editați &amp;atributele stratului</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>&amp; Elimină stratul</translation>
+        <translation>&amp;Eliminați strat</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>&amp; Adăugare dimensiuni sub- Layer</translation>
+        <translation>&amp;Adăugați sub-strat dimensiuni</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>&amp; Adăugați &amp; Info Sub-Layer</translation>
+        <translation>&amp;Adăugați sub-strat info</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>&amp; Adaugă sub- Layer de vizualizare alternativă</translation>
+        <translation>&amp;Adăugați sub-strat vizualizare alternativă</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>&amp; Elimină substraturile</translation>
+        <translation>&amp;Eliminați sub-straturile</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
-        <translation>Conversie în plan dimensional</translation>
+        <translation>Convertiți în strat dimensional</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>Convertește la nivelul de informații</translation>
+        <translation>Convertiți în strat info</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
-        <translation>Conversie în plan de poziție alternativă</translation>
+        <translation>Convertiți în strat poziție alternativă</translation>
     </message>
     <message>
         <source>Convert to Normal Layer</source>
-        <translation>Schimbă în plan normal</translation>
+        <translation>Convertiți în strat normal</translation>
     </message>
     <message>
-        <source>&amp;Select Layer's Entities</source>
-        <translation>Alegeți entitățile din plan</translation>
+        <source>&amp;Select Layer&apos;s Entities</source>
+        <translation>&amp;Selectați entitățile stratului</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>&amp; Creează copie plan</translation>
+        <translation>&amp;Creați copie strat</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>&amp; Duplică stratul cu conținut</translation>
+        <translation>&amp;Duplicați strat cu conținut</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
-        <translation>Mută selecția în plan</translation>
+        <translation>Mutați selecția în strat</translation>
     </message>
     <message>
         <source>Duplicate Selection to Layer</source>
-        <translation>Selecţie dublă în plan</translation>
+        <translation>Duplicați selecția în strat</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>&amp; Adaugă plan</translation>
+        <translation>&amp;Adăugați strat</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>&amp; Congelează alte straturi</translation>
+        <translation>&amp;Înghețați alte straturi</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>&amp; Decongelează toate straturile</translation>
+        <translation>&amp;Dezghețați toate straturile</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>&amp; Congelează toate straturile</translation>
+        <translation>&amp;Înghețați toate straturile</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>&amp; Deblochează toate straturile</translation>
+        <translation>&amp;Deblocați toate straturile</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>&amp; Închide toate straturile</translation>
+        <translation>&amp;Blocați toate straturile</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Activează &amp; imprimarea tuturor straturilor</translation>
+        <translation>Activați &amp;imprimarea tuturor straturilor</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>Imprimare &amp; dezactivează toate straturile</translation>
+        <translation>&amp;Dezactivați imprimarea tuturor straturilor</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>&amp; Găsește și elimină straturile goale</translation>
+        <translation>&amp;Căutați și eliminați straturi goale</translation>
     </message>
 </context>
 <context>
     <name>LC_LineAngleRelOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>Decalaj:</translation>
     </message>
     <message>
         <source>Free</source>
@@ -1763,27 +1764,27 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation>Final</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Linia Snap:</translation>
+        <translation>Aliniere linie:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relativ</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Divide</translation>
+        <translation>Împărțire</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>Aliniere marcaj:</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation>Lungime:</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -1791,14 +1792,14 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Distanță Snap:</translation>
+        <translation>Distanță aliniere:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineFromPointToLineOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -1806,15 +1807,15 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Size:</source>
-        <translation>Mărime:</translation>
+        <translation>Dimensiune:</translation>
     </message>
     <message>
         <source>Orthogonal</source>
-        <translation>Ortogonală</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>La intersecţie</translation>
+        <translation>Până la intersecție</translation>
     </message>
     <message>
         <source>Fixed Length</source>
@@ -1822,7 +1823,7 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>End offset:</source>
-        <translation>Sfârșit compensat:</translation>
+        <translation>Decalaj final:</translation>
     </message>
     <message>
         <source>Start</source>
@@ -1834,38 +1835,38 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation>Final</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation>Lungime:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Aliniere:</translation>
     </message>
 </context>
 <context>
     <name>LC_LineJoinOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Extinde/Trim</translation>
+        <translation>Extindere/Decupare</translation>
     </message>
     <message>
         <source>Add segment</source>
-        <translation>Adaugă segment</translation>
+        <translation>Adăugați segment</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation>Nicio schimbare</translation>
+        <translation>Fără modificare</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>Creează linie</translation>
+        <translation>Creați polilinie</translation>
     </message>
     <message>
         <source>Attributes:</source>
@@ -1873,15 +1874,15 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Active Pen</source>
-        <translation>Pen activ</translation>
+        <translation>Stilou activ</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation>Linia 1</translation>
+        <translation>Linie 1</translation>
     </message>
     <message>
         <source>Line 2</source>
-        <translation>Linia 2</translation>
+        <translation>Linie 2</translation>
     </message>
     <message>
         <source>Both lines</source>
@@ -1889,22 +1890,22 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Remove originals</source>
-        <translation>Elimină originalele</translation>
+        <translation>Eliminați originale</translation>
     </message>
     <message>
         <source>Line 2:</source>
-        <translation>Linia 2:</translation>
+        <translation>Linie 2:</translation>
     </message>
     <message>
         <source>Line 1:</source>
-        <translation>Linia 1:</translation>
+        <translation>Linie 1:</translation>
     </message>
 </context>
 <context>
     <name>LC_LinePointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -1912,11 +1913,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>Linie fit</translation>
+        <translation>Ajustare linie</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Niciuna</translation>
+        <translation>Niciunul</translation>
     </message>
     <message>
         <source>Both</source>
@@ -1928,7 +1929,7 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation>Final</translation>
     </message>
     <message>
         <source>Edge Points:</source>
@@ -1974,30 +1975,30 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     <name>LC_ModifyBreakDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Remove Segments</source>
-        <translation>Elimină segmente</translation>
+        <translation>Eliminați segmente</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>Elimină selectat</translation>
+        <translation>Eliminați selectat</translation>
     </message>
 </context>
 <context>
     <name>LC_ModifyGapOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Gap Snap:</translation>
+        <translation>Aliniere interval:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Distanță Snap:</translation>
+        <translation>Distanță aliniere:</translation>
     </message>
     <message>
         <source>Free</source>
@@ -2005,7 +2006,7 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>Dimensiune Gap:</translation>
+        <translation>Dimensiune interval:</translation>
     </message>
     <message>
         <source>Start</source>
@@ -2017,18 +2018,18 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation>Final</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Linia Snap:</translation>
+        <translation>Aliniere linie:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>Configurări Pen Palette</translation>
+        <translation>Setări paletă stilou</translation>
     </message>
     <message>
         <source>Columns to display</source>
@@ -2036,11 +2037,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>Denumirea tipului de linie</translation>
+        <translation>Nume tip linie</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation>Denumire culoare</translation>
+        <translation>Nume culoare</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
@@ -2048,11 +2049,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Color Icon</source>
-        <translation>Pictogramă color</translation>
+        <translation>Pictogramă culoare</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>Pictograma de lățime a liniei</translation>
+        <translation>Pictogramă lățime linie</translation>
     </message>
     <message>
         <source>Line Width Name</source>
@@ -2064,11 +2065,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>Contextul stiloului injector (pen- ului) activ:</translation>
+        <translation>Fundal stilou activ:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>Întregul rând de tabel este îndrăzneţ pentru stiloul injector (pen) activ</translation>
+        <translation>Întregul rând al tabelului este îngroșat pentru stiloul activ</translation>
     </message>
     <message>
         <source>Grid Color:</source>
@@ -2076,31 +2077,31 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>Culoare element potrivit:</translation>
+        <translation>Culoare element corespunzător:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>Filtrarea stilourilor injectoare (pen-urilor) insensibile</translation>
+        <translation>Filtrare stilouri insensibilă la majuscule</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>Controalele dacă vârful de instrument va fi afișat pentru element de tabel sau nu</translation>
+        <translation>Controlează dacă se afișează info-balon pentru elementul tabelului</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>Arată vârful uneltei pentru elementele de masă</translation>
+        <translation>Afișați info-balon pentru elementele tabelului</translation>
     </message>
     <message>
         <source>Pens file:</source>
-        <translation>Fișier pen- uri:</translation>
+        <translation>Fișier stilouri:</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>Arată numele colorat ca</translation>
+        <translation>Afișați numele culorii ca</translation>
     </message>
     <message>
         <source>HEX</source>
-        <translation>HEXAL</translation>
+        <translation>HEX</translation>
     </message>
     <message>
         <source>RGB</source>
@@ -2108,15 +2109,15 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>Denumirea naturală, dacă este posibil</translation>
+        <translation>Nume natural unde este posibil</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>Afișează mesajul informativ dacă nicio entitate nu poate fi selectată de stilou</translation>
+        <translation>Afișați mesaj informativ dacă nicio entitate nu poate fi selectată prin stilou</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>Pe dublu click pe element de masă</translation>
+        <translation>La dublu clic pe elementul tabelului</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2124,22 +2125,22 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>Alegeți entitățile după atribute pen</translation>
+        <translation>Selectați entități prin stilou atribute</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>Alegeți entitățile prin desenare stilou</translation>
+        <translation>Selectați entități prin stilou desen</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteWidget</name>
     <message>
         <source>Pen Palette</source>
-        <translation>Pen Palette</translation>
+        <translation>Paletă stilou</translation>
     </message>
     <message>
         <source>Pen Name:</source>
-        <translation>Numele stiloului injector (pen- ului):</translation>
+        <translation>Nume stilou:</translation>
     </message>
     <message>
         <source>Color:</source>
@@ -2151,7 +2152,7 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Arată modul</translation>
+        <translation>Mod evidențiere</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -2163,126 +2164,126 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Settings</source>
-        <translation>Configurări</translation>
+        <translation>Setări</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Completați Pen Editor de desen de entitate Pen</translation>
+        <translation>Completați editorul stilou cu stiloul de desen al entității</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Fill Pen Editor după Atributele Entității</translation>
+        <translation>Completați editorul stilou cu atributele entității</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Selectaţi entităţi desenând stilou</translation>
+        <translation>Selectați entități prin stilou desen</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Selectaţi entităţi după Atribute Pen</translation>
+        <translation>Selectați entități prin atribute stilou</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Salvează</translation>
+        <translation>Salvare</translation>
     </message>
     <message>
         <source>Apply Pen To Selection</source>
-        <translation>Aplicaţi stiloul injector (pen- ul) la alegere</translation>
+        <translation>Aplicați stiloul la selecție</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Fill Editor Pen după Pen-ul curent</translation>
+        <translation>Completați stiloul editorului cu stiloul curent</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>Aplicaţi Pen- ul editorului ca stilou injector (pen) curent</translation>
+        <translation>Aplicați stiloul editorului ca stilou curent</translation>
     </message>
     <message>
         <source>to current</source>
         <translation>la curent</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Actualizează stiloul injector (pen- ul) curent după Active Layer' Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Actualizați stiloul curent cu stiloul stratului activ</translation>
     </message>
     <message>
-        <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>Completaţi Editorul stiloului injector (pen) din stiloul injector (pen- ul) activ</translation>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
+        <translation>Completați editorul stilou cu stiloul stratului activ</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>Pick din plan activ</translation>
+        <translation>Alegeți din stratul activ</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>Aplicaţi stiloul injector (pen- ul) Editor pe stiloul injector (pen- ul) cu strat activ</translation>
+        <translation>Aplicați stiloul editorului la stiloul stratului activ</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
-        <translation>Aplică pe plan</translation>
+        <translation>Aplicați la strat</translation>
     </message>
     <message>
         <source>Remove Selected Pen</source>
-        <translation>Elimină stiloul injector (pen- ul) ales</translation>
+        <translation>Eliminați stiloul selectat</translation>
     </message>
     <message>
         <source>Delete Pen</source>
-        <translation>Șterge stiloul injector</translation>
+        <translation>Ștergeți stiloul</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>Meniu pen- uri</translation>
+        <translation>Meniu stilouri</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>&amp; Aplicați pen- ul la selecție</translation>
+        <translation>&amp;Aplicați stiloul la selecție</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>&amp; Setează ca stilou injector (pen) curent</translation>
+        <translation>&amp;Setați ca stilou curent</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>Aplicaţi stiloul injector (pen- ul) la un nivel activ</translation>
+        <translation>&amp;Aplicați stiloul la stratul activ</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>Entităţi &amp;selectate cu pen- ul</translation>
+        <translation>&amp;Selectați entități cu stilou atribute</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>Alege entitățile cu stilou de desen</translation>
+        <translation>&amp;Selectați entități cu stilou desen</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>&amp; Edit Pen</translation>
+        <translation>&amp;Editați stiloul</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>Şterge stiloul injector (pen- ul)</translation>
+        <translation>&amp;Eliminați stiloul</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>Şterge stiloul injector (pen- uri)</translation>
+        <translation>&amp;Eliminați stilourile</translation>
     </message>
     <message>
         <source>Pen palette</source>
-        <translation>Paleta stiloului injector</translation>
+        <translation>Paletă stilou</translation>
     </message>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
-Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>Locaţia fişierului pixuri este schimbată, vă rugăm să reporniţi aplicaţia astfel încât noul fişier pixuri va fi folosit.
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+        <translation>Locația fișierului de stilouri a fost schimbată, reporniți aplicația pentru a utiliza noul fișier.
 
-Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin editor fără repornire, pixurile curente din paleta vor fi salvate în noul fişier şi, prin urmare, conţinutul existent al acestuia va fi depăşit.</translation>
+Notă: dacă salvați stiloul prin editor fără repornire, stilourile curente din paletă vor fi salvate în noul fișier și conținutul existent va fi suprascris.</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle1PointOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Polyline</source>
@@ -2302,27 +2303,27 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Size inner</source>
-        <translation>Dimensiune interioară</translation>
+        <translation>Dimensiune interior</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Lungimea X:</translation>
+        <translation>Lungime X:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Rază:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Snap:</translation>
+        <translation>Aliniere:</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Lungimea Y:</translation>
+        <translation>Lungime Y:</translation>
     </message>
     <message>
         <source>Top-left</source>
-        <translation>Stânga sus</translation>
+        <translation>Stânga-sus</translation>
     </message>
     <message>
         <source>Top</source>
@@ -2330,7 +2331,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Top-right</source>
-        <translation>Top-dreapta</translation>
+        <translation>Dreapta-sus</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2342,11 +2343,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Right</source>
-        <translation>Corect</translation>
+        <translation>Dreapta</translation>
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>Stânga- jos</translation>
+        <translation>Stânga-jos</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -2354,7 +2355,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>Dreapta- jos</translation>
+        <translation>Dreapta-jos</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2366,11 +2367,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Teșire</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Schimbare rapidă</translation>
+        <translation>Decalaj aliniere</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2390,22 +2391,22 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Unghi de bază:</translation>
+        <translation>Unghi bază:</translation>
     </message>
 </context>
 <context>
     <name>LC_Rectangle2PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Schimbare rapidă</translation>
+        <translation>Decalaj aliniere</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Rază:</translation>
     </message>
     <message>
         <source>Edges:</source>
@@ -2417,7 +2418,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>Sfârşit:</translation>
+        <translation>Aliniere final:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2425,11 +2426,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Lungimea X:</translation>
+        <translation>Lungime X:</translation>
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>Start Snap:</translation>
+        <translation>Aliniere start:</translation>
     </message>
     <message>
         <source>Corner</source>
@@ -2437,11 +2438,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>Mid-Vertical</translation>
+        <translation>Mijloc vertical</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>Mijlocul orizontal</translation>
+        <translation>Mijloc orizontal</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2449,7 +2450,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Unghi de bază:</translation>
+        <translation>Unghi bază:</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2461,11 +2462,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Teșire</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Lungimea Y:</translation>
+        <translation>Lungime Y:</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2484,7 +2485,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     <name>LC_Rectangle3PointsOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Polyline</source>
@@ -2508,15 +2509,15 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Quadrangle</translation>
+        <translation>Patrulater</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation>Unghi de bază fix:</translation>
+        <translation>Unghi bază fix:</translation>
     </message>
     <message>
         <source>Length X:</source>
-        <translation>Lungimea X:</translation>
+        <translation>Lungime X:</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2528,7 +2529,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Bevel</translation>
+        <translation>Teșire</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2536,15 +2537,15 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Schimbare rapidă</translation>
+        <translation>Decalaj aliniere</translation>
     </message>
     <message>
         <source>Length Y:</source>
-        <translation>Lungimea Y:</translation>
+        <translation>Lungime Y:</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation>Rază:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
@@ -2555,22 +2556,22 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     <name>LC_SimpleTests</name>
     <message>
         <source>De&amp;bugging</source>
-        <translation>De &amp; depanare</translation>
+        <translation>De&amp;bug</translation>
     </message>
     <message>
         <source>Insert Image</source>
-        <translation>Inserează imagine</translation>
+        <translation>Inserați imagine</translation>
     </message>
 </context>
 <context>
     <name>LC_SliceDivideOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>Niciuna</translation>
+        <translation>Niciunul</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2582,35 +2583,35 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation>Final</translation>
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>Edge Tick:</translation>
+        <translation>Marcaj margine:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relativ</translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation>Decalaj:</translation>
     </message>
     <message>
         <source>Count:</source>
-        <translation>Conte:</translation>
+        <translation>Număr:</translation>
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>Unghi cerc Start:</translation>
+        <translation>Unghi start cerc:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>Lungime căpuşă:</translation>
+        <translation>Lungime marcaj:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>Tic snap:</translation>
+        <translation>Aliniere marcaj:</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -2618,7 +2619,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Divide</source>
-        <translation>Divide</translation>
+        <translation>Împărțire</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2626,7 +2627,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Fixed </source>
-        <translation>Fix</translation>
+        <translation>Fix </translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -2637,11 +2638,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     <name>LC_StarOptions</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formular</translation>
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Radius Inner</translation>
+        <translation>Rază interioară</translation>
     </message>
     <message>
         <source>Polyline</source>
@@ -2649,11 +2650,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Radius exterior</translation>
+        <translation>Rază exterioară</translation>
     </message>
     <message>
         <source>Symmetric</source>
-        <translation>Simetrie</translation>
+        <translation>Simetric</translation>
     </message>
     <message>
         <source>Number:</source>
@@ -2664,19 +2665,19 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     <name>LC_WidgetFactory</name>
     <message>
         <source>Library Browser</source>
-        <translation>Navigator bibliotecă</translation>
+        <translation>Browser bibliotecă</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation>Linia de comandă</translation>
+        <translation>Linie de comandă</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Doc</translation>
+        <translation>Dock</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Plută</translation>
+        <translation>Flotant</translation>
     </message>
     <message>
         <source>Lines</source>
@@ -2688,7 +2689,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Freehand</source>
-        <translation>Freehand</translation>
+        <translation>Libră</translation>
     </message>
     <message>
         <source>Ellipses</source>
@@ -2696,11 +2697,11 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>PolyLines</source>
-        <translation>PoliLines</translation>
+        <translation>Polilinii</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Alegeți</translation>
+        <translation>Selectare</translation>
     </message>
     <message>
         <source>Dimensions</source>
@@ -2712,26 +2713,26 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Measure</source>
-        <translation>Măsură</translation>
+        <translation>Măsurare</translation>
     </message>
 </context>
 <context>
     <name>LC_WidgetOptionsDialog</name>
     <message>
         <source>Widget Options</source>
-        <translation>Opțiuni control</translation>
+        <translation>Opțiuni widget</translation>
     </message>
     <message>
         <source>Toolbar</source>
-        <translation>Bara de unelte</translation>
+        <translation>Bară de instrumente</translation>
     </message>
     <message>
         <source>Icon Size</source>
-        <translation>Mărime pictogramă</translation>
+        <translation>Dimensiune pictogramă</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Generale</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Style</source>
@@ -2739,7 +2740,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Style Sheet</source>
-        <translation>Fișă de stil</translation>
+        <translation>Foaie de stil</translation>
     </message>
     <message>
         <source>Statusbar</source>
@@ -2751,23 +2752,23 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Font Size</source>
-        <translation>Mărime font</translation>
+        <translation>Dimensiune font</translation>
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation>Introdu calea unei foi de stil Qt.</translation>
+        <translation>Introduceți calea unei foi de stil Qt.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation>lungimea laterală în pixeli</translation>
+        <translation>lungime laterală în pixeli</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation>Folosește pictograme tematice</translation>
+        <translation>Folosiți pictograme tematice</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
-        <translation>Coloane din bara de unelte stângă:</translation>
+        <translation>Coloane bară instrumente stânga:</translation>
     </message>
 </context>
 <context>
@@ -2778,19 +2779,19 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>remove left</source>
-        <translation>elimină stânga</translation>
+        <translation>eliminați stânga</translation>
     </message>
     <message>
         <source>remove right</source>
-        <translation>elimina dreapta</translation>
+        <translation>eliminați dreapta</translation>
     </message>
     <message>
-        <source>remove 0'</source>
-        <translation>se elimină 0"</translation>
+        <source>remove 0&apos;</source>
+        <translation>eliminați 0&apos;</translation>
     </message>
     <message>
-        <source>remove 0"</source>
-        <translation>se elimină 0"</translation>
+        <source>remove 0&quot;</source>
+        <translation>eliminați 0&quot;</translation>
     </message>
 </context>
 <context>
@@ -2805,7 +2806,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation>Distanţa faţă de polilina originală</translation>
+        <translation>Distanță de la polilinia originală</translation>
     </message>
     <message>
         <source>Copies:</source>
@@ -2941,7 +2942,7 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
     </message>
     <message>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Stilou</translation>
     </message>
     <message>
         <source>Tool Options</source>
@@ -3000,8 +3001,8 @@ Vă rugăm să reţineţi că, dacă veţi salva stiloul injector (pen-ul) prin 
         <translation>Linie de comanda</translation>
     </message>
     <message>
-        <source>Block '%1'</source>
-        <translation>Bloc '%1'</translation>
+        <source>Block &apos;%1&apos;</source>
+        <translation>Bloc &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Cannot open the file
@@ -3071,59 +3072,59 @@ Autosalvare dezactivata.</translation>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation>Snap Selection</translation>
+        <translation>Selecție aliniere</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation>Document nou din model:</translation>
+        <translation>Document nou din șablon: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation>Alegeți șablonul anulat</translation>
+        <translation>Selecție șablon anulată</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
-        <translation>Salvarea automată a eșuat</translation>
+        <translation>Salvare automată eșuată</translation>
     </message>
     <message>
         <source>Export as</source>
-        <translation>Exportă ca</translation>
+        <translation>Exportați ca</translation>
     </message>
     <message>
         <source>Compiler: Clang %1.%2.%3</source>
-        <translation>Compiler: Clang% 1.% 2.% 3</translation>
+        <translation>Compilator: Clang %1.%2.%3</translation>
     </message>
     <message>
         <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation>Compiler: GNU GCC% 1.% 2.% 3</translation>
+        <translation>Compilator: GNU GCC %1.%2.%3</translation>
     </message>
     <message>
         <source>Qt Version: %1</source>
-        <translation>Versiune Qt:% 1</translation>
+        <translation>Versiune Qt: %1</translation>
     </message>
     <message>
         <source>Draft Mode</source>
-        <translation>Mod proiect</translation>
+        <translation>Mod schiță</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>Exportă ca PDF</translation>
+        <translation>Exportați ca PDF</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation>Exportă</translation>
+        <translation>Export</translation>
     </message>
     <message>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation>Nu pot deschide fișierul
-% 1
-Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
+        <translation>Nu se poate deschide fișierul
+%1
+Verificați existența și permisiunile.</translation>
     </message>
     <message>
-        <source>File '%1' does not exist. Opening aborted</source>
-        <translation>Fișierul "% 1 " nu există. Deschiderea anulată</translation>
+        <source>File &apos;%1&apos; does not exist. Opening aborted</source>
+        <translation>Fișierul &apos;%1&apos; nu există. Deschidere anulată</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3131,7 +3132,7 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation>&amp; Ordin</translation>
+        <translation>&amp;Ordine</translation>
     </message>
     <message>
         <source>Order</source>
@@ -3139,7 +3140,7 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Alegeți</translation>
+        <translation>Selectare</translation>
     </message>
     <message>
         <source>Line</source>
@@ -3151,11 +3152,11 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation>&amp; Curbă</translation>
+        <translation>&amp;Curbă</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curvă</translation>
+        <translation>Curba</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -3175,11 +3176,11 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Informații</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Dock Areas</source>
-        <translation>Dock zone</translation>
+        <translation>Zone dock</translation>
     </message>
     <message>
         <source>Grid Status</source>
@@ -3187,11 +3188,11 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation>Bare de unelte</translation>
+        <translation>Bare instrumente</translation>
     </message>
     <message>
         <source>Dockwidgets</source>
-        <translation>Dockwidgeturi</translation>
+        <translation>Widget-uri dock</translation>
     </message>
     <message>
         <source>Device Options</source>
@@ -3203,19 +3204,19 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp; Opţiuni</translation>
+        <translation>&amp;Opțiuni</translation>
     </message>
     <message>
         <source>Pl&amp;ugins</source>
-        <translation>Pl&amp;ugins</translation>
+        <translation>Pl&amp;ug-in-uri</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation>Dime&amp;nsion</translation>
+        <translation>Dime&amp;nsiune</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation>Dock Wid&amp;gets</translation>
+        <translation>Widget-uri &amp;dock</translation>
     </message>
     <message>
         <source>Recent Files</source>
@@ -3223,15 +3224,15 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Compiler: Microsoft Visual C++</source>
-        <translation>Compiler: Microsoft Visual C++</translation>
+        <translation>Compilator: Microsoft Visual C++</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation>Boost Version:% 1.% 2.% 3</translation>
+        <translation>Versiune Boost: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copiază</translation>
+        <translation>Copiere</translation>
     </message>
     <message>
         <source>Contributors</source>
@@ -3247,7 +3248,7 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>Creator bara de unelte</translation>
+        <translation>Creator bară instrumente</translation>
     </message>
     <message>
         <source>Menu Creator</source>
@@ -3255,61 +3256,61 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation>Asigner meniu</translation>
+        <translation>Atribuitor meniu</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp; Unelte</translation>
+        <translation>&amp;Instrumente</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
-        <translation>&amp; Desenări</translation>
+        <translation>&amp;Desene</translation>
     </message>
     <message>
         <source>Saving drawing: %1</source>
-        <translation>Salvare desen:% 1</translation>
+        <translation>Salvare desen: %1</translation>
     </message>
     <message>
         <source>Save cancelled</source>
-        <translation>Salvează anularea</translation>
+        <translation>Salvare anulată</translation>
     </message>
     <message>
         <source>Closing Drawing</source>
-        <translation>Închide desenul</translation>
+        <translation>Închidere desen</translation>
     </message>
     <message>
         <source>Save changes to the following item?
 %1</source>
         <translation>Salvați modificările la următorul element?
-% 1</translation>
+%1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp; Salvează</translation>
+        <translation>&amp;Salvare</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>Salvează &amp;as...</translation>
+        <translation>Salvare &amp;ca...</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation>&amp; Salvează% 1</translation>
+        <translation>&amp;Salvare %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation>Salvează% 1 &amp;as...</translation>
+        <translation>Salvare %1 &amp;ca...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation>Modul &amp; window</translation>
+        <translation>Mod &amp;fereastră</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation>&amp; Layout</translation>
+        <translation>&amp;Aspect</translation>
     </message>
     <message>
         <source>Rounded</source>
-        <translation>Rotunjite</translation>
+        <translation>Rotunjit</translation>
     </message>
     <message>
         <source>Triangular</source>
@@ -3333,19 +3334,19 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation>&amp; Aranjează</translation>
+        <translation>&amp;Aranjați</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
-        <translation>&amp;maximizat</translation>
+        <translation>&amp;Maximizat</translation>
     </message>
     <message>
         <source>Save All cancelled</source>
-        <translation>Salvează toate anulate</translation>
+        <translation>Salvare toate anulată</translation>
     </message>
     <message>
         <source>Close All cancelled</source>
-        <translation>Închide Toate anulate</translation>
+        <translation>Închidere toate anulată</translation>
     </message>
     <message>
         <source>The Code</source>
@@ -3357,28 +3358,28 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Plută</translation>
+        <translation>Flotant</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation>Doc</translation>
+        <translation>Dock</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
         <translation>&amp;Wiki</translation>
     </message>
     <message>
-        <source>User's &amp;Manual</source>
-        <translation>&amp; Manualul utilizatorului</translation>
+        <source>User&apos;s &amp;Manual</source>
+        <translation>&amp;Manual utilizator</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation>&amp; Comenzi</translation>
+        <translation>&amp;Comenzi</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
-        <translation>Fișe &amp; stil</translation>
+        <translation>&amp;Foi de stil</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
@@ -3386,35 +3387,35 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
-        <translation>&amp; Forum</translation>
+        <translation>&amp;Forum</translation>
     </message>
     <message>
         <source>Zulip &amp;Chat</source>
-        <translation>Zulip &amp; Chat</translation>
+        <translation>Zulip &amp;Chat</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation>&amp; Livrează informații</translation>
+        <translation>&amp;Informații versiune</translation>
     </message>
     <message>
         <source>On&amp;line</source>
-        <translation>On-line</translation>
+        <translation>On&amp;line</translation>
     </message>
     <message>
         <source>&amp;Donate</source>
-        <translation>&amp; Donează</translation>
+        <translation>&amp;Donație</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>Vă rugăm să ajustaţi scalarea şi poziţionarea în previzualizare print primul.</translation>
+        <translation>Ajustați scalarea și poziționarea în previzualizarea imprimării mai întâi.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
-        <translation>Pen Palette</translation>
+        <translation>Paletă stilou</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>Arbore plan</translation>
+        <translation>Arbore straturi</translation>
     </message>
 </context>
 <context>
@@ -3422,42 +3423,38 @@ Vă rugăm să verificaţi existenţa şi permisiunile sale.</translation>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>evadare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>Bară spaţială: modul de rupere restaurat la normal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>Bara de spațiu: setați temporar modul de rupere pentru a elibera rupere</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_ActiveLayerName</name>
     <message>
         <source>Selection</source>
-        <translation>Selecție</translation>
+        <translation type="unfinished">Selectie</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; &lt;br/&gt; &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Current Layer</source>
-        <translation>Strat curent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtdrück
-&lt;html&gt;&lt;head&gt; &lt;meta name="qrichtext" content="1" /&gt; &lt;style type="text/css über
-p, li {white- space: pre- wrap;}
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal; daphne
-&lt;p style="margine-top:0px; marja-bottom:0px; marja-stânga:0px; marja-dreapta:0px; -qt-block-indent:0; text-indent:0px; Numele layerului activ actual &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3475,8 +3472,8 @@ p, li {white- space: pre- wrap;}
         <translation>Redenumire Bloc</translation>
     </message>
     <message>
-        <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>Nu pot da acest nume pentru bloc. Blocul "%1" exista deja.</translation>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation>Nu pot da acest nume pentru bloc. Blocul &quot;%1&quot; exista deja.</translation>
     </message>
 </context>
 <context>
@@ -3545,27 +3542,27 @@ intr-o fereastra noua</translation>
     </message>
     <message>
         <source>Create Block</source>
-        <translation>Creează bloc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add an empty block</source>
-        <translation>Adaugă un bloc gol</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>save the active block to a file</source>
-        <translation>salvează blocul activ într-un fișier</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove block</source>
-        <translation>Elimină blocul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filtru</translation>
+        <translation type="unfinished">Filtru</translation>
     </message>
     <message>
         <source>Looking for matching block names</source>
-        <translation>Caut nume de bloc care se potrivesc</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3648,37 +3645,37 @@ intr-o fereastra noua</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Personalizat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>/ColorBox</source>
-        <translation>/ColorBox</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Personalizat ales</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_CommandEdit</name>
     <message>
         <source>clear</source>
-        <translation>clar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_CommandHistory</name>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp; Copiază</translation>
+        <translation type="unfinished">&amp;Copiere</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>Selectează &amp; tot</translation>
+        <translation type="unfinished">Selectie to&amp;ate</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Clar</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3702,27 +3699,27 @@ intr-o fereastra noua</translation>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>evadare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Doc</translation>
+        <translation type="unfinished">Dock</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Plută</translation>
+        <translation type="unfinished">Flotant</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation>Linia de comandă</translation>
+        <translation type="unfinished">Linie de comanda</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation>Cmd</translation>
+        <translation type="unfinished">Cmd</translation>
     </message>
 </context>
 <context>
@@ -3737,7 +3734,7 @@ intr-o fereastra noua</translation>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3776,25 +3773,25 @@ intr-o fereastra noua</translation>
     </message>
     <message>
         <source>⌀ (Diameter)</source>
-        <translation>(Diametrul)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>π (Pi)</source>
-        <translation>π (pi)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Formatul textului de dimensiune, &lt;&gt; poate fi utilizat ca suport pentru valoarea de măsurare a dimensiunii &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3849,12 +3846,11 @@ intr-o fereastra noua</translation>
     <message>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>Se aplică, de asemenea, atributele tuturor subentităților INSERT selectate.
-Acest lucru modifică recursiv toate entitățile blocului în sine.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply attributes Block-deep</source>
-        <translation>Aplică atributele Block-adânc</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3993,62 +3989,62 @@ Acest lucru modifică recursiv toate entitățile blocului în sine.</translatio
     </message>
     <message>
         <source>Area</source>
-        <translation>Zonă</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgImage</name>
     <message>
         <source>Image</source>
-        <translation>Imagine</translation>
+        <translation type="unfinished">Imagine</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Strat:</translation>
+        <translation type="unfinished">Strat:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometrie</translation>
+        <translation type="unfinished">Geometrie</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Lățime:</translation>
+        <translation type="unfinished">Latime:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Înălțime:</translation>
+        <translation type="unfinished">Inaltime:</translation>
     </message>
     <message>
         <source>insert (x):</source>
-        <translation>(x):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale:</source>
-        <translation>Scalare:</translation>
+        <translation type="unfinished">Scara de marire:</translation>
     </message>
     <message>
         <source>Size (px):</source>
-        <translation>Dimensiune (px):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>path:</source>
-        <translation>calea:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>insert (y):</source>
-        <translation>(y):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select an image file</source>
-        <translation>Alegeți un fișier imagine</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4070,16 +4066,12 @@ Acest lucru modifică recursiv toate entitățile blocului în sine.</translatio
         <translation>Limba de comanda:</translation>
     </message>
     <message>
-        <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>LibreCAD &lt;/b&gt;
-&lt;/font&gt;
-&lt;br&gt;
-Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene noi și limba preferată.&lt;br&gt;
-(Puteți modifica aceste setări mai târziu.)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4126,11 +4118,11 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
     </message>
     <message>
         <source>Scale X:</source>
-        <translation>Scala X:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale Y:</source>
-        <translation>Scala Y:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4165,630 +4157,630 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
     </message>
     <message>
         <source>ID: </source>
-        <translation>ID:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgMText</name>
     <message>
         <source>MText</source>
-        <translation>MText</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Strat:</translation>
+        <translation type="unfinished">Strat:</translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>&amp; Înălţimea:</translation>
+        <translation type="unfinished">&amp;Inaltime:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
-        <translation>Spațierea liniei &amp; Default</translation>
+        <translation type="unfinished">Spatierea &amp;implicita a liniilor</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation>Alt+D</translation>
+        <translation type="unfinished">Alt+D</translation>
     </message>
     <message>
         <source>Alignment</source>
-        <translation>Aliniere</translation>
+        <translation type="unfinished">Aliniere</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation>Dreapta sus</translation>
+        <translation type="unfinished">Sus dreapta</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation>Stânga sus</translation>
+        <translation type="unfinished">Sus stanga</translation>
     </message>
     <message>
         <source>Middle Left</source>
-        <translation>Stânga mijlocie</translation>
+        <translation type="unfinished">Mijloc stanga</translation>
     </message>
     <message>
         <source>Middle Center</source>
-        <translation>Centrul Mijlociu</translation>
+        <translation type="unfinished">Mijloc centru</translation>
     </message>
     <message>
         <source>Middle Right</source>
-        <translation>Dreapta mijlocie</translation>
+        <translation type="unfinished">Mijloc dreapta</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation>Stânga jos</translation>
+        <translation type="unfinished">Jos stanga</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation>Dreapta jos</translation>
+        <translation type="unfinished">Jos dreapta</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation>Centrul de jos</translation>
+        <translation type="unfinished">Jos centru</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation>Centru de sus</translation>
+        <translation type="unfinished">Sus centru</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Unghi</translation>
+        <translation type="unfinished">Unghi</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Text:</translation>
+        <translation type="unfinished">Text:</translation>
     </message>
     <message>
         <source>Clear Text</source>
-        <translation>Curăță textul</translation>
+        <translation type="unfinished">Stergere text</translation>
     </message>
     <message>
         <source>Load Text From File</source>
-        <translation>Încarcă text din fișier</translation>
+        <translation type="unfinished">Incarcare text din fisier</translation>
     </message>
     <message>
         <source>Save Text To File</source>
-        <translation>Salvează textul în fișier</translation>
+        <translation type="unfinished">Salvare text in fisier</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Taie</translation>
+        <translation type="unfinished">Decupare</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copiază</translation>
+        <translation type="unfinished">Copiere</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Lipește</translation>
+        <translation type="unfinished">Lipire</translation>
     </message>
     <message>
         <source>Insert Symbol</source>
-        <translation>Inserează simbol</translation>
+        <translation type="unfinished">Inserare Simbol</translation>
     </message>
     <message>
         <source>Degree (°)</source>
-        <translation>Grad (°)</translation>
+        <translation type="unfinished">Grade (°)</translation>
     </message>
     <message>
         <source>Plus / Minus (±)</source>
-        <translation>Plus / Minus (±)</translation>
+        <translation type="unfinished">Plus / Minus (±)</translation>
     </message>
     <message>
         <source>At (@)</source>
-        <translation>La (@)</translation>
+        <translation type="unfinished">Arond (@)</translation>
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>Hash (#)</translation>
+        <translation type="unfinished">Diez (#)</translation>
     </message>
     <message>
         <source>Dollar ($)</source>
-        <translation>Dolar ($)</translation>
+        <translation type="unfinished">Dolar ($)</translation>
     </message>
     <message>
         <source>Copyright (©)</source>
-        <translation>Drepturi de autor (©)</translation>
+        <translation type="unfinished">Copyright (©)</translation>
     </message>
     <message>
         <source>Registered (®)</source>
-        <translation>Înregistrată (®)</translation>
+        <translation type="unfinished">Inregistrat (®)</translation>
     </message>
     <message>
         <source>Paragraph (§)</source>
-        <translation>Punctul (§)</translation>
+        <translation type="unfinished">Paragraf (§)</translation>
     </message>
     <message>
         <source>Pi (π)</source>
-        <translation>Pi (π)</translation>
+        <translation type="unfinished">Pi (π)</translation>
     </message>
     <message>
         <source>Pound (£)</source>
-        <translation>Lire (£)</translation>
+        <translation type="unfinished">Lira (£)</translation>
     </message>
     <message>
         <source>Yen (¥)</source>
-        <translation>Yen</translation>
+        <translation type="unfinished">Yen (¥)</translation>
     </message>
     <message>
         <source>Times (×)</source>
-        <translation>Timpuri (×)</translation>
+        <translation type="unfinished">Ori (×)</translation>
     </message>
     <message>
         <source>Division (÷)</source>
-        <translation>Diviziunea (</translation>
+        <translation type="unfinished">Impartire (÷)</translation>
     </message>
     <message>
         <source>Insert Unicode</source>
-        <translation>Inserează cod</translation>
+        <translation type="unfinished">Inserare Unicod</translation>
     </message>
     <message>
         <source>Page:</source>
-        <translation>Pagina:</translation>
+        <translation type="unfinished">Pagina:</translation>
     </message>
     <message>
         <source>Char:</source>
-        <translation>Char:</translation>
+        <translation type="unfinished">Caracter:</translation>
     </message>
     <message>
         <source>[0000-007F] Basic Latin</source>
-        <translation>[0000-007F] Latină de bază</translation>
+        <translation type="unfinished">[0000-007F] Latin de Baza</translation>
     </message>
     <message>
         <source>[0080-00FF] Latin-1 Supplementary</source>
-        <translation>[0080-00FF] Latin-1 Suplimentar</translation>
+        <translation type="unfinished">[0080-00FF] Latin-1 Suplimentar</translation>
     </message>
     <message>
         <source>[0100-017F] Latin Extended-A</source>
-        <translation>[010-017F] Latin extins- A</translation>
+        <translation type="unfinished">[0100-017F] Latin Extins-A</translation>
     </message>
     <message>
         <source>[0180-024F] Latin Extended-B</source>
-        <translation>[0180-024F] Latin Extins-B</translation>
+        <translation type="unfinished">[0180-024F] Latin Extins-B</translation>
     </message>
     <message>
         <source>[0250-02AF] IPA Extensions</source>
-        <translation>[0250-02AF] Extensii IPA</translation>
+        <translation type="unfinished">[0250-02AF] Extensii IPA</translation>
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation>[02B0-02FF]</translation>
+        <translation type="unfinished">[02B0-02FF] Caractere cu spatiere modificata</translation>
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
-        <translation>[0300-036F] Combinarea mărcilor diacritice</translation>
+        <translation type="unfinished">[0300-036F] Caractere de punctuatie</translation>
     </message>
     <message>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation>[0370-03FF] Greacă și coptă</translation>
+        <translation type="unfinished">[0370-03FF] Grec si Copt</translation>
     </message>
     <message>
         <source>[0400-04FF] Cyrillic</source>
-        <translation>[0400-04FF] Chirilică</translation>
+        <translation type="unfinished">[0400-04FF] Chirilic</translation>
     </message>
     <message>
         <source>[0500-052F] Cyrillic Supplementary</source>
-        <translation>[0500-052F] Supliment chirilic</translation>
+        <translation type="unfinished">[0500-052F] Chirilic suplimentar</translation>
     </message>
     <message>
         <source>[0530-058F] Armenian</source>
-        <translation>[0530-0558F] Armean</translation>
+        <translation type="unfinished">[0530-058F] Armean</translation>
     </message>
     <message>
         <source>[0590-05FF] Hebrew</source>
-        <translation>[0590-05FF]</translation>
+        <translation type="unfinished">[0590-05FF] Ebraic</translation>
     </message>
     <message>
         <source>[0600-06FF] Arabic</source>
-        <translation>[0600-06FF] arabă</translation>
+        <translation type="unfinished">[0600-06FF] Arab</translation>
     </message>
     <message>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-074F] Siriac</translation>
+        <translation type="unfinished">[0700-074F] Sirian</translation>
     </message>
     <message>
         <source>[0780-07BF] Thaana</source>
-        <translation>[0780-07BF] Thaana</translation>
+        <translation type="unfinished">[0780-07BF] Thaana</translation>
     </message>
     <message>
         <source>[0900-097F] Devanagari</source>
-        <translation>[0900-097F] Devanagari</translation>
+        <translation type="unfinished">[0900-097F] Devanagari</translation>
     </message>
     <message>
         <source>[0980-09FF] Bengali</source>
-        <translation>Bengali</translation>
+        <translation type="unfinished">[0980-09FF] Bengali</translation>
     </message>
     <message>
         <source>[0A00-0A7F] Gurmukhi</source>
-        <translation>[0A00-0A7F] Gurmukhi</translation>
+        <translation type="unfinished">[0A00-0A7F] Gurmukhi</translation>
     </message>
     <message>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation>Gujarati</translation>
+        <translation type="unfinished">[0A80-0AFF] Gujarati</translation>
     </message>
     <message>
         <source>[0B00-0B7F] Oriya</source>
-        <translation>[0B00-0B7F] Oriya</translation>
+        <translation type="unfinished">[0B00-0B7F] Oriya</translation>
     </message>
     <message>
         <source>[0B80-0BFF] Tamil</source>
-        <translation>Tamil</translation>
+        <translation type="unfinished">[0B80-0BFF] Tamil</translation>
     </message>
     <message>
         <source>[0C00-0C7F] Telugu</source>
-        <translation>[0C00-0C7F] Telugu</translation>
+        <translation type="unfinished">[0C00-0C7F] Telugu</translation>
     </message>
     <message>
         <source>[0C80-0CFF] Kannada</source>
-        <translation>Kannada</translation>
+        <translation type="unfinished">[0C80-0CFF] Kannada</translation>
     </message>
     <message>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation>Malayalam</translation>
+        <translation type="unfinished">[0D00-0D7F] Malayalam</translation>
     </message>
     <message>
         <source>[0D80-0DFF] Sinhala</source>
-        <translation>[0D80-0DFF] Sinhala</translation>
+        <translation type="unfinished">[0D80-0DFF] Sinhala</translation>
     </message>
     <message>
         <source>[0E00-0E7F] Thai</source>
-        <translation>[0E00-0E7F] Thailandeză</translation>
+        <translation type="unfinished">[0E00-0E7F] Thai</translation>
     </message>
     <message>
         <source>[0E80-0EFF] Lao</source>
-        <translation>Lao</translation>
+        <translation type="unfinished">[0E80-0EFF] Lao</translation>
     </message>
     <message>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation>[0F00-0FFF] Tibetană</translation>
+        <translation type="unfinished">[0F00-0FFF] Tibetan</translation>
     </message>
     <message>
         <source>[1000-109F] Myanmar</source>
-        <translation>[1000-109F] Myanmar</translation>
+        <translation type="unfinished">[1000-109F] Myanmar</translation>
     </message>
     <message>
         <source>[10A0-10FF] Georgian</source>
-        <translation>[10A0-10FF] Georgiană</translation>
+        <translation type="unfinished">[10A0-10FF] Georgien</translation>
     </message>
     <message>
         <source>[1100-11FF] Hangul Jamo</source>
-        <translation>[1100-11FF] Hangul Jamo</translation>
+        <translation type="unfinished">[1100-11FF] Hangul Jamo</translation>
     </message>
     <message>
         <source>[1200-137F] Ethiopic</source>
-        <translation>[120-137F] Etiopic</translation>
+        <translation type="unfinished">[1200-137F] Etiopian</translation>
     </message>
     <message>
         <source>[13A0-13FF] Cherokee</source>
-        <translation>Cherokee</translation>
+        <translation type="unfinished">[13A0-13FF] Cherokee</translation>
     </message>
     <message>
         <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
-        <translation>[1400-167F] Aborigenă canadiană unificată Syllabic</translation>
+        <translation type="unfinished">[1400-167F] Unificat Canadian Aborigian Silabic</translation>
     </message>
     <message>
         <source>[1680-169F] Ogham</source>
-        <translation>[1680-169F] Ogham</translation>
+        <translation type="unfinished">[1680-169F] Ogham</translation>
     </message>
     <message>
         <source>[16A0-16FF] Runic</source>
-        <translation>[16A0-16FF]</translation>
+        <translation type="unfinished">[16A0-16FF] Runic</translation>
     </message>
     <message>
         <source>[1700-171F] Tagalog</source>
-        <translation>[700-171F] Tagalog</translation>
+        <translation type="unfinished">[1700-171F] Tagalog</translation>
     </message>
     <message>
         <source>[1720-173F] Hanunoo</source>
-        <translation>[1721-173F] Hanunoo</translation>
+        <translation type="unfinished">[1720-173F] Hanunoo</translation>
     </message>
     <message>
         <source>[1740-175F] Buhid</source>
-        <translation>Buhid</translation>
+        <translation type="unfinished">[1740-175F] Buhid</translation>
     </message>
     <message>
         <source>[1760-177F] Tagbanwa</source>
-        <translation>Tagbanwa</translation>
+        <translation type="unfinished">[1760-177F] Tagbanwa</translation>
     </message>
     <message>
         <source>[1780-17FF] Khmer</source>
-        <translation>[1780-17FF]</translation>
+        <translation type="unfinished">[1780-17FF] Khmer</translation>
     </message>
     <message>
         <source>[1800-18AF] Mongolian</source>
-        <translation>[800-18AF] Mongoliană</translation>
+        <translation type="unfinished">[1800-18AF] Mongol</translation>
     </message>
     <message>
         <source>[1E00-1EFF] Latin Extended Additional</source>
-        <translation>[E00-1EFF] Latin extins suplimentar</translation>
+        <translation type="unfinished">[1E00-1EFF] Latin Extins Aditional</translation>
     </message>
     <message>
         <source>[1F00-1FFF] Greek Extended</source>
-        <translation>[F00-1FFF] Grecia extinsă</translation>
+        <translation type="unfinished">[1F00-1FFF] Grec Extins</translation>
     </message>
     <message>
         <source>[2000-206F] General Punctuation</source>
-        <translation>[2000-206F] Punctuație generală</translation>
+        <translation type="unfinished">[2000-206F] Punctuate generala</translation>
     </message>
     <message>
         <source>[2070-209F] Superscripts and Subscripts</source>
-        <translation>[2070-209F] Scripturi și subscripții</translation>
+        <translation type="unfinished">[2070-209F] Exponenti si indici</translation>
     </message>
     <message>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation>[20A0-20CF] Simboluri valutare</translation>
+        <translation type="unfinished">[20A0-20CF] Simboluri monede</translation>
     </message>
     <message>
         <source>[20D0-20FF] Combining Marks for Symbols</source>
-        <translation>[20D0-20FF] Combinarea mărcilor pentru simboluri</translation>
+        <translation type="unfinished">[20D0-20FF] Marcaje combinate pentru simboluri</translation>
     </message>
     <message>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation>Simboluri literare [2100-214F]</translation>
+        <translation type="unfinished">[2100-214F] Simboluri litera</translation>
     </message>
     <message>
         <source>[2150-218F] Number Forms</source>
-        <translation>Formulare de număr [2150-218F]</translation>
+        <translation type="unfinished">[2150-218F] Numere pentru formulare</translation>
     </message>
     <message>
         <source>[2190-21FF] Arrows</source>
-        <translation>[2190-21FF] Săgeți</translation>
+        <translation type="unfinished">[2190-21FF] Sageti</translation>
     </message>
     <message>
         <source>[2200-22FF] Mathematical Operators</source>
-        <translation>[2200-22FF] Operatorii matematici</translation>
+        <translation type="unfinished">[2200-22FF] Operatori matematici</translation>
     </message>
     <message>
         <source>[2300-23FF] Miscellaneous Technical</source>
-        <translation>[2300-23FF] Diverse tehnici</translation>
+        <translation type="unfinished">[2300-23FF] Simboluri tehnice diverse</translation>
     </message>
     <message>
         <source>[2400-243F] Control Pictures</source>
-        <translation>[240-243F] Imagini de control</translation>
+        <translation type="unfinished">[2400-243F] Caractere pentru control imagini</translation>
     </message>
     <message>
         <source>[2440-245F] Optical Character Recognition</source>
-        <translation>[2440-245F] Recunoașterea caracteristicilor optice</translation>
+        <translation type="unfinished">[2440-245F] Recunoasterea optica a caracterelor</translation>
     </message>
     <message>
         <source>[2460-24FF] Enclosed Alphanumerics</source>
-        <translation>[2460-24FF] Alfanumerice închise</translation>
+        <translation type="unfinished">[2460-24FF] Caractere alfanumerice incercuite</translation>
     </message>
     <message>
         <source>[2500-257F] Box Drawing</source>
-        <translation>[2500-257F] Desen cutie</translation>
+        <translation type="unfinished">[2500-257F] Borduri</translation>
     </message>
     <message>
         <source>[2580-259F] Block Elements</source>
-        <translation>[2580-259F] Elemente de bloc</translation>
+        <translation type="unfinished">[2580-259F] Elemente de bordura</translation>
     </message>
     <message>
         <source>[25A0-25FF] Geometric Shapes</source>
-        <translation>[25A0-25FF] Forme geometrice</translation>
+        <translation type="unfinished">[25A0-25FF] Forme geometrice</translation>
     </message>
     <message>
         <source>[2600-26FF] Miscellaneous Symbols</source>
-        <translation>[2600-26FF] Simboluri diverse</translation>
+        <translation type="unfinished">[2600-26FF] Simboluri diverse</translation>
     </message>
     <message>
         <source>[2700-27BF] Dingbats</source>
-        <translation>Dingbats [2700-27BF]</translation>
+        <translation type="unfinished">[2700-27BF] Dingbats</translation>
     </message>
     <message>
         <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
-        <translation>[27C0-27EF] Diverse simboluri matematice A</translation>
+        <translation type="unfinished">[27C0-27EF] Simboluri matematice diverse-A</translation>
     </message>
     <message>
         <source>[27F0-27FF] Supplemental Arrows-A</source>
-        <translation>Arrows suplimentare... A</translation>
+        <translation type="unfinished">[27F0-27FF] Sageti suplimentare-A</translation>
     </message>
     <message>
         <source>[2800-28FF] Braille Patterns</source>
-        <translation>Modele Braille [2800-28FF]</translation>
+        <translation type="unfinished">[2800-28FF] Simboluri Braille</translation>
     </message>
     <message>
         <source>[2900-297F] Supplemental Arrows-B</source>
-        <translation>[2900-297F] Săgeți suplimentare-B</translation>
+        <translation type="unfinished">[2900-297F] Sageti suplimentare-B</translation>
     </message>
     <message>
         <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
-        <translation>[2980-29FF] Diverse simboluri matematice-B</translation>
+        <translation type="unfinished">[2980-29FF] Simboluri matematice diverse-B</translation>
     </message>
     <message>
         <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
-        <translation>[2A00-2AFF] Operatorii matematici suplimentari</translation>
+        <translation type="unfinished">[2A00-2AFF] Operatori matematici suplimentari</translation>
     </message>
     <message>
         <source>[2E80-2EFF] CJK Radicals Supplement</source>
-        <translation>[E80-2EFF] Suplimentul radical CJK</translation>
+        <translation type="unfinished">[2E80-2EFF] Radicali suplimentari CJC</translation>
     </message>
     <message>
         <source>[2F00-2FDF] Kangxi Radicals</source>
-        <translation>[2F00-2FDF] Kangxi Radicals</translation>
+        <translation type="unfinished">[2F00-2FDF] Radicali Kangxi</translation>
     </message>
     <message>
         <source>[2FF0-2FFF] Ideographic Description Characters</source>
-        <translation>[2FF0-2FFF] Caractere de descriere ideologică</translation>
+        <translation type="unfinished">[2FF0-2FFF] Caractere pentru descreiere ideofonografica</translation>
     </message>
     <message>
         <source>[3000-303F] CJK Symbols and Punctuation</source>
-        <translation>[3000-303F] Simboluri CJK și punctuație</translation>
+        <translation type="unfinished">[3000-303F] Simboluri si punctuatie CJK</translation>
     </message>
     <message>
         <source>[3040-309F] Hiragana</source>
-        <translation>[3040-309F] Hiragana</translation>
+        <translation type="unfinished">[3040-309F] Hiragana</translation>
     </message>
     <message>
         <source>[30A0-30FF] Katakana</source>
-        <translation>[30A0-30FF] Katakana</translation>
+        <translation type="unfinished">[30A0-30FF] Katakana</translation>
     </message>
     <message>
         <source>[3100-312F] Bopomofo</source>
-        <translation>[3100-312F] Bopomofo</translation>
+        <translation type="unfinished">[3100-312F] Bopomofo</translation>
     </message>
     <message>
         <source>[3130-318F] Hangul Compatibility Jamo</source>
-        <translation>[3130-318F] Compatibilitate hangul Jamo</translation>
+        <translation type="unfinished">[3130-318F] Hangul Compatibility Jamo</translation>
     </message>
     <message>
         <source>[3190-319F] Kanbun</source>
-        <translation>[3190-19F] Kanbun</translation>
+        <translation type="unfinished">[3190-319F] Kanbun</translation>
     </message>
     <message>
         <source>[31A0-31BF] Bopomofo Extended</source>
-        <translation>[31A0-31BF]</translation>
+        <translation type="unfinished">[31A0-31BF] Bopomofo Extins</translation>
     </message>
     <message>
         <source>[3200-32FF] Enclosed CJK Letters and Months</source>
-        <translation>[3200-32FF] Litere și luni CJK închise</translation>
+        <translation type="unfinished">[3200-32FF] Litere CJK incercuite si semiincercuite</translation>
     </message>
     <message>
         <source>[3300-33FF] CJK Compatibility</source>
-        <translation>[3300-33FF] Compatibilitatea CJK</translation>
+        <translation type="unfinished">[3300-33FF] Compatibilitate CJC</translation>
     </message>
     <message>
         <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
-        <translation>[3400-4DBF] CJK Ideografe unificate Extensia A</translation>
+        <translation type="unfinished">[3400-4DBF] Supliment A pentru ideofonogramele unificate CJC</translation>
     </message>
     <message>
         <source>[4E00-9FAF] CJK Unified Ideographs</source>
-        <translation>[4E00-9FAF] CJK Ideografe unificate</translation>
+        <translation type="unfinished">[4E00-9FAF] Ideofonograme unificate CJC</translation>
     </message>
     <message>
         <source>[A000-A48F] Yi Syllables</source>
-        <translation>Yi Syllables</translation>
+        <translation type="unfinished">[A000-A48F] Silabe Yi</translation>
     </message>
     <message>
         <source>[A490-A4CF] Yi Radicals</source>
-        <translation>[A490-A4CF]</translation>
+        <translation type="unfinished">[A490-A4CF] Radicali Yi</translation>
     </message>
     <message>
         <source>[AC00-D7AF] Hangul Syllables</source>
-        <translation>[AC00-D7AF] Silabe Hangul</translation>
+        <translation type="unfinished">[AC00-D7AF] Silabe Hangul</translation>
     </message>
     <message>
         <source>[D800-DBFF] High Surrogates</source>
-        <translation>[D800-DBFF] Surrogați mari</translation>
+        <translation type="unfinished">[D800-DBFF] Caractere plasate in jumatatea de sus</translation>
     </message>
     <message>
         <source>[DC00-DFFF] Low Surrogate Area</source>
-        <translation>[DC00-DFFF] Supravieţuire scăzută</translation>
+        <translation type="unfinished">[DC00-DFFF] Caractere plasate in jumatatea de jos</translation>
     </message>
     <message>
         <source>[E000-F8FF] Private Use Area</source>
-        <translation>[E000-F8FF] Zona de utilizare privată</translation>
+        <translation type="unfinished">[E000-F8FF] Zona de folosire privata</translation>
     </message>
     <message>
         <source>[F900-FAFF] CJK Compatibility Ideographs</source>
-        <translation>[F900-FAFF] Ideografe de compatibilitate CJK</translation>
+        <translation type="unfinished">[F900-FAFF] Ideograme compatibile CJC</translation>
     </message>
     <message>
         <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
-        <translation>Formulare de prezentare alfabetică</translation>
+        <translation type="unfinished">[FB00-FB4F] Forme de prezentare alfabetica</translation>
     </message>
     <message>
         <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
-        <translation>Formulare de prezentare arabă... A</translation>
+        <translation type="unfinished">[FB50-FDFF] Forme arabe de prezentare A</translation>
     </message>
     <message>
         <source>[FE00-FE0F] Variation Selectors</source>
-        <translation>Selectoare de variație</translation>
+        <translation type="unfinished">[FE00-FE0F] Selectori de variatie</translation>
     </message>
     <message>
         <source>[FE20-FE2F] Combining Half Marks</source>
-        <translation>[FE20-FE2F] Combină semimarca</translation>
+        <translation type="unfinished">[FE20-FE2F] Combinatii jumatati de marcatori</translation>
     </message>
     <message>
         <source>[FE30-FE4F] CJK Compatibility Forms</source>
-        <translation>[FE30-FE4F] Forme de compatibilitate CJK</translation>
+        <translation type="unfinished">[FE30-FE4F] Forme compatibile CJC</translation>
     </message>
     <message>
         <source>[FE50-FE6F] Small Form Variants</source>
-        <translation>Variante de formă mică</translation>
+        <translation type="unfinished">[FE50-FE6F] Varianti de forma mica</translation>
     </message>
     <message>
         <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
-        <translation>Formulare de prezentare arabă-B</translation>
+        <translation type="unfinished">[FB50-FDFF] Forme arabe de prezentare B</translation>
     </message>
     <message>
         <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
-        <translation>[FF00-FFEF] Forme de semilățime și de lățime completă</translation>
+        <translation type="unfinished">[FF00-FFEF] Forme pe jumatate de latime sau marime normala</translation>
     </message>
     <message>
         <source>[FFF0-FFFF] Specials</source>
-        <translation>[FFFF-FFFF] Specialităţi</translation>
+        <translation type="unfinished">[FFF0-FFFF] Caractere speciale</translation>
     </message>
     <message>
         <source>[10300-1032F] Old Italic</source>
-        <translation>[10300-1032F] Italic vechi</translation>
+        <translation type="unfinished">[10300-1032F] Inclinat arhaic</translation>
     </message>
     <message>
         <source>[10330-1034F] Gothic</source>
-        <translation>[10330-1034F] Gotic</translation>
+        <translation type="unfinished">[10330-1034F] Gotic</translation>
     </message>
     <message>
         <source>[10400-1044F] Deseret</source>
-        <translation>[10400-1044F] Deseret</translation>
+        <translation type="unfinished">[10400-1044F] Deseret</translation>
     </message>
     <message>
         <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
-        <translation>[1D000-1D0FF] Simboluri muzicale bizantine</translation>
+        <translation type="unfinished">[1D000-1D0FF] Simboluri muzicale bizantine</translation>
     </message>
     <message>
         <source>[1D100-1D1FF] Musical Symbols</source>
-        <translation>[D100-1D1FF] Simboluri muzicale</translation>
+        <translation type="unfinished">[1D100-1D1FF] Simboluri muzicale</translation>
     </message>
     <message>
         <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
-        <translation>[1D400-1D7FF] Simboluri alfabetice matematice</translation>
+        <translation type="unfinished">[1D400-1D7FF] Simboluri alfanumerice matematice</translation>
     </message>
     <message>
         <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
-        <translation>[20000-2A6DF] CJK Ideografe Unificate Extensie B</translation>
+        <translation type="unfinished">[20000-2A6DF] Ideograme unificate CJC - Supliment B</translation>
     </message>
     <message>
         <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
-        <translation>[2F800-2FA1F] CJK Ideografe de compatibilitate Supliment</translation>
+        <translation type="unfinished">[2F800-2FA1F] Ideograme compatibile CJC - Supliment</translation>
     </message>
     <message>
         <source>[E0000-E007F] Tags</source>
-        <translation>[E0000-E007F] Etichete</translation>
+        <translation type="unfinished">[E0000-E007F] Etichete</translation>
     </message>
     <message>
         <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
-        <translation>Zona suplimentară de utilizare privată A</translation>
+        <translation type="unfinished">[F0000-FFFFD] Zona suplimentara A pentru folosire privata</translation>
     </message>
     <message>
         <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
-        <translation>[100000-10FFFD] Zona de utilizare privată suplimentară-B</translation>
+        <translation type="unfinished">[100000-10FFFD] Zona suplimentara B pentru folosire privata</translation>
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diametrul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Line spacing:</source>
-        <translation>Spațiere &amp; linie:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font Settings</source>
-        <translation>Setări font</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font:</source>
-        <translation>Font:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text Direction</source>
-        <translation>Direcţie text</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left to right</source>
-        <translation>Stânga la dreapta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right to left</source>
-        <translation>Dreapta la stânga</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4975,7 +4967,7 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
         <translation>Grade</translation>
     </message>
     <message>
-        <source>Surveyor's units</source>
+        <source>Surveyor&apos;s units</source>
         <translation>Unitati Geometrice</translation>
     </message>
     <message>
@@ -4983,7 +4975,7 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
         <translation>Optiuni</translation>
     </message>
     <message>
-        <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
         <translation>In general, unitatea in inginerie este milimetrul, iar in arhitectura este metrul.</translation>
     </message>
     <message>
@@ -5115,220 +5107,220 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
         <translation>Marime bifa:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimensiunea bifei. Valoarea 0 va dezactiva marimea bifei. Sageata pentru dimensiune nu va fi desenata atunci cand dimensiunea bifei este activata.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>General Scale:</source>
-        <translation>Scala generală:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Scalează pentru a multiplica toate valorile dimensiunii. &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Orizontal</translation>
+        <translation type="unfinished">Orizontal</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension geometries.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt;Scale pentru a multiplica toate geometriile dimensiunii.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text style:</source>
-        <translation>Stil text:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>'.' (Period)</source>
-        <translation>"." (Period)</translation>
+        <source>&apos;.&apos; (Period)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>',' (Comma)</source>
-        <translation>"," (Comma)</translation>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decimal separator:</source>
-        <translation>Separator decimal:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear units:</source>
-        <translation>Unități liniare:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation>Culoare:</translation>
+        <translation type="unfinished">Culoare:</translation>
     </message>
     <message>
         <source>Length Factor:</source>
-        <translation>Factor de lungime:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular units:</source>
-        <translation>Unități unghiulare:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear zeros:</source>
-        <translation>Zero liniare:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Format units</source>
-        <translation>Unități format</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Decalajul distanței în jurul textului &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text size &amp; position</source>
-        <translation>&amp; Poziția &amp; dimensiunea textului</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length to enlarge over dimension line</source>
-        <translation>Lungime pentru a mări peste linia de dimensiune</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Dimensiune săgeată dimensiune. &lt;o denumire="rezultat box"/&gt; fără efect atunci când mărimea căpuşei &lt;o denumire="rezultat box"/&gt; este alta decât 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Lățime:</translation>
+        <translation type="unfinished">Latime:</translation>
     </message>
     <message>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation>Linii de dimensiune, săgeți și căpușe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular zeros:</source>
-        <translation>Zero angular:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular precision:</source>
-        <translation>Precizie angulară:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enlarge:</source>
-        <translation>Măreşte:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Offset:</translation>
+        <translation type="unfinished">Decalaj:</translation>
     </message>
     <message>
         <source>Linear precision:</source>
-        <translation>Precizie liniară:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Aliniere text &lt;o denumire="rezultat box"/&gt;relativ cu linia de dimensiune.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Aliniat</translation>
+        <translation type="unfinished">Aliniat</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Offset de la punctul de origine. &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text alignment:</source>
-        <translation>Aliniere text:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Extension lines</source>
-        <translation>Linii de extensie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fixed length:</source>
-        <translation>Lungimea fixă:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Format</source>
-        <translation>Format</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>&amp; Înălţimea:</translation>
+        <translation type="unfinished">&amp;Inaltime:</translation>
     </message>
     <message>
         <source>&amp;Width:</source>
-        <translation>&amp; Width:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation>Orientare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Margins</source>
-        <translation>Margini</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Jos</translation>
+        <translation type="unfinished">Jos</translation>
     </message>
     <message>
         <source>Number of pages</source>
-        <translation>Numărul de pagini</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontally:</source>
-        <translation>Pe orizontală:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vertically:</source>
-        <translation>Vertical:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fixed extension line length</source>
-        <translation>lungime fixă a liniei de extensie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Splines</source>
-        <translation>&amp; Spline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>&amp; Puncte</translation>
+        <translation type="unfinished">&amp;Puncte</translation>
     </message>
     <message>
         <source>Point Style</source>
-        <translation>Stil punct</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Point Size</source>
-        <translation>Mărime punct</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dwg Units</source>
-        <translation>Unități Dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size relative to screen</source>
-        <translation>Dimensiune relativă la ecran</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size in drawing units</source>
-        <translation>Dimensiune în unități de desen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>(0 =&gt; 5% relative to screen size)</source>
-        <translation>(0 = &gt; 5% în raport cu dimensiunea ecranului)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Architectural (metric)</source>
-        <translation>Arhitectură (metrică)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>Pentru formatul de lungime "Arhitectural (metric) ," unitatea trebuie setată pe Contor.</translation>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Screen %</source>
-        <translation>Ecranul %</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5451,326 +5443,318 @@ Vă rugăm să alegeți unitatea pe care doriți să o utilizați pentru desene 
     </message>
     <message>
         <source>Template:</source>
-        <translation>Șablon:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>St&amp;art Handle Color:</source>
-        <translation>Culoare mâner St&amp;art:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Handle Color:</source>
-        <translation>Culoare &amp; mâner:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;End Handle Color:</source>
-        <translation>Culoare mâner &amp; capăt:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation>Culori grafice</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator:</source>
-        <translation>Indicator Snap:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation>Anti-aliasing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
-        <translation>Modificarea stratului de entități selectate, la activarea stratului</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear Settings</source>
-        <translation>Configurări clare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restores program geometry/layout to original state</source>
-        <translation>restabilește geometria/modulul programului la starea originală</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation>Aranjament</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restores the program to its original state</source>
-        <translation>restabilește programul la starea sa inițială</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation>Toate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation>Pergament</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation>Linii indicatoare de direcție</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation>Forma indicatorului de apăsare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation>Ascunde cursorul la rupere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start in tab mode</source>
-        <translation>Pornește în modul tab</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation>Pornire</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Display loading screen</source>
-        <translation>Afișează ecranul de încărcare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start with main window maximized</source>
-        <translation>Începe cu fereastra principală maximizată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable CAD dockwidgets</source>
-        <translation>Activează docuri CAD</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable CAD toolbars</source>
-        <translation>Activează barele de unelte CAD</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation>#1E90FF</translation>
+        <translation type="unfinished">#1E90FF</translation>
     </message>
     <message>
         <source>Clear settings</source>
-        <translation>Curăță setările</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This will also include custom menus and toolbars. Continue?</source>
-        <translation>Acest lucru va include, de asemenea, meniuri personalizate și bare de instrumente. Să continui?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Atunci când este activat, activarea unui strat ar modifica toate entitățile selectate la acel nou strat. Pentru a schimba stratul de mai multe entități: prima selectați entitățile necesare; activați un strat în widget strat. Aceasta face ca toate entităţile selectate să fie modificate pentru a aparţine noului strat. &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Variable File:</source>
-        <translation>Fișier variabil:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation>Minimal Grid Spacing (p&amp;x):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>N&amp;umber of preview entities:</source>
-        <translation>N&amp;umber of previewents:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Don't use native OS file open dialog</source>
-        <translation>Nu utilizaţi dialogul de deschidere al fişierului nativ OS</translation>
+        <source>Don&apos;t use native OS file open dialog</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto-panning</source>
-        <translation>Auto-panare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide the relative-&amp;zero marker</source>
-        <translation>Ascunde markerul relativ &amp; zero</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+Z</source>
-        <translation>Alt+Z</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Visualize the entity under the cursor</source>
-        <translation>Vizualizează entitatea sub cursor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse-over effects</source>
-        <translation>Efectele mouse-ului</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Relative-Zero Marker Color:</source>
-        <translation>Culoare &amp; relativă- Zero Marker:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto save time (minutes):</source>
-        <translation>Timp de salvare automată (minute):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
-        <translation>Inversează direcția de defilare atunci când utilizați roata mouse-ului cu tasta Shift.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert horizontal scrolling direction</source>
-        <translation>Inversează direcția orizontală de defilare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
-        <translation>Inversează direcția de defilare atunci când utilizați roata mouse-ului cu tasta Ctrl.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert vertical scrolling direction</source>
-        <translation>Inversează direcția verticală de defilare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts zoom direction when using mouse wheel.</source>
-        <translation>Inversează direcția de zoom atunci când utilizați roata mouse-ului.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert zoom direction</source>
-        <translation>Invertește direcția de zoom</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configurări tastatură</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Evaluate commands when SPACE BAR is pressed</source>
-        <translation>Evaluează comenzile atunci când bara SPACE este apăsată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle free snap mode when SPACE BAR is pressed</source>
-        <translation>Comută modul Snap gratuit atunci când bara SPACE este apăsată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CAD Preferences</source>
-        <translation>Preferințe CAD</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatically zoom drawing when opening</source>
-        <translation>Desen zoom automat la deschidere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; fundal-color:#ffffff; Parte dosar bibliotecă. Biblioteca de simboluri dxf trebuie să fie situată în subdirectoarele acestui dosar. Numele subfilierelor vor fi afișate în browser-ul Bibliotecii.&lt;/span &gt; &lt;/p&gt; &lt;p&gt; &lt;p&gt; &lt;span style=" font-family:'apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; fundal-color:#ffffff;** Menu: Widgets &gt; Dock Widgets &gt; Biblioteca Browser)&lt;/span&gt; &lt;/p&gt; &lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>Deschide ultimul fișier deschis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Comută temporar ruperea liberă atunci când bara de spațiu este apăsată și fereastra de comandă este activată &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsMakerCam</name>
     <message>
         <source>Layers</source>
-        <translation>Straturi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export invisible layers</source>
-        <translation>Exportă straturi invizibile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export visible construction layers</source>
-        <translation>Exportă straturi vizibile de construcție</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blocks</source>
-        <translation>Blocuri</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Convert blocks to safe inline SVG content</source>
-        <translation>Conversia blocurilor la conținutul de linie SVG sigur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ellipses / Ellipse arcs</source>
-        <translation>Elipse / Arcuri de elipsă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Approximate ellipses and ellipse arcs with cubic béziers</source>
-        <translation>Elipse aproximative și arcuri elipse cu biziere cube</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export as CAM/plain SVG</source>
-        <translation>Export ca CAM/Splain SVG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default width of elements, mm</source>
-        <translation>Lățimea implicită a elementelor, mm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Imagini</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Raster Image export</source>
-        <translation>Export imagine Raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash/Dot Lines</source>
-        <translation>Linii Dash/Dot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length of the pattern, mm</source>
-        <translation>Lungimea modelului, mm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bake dash/dot lines to SVG path</source>
-        <translation>Coaceți linii/puncte pe calea SVG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
-that has been set invisibe ("display: none" or "visibility: hidden").</source>
-        <translation>MakerCAM din noiembrie 2014 nu ascunde conținut SVG
-care a fost setat invizibil ("display: nothing" sau "vizibilitate: ascunsă").</translation>
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
 because it does not take into account the reference point in the &lt;use&gt;.</source>
-        <translation>MakerCAM din noiembrie 2014 nu se poate ocupa corect de blocuri,
-pentru că nu ia în considerare punctul de referință din &lt;utilizare&gt;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, 
 when they are created using the &lt;ellipse&gt; tag  with a rotation in 
 the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.</source>
-        <translation>MakerCAM din martie 2015 nu poate afișa corect elipsele și arcurile de elipsă,
-atunci când sunt create folosind eticheta &lt;elipse&gt; cu o rotație în
-atributul &lt;transform&gt; sau ca &lt;pat&gt; folosind segmentele arcului eliptic.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
-but avoided in some CAM's.</source>
-        <translation>Imaginile exportate pot fi utile în editorii SVG (Inkscape etc.);
-dar evitat în unele CAM.</translation>
+but avoided in some CAM&apos;s.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
-        <translation>Multe CAM [MakerCAM, EleskCAM, LaserWeb] ignoră stilul de linie marcat/doted,
-care pot fi utile în taierea laserului din placaj sau pentru artizanat.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default width of elements can affect some CAM's/SVG Editors, 
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
 but ignored by other</source>
-        <translation>Lățimea implicită a elementelor poate afecta unii editori CAM/SVG,
-dar ignorat de alte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length of line pattern related to zoom, 
 so default step value required for baking</source>
-        <translation>Lungimea modelului de linie legat de zoom;
-deci valoarea implicită a treptei necesare pentru coacere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Points</source>
-        <translation>Puncte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Points</source>
-        <translation>Puncte de export</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>Dacă să exportați puncte</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5949,7 +5933,7 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Găsiți raportul de scalare în jurul centrului printr-un punct de referință și un punct țintă.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6555,59 +6539,59 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Strat:</translation>
+        <translation type="unfinished">Strat:</translation>
     </message>
     <message>
         <source>Font settings</source>
-        <translation>Setări font</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Oblique:</source>
-        <translation>Oblique:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width factor:</source>
-        <translation>Factorul de lățime:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font:</source>
-        <translation>Font:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Baseline Left</source>
-        <translation>Stânga iniţială</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Baseline Right</source>
-        <translation>Corect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Baseline Center</source>
-        <translation>Centru iniţial</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Potrivit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diametrul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A&amp;ligned</source>
-        <translation>A&amp;ligned</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Middle</source>
-        <translation>&amp; Mijloc</translation>
+        <translation type="unfinished">&amp;Mijloc</translation>
     </message>
 </context>
 <context>
@@ -6626,11 +6610,11 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     </message>
     <message>
         <source>Discard All</source>
-        <translation>A se arunca toate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>A se arunca</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6665,52 +6649,52 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     </message>
     <message>
         <source>Drawing Exchange DXF 2007 %1</source>
-        <translation>Desen Exchange DXF 2007% 1</translation>
+        <translation type="unfinished">Desen in format Exchange DXF 2007 %1</translation>
     </message>
     <message>
         <source>Drawing Exchange DXF 2004 %1</source>
-        <translation>Desen Exchange DXF 2004% 1</translation>
+        <translation type="unfinished">Desen in format Exchange DXF 2004 %1</translation>
     </message>
     <message>
         <source>Drawing Exchange DXF R14 %1</source>
-        <translation>Desen Exchange DXF R14% 1</translation>
+        <translation type="unfinished">Desen in format Exchange DXF R14 %1</translation>
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg desen% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <comment>block file</comment>
-        <translation>Bloc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing</source>
         <comment>drawing file</comment>
-        <translation>Desen</translation>
+        <translation type="unfinished">Desen</translation>
     </message>
     <message>
         <source>Open %1</source>
-        <translation>Deschide% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled</source>
-        <translation>Fără titlu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save %1 As</source>
-        <translation>Salvează% 1 ca</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_GraphicView</name>
     <message>
         <source>Edit Properties</source>
-        <translation>Editează proprietăți</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Editează blocul</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6749,35 +6733,35 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     </message>
     <message>
         <source>Colouring</source>
-        <translation>Colorare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Black / White</source>
-        <translation>Negru / alb</translation>
+        <translation type="unfinished">Alb / Negru</translation>
     </message>
     <message>
         <source>Coloured</source>
-        <translation>Colorat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Borders</source>
-        <translation>Frontiere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Top / Bottom - Border:</source>
-        <translation>Sus / jos - frontieră:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left / Right - Border:</source>
-        <translation>Stânga / dreapta - frontieră:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>set same size</source>
-        <translation>setează aceeași dimensiune</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>B&amp;lack</source>
-        <translation>B&amp;lack</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6804,12 +6788,11 @@ deci valoarea implicită a treptei necesare pentru coacere</translation>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
 The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Un strat de construcţii are entităţi de linii drepte infinite destinate utilizării pentru construcţii geometrice.
-Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>Strat de construcție</translation>
+        <translation type="unfinished">Strat de construcție</translation>
     </message>
 </context>
 <context>
@@ -6852,59 +6835,59 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Caut nume de straturi asortate</translation>
+        <translation type="unfinished">Căutare nume straturi corespunzătoare</translation>
     </message>
     <message>
         <source>Edit Layer &amp;Attributes</source>
-        <translation>Editează &amp; Atribute plan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Visibility</source>
-        <translation>Comută nivelul de vizibilitate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Printing</source>
-        <translation>Comută &amp; imprimarea straturilor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Comută &amp; plan de construcție</translation>
+        <translation type="unfinished">Comutați stratul de &amp;construcție</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>Deblocare toate straturile</translation>
+        <translation type="unfinished">Deblocați toate straturile</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>Blocați toate straturile</translation>
+        <translation type="unfinished">Blocați toate straturile</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>Elimină stratul</translation>
+        <translation type="unfinished">Eliminați strat</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filtru</translation>
+        <translation type="unfinished">Filtru</translation>
     </message>
     <message>
         <source>&amp;Unlock all Layers</source>
-        <translation>&amp; Deblochează toate straturile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Lock all Layers</source>
-        <translation>&amp; Închide toate straturile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Comută stratul Loc&amp;k</translation>
+        <translation type="unfinished">&amp;Comutare blocare Strat</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>&amp; Exportare plan selectat (s)</translation>
+        <translation type="unfinished">&amp;Exportați strat(urile) selectate</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>Exportă și plan vizibil (s)</translation>
+        <translation type="unfinished">Exportați &amp;straturile vizibile</translation>
     </message>
 </context>
 <context>
@@ -6919,11 +6902,11 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Reîmprospătează</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rebuild</source>
-        <translation>Reconstruiește</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7022,27 +7005,27 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
     </message>
     <message>
         <source>Dot (tiny)</source>
-        <translation>Punct (mic)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash (tiny)</source>
-        <translation>Dash (tiny)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash Dot (tiny)</source>
-        <translation>Dash Dot (mic)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Divide (tiny)</source>
-        <translation>Divide (tiny)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Center (tiny)</source>
-        <translation>Centru (mic)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border (tiny)</source>
-        <translation>Frontieră (mici)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7060,45 +7043,41 @@ Conținutul unui plan de construcție nu trebuie să apară în imprimerie.</tra
         <translation>Stanga</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtdrück
-&lt;html&gt;&lt;head&gt; &lt;meta name="qrichtext" content="1" /&gt; &lt;style type="text/css über
-p, li {white- space: pre- wrap;}
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;
-&lt;p style="margine-top:0px; marja-bottom:0px; marja-stânga:0px; marja-dreapta:0px; -qt-block-indent:0; text-indent:0px; [58]&lt;span style=" font-family:'Helvetica"; font-size:9pt; Indiciu despre acţiunile butonului mouse-ului stânga/ dreapta &lt;/span &gt; &lt;/p &gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_PenToolBar</name>
     <message>
         <source>Line color</source>
-        <translation>Culoare linie</translation>
+        <translation type="unfinished">Culoare linie</translation>
     </message>
     <message>
         <source>Line width</source>
-        <translation>Lățimea liniei</translation>
+        <translation type="unfinished">Grosime linie</translation>
     </message>
     <message>
         <source>Line type</source>
-        <translation>Tipul de linie</translation>
+        <translation type="unfinished">Tip linie</translation>
     </message>
 </context>
 <context>
     <name>QG_PolylineOptions</name>
     <message>
         <source>wrong action type</source>
-        <translation>tip acțiune greșită</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_RecentFiles</name>
     <message>
         <source>&amp;%1 %2</source>
-        <translation>&amp;% 1% 2</translation>
+        <translation type="unfinished">&amp;%1 %2</translation>
     </message>
 </context>
 <context>
@@ -7116,28 +7095,28 @@ p, li {white- space: pre- wrap;}
         <translation>Lungime totala</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Numarul entitatilor selectate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Numarul entitatilor selectate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Lungimea totala a entitatilor selectate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lungimea totala a entitatilor selectate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -7196,79 +7175,79 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Free Snap</source>
-        <translation>Free Snap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on grid</source>
-        <translation>Snap pe grilă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on Endpoints</source>
-        <translation>Fixează punctele finale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on Entity</source>
-        <translation>Snap pe Entitate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Center</source>
-        <translation>Snap Center</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Middle</source>
-        <translation>Snap Middle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Distance</source>
-        <translation>Snap Distanță</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Intersection</source>
-        <translation>Intersecție Snap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Horizontal</source>
-        <translation>Stres orizontal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Vertical</source>
-        <translation>Stres vertical</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Orthogonal</source>
-        <translation>Stres ortogonal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Nothing</source>
-        <translation>Nu restricţionaţi nimic</translation>
+        <translation type="unfinished">Nicio restrictie</translation>
     </message>
     <message>
         <source>Set relative zero position</source>
-        <translation>Setează poziția relativă zero</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lock relative zero position</source>
-        <translation>Blochează poziția relativă zero</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exclusive Snap Mode</source>
-        <translation>Modul Snap exclusiv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Relative zero position is %1</source>
-        <translation>Poziția relativă zero este% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>locked</source>
-        <translation>blocat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unlocked</source>
-        <translation>deblocat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>Snap Middle Manual</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7416,8 +7395,8 @@ p, li { white-space: pre-wrap; }
         <translation>Stergere strat</translation>
     </message>
     <message>
-        <source>Layer "%1" can never be removed.</source>
-        <translation>Stratul "%1" nu poate fi sters.</translation>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation>Stratul &quot;%1&quot; nu poate fi sters.</translation>
     </message>
     <message>
         <source>Layer Dialog</source>
@@ -7428,236 +7407,221 @@ p, li { white-space: pre-wrap; }
         <translation>Stergere Bloc</translation>
     </message>
     <message>
-        <source>Block "%1" and all its entities will be removed.</source>
-        <translation>Blocul "%1" si continutul acestuia au fost sterse.</translation>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation>Blocul &quot;%1&quot; si continutul acestuia au fost sterse.</translation>
     </message>
     <message>
         <source>Layer Properties</source>
         <translation>Proprietatile Stratului</translation>
     </message>
     <message>
-        <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>Stratul cu numele "%1" exista deja. Va trebui sa alegeti alt nume.</translation>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation>Stratul cu numele &quot;%1&quot; exista deja. Va trebui sa alegeti alt nume.</translation>
     </message>
     <message>
-        <source>Layer "%1" and all entities on it will be removed.
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>Stratul "% 1 " și toate entitățile de pe el vor fi eliminate.
-Această acțiune NU poate fi anulată.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Layer "0" can never be removed.</source>
-        <translation>Stratul "0" nu poate fi îndepărtat niciodată.</translation>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Elimină %n strat (s)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <source>Listed layers and all entities on them will be removed.</source>
-        <translation>Straturile enumerate și toate entitățile de pe ele vor fi eliminate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning: this action can NOT be undone!</source>
-        <translation>Atenție: această acțiune NU poate fi anulată!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Warning: layer "0" can never be removed.</source>
-        <translation>Atenție: stratul "0" nu poate fi îndepărtat niciodată.</translation>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layers for removal:</source>
-        <translation>Straturi pentru îndepărtarea:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Elimină %n bloc (s)<numerusform />
-            <numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <source>Listed blocks and all their entities will be removed.</source>
-        <translation>Blocurile enumerate și toate entitățile lor vor fi eliminate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blocks for removal:</source>
-        <translation>Blocuri pentru îndepărtarea:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>Numele gol nu este permis.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>Încercarea de a crea strat cu nume duplicat. Denumirea stratului duplicat este
-[% 1].
-Vă rugăm să specificați un nume diferit.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Eroare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>Sirul separatorului din listă este gol. Nu va fi posibil să construim straturi de copac.
-Vă rugăm să specificați o valoare diferită.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>Valoarea nevalidă asigură culoarea% 1.
-Vă rugăm să specificați o valoare diferită.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>Elimină straturile goale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>Strat (s) fără entități găsite, dar acestea sunt filtrate și nu sunt vizibile.
-
-Curăţă masca de filtrare şi repetă.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>Nu există straturi fără entități găsite, nimic de eliminat.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Adaugă plan</translation>
+        <translation type="unfinished">Adăugați strat</translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>Un astfel de strat de copii există deja pentru
-[% 1].
-Vă rugăm să specificați un nume diferit.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>Un astfel de strat de copii există deja pentru
-[% 1].</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>Stratul dimensional poate fi adăugat numai pentru stratul activ normal.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>Mută selecția</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>Selecţie dublă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace "By Layer" value to source layers values?
+        <source>Replace &quot;By Layer&quot; value to source layers values?
 
-If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
 
-If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>Înlocuiți valoarea "Prin strat" la valorile straturilor sursă?
-
-Dacă Da - entităţi cu stilouri "By Layer" vor privi pe un nou strat exact ca pe straturile anterioare şi valoarea "By Layer" va fi înlocuită cu stilourile injectoare.
-
-Dacă valorile No - "Prin Layer" rămân şi astfel pen-ul de strat ţintă va defini pen-ul pentru astfel de entităţi.</translation>
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>Dialog plan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>Valoare nevalidă furnizată pentru culoarea% 1.
-Vă rugăm să specificați o valoare diferită.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>Calea nevalidă către fișierul stilourilor.
-% 1
-Vă rugăm să specificați o valoare diferită.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>Scoateţi stiloul injector (pen- ul)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Stiloul injector (pen- ul) va fi scos din paleta, iar entităţile de desen nu vor fi afectate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you'd like to proceed?</source>
-        <translation>Eşti sigur că vrei să continui?</translation>
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>Stilou injector (pen) pentru îndepărtarea:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>Scoateţi stilourile injectoare (pen- urile)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Stilourile injectoare (pen-urile) vor fi scoase din paleta, entitățile de desen nu vor fi afectate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>Stilouri injectoare (pen- uri) pentru îndepărtarea:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>Alegeți entitățile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>Nu există entităţi care să se potrivească cu stiloul pe straturi vizibile.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>Astfel de entități există pe straturi congelate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>Astfel de entități există pe straturi blocate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>Utilizaţi diferite atribute ale stiloului injector (pen- ului).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>Setați stiloul injector pe entitate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>Alegeți o singură entitate pentru a alege setarea stiloului injector (pen- ului).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>Salvarea datelor despre stilouri</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>Nu am putut salva datele stilourilor injectoare (pen- urilor) în fişierul stilourilor injectoare (pen- uri). Doriți să specificați calea corectă către fișier?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7858,2929 +7822,2929 @@ Doriti sa il inlocuiti cu acesta?</translation>
     </message>
     <message>
         <source>Opened dwg file version %1.</source>
-        <translation>@ info: whatsthis.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unknown error opening dwg file</source>
-        <translation>eroare necunoscută la deschiderea fișierului dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>can't open this dwg file</source>
-        <translation>nu se poate deschide acest fișier dwg</translation>
+        <source>can&apos;t open this dwg file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unsupported dwg version</source>
-        <translation>versiune dwg nesuportată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading file header in dwg file</source>
-        <translation>eroare la citirea antetului fișierului în fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading header vars in dwg file</source>
-        <translation>eroare de citire antet vars în fișier dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading classes in dwg file</source>
-        <translation>clase de citire a erorilor în fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading offsets in dwg file</source>
-        <translation>eroare de citire offset-uri în fișier dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading tables in dwg file</source>
-        <translation>eroare la citirea tabelelor din fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading entities in dwg file</source>
-        <translation>entități de citire a erorilor în fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scalable Vector Graphics</source>
-        <translation>Grafică vectorială scalabilă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SGI Black &amp; White</source>
-        <translation>SGI negru și alb</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript</source>
-        <translation>PostScript încapsulat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript Format</source>
-        <translation>Format postscript încapsulat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript Interchange</source>
-        <translation>Interschimbare postscript încapsulată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windows Icon</source>
-        <translation>Pictogramă ferestre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>JPEG 2000</source>
-        <translation>JPEG 2000</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ZSoft Paintbrush</source>
-        <translation>ZSoft Pensule</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PC Paint</source>
-        <translation>Pictură</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SGI-Bilddatei</source>
-        <translation>SGI-Bilddatei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Targa Image File</source>
-        <translation>Fișier imagine Targa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tagged Image File Format</source>
-        <translation>Format de fișier imagine etichetat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Old Drawing Exchange %1</source>
-        <translation>Schimb de desen vechi% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg desen% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File on disk modified. Please save to another file to avoid data loss! File modified: %1</source>
-        <translation>Fișier pe disc modificat. Vă rugăm să salvați la un alt fișier pentru a evita pierderea de date! Fișier modificat:% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
-        <translation>Hatch a eșuat din cauza unui decalaj=% 1 între (% 2,% 3) și (% 4,% 5)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Avertisment</translation>
+        <translation type="unfinished">Atentie</translation>
     </message>
     <message>
         <source>error reading blocks in dwg file</source>
-        <translation>eroare de citire blocuri în fișier dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading objects in dwg file</source>
-        <translation>eroare la citirea obiectelor în fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>: duplicated command: %1 is already taken by %2</source>
-        <translation>@ info: whatsthis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point</source>
         <comment>draw point</comment>
-        <translation>punct</translation>
+        <translation type="unfinished">punct</translation>
     </message>
     <message>
         <source>po</source>
         <comment>draw point</comment>
-        <translation>po</translation>
+        <translation type="unfinished">po</translation>
     </message>
     <message>
         <source>line</source>
         <comment>draw line</comment>
-        <translation>linie</translation>
+        <translation type="unfinished">linie</translation>
     </message>
     <message>
         <source>li</source>
         <comment>draw line</comment>
-        <translation>li</translation>
+        <translation type="unfinished">li</translation>
     </message>
     <message>
         <source>l</source>
         <comment>draw line</comment>
-        <translation>l</translation>
+        <translation type="unfinished">l</translation>
     </message>
     <message>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>polilină</translation>
+        <translation type="unfinished">polyligne</translation>
     </message>
     <message>
         <source>pl</source>
         <comment>draw polyline</comment>
-        <translation>pl</translation>
+        <translation type="unfinished">pl</translation>
     </message>
     <message>
         <source>free</source>
         <comment>draw freehand line</comment>
-        <translation>gratuit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fhl</source>
         <comment>draw freehand line</comment>
-        <translation>fhl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>splină</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spl</source>
         <comment>draw spline</comment>
-        <translation>spi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spline2</source>
         <comment>spline through points</comment>
-        <translation>splină2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>stp</source>
         <comment>spline through points</comment>
-        <translation>stp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ptp</source>
         <comment>parallel through point</comment>
-        <translation>ptp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation>bisect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bi</source>
         <comment>angle bisector</comment>
-        <translation>bi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tanpc</source>
         <comment>tangent point and circle</comment>
-        <translation>tancpc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ortho</source>
         <comment>perpendicular line</comment>
-        <translation>orto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect</source>
         <comment>draw rectangle</comment>
-        <translation>rect</translation>
+        <translation type="unfinished">rect</translation>
     </message>
     <message>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>poligon2v</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>poly2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>poli2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle</source>
         <comment>draw circle</comment>
-        <translation>cerc</translation>
+        <translation type="unfinished">cerc</translation>
     </message>
     <message>
         <source>ci</source>
         <comment>draw circle</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c2</source>
         <comment>circle 2 points</comment>
-        <translation>c2</translation>
+        <translation type="unfinished">c2</translation>
     </message>
     <message>
         <source>c3</source>
         <comment>circle 3 points</comment>
-        <translation>c3</translation>
+        <translation type="unfinished">c3</translation>
     </message>
     <message>
         <source>tan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>tan3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ct3</source>
         <comment>circle tangent to 3</comment>
-        <translation>ct3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation>elipseinscrise</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ei</source>
         <comment>inscribed ellipse</comment>
-        <translation>ei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ie</source>
         <comment>inscribed ellipse</comment>
-        <translation>a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hatch</source>
         <comment>draw hatch</comment>
-        <translation>trapă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ha</source>
         <comment>draw hatch</comment>
-        <translation>ha</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mtext</source>
         <comment>draw mtext</comment>
-        <translation>mtext</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mtxt</source>
         <comment>draw mtext</comment>
-        <translation>mtxt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>text</source>
         <comment>draw text</comment>
-        <translation>text</translation>
+        <translation type="unfinished">text</translation>
     </message>
     <message>
         <source>txt</source>
         <comment>draw text</comment>
-        <translation>txt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>regen</source>
         <comment>zoom - redraw</comment>
-        <translation>regen</translation>
+        <translation type="unfinished">regenerare</translation>
     </message>
     <message>
         <source>redraw</source>
         <comment>zoom - redraw</comment>
-        <translation>redraw</translation>
+        <translation type="unfinished">redraw</translation>
     </message>
     <message>
         <source>rg</source>
         <comment>zoom - redraw</comment>
-        <translation>rg</translation>
+        <translation type="unfinished">rg</translation>
     </message>
     <message>
         <source>zr</source>
         <comment>zoom - redraw</comment>
-        <translation>zr</translation>
+        <translation type="unfinished">zr</translation>
     </message>
     <message>
         <source>zoomwindow</source>
         <comment>zoom - window</comment>
-        <translation>fereastra de marire</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zw</source>
         <comment>zoom - window</comment>
-        <translation>zw</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zoomauto</source>
         <comment>zoom - auto</comment>
-        <translation>zoomauto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>za</source>
         <comment>zoom - auto</comment>
-        <translation>za</translation>
+        <translation type="unfinished">za</translation>
     </message>
     <message>
         <source>zoompan</source>
         <comment>zoom - pan</comment>
-        <translation>zoompan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zp</source>
         <comment>zoom - pan</comment>
-        <translation>zp</translation>
+        <translation type="unfinished">zp</translation>
     </message>
     <message>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation>marire anterior</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zv</source>
         <comment>zoom - previous</comment>
-        <translation>zv</translation>
+        <translation type="unfinished">zv</translation>
     </message>
     <message>
         <source>kill</source>
         <comment>kill all actions</comment>
-        <translation>ucide</translation>
+        <translation type="unfinished">tuer</translation>
     </message>
     <message>
         <source>k</source>
         <comment>kill all actions</comment>
-        <translation>k</translation>
+        <translation type="unfinished">k</translation>
     </message>
     <message>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>anulează</translation>
+        <translation type="unfinished">anulare</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo cycle</comment>
-        <translation>u</translation>
+        <translation type="unfinished">u</translation>
     </message>
     <message>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>refacere</translation>
+        <translation type="unfinished">refacere</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo cycle</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimaligned</source>
         <comment>dimension - aligned</comment>
-        <translation>dimaliginat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimhorizontal</source>
         <comment>dimension - horizontal</comment>
-        <translation>diborizontal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dh</source>
         <comment>dimension - horizontal</comment>
-        <translation>dh</translation>
+        <translation type="unfinished">dh</translation>
     </message>
     <message>
         <source>dimvertical</source>
         <comment>dimension - vertical</comment>
-        <translation>dimvertic</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dv</source>
         <comment>dimension - vertical</comment>
-        <translation>dv</translation>
+        <translation type="unfinished">dv</translation>
     </message>
     <message>
         <source>dimlinear</source>
         <comment>dimension - linear</comment>
-        <translation>dimliniar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dl</source>
         <comment>dimension - linear</comment>
-        <translation>dl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimangular</source>
         <comment>dimension - angular</comment>
-        <translation>dimangular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dan</source>
         <comment>dimension - angular</comment>
-        <translation>dan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimradial</source>
         <comment>dimension - radial</comment>
-        <translation>dimradial</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimdiametric</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiametric</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimdiameter</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiametru</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dd</source>
         <comment>dimension - diametric</comment>
-        <translation>♪</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimleader</source>
         <comment>dimension - leader</comment>
-        <translation>dimleader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ld</source>
         <comment>dimension - leader</comment>
-        <translation>ld</translation>
+        <translation type="unfinished">ld</translation>
     </message>
     <message>
         <source>dimregen</source>
         <comment>dimension - regenerate</comment>
-        <translation>dimregen</translation>
+        <translation type="unfinished">dimregen</translation>
     </message>
     <message>
         <source>restrictnothing</source>
         <comment>restrict - nothing</comment>
-        <translation>nu restricţiona nimic</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rn</source>
         <comment>restrict - nothing</comment>
-        <translation>rn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restrictorthogonal</source>
         <comment>restrict - orthogonal</comment>
-        <translation>restricţionează ortogonalul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rr</source>
         <comment>restrict - orthogonal</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restricthorizontal</source>
         <comment>restrict - horizontal</comment>
-        <translation>restrictionorizontal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rh</source>
         <comment>restrict - horizontal</comment>
-        <translation>rh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restrictvertical</source>
         <comment>restrict - vertical</comment>
-        <translation>restricţionare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rv</source>
         <comment>restrict - vertical</comment>
-        <translation>rv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mv</source>
         <comment>modify - move (copy)</comment>
-        <translation>mv</translation>
+        <translation type="unfinished">mv</translation>
     </message>
     <message>
         <source>bev</source>
         <comment>modify - bevel</comment>
-        <translation>bev</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ch</source>
         <comment>modify - bevel</comment>
-        <translation>c</translation>
+        <translation type="unfinished">ch</translation>
     </message>
     <message>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation>fi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>tăiat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>div</source>
         <comment>modify - divide (cut)</comment>
-        <translation>diviziunea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mi</source>
         <comment>modify -  mirror</comment>
-        <translation>mi</translation>
+        <translation type="unfinished">mi</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>modify -  revert direction</comment>
-        <translation>rev</translation>
+        <translation type="unfinished">inv</translation>
     </message>
     <message>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation>es</translation>
+        <translation type="unfinished">ro</translation>
     </message>
     <message>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>sz</translation>
+        <translation type="unfinished">sz</translation>
     </message>
     <message>
         <source>tm</source>
         <comment>modify - trim (extend)</comment>
-        <translation>tm</translation>
+        <translation type="unfinished">tm</translation>
     </message>
     <message>
         <source>tm2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>tm2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>le</source>
         <comment>modify - lengthen</comment>
-        <translation>le</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>ss</translation>
+        <translation type="unfinished">ss</translation>
     </message>
     <message>
         <source>er</source>
         <comment>modify - delete (erase)</comment>
-        <translation>es</translation>
+        <translation type="unfinished">er</translation>
     </message>
     <message>
         <source>del</source>
         <comment>modify - delete (erase)</comment>
-        <translation>del</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>xp</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>xp</translation>
+        <translation type="unfinished">xp</translation>
     </message>
     <message>
         <source>snapfree</source>
         <comment>snap - free</comment>
-        <translation>capsefree</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>os</source>
         <comment>snap - free</comment>
-        <translation>os</translation>
+        <translation type="unfinished">os</translation>
     </message>
     <message>
         <source>snapcenter</source>
         <comment>snap - center</comment>
-        <translation>snapcenter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sc</source>
         <comment>snap - center</comment>
-        <translation>s</translation>
+        <translation type="unfinished">sc</translation>
     </message>
     <message>
         <source>snapdist</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>snapdist</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sd</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>sd</translation>
+        <translation type="unfinished">sd</translation>
     </message>
     <message>
         <source>snapend</source>
         <comment>snap - end points</comment>
-        <translation>snapend</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>se</source>
         <comment>snap - end points</comment>
-        <translation>se</translation>
+        <translation type="unfinished">se</translation>
     </message>
     <message>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>snapgrid</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sg</source>
         <comment>snap - grid</comment>
-        <translation>sg</translation>
+        <translation type="unfinished">sg</translation>
     </message>
     <message>
         <source>snapintersection</source>
         <comment>snap - intersection</comment>
-        <translation>snapintersecție</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>si</source>
         <comment>snap - intersection</comment>
-        <translation>si</translation>
+        <translation type="unfinished">si</translation>
     </message>
     <message>
         <source>snapmiddle</source>
         <comment>snap - middle points</comment>
-        <translation>snapmiddle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sm</source>
         <comment>snap - middle points</comment>
-        <translation>sm</translation>
+        <translation type="unfinished">sm</translation>
     </message>
     <message>
         <source>snaponentity</source>
         <comment>snap - on entity</comment>
-        <translation>snapsonentitate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sn</source>
         <comment>snap - on entity</comment>
-        <translation>sn</translation>
+        <translation type="unfinished">sn</translation>
     </message>
     <message>
         <source>np</source>
         <comment>snap - on entity</comment>
-        <translation>np</translation>
+        <translation type="unfinished">np</translation>
     </message>
     <message>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>setrelativezero</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rz</source>
         <comment>set relative zero position</comment>
-        <translation>rz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation>selectați toate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sa</source>
         <comment>Select all entities</comment>
-        <translation>a</translation>
+        <translation type="unfinished">sa</translation>
     </message>
     <message>
         <source>deselectall</source>
         <comment>deselect all entities</comment>
-        <translation>deselectează toate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tn</source>
         <comment>deselect all entities</comment>
-        <translation>nu</translation>
+        <translation type="unfinished">tn</translation>
     </message>
     <message>
         <source>attr</source>
         <comment>modify attribute</comment>
-        <translation>attr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ma</source>
         <comment>modify attribute</comment>
-        <translation>ma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>prop</source>
         <comment>modify properties</comment>
-        <translation>prop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist</source>
         <comment>distance point to point</comment>
-        <translation>dist</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dpp</source>
         <comment>distance point to point</comment>
-        <translation>dpp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ang</source>
         <comment>measure angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">ang</translation>
     </message>
     <message>
         <source>angle</source>
-        <translation>unghi</translation>
+        <translation type="unfinished">unghi</translation>
     </message>
     <message>
         <source>dpi</source>
-        <translation>dpi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>close</source>
-        <translation>închide</translation>
+        <translation type="unfinished">aproape</translation>
     </message>
     <message>
         <source>chord length</source>
-        <translation>lungimea coardei</translation>
+        <translation type="unfinished">lungime coarda</translation>
     </message>
     <message>
         <source>columns</source>
-        <translation>coloane</translation>
+        <translation type="unfinished">coloane</translation>
     </message>
     <message>
         <source>columnspacing</source>
-        <translation>coloanepacing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>factor</source>
-        <translation>factor</translation>
+        <translation type="unfinished">factor</translation>
     </message>
     <message>
         <source>length</source>
-        <translation>lungime</translation>
+        <translation type="unfinished">lungime</translation>
     </message>
     <message>
         <source>number</source>
-        <translation>număr</translation>
+        <translation type="unfinished">numar</translation>
     </message>
     <message>
         <source>radius</source>
-        <translation>raza</translation>
+        <translation type="unfinished">raza</translation>
     </message>
     <message>
         <source>rows</source>
-        <translation>rânduri</translation>
+        <translation type="unfinished">randuri</translation>
     </message>
     <message>
         <source>rowspacing</source>
-        <translation>rânduri de rulare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>through</source>
-        <translation>prin</translation>
+        <translation type="unfinished">prin</translation>
     </message>
     <message>
         <source>trim</source>
-        <translation>tăiați</translation>
+        <translation type="unfinished">taiere</translation>
     </message>
     <message>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">ang</translation>
     </message>
     <message>
         <source>an</source>
         <comment>angle</comment>
-        <translation>a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>center</source>
-        <translation>centru</translation>
+        <translation type="unfinished">centru</translation>
     </message>
     <message>
         <source>cen</source>
         <comment>center</comment>
-        <translation>cen</translation>
+        <translation type="unfinished">cen</translation>
     </message>
     <message>
         <source>ce</source>
         <comment>center</comment>
-        <translation>ce</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cl</source>
         <comment>chord length</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c</source>
         <comment>close</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cols</source>
         <comment>columns</comment>
-        <translation>cols</translation>
+        <translation type="unfinished">cols</translation>
     </message>
     <message>
         <source>co</source>
         <comment>columns</comment>
-        <translation>nu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>coloanepacing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>colspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>colspacing</translation>
+        <translation type="unfinished">spatierecol</translation>
     </message>
     <message>
         <source>cs</source>
         <comment>columnspacing for inserts</comment>
-        <translation>cs</translation>
+        <translation type="unfinished">ec</translation>
     </message>
     <message>
         <source>fact</source>
         <comment>factor</comment>
-        <translation>fapt</translation>
+        <translation type="unfinished">fact</translation>
     </message>
     <message>
         <source>f</source>
         <comment>factor</comment>
-        <translation>f</translation>
+        <translation type="unfinished">f</translation>
     </message>
     <message>
         <source>help</source>
-        <translation>ajutor</translation>
+        <translation type="unfinished">ajutor</translation>
     </message>
     <message>
         <source>?</source>
         <comment>help</comment>
-        <translation>?</translation>
+        <translation type="unfinished">?</translation>
     </message>
     <message>
         <source>length</source>
         <comment>length</comment>
-        <translation>lungime</translation>
+        <translation type="unfinished">lungime</translation>
     </message>
     <message>
         <source>len</source>
         <comment>length</comment>
-        <translation>len</translation>
+        <translation type="unfinished">lung</translation>
     </message>
     <message>
         <source>l</source>
         <comment>length</comment>
-        <translation>l</translation>
+        <translation type="unfinished">l</translation>
     </message>
     <message>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>lungime1</translation>
+        <translation type="unfinished">lungime1</translation>
     </message>
     <message>
         <source>len1</source>
         <comment>length1</comment>
-        <translation>len1color</translation>
+        <translation type="unfinished">lung1</translation>
     </message>
     <message>
         <source>l1</source>
         <comment>length1</comment>
-        <translation>l1</translation>
+        <translation type="unfinished">l1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>lungime 2</translation>
+        <translation type="unfinished">lungime2</translation>
     </message>
     <message>
         <source>len2</source>
         <comment>length2</comment>
-        <translation>len2color</translation>
+        <translation type="unfinished">lung2</translation>
     </message>
     <message>
         <source>l2</source>
         <comment>length2</comment>
-        <translation>l2</translation>
+        <translation type="unfinished">l2</translation>
     </message>
     <message>
         <source>number</source>
         <comment>number</comment>
-        <translation>număr</translation>
+        <translation type="unfinished">numar</translation>
     </message>
     <message>
         <source>num</source>
         <comment>number</comment>
-        <translation>num</translation>
+        <translation type="unfinished">num</translation>
     </message>
     <message>
         <source>n</source>
         <comment>number</comment>
-        <translation>n</translation>
+        <translation type="unfinished">n</translation>
     </message>
     <message>
         <source>ra</source>
         <comment>radius</comment>
-        <translation>au</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>inversat</translation>
+        <translation type="unfinished">inversat</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation>rev</translation>
+        <translation type="unfinished">inv</translation>
     </message>
     <message>
         <source>row</source>
         <comment>row</comment>
-        <translation>rând</translation>
+        <translation type="unfinished">rand</translation>
     </message>
     <message>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rânduri de rulare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rs</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rs</translation>
+        <translation type="unfinished">sr</translation>
     </message>
     <message>
         <source>text</source>
-        <translation>text</translation>
+        <translation type="unfinished">text</translation>
     </message>
     <message>
         <source>t</source>
         <comment>text</comment>
-        <translation>t</translation>
+        <translation type="unfinished">t</translation>
     </message>
     <message>
         <source>t</source>
         <comment>through</comment>
-        <translation>t</translation>
+        <translation type="unfinished">t</translation>
     </message>
     <message>
         <source>undo</source>
-        <translation>anulează</translation>
+        <translation type="unfinished">anulare</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo</comment>
-        <translation>u</translation>
+        <translation type="unfinished">u</translation>
     </message>
     <message>
         <source>redo</source>
-        <translation>refacere</translation>
+        <translation type="unfinished">refacere</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>back</source>
-        <translation>înapoi</translation>
+        <translation type="unfinished">précédent</translation>
     </message>
     <message>
         <source>b</source>
         <comment>back</comment>
-        <translation>b</translation>
+        <translation type="unfinished">b</translation>
     </message>
     <message>
         <source>paperoffset</source>
-        <translation>offset hârtie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>graphoffset</source>
-        <translation>graficoffset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Command: %1 (%2)</source>
-        <translation>Comandă:% 1 (% 2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RS_Commands:: command not found: %1</source>
-        <translation>RS  Comenzi:: comanda nu a fost găsită:% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Command not found: %1</source>
-        <translation>Comandă negăsită:% 1</translation>
+        <translation type="unfinished">Nu am gasit comanda: %1</translation>
     </message>
     <message>
         <source>Accepted keycode: %1</source>
-        <translation>Cod de cheie acceptat:% 1</translation>
+        <translation type="unfinished">Cod cheie acceptat: %1</translation>
     </message>
     <message>
         <source>Available commands:</source>
-        <translation>Comenzi disponibile:</translation>
+        <translation type="unfinished">Comenzi disponibile:</translation>
     </message>
     <message>
         <source>None</source>
         <comment>unknown length unit</comment>
-        <translation>Niciuna</translation>
+        <translation type="unfinished">Nedefinit</translation>
     </message>
     <message>
         <source>error reading file metadata in dwg file</source>
-        <translation>eroare la citirea metadatelor fișierului în fișierul dwg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator error for input: </source>
-        <translation>Eroare de calcul pentru intrare:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bw</source>
-        <translation>bw</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>blackwhite</source>
-        <translation>alb negru</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>color</source>
-        <translation>culoare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>di</source>
         <comment>modify - divide (cut)</comment>
-        <translation>di</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>t2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>t2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mp</source>
         <comment>modify properties</comment>
-        <translation>mp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Bloc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation>Cerc</translation>
+        <translation type="unfinished">Cerc</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curvă</translation>
+        <translation type="unfinished">Curba</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Editare</translation>
+        <translation type="unfinished">Editare</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Elipsă</translation>
+        <translation type="unfinished">Elipsa</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>Fișier</translation>
+        <translation type="unfinished">Fisier</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>Dimensiune</translation>
+        <translation type="unfinished">Dimensiune</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Informații</translation>
+        <translation type="unfinished">Info</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation>Strat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Linie</translation>
+        <translation type="unfinished">Linie</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>Modificare</translation>
+        <translation type="unfinished">Modificare</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Opțiuni</translation>
+        <translation type="unfinished">Optiuni</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Altele</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polilinie</translation>
+        <translation type="unfinished">Polilinie</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Restricție</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Alegeți</translation>
+        <translation type="unfinished">Selectie</translation>
     </message>
     <message>
         <source>Snap</source>
-        <translation>Snap</translation>
+        <translation type="unfinished">Salt</translation>
     </message>
     <message>
         <source>Snap Extras</source>
-        <translation>Snap Extras</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Vizualizare</translation>
+        <translation type="unfinished">Afisare</translation>
     </message>
     <message>
         <source>Widgets</source>
-        <translation>Controale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creators</source>
-        <translation>Creatori</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation>Toate</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid objects removed:</source>
-        <translation>Obiecte nevalide eliminate:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen Wizard</source>
-        <translation>Vrăjitor stilou</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select objects</source>
-        <translation>Alegeți obiecte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply to selected</source>
-        <translation>Aplică la selectat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Elimină</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You must input a distance first.</source>
-        <translation>Trebuie să introduceți o distanță mai întâi.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal</source>
-        <translation>cal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator mode: On</source>
-        <translation>Modul de calcul: Activat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator mode: Off</source>
-        <translation>Modul de calcul: oprit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>License</source>
-        <translation>Licență</translation>
+        <translation type="unfinished">Licență</translation>
     </message>
     <message>
         <source>No %1 layers found</source>
-        <translation>Nu s- au găsit straturi% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>line2p</source>
         <comment>draw line</comment>
-        <translation>linie2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineang</source>
         <comment>angled line</comment>
-        <translation>lineang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>la</source>
         <comment>angled line</comment>
-        <translation>la</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linehor</source>
         <comment>horizontal line</comment>
-        <translation>linehor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lh</source>
         <comment>horizontal line</comment>
-        <translation>lh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linever</source>
         <comment>vertical line</comment>
-        <translation>linever</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lv</source>
         <comment>vertical line</comment>
-        <translation>lv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linerec</source>
         <comment>draw rectangle</comment>
-        <translation>linieec</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re</source>
         <comment>draw rectangle</comment>
-        <translation>au</translation>
+        <translation type="unfinished">re</translation>
     </message>
     <message>
         <source>linepar</source>
         <comment>create parallel</comment>
-        <translation>linepar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineoff</source>
         <comment>create parallel</comment>
-        <translation>linie off</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pa</source>
         <comment>create parallel</comment>
-        <translation>pa</translation>
+        <translation type="unfinished">pa</translation>
     </message>
     <message>
         <source>ll</source>
         <comment>create parallel</comment>
-        <translation>ll</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineparthro</source>
         <comment>parallel through point</comment>
-        <translation>lineparthro</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lp</source>
         <comment>parallel through point</comment>
-        <translation>pr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linebisect</source>
         <comment>angle bisector</comment>
-        <translation>linebisect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetancp</source>
         <comment>tangent point and circle</comment>
-        <translation>linetancp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lt</source>
         <comment>tangent point and circle</comment>
-        <translation>lt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetan2c</source>
         <comment>tangent two circles</comment>
-        <translation>linetan2c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lc</source>
         <comment>tangent two circles</comment>
-        <translation>lc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetancper</source>
         <comment>tangent line and circle</comment>
-        <translation>linetancper</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>or</source>
         <comment>tangent line and circle</comment>
-        <translation>sau</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineperp</source>
         <comment>perpendicular line</comment>
-        <translation>lineperp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lo</source>
         <comment>perpendicular line</comment>
-        <translation>nu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linerelang</source>
         <comment>relative line</comment>
-        <translation>linerelang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lr</source>
         <comment>relative line</comment>
-        <translation>lr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polygoncencor</source>
         <comment>polygon centre point</comment>
-        <translation>poligoncencor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pp</source>
         <comment>polygon centre point</comment>
-        <translation>pp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polycp</source>
         <comment>polygon centre point</comment>
-        <translation>policp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pcp</source>
         <comment>polygon centre point</comment>
-        <translation>pcp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polygoncentan</source>
         <comment>polygon centre vertex</comment>
-        <translation>poligoncentan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pv</source>
         <comment>polygon centre vertex</comment>
-        <translation>pv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polyct</source>
         <comment>polygon centre vertex</comment>
-        <translation>polict</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>p2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c</source>
         <comment>draw circle</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle2p</source>
         <comment>circle 2 points</comment>
-        <translation>cerc2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c2p</source>
         <comment>circle 2 points</comment>
-        <translation>c2p</translation>
+        <translation type="unfinished">c2p</translation>
     </message>
     <message>
         <source>circle2pr</source>
         <comment>circle 2 points radius</comment>
-        <translation>cerc2pr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cc</source>
         <comment>circle 2 points radius</comment>
-        <translation>cc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle3p</source>
         <comment>circle 3 points</comment>
-        <translation>cerc 3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c3p</source>
         <comment>circle 3 points</comment>
-        <translation>c3p</translation>
+        <translation type="unfinished">c3p</translation>
     </message>
     <message>
         <source>circlecr</source>
         <comment>circle point radius</comment>
-        <translation>cerccr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cr</source>
         <comment>circle point radius</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ccr</source>
         <comment>circle point radius</comment>
-        <translation>ccr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2cp</source>
         <comment>circle 2 tangent point</comment>
-        <translation>cerctan2cp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tr</source>
         <comment>circle 2 tangent point</comment>
-        <translation>t</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2p</source>
         <comment>circle tangent 2 points</comment>
-        <translation>cercetan2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>td</source>
         <comment>circle tangent 2 points</comment>
-        <translation>td</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2cr</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>cerctan2cr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tc</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>tc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>cercetan 3color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>t3</source>
         <comment>circle tangent to 3</comment>
-        <translation>t3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arc</source>
         <comment>arc point radius</comment>
-        <translation>arc</translation>
+        <translation type="unfinished">arc</translation>
     </message>
     <message>
         <source>ar</source>
         <comment>arc point radius</comment>
-        <translation>ar</translation>
+        <translation type="unfinished">ar</translation>
     </message>
     <message>
         <source>a</source>
         <comment>arc point radius</comment>
-        <translation>a</translation>
+        <translation type="unfinished">a</translation>
     </message>
     <message>
         <source>arc3p</source>
         <comment>draw 3pt arc</comment>
-        <translation>arc3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>a3</source>
         <comment>draw 3pt arc</comment>
-        <translation>a3</translation>
+        <translation type="unfinished">a3</translation>
     </message>
     <message>
         <source>arctan</source>
         <comment>arc tangent</comment>
-        <translation>arctan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>at</source>
         <comment>arc tangent</comment>
-        <translation>la</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sf</source>
         <comment>draw spline</comment>
-        <translation>sf</translation>
+        <translation type="unfinished">sf</translation>
     </message>
     <message>
         <source>sp</source>
         <comment>spline through points</comment>
-        <translation>sp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arcellc2ax</source>
         <comment>arc ellipse</comment>
-        <translation>arcellc2ax</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ae</source>
         <comment>arc ellipse</comment>
-        <translation>ae</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fh</source>
         <comment>draw freehand line</comment>
-        <translation>fh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipsec2p</source>
         <comment>ellipse axis</comment>
-        <translation>elipsec2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ea</source>
         <comment>ellipse axis</comment>
-        <translation>ea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipse3p</source>
         <comment>ellipse foci</comment>
-        <translation>elipsă3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ef</source>
         <comment>ellipse foci</comment>
-        <translation>ef</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipse4p</source>
         <comment>ellipse 4 point</comment>
-        <translation>elipsă4p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>e4</source>
         <comment>ellipse 4 point</comment>
-        <translation>e4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipsec3p</source>
         <comment>ellipse center 3 point</comment>
-        <translation>elipsec3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>e3</source>
         <comment>ellipse center 3 point</comment>
-        <translation>e3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plineadd</source>
         <comment>pl add node</comment>
-        <translation>plineadd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pi</source>
         <comment>pl add node</comment>
-        <translation>pi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plineapp</source>
         <comment>pl append node</comment>
-        <translation>plineapp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pn</source>
         <comment>pl append node</comment>
-        <translation>pn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinedel</source>
         <comment>pl delete node</comment>
-        <translation>plinedel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pd</source>
         <comment>pl delete node</comment>
-        <translation>pd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinedeltwn</source>
         <comment>pl del between nodes</comment>
-        <translation>plinedeltwn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pr</source>
         <comment>pl del between nodes</comment>
-        <translation>pr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinetrm</source>
         <comment>pl trim segments</comment>
-        <translation>plinetrm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pt</source>
         <comment>pl trim segments</comment>
-        <translation>pt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinepar</source>
         <comment>pl equidistant</comment>
-        <translation>plinepar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pe</source>
         <comment>pl equidistant</comment>
-        <translation>pe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinejoin</source>
         <comment>pl join</comment>
-        <translation>plinejoin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pj</source>
         <comment>pl join</comment>
-        <translation>pj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sx</source>
         <comment>deselect all entities</comment>
-        <translation>sx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>invertselect</source>
         <comment>invert select</comment>
-        <translation>selecție inversă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>is</source>
         <comment>invert select</comment>
-        <translation>este</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ds</source>
         <comment>dimension - aligned</comment>
-        <translation>ds</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimradius</source>
         <comment>dimension - radial</comment>
-        <translation>dimradius</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dr</source>
         <comment>dimension - radial</comment>
-        <translation>dr</translation>
+        <translation type="unfinished">dr</translation>
     </message>
     <message>
         <source>da</source>
         <comment>dimension - angular</comment>
-        <translation>da</translation>
+        <translation type="unfinished">da</translation>
     </message>
     <message>
         <source>dg</source>
         <comment>dimension - regenerate</comment>
-        <translation>dg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmove</source>
         <comment>modify - move (copy)</comment>
-        <translation>modmove</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modrotate</source>
         <comment>modify - rotate</comment>
-        <translation>modrotat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modscale</source>
         <comment>modify - scale</comment>
-        <translation>modscale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmirror</source>
         <comment>modify -  mirror</comment>
-        <translation>modmirror</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmovrot</source>
         <comment>modify - move rotate</comment>
-        <translation>modmovrot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mr</source>
         <comment>modify - move rotate</comment>
-        <translation>mr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mod2rot</source>
         <comment>modify - rotate2</comment>
-        <translation>mod2rot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>r2</source>
         <comment>modify - rotate2</comment>
-        <translation>r2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modrevert</source>
         <comment>modify -  revert direction</comment>
-        <translation>modrevert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>md</source>
         <comment>modify -  revert direction</comment>
-        <translation>md</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modtrim</source>
         <comment>modify - trim (extend)</comment>
-        <translation>modtrim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modtrim2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>modtrim2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modlengthen</source>
         <comment>modify - lengthen</comment>
-        <translation>modlungime</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modoffset</source>
         <comment>modify - offset</comment>
-        <translation>modofset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mo</source>
         <comment>modify - offset</comment>
-        <translation>mo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moff</source>
         <comment>modify - offset</comment>
-        <translation>moff</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modbevel</source>
         <comment>modify - bevel</comment>
-        <translation>modbevel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modfillet</source>
         <comment>modify - fillet</comment>
-        <translation>modifelet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moddivide</source>
         <comment>modify - divide (cut)</comment>
-        <translation>moddividă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modstretch</source>
         <comment>modify - stretch</comment>
-        <translation>modstretch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modproperties</source>
         <comment>modify properties</comment>
-        <translation>modproprietăţi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modattr</source>
         <comment>modify attribute</comment>
-        <translation>modattr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modexpltext</source>
         <comment>explode text strings</comment>
-        <translation>modexpltext</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>xt</source>
         <comment>explode text strings</comment>
-        <translation>xt</translation>
+        <translation type="unfinished">xt</translation>
     </message>
     <message>
         <source>modexplode</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>molexplodă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moddelete</source>
         <comment>modify - delete (erase)</comment>
-        <translation>moddelet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infodistance</source>
         <comment>distance point to point</comment>
-        <translation>distanta info</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>id</source>
         <comment>distance point to point</comment>
-        <translation>id</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infodistep</source>
         <comment>distance entity to point</comment>
-        <translation>infodistep</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ii</source>
         <comment>distance entity to point</comment>
-        <translation>ii</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dep</source>
         <comment>distance entity to point</comment>
-        <translation>dep</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infoangle</source>
         <comment>measure angle</comment>
-        <translation>infoangle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ia</source>
         <comment>measure angle</comment>
-        <translation>da</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infoarea</source>
         <comment>measure area</comment>
-        <translation>infoarea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>aa</source>
         <comment>measure area</comment>
-        <translation>aa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mt</source>
         <comment>draw mtext</comment>
-        <translation>mt</translation>
+        <translation type="unfinished">mt</translation>
     </message>
     <message>
         <source>tx</source>
         <comment>draw text</comment>
-        <translation>tx</translation>
+        <translation type="unfinished">tx</translation>
     </message>
     <message>
         <source>so</source>
         <comment>snap - free</comment>
-        <translation>deci..</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ki</source>
         <comment>kill all actions</comment>
-        <translation>ki</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>un</source>
         <comment>undo cycle</comment>
-        <translation>un</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rd</source>
         <comment>redo cycle</comment>
-        <translation>rd</translation>
+        <translation type="unfinished">rd</translation>
     </message>
     <message>
         <source>drawpref</source>
         <comment>drawing preferences</comment>
-        <translation>drawpref</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dp</source>
         <comment>drawing preferences</comment>
-        <translation>dp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>equation</source>
-        <translation>ecuație</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation>lungime1</translation>
+        <translation type="unfinished">lungime1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation>lungime 2</translation>
+        <translation type="unfinished">lungime2</translation>
     </message>
     <message>
         <source>eqn</source>
         <comment>equation</comment>
-        <translation>eqn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>eq</source>
         <comment>equation</comment>
-        <translation>eq</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
         <comment>Paper format</comment>
-        <translation>Personalizat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A0</source>
         <comment>Paper format</comment>
-        <translation>A0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A1</source>
         <comment>Paper format</comment>
-        <translation>A1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A2</source>
         <comment>Paper format</comment>
-        <translation>A2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A3</source>
         <comment>Paper format</comment>
-        <translation>A3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A4</source>
         <comment>Paper format</comment>
-        <translation>A4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Letter / ANSI A</source>
         <comment>Paper format</comment>
-        <translation>Scrisoarea / ANSI A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Legal</source>
         <comment>Paper format</comment>
-        <translation>Legal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tabloid / ANSI B</source>
         <comment>Paper format</comment>
-        <translation>Tabloid / ANSI B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI C</source>
         <comment>Paper format</comment>
-        <translation>ANSI C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI D</source>
         <comment>Paper format</comment>
-        <translation>ANSI D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI E</source>
         <comment>Paper format</comment>
-        <translation>ANSI E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch A</source>
         <comment>Paper format</comment>
-        <translation>Arcul A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch B</source>
         <comment>Paper format</comment>
-        <translation>Arcul B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch C</source>
         <comment>Paper format</comment>
-        <translation>Arcul C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch D</source>
         <comment>Paper format</comment>
-        <translation>Arcul D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch E</source>
         <comment>Paper format</comment>
-        <translation>Arcul E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
         <comment>Paper format</comment>
-        <translation>personalizat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>a0</source>
         <comment>Paper format</comment>
-        <translation>a0</translation>
+        <translation type="unfinished">a0</translation>
     </message>
     <message>
         <source>a1</source>
         <comment>Paper format</comment>
-        <translation>a1</translation>
+        <translation type="unfinished">a1</translation>
     </message>
     <message>
         <source>a2</source>
         <comment>Paper format</comment>
-        <translation>a2</translation>
+        <translation type="unfinished">a2</translation>
     </message>
     <message>
         <source>a3</source>
         <comment>Paper format</comment>
-        <translation>a3</translation>
+        <translation type="unfinished">a3</translation>
     </message>
     <message>
         <source>a4</source>
         <comment>Paper format</comment>
-        <translation>a4</translation>
+        <translation type="unfinished">a4</translation>
     </message>
     <message>
         <source>letter</source>
         <comment>Paper format</comment>
-        <translation>scrisoare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>legal</source>
         <comment>Paper format</comment>
-        <translation>legal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tabloid</source>
         <comment>Paper format</comment>
-        <translation>tabloid</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi c</source>
         <comment>Paper format</comment>
-        <translation>ansi c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi d</source>
         <comment>Paper format</comment>
-        <translation>ansi d</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi e</source>
         <comment>Paper format</comment>
-        <translation>ansi e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch a</source>
         <comment>Paper format</comment>
-        <translation>arc a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch b</source>
         <comment>Paper format</comment>
-        <translation>arc b</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch c</source>
         <comment>Paper format</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch d</source>
         <comment>Paper format</comment>
-        <translation>arc d</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch e</source>
         <comment>Paper format</comment>
-        <translation>arc e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DWG support is not complete!</source>
-        <translation>Suportul DWG nu este complet!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If this file fails to open try an older DWG format</source>
-        <translation>Dacă acest fișier nu deschide încercați un format DWG mai vechi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>or try to find a converter to make it a DXF file.</source>
-        <translation>sau să încerce să găsească un convertor pentru a face un fișier DXF.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>Informații</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
         <comment>fileImport</comment>
-        <translation>Eroare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import error:</source>
         <comment>fileImport</comment>
-        <translation>Eroare la import:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
-        <translation>Oricum, există unele entități identificate.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
-        <translation>Dacă deschideți fișierul acum, desenul poate să nu fie complet sau inutilizabil.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
-        <translation>Ignoră eroarea și deschide fișierul?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>nicio eroare DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la deschiderea fișierului DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>versiune de fișier DXF/WG nesuportată</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>citire eroare date meta DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea antetului fișierului DXF/WG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG header dara</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>citire eroare antet DXF/DWG dara</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare de citire harta obiect DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>clase DXF/DWG de citire a erorilor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea tabelelor DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare de citire blocuri DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea entităților DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea obiectelor DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea secțiunilor DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>eroare la citirea codului DXF/DWG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>undefined error</source>
         <comment>RS_FilterInterface</comment>
-        <translation>eroare nedefinită</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usage: </source>
-        <translation>utilizare:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> [options] &lt;dxf_files&gt;</source>
-        <translation>[opțiuni] &lt;dxf files&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> *.dxf</source>
-        <translation>*.dxf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation>-- imprima toate fisierele dxf in fisierele pdf cu aceleasi nume.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> -o some.pdf *.dxf</source>
-        <translation>-o some.pdf *.dxf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>-- printeaza toate fisierele dxf in fisierul 'unele.pdf'.</translation>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
-        <translation>Se potrivesc automat și centru de desen la pagina.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto center drawing on page.</source>
-        <translation>Centrul auto desenează pe pagină.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print grayscale.</source>
-        <translation>Print griscale.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print monochrome (black/white).</source>
-        <translation>Monocrom de imprimare (negru/alb).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paper size (Width x Height) in mm.</source>
         <comment>WxH</comment>
-        <translation>Dimensiunea hârtiei (în lățime x înălțime) în mm.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output resolution (DPI).</source>
         <comment>integer</comment>
-        <translation>Rezoluția de ieșire (DPI).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
-        <translation>Scala de ieşire. De exemplu: 0,01 (pentru scara 1:100).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paper margins in mm (integer or float).</source>
-        <translation>Margini de hârtie în mm (integer sau float).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print on multiple pages (Horiz. x Vert.).</source>
-        <translation>Imprimă pe mai multe pagini (Horiz. x Vert.).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output PDF file.</source>
         <comment>file</comment>
-        <translation>Fișier PDF de ieșire.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target output directory.</source>
-        <translation>Dosarul de ieșire țintă.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;dxf_files&gt;</source>
-        <translation>&lt;dxf files &gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Input DXF file(s)</source>
-        <translation>Fișier DXF de intrare (s)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keycode mode</source>
-        <translation>Mod cod cheie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load command file</source>
-        <translation>Încarcă fișierul de comandă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste multiple commands</source>
-        <translation>Lipește comenzi multiple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine all layers</source>
-        <translation>Combină toate straturile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>Fișierul "% 1 " există deja. Vrei s-o înlocuieşti?</translation>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>/CustomColor%1</source>
-        <translation>/CustomColor% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Personalizat ales</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noname</source>
         <comment>default layer name</comment>
-        <translation>fără nume</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>sline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>sli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>slinex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>slix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation>rlx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliney</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>rly</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>rect1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>rect2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>rect3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>felie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>feliec</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>stea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>at</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>cruce</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>cx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>puncte de linie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>puncte l</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>croclebyarc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>cba</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>duplicat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>dap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>linejoin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>lj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>breakdividă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>bd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>decalaj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>gl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>parabola4p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>pl4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>parabolafd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>unghiular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>rortolină</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>rort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>linie punct2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>snapmiddlemanual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>snapmanual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>smm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>anglerel</source>
-        <translation>anglerel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>start</source>
-        <translation>start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>offset</source>
-        <translation>offset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linesnap</source>
-        <translation>liniinap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>ticăie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>width</source>
-        <translation>lățime</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>height</source>
-        <translation>înălțime</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pos</source>
-        <translation>pos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>size</source>
-        <translation>dimensiune</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bevels</source>
-        <translation>bevels</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nopoly</source>
-        <translation>nopoli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usepoly</source>
-        <translation>usepoli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corners</source>
-        <translation>colțuri</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>str</source>
-        <translation>pr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>round</source>
-        <translation>rotund</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap1</source>
-        <translation>snap 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topl</source>
-        <translation>topl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>top</source>
-        <translation>sus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topr</source>
-        <translation>topr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>left</source>
-        <translation>stânga</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>middle</source>
-        <translation>mijloc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>right</source>
-        <translation>corect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottoml</source>
-        <translation>jos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottom</source>
-        <translation>jos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottomr</source>
-        <translation>mai jos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>snapcorn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapshift</source>
-        <translation>snapshift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizein</source>
-        <translation>dimensiune</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizeout</source>
-        <translation>dimensiune</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hor</source>
-        <translation>hor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vert</source>
-        <translation>vert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap2</source>
-        <translation>pix2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corner</source>
-        <translation>colț</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>middle-vert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>mid-hor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quad</source>
-        <translation>cuad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noquad</source>
-        <translation>noquad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>unghiul inner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edges</source>
-        <translation>muchii</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-none</source>
-        <translation>fără margine</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-both</source>
-        <translation>margine-ambele</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-start</source>
-        <translation>edge-start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-end</source>
-        <translation>margine-end</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>end</source>
-        <translation>sfârşit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>both</source>
-        <translation>ambele</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation>niciuna</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fit</source>
-        <translation>se potrivesc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nofit</source>
-        <translation>nofit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>dist fix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>dist flex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>distance</source>
-        <translation>distanța</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sym</source>
-        <translation>sim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nosym</source>
-        <translation>cusism</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>Nu s-a găsit niciun tipar. Vă rugăm să setați calea de model în preferințele aplicației</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Hatch:: modelul de încărcare a eșuat:% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PenTB</source>
-        <translation>PenTB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Layer</source>
-        <translation>Pe plan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation>După bloc</translation>
+        <translation type="unfinished">Dupa Bloc</translation>
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>- Neschimbat -</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Color</source>
-        <translation>Culoare utilizator</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>cal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>calculează</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>- Neschimbat..</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>ByLayer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>ByBlock</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Implicit</translation>
+        <translation type="unfinished">Implicit</translation>
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0, 000mm</translation>
+        <translation type="unfinished">0.00mm</translation>
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0. 05mm</translation>
+        <translation type="unfinished">0.05mm</translation>
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0, 09mm</translation>
+        <translation type="unfinished">0.09mm</translation>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0,13mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0, 15 mm</translation>
+        <translation type="unfinished">0.15mm</translation>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0,18mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0,20mm</translation>
+        <translation type="unfinished">0.20mm</translation>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0,25mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0.30mm</translation>
+        <translation type="unfinished">0.30mm</translation>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0,35mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0, 40 mm</translation>
+        <translation type="unfinished">0.40mm</translation>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0,50mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0, 53 mm</translation>
+        <translation type="unfinished">0.53mm</translation>
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0,60 mm</translation>
+        <translation type="unfinished">0.60mm</translation>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0,70mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0,80 mm</translation>
+        <translation type="unfinished">0.80mm</translation>
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0,90mm</translation>
+        <translation type="unfinished">0.90mm</translation>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1,00mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1.06mm</translation>
+        <translation type="unfinished">1.06mm</translation>
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1.20mm</translation>
+        <translation type="unfinished">1.20mm</translation>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1,40mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1,58mm</translation>
+        <translation type="unfinished">1.58mm</translation>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2,00mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11mm</translation>
+        <translation type="unfinished">2.11mm</translation>
     </message>
 </context>
 <context>
@@ -10833,29 +10797,29 @@ Doriti sa il inlocuiti cu acesta?</translation>
         <translation>Introduceti spatiul dintre linii:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Block cannot contain an insert of itself.</source>
-        <translation>Blocul nu poate conține o inserție de sine.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> has nested insert of current block in:
 </source>
-        <translation>a introdus un bloc curent în:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>
 This block cannot be inserted.</source>
-        <translation>Acest bloc nu poate fi introdus.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksSave</name>
     <message>
         <source>No block activated to save</source>
-        <translation>Niciun bloc activat pentru salvare</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11067,14 +11031,14 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify end angle or [angle/chord length]</source>
-        <translation>Specifică unghiul de capăt sau [unghi/o lungime de coardă]</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawArc3P</name>
     <message>
         <source>Invalid arc data.</source>
-        <translation>Données d'arc invalides.</translation>
+        <translation>Données d&apos;arc invalides.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -11094,7 +11058,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify startpoint or [center]</source>
-        <translation>Specificați punctul de pornire sau [centru]</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11140,7 +11104,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify point on circle</source>
-        <translation>A se specifica punctul din cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11217,15 +11181,15 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>radius=%1 is invalid (expression)</source>
-        <translation>raza =% 1 este invalidă (exprimare)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>radius=%1 is invalid (negative)</source>
-        <translation>raza=% 1 este invalidă (negativ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>radius=%1 is invalid (zero)</source>
-        <translation>raza =% 1 este invalidă (zero)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11255,124 +11219,124 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawCircleTan1_2P</name>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>Specificați o linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
     <message>
         <source>Specify the first point on the tangent circle</source>
-        <translation>A se preciza primul punct al cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished">Inapoi</translation>
     </message>
     <message>
         <source>Specify the second point on the tangent circle</source>
-        <translation>A se preciza al doilea punct al cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selectaţi centrul cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2</name>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>Specificați prima linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>A se preciza a doua linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished">Inapoi</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selectaţi centrul cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid expression '%1' for radius</source>
-        <translation>Expresie nevalidă "% 1 " pentru rază</translation>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid negative radius '%1'</source>
-        <translation>Raza negativă nevalidă "% 1 "</translation>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid zero radius '%1'</source>
-        <translation>Raza zero nevalidă "% 1 "</translation>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No tangent circle possible for radius '%1'</source>
-        <translation>Niciun cerc tangent posibil pentru raza "% 1 "</translation>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No common tangential circle for radius '%1'</source>
-        <translation>Niciun cerc tangential comun pentru raza "% 1 "</translation>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2_1P</name>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>Specificați o linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
     <message>
         <source>Specify the another arc/circle</source>
-        <translation>A se preciza un alt arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished">Inapoi</translation>
     </message>
     <message>
         <source>Specify a point on the tangent circle</source>
-        <translation>Specificați un punct pe cercul tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selectaţi centrul cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan3</name>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>Specificați prima linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>A se preciza a doua linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished">Inapoi</translation>
     </message>
     <message>
         <source>Specify the third line/arc/circle</source>
-        <translation>A se preciza a treia linie/arc/cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selectaţi centrul cercului tangent</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11403,7 +11367,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>Nu se poate determina unic o elipsă</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11496,11 +11460,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>specify a point on ellipse, or total distance to foci</source>
-        <translation>specifică un punct de pe elipsă sau distanța totală până la foci</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation>Distanța totală% 1 este mai mică decât distanța dintre foci</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11531,7 +11495,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>Nu se poate determina unic o elipsă</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11546,27 +11510,27 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Hatch Error: Invalid contour found!</source>
-        <translation>Eroare Hatch: contur nevalidă găsit!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Pattern not found!</source>
-        <translation>Eroare Hatch: model nu a fost găsit!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Contour or pattern too small!</source>
-        <translation>Eroare Hatch: Contur sau model prea mic!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Contour too big!</source>
-        <translation>Eroare Hatch: Contur prea mare!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Undefined Error!</source>
-        <translation>Eroare Hatch: Eroare nedefinită!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total hatch area = %1</source>
-        <translation>Suprafață totală a trapei =% 1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11592,12 +11556,12 @@ This block cannot be inserted.</source>
         <translation>Introduceti factorul:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter dpi:</source>
-        <translation>Introduceți dpi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11628,11 +11592,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>Nu se poate anula: A ajuns la începutul istoriei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cannot redo: End of history reached</source>
-        <translation>Nu se poate reface: Sfârşitul istoriei a ajuns</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11695,7 +11659,7 @@ This block cannot be inserted.</source>
     <message>
         <source>Number sector lines not in range: </source>
         <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation>Liniile sectoriale ale numărului nu sunt în intervalul:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11804,8 +11768,8 @@ This block cannot be inserted.</source>
 <context>
     <name>RS_ActionDrawLinePolygon</name>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -11935,34 +11899,34 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>Alegeți primul cerc/elipsă/parabolă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>Alegeți al doilea cerc/ellipsă/parabolă</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>Alegeți linia tangentă cea mai apropiată de cursor</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawMText</name>
     <message>
         <source>Specify insertion point</source>
-        <translation>Specifică punctul de inserție</translation>
+        <translation type="unfinished">Specificati punctul de inserare</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation>Introduceți textul:</translation>
+        <translation type="unfinished">introduceti textul:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Înapoi</translation>
+        <translation type="unfinished">Inapoi</translation>
     </message>
 </context>
 <context>
@@ -12008,39 +11972,39 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Enter the end point x</source>
-        <translation>Introduceți punctul final x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter number of polylines</source>
-        <translation>Introduceți numărul de poliline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>equation</source>
-        <translation>ecuație</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter an equation, f(x)</source>
-        <translation>Se introduce o ecuație, f(x)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter the start point x</source>
-        <translation>Introduceți punctul de pornire x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The entered x is invalid.</source>
-        <translation>@ info: whatsthis.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The step size entered is invalid.</source>
-        <translation>Mărimea treptei introduse este invalidă.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The value x entered is invalid.</source>
-        <translation>Valoarea x introdusă este invalidă.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12090,7 +12054,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>A se preciza al doilea punct</translation>
+        <translation type="unfinished">Specificati al doilea punct</translation>
     </message>
 </context>
 <context>
@@ -12181,7 +12145,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Area: %1 %2^2</source>
-        <translation>Suprafață:% 1% 2^2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12204,7 +12168,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Distance: %1 Cartesian: (%2 , %3), Polar: (%4&lt;%5)</source>
-        <translation>Distanță:% 1 Cartezian: (% 2,% 3), Polar: (% 4 &lt;% 5)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12283,16 +12247,16 @@ This block cannot be inserted.</source>
         <translation>Introduceti unghiul:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter factor:</source>
         <translation>Introduceti factorul:</translation>
     </message>
     <message>
-        <source>Cannot open file '%1'</source>
-        <translation>Nu pot deschide fisierul '%1'</translation>
+        <source>Cannot open file &apos;%1&apos;</source>
+        <translation>Nu pot deschide fisierul &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -12365,7 +12329,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation>Entitatea trebuie să fie o linie, arc, cerc, elipsă sau splină de interpolare.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12400,23 +12364,23 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Parent of second entity is nullptr</source>
-        <translation>Părintele celei de-a doua entități este nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>One of the chosen entities is nullptr</source>
-        <translation>Una dintre entitățile alese este nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Parent of first entity is nullptr</source>
-        <translation>Părintele primei entități este nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>First entity is nullptr</source>
-        <translation>Prima entitate este nulipter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Second entity is nullptr</source>
-        <translation>A doua entitate este nulipter</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12434,11 +12398,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionModifyEntity</name>
     <message>
         <source>Click on entity to modify</source>
-        <translation>Faceți clic pe entitate pentru a modifica</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
 </context>
 <context>
@@ -12583,7 +12547,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation>Specificați prima entitate sau introduceți raza &lt;% 1&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12598,11 +12562,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>Specifică centrul de scară</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>Specificați punctul țintă</translation>
+        <translation type="unfinished">Specificati punctul tinta</translation>
     </message>
 </context>
 <context>
@@ -12690,15 +12654,15 @@ This block cannot be inserted.</source>
     <name>RS_ActionOrder</name>
     <message>
         <source>No Entity found.</source>
-        <translation>Nicio entitate nu a fost găsită.</translation>
+        <translation type="unfinished">Nu am gasit nicio entitate.</translation>
     </message>
     <message>
         <source>Choose entity for order</source>
-        <translation>Alegeți entitatea pentru ordine</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Renunță</translation>
+        <translation type="unfinished">Renuntare</translation>
     </message>
 </context>
 <context>
@@ -12728,7 +12692,7 @@ This block cannot be inserted.</source>
         <translation>Renuntare</translation>
     </message>
     <message>
-        <source>Specify adding node's point</source>
+        <source>Specify adding node&apos;s point</source>
         <translation>Specificati punctul unde se va adauga noul nod</translation>
     </message>
     <message>
@@ -12798,7 +12762,7 @@ This block cannot be inserted.</source>
         <translation>Renuntare</translation>
     </message>
     <message>
-        <source>Specify deleting node's point</source>
+        <source>Specify deleting node&apos;s point</source>
         <translation>Specificati punctul de stergere a nodului</translation>
     </message>
     <message>
@@ -12807,11 +12771,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>Punctul de eliminare este invalid.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>Punctul de ștergere nu este pe entitate.</translation>
+        <translation type="unfinished">Punctul de sters nu se afla pe entitate.</translation>
     </message>
 </context>
 <context>
@@ -12850,7 +12814,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>Punctul de eliminare este invalid.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12892,7 +12856,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Polyline created</source>
-        <translation>Polilinie creată</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12938,47 +12902,47 @@ This block cannot be inserted.</source>
     <name>RS_ActionPrintPreview</name>
     <message>
         <source>RS_ActionPrintPreview::fit(): Invalid paper size</source>
-        <translation>RS ActionPrintPreview::fit(): Dimensiune nevalidă a hârtiei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates by (%1, %2)</source>
-        <translation>Offset printout în coordonate de hârtie de (% 1,% 2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates by (%1, %2)</source>
-        <translation>Offset printout în coordonate grafice de (% 1,% 2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates</source>
-        <translation>Offset de imprimare în coordonate grafice</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates</source>
-        <translation>Offset de imprimare în coordonate de hârtie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>: select printout offset coordinates</source>
-        <translation>: selectați coordonatele offset printout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>type in offset from command line to offset printout</source>
-        <translation>tip în offset de la linia de comandă pentru a compensa imprimarea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>Offset printout ignoră relativ zero. Ignorând '@'</translation>
+        <source>Printout offset ignores relative zero. Ignoring &apos;@&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation>Tipărire în negru/alb</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout in color</source>
-        <translation>Imprimare color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RS_ActionPrintPreview::calcPagesNum(): Limit of pages has been exceeded.</source>
-        <translation>RS ActionPrintPreview::calcPagesNum(): Limita paginilor a fost depășită.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13049,22 +13013,22 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select entities to order</source>
-        <translation>Alegeți entitățile de comandat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to explode block</source>
-        <translation>Selectează pentru a exploda blocul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to revert direction</source>
-        <translation>Alegeți direcția de întoarcere</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelectContour</name>
     <message>
         <source>Entity must be an Atomic Entity.</source>
-        <translation>Entitatea trebuie sa fie de tip "atomic".</translation>
+        <translation>Entitatea trebuie sa fie de tip &quot;atomic&quot;.</translation>
     </message>
 </context>
 <context>
@@ -13188,730 +13152,730 @@ This block cannot be inserted.</source>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>Proiect</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TextFileViewer</name>
     <message>
         <source>Frame</source>
-        <translation>Cadru</translation>
+        <translation type="unfinished">Cadru</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation>Opțiuni arc</translation>
+        <translation type="unfinished">Optiuni pentru Arc</translation>
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation>În sens invers acelor de ceasornic</translation>
+        <translation type="unfinished">Sens trigonometric</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>În sensul acelor de ceasornic</translation>
+        <translation type="unfinished">Sens orar</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation>Opțiuni Arc Tangential</translation>
+        <translation type="unfinished">Optiuni pentru arcul tangential</translation>
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation>Raza arcului tangential</translation>
+        <translation type="unfinished">Raza arcului tangential</translation>
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>Unghiul total subtending al arcului tangential</translation>
+        <translation type="unfinished">Unghiul total de subintindere pentru arcul tangenţial</translation>
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Radius</translation>
+        <translation type="unfinished">Raza</translation>
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Unghi</translation>
+        <translation type="unfinished">Unghi</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation>Opțiuni bevel</translation>
+        <translation type="unfinished">Optiuni tesire</translation>
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation>Verificați pentru a reduce ambele entități la bevel</translation>
+        <translation type="unfinished">Verificati ajustarea ambelor entitati la tesire</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length 1:</source>
-        <translation>Lungimea 1:</translation>
+        <translation type="unfinished">Lungime 1:</translation>
     </message>
     <message>
         <source>Length 2:</source>
-        <translation>Lungimea 2:</translation>
+        <translation type="unfinished">Lungime 2:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation>Opțiuni cerc</translation>
+        <translation type="unfinished">Optiuni pentru cerc</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation type="unfinished">Raza:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation>Opțiuni Tangential 2 cerc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt; Raza cercului tangențial de desenat &lt;/p&gt; &lt;/corp &gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation type="unfinished">Raza:</translation>
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation>Raza cercului tangențial</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation>Opțiuni dimensiune liniară</translation>
+        <translation type="unfinished">Optiuni pentru cotare liniara</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation>Opțiuni dimensiune</translation>
+        <translation type="unfinished">Optiuni cotare</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Eticheta:</translation>
+        <translation type="unfinished">Eticheta:</translation>
     </message>
     <message>
         <source>⌀</source>
-        <translation>⌀</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>°</source>
-        <translation>°</translation>
+        <translation type="unfinished">°</translation>
     </message>
     <message>
         <source>±</source>
-        <translation>±</translation>
+        <translation type="unfinished">±</translation>
     </message>
     <message>
         <source>π</source>
-        <translation>π</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>×</source>
-        <translation>×</translation>
+        <translation type="unfinished">×</translation>
     </message>
     <message>
         <source>÷</source>
-        <translation>÷</translation>
+        <translation type="unfinished">÷</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
 </context>
 <context>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Inserează opțiuni</translation>
+        <translation type="unfinished">Optiuni de inserare</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Unghi de rotire</translation>
+        <translation type="unfinished">Unghi de rotire</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scalează Factorul</translation>
+        <translation type="unfinished">Factor de marire</translation>
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation>DPI al imaginii</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Inserează opțiuni</translation>
+        <translation type="unfinished">Optiuni de inserare</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Unghi de rotire</translation>
+        <translation type="unfinished">Unghi de rotire</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scalează Factorul</translation>
+        <translation type="unfinished">Factor de marire</translation>
     </message>
     <message>
         <source>Array:</source>
-        <translation>Array:</translation>
+        <translation type="unfinished">Matrice:</translation>
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation>Numărul de coloane</translation>
+        <translation type="unfinished">Numarul coloanelor</translation>
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation>Numărul de rânduri</translation>
+        <translation type="unfinished">Numarul liniilor</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>Spațiere:</translation>
+        <translation type="unfinished">Spatiere:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation>Spațiere coloană</translation>
+        <translation type="unfinished">Spatierea coloanelor</translation>
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation>Spațiere rând</translation>
+        <translation type="unfinished">Spatierea liniilor</translation>
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation>Inserează opțiuni bibliotecă</translation>
+        <translation type="unfinished">Optiuni inserare Biblioteca</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Unghi de rotire</translation>
+        <translation type="unfinished">Unghi de rotire</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Scalează Factorul</translation>
+        <translation type="unfinished">Factor de marire</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation>Opțiuni unghi linie</translation>
+        <translation type="unfinished">Optiuni de linie cu unghi</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>Unghiul liniei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation type="unfinished">Lungime:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>Lungimea liniei</translation>
+        <translation type="unfinished">Lungimea liniei</translation>
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation>Punct Snap:</translation>
+        <translation type="unfinished">Punct de agatare:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation type="unfinished">Start</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Mijloc</translation>
+        <translation type="unfinished">Mijloc</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>Sfârşit</translation>
+        <translation type="unfinished">Final</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation>Opțiuni Bisector Linie</translation>
+        <translation type="unfinished">Optiuni pentru bisectoare</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation type="unfinished">Lungime:</translation>
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation>Lungimea bisectorului</translation>
+        <translation type="unfinished">Lungimea bisectoarei</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Număr:</translation>
+        <translation type="unfinished">Numar:</translation>
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation>Numărul de bisectoare de creat</translation>
+        <translation type="unfinished">Numar de bisectoare care vor fi create</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation>Opțiuni linie</translation>
+        <translation type="unfinished">Optiuni linie</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Formați un contur închis din liniile trase</translation>
+        <translation type="unfinished">Realizarea unui contur inchis din liniile desenate</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Închide</translation>
+        <translation type="unfinished">Inchidere</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Anulează ultima linie de desen</translation>
+        <translation type="unfinished">Anularea ultimei linii desenate</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Desfă</translation>
+        <translation type="unfinished">Anulare</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Reface ultimul desen linie</translation>
+        <translation type="unfinished">Refecerea ultimei linii desenate</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Refă</translation>
+        <translation type="unfinished">Refacere</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>Opțiuni linie</translation>
+        <translation type="unfinished">Optiuni linie</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation>Direcţie:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polilinie</translation>
+        <translation type="unfinished">Polilinie</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished">Y</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Unghi</translation>
+        <translation type="unfinished">Unghi</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation type="unfinished">Relativ</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>Anulează ultima linie de desen</translation>
+        <translation type="unfinished">Anularea ultimei linii desenate</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Desfă</translation>
+        <translation type="unfinished">Anulare</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Formați un contur închis din liniile trase</translation>
+        <translation type="unfinished">Realizarea unui contur inchis din liniile desenate</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Închide</translation>
+        <translation type="unfinished">Inchidere</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>Reface ultimul desen linie</translation>
+        <translation type="unfinished">Refecerea ultimei linii desenate</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Refă</translation>
+        <translation type="unfinished">Refacere</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation>Punct</translation>
+        <translation type="unfinished">Punct</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation>Opțiuni paralele de linie</translation>
+        <translation type="unfinished">Optiuni linii paralele</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Distanță:</translation>
+        <translation type="unfinished">Distanta:</translation>
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation>Distanța față de entitatea inițială</translation>
+        <translation type="unfinished">Distanta de la entitatea originala</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Număr:</translation>
+        <translation type="unfinished">Numar:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>Numărul de paralele de creat</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation>Linie paralelă prin opțiuni</translation>
+        <translation type="unfinished">Optiuni linii paralele</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Număr:</translation>
+        <translation type="unfinished">Numar:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>Numărul de paralele de creat</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Opțiuni poligon</translation>
+        <translation type="unfinished">Optiuni poligon</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Număr:</translation>
+        <translation type="unfinished">Numar:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>Numărul de margini</translation>
+        <translation type="unfinished">Numar laturi</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Opțiuni poligon</translation>
+        <translation type="unfinished">Optiuni poligon</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Număr:</translation>
+        <translation type="unfinished">Numar:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>Numărul de margini</translation>
+        <translation type="unfinished">Numar laturi</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>Opțiuni unghi relativ linie</translation>
+        <translation type="unfinished">Opțiuni unghi relativ linie</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>Unghiul liniei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation type="unfinished">Lungime:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>Lungimea liniei</translation>
+        <translation type="unfinished">Lungimea liniei</translation>
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>Opțiuni text</translation>
+        <translation type="unfinished">Optiuni pentru text</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Text:</translation>
+        <translation type="unfinished">Text:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation>Modifică opțiunile de deconectare</translation>
+        <translation type="unfinished">Modificare optiuni distanta</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Distanță:</translation>
+        <translation type="unfinished">Distanta:</translation>
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation>Dezactivează entitatea inițială</translation>
+        <translation type="unfinished">Distanta fata de entitatea originala</translation>
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation>Mută opțiunile de rotație</translation>
+        <translation type="unfinished">Optiuni deplasare si rotire</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation>Opțiuni poliline</translation>
+        <translation type="unfinished">Optiuni polilinie</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Închide</translation>
+        <translation type="unfinished">Inchidere</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Desfă</translation>
+        <translation type="unfinished">Anulare</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Linie</translation>
+        <translation type="unfinished">Linie</translation>
     </message>
     <message>
         <source>Tangential</source>
-        <translation>Tangenţial</translation>
+        <translation type="unfinished">Tangential</translation>
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation>Tan Radius</translation>
+        <translation type="unfinished">Raza tangentiala</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Unghi</translation>
+        <translation type="unfinished">Unghi</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation type="unfinished">Raza:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation>Contra cronometru</translation>
+        <translation type="unfinished">Sens trigonometric</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>În sensul acelor de ceasornic</translation>
+        <translation type="unfinished">Sens orar</translation>
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation>Opțiuni previzualizare tipărire</translation>
+        <translation type="unfinished">Optiuni previzualizare ianintea listarii</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt;Print Scale este blocat la valoarea curentă &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fixed</source>
-        <translation>fix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation>Comută modul negru / alb</translation>
+        <translation type="unfinished">Comutare Negru/Alb</translation>
     </message>
     <message>
         <source>Center to page</source>
-        <translation>Centru la pagină</translation>
+        <translation type="unfinished">Centrat pe pagina</translation>
     </message>
     <message>
         <source>Fit to page</source>
-        <translation>Potrivit la pagină</translation>
+        <translation type="unfinished">Ajustare la marimea paginii</translation>
     </message>
     <message>
         <source>Apply Print Scale to line width</source>
-        <translation>Aplică scala de imprimare la lățimea liniei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculate number of pages needed to contain the drawing</source>
-        <translation>Calculați numărul de pagini necesare pentru a conține desenul</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html &gt; &lt;head/&gt; &lt;body&gt; &lt;p&gt;dimensiune imprimată: dimensiunea desenului &lt;/p&gt; &lt;/corp&gt; &lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation>Opțiuni rotunde</translation>
+        <translation type="unfinished">Optiuni rotunjire</translation>
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation>Verificați pentru a tăia ambele margini la rotunjire</translation>
+        <translation type="unfinished">Ajustarea rotunjirii capetelor</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Radius:</translation>
+        <translation type="unfinished">Raza:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Opțiuni distanță Snap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Distanță:</translation>
+        <translation type="unfinished">Distanta:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Opțiuni distanță Snap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation>Punctele de mijloc:</translation>
+        <translation type="unfinished">Punctele de mijloc:</translation>
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation>Numărul de puncte de diviziune echidistante</translation>
+        <translation type="unfinished">NUmarul punctelor aflate la distante egale</translation>
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation>Opțiuni splină</translation>
+        <translation type="unfinished">Optiuni pentru curba</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation>Grad:</translation>
+        <translation type="unfinished">Grade:</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Închis</translation>
+        <translation type="unfinished">Inchisa</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Desfă</translation>
+        <translation type="unfinished">Anulare</translation>
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>Opțiuni text</translation>
+        <translation type="unfinished">Optiuni pentru text</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Text:</translation>
+        <translation type="unfinished">Text:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Unghi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation>Opțiuni suma trim</translation>
+        <translation type="unfinished">Optiuni ajustare</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation>Distanţa. Valori negative pentru tăiere, valori pozitive pentru extindere.</translation>
+        <translation type="unfinished">Distanta. valori negative pentru taiere, pozitive pentru extindere.</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lungimea:</translation>
+        <translation type="unfinished">Lungime:</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation>Distanţa. Valori negative pentru tăiere, valori pozitive pentru extindere. Semnul negativ este ignorat atunci când tunderea la lungimea totală finală.</translation>
+        <translation type="unfinished">Distanta. Valori negative pentru taiere, pozitive pentru extindere. Semnul negativ este ignorat pentru taierea la lungimea finala totala.</translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation>Lungimea de intrare este utilizată ca lungime totală după tăiere, în loc de creștere a lungimii</translation>
+        <translation type="unfinished">Lungimea introdusa este folosita ca lungime totala dupa taiere, in locul cresterii lungimii</translation>
     </message>
 </context>
 <context>
@@ -13934,19 +13898,19 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Create</source>
-        <translation>Creează</translation>
+        <translation>Creați</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation>Distruge</translation>
+        <translation>Distrugeți</translation>
     </message>
     <message>
         <source>Assign</source>
-        <translation>Asignează</translation>
+        <translation>Atribuiți</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Actualizează</translation>
+        <translation>Actualizați</translation>
     </message>
 </context>
 <context>

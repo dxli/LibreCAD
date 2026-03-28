@@ -82,6 +82,8 @@ void RS_ActionModifyScale::trigger() {
 
     RS_DEBUG->print("RS_ActionModifyScale::trigger()");
     deletePreview();
+    if (pPoints->data.toFindFactor)
+        findFactor();
     if(pPoints->data.factor.valid){
         RS_Modification m(*container, graphicView);
         m.scale(pPoints->data);
@@ -100,10 +102,12 @@ void RS_ActionModifyScale::mouseMoveEvent(QMouseEvent* e) {
         switch (getStatus()) {
         case SetReferencePoint:
             pPoints->data.referencePoint = snapPoint(e);
+            drawSnapper();
             break;
 
         case SetSourcePoint:
             pPoints->sourcePoint = snapPoint(e);
+            drawSnapper();
             break;
 
         case SetTargetPoint:
@@ -151,9 +155,19 @@ void RS_ActionModifyScale::showPreview()
 
 void RS_ActionModifyScale::mouseReleaseEvent(QMouseEvent* e) {
     if (e->button()==Qt::LeftButton) {
-        if (getStatus() != ShowDialog){
+        switch(getStatus()) {
+        case ShowDialog:
+            return;
+
+        case SetReferencePoint:
+        case SetSourcePoint:
+        case SetTargetPoint: {
             RS_CoordinateEvent ce(snapPoint(e));
             coordinateEvent(&ce);
+        }
+        break;
+        default:
+            break;
         }
     } else if (e->button()==Qt::RightButton && getStatus() != SetSourcePoint) {
         deletePreview();

@@ -27,6 +27,7 @@
 
 #include <QApplication>
 #include <QFileInfo>
+#include <QLocale>
 #include <QMap>
 #include <QStandardPaths>
 #include <QTextCodec>
@@ -437,11 +438,11 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
 
             int cat = -1;
             QString langPart;
-            if      (name.startsWith("librecad_")) {
+            if      (name.startsWith("librecad_", Qt::CaseInsensitive)) {
                 cat = 0; langPart = name.mid(9);
-            } else if (name.startsWith("plugins_")) {
+            } else if (name.startsWith("plugins_", Qt::CaseInsensitive)) {
                 cat = 1; langPart = name.mid(8);
-            } else if (name.startsWith("qt_")) {
+            } else if (name.startsWith("qt")) {
                 cat = 2; langPart = name.mid(3);
             } else continue;
 
@@ -450,8 +451,13 @@ void RS_System::loadTranslation(const QString& lang, const QString& /*langCmd*/)
 
             if (tr[cat])
                 continue;                           // already loaded this category
-            if (langPart != langReq && langPart != langAlt)
+            QLocale localeReq(langReq);
+            QLocale localeQm(langPart);
+            if (localeReq != localeQm) {
+                if (localeReq.language() == localeQm.language())
+                        LC_ERR<< __func__<<"("<<langReq<<"): ignoring "<<name;
                 continue;
+            }
 
             QTranslator* t = new QTranslator(qApp);
             QString full = dir.absoluteFilePath(file);
@@ -626,10 +632,18 @@ QStringList RS_System::getDirectoryList(const QString& _subDirectory) {
     dirList.append(appDir + "/resources/" + subDirectory);
 #endif
     dirList.append(executableDirectory + "/resources/" + subDirectory);
+
+    if (QStringLiteral("qm") == subDirectory) {
+        dirList.append(QDir::cleanPath(executableDirectory + "/../translations"));
+        dirList.append(QDir::cleanPath(executableDirectory + "/translations"));
+    }
+
+#if !(defined(Q_OS_WIN32) || defined(Q_OS_WIN64))
     dirList.append(QDir::cleanPath(executableDirectory + "/../resources/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../share/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../lib/" + m_appDirName + "/" + subDirectory));
     dirList.append(QDir::cleanPath(executableDirectory + "/../lib64/" + m_appDirName + "/" + subDirectory));
+#endif
 
     for (const QString& dir: dirList) {
         RS_DEBUG->print("%s\n", QString("%1(): line %2: dir=%3\n").arg(__func__).arg(__LINE__).arg(dir).toStdString().c_str());

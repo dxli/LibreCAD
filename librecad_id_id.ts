@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<TS version="2.1" language="id_ID">
 <context>
     <name>ColorWizard</name>
     <message>
         <location filename="../src/ui/generic/colorwizard.ui" line="14"/>
         <source>Frame</source>
-        <translation>Kehys</translation>
+        <translation>Bingkai</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/colorwizard.ui" line="35"/>
         <source>Add to favorites</source>
-        <translation>Lisää suosikkeihin</translation>
+        <translation>Tambah ke favorit</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/colorwizard.ui" line="38"/>
@@ -25,39 +25,17 @@
     <message>
         <location filename="../src/ui/generic/comboboxoption.ui" line="14"/>
         <source>Frame</source>
-        <translation>Kehys</translation>
+        <translation>Bingkai</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/comboboxoption.ui" line="26"/>
         <source>GroupBox</source>
-        <translation>Ryhmäkenttä</translation>
+        <translation>Kotak Grup</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/comboboxoption.ui" line="41"/>
         <source>Set</source>
-        <translation>Aseta</translation>
-    </message>
-</context>
-<context>
-    <name>CustomToolbarCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="obsolete">Kehys</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="obsolete">Tallenna</translation>
-    </message>
-</context>
-<context>
-    <name>CustomWidgetCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="obsolete">Kehys</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="obsolete">Tallenna</translation>
+        <translation>Atur</translation>
     </message>
 </context>
 <context>
@@ -65,28 +43,28 @@
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="26"/>
         <source>Parabola</source>
-        <translation>Parabooli</translation>
+        <translation>Parabola</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="62"/>
         <source>Layer:</source>
-        <translation>Geruza:</translation>
+        <translation>Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="95"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="110"/>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="113"/>
         <source>Points on Spline</source>
-        <translation>Pisteet splainilla</translation>
+        <translation>Titik pada Spline</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.ui" line="142"/>
         <source>Control Points</source>
-        <translation>Ohjauspisteet</translation>
+        <translation>Titik Kontrol</translation>
     </message>
 </context>
 <context>
@@ -94,38 +72,38 @@
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="26"/>
         <source>SplinePoints</source>
-        <translation>Splinipisteet</translation>
+        <translation>Titik Spline</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="62"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation>Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="95"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="101"/>
         <source>Closed</source>
-        <translation>Suljettu</translation>
+        <translation>Tertutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="110"/>
         <source>Spline Points</source>
-        <translation>Splinipisteet</translation>
+        <translation>Titik Spline</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="120"/>
         <source>Control Points</source>
-        <translation>Ohjauspisteet</translation>
+        <translation>Titik Kontrol</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="135"/>
         <location filename="../src/ui/forms/lc_dlgsplinepoints.ui" line="138"/>
         <source>Points on Spline</source>
-        <translation>Pisteet splinillä</translation>
+        <translation>Titik pada Spline</translation>
     </message>
 </context>
 <context>
@@ -133,18 +111,18 @@
     <message>
         <location filename="../src/actions/lc_actiondimarc.cpp" line="267"/>
         <source>Select arc entity</source>
-        <translation>Valitse kaari-entiteetti</translation>
+        <translation>Pilih entitas busur</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondimarc.cpp" line="268"/>
         <location filename="../src/actions/lc_actiondimarc.cpp" line="273"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondimarc.cpp" line="272"/>
         <source>Specify dimension arc location</source>
-        <translation>Määritä mittauksen kaaren sijainti</translation>
+        <translation>Tentukan lokasi dimensi busur</translation>
     </message>
 </context>
 <context>
@@ -153,39 +131,39 @@
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="195"/>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation>säde=%1 on liian pieni valituille pisteille
-pisteiden välinen etäisyys=%2 on suurempi kuin halkaisija=%3</translation>
+        <translation>jari-jari=%1 terlalu kecil untuk titik yang dipilih
+jarak antar titik=%2 lebih besar dari diameter=%3</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="205"/>
         <source>Select from two possible circle centers</source>
-        <translation>Valitse kahdesta mahdollisesta ympyrän keskipisteestä</translation>
+        <translation>Pilih dari dua pusat lingkaran yang mungkin</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="238"/>
         <source>Specify first point</source>
-        <translation>Määritä ensimmäinen piste</translation>
+        <translation>Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="239"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="242"/>
         <source>Specify second point</source>
-        <translation>Määritä toinen piste</translation>
+        <translation>Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="243"/>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="247"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawcircle2pr.cpp" line="246"/>
         <source>Select circle center</source>
-        <translation>Valitse ympyrän keskipiste</translation>
+        <translation>Pilih pusat lingkaran</translation>
     </message>
 </context>
 <context>
@@ -195,8 +173,8 @@ pisteiden välinen etäisyys=%2 on suurempi kuin halkaisija=%3</translation>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="516"/>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>Määritä etäisyys (%1)
-tai [%2]</translation>
+        <translation>Tentukan jarak (%1)
+atau [%2]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="513"/>
@@ -208,7 +186,7 @@ tai [%2]</translation>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="516"/>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="521"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="516"/>
@@ -219,8 +197,8 @@ tai [%2]</translation>
         <location filename="../src/actions/lc_actiondrawlinepoints.cpp" line="521"/>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>Määritä etäisyys (kulma %1 astetta)
-tai [%2]</translation>
+        <translation>Tentukan jarak (sudut %1 derajat)
+atau [%2]</translation>
     </message>
 </context>
 <context>
@@ -228,27 +206,27 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepolygon3.cpp" line="140"/>
         <source>Specify center</source>
-        <translation>Määritä keskipiste</translation>
+        <translation>Tentukan pusat</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepolygon3.cpp" line="145"/>
         <source>Specify a tangent</source>
-        <translation>Määritä tangentti</translation>
+        <translation>Tentukan garis singgung</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepolygon3.cpp" line="149"/>
         <source>Enter number:</source>
-        <translation>Syötä numero:</translation>
+        <translation>Masukkan angka:</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepolygon3.cpp" line="199"/>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>Ei kelpaa numero. Kokeile 1..9999</translation>
+        <translation>Bukan angka yang valid. Coba 1..9999</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinepolygon3.cpp" line="202"/>
         <source>Not a valid expression</source>
-        <translation>Ei kelpaa lauseke</translation>
+        <translation>Bukan ekspresi yang valid</translation>
     </message>
 </context>
 <context>
@@ -256,7 +234,7 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="434"/>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>Määritä suunta (x tai y) tai [%1]</translation>
+        <translation>Tentukan arah (x atau y) atau [%1]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="434"/>
@@ -266,13 +244,13 @@ tai [%2]</translation>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="474"/>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="486"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="448"/>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="453"/>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>Määritä etäisyys (%1) tai [%2]</translation>
+        <translation>Tentukan jarak (%1) atau [%2]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="448"/>
@@ -287,17 +265,17 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="459"/>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>Määritä etäisyys (%1 astetta) tai [%2]</translation>
+        <translation>Tentukan jarak (%1 derajat) atau [%2]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="474"/>
         <source>Specify angle or [%2]</source>
-        <translation>Määritä kulma tai [%2]</translation>
+        <translation>Tentukan sudut atau [%2]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawlinesnake.cpp" line="486"/>
         <source>Specify point or [%1]</source>
-        <translation>Määritä piste tai [%1]</translation>
+        <translation>Tentukan titik atau [%1]</translation>
     </message>
 </context>
 <context>
@@ -305,17 +283,17 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="268"/>
         <source>Specify the first point on parabola</source>
-        <translation>Määritä paraboolin ensimmäinen piste</translation>
+        <translation>Tentukan titik pertama pada parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="269"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="273"/>
         <source>Specify the second point on parabola</source>
-        <translation>Määritä paraboolin toinen piste</translation>
+        <translation>Tentukan titik kedua pada parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="274"/>
@@ -323,22 +301,22 @@ tai [%2]</translation>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="284"/>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="289"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="278"/>
         <source>Specify the third point on parabola</source>
-        <translation>Määritä paraboolin kolmas piste</translation>
+        <translation>Tentukan titik ketiga pada parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="283"/>
         <source>Specify the fourth point on parabola</source>
-        <translation>Määritä paraboolin neljäs piste</translation>
+        <translation>Tentukan titik keempat pada parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabola4points.cpp" line="288"/>
         <source>Specify the Axis on parabola</source>
-        <translation>Määritä paraboolin akseli</translation>
+        <translation>Tentukan sumbu pada parabola</translation>
     </message>
 </context>
 <context>
@@ -346,34 +324,34 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="290"/>
         <source>Specify the focus of parabola</source>
-        <translation>Määritä paraboolin fokus</translation>
+        <translation>Tentukan fokus parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="291"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="295"/>
         <source>Specify the directrix of parabola</source>
-        <translation>Määritä paraboolin suora</translation>
+        <translation>Tentukan direktriks parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="296"/>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="301"/>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="306"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="300"/>
         <source>Specify the start point on parabola</source>
-        <translation>Määritä paraboolin aloituspiste</translation>
+        <translation>Tentukan titik awal pada parabola</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawparabolaFD.cpp" line="305"/>
         <source>Specify the end point on parabola</source>
-        <translation>Määritä paraboolin loppupiste</translation>
+        <translation>Tentukan titik akhir pada parabola</translation>
     </message>
 </context>
 <context>
@@ -381,27 +359,27 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_abstractactionwithpreview.cpp" line="846"/>
         <source> is not divided as it is locked.</source>
-        <translation> ei jaeta, koska se on lukittu.</translation>
+        <translation> tidak dapat dibagi karena terkunci.</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_abstractactionwithpreview.cpp" line="854"/>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation> ei jaeta, koska se on osa liitviivaa. Laajenna liitviiva ensin.</translation>
+        <translation> tidak dapat dibagi karena bagian dari poli garis. Perluas poli garis terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawslicedivide.cpp" line="180"/>
         <source>Line</source>
-        <translation>Viiva</translation>
+        <translation>Garis</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawslicedivide.cpp" line="190"/>
         <source>Arc</source>
-        <translation>Kaari</translation>
+        <translation>Busur</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawslicedivide.cpp" line="200"/>
         <source>Circle</source>
-        <translation>Ympyrä</translation>
+        <translation>Lingkaran</translation>
     </message>
 </context>
 <context>
@@ -409,39 +387,39 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="251"/>
         <source>Specify first control point</source>
-        <translation>Määritä ensimmäinen ohjauspiste</translation>
+        <translation>Tentukan titik kontrol pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="252"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="275"/>
         <source>Specify next control point or [%1]</source>
-        <translation>Määritä seuraava ohjauspiste tai [%1]</translation>
+        <translation>Tentukan titik kontrol berikutnya atau [%1]</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="276"/>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="282"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="281"/>
         <source>Specify next control point</source>
-        <translation>Määritä seuraava ohjauspiste</translation>
+        <translation>Tentukan titik kontrol berikutnya</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="334"/>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="359"/>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>Ei voida peruuttaa: Ei vielä tarpeeksi määriteltyjä kohteita.</translation>
+        <translation>Tidak dapat membatalkan: Belum cukup entitas yang didefinisikan.</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actiondrawsplinepoints.cpp" line="380"/>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation>Ei voida kumota: Ei mitään palautettavaa.</translation>
+        <translation>Tidak dapat membatalkan: Tidak ada yang dapat diulang.</translation>
     </message>
 </context>
 <context>
@@ -449,470 +427,470 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1528"/>
         <source>&amp;Window Zoom</source>
-        <translation>&amp;Ikkunan Suurennus</translation>
+        <translation>&amp;Zoom Jendela</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="54"/>
         <source>Zoom &amp;Panning</source>
-        <translation>&amp;Raahaa Näkymää</translation>
+        <translation>Zoom &amp;Geser</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="63"/>
         <source>Select Entity</source>
-        <translation>Valitse Kohde</translation>
+        <translation>Pilih Entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="70"/>
         <source>Select Window</source>
-        <translation>Valitse Ikkuna</translation>
+        <translation>Pilih Jendela</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="77"/>
         <source>Deselect Window</source>
-        <translation>Poista Ikkunan Valinta</translation>
+        <translation>Batal Pilih Jendela</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="84"/>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(Poista) Valinta &amp;Kontuurista</translation>
+        <translation>(Batal-)Pilih &amp;Kontur</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="91"/>
         <source>Select Intersected Entities</source>
-        <translation>Valitse Leikkaavat Kohteet</translation>
+        <translation>Pilih Entitas yang Berpotongan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="98"/>
         <source>Deselect Intersected Entities</source>
-        <translation>Poista Valinta Leikkaavista Kohteista</translation>
+        <translation>Batal Pilih Entitas yang Berpotongan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="105"/>
         <source>(De-)Select Layer</source>
-        <translation>(Poista) Valinta Geruzasta</translation>
+        <translation>(Batal-)Pilih Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="114"/>
         <source>&amp;Points</source>
-        <translation>&amp;Pisteet</translation>
+        <translation>&amp;Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="124"/>
         <source>&amp;2 Points</source>
-        <translation>&amp;2 Pistettä</translation>
+        <translation>&amp;2 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="131"/>
         <source>&amp;Angle</source>
-        <translation>&amp;Kulma</translation>
+        <translation>&amp;Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="138"/>
         <location filename="../src/ui/lc_actionfactory.cpp" line="648"/>
         <source>&amp;Horizontal</source>
-        <translation>&amp;Vaakasuora</translation>
+        <translation>&amp;Horisontal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="145"/>
         <source>Vertical</source>
-        <translation>Pystysuora</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="158"/>
         <source>&amp;Freehand Line</source>
-        <translation>&amp;Vapaa Viiva</translation>
+        <translation>Garis &amp;Bebas Tangan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="165"/>
         <source>&amp;Parallel</source>
-        <translation>&amp;Yhdensuuntainen</translation>
+        <translation>&amp;Paralel</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="172"/>
         <source>Parallel through point</source>
-        <translation>Yhdensuuntainen pisteen kautta</translation>
+        <translation>Sejajar melalui titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="179"/>
         <source>Rectangle</source>
-        <translation>Suorakulmio</translation>
+        <translation>Persegi panjang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="186"/>
         <source>Bisector</source>
-        <translation>Bisektori</translation>
+        <translation>Bisektor</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="193"/>
         <source>Tangent (P,C)</source>
-        <translation>Tangentti (P, Y)</translation>
+        <translation>Singgung (P,C)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="200"/>
         <source>Tangent (C,C)</source>
-        <translation>Tangentti (Y,Y)</translation>
+        <translation>Singgung (C,C)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="207"/>
         <source>Tangent &amp;Orthogonal</source>
-        <translation>Tangentti &amp;Ortogonaalinen</translation>
+        <translation>Singgung &amp;Ortogonal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="214"/>
         <source>Orthogonal</source>
-        <translation>Ortogonaalinen</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="221"/>
         <source>Relative angle</source>
-        <translation>Relatiivinen kulma</translation>
+        <translation>Sudut relatif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="228"/>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Pol&amp;ygoni (Keski,Kulma)</translation>
+        <translation>Pol&amp;igon (Pusat,Sudut)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="235"/>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation>Pol&amp;ygoni (Keski,Tangentti)</translation>
+        <translation>Pol&amp;igon (Pusat,Singgung)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="242"/>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation>Polygo&amp;ni (Kulma,Kulma)</translation>
+        <translation>Poligon (Sudut,Sudut)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="251"/>
         <source>Center, &amp;Point</source>
-        <translation>Keski, &amp;Piste</translation>
+        <translation>Pusat, &amp;Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="257"/>
         <source>Cross</source>
-        <translation>Risti</translation>
+        <translation>Silang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="263"/>
         <source>Snake</source>
-        <translation>Käärme</translation>
+        <translation>Ular</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="269"/>
         <source>Snake (X)</source>
-        <translation>Käärme (X)</translation>
+        <translation>Ular (X)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="275"/>
         <source>Snake (Y)</source>
-        <translation>Käärme (Y)</translation>
+        <translation>Ular (Y)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="281"/>
         <source>Rectangle (1 Point)</source>
-        <translation>Suorakulmio (1 piste)</translation>
+        <translation>Persegi Panjang (1 Titik)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="287"/>
         <source>Rectangle (2 Points)</source>
-        <translation>Suorakulmio (2 pistettä)</translation>
+        <translation>Persegi Panjang (2 Titik)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="293"/>
         <source>Rectangle (3 Points)</source>
-        <translation>Suorakulmio (3 pistettä)</translation>
+        <translation>Persegi Panjang (3 Titik)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="299"/>
         <source>Star</source>
-        <translation>Tähti</translation>
+        <translation>Bintang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="305"/>
         <source>Break/Divide</source>
-        <translation>Katkaise/Jaa</translation>
+        <translation>Pecah/Bagi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="311"/>
         <source>Line Gap</source>
-        <translation>Viivan väli</translation>
+        <translation>Celah Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="317"/>
         <source>Angle From Line</source>
-        <translation>Kulma viivasta</translation>
+        <translation>Sudut dari Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="323"/>
         <source>Orthogonal From Line</source>
-        <translation>Ortogonaalinen viivasta</translation>
+        <translation>Ortogonal dari Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="329"/>
         <source>From Point To Line</source>
-        <translation>Pisteestä viivaan</translation>
+        <translation>Dari Titik ke Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="335"/>
         <source>Slice/Divide Line</source>
-        <translation>Viipaloi/Jaa viiva</translation>
+        <translation>Iris/Bagi Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="341"/>
         <source>Slice/Divide Circle</source>
-        <translation>Viipaloi/Jaa ympyrä</translation>
+        <translation>Iris/Bagi Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="347"/>
         <source>Line of Points</source>
-        <translation>Pisteiden viiva</translation>
+        <translation>Garis Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="353"/>
         <source>By Arc</source>
-        <translation>Kaaren kautta</translation>
+        <translation>Dengan Busur</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="360"/>
         <source>Center, &amp;Radius</source>
-        <translation>Keski, &amp;Säde</translation>
+        <translation>Pusat, &amp;Jari-jari</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="367"/>
         <source>2 Points</source>
-        <translation>2 Pistettä</translation>
+        <translation>2 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="374"/>
         <source>2 Points, Radius</source>
-        <translation>2 Pistettä, Säde</translation>
+        <translation>2 Titik, Jari-jari</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="381"/>
         <source>3 Points</source>
-        <translation>3 Pistettä</translation>
+        <translation>3 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="388"/>
         <location filename="../src/ui/lc_actionfactory.cpp" line="449"/>
         <source>&amp;Concentric</source>
-        <translation>&amp;Kontsentriset</translation>
+        <translation>&amp;Konsentris</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="396"/>
         <source>Circle &amp;Inscribed</source>
-        <translation>Ympyrä &amp;Kirjoitettu</translation>
+        <translation>Lingkaran &amp;Tertulis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="403"/>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation>Tangentti 2 ympyrään, säde</translation>
+        <translation>Singgung 2 Lingkaran, Jari-jari</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="410"/>
         <source>Tangential 2 Circles, 1 Point</source>
-        <translation>Tangentti 2 ympyrään, 1 piste</translation>
+        <translation>Singgung 2 Lingkaran, 1 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="417"/>
         <source>Tangential &amp;3 Circles</source>
-        <translation>Tangentti &amp;3 ympyrään</translation>
+        <translation>Singgung &amp;3 Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="424"/>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation>Tangentti, 2 P&amp;istettä</translation>
+        <translation>Singgung, 2 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="433"/>
         <source>&amp;Center, Point, Angles</source>
-        <translation>&amp;Keski, Piste, Kulmat</translation>
+        <translation>&amp;Pusat, Titik, Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="441"/>
         <source>&amp;3 Points</source>
-        <translation>&amp;3 Pistettä</translation>
+        <translation>&amp;3 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="457"/>
         <source>Arc &amp;Tangential</source>
-        <translation>Kaari &amp;Tangentti</translation>
+        <translation>Busur &amp;Singgung</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="467"/>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>&amp;Ellipsi (Akselit)</translation>
+        <translation>&amp;Elips (Sumbu)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="474"/>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation>Ellipsi &amp;Kaari (Akselit)</translation>
+        <translation>Elips &amp;Busur (Sumbu)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="481"/>
         <source>Ellipse &amp;Foci Point</source>
-        <translation>Ellipsi &amp;Fokuspiste</translation>
+        <translation>Elips &amp;Titik Fokus</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="488"/>
         <source>Ellipse &amp;4 Point</source>
-        <translation>Ellipsi &amp;4 Pistettä</translation>
+        <translation>Elips &amp;4 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="495"/>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation>Ellipsi keski ja &amp;3 Pistettä</translation>
+        <translation>Pusat Elips dan &amp;3 Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="502"/>
         <source>Ellipse &amp;Inscribed</source>
-        <translation>Ellipsi &amp;Kirjoitettu</translation>
+        <translation>Elips &amp;Tertulis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="510"/>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;booli 4 pistettä</translation>
+        <translation>Para&amp;bola 4 titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="517"/>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabooli &amp;Fokus Suora</translation>
+        <translation>Parabola &amp;Fokus Direktriks</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="526"/>
         <source>&amp;Spline</source>
-        <translation>&amp;Splain</translation>
+        <translation>&amp;Spline</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="533"/>
         <source>&amp;Spline through points</source>
-        <translation>&amp;Splain pisteiden kautta</translation>
+        <translation>&amp;Spline melalui titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="542"/>
         <source>&amp;Polyline</source>
-        <translation>&amp;Liitviiva</translation>
+        <translation>&amp;Poli garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="549"/>
         <source>&amp;Add node</source>
-        <translation>&amp;Lisää solmu</translation>
+        <translation>&amp;Tambah simpul</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="557"/>
         <source>A&amp;ppend node</source>
-        <translation>L&amp;isää solmu</translation>
+        <translation>&amp;Tambahkan simpul</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="565"/>
         <source>&amp;Delete node</source>
-        <translation>&amp;Poista solmu</translation>
+        <translation>&amp;Hapus simpul</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="573"/>
         <source>Delete &amp;between two nodes</source>
-        <translation>Poista &amp;kahden solmun välistä</translation>
+        <translation>Hapus &amp;antara dua simpul</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="581"/>
         <source>&amp;Trim segments</source>
-        <translation>&amp;Leikkaa segmentit</translation>
+        <translation>&amp;Pangkas segmen</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="589"/>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation>Luo &amp;etäisyydeltään samat liitviivat</translation>
+        <translation>Buat Poli garis &amp;Sama Jarak</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="596"/>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation>Luo liitviiva olemassa olevista &amp;segmenteistä</translation>
+        <translation>Buat Poli garis dari &amp;Segmen yang Ada</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="605"/>
         <source>&amp;MText</source>
-        <translation>&amp;Moniriviteksti</translation>
+        <translation>&amp;Teks M</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="611"/>
         <source>&amp;Text</source>
-        <translation>&amp;Teksti</translation>
+        <translation>&amp;Teks</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="618"/>
         <source>&amp;Hatch</source>
-        <translation>Tä&amp;yttökuvio</translation>
+        <translation>&amp;Isi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="625"/>
         <source>Insert &amp;Image</source>
-        <translation>Liitä &amp;Kuva</translation>
+        <translation>Masukkan &amp;Gambar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="634"/>
         <source>&amp;Aligned</source>
-        <translation>&amp;Linjattu</translation>
+        <translation>&amp;Sejajar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="641"/>
         <source>&amp;Linear</source>
-        <translation>&amp;Lineaarinen</translation>
+        <translation>&amp;Linear</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="655"/>
         <source>&amp;Vertical</source>
-        <translation>&amp;Pystysuora</translation>
+        <translation>&amp;Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="662"/>
         <source>&amp;Radial</source>
-        <translation>&amp;Säteen Suuntainen</translation>
+        <translation>&amp;Radial</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="669"/>
         <source>&amp;Diametric</source>
-        <translation>&amp;Halkaisijallinen</translation>
+        <translation>&amp;Diametrik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="676"/>
         <source>&amp;Angular</source>
-        <translation>&amp;Kulmikas</translation>
+        <translation>&amp;Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="683"/>
         <source>&amp;Arc</source>
-        <translation>&amp;Kaari</translation>
+        <translation>&amp;Busur</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="690"/>
         <source>&amp;Leader</source>
-        <translation>&amp;Johtaja</translation>
+        <translation>&amp;Garis Penunjuk</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="699"/>
         <source>&amp;Attributes</source>
-        <translation>&amp;Attribuutit</translation>
+        <translation>&amp;Atribut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="707"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Poista</translation>
+        <translation>&amp;Hapus</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="714"/>
         <source>Delete Freehand</source>
-        <translation>Poista vapaa käsi</translation>
+        <translation>Hapus Garis Bebas Tangan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="721"/>
         <source>&amp;Move / Copy</source>
-        <translation>&amp;Siirrä / Kopioi</translation>
+        <translation>&amp;Pindah / Salin</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="729"/>
         <source>Re&amp;vert direction</source>
-        <translation>K&amp;äännä suunta</translation>
+        <translation>&amp;Balik arah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="731"/>
@@ -922,97 +900,97 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="737"/>
         <source>&amp;Rotate</source>
-        <translation>&amp;Käännä</translation>
+        <translation>&amp;Putar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="745"/>
         <source>&amp;Scale</source>
-        <translation>&amp;Skaalaa</translation>
+        <translation>&amp;Skala</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="753"/>
         <source>&amp;Mirror</source>
-        <translation>&amp;Peilaa</translation>
+        <translation>&amp;Cermin</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="864"/>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>&amp;Valitse kynä entiteetistä</translation>
+        <translation>&amp;Ambil Pena dari Entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="872"/>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>&amp;Valitse kynä entiteetistä (ratkaistu)</translation>
+        <translation>&amp;Ambil Pena dari Entitas (Terselesaikan)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="881"/>
         <source>Apply Pen to Entity</source>
-        <translation>Käytä kynää entiteettiin</translation>
+        <translation>Terapkan Pena ke Entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="889"/>
         <source>Copy Pen</source>
-        <translation>Kopioi kynä</translation>
+        <translation>Salin Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="897"/>
         <source>Line Join</source>
-        <translation>Viivan liitos</translation>
+        <translation>Gabung Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="904"/>
         <source>Duplicate</source>
-        <translation>Monista</translation>
+        <translation>Duplikat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1000"/>
         <source>&amp;Show all layers</source>
-        <translation>&amp;Näytä kaikki geruzat</translation>
+        <translation>&amp;Tampilkan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1007"/>
         <source>&amp;Hide all layers</source>
-        <translation>&amp;Piilota kaikki geruzat</translation>
+        <translation>&amp;Sembunyikan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1014"/>
         <source>&amp;Unlock all</source>
-        <translation>&amp;Avaa lukitus kaikista</translation>
+        <translation>&amp;Buka kunci semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1021"/>
         <source>&amp;Lock all</source>
-        <translation>&amp;Lukitse kaikki</translation>
+        <translation>&amp;Kunci semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1077"/>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>&amp;Vie valitut geruzat</translation>
+        <translation>&amp;Ekspor Lapisan Terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1082"/>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>Vie &amp;näkyvät geruzat</translation>
+        <translation>Ekspor Lapisan &amp;Terlihat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1089"/>
         <source>&amp;Show all blocks</source>
-        <translation>&amp;Näytä kaikki blokit</translation>
+        <translation>&amp;Tampilkan semua blok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1096"/>
         <source>&amp;Hide all blocks</source>
-        <translation>&amp;Piilota kaikki blokit</translation>
+        <translation>&amp;Sembunyikan semua blok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1228"/>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation>Vie CA&amp;M/tavallinen SVG...</translation>
+        <translation>Ekspor sebagai CA&amp;M/SVG biasa...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1257"/>
         <source>Close All</source>
-        <translation>Sulje kaikki</translation>
+        <translation>Tutup Semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1303"/>
@@ -1023,307 +1001,307 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1380"/>
         <source>Re-dock Widgets</source>
-        <translation>Uudelleenkiinnitä widgetit</translation>
+        <translation>Dok ulang Widget</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1386"/>
         <source>Menu Creator</source>
-        <translation>Valikon Luoja</translation>
+        <translation>Pembuat Menu</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1393"/>
         <source>Toolbar Creator</source>
-        <translation>Työkalupalkin Luoja</translation>
+        <translation>Pembuat Toolbar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1632"/>
         <source>Update Current Pen by Active Layer&apos; Pen</source>
-        <translation>Päivitä nykyinen kynä aktiivisen geruzan kynällä</translation>
+        <translation>Perbarui Pena Saat Ini dengan Pena Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="768"/>
         <source>Rotate T&amp;wo</source>
-        <translation>Kierrä k&amp;aksi</translation>
+        <translation>Putar D&amp;ua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="775"/>
         <source>&amp;Properties</source>
-        <translation>&amp;Ominaisuudet</translation>
+        <translation>&amp;Properti</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="783"/>
         <source>&amp;Trim</source>
-        <translation>&amp;Leikkaa</translation>
+        <translation>&amp;Pangkas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="799"/>
         <source>&amp;Lengthen</source>
-        <translation>&amp;Pidennä</translation>
+        <translation>&amp;Perpanjang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="815"/>
         <source>&amp;Divide</source>
-        <translation>&amp;Jaa</translation>
+        <translation>&amp;Bagi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="823"/>
         <source>&amp;Stretch</source>
-        <translation>&amp;Venytä</translation>
+        <translation>&amp;Regang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="831"/>
         <source>&amp;Bevel</source>
-        <translation>&amp;Viisto</translation>
+        <translation>&amp;Chamfer</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="839"/>
         <source>&amp;Fillet</source>
-        <translation>&amp;Pyöristä</translation>
+        <translation>&amp;Fillet</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="847"/>
         <source>&amp;Explode Text into Letters</source>
-        <translation>&amp;Purka teksti kirjaimiksi</translation>
+        <translation>&amp;Ledakkan Teks menjadi Huruf</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="913"/>
         <source>Point inside contour</source>
-        <translation>Piste kontuurin sisällä</translation>
+        <translation>Titik di dalam kontur</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="919"/>
         <source>&amp;Distance Point to Point</source>
-        <translation>&amp;Etäisyys pisteestä pisteeseen</translation>
+        <translation>&amp;Jarak Titik ke Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="926"/>
         <source>&amp;Distance Entity to Point</source>
-        <translation>&amp;Etäisyys entiteetistä pisteeseen</translation>
+        <translation>&amp;Jarak Entitas ke Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="933"/>
         <source>An&amp;gle between two lines</source>
-        <translation>&amp;Kulma kahden viivan välillä</translation>
+        <translation>Sud&amp;ut antara dua garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="940"/>
         <source>&amp;Total length of selected entities</source>
-        <translation>&amp;Valittujen kohteiden kokonaispituus</translation>
+        <translation>&amp;Panjang total entitas terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="947"/>
         <source>Polygonal &amp;Area</source>
-        <translation>Polygonaalinen &amp;Alue</translation>
+        <translation>&amp;Area Poligon</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1409"/>
         <source>&amp;Selection pointer</source>
-        <translation>&amp;Valintakohdistin</translation>
+        <translation>&amp;Penunjuk pilihan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1419"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Kumoa</translation>
+        <translation>&amp;Batalkan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1430"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Tee Uudelleen</translation>
+        <translation>&amp;Ulangi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1441"/>
         <source>Cu&amp;t</source>
-        <translation>&amp;Leikkaa</translation>
+        <translation>&amp;Potong</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1452"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopioi</translation>
+        <translation>&amp;Salin</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1463"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Liitä</translation>
+        <translation>&amp;Tempel</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="966"/>
         <source>move to bottom</source>
-        <translation>siirrä alas</translation>
+        <translation>pindah ke bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1178"/>
         <source>Widget Options</source>
-        <translation>Widgetin asetukset</translation>
+        <translation>Opsi Widget</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1184"/>
         <source>Device Options</source>
-        <translation>Laiteasetukset</translation>
+        <translation>Opsi Perangkat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1328"/>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation>Kiri</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1337"/>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Kanan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1346"/>
         <source>Top</source>
-        <translation>Yläosa</translation>
+        <translation>Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1355"/>
         <source>Bottom</source>
-        <translation>Alaosa</translation>
+        <translation>Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1364"/>
         <source>Floating</source>
-        <translation>Kelluva</translation>
+        <translation>Mengambang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1373"/>
         <source>Reload Style Sheet</source>
-        <translation>Lataa Uudelleen Tyylitiedosto</translation>
+        <translation>Muat Ulang Lembar Gaya</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="974"/>
         <source>lower after entity</source>
-        <translation>laske entiteetin jälkeen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="982"/>
-        <source>raise over entity</source>
-        <translation>nosta entiteetin yli</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="990"/>
-        <source>move to top</source>
-        <translation>siirrä ylös</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1028"/>
-        <source>&amp;Add Layer</source>
-        <translation>&amp;Lisää Taso</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1035"/>
-        <source>&amp;Remove Layer</source>
-        <translation>&amp;Poista Taso</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1042"/>
-        <source>&amp;Edit Layer</source>
-        <translation>&amp;Muokkaa Tasoa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1049"/>
-        <source>Toggle Layer Loc&amp;k</source>
-        <translation>Vaihda geruzan lukitus</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1056"/>
-        <source>&amp;Toggle Layer Visibility</source>
-        <translation>&amp;Vaihda geruzan näkyvyys</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1063"/>
-        <source>Toggle Layer &amp;Print</source>
-        <translation>Vaihda geruzan &amp;tulostus</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1070"/>
-        <source>Toggle &amp;Construction Layer</source>
-        <translation>Vaihda &amp;rakennusgeruza</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1103"/>
-        <source>&amp;Add Block</source>
-        <translation>&amp;Lisää blokki</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1110"/>
-        <source>&amp;Remove Block</source>
-        <translation>&amp;Poista blokki</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1117"/>
-        <source>&amp;Rename Block</source>
-        <translation>&amp;Nimeä blokki uudelleen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1124"/>
-        <source>&amp;Edit Block</source>
-        <translation>&amp;Muokkaa blokkia</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1131"/>
-        <source>&amp;Save Block</source>
-        <translation>&amp;Tallenna blokki</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1138"/>
-        <source>&amp;Insert Block</source>
-        <translation>&amp;Lisää blokki</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1145"/>
-        <source>Toggle Block &amp;Visibility</source>
-        <translation>Vaihda blokin &amp;näkyvyys</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="1152"/>
-        <source>&amp;Create Block</source>
-        <translation>&amp;Luo blokki</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_actionfactory.cpp" line="854"/>
-        <source>Ex&amp;plode</source>
-        <translation>Pur&amp;ka</translation>
+        <translation>turunkan setelah entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="761"/>
         <source>Mo&amp;ve and Rotate</source>
-        <translation>&amp;Siirrä ja Käännä</translation>
+        <translation>Pind&amp;ah dan Putar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="791"/>
         <source>Tr&amp;im Two</source>
-        <translation>Leikkaa &amp;kaksi</translation>
+        <translation>Pang&amp;kas Dua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="807"/>
         <source>O&amp;ffset</source>
-        <translation>N&amp;ihe</translation>
+        <translation>&amp;Geser</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="982"/>
+        <source>raise over entity</source>
+        <translation>naikkan di atas entitas</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="990"/>
+        <source>move to top</source>
+        <translation>pindah ke atas</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1028"/>
+        <source>&amp;Add Layer</source>
+        <translation>&amp;Tambah Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1035"/>
+        <source>&amp;Remove Layer</source>
+        <translation>&amp;Hapus Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1042"/>
+        <source>&amp;Edit Layer</source>
+        <translation>&amp;Edit Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1049"/>
+        <source>Toggle Layer Loc&amp;k</source>
+        <translation>Alihkan Kunci Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1056"/>
+        <source>&amp;Toggle Layer Visibility</source>
+        <translation>&amp;Alihkan Visibilitas Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1063"/>
+        <source>Toggle Layer &amp;Print</source>
+        <translation>Alihkan Cetak Lapisan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1070"/>
+        <source>Toggle &amp;Construction Layer</source>
+        <translation>Alihkan Lapisan &amp;Konstruksi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1103"/>
+        <source>&amp;Add Block</source>
+        <translation>&amp;Tambah Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1110"/>
+        <source>&amp;Remove Block</source>
+        <translation>&amp;Hapus Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1117"/>
+        <source>&amp;Rename Block</source>
+        <translation>&amp;Ganti Nama Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1124"/>
+        <source>&amp;Edit Block</source>
+        <translation>&amp;Edit Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1131"/>
+        <source>&amp;Save Block</source>
+        <translation>&amp;Simpan Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1138"/>
+        <source>&amp;Insert Block</source>
+        <translation>&amp;Sisipkan Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1145"/>
+        <source>Toggle Block &amp;Visibility</source>
+        <translation>Alihkan Visibilitas Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="1152"/>
+        <source>&amp;Create Block</source>
+        <translation>&amp;Buat Blok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_actionfactory.cpp" line="854"/>
+        <source>Ex&amp;plode</source>
+        <translation>L&amp;edakkan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1161"/>
         <source>&amp;Application Preferences</source>
-        <translation>&amp;Sovelluksen Asetukset</translation>
+        <translation>&amp;Preferensi Aplikasi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1169"/>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>Tämänhetkisen &amp;Piirroksen Asetukset</translation>
+        <translation>Preferensi &amp;Gambar Saat Ini</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1192"/>
         <source>&amp;Delete selected</source>
-        <translation>Poista &amp;valitut</translation>
+        <translation>&amp;Hapus yang dipilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1200"/>
         <source>Select &amp;All</source>
-        <translation>Valitse K&amp;aikki</translation>
+        <translation>Pilih &amp;Semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1210"/>
         <source>Deselect &amp;all</source>
-        <translation>&amp;Poista valinta kaikista</translation>
+        <translation>Batal Pilih &amp;semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1212"/>
@@ -1333,107 +1311,107 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1219"/>
         <source>Invert Selection</source>
-        <translation>Käänteinen valinta</translation>
+        <translation>Balik Pilihan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1476"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Suurenna</translation>
+        <translation>&amp;Perbesar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1486"/>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Loitonna</translation>
+        <translation>&amp;Perkecil</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1496"/>
         <source>&amp;Auto Zoom</source>
-        <translation>&amp;Automaattinen Tarkennus</translation>
+        <translation>&amp;Zoom Otomatis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1506"/>
         <source>Previous &amp;View</source>
-        <translation>Edellinen &amp;Näkymä</translation>
+        <translation>&amp;Tampilan Sebelumnya</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1517"/>
         <source>&amp;Redraw</source>
-        <translation>&amp;Piirrä Uudelleen</translation>
+        <translation>&amp;Gambar Ulang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1540"/>
         <source>&amp;New</source>
-        <translation>&amp;Uusi</translation>
+        <translation>&amp;Baru</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1550"/>
         <source>New From &amp;Template</source>
-        <translation>Uusi &amp;Mallipohjasta</translation>
+        <translation>Baru dari &amp;Template</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1559"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Avaa...</translation>
+        <translation>&amp;Buka...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1569"/>
         <source>&amp;Save</source>
-        <translation>&amp;Tallenna</translation>
+        <translation>&amp;Simpan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1579"/>
         <source>Save &amp;as...</source>
-        <translation>Tallenna &amp;nimellä...</translation>
+        <translation>Simpan &amp;sebagai...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1244"/>
         <source>&amp;Export as image</source>
-        <translation>&amp;Vie kuvana</translation>
+        <translation>&amp;Ekspor sebagai gambar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1250"/>
         <source>&amp;Close</source>
-        <translation>&amp;Sulje</translation>
+        <translation>&amp;Tutup</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1589"/>
         <source>Save A&amp;ll...</source>
-        <translation>Tallenna k&amp;aikki...</translation>
+        <translation>Simpan Se&amp;mua...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1599"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Tulosta...</translation>
+        <translation>&amp;Cetak...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1265"/>
         <source>Export as PDF</source>
-        <translation>Vie PDF-tiedostona</translation>
+        <translation>Ekspor sebagai PDF</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1610"/>
         <source>Print Pre&amp;view</source>
-        <translation>Tulostuksen &amp;Esikatselu</translation>
+        <translation>&amp;Pratinjau Cetak</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1621"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Lopeta</translation>
+        <translation>&amp;Keluar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1271"/>
         <source>&amp;Block</source>
-        <translation>&amp;Blokki</translation>
+        <translation>&amp;Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1279"/>
         <source>&amp;Fullscreen</source>
-        <translation>&amp;Kokonäyttötila</translation>
+        <translation>&amp;Layar Penuh</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1290"/>
         <source>&amp;Grid</source>
-        <translation>&amp;Ruudukko</translation>
+        <translation>&amp;Kisi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1292"/>
@@ -1444,12 +1422,12 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1300"/>
         <source>&amp;Draft</source>
-        <translation>&amp;Luonnos</translation>
+        <translation>&amp;Draft</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1309"/>
         <source>&amp;Statusbar</source>
-        <translation>&amp;Tilapalkki</translation>
+        <translation>&amp;Bilah Status</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1312"/>
@@ -1460,7 +1438,7 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_actionfactory.cpp" line="1317"/>
         <source>Focus on &amp;Command Line</source>
-        <translation>&amp;Tarkenna Komentoriville</translation>
+        <translation>Fokus ke &amp;Baris Perintah</translation>
     </message>
 </context>
 <context>
@@ -1468,7 +1446,7 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actionfileexportmakercam.cpp" line="110"/>
         <source>Export as</source>
-        <translation>Vie muodossa</translation>
+        <translation>Ekspor sebagai</translation>
     </message>
 </context>
 <context>
@@ -1476,7 +1454,7 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actionlayersexport.cpp" line="281"/>
         <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
-        <translation>Tallennetaan geruza &quot;%1&quot; nimellä &quot;%2&quot; </translation>
+        <translation>Menyimpan lapisan &quot;%1&quot; sebagai &quot;%2&quot; </translation>
     </message>
 </context>
 <context>
@@ -1484,18 +1462,18 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actionpenapply.cpp" line="171"/>
         <source>Specify entity to pick the pen</source>
-        <translation>Määritä entiteetti kynän valitsemiseksi</translation>
+        <translation>Tentukan entitas untuk memilih pena</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionpenapply.cpp" line="172"/>
         <location filename="../src/actions/lc_actionpenapply.cpp" line="176"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionpenapply.cpp" line="175"/>
         <source>Specify entity to apply pen</source>
-        <translation>Määritä entiteetti kynän käyttämiseksi</translation>
+        <translation>Tentukan entitas untuk menerapkan pena</translation>
     </message>
 </context>
 <context>
@@ -1503,12 +1481,12 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actionpenpick.cpp" line="108"/>
         <source>Specify entity to pick the pen</source>
-        <translation>Määritä entiteetti kynän valitsemiseksi</translation>
+        <translation>Tentukan entitas untuk memilih pena</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionpenpick.cpp" line="109"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -1516,28 +1494,28 @@ tai [%2]</translation>
     <message>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="295"/>
         <source>Specify percentage / start-point</source>
-        <translation>Määritä prosentti / aloituspiste</translation>
+        <translation>Tentukan persentase / titik awal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="296"/>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="301"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="300"/>
         <source>Specify start point</source>
-        <translation>Määritä aloituspiste</translation>
+        <translation>Tentukan titik awal</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="305"/>
         <source>Specify end point</source>
-        <translation>Määritä loppupiste</translation>
+        <translation>Tentukan titik akhir</translation>
     </message>
     <message>
         <location filename="../src/actions/lc_actionsnapmiddlemanual.cpp" line="306"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Kembali</translation>
     </message>
 </context>
 <context>
@@ -1545,44 +1523,44 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="27"/>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="73"/>
         <source>Active</source>
-        <translation>Aktiivinen</translation>
+        <translation>Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="32"/>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="78"/>
         <source>Original</source>
-        <translation>Alkuperäinen</translation>
+        <translation>Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="37"/>
         <source>Original Resolved</source>
-        <translation>Alkuperäinen ratkaistu</translation>
+        <translation>Asli Terselesaikan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="45"/>
         <source>Radius Shift:</source>
-        <translation>Säteen siirto:</translation>
+        <translation>Shift Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="65"/>
         <source>Layer:</source>
-        <translation>Geruza:</translation>
+        <translation>Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="102"/>
         <source>Replace arc</source>
-        <translation>Korvaa kaari</translation>
+        <translation>Ganti busur</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_circlebyarcoptions.ui" line="109"/>
         <source>Pen:</source>
-        <translation>Kynä:</translation>
+        <translation>Pena:</translation>
     </message>
 </context>
 <context>
@@ -1590,22 +1568,22 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="20"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="63"/>
         <source>Extension</source>
-        <translation>Laajennus</translation>
+        <translation>Ekstensi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="68"/>
         <source>Total Length</source>
-        <translation>Kokonaispituus</translation>
+        <translation>Panjang Total</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="73"/>
         <source>Percent</source>
-        <translation>Prosentti</translation>
+        <translation>Persen</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="125"/>
@@ -1620,12 +1598,12 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="161"/>
         <source>Type</source>
-        <translation>Tyyppi</translation>
+        <translation>Tipe</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_crossoptions.ui" line="168"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
 </context>
 <context>
@@ -1633,17 +1611,17 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_deviceoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_deviceoptions.ui" line="20"/>
         <source>Device</source>
-        <translation>Laite</translation>
+        <translation>Perangkat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_deviceoptions.ui" line="53"/>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Simpan</translation>
     </message>
 </context>
 <context>
@@ -1651,7 +1629,7 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/LC_DlgParabola.cpp" line="112"/>
         <source>Parabola control points cannot be collinear</source>
-        <translation>Paraboolin ohjauspisteet eivät voi olla kollineaarisia</translation>
+        <translation>Titik kontrol parabola tidak boleh sejajar</translation>
     </message>
 </context>
 <context>
@@ -1659,49 +1637,49 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="26"/>
         <source>Layer:</source>
-        <translation>Geruza:</translation>
+        <translation>Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="33"/>
         <source>In Place</source>
-        <translation>Paikallaan</translation>
+        <translation>Di Tempat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="40"/>
         <source>Offset X:</source>
-        <translation>X-siirto:</translation>
+        <translation>Offset X:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="48"/>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="62"/>
         <source>Active</source>
-        <translation>Aktiivinen</translation>
+        <translation>Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="53"/>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="67"/>
         <source>Original</source>
-        <translation>Alkuperäinen</translation>
+        <translation>Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="72"/>
         <source>Original Resolved</source>
-        <translation>Alkuperäinen ratkaistu</translation>
+        <translation>Asli Terselesaikan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="80"/>
         <source>Offset Y:</source>
-        <translation>Y-siirto:</translation>
+        <translation>Offset Y:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_duplicateoptions.ui" line="103"/>
         <source>Pen:</source>
-        <translation>Kynä:</translation>
+        <translation>Pena:</translation>
     </message>
 </context>
 <context>
@@ -1709,86 +1687,86 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="20"/>
         <source>Layer Settings</source>
-        <translation>Geruzan asetukset</translation>
+        <translation>Pengaturan Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="61"/>
         <source>Parent Layers Path:</source>
-        <translation>Ylemmän geruzan polku:</translation>
+        <translation>Jalur Lapisan Induk:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="78"/>
         <source>Layer Type</source>
-        <translation>Geruzan tyyppi</translation>
+        <translation>Tipe Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="90"/>
         <source>Informational</source>
-        <translation>Informatiivinen</translation>
+        <translation>Informasi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="100"/>
         <source>Normal</source>
-        <translation>Normaali</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="110"/>
         <source>Dimensions</source>
-        <translation>Mitat</translation>
+        <translation>Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="120"/>
         <source>Alternative Position</source>
-        <translation>Vaihtoehtoinen sijainti</translation>
+        <translation>Posisi Alternatif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="133"/>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Rakennusgeruza sisältää äärettömiä suoria viivoja geometrista rakentamista varten.
-       Rakennusgeruzan sisältö ei saa näkyä tulosteessa.</translation>
+        <translation>Lapisan Konstruksi memiliki entitas garis lurus tak terbatas yang dimaksudkan untuk konstruksi geometri.
+       Isi Lapisan Konstruksi tidak boleh muncul di cetakan.</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="137"/>
         <source>Construction Layer</source>
-        <translation>Rakennusgeruza</translation>
+        <translation>Lapisan Konstruksi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.ui" line="179"/>
         <source>Layer Name:</source>
-        <translation>Geruzan nimi:</translation>
+        <translation>Nama Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="58"/>
         <source>Rename Virtual Layer</source>
-        <translation>Nimeä virtuaaligeruza uudelleen</translation>
+        <translation>Ganti Nama Lapisan Virtual</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="62"/>
         <source>Add Secondary Layer</source>
-        <translation>Lisää toissijainen geruza</translation>
+        <translation>Tambah Lapisan Sekunder</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="67"/>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="73"/>
         <source>Add Layer</source>
-        <translation>Lisää geruza</translation>
+        <translation>Tambah Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="78"/>
         <source>Edit Layer</source>
-        <translation>Muokkaa geruzaa</translation>
+        <translation>Edit Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="165"/>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="204"/>
         <source>Default Pen</source>
-        <translation>Oletuskynä</translation>
+        <translation>Pena Default</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="182"/>
         <source>Rename Layer</source>
-        <translation>Nimeä geruza uudelleen</translation>
+        <translation>Ganti Nama Lapisan</translation>
     </message>
 </context>
 <context>
@@ -1796,92 +1774,92 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="20"/>
         <source>Layers Tree Options</source>
-        <translation>Geruzapuu-asetukset</translation>
+        <translation>Opsi Pohon Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="33"/>
         <source>Naming Convention</source>
-        <translation>Nimeämiskäytäntö</translation>
+        <translation>Konvensi Penamaan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="68"/>
         <source>Layer Level Name Separator</source>
-        <translation>Geruzatasojen nimen erotin</translation>
+        <translation>Pemisah Nama Level Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="88"/>
         <source>Secondary Layer Suffixes</source>
-        <translation>Toissijaisten geruzojen loppuliitteet</translation>
+        <translation>Akhiran Lapisan Sekunder</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="94"/>
         <source>Dimensional</source>
-        <translation>Mitta</translation>
+        <translation>Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="114"/>
         <source>Informational</source>
-        <translation>Informatiivinen</translation>
+        <translation>Informasi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="134"/>
         <source>Alternative Position </source>
-        <translation>Vaihtoehtoinen sijainti </translation>
+        <translation>Posisi Alternatif </translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="157"/>
         <source>Duplicating Name</source>
-        <translation>Nimen monistaminen</translation>
+        <translation>Menduplikat Nama</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="163"/>
         <source>Prefix</source>
-        <translation>Etuliite</translation>
+        <translation>Awalan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="183"/>
         <source>Suffix</source>
-        <translation>Loppuliite</translation>
+        <translation>Akhiran</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="207"/>
         <source>Display and Operations</source>
-        <translation>Näyttö ja toiminnot</translation>
+        <translation>Tampilan dan Operasi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="213"/>
         <source>Show full name as ToolTip</source>
-        <translation>Näytä täysi nimi työkaluvihjeenä</translation>
+        <translation>Tampilkan nama lengkap sebagai ToolTip</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="220"/>
         <source>Show layer type icons</source>
-        <translation>Näytä geruzatyypin kuvakkeet</translation>
+        <translation>Tampilkan ikon tipe lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="233"/>
         <source>Show indented layer names. Ident size:</source>
-        <translation>Näytä sisennys geruzanimissä. Sisennyskoko:</translation>
+        <translation>Tampilkan nama lapisan dengan indent. Ukuran indent:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="266"/>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>Salli uudelleenjärjestely raahaamalla</translation>
+        <translation>Izinkan restrukturisasi via Drag&amp;Drop</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="273"/>
         <source>Rename secondary layers on primary rename</source>
-        <translation>Nimeä toissijaiset geruzat uudelleen kun ensisijainen nimetään uudelleen</translation>
+        <translation>Ganti nama lapisan sekunder saat mengganti nama primer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="281"/>
         <source>Colors</source>
-        <translation>Värit</translation>
+        <translation>Warna</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="384"/>
         <source>Matched item in highlight filter mode</source>
-        <translation>Sovittu kohde korostussuodatin-tilassa</translation>
+        <translation>Item yang cocok dalam mode filter sorot</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="416"/>
@@ -1891,52 +1869,52 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="441"/>
         <source>Virtual layer background color</source>
-        <translation>Virtuaaligeruzan taustaväri</translation>
+        <translation>Warna latar belakang lapisan virtual</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="465"/>
         <source>Threeview items separator grid</source>
-        <translation>Kolmesta näkymästä erottava ruudukko</translation>
+        <translation>Kisi pemisah item threeview</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="475"/>
         <source>Selected items background color</source>
-        <translation>Valittujen kohteiden taustaväri</translation>
+        <translation>Warna latar belakang item terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="504"/>
         <source>Active layer background color</source>
-        <translation>Aktiivisen geruzan taustaväri</translation>
+        <translation>Warna latar belakang lapisan aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.ui" line="525"/>
         <source>Default Pens</source>
-        <translation>Oletuskynät</translation>
+        <translation>Pena Default</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.cpp" line="71"/>
         <source>Normal Layer</source>
-        <translation>Normaali geruza</translation>
+        <translation>Lapisan Normal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.cpp" line="72"/>
         <source>Dimensional Layer</source>
-        <translation>Mitta-geruza</translation>
+        <translation>Lapisan Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.cpp" line="73"/>
         <source>Informational Layer</source>
-        <translation>Informatiivinen geruza</translation>
+        <translation>Lapisan Informasi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.cpp" line="74"/>
         <source>Alternative Position Layer</source>
-        <translation>Vaihtoehtoinen sijainti-geruza</translation>
+        <translation>Lapisan Posisi Alternatif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layertreeoptionsdialog.cpp" line="239"/>
         <source>Select Color</source>
-        <translation>Valitse väri</translation>
+        <translation>Pilih Warna</translation>
     </message>
 </context>
 <context>
@@ -1944,250 +1922,250 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="144"/>
         <source>Filter</source>
-        <translation>Suodatin</translation>
+        <translation>Filter</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="146"/>
         <source>Looking for matching layer names</source>
-        <translation>Etsitään vastaavia geruzanimia</translation>
+        <translation>Mencari nama lapisan yang cocok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="151"/>
         <source>Highlight Mode</source>
-        <translation>Korostustila</translation>
+        <translation>Mode Sorot</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="163"/>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation>Pengaturan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="185"/>
         <source>Show all layers</source>
-        <translation>Näytä kaikki geruzat</translation>
+        <translation>Tampilkan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="193"/>
         <source>Hide all layers</source>
-        <translation>Piilota kaikki geruzat</translation>
+        <translation>Sembunyikan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="201"/>
         <source>Show Secondary Layers</source>
-        <translation>Näytä toissijaiset geruzat</translation>
+        <translation>Tampilkan Lapisan Sekunder</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="212"/>
         <source>Show Active Layer Only</source>
-        <translation>Näytä vain aktiivinen geruza</translation>
+        <translation>Tampilkan Hanya Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="222"/>
         <source>Expand All</source>
-        <translation>Laajenna kaikki</translation>
+        <translation>Kembangkan Semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="231"/>
         <source>Collapse All</source>
-        <translation>Tiivistä kaikki</translation>
+        <translation>Runtuhkan Semua</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="240"/>
         <source>Collapse Secondary</source>
-        <translation>Tiivistä toissijaiset</translation>
+        <translation>Runtuhkan Sekunder</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="251"/>
         <source>Unlock all layers</source>
-        <translation>Avaa lukitus kaikista geruzista</translation>
+        <translation>Buka kunci semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="259"/>
         <source>Lock all layers</source>
-        <translation>Lukitse kaikki geruzat</translation>
+        <translation>Kunci semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="267"/>
         <source>Add a layer</source>
-        <translation>Lisää geruza</translation>
+        <translation>Tambah lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="275"/>
         <source>Add dimensions Layer</source>
-        <translation>Lisää mitta-geruza</translation>
+        <translation>Tambah Lapisan Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="285"/>
         <source>Remove layer</source>
-        <translation>Poista geruza</translation>
+        <translation>Hapus lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="293"/>
         <source>Modify layer attributes / rename</source>
-        <translation>Muokkaa geruzan attribuutteja / nimeä uudelleen</translation>
+        <translation>Ubah atribut lapisan / ganti nama</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="308"/>
         <source>Flat List Mode)</source>
-        <translation>Tasainen listatila)</translation>
+        <translation>Mode Daftar Datar)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="653"/>
         <source>Layer Menu</source>
-        <translation>Geruza-valikko</translation>
+        <translation>Menu Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="672"/>
         <source>&amp;Add Child Layer</source>
-        <translation>&amp;Lisää lapsigeruza</translation>
+        <translation>&amp;Tambah Lapisan Anak</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="673"/>
         <source>&amp;Rename</source>
-        <translation>&amp;Nimeä uudelleen</translation>
+        <translation>&amp;Ganti Nama</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="674"/>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>&amp;Poista geruzat (alipuu)</translation>
+        <translation>&amp;Hapus Lapisan (Sub-Pohon)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="676"/>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>&amp;Kopioi rakenne (alipuu)</translation>
+        <translation>&amp;Salin Struktur (Sub-Pohon)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="677"/>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>&amp;Monista sisältö (alipuu)</translation>
+        <translation>&amp;Duplikat Konten (Sub-Pohon)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="679"/>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>&amp;Valitse entiteetit (alipuu)</translation>
+        <translation>&amp;Pilih Entitas (Sub-Pohon)</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="684"/>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>&amp;Muokkaa geruzan &amp;attribuutteja</translation>
+        <translation>&amp;Edit &amp;Atribut Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="686"/>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;Poista geruza</translation>
+        <translation>&amp;Hapus Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="695"/>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>&amp;Lisää mitta-aligeruza</translation>
+        <translation>&amp;Tambah Sub-Lapisan Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="699"/>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>&amp;Lisää tieto-aligeruza</translation>
+        <translation>&amp;Tambah Sub-Lapisan Info</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="703"/>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>&amp;Lisää vaihtoehtoinen näkymä-aligeruza</translation>
+        <translation>&amp;Tambah Sub-Lapisan Tampilan Alternatif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="709"/>
         <source>&amp;Remove Sub-layers</source>
-        <translation>&amp;Poista aligeruzat</translation>
+        <translation>&amp;Hapus Sub-lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="717"/>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="728"/>
         <source>Convert to Dimensional Layer</source>
-        <translation>Muuta mitta-geruzaksi</translation>
+        <translation>Ubah ke Lapisan Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="718"/>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="731"/>
         <source>Convert to Info Layer</source>
-        <translation>Muuta tieto-geruzaksi</translation>
+        <translation>Ubah ke Lapisan Info</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="719"/>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="734"/>
         <source>Convert to Alternative Position Layer</source>
-        <translation>Muuta vaihtoehtoinen sijainti-geruzaksi</translation>
+        <translation>Ubah ke Lapisan Posisi Alternatif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="726"/>
         <source>Convert to Normal Layer</source>
-        <translation>Muuta normaali geruzaksi</translation>
+        <translation>Ubah ke Lapisan Normal</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="740"/>
         <source>&amp;Select Layer&apos;s Entities</source>
-        <translation>&amp;Valitse geruzan entiteetit</translation>
+        <translation>&amp;Pilih Entitas Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="743"/>
         <source>&amp;Create Layer Copy</source>
-        <translation>&amp;Luo geruzan kopio</translation>
+        <translation>&amp;Buat Salinan Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="744"/>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>&amp;Monista geruza sisällön kanssa</translation>
+        <translation>&amp;Duplikat Lapisan dengan Konten</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="748"/>
         <source>Move Selection to Layer</source>
-        <translation>Siirrä valinta geruzaan</translation>
+        <translation>Pindah Pilihan ke Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="749"/>
         <source>Duplicate Selection to Layer</source>
-        <translation>Monista valinta geruzaan</translation>
+        <translation>Duplikat Pilihan ke Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="756"/>
         <source>&amp;Add Layer</source>
-        <translation>&amp;Lisää geruza</translation>
+        <translation>&amp;Tambah Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="758"/>
         <source>&amp;Freeze Others Layers</source>
-        <translation>&amp;Jäädytä muut geruzat</translation>
+        <translation>&amp;Bekukan Lapisan Lainnya</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="759"/>
         <source>&amp;Defreeze All Layers</source>
-        <translation>&amp;Sulatka kaikki geruzat</translation>
+        <translation>&amp;Defrost Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="760"/>
         <source>&amp;Freeze All Layers</source>
-        <translation>&amp;Jäädytä kaikki geruzat</translation>
+        <translation>&amp;Bekukan Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="761"/>
         <source>&amp;Unlock All Layers</source>
-        <translation>&amp;Avaa lukitus kaikista geruzista</translation>
+        <translation>&amp;Buka Kunci Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="762"/>
         <source>&amp;Lock All Layers</source>
-        <translation>&amp;Lukitse kaikki geruzat</translation>
+        <translation>&amp;Kunci Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="763"/>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Ota &amp;tulostus käyttöön kaikille geruzille</translation>
+        <translation>Aktifkan &amp;Cetak Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="764"/>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>&amp;Poista tulostus käytöstä kaikilta geruzilta</translation>
+        <translation>&amp;Nonaktifkan Cetak Semua Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="766"/>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>&amp;Etsi ja poista tyhjät geruzat</translation>
+        <translation>&amp;Cari dan Hapus Lapisan Kosong</translation>
     </message>
 </context>
 <context>
@@ -2195,71 +2173,71 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="42"/>
         <source>Offset:</source>
-        <translation>Siirto:</translation>
+        <translation>Offset:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="50"/>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="181"/>
         <source>Free</source>
-        <translation>Vapaa</translation>
+        <translation>Bebas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="55"/>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="110"/>
         <source>Start</source>
-        <translation>Aloitus</translation>
+        <translation>Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="60"/>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="115"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="65"/>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="120"/>
         <source>End</source>
-        <translation>Lopetus</translation>
+        <translation>Akhir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="73"/>
         <source>Line Snap:</source>
-        <translation>Viivan tartunta:</translation>
+        <translation>Snap Garis:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="80"/>
         <source>Rel</source>
-        <translation>Relatiivinen</translation>
+        <translation>Rel</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="144"/>
         <source>Divide</source>
-        <translation>Jaa</translation>
+        <translation>Bagi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="167"/>
         <source>Tick Snap:</source>
-        <translation>Merkki-tartunta:</translation>
+        <translation>Snap Tanda:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="174"/>
         <source>Length:</source>
-        <translation>Pituus:</translation>
+        <translation>Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="201"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineanglereloptions.ui" line="208"/>
         <source>Snap Distance:</source>
-        <translation>Tartuntaetäisyys:</translation>
+        <translation>Jarak Snap:</translation>
     </message>
 </context>
 <context>
@@ -2267,62 +2245,62 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="48"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="55"/>
         <source>Size:</source>
-        <translation>Koko:</translation>
+        <translation>Ukuran:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="62"/>
         <source>Orthogonal</source>
-        <translation>Ortogonaalinen</translation>
+        <translation>Ortogonal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="105"/>
         <source>To Intersection</source>
-        <translation>Risteykseen</translation>
+        <translation>Ke Persimpangan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="110"/>
         <source>Fixed Length</source>
-        <translation>Pituus kiinteä</translation>
+        <translation>Panjang Tetap</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="139"/>
         <source>End offset:</source>
-        <translation>Loppu-siirto:</translation>
+        <translation>Offset akhir:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="217"/>
         <source>Start</source>
-        <translation>Aloitus</translation>
+        <translation>Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="222"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="227"/>
         <source>End</source>
-        <translation>Lopetus</translation>
+        <translation>Akhir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="241"/>
         <source>Length:</source>
-        <translation>Pituus:</translation>
+        <translation>Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linefrompointtolineoptions.ui" line="270"/>
         <source>Snap:</source>
-        <translation>Tartunta:</translation>
+        <translation>Snap:</translation>
     </message>
 </context>
 <context>
@@ -2330,70 +2308,70 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="20"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="51"/>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="144"/>
         <source>Extend/Trim</source>
-        <translation>Laajenna/Leikkaa</translation>
+        <translation>Perpanjang/Pangkas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="56"/>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="149"/>
         <source>Add segment</source>
-        <translation>Lisää segmentti</translation>
+        <translation>Tambah segmen</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="61"/>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="154"/>
         <source>No change</source>
-        <translation>Ei muutosta</translation>
+        <translation>Tidak ada perubahan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="69"/>
         <source>Create Polyline</source>
-        <translation>Luo liitviiva</translation>
+        <translation>Buat Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="76"/>
         <source>Attributes:</source>
-        <translation>Attribuutit:</translation>
+        <translation>Atribut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="102"/>
         <source>Active Pen</source>
-        <translation>Aktiivinen kynä</translation>
+        <translation>Pena Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="107"/>
         <source>Line 1</source>
-        <translation>Viiva 1</translation>
+        <translation>Garis 1</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="112"/>
         <source>Line 2</source>
-        <translation>Viiva 2</translation>
+        <translation>Garis 2</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="117"/>
         <source>Both lines</source>
-        <translation>Molemmat viivat</translation>
+        <translation>Kedua garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="162"/>
         <source>Remove originals</source>
-        <translation>Poista alkuperäiset</translation>
+        <translation>Hapus asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="169"/>
         <source>Line 2:</source>
-        <translation>Viiva 2:</translation>
+        <translation>Garis 2:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linejoinoptions.ui" line="176"/>
         <source>Line 1:</source>
-        <translation>Viiva 1:</translation>
+        <translation>Garis 1:</translation>
     </message>
 </context>
 <context>
@@ -2401,59 +2379,67 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="20"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="32"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="73"/>
         <source>Fit Line</source>
-        <translation>Sovita viiva</translation>
+        <translation>Sesuaikan Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="128"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Tidak Ada</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="133"/>
         <source>Both</source>
-        <translation>Molemmat</translation>
+        <translation>Keduanya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="138"/>
         <source>Start</source>
-        <translation>Aloitus</translation>
+        <translation>Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="143"/>
         <source>End</source>
-        <translation>Lopetus</translation>
+        <translation>Akhir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="183"/>
         <source>Edge Points:</source>
-        <translation>Reunapisteet:</translation>
+        <translation>Titik Tepi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="196"/>
         <source>Number of points:</source>
-        <translation>Pisteiden määrä:</translation>
+        <translation>Jumlah titik:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_linepointsoptions.ui" line="209"/>
         <source>Fixed Distance</source>
-        <translation>Kiinteä etäisyys</translation>
+        <translation>Jarak Tetap</translation>
     </message>
 </context>
 <context>
     <name>LC_List</name>
     <message>
+        <source>length</source>
+        <translation type="obsolete">panjang</translation>
+    </message>
+    <message>
+        <source>radius</source>
+        <translation type="obsolete">jari-jari</translation>
+    </message>
+    <message>
         <source>Closed</source>
-        <translation type="obsolete">Suljettu</translation>
+        <translation type="obsolete">Tertutup</translation>
     </message>
 </context>
 <context>
@@ -2461,17 +2447,17 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_modifybreakdivideoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifybreakdivideoptions.ui" line="39"/>
         <source>Remove Segments</source>
-        <translation>Poista segmentit</translation>
+        <translation>Hapus Segmen</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifybreakdivideoptions.ui" line="46"/>
         <source>Remove Selected</source>
-        <translation>Poista valitut</translation>
+        <translation>Hapus yang Dipilih</translation>
     </message>
 </context>
 <context>
@@ -2479,51 +2465,51 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="42"/>
         <source>Gap Snap:</source>
-        <translation>Välin tartunta:</translation>
+        <translation>Snap Celah:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="49"/>
         <source>Snap Distance:</source>
-        <translation>Tartuntaetäisyys:</translation>
+        <translation>Jarak Snap:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="56"/>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="87"/>
         <source>Free</source>
-        <translation>Vapaa</translation>
+        <translation>Bebas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="79"/>
         <source>Gap Size:</source>
-        <translation>Välin koko:</translation>
+        <translation>Ukuran Celah:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="92"/>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="111"/>
         <source>Start</source>
-        <translation>Aloitus</translation>
+        <translation>Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="97"/>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="116"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="102"/>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="121"/>
         <source>End</source>
-        <translation>Lopetus</translation>
+        <translation>Akhir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_modifygapoptions.ui" line="129"/>
         <source>Line Snap:</source>
-        <translation>Viivan tartunta:</translation>
+        <translation>Snap Garis:</translation>
     </message>
 </context>
 <context>
@@ -2531,92 +2517,92 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="18"/>
         <source>Pen Palette Settings</source>
-        <translation>Kynäpaletin asetukset</translation>
+        <translation>Pengaturan Palet Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="37"/>
         <source>Columns to display</source>
-        <translation>Näytettävät sarakkeet</translation>
+        <translation>Kolom yang ditampilkan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="43"/>
         <source>Line Type Name</source>
-        <translation>Viivatyypin nimi</translation>
+        <translation>Nama Tipe Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="50"/>
         <source>Color Name</source>
-        <translation>Värin nimi</translation>
+        <translation>Nama Warna</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="57"/>
         <source>Line Type Icon</source>
-        <translation>Viivatyypin kuvake</translation>
+        <translation>Ikon Tipe Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="64"/>
         <source>Color Icon</source>
-        <translation>Värin kuvake</translation>
+        <translation>Ikon Warna</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="71"/>
         <source>Line Width Icon</source>
-        <translation>Viivan leveyden kuvake</translation>
+        <translation>Ikon Lebar Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="78"/>
         <source>Line Width Name</source>
-        <translation>Viivan leveyden nimi</translation>
+        <translation>Nama Lebar Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="88"/>
         <source>Colors</source>
-        <translation>Värit</translation>
+        <translation>Warna</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="132"/>
         <source>Active Pen Background:</source>
-        <translation>Aktiivisen kynän tausta:</translation>
+        <translation>Latar Belakang Pena Aktif:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="150"/>
         <source>Entire table row is bold for active pen</source>
-        <translation>Koko taulurivi on lihavoitu aktiiviselle kynälle</translation>
+        <translation>Seluruh baris tabel tebal untuk pena aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="157"/>
         <source>Grid Color:</source>
-        <translation>Ruudukon väri:</translation>
+        <translation>Warna Kisi:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="164"/>
         <source>Matched Item Color:</source>
-        <translation>Sovitetun kohteen väri:</translation>
+        <translation>Warna Item yang Cocok:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="192"/>
         <source>Case-insensitive pens filtering</source>
-        <translation>Isot/pienet kirjaimet erotamaton kynien suodatus</translation>
+        <translation>Filter pena tidak peka huruf besar/kecil</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="209"/>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>Ohjaa näytetäänkö työkaluvihje taulukohteelle vai ei</translation>
+        <translation>Mengatur apakah tooltip ditampilkan untuk item tabel atau tidak</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="212"/>
         <source>Show tooltip for table items</source>
-        <translation>Näytä työkaluvihje taulukohteille</translation>
+        <translation>Tampilkan tooltip untuk item tabel</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="221"/>
         <source>Pens file:</source>
-        <translation>Kynätiedosto:</translation>
+        <translation>File pena:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="244"/>
         <source>Show colorn name as</source>
-        <translation>Näytä värin nimi muodossa</translation>
+        <translation>Tampilkan nama warna sebagai</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="250"/>
@@ -2631,32 +2617,32 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="264"/>
         <source>Natural name where possible</source>
-        <translation>Luonnollinen nimi mahdollisuuksien mukaan</translation>
+        <translation>Nama alami jika memungkinkan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="274"/>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>Näytä infoviesti jos kynällä ei voi valita entiteettejä</translation>
+        <translation>Tampilkan pesan info jika tidak ada entitas yang dapat dipilih dengan pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.ui" line="283"/>
         <source>On double click on table item</source>
-        <translation>Kaksoisklikkauksella taulukohteessa</translation>
+        <translation>Saat klik ganda pada item tabel</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.cpp" line="45"/>
         <source>Do nothing</source>
-        <translation>Älä tee mitään</translation>
+        <translation>Tidak melakukan apa-apa</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.cpp" line="46"/>
         <source>Select entities by attributes pen</source>
-        <translation>Valitse entiteetit attribuuttikynällä</translation>
+        <translation>Pilih entitas berdasarkan pena atribut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpaletteoptionsdialog.cpp" line="47"/>
         <source>Select entities by drawing pen</source>
-        <translation>Valitse entiteetit piirroskynällä</translation>
+        <translation>Pilih entitas berdasarkan pena gambar</translation>
     </message>
 </context>
 <context>
@@ -2664,182 +2650,182 @@ tai [%2]</translation>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="20"/>
         <source>Pen Palette</source>
-        <translation>Kynäpaletti</translation>
+        <translation>Palet Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="44"/>
         <source>Pen Name:</source>
-        <translation>Kynän nimi:</translation>
+        <translation>Nama Pena:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="94"/>
         <source>Color:</source>
-        <translation>Väri:</translation>
+        <translation>Warna:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="191"/>
         <source>Filter...</source>
-        <translation>Suodatin...</translation>
+        <translation>Filter...</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="201"/>
         <source>Highlight Mode</source>
-        <translation>Korostustila</translation>
+        <translation>Mode Sorot</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="224"/>
         <source>Type:</source>
-        <translation>Tyyppi:</translation>
+        <translation>Tipe:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="246"/>
         <source>Width:</source>
-        <translation>Leveys:</translation>
+        <translation>Lebar:</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="271"/>
         <source>Settings</source>
-        <translation>Asetukset</translation>
+        <translation>Pengaturan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="290"/>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Täytä kynäeditori entiteetin piirroskynällä</translation>
+        <translation>Isi Editor Pena dengan Pena Gambar Entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="304"/>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Täytä kynäeditori entiteetin attribuuteilla</translation>
+        <translation>Isi Editor Pena dengan Atribut Entitas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="318"/>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Valitse entiteetit piirroskynällä</translation>
+        <translation>Pilih Entitas Berdasarkan Pena Gambar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="332"/>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Valitse entiteetit kynän attribuuteilla</translation>
+        <translation>Pilih Entitas Berdasarkan Atribut Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="349"/>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="352"/>
         <source>Save</source>
-        <translation>Tallenna</translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="363"/>
         <source>Apply Pen To Selection</source>
-        <translation>Käytä kynää valintaan</translation>
+        <translation>Terapkan Pena ke Pilihan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="377"/>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Täytä editorin kynä nykyisellä kynällä</translation>
+        <translation>Isi Pena Editor dengan Pena Saat Ini</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="391"/>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>Käytä editorin kynää nykyisenä kynänä</translation>
+        <translation>Terapkan Pena Editor sebagai Pena Saat Ini</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="394"/>
         <source>to current</source>
-        <translation>nykyiseen</translation>
+        <translation>ke saat ini</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="405"/>
         <source>Update Current Pen by Active Layer&apos; Pen</source>
-        <translation>Päivitä nykyinen kynä aktiivisen geruzan kynällä</translation>
+        <translation>Perbarui Pena Saat Ini dengan Pena Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="419"/>
         <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
-        <translation>Täytä kynäeditori aktiivisen geruzan kynästä</translation>
+        <translation>Isi Editor Pena dari Pena Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="422"/>
         <source>Pick from Active Layer</source>
-        <translation>Valitse aktiivisesta geruzasta</translation>
+        <translation>Pilih dari Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="433"/>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>Käytä editorin kynää aktiivisen geruzan kynään</translation>
+        <translation>Terapkan Pena Editor ke Pena Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="436"/>
         <source>Apply To Layer</source>
-        <translation>Käytä geruzaan</translation>
+        <translation>Terapkan ke Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="447"/>
         <source>Remove Selected Pen</source>
-        <translation>Poista valittu kynä</translation>
+        <translation>Hapus Pena Terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.ui" line="450"/>
         <source>Delete Pen</source>
-        <translation>Poista kynä</translation>
+        <translation>Hapus Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="255"/>
         <source>Pens Menu</source>
-        <translation>Kynien valikko</translation>
+        <translation>Menu Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="275"/>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>&amp;Käytä kynää valintaan</translation>
+        <translation>&amp;Terapkan Pena ke Pilihan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="276"/>
         <source>&amp;Set As Current Pen</source>
-        <translation>&amp;Aseta nykyiseksi kynäksi</translation>
+        <translation>&amp;Atur sebagai Pena Saat Ini</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="277"/>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>&amp;Käytä kynää aktiiviseen geruzaan</translation>
+        <translation>&amp;Terapkan Pena ke Lapisan Aktif</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="278"/>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>&amp;Valitse entiteetit attribuuttikynällä</translation>
+        <translation>&amp;Pilih Entitas dengan Pena Atribut</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="279"/>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>&amp;Valitse entiteetit piirroskynällä</translation>
+        <translation>&amp;Pilih Entitas dengan Pena Gambar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="282"/>
         <source>&amp;Edit Pen</source>
-        <translation>&amp;Muokkaa kynää</translation>
+        <translation>&amp;Edit Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="283"/>
         <source>&amp;Remove Pen</source>
-        <translation>&amp;Poista kynä</translation>
+        <translation>&amp;Hapus Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="286"/>
         <source>&amp;Remove Pens</source>
-        <translation>&amp;Poista kynät</translation>
+        <translation>&amp;Hapus Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="409"/>
         <source>Pen palette</source>
-        <translation>Kynäpaletti</translation>
+        <translation>Palet pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_penpalettewidget.cpp" line="410"/>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
 Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>Kynätiedoston sijainti on muuttunut, käynnistä sovellus uudelleen jotta uusi kynätiedosto otetaan käyttöön.
+        <translation>Lokasi file pena telah berubah, harap restart aplikasi agar file pena baru digunakan.
 
-Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä, nykyiset paletin kynät tallentuvat uuteen tiedostoon ja sen sisältö korvataan.</translation>
+Catatan: jika Anda menyimpan pena melalui editor tanpa restart, pena saat ini dari palet akan disimpan di file baru dan isi yang ada akan ditimpa.</translation>
     </message>
 </context>
 <context>
@@ -2847,142 +2833,142 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="26"/>
         <source>Polyline</source>
-        <translation>Liitviiva</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="33"/>
         <source>Height:</source>
-        <translation>Korkeus:</translation>
+        <translation>Tinggi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="40"/>
         <source>Edges:</source>
-        <translation>Reunat:</translation>
+        <translation>Tepi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="63"/>
         <source>Corners:</source>
-        <translation>Kulmat:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="86"/>
         <source>Size inner</source>
-        <translation>Sisäkoko</translation>
+        <translation>Ukuran dalam</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="93"/>
         <source>Length X:</source>
-        <translation>Pituus X:</translation>
+        <translation>Panjang X:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="100"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation>Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="123"/>
         <source>Snap:</source>
-        <translation>Tartunta:</translation>
+        <translation>Snap:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="162"/>
         <source>Length Y:</source>
-        <translation>Pituus Y:</translation>
+        <translation>Panjang Y:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="170"/>
         <source>Top-left</source>
-        <translation>Ylävasen</translation>
+        <translation>Kiri atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="175"/>
         <source>Top</source>
-        <translation>Ylä</translation>
+        <translation>Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="180"/>
         <source>Top-right</source>
-        <translation>Yläoikea</translation>
+        <translation>Kanan atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="185"/>
         <source>Left</source>
-        <translation>Vasen</translation>
+        <translation>Kiri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="190"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="195"/>
         <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Kanan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="200"/>
         <source>Bottom-left</source>
-        <translation>Alavasen</translation>
+        <translation>Kiri bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="205"/>
         <source>Bottom</source>
-        <translation>Ala</translation>
+        <translation>Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="210"/>
         <source>Bottom-right</source>
-        <translation>Alaoikea</translation>
+        <translation>Kanan bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="219"/>
         <source>Straight</source>
-        <translation>Suora</translation>
+        <translation>Lurus</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="224"/>
         <source>Round</source>
-        <translation>Pyöreä</translation>
+        <translation>Bulat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="229"/>
         <source>Bevel</source>
-        <translation>Viisto</translation>
+        <translation>Chamfer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="237"/>
         <source>Snap shift</source>
-        <translation>Tartunnan siirto</translation>
+        <translation>Shift Snap</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="245"/>
         <source>Both</source>
-        <translation>Molemmat</translation>
+        <translation>Keduanya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="250"/>
         <source>Vertical</source>
-        <translation>Pystysuora</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="255"/>
         <source>Horizontal</source>
-        <translation>Vaakasuora</translation>
+        <translation>Horisontal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="279"/>
         <source>Width:</source>
-        <translation>Leveys:</translation>
+        <translation>Lebar:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle1pointoptions.ui" line="286"/>
         <source>Base Angle:</source>
-        <translation>Peruskulma:</translation>
+        <translation>Sudut Dasar:</translation>
     </message>
 </context>
 <context>
@@ -2990,111 +2976,111 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="26"/>
         <source>Snap shift</source>
-        <translation>Tartunnan siirto</translation>
+        <translation>Shift Snap</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="33"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation>Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="56"/>
         <source>Edges:</source>
-        <translation>Reunat:</translation>
+        <translation>Tepi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="63"/>
         <source>Polyline</source>
-        <translation>Liitviiva</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="70"/>
         <source>End Snap:</source>
-        <translation>Lopputartunta:</translation>
+        <translation>Snap Akhir:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="77"/>
         <source>Corners:</source>
-        <translation>Kulmat:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="100"/>
         <source>Length X:</source>
-        <translation>Pituus X:</translation>
+        <translation>Panjang X:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="107"/>
         <source>Start Snap:</source>
-        <translation>Aloitustartunta:</translation>
+        <translation>Snap Mulai:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="131"/>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="178"/>
         <source>Corner</source>
-        <translation>Kulma</translation>
+        <translation>Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="136"/>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="183"/>
         <source>Mid-Vertical</source>
-        <translation>Keski-pystysuora</translation>
+        <translation>Tengah-Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="141"/>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="188"/>
         <source>Mid-Horizontal</source>
-        <translation>Keski-vaakasuora</translation>
+        <translation>Tengah-Horisontal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="146"/>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="193"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="170"/>
         <source>Base Angle:</source>
-        <translation>Peruskulma:</translation>
+        <translation>Sudut Dasar:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="202"/>
         <source>Straight</source>
-        <translation>Suora</translation>
+        <translation>Lurus</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="207"/>
         <source>Round</source>
-        <translation>Pyöreä</translation>
+        <translation>Bulat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="212"/>
         <source>Bevel</source>
-        <translation>Viisto</translation>
+        <translation>Chamfer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="220"/>
         <source>Length Y:</source>
-        <translation>Pituus Y:</translation>
+        <translation>Panjang Y:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="228"/>
         <source>Both</source>
-        <translation>Molemmat</translation>
+        <translation>Keduanya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="233"/>
         <source>Vertical</source>
-        <translation>Pystysuora</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle2pointsoptions.ui" line="238"/>
         <source>Horizontal</source>
-        <translation>Vaakasuora</translation>
+        <translation>Horisontal</translation>
     </message>
 </context>
 <context>
@@ -3102,87 +3088,87 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="55"/>
         <source>Polyline</source>
-        <translation>Liitviiva</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="63"/>
         <source>Both</source>
-        <translation>Molemmat</translation>
+        <translation>Keduanya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="68"/>
         <source>Vertical</source>
-        <translation>Pystysuora</translation>
+        <translation>Vertikal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="73"/>
         <source>Horizontal</source>
-        <translation>Vaakasuora</translation>
+        <translation>Horisontal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="81"/>
         <source>Edges:</source>
-        <translation>Reunat:</translation>
+        <translation>Tepi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="88"/>
         <source>Quadrangle</source>
-        <translation>Neliö</translation>
+        <translation>Segi Empat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="95"/>
         <source>Fixed Base Angle:</source>
-        <translation>Kiinteä peruskulma:</translation>
+        <translation>Sudut Dasar Tetap:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="130"/>
         <source>Length X:</source>
-        <translation>Pituus X:</translation>
+        <translation>Panjang X:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="160"/>
         <source>Straight</source>
-        <translation>Suora</translation>
+        <translation>Lurus</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="165"/>
         <source>Round</source>
-        <translation>Pyöreä</translation>
+        <translation>Bulat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="170"/>
         <source>Bevel</source>
-        <translation>Viisto</translation>
+        <translation>Chamfer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="178"/>
         <source>Corners:</source>
-        <translation>Kulmat:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="185"/>
         <source>Snap shift</source>
-        <translation>Tartunnan siirto</translation>
+        <translation>Shift Snap</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="192"/>
         <source>Length Y:</source>
-        <translation>Pituus Y:</translation>
+        <translation>Panjang Y:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="243"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation>Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_rectangle3pointsoptions.ui" line="312"/>
         <source>Fixed Inner Angle:</source>
-        <translation>Kiinteä sisäkulma:</translation>
+        <translation>Sudut Dalam Tetap:</translation>
     </message>
 </context>
 <context>
@@ -3190,12 +3176,12 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/test/lc_simpletests.cpp" line="34"/>
         <source>De&amp;bugging</source>
-        <translation>&amp;Virheenetsintä</translation>
+        <translation>&amp;Debugging</translation>
     </message>
     <message>
         <location filename="../src/test/lc_simpletests.cpp" line="78"/>
         <source>Insert Image</source>
-        <translation>Lisää Kuva</translation>
+        <translation>Sisipkan Gambar</translation>
     </message>
 </context>
 <context>
@@ -3203,89 +3189,89 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="48"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Tidak Ada</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="53"/>
         <source>Both</source>
-        <translation>Molemmat</translation>
+        <translation>Keduanya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="58"/>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="266"/>
         <source>Start</source>
-        <translation>Aloitus</translation>
+        <translation>Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="63"/>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="276"/>
         <source>End</source>
-        <translation>Lopetus</translation>
+        <translation>Akhir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="71"/>
         <source>Edge Tick:</source>
-        <translation>Reunan merkki:</translation>
+        <translation>Tanda Tepi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="113"/>
         <source>Rel</source>
-        <translation>Relatiivinen</translation>
+        <translation>Rel</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="120"/>
         <source>Offset:</source>
-        <translation>Siirto:</translation>
+        <translation>Offset:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="158"/>
         <source>Count:</source>
-        <translation>Määrä:</translation>
+        <translation>Jumlah:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="189"/>
         <source>Start Circle Angle:</source>
-        <translation>Aloitusympyrän kulma:</translation>
+        <translation>Sudut Lingkaran Awal:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="221"/>
         <source>Tick Length:</source>
-        <translation>Merkkipituus:</translation>
+        <translation>Panjang Tanda:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="228"/>
         <source>Tick snap:</source>
-        <translation>Merkkitartunta:</translation>
+        <translation>Snap Tanda:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="235"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="242"/>
         <source>Divide</source>
-        <translation>Jaa</translation>
+        <translation>Bagi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="271"/>
         <source>Middle</source>
-        <translation>Keski</translation>
+        <translation>Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="284"/>
         <source>Fixed </source>
-        <translation>Kiinteä </translation>
+        <translation>Tetap </translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_slicedivideoptions.ui" line="318"/>
         <source>Distance:</source>
-        <translation>Etäisyys:</translation>
+        <translation>Jarak:</translation>
     </message>
 </context>
 <context>
@@ -3293,32 +3279,32 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="14"/>
         <source>Form</source>
-        <translation>Lomake</translation>
+        <translation>Formulir</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="26"/>
         <source>Radius Inner</source>
-        <translation>Sisäsäde</translation>
+        <translation>Jari-jari Dalam</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="49"/>
         <source>Polyline</source>
-        <translation>Liitviiva</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="56"/>
         <source>Radius Outer</source>
-        <translation>Ulkosäde</translation>
+        <translation>Jari-jari Luar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="86"/>
         <source>Symmetric</source>
-        <translation>Symmetrinen</translation>
+        <translation>Simetris</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_staroptions.ui" line="93"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation>Angka:</translation>
     </message>
 </context>
 <context>
@@ -3326,67 +3312,67 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="378"/>
         <source>Library Browser</source>
-        <translation>Kirjasto-selain</translation>
+        <translation>Peramban Pustaka</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="390"/>
         <source>Command line</source>
-        <translation>Komentorivi</translation>
+        <translation>Baris perintah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="414"/>
         <source>Dock</source>
-        <translation>Dokki</translation>
+        <translation>Dok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="414"/>
         <source>Float</source>
-        <translation>Kelluva</translation>
+        <translation>Mengambang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="598"/>
         <source>Lines</source>
-        <translation>Viivat</translation>
+        <translation>Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="605"/>
         <source>Circles</source>
-        <translation>Ympyrät</translation>
+        <translation>Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="612"/>
         <source>Freehand</source>
-        <translation>Vapaa käsi</translation>
+        <translation>Bebas Tangan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="619"/>
         <source>Ellipses</source>
-        <translation>Ellipsit</translation>
+        <translation>Elips</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="626"/>
         <source>PolyLines</source>
-        <translation>Liitviivat</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="633"/>
         <source>Select</source>
-        <translation>Valitse</translation>
+        <translation>Pilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="640"/>
         <source>Dimensions</source>
-        <translation>Mitat</translation>
+        <translation>Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="647"/>
         <source>Modify</source>
-        <translation>Muokkaa</translation>
+        <translation>Ubah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="654"/>
         <source>Measure</source>
-        <translation>Mittaa</translation>
+        <translation>Ukur</translation>
     </message>
 </context>
 <context>
@@ -3394,67 +3380,67 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="14"/>
         <source>Widget Options</source>
-        <translation>Widget-asetukset</translation>
+        <translation>Opsi Widget</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="38"/>
         <source>Toolbar</source>
-        <translation>Työkalupalkki</translation>
+        <translation>Toolbar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="57"/>
         <source>Icon Size</source>
-        <translation>Ikonin Koko</translation>
+        <translation>Ukuran Ikon</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="70"/>
         <source>side length in pixels</source>
-        <translation>sivupituus pikseleissä</translation>
+        <translation>panjang sisi dalam piksel</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="44"/>
         <source>Use themed icons</source>
-        <translation>Käytä teemalla varustettuja ikoneita</translation>
+        <translation>Gunakan ikon bertema</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="86"/>
         <source>Left toolbar columns:</source>
-        <translation>Vasen työkalupalkki sarakkeet:</translation>
+        <translation>Kolom toolbar kiri:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="109"/>
         <source>General</source>
-        <translation>Yleiset</translation>
+        <translation>Umum</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="121"/>
         <source>Style</source>
-        <translation>Tyyli</translation>
+        <translation>Gaya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="147"/>
         <source>Style Sheet</source>
-        <translation>Tyylitiedosto</translation>
+        <translation>Lembar Gaya</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="160"/>
         <source>Input the path of a Qt style sheet.</source>
-        <translation>Syötä Qt-tyylitiedoston polku.</translation>
+        <translation>Masukkan jalur lembar gaya Qt.</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="176"/>
         <source>Statusbar</source>
-        <translation>Tilapalkki</translation>
+        <translation>Bilah Status</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="182"/>
         <source>Height</source>
-        <translation>Korkeus</translation>
+        <translation>Tinggi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_widgetoptionsdialog.ui" line="192"/>
         <source>Font Size</source>
-        <translation>Fonttikoko</translation>
+        <translation>Ukuran Font</translation>
     </message>
 </context>
 <context>
@@ -3462,27 +3448,27 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/lg_dimzerosbox.cpp" line="34"/>
         <source>select:</source>
-        <translation>valitse:</translation>
+        <translation>pilih:</translation>
     </message>
     <message>
         <location filename="../src/ui/lg_dimzerosbox.cpp" line="37"/>
         <source>remove left</source>
-        <translation>poista vasen</translation>
+        <translation>hapus kiri</translation>
     </message>
     <message>
         <location filename="../src/ui/lg_dimzerosbox.cpp" line="41"/>
         <source>remove right</source>
-        <translation>poista oikea</translation>
+        <translation>hapus kanan</translation>
     </message>
     <message>
         <location filename="../src/ui/lg_dimzerosbox.cpp" line="59"/>
         <source>remove 0&apos;</source>
-        <translation>poista 0&apos;</translation>
+        <translation>hapus 0&apos;</translation>
     </message>
     <message>
         <location filename="../src/ui/lg_dimzerosbox.cpp" line="63"/>
         <source>remove 0&quot;</source>
-        <translation>poista 0&quot;</translation>
+        <translation>hapus 0&quot;</translation>
     </message>
 </context>
 <context>
@@ -3490,23 +3476,23 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/forms/qg_polylineequidistantoptions.ui" line="32"/>
         <source>Line Relative Angle Options</source>
-        <translation>Viivan suhteellisen kulman asetukset</translation>
+        <translation>Opsi Sudut Relatif Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineequidistantoptions.ui" line="59"/>
         <source>Spacing:</source>
-        <translation>Väli:</translation>
+        <translation>Jarak:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineequidistantoptions.ui" line="84"/>
         <location filename="../src/ui/forms/qg_polylineequidistantoptions.ui" line="122"/>
         <source>Distance from original polyline</source>
-        <translation>Etäisyys alkuperäisestä liitviivasta</translation>
+        <translation>Jarak dari poli garis asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineequidistantoptions.ui" line="97"/>
         <source>Copies:</source>
-        <translation>Kopioita:</translation>
+        <translation>Salinan:</translation>
     </message>
 </context>
 <context>
@@ -3514,12 +3500,12 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/plugins/intern/qc_actiongetent.cpp" line="43"/>
         <source>Select object:</source>
-        <translation>Valitse objekti:</translation>
+        <translation>Pilih objek:</translation>
     </message>
     <message>
         <location filename="../src/plugins/intern/qc_actiongetent.cpp" line="51"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -3527,7 +3513,7 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/plugins/intern/qc_actiongetpoint.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -3536,12 +3522,12 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="42"/>
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="51"/>
         <source>Select objects:</source>
-        <translation>Valitse objektit:</translation>
+        <translation>Pilih objek:</translation>
     </message>
     <message>
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="62"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -3549,147 +3535,122 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="589"/>
         <source>Categories</source>
-        <translation>Kategoriat</translation>
+        <translation>Kategori</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="674"/>
         <source>&amp;File</source>
-        <translation>&amp;Tiedosto</translation>
+        <translation>&amp;Berkas</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="685"/>
         <source>Import</source>
-        <translation>Tuo</translation>
+        <translation>Impor</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="716"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Muokkaa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="731"/>
-        <source>Pl&amp;ugins</source>
-        <translation>&amp;Liitännäiset</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="755"/>
-        <source>&amp;Tools</source>
-        <translation>T&amp;yökalut</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="804"/>
-        <source>Dime&amp;nsion</source>
-        <translation>Ulottuvuus</translation>
+        <translation>&amp;Sunting</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="830"/>
         <source>&amp;Order</source>
-        <translation>&amp;Järjestys</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="961"/>
-        <source>Dock Wid&amp;gets</source>
-        <translation>Dokki-wid&amp;getit</translation>
+        <translation>&amp;Urutan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="302"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="440"/>
         <source>Order</source>
-        <translation>Järjestys</translation>
+        <translation>Urutan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="737"/>
         <source>&amp;View</source>
-        <translation>&amp;Näytä</translation>
+        <translation>&amp;Lihat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="282"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="550"/>
         <source>Select</source>
-        <translation>Valitse</translation>
+        <translation>Pilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="257"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="520"/>
         <source>Line</source>
-        <translation>Viiva</translation>
+        <translation>Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="262"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="526"/>
         <source>Circle</source>
-        <translation>Ympyrä</translation>
+        <translation>Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="775"/>
         <source>&amp;Curve</source>
-        <translation>&amp;Kaariviiva</translation>
+        <translation>&amp;Kurva</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="267"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="532"/>
         <source>Curve</source>
-        <translation>Kaariviiva</translation>
+        <translation>Kurva</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="272"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="538"/>
         <source>Ellipse</source>
-        <translation>Ellipsi</translation>
+        <translation>Elips</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="277"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="544"/>
         <source>Polyline</source>
-        <translation>Liitviiva</translation>
+        <translation>Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="287"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="556"/>
         <source>Dimension</source>
-        <translation>Mitta</translation>
+        <translation>Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="292"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="562"/>
         <source>Modify</source>
-        <translation>Muokkaa</translation>
+        <translation>Ubah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="297"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="568"/>
         <source>Info</source>
-        <translation>Tiedot</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="336"/>
         <source>Pen Palette</source>
-        <translation>Kynäpaletti</translation>
+        <translation>Palet Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="357"/>
         <source>Layer Tree</source>
-        <translation>Geruzapuu</translation>
+        <translation>Pohon Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="471"/>
         <source>Pen</source>
-        <translation>Kynä</translation>
+        <translation>Pena</translation>
     </message>
     <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="483"/>
-        <source>Dock Areas</source>
-        <translation>Telakointialueet</translation>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="731"/>
+        <source>Pl&amp;ugins</source>
+        <translation>Pl&amp;ugin</translation>
     </message>
     <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="705"/>
-        <source>&amp;Options</source>
-        <translation>&amp;Asetukset</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/lc_widgetfactory.cpp" line="869"/>
-        <source>&amp;Drawings</source>
-        <translation>&amp;Piirrokset</translation>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="804"/>
+        <source>Dime&amp;nsion</source>
+        <translation>Dime&amp;nsi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="883"/>
@@ -3699,87 +3660,112 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="884"/>
         <source>User&apos;s &amp;Manual</source>
-        <translation>Käyttäjän &amp;käsikirja</translation>
+        <translation>&amp;Manual Pengguna</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="885"/>
         <source>&amp;Commands</source>
-        <translation>&amp;Komennot</translation>
+        <translation>&amp;Perintah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="886"/>
         <source>&amp;Style Sheets</source>
-        <translation>&amp;Tyyliarkit</translation>
+        <translation>&amp;Lembar Gaya</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="887"/>
         <source>Wid&amp;gets</source>
-        <translation>Wid&amp;getit</translation>
+        <translation>Wi&amp;dget</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="888"/>
         <source>&amp;Forum</source>
-        <translation>&amp;Foorumi</translation>
+        <translation>&amp;Forum</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="889"/>
         <source>Zulip &amp;Chat</source>
-        <translation>Zulip &amp;keskustelu</translation>
+        <translation>Zulip &amp;Chat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="890"/>
         <source>&amp;Release Information</source>
-        <translation>&amp;Julkaisutiedot</translation>
+        <translation>&amp;Informasi Rilis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="916"/>
         <source>On&amp;line</source>
-        <translation>Ve&amp;rkossa</translation>
+        <translation>&amp;Online</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="938"/>
         <source>&amp;Donate</source>
-        <translation>&amp;Lahjoita</translation>
+        <translation>&amp;Donasi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="961"/>
+        <source>Dock Wid&amp;gets</source>
+        <translation>Widget &amp;Dok</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="988"/>
         <source>&amp;Toolbars</source>
-        <translation>&amp;Työkalupalkit</translation>
+        <translation>&amp;Toolbar</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="796"/>
         <source>&amp;Select</source>
-        <translation>&amp;Valitse</translation>
+        <translation>&amp;Pilih</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="483"/>
+        <source>Dock Areas</source>
+        <translation>Area Dok</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="705"/>
+        <source>&amp;Options</source>
+        <translation>&amp;Opsi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="755"/>
+        <source>&amp;Tools</source>
+        <translation>&amp;Alat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="761"/>
         <source>&amp;Line</source>
-        <translation>&amp;Viiva</translation>
+        <translation>&amp;Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="768"/>
         <source>&amp;Circle</source>
-        <translation>&amp;Ympyrä</translation>
+        <translation>&amp;Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="782"/>
         <source>&amp;Ellipse</source>
-        <translation>&amp;Ellipsi</translation>
+        <translation>&amp;Lonjong</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="789"/>
         <source>&amp;Polyline</source>
-        <translation>&amp;Liitviiva</translation>
+        <translation>&amp;Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="812"/>
         <source>&amp;Modify</source>
-        <translation>&amp;Muuta</translation>
+        <translation>&amp;Ubah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="821"/>
         <source>&amp;Info</source>
         <translation>&amp;Info</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/lc_widgetfactory.cpp" line="869"/>
+        <source>&amp;Drawings</source>
+        <translation>&amp;Gambar</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="535"/>
@@ -3788,389 +3774,323 @@ Huomaa että jos tallennat kynän editorin kautta ilman uudelleenkäynnistystä,
         <location filename="../src/main/qc_applicationwindow.cpp" line="2875"/>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3248"/>
         <source>Draft Mode</source>
-        <translation>Luonnostila</translation>
+        <translation>Mode Draft</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="421"/>
         <source>File</source>
-        <translation>Tiedosto</translation>
+        <translation>File</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="428"/>
         <source>Edit</source>
-        <translation>Muokkaa</translation>
+        <translation>Edit</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="449"/>
         <source>View</source>
-        <translation>Näkymä</translation>
+        <translation>Lihat</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3040"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="930"/>
         <source>About</source>
-        <translation>Tietoa ohjelmasta</translation>
+        <translation>Tentang</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="879"/>
         <source>&amp;Help</source>
-        <translation>&amp;Ohje</translation>
+        <translation>&amp;Bantuan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="464"/>
         <source>Snap Selection</source>
-        <translation>Tartunta valinta</translation>
+        <translation>Pilihan Snap</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="476"/>
         <source>Tool Options</source>
-        <translation>Työkalun valinnat</translation>
+        <translation>Opsi Alat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="345"/>
         <source>Layer List</source>
-        <translation>Tasolista</translation>
+        <translation>Daftar Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="368"/>
         <source>Block List</source>
-        <translation>Kappaleluettelo</translation>
+        <translation>Daftar Blok</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3443"/>
         <source>Command line</source>
-        <translation>Komentorivi</translation>
+        <translation>Baris perintah</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1219"/>
         <source>&amp;Cascade</source>
-        <translation>&amp;Kaskadi</translation>
+        <translation>&amp;Berjenjang</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1220"/>
         <source>&amp;Tile</source>
-        <translation>&amp;Tiili</translation>
+        <translation>&amp;Mozaik</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1221"/>
         <source>Tile &amp;Vertically</source>
-        <translation>Ruudukko &amp;pystysuoraan</translation>
+        <translation>Mozaik &amp;Vertikal</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1222"/>
         <source>Tile &amp;Horizontally</source>
-        <translation>Tiili &amp;Vaakasuoraan</translation>
+        <translation>Mozaik &amp;Horisontal</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1172"/>
         <source>Ta&amp;b mode</source>
-        <translation>&amp;Välilehtitila</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="362"/>
-        <source>Recent Files</source>
-        <translation>Äskettäiset Tiedostot</translation>
+        <translation>Mode Ta&amp;b</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="516"/>
         <source>Saving drawing: %1</source>
-        <translation>Tallennetaan piirrosta: %1</translation>
+        <translation>Menyimpan gambar: %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="521"/>
         <source>Save cancelled</source>
-        <translation>Tallennus peruutettu</translation>
+        <translation>Penyimpanan dibatalkan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="652"/>
         <source>Closing Drawing</source>
-        <translation>Suljetaan piirros</translation>
+        <translation>Menutup Gambar</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="660"/>
         <source>Save changes to the following item?
 %1</source>
-        <translation>Tallenna muutokset seuraavaan kohteeseen?
+        <translation>Simpan perubahan ke item berikut?
 %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="674"/>
         <source>&amp;Save</source>
-        <translation>&amp;Tallenna</translation>
+        <translation>&amp;Simpan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="675"/>
         <source>Save &amp;as...</source>
-        <translation>Tallenna &amp;nimellä...</translation>
+        <translation>Simpan &amp;sebagai...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="679"/>
         <source>&amp;Save %1</source>
-        <translation>&amp;Tallenna %1</translation>
+        <translation>&amp;Simpan %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="680"/>
         <source>Save %1 &amp;as...</source>
-        <translation>Tallenna %1 &amp;nimellä...</translation>
+        <translation>Simpan %1 &amp;sebagai...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1176"/>
         <source>&amp;Window mode</source>
-        <translation>&amp;Ikkunatila</translation>
+        <translation>Mode &amp;Jendela</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1182"/>
         <source>&amp;Layout</source>
-        <translation>&amp;Asettelu</translation>
+        <translation>&amp;Tata Letak</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1185"/>
         <source>Rounded</source>
-        <translation>Pyöristetty</translation>
+        <translation>Bulat</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1189"/>
         <source>Triangular</source>
-        <translation>Kolmio</translation>
+        <translation>Segitiga</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1195"/>
         <source>North</source>
-        <translation>Pohjoinen</translation>
+        <translation>Utara</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1199"/>
         <source>South</source>
-        <translation>Etelä</translation>
+        <translation>Selatan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1203"/>
         <source>East</source>
-        <translation>Itä</translation>
+        <translation>Timur</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1207"/>
         <source>West</source>
-        <translation>Länsi</translation>
+        <translation>Barat</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1212"/>
         <source>&amp;Arrange</source>
-        <translation>&amp;Järjestä</translation>
+        <translation>&amp;Susun</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1215"/>
         <source>&amp;Maximized</source>
-        <translation>&amp;Maksimoitu</translation>
+        <translation>&amp;Maksimalkan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1538"/>
         <source>Creating new file...</source>
-        <translation>Luodaan uutta tiedostoa...</translation>
+        <translation>Membuat berkas baru...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1584"/>
         <source>Block &apos;%1&apos;</source>
-        <translation>Blokki &apos;%1&apos;</translation>
+        <translation>Blok &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1586"/>
         <source>unnamed document %1</source>
-        <translation>nimetön dokumentti %1</translation>
+        <translation>dokumen tak-bernama %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1654"/>
         <source>New Drawing created.</source>
-        <translation>Uusi piirros luotu.</translation>
+        <translation>Gambar baru dibuat.</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1720"/>
         <source>New document from template: </source>
-        <translation>Uusi dokumentti mallipohjasta:</translation>
+        <translation>Dokumen baru dari template: </translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1768"/>
         <source>Select Template aborted</source>
-        <translation>Mallin valinta keskeytetty</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="2055"/>
-        <source>Save All cancelled</source>
-        <translation>Tallenna kaikki peruutettu</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="2389"/>
-        <source>Close All cancelled</source>
-        <translation>Sulje kaikki peruutettu</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="2419"/>
-        <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>Säädä ensin skaalaus ja sijoitus tulostuksen esikatselussa.</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3062"/>
-        <source>Compiler: Microsoft Visual C++</source>
-        <translation>Kääntäjä: Microsoft Visual C++</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3066"/>
-        <source>Boost Version: %1.%2.%3</source>
-        <translation>Boost-versio: %1.%2.%3</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3073"/>
-        <source>Copy</source>
-        <translation>Kopioi</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3084"/>
-        <source>Contributors</source>
-        <translation>Avustajat</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3085"/>
-        <source>License</source>
-        <translation>Lisenssi</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3086"/>
-        <source>The Code</source>
-        <translation>Koodi</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3095"/>
-        <source>System</source>
-        <translation>Järjestelmä</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3288"/>
-        <source>Toolbars</source>
-        <translation>Työkalupalkit</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3293"/>
-        <source>Dockwidgets</source>
-        <translation>Dokki-widgetit</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3320"/>
-        <source>Opening recent file...</source>
-        <translation>Avataan viimeaikaista tiedostoa...</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3443"/>
-        <source>Cmd</source>
-        <translation>Kmd</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3444"/>
-        <source>Float</source>
-        <translation>Kelluva</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3444"/>
-        <source>Dock</source>
-        <comment>Dock the command widget to the main window</comment>
-        <translation>Dokki</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3540"/>
-        <source>Toolbar Creator</source>
-        <translation>Työkalupalkin luoja</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3606"/>
-        <source>Menu Creator</source>
-        <translation>Valikon luoja</translation>
-    </message>
-    <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3631"/>
-        <source>Menu Assigner</source>
-        <translation>Valikon määrääjä</translation>
+        <translation>Pemilihan Template dibatalkan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1884"/>
         <source>Warning: File already opened : </source>
-        <translation>Varoitus: Tiedosto on jo avattu:</translation>
+        <translation>Peringatan: File sudah dibuka : </translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="2055"/>
+        <source>Save All cancelled</source>
+        <translation>Simpan Semua dibatalkan</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="2389"/>
+        <source>Close All cancelled</source>
+        <translation>Tutup Semua dibatalkan</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="2419"/>
+        <source>Please adjust scaling and positioning in print preview first.</source>
+        <translation>Silakan sesuaikan penskalaan dan posisi di pratinjau cetak terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2483"/>
         <source>Export as PDF</source>
-        <translation>Vie PDF-tiedostona</translation>
+        <translation>Ekspor sebagai PDF</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1784"/>
         <source>Cannot open the file
 %1
 Please check the permissions.</source>
-        <translation>Ei voida avata tiedostoa
+        <translation>Tidak dapat membuka file
 %1
-Tarkista tiedoston käyttöoikeudet.</translation>
+Silakan periksa izinnya.</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="186"/>
         <source>Grid Status</source>
-        <translation>Ruudukon tila</translation>
+        <translation>Status Kisi</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="362"/>
+        <source>Recent Files</source>
+        <translation>File Terbaru</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2008"/>
         <source>Loaded document: </source>
-        <translation>Dokumentti avattu: </translation>
+        <translation>Dokumen yang dimuat: </translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2014"/>
         <source>Opening aborted</source>
-        <translation>Avaaminen keskeytetty</translation>
+        <translation>Pembukaan dibatalkan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="516"/>
         <source>Saving drawing...</source>
-        <translation>Tallennetaan piirrosta...</translation>
+        <translation>Menyimpan gambar...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="525"/>
         <source>Saved drawing: %1</source>
-        <translation>Piirros %1 tallennettu.</translation>
+        <translation>Gambar disimpan: %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="542"/>
         <source>Cannot save the file </source>
-        <translation>Tiedostoa ei voida tallentaa </translation>
+        <translation>Tidak dapat menyimpan file </translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="544"/>
         <source> , please check the filename and permissions.</source>
-        <translation> , tarkista tiedoston nimi ja käyttöoikeudet.</translation>
+        <translation> , silakan periksa nama file dan izin.</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3058"/>
+        <source>Compiler: Clang %1.%2.%3</source>
+        <translation>Compiler: Clang %1.%2.%3</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3060"/>
+        <source>Compiler: GNU GCC %1.%2.%3</source>
+        <translation>Compiler: GNU GCC %1.%2.%3</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3065"/>
+        <source>Qt Version: %1</source>
+        <translation>Versi Qt: %1</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="689"/>
         <source>Export</source>
-        <translation>Vie</translation>
+        <translation>Ekspor</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="1927"/>
         <source>Cannot open the file
 %1
 Please check its existence and permissions.</source>
-        <translation>Ei voi avata tiedostoa
+        <translation>Tidak dapat membuka file
 %1
-Tarkista että se on olemassa ja oikeudet.</translation>
+Silakan periksa keberadaannya dan izin.</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2013"/>
         <source>File &apos;%1&apos; does not exist. Opening aborted</source>
-        <translation>Tiedostoa &apos;%1&apos; ei ole olemassa. Avaus keskeytetty</translation>
+        <translation>File &apos;%1&apos; tidak ada. Pembukaan dibatalkan</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2080"/>
         <source>Auto-saving drawing...</source>
-        <translation>Automaattitallennetaan piirrosta...</translation>
+        <translation>Menyimpan gambar secara otomatis...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2088"/>
         <source>Auto-saved drawing</source>
-        <translation>Piirros automaattitallennettu</translation>
+        <translation>Gambar disimpan otomatis</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2093"/>
@@ -4178,100 +4098,166 @@ Tarkista että se on olemassa ja oikeudet.</translation>
 %1
 Please check the permissions.
 Auto-save disabled.</source>
-        <translation>Tiedostoa
+        <translation>Tidak dapat menyimpan otomatis file
 %1
-Ei voitu automaattitallentaa. Tiedoston oikeudet voivat olla väärin.
-Automaattitallennus otettu pois käytöstä.</translation>
+Silakan periksa izinnya.
+Penyimpanan otomatis dinonaktifkan.</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2098"/>
         <source>Auto-saving failed</source>
-        <translation>Automaattitallennus epäonnistui</translation>
+        <translation>Penyimpanan otomatis gagal</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2111"/>
         <source>Exporting drawing...</source>
-        <translation>Viedään piirrosta...</translation>
+        <translation>Mengekspor gambar...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2148"/>
         <source>Export as</source>
-        <translation>Vie muodossa</translation>
+        <translation>Ekspor sebagai</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2207"/>
         <source>Exported: %1</source>
-        <translation>Viedään: %1</translation>
+        <translation>Diekspor: %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2247"/>
         <source>Exporting...</source>
-        <translation>Viedään...</translation>
+        <translation>Mengekspor...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2320"/>
         <source>Export complete</source>
-        <translation>Vienti valmis</translation>
+        <translation>Mengekspor selesai</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2322"/>
         <source>Export failed!</source>
-        <translation>Vienti epäonnistui!</translation>
+        <translation>Mengekspor gagal!</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2431"/>
         <source>Printing...</source>
-        <translation>Tulostetaan...</translation>
+        <translation>Mencetak...</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2677"/>
         <source>Printing complete</source>
-        <translation>Tulostettu</translation>
+        <translation>Mencetak selesai</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2753"/>
         <source>Print preview for %1</source>
-        <translation>Tulostuksen %1 esikatselu</translation>
+        <translation>Pratinjau cetak untuk %1</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="2831"/>
         <source>Exiting application...</source>
-        <translation>Suljetaan ohjelmaa...</translation>
+        <translation>Menutup aplikasi...</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3062"/>
+        <source>Compiler: Microsoft Visual C++</source>
+        <translation>Compiler: Microsoft Visual C++</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3066"/>
+        <source>Boost Version: %1.%2.%3</source>
+        <translation>Versi Boost: %1.%2.%3</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3073"/>
+        <source>Copy</source>
+        <translation>Salin</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3084"/>
+        <source>Contributors</source>
+        <translation>Kontributor</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3085"/>
+        <source>License</source>
+        <translation>Lisensi</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3086"/>
+        <source>The Code</source>
+        <translation>Kode</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3095"/>
+        <source>System</source>
+        <translation>Sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3540"/>
+        <source>Toolbar Creator</source>
+        <translation>Pembuat Toolbar</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3606"/>
+        <source>Menu Creator</source>
+        <translation>Pembuat Menu</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3631"/>
+        <source>Menu Assigner</source>
+        <translation>Pemberi Tugas Menu</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3056"/>
         <source>Version: %1</source>
-        <translation>Versio: %1</translation>
+        <translation>Versi: %1</translation>
     </message>
     <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3058"/>
-        <source>Compiler: Clang %1.%2.%3</source>
-        <translation>Kääntäjä: Clang %1.%2.%3</translation>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3288"/>
+        <source>Toolbars</source>
+        <translation>Toolbar</translation>
     </message>
     <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3060"/>
-        <source>Compiler: GNU GCC %1.%2.%3</source>
-        <translation>Kääntäjä: GNU GCC %1.%2.%3</translation>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3293"/>
+        <source>Dockwidgets</source>
+        <translation>Widget Dok</translation>
     </message>
     <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3065"/>
-        <source>Qt Version: %1</source>
-        <translation>Qt-versio: %1</translation>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3320"/>
+        <source>Opening recent file...</source>
+        <translation>Membuka file terbaru...</translation>
     </message>
     <message>
-        <location filename="../src/main/qc_applicationwindow.cpp" line="3064"/>
-        <source>Compiled on: %1</source>
-        <translation>Käännetty: %1</translation>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3443"/>
+        <source>Cmd</source>
+        <translation>Cmd</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3444"/>
+        <source>Float</source>
+        <translation>Mengambang</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3444"/>
+        <source>Dock</source>
+        <comment>Dock the command widget to the main window</comment>
+        <translation>Dok</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3502"/>
         <source>Device Options</source>
-        <translation>Laiteasetukset</translation>
+        <translation>Opsi Perangkat</translation>
     </message>
     <message>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3505"/>
         <source>Device</source>
-        <translation>Laite</translation>
+        <translation>Perangkat</translation>
+    </message>
+    <message>
+        <location filename="../src/main/qc_applicationwindow.cpp" line="3064"/>
+        <source>Compiled on: %1</source>
+        <translation>Dikompilasi pada: %1</translation>
     </message>
 </context>
 <context>
@@ -4303,12 +4289,12 @@ Automaattitallennus otettu pois käytöstä.</translation>
     <message>
         <location filename="../src/ui/forms/qg_activelayername.ui" line="71"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_activelayername.ui" line="80"/>
         <source>Current Layer</source>
-        <translation>Tämänhetkinen Taso</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_activelayername.ui" line="105"/>
@@ -4317,11 +4303,7 @@ Automaattitallennus otettu pois käytöstä.</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tämänhetkisen Aktiivisen Tason Nimi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4362,39 +4344,38 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="180"/>
         <source>Create Block</source>
-        <translation>Luo Kappale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="187"/>
         <source>Add an empty block</source>
-        <translation>Lisää tyhjä kappale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="201"/>
         <source>Rename the active block</source>
-        <translation>Nimeä uudelleen aktiivinen kappale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="208"/>
         <source>Edit the active block
 in a separate window</source>
-        <translation>Muokkaa aktiivista kappaletta
-erillisessä ikkunassa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="216"/>
         <source>save the active block to a file</source>
-        <translation>tallenna aktiivinen kappale tiedostoon</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="223"/>
         <source>Insert the active block</source>
-        <translation>Lisää aktiivinen kappale</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="230"/>
         <source>Filter</source>
-        <translation type="unfinished">Suodatin</translation>
+        <translation type="unfinished">Filter</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="232"/>
@@ -4404,7 +4385,7 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="387"/>
         <source>Block Menu</source>
-        <translation>Kappalevalikko</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="394"/>
@@ -4414,17 +4395,17 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="396"/>
         <source>&amp;Freeze all Blocks</source>
-        <translation>&amp;Jäädytä kaikki kappaleet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="407"/>
         <source>&amp;Add Block</source>
-        <translation>&amp;Lisää kappale</translation>
+        <translation type="unfinished">&amp;Tambah Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="403"/>
         <source>&amp;Remove Block</source>
-        <translation>&amp;Poista kappale</translation>
+        <translation type="unfinished">&amp;Hapus Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="194"/>
@@ -4434,27 +4415,27 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="409"/>
         <source>&amp;Rename Block</source>
-        <translation>&amp;Nimeä uudelleen kappale</translation>
+        <translation type="unfinished">&amp;Ganti Nama Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="411"/>
         <source>&amp;Edit Block</source>
-        <translation>&amp;Muokkaa kappaletta</translation>
+        <translation type="unfinished">&amp;Edit Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="413"/>
         <source>&amp;Insert Block</source>
-        <translation>&amp;Lisää kappale</translation>
+        <translation type="unfinished">&amp;Sisipkan Blok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="401"/>
         <source>&amp;Toggle Visibility</source>
-        <translation>&amp;Näytä/Piilota</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_blockwidget.cpp" line="415"/>
         <source>&amp;Create New Block</source>
-        <translation>&amp;Luo Uusi Kappale</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4468,98 +4449,98 @@ erillisessä ikkunassa</translation>
         <location filename="../src/ui/qg_colorbox.cpp" line="106"/>
         <location filename="../src/ui/qg_colorbox.cpp" line="282"/>
         <source>By Layer</source>
-        <translation>Tason Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="107"/>
         <source>By Block</source>
-        <translation>Kappaleen Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="111"/>
         <location filename="../src/ui/qg_colorbox.cpp" line="322"/>
         <source>Custom</source>
-        <translation>Mukautettu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="115"/>
         <source>Red</source>
-        <translation>Punainen</translation>
+        <translation>Merah</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="119"/>
         <source>Dark Red</source>
-        <translation>Tummanpunainen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="120"/>
         <source>Yellow</source>
-        <translation>Keltainen</translation>
+        <translation>Kuning</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="121"/>
         <source>Dark Yellow</source>
-        <translation>Tummankeltainen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="122"/>
         <source>Green</source>
-        <translation>Vihreä</translation>
+        <translation>Hijau</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="123"/>
         <source>Dark Green</source>
-        <translation>Tummanvihreä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="124"/>
         <source>Cyan</source>
-        <translation>Syaani</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="125"/>
         <source>Dark Cyan</source>
-        <translation>Tummansyaani</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="126"/>
         <source>Blue</source>
-        <translation>Sininen</translation>
+        <translation>Biru</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="127"/>
         <source>Dark Blue</source>
-        <translation>Tummansininen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="128"/>
         <source>Magenta</source>
-        <translation>Magenta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="129"/>
         <source>Dark Magenta</source>
-        <translation>Tummanmagenta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="133"/>
         <source>Black / White</source>
-        <translation>Mustavalkoinen</translation>
+        <translation>Hitam / Putih</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="137"/>
         <source>Gray</source>
-        <translation>Harmaa</translation>
+        <translation>Abu-abu</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="138"/>
         <source>Dark Gray</source>
-        <translation>Tummanharmaa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="139"/>
         <source>Light Gray</source>
-        <translation>Vaaleanharmaa</translation>
+        <translation>Abu-abu Terang</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_colorbox.cpp" line="159"/>
@@ -4586,17 +4567,17 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/qg_commandhistory.cpp" line="38"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopioi</translation>
+        <translation type="unfinished">&amp;Salin</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_commandhistory.cpp" line="45"/>
         <source>Select &amp;All</source>
-        <translation>Valitse &amp;Kaikki</translation>
+        <translation type="unfinished">Pilih &amp;Semua</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_commandhistory.cpp" line="50"/>
         <source>Clear</source>
-        <translation>Tyhjennä</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4604,34 +4585,34 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.ui" line="14"/>
         <source>Command Line</source>
-        <translation>Komentorivi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.ui" line="44"/>
         <source>Command history and output</source>
-        <translation>komentohistoria ja tulosteet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.ui" line="82"/>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="188"/>
         <source>Command:</source>
-        <translation>Komento:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.ui" line="132"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="94"/>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="343"/>
         <source>Dock</source>
-        <translation type="unfinished">Dokki</translation>
+        <translation type="unfinished">Dok</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="210"/>
         <source>Unknown command: %1</source>
-        <translation>Tuntematon komento: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="254"/>
@@ -4642,17 +4623,17 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="343"/>
         <source>Float</source>
-        <translation type="unfinished">Kelluva</translation>
+        <translation type="unfinished">Mengambang</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="344"/>
         <source>Command line</source>
-        <translation type="unfinished">Komentorivi</translation>
+        <translation type="unfinished">Baris perintah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_commandwidget.cpp" line="344"/>
         <source>Cmd</source>
-        <translation type="unfinished">Kmd</translation>
+        <translation type="unfinished">Cmd</translation>
     </message>
 </context>
 <context>
@@ -4664,7 +4645,7 @@ erillisessä ikkunassa</translation>
         <location filename="../src/ui/forms/qg_coordinatewidget.ui" line="131"/>
         <location filename="../src/ui/forms/qg_coordinatewidget.ui" line="141"/>
         <source>Coordinates</source>
-        <translation>Koordinaatit</translation>
+        <translation>Koordinat</translation>
     </message>
 </context>
 <context>
@@ -4706,32 +4687,32 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="150"/>
         <source>⌀ (Diameter)</source>
-        <translation>⌀ (Halkaisija)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="165"/>
         <source>π (Pi)</source>
-        <translation>π (Pii)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="155"/>
         <source>° (Degree)</source>
-        <translation>° (Aste)</translation>
+        <translation>° (Derajat)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="160"/>
         <source>± (Plus / Minus)</source>
-        <translation>± (Plus / Miinus)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="170"/>
         <source>× (Times)</source>
-        <translation type="unfinished"></translation>
+        <translation>× (Kali)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.ui" line="175"/>
         <source>÷ (Division)</source>
-        <translation type="unfinished"></translation>
+        <translation>÷ (Bagi)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimensionlabeleditor.cpp" line="75"/>
@@ -4752,32 +4733,32 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="26"/>
         <source>Arc</source>
-        <translation>Kaari</translation>
+        <translation type="unfinished">Busur</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="51"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="78"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="84"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation>Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="104"/>
         <source>Center (y):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (y):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="124"/>
         <source>Center (x):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (x):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgarc.ui" line="144"/>
@@ -4800,12 +4781,12 @@ erillisessä ikkunassa</translation>
     <message>
         <location filename="../src/ui/forms/qg_dlgattributes.ui" line="26"/>
         <source>Attributes</source>
-        <translation type="unfinished"></translation>
+        <translation>Atribut</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgattributes.ui" line="44"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgattributes.ui" line="69"/>
@@ -4824,32 +4805,32 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="26"/>
         <source>Circle</source>
-        <translation>Ympyrä</translation>
+        <translation>Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="44"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="71"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="77"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation>Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="97"/>
         <source>Center (y):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (y):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgcircle.ui" line="117"/>
         <source>Center (x):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (x):</translation>
     </message>
 </context>
 <context>
@@ -4862,17 +4843,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgdimlinear.ui" line="47"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgdimlinear.ui" line="79"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgdimlinear.ui" line="103"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
 </context>
 <context>
@@ -4880,12 +4861,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgdimension.ui" line="20"/>
         <source>Dimension</source>
-        <translation type="unfinished">Mitta</translation>
+        <translation type="unfinished">Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgdimension.ui" line="47"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
 </context>
 <context>
@@ -4893,27 +4874,27 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="26"/>
         <source>Ellipse</source>
-        <translation>Ellipsi</translation>
+        <translation>Lonjong</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="51"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="78"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="84"/>
         <source>Center (y):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (y):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="104"/>
         <source>Center (x):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pusat (x):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="156"/>
@@ -4928,7 +4909,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="196"/>
         <source>Rotation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Putaran:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgellipse.ui" line="226"/>
@@ -4951,22 +4932,22 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="14"/>
         <source>Choose Hatch Attributes</source>
-        <translation>Valitse Täyttökuvion Ominaisuudet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="22"/>
         <source>Pattern</source>
-        <translation type="unfinished"></translation>
+        <translation>Pola</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="34"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="44"/>
         <source>Scale:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skala:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="57"/>
@@ -4976,12 +4957,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="67"/>
         <source>Preview</source>
-        <translation type="unfinished">Esikatselu</translation>
+        <translation>Pratinjau</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="73"/>
         <source>Enable Preview</source>
-        <translation>Ota Esikatselu Käyttöön</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlghatch.ui" line="86"/>
@@ -4994,22 +4975,22 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="26"/>
         <source>Image</source>
-        <translation>Kuva</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="44"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="80"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation type="unfinished">Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="253"/>
         <source>Width:</source>
-        <translation>Leveys:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="270"/>
@@ -5019,7 +5000,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="93"/>
         <source>Height:</source>
-        <translation>Korkeus:</translation>
+        <translation type="unfinished">Tinggi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="203"/>
@@ -5029,7 +5010,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="226"/>
         <source>Scale:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Skala:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="153"/>
@@ -5049,12 +5030,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="86"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimage.ui" line="246"/>
         <source>DPI</source>
-        <translation type="unfinished">DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5062,7 +5043,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/forms/qg_dlginitial.ui" line="14"/>
         <source>Welcome</source>
-        <translation>Tervetuloa</translation>
+        <translation>Selamat datang</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginitial.ui" line="64"/>
@@ -5076,17 +5057,17 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlginitial.ui" line="104"/>
         <source>Default Unit:</source>
-        <translation>Oletusyksikkö:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginitial.ui" line="114"/>
         <source>GUI Language:</source>
-        <translation>Käyttöliittymän Kieli:</translation>
+        <translation type="unfinished">Bahasa Antarmuka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginitial.ui" line="124"/>
         <source>Command Language:</source>
-        <translation>Komentokieli:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5099,12 +5080,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="44"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="71"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="129"/>
@@ -5129,27 +5110,27 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="189"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation>Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="209"/>
         <source>Rows:</source>
-        <translation type="unfinished"></translation>
+        <translation>Baris:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="239"/>
         <source>Columns:</source>
-        <translation>Sarakkeita:</translation>
+        <translation>Kolom:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="249"/>
         <source>Row Spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Penjedaan Baris:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlginsert.ui" line="279"/>
         <source>Column Spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Penjedaan Kolom:</translation>
     </message>
 </context>
 <context>
@@ -5157,7 +5138,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgline.ui" line="29"/>
         <source>Line</source>
-        <translation>Viiva</translation>
+        <translation>Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgline.ui" line="35"/>
@@ -5167,12 +5148,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgline.ui" line="54"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgline.ui" line="87"/>
         <source>Geometry</source>
-        <translation>Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgline.ui" line="93"/>
@@ -5200,26 +5181,16 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="14"/>
         <source>MText</source>
-        <translation>Moniriviteksti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="45"/>
         <source>Layer:</source>
-        <translation>Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="223"/>
         <source>&amp;Height:</source>
-        <translation>&amp;Korkeus:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="113"/>
-        <source>&amp;Line spacing:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="104"/>
-        <source>Font Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5228,34 +5199,34 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="135"/>
-        <source>Alt+D</source>
-        <translation>Alt+D</translation>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="104"/>
+        <source>Font Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="246"/>
-        <source>Font:</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="135"/>
+        <source>Alt+D</source>
+        <translation type="unfinished">Alt+D</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="298"/>
         <source>Alignment</source>
-        <translation type="unfinished">Kohdistus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="316"/>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanan Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="348"/>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kiri Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="380"/>
         <source>Middle Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kiri Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="412"/>
@@ -5265,32 +5236,82 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="444"/>
         <source>Middle Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanan Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="476"/>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kiri Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="508"/>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanan Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="540"/>
         <source>Bottom Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tengah Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="572"/>
         <source>Top Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tengah Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="607"/>
         <source>Angle</source>
-        <translation>Kulma</translation>
+        <translation type="unfinished">Sudut</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="691"/>
+        <source>Text:</source>
+        <translation type="unfinished">Tulisan:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="717"/>
+        <source>Clear Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="731"/>
+        <source>Load Text From File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="745"/>
+        <source>Save Text To File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="759"/>
+        <source>Cut</source>
+        <translation type="unfinished">Potong</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="773"/>
+        <source>Copy</source>
+        <translation type="unfinished">Salin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="787"/>
+        <source>Paste</source>
+        <translation type="unfinished">Tempel</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="834"/>
+        <source>Insert Symbol</source>
+        <translation type="unfinished">Masukkan Simbol</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="113"/>
+        <source>&amp;Line spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="246"/>
+        <source>Font:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="645"/>
@@ -5308,46 +5329,6 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="691"/>
-        <source>Text:</source>
-        <translation>Teksti:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="717"/>
-        <source>Clear Text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="731"/>
-        <source>Load Text From File</source>
-        <translation>Lataa Teksti Tiedostosta</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="745"/>
-        <source>Save Text To File</source>
-        <translation>Tallenna Teksti Tiedostoon</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="759"/>
-        <source>Cut</source>
-        <translation>Leikkaa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="773"/>
-        <source>Copy</source>
-        <translation>Kopioi</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="787"/>
-        <source>Paste</source>
-        <translation>Liitä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgmtext.ui" line="834"/>
-        <source>Insert Symbol</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="847"/>
         <source>Diameter (⌀)</source>
         <translation type="unfinished"></translation>
@@ -5355,12 +5336,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="852"/>
         <source>Degree (°)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Derajat (°)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="857"/>
         <source>Plus / Minus (±)</source>
-        <translation>Plus / Miinus (±)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="862"/>
@@ -5370,52 +5351,52 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="867"/>
         <source>Hash (#)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pagar (#)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="872"/>
         <source>Dollar ($)</source>
-        <translation>Dollari ($)</translation>
+        <translation type="unfinished">Dolar ($)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="877"/>
         <source>Copyright (©)</source>
-        <translation>Tekijänoikeus (©)</translation>
+        <translation type="unfinished">Hak Cipta (©)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="882"/>
         <source>Registered (®)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terdaftar (®)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="887"/>
         <source>Paragraph (§)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Paragraf (§)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="892"/>
         <source>Pi (π)</source>
-        <translation>Pii (π)</translation>
+        <translation type="unfinished">Pi (π)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="897"/>
         <source>Pound (£)</source>
-        <translation>Punta (£)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="902"/>
         <source>Yen (¥)</source>
-        <translation>Jeni (¥)</translation>
+        <translation type="unfinished">Yen (¥)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="907"/>
         <source>Times (×)</source>
-        <translation>Kertaa (×)</translation>
+        <translation type="unfinished">Perkalian (×)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="912"/>
         <source>Division (÷)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pembagian (÷)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="923"/>
@@ -5425,7 +5406,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="929"/>
         <source>Page:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Halaman:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="939"/>
@@ -5435,7 +5416,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="962"/>
         <source>[0000-007F] Basic Latin</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0000-007F] Latin Dasar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="967"/>
@@ -5470,7 +5451,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="997"/>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0370-03FF] Yunani dan Koptik</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1002"/>
@@ -5485,22 +5466,22 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1012"/>
         <source>[0530-058F] Armenian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0530-058F] Armenia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1017"/>
         <source>[0590-05FF] Hebrew</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0590-05FF] Ibrani</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1022"/>
         <source>[0600-06FF] Arabic</source>
-        <translation>[0600-06FF] Arabialainen</translation>
+        <translation type="unfinished">[0600-06FF] Arab</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1027"/>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-074F] Syyrialainen</translation>
+        <translation type="unfinished">[0700-074F] Syria</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1032"/>
@@ -5510,12 +5491,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1037"/>
         <source>[0900-097F] Devanagari</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0900-097F] Devanagari\</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1042"/>
         <source>[0980-09FF] Bengali</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0980-09FF] Bengal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1047"/>
@@ -5525,7 +5506,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1052"/>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0A80-0AFF] Gujarat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1057"/>
@@ -5535,22 +5516,22 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1062"/>
         <source>[0B80-0BFF] Tamil</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0B80-0BFF] Tamil</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1067"/>
         <source>[0C00-0C7F] Telugu</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0C00-0C7F] Telugu</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1072"/>
         <source>[0C80-0CFF] Kannada</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0C80-0CFF] Kannada</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1077"/>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0D00-0D7F] Malayalam</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1082"/>
@@ -5560,27 +5541,27 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1087"/>
         <source>[0E00-0E7F] Thai</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0E00-0E7F] Thailand</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1092"/>
         <source>[0E80-0EFF] Lao</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0E80-0EFF] Lao</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1097"/>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0F00-0FFF] Tibet</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1102"/>
         <source>[1000-109F] Myanmar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1000-109F] Myanmar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1107"/>
         <source>[10A0-10FF] Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[10A0-10FF] Georgia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1112"/>
@@ -5590,12 +5571,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1117"/>
         <source>[1200-137F] Ethiopic</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1200-137F] Ethiopia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1122"/>
         <source>[13A0-13FF] Cherokee</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[13A0-13FF] Cherokee</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1127"/>
@@ -5615,7 +5596,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1142"/>
         <source>[1700-171F] Tagalog</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1700-171F] Tagalog</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1147"/>
@@ -5635,12 +5616,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1162"/>
         <source>[1780-17FF] Khmer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1780-17FF] Khmer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1167"/>
         <source>[1800-18AF] Mongolian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1800-18AF] Mongolia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1172"/>
@@ -5665,7 +5646,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1192"/>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[20A0-20CF] Simbol Mata Uang</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1197"/>
@@ -5675,7 +5656,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1202"/>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[2100-214F] Simbol Seperti-Huruf</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1207"/>
@@ -5790,12 +5771,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1317"/>
         <source>[3040-309F] Hiragana</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[3040-309F] Hiragana</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1322"/>
         <source>[30A0-30FF] Katakana</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[30A0-30FF] Katakana</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1327"/>
@@ -5810,7 +5791,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1337"/>
         <source>[3190-319F] Kanbun</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[3190-319F] Kanbun</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmtext.ui" line="1342"/>
@@ -5983,17 +5964,17 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="70"/>
         <source>Number of copies</source>
-        <translation type="unfinished"></translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="88"/>
         <source>&amp;Delete Original</source>
-        <translation type="unfinished">Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="107"/>
         <source>&amp;Keep Original</source>
-        <translation type="unfinished">&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="39"/>
@@ -6003,12 +5984,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="46"/>
         <source>Use current &amp;layer</source>
-        <translation type="unfinished">Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmirror.ui" line="53"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -6021,27 +6002,27 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="32"/>
         <source>Number of copies</source>
-        <translation>Kopioiden lukumäärä</translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="50"/>
         <source>&amp;Delete Original</source>
-        <translation>Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="69"/>
         <source>&amp;Keep Original</source>
-        <translation>&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="88"/>
         <source>&amp;Multiple Copies</source>
-        <translation>&amp;Useita Kopioita</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="95"/>
         <source>Number of copies. Maximum 100</source>
-        <translation>Kopioiden määrä. Maksimissaan 100</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="121"/>
@@ -6051,7 +6032,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="128"/>
         <source>Use current &amp;layer</source>
-        <translation>Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmove.ui" line="135"/>
@@ -6089,27 +6070,27 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgmoverotate.ui" line="104"/>
         <source>Use current &amp;layer</source>
-        <translation type="unfinished">Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmoverotate.ui" line="113"/>
         <source>Number of copies</source>
-        <translation>Kopioiden määrä</translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmoverotate.ui" line="131"/>
         <source>&amp;Delete Original</source>
-        <translation>Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmoverotate.ui" line="150"/>
         <source>&amp;Keep Original</source>
-        <translation>&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgmoverotate.ui" line="169"/>
         <source>&amp;Multiple Copies</source>
-        <translation>&amp;Useita Kopioita</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6117,32 +6098,32 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="14"/>
         <source>Drawing Preferences</source>
-        <translation>Piirtoasetukset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="34"/>
         <source>&amp;Paper</source>
-        <translation>&amp;Paperi</translation>
+        <translation>&amp;Kertas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="108"/>
         <source>&amp;Landscape</source>
-        <translation>&amp;Vaakataso</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="115"/>
         <source>P&amp;ortrait</source>
-        <translation>&amp;Pystytaso</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="326"/>
         <source>&amp;Units</source>
-        <translation>&amp;Yksiköt</translation>
+        <translation>&amp;Satuan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="332"/>
         <source>Main Unit</source>
-        <translation>Pääasiallinen Yksikkö</translation>
+        <translation>Satuan Utama</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="338"/>
@@ -6152,115 +6133,24 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="377"/>
         <source>Length</source>
-        <translation>Pituus</translation>
+        <translation>Panjang</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="383"/>
         <source>&amp;Format:</source>
-        <translation>&amp;Formaatti:</translation>
+        <translation>&amp;Format:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="402"/>
         <source>P&amp;recision:</source>
-        <translation>&amp;Tarkkuus:</translation>
+        <translation>P&amp;resisi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="285"/>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="450"/>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="546"/>
         <source>Preview</source>
-        <translation>Esikatselu</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="456"/>
-        <source>linear</source>
-        <translation>lineaarinen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="473"/>
-        <source>Angle</source>
-        <translation>Kulma</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="479"/>
-        <source>F&amp;ormat:</source>
-        <translation>F&amp;ormaatti:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="527"/>
-        <source>Pre&amp;cision:</source>
-        <translation>&amp;Tarkkuus:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="552"/>
-        <source>angular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="570"/>
-        <source>&amp;Grid</source>
-        <translation>&amp;Ruudukko</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="582"/>
-        <source>Grid Settings</source>
-        <translation>Ruudukon asetukset</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="588"/>
-        <source>Show Grid</source>
-        <translation>Näytä ruudukko</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="720"/>
-        <source>Crosshair</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1271"/>
-        <source>Length to enlarge over dimension line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1296"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="654"/>
-        <source>Left crosshair with isometric grid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="152"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="212"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="657"/>
-        <source>Left</source>
-        <translation>Vasen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="676"/>
-        <source>Top crosshair with isometric grid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="195"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="228"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="679"/>
-        <source>Top</source>
-        <translation type="unfinished">Yläosa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="698"/>
-        <source>Right crosshair with isometric grid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="178"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="205"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="701"/>
-        <source>Right</source>
-        <translation>Oikea</translation>
+        <translation>Pratinjau</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="44"/>
@@ -6270,7 +6160,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="66"/>
         <source>&amp;Height:</source>
-        <translation type="unfinished">&amp;Korkeus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="82"/>
@@ -6291,7 +6181,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="165"/>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="185"/>
         <source>Bottom</source>
-        <translation type="unfinished">Alaosa</translation>
+        <translation type="unfinished">Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="240"/>
@@ -6309,115 +6199,58 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="595"/>
-        <source>Use orthogonal grid</source>
-        <translation>Käytä ortogonaalista ruudukkoa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="598"/>
-        <source>Orthogonal Grid</source>
-        <translation>Ortogonaalinen Ruudukko</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="608"/>
-        <source>Use isometric grid</source>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="456"/>
+        <source>linear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="611"/>
-        <source>Isometric Grid</source>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="473"/>
+        <source>Angle</source>
+        <translation>Sudut</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="479"/>
+        <source>F&amp;ormat:</source>
+        <translation>F&amp;ormat:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="527"/>
+        <source>Pre&amp;cision:</source>
+        <translation>Pre&amp;sisi:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="552"/>
+        <source>angular</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="741"/>
-        <source>X Spacing:</source>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="570"/>
+        <source>&amp;Grid</source>
+        <translation>&amp;Kisi-kisi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="582"/>
+        <source>Grid Settings</source>
+        <translation>Pengaturan Kisi-kisi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="588"/>
+        <source>Show Grid</source>
+        <translation>Tampilkan Kisi-kisi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="720"/>
+        <source>Crosshair</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="761"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="803"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="253"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="256"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="552"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="557"/>
-        <source>auto</source>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1271"/>
+        <source>Length to enlarge over dimension line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="789"/>
-        <source>Y Spacing:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="860"/>
-        <source>&amp;Dimensions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="885"/>
-        <source>Text style:</source>
-        <translation>Tekstityyli:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="893"/>
-        <source>&apos;.&apos; (Period)</source>
-        <translation>&apos;.&apos; (Piste)</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="898"/>
-        <source>&apos;,&apos; (Comma)</source>
-        <translation>&apos;,&apos; (Pilkku)</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="906"/>
-        <source>Decimal separator:</source>
-        <translation>Desimaalierotin:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="933"/>
-        <source>Linear units:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="949"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1384"/>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1571"/>
-        <source>Color:</source>
-        <translation>Väri:</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="959"/>
-        <source>Length Factor:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1086"/>
-        <source>Angular units:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1109"/>
-        <source>Linear zeros:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1146"/>
-        <source>Format units</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1153"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1226"/>
-        <source>Text size &amp; position</source>
-        <translation>Tekstin koko &amp; sijainti</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1233"/>
-        <source>General Scale:</source>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1296"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6433,7 +6266,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1683"/>
         <source>&amp;Points</source>
-        <translation type="unfinished">&amp;Pisteet</translation>
+        <translation type="unfinished">&amp;Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1692"/>
@@ -6491,6 +6324,154 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="654"/>
+        <source>Left crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="152"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="212"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="657"/>
+        <source>Left</source>
+        <translation type="unfinished">Kiri</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="676"/>
+        <source>Top crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="195"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="228"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="679"/>
+        <source>Top</source>
+        <translation type="unfinished">Atas</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="698"/>
+        <source>Right crosshair with isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="178"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="205"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="701"/>
+        <source>Right</source>
+        <translation type="unfinished">Kanan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="595"/>
+        <source>Use orthogonal grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="598"/>
+        <source>Orthogonal Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="608"/>
+        <source>Use isometric grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="611"/>
+        <source>Isometric Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="741"/>
+        <source>X Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="761"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="803"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="253"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="256"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="552"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="557"/>
+        <source>auto</source>
+        <translation type="unfinished">otomatis</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="789"/>
+        <source>Y Spacing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="860"/>
+        <source>&amp;Dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="885"/>
+        <source>Text style:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="893"/>
+        <source>&apos;.&apos; (Period)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="898"/>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="906"/>
+        <source>Decimal separator:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="933"/>
+        <source>Linear units:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="949"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1384"/>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1571"/>
+        <source>Color:</source>
+        <translation type="unfinished">Warna:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="959"/>
+        <source>Length Factor:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1086"/>
+        <source>Angular units:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1109"/>
+        <source>Linear zeros:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1146"/>
+        <source>Format units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1226"/>
+        <source>Text size &amp; position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1233"/>
+        <source>General Scale:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="969"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -6498,7 +6479,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1099"/>
         <source>Text Height:</source>
-        <translation>Tekstin korkeus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="913"/>
@@ -6509,18 +6490,18 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1479"/>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1527"/>
         <source>units</source>
-        <translation type="unfinished"></translation>
+        <translation>satuan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1337"/>
         <source>Arrow size:</source>
-        <translation>Nuolen koko:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1350"/>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1578"/>
         <source>Width:</source>
-        <translation>Leveys:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1370"/>
@@ -6545,7 +6526,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1414"/>
         <source>Offset:</source>
-        <translation type="unfinished">Siirto:</translation>
+        <translation type="unfinished">Offset:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1427"/>
@@ -6595,7 +6576,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1461"/>
         <source>Horizontal</source>
-        <translation type="unfinished">Vaakasuora</translation>
+        <translation type="unfinished">Horisontal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.ui" line="1554"/>
@@ -6615,12 +6596,12 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="117"/>
         <source>Scientific</source>
-        <translation>Tieteellinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="118"/>
         <source>Decimal</source>
-        <translation>Desimaali</translation>
+        <translation>Desimal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="119"/>
@@ -6630,7 +6611,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="120"/>
         <source>Architectural</source>
-        <translation>Arkkitehtuurinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsdrawing.cpp" line="121"/>
@@ -6694,37 +6675,37 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="14"/>
         <source>Application Preferences</source>
-        <translation>Sovelluksen Asetukset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="46"/>
         <source>&amp;Appearance</source>
-        <translation>&amp;Ulkoasu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="58"/>
         <source>Language</source>
-        <translation>Kieli</translation>
+        <translation>Bahasa</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="64"/>
         <source>&amp;GUI Language:</source>
-        <translation>&amp;Käyttöliittymän Kieli:</translation>
+        <translation>Bahasa &amp;Antarmuka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="80"/>
         <source>&amp;Command Language:</source>
-        <translation type="unfinished">&amp;Komentokieli:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="693"/>
         <source>Backgr&amp;ound:</source>
-        <translation>&amp;Tausta:</translation>
+        <translation>Lat&amp;ar:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="398"/>
         <source>G&amp;rid Color:</source>
-        <translation>&amp;Ruudukon Väri:</translation>
+        <translation>Warna Ki&amp;si-kisi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="627"/>
@@ -6734,22 +6715,22 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="655"/>
         <source>S&amp;elected Color:</source>
-        <translation>&amp;Valittu Väri:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="599"/>
         <source>&amp;Highlighted Color:</source>
-        <translation>&amp;Korostettu Väri:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="105"/>
         <source>Graphic View</source>
-        <translation>Graafinen Näkymä</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="192"/>
         <source>Scrollbars</source>
-        <translation>Vierityspalkit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="275"/>
@@ -6774,7 +6755,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="255"/>
         <source>A&amp;utomatically scale grid</source>
-        <translation>&amp;Skaalaa ruudukko automaattisesti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="258"/>
@@ -6824,61 +6805,16 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="922"/>
         <source>Translations:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terjemahan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="932"/>
         <source>Hatch Patterns:</source>
-        <translation>Täyttökuviot:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="841"/>
         <source>Fonts:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="322"/>
-        <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="118"/>
-        <source>N&amp;umber of preview entities:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="111"/>
-        <source>Auto-panning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="265"/>
-        <source>Hide the relative-&amp;zero marker</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="268"/>
-        <source>Alt+Z</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="335"/>
-        <source>Visualize the entity under the cursor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="338"/>
-        <source>Mouse-over effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="388"/>
-        <source>&amp;Relative-Zero Marker Color:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="834"/>
-        <source>Variable File:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6892,48 +6828,8 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="880"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="978"/>
         <source>&amp;Defaults</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1014"/>
-        <source>Auto save time (minutes):</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1043"/>
-        <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1046"/>
-        <source>Invert horizontal scrolling direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1053"/>
-        <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1056"/>
-        <source>Invert vertical scrolling direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1063"/>
-        <source>Inverts zoom direction when using mouse wheel.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1066"/>
-        <source>Invert zoom direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6952,11 +6848,6 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1157"/>
-        <source>Open last opened files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1164"/>
         <source>Enable CAD dockwidgets</source>
         <translation type="unfinished"></translation>
@@ -6967,16 +6858,6 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1241"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1270"/>
-        <source>Automatically zoom drawing when opening</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1193"/>
         <source>Defaults for new drawings</source>
         <translation type="unfinished"></translation>
@@ -6984,7 +6865,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1205"/>
         <source>&amp;Unit:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Satuan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1218"/>
@@ -7049,7 +6930,92 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1143"/>
         <source>Start in tab mode</source>
-        <translation>Aloita välilehtitilassa</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="322"/>
+        <source>Minimal Grid Spacing (p&amp;x):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="118"/>
+        <source>N&amp;umber of preview entities:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="111"/>
+        <source>Auto-panning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="265"/>
+        <source>Hide the relative-&amp;zero marker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="268"/>
+        <source>Alt+Z</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="335"/>
+        <source>Visualize the entity under the cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="338"/>
+        <source>Mouse-over effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="388"/>
+        <source>&amp;Relative-Zero Marker Color:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="834"/>
+        <source>Variable File:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="880"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1014"/>
+        <source>Auto save time (minutes):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1043"/>
+        <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1046"/>
+        <source>Invert horizontal scrolling direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1053"/>
+        <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1056"/>
+        <source>Invert vertical scrolling direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1063"/>
+        <source>Inverts zoom direction when using mouse wheel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1066"/>
+        <source>Invert zoom direction</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1089"/>
@@ -7077,6 +7043,21 @@ Please choose the unit you want to use for new drawings and your preferred langu
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1157"/>
+        <source>Open last opened files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1241"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/forms/qg_dlgoptionsgeneral.ui" line="1270"/>
+        <source>Automatically zoom drawing when opening</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.cpp" line="319"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
@@ -7084,7 +7065,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.cpp" line="320"/>
         <source>Please restart the application to apply all changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Harap mulai ulang aplikasi untuk menerapkan perubahan.</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsgeneral.cpp" line="401"/>
@@ -7117,7 +7098,7 @@ Please choose the unit you want to use for new drawings and your preferred langu
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsmakercam.ui" line="73"/>
         <source>Export invisible layers</source>
-        <translation>Vie näkymättömät tasot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgoptionsmakercam.ui" line="80"/>
@@ -7232,7 +7213,7 @@ so default step value required for baking</source>
     <name>QG_DlgOptionsVariables</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
@@ -7240,27 +7221,27 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgpoint.ui" line="26"/>
         <source>Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Titik</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpoint.ui" line="44"/>
         <source>Layer:</source>
-        <translation type="unfinished">Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpoint.ui" line="71"/>
         <source>Geometry</source>
-        <translation type="unfinished">Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpoint.ui" line="77"/>
         <source>Position (y):</source>
-        <translation type="unfinished"></translation>
+        <translation>Posisi (y):</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpoint.ui" line="97"/>
         <source>Position (x):</source>
-        <translation type="unfinished"></translation>
+        <translation>Posisi (x):</translation>
     </message>
 </context>
 <context>
@@ -7268,22 +7249,22 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgpolyline.ui" line="26"/>
         <source>Polyline</source>
-        <translation type="unfinished">Liitviiva</translation>
+        <translation type="unfinished">Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpolyline.ui" line="44"/>
         <source>Layer:</source>
-        <translation type="unfinished">Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpolyline.ui" line="77"/>
         <source>Geometry</source>
-        <translation type="unfinished">Geometria</translation>
+        <translation type="unfinished">Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgpolyline.ui" line="115"/>
         <source>Closed</source>
-        <translation type="unfinished">Suljettu</translation>
+        <translation type="unfinished">Tertutup</translation>
     </message>
 </context>
 <context>
@@ -7296,17 +7277,17 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="32"/>
         <source>Number of copies</source>
-        <translation type="unfinished"></translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="50"/>
         <source>&amp;Delete Original</source>
-        <translation type="unfinished">Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="69"/>
         <source>&amp;Keep Original</source>
-        <translation type="unfinished">&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="88"/>
@@ -7316,7 +7297,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="119"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="138"/>
@@ -7331,7 +7312,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate.ui" line="186"/>
         <source>Use current &amp;layer</source>
-        <translation type="unfinished">Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7344,27 +7325,27 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="32"/>
         <source>Number of copies</source>
-        <translation type="unfinished"></translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="50"/>
         <source>&amp;Delete Original</source>
-        <translation type="unfinished">Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="69"/>
         <source>&amp;Keep Original</source>
-        <translation type="unfinished">&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="88"/>
         <source>&amp;Multiple Copies</source>
-        <translation type="unfinished">&amp;Useita Kopioita</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="119"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="138"/>
@@ -7384,7 +7365,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgrotate2.ui" line="215"/>
         <source>Use current &amp;layer</source>
-        <translation type="unfinished">Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7397,7 +7378,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="117"/>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="136"/>
@@ -7432,27 +7413,27 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="226"/>
         <source>Use current &amp;layer</source>
-        <translation type="unfinished">Käytä nykyistä &amp;tasoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="32"/>
         <source>Number of copies</source>
-        <translation type="unfinished"></translation>
+        <translation>Jumlah salinan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="50"/>
         <source>&amp;Delete Original</source>
-        <translation type="unfinished">Poista &amp;Alkuperäinen</translation>
+        <translation>&amp;Hapus yang Asli</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="69"/>
         <source>&amp;Keep Original</source>
-        <translation type="unfinished">&amp;Säilytä Alkuperäinen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgscale.ui" line="88"/>
         <source>&amp;Multiple Copies</source>
-        <translation type="unfinished">&amp;Useita Kopioita</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7465,22 +7446,22 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgspline.ui" line="51"/>
         <source>Layer:</source>
-        <translation type="unfinished">Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgspline.ui" line="84"/>
         <source>Geometry</source>
-        <translation type="unfinished">Geometria</translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgspline.ui" line="122"/>
         <source>Degree:</source>
-        <translation type="unfinished"></translation>
+        <translation>Derajat:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgspline.ui" line="132"/>
         <source>Closed</source>
-        <translation type="unfinished">Suljettu</translation>
+        <translation type="unfinished">Tertutup</translation>
     </message>
 </context>
 <context>
@@ -7488,32 +7469,32 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="20"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="256"/>
         <source>&amp;Height:</source>
-        <translation type="unfinished">&amp;Korkeus:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="384"/>
         <source>Alignment</source>
-        <translation>Kohdistus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="716"/>
         <source>Top Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanan Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="681"/>
         <source>Top Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiri Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="542"/>
         <source>Middle Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiri Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="751"/>
@@ -7523,32 +7504,32 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="472"/>
         <source>Middle Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanan Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="507"/>
         <source>Bottom Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiri Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="437"/>
         <source>Bottom Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Kanan Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="402"/>
         <source>Bottom Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Tengah Bawah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="600"/>
         <source>Top Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Tengah Atas</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="33"/>
         <source>Text:</source>
-        <translation type="unfinished">Teksti:</translation>
+        <translation>Tulisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="59"/>
@@ -7558,32 +7539,32 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="73"/>
         <source>Load Text From File</source>
-        <translation type="unfinished">Lataa Teksti Tiedostosta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="87"/>
         <source>Save Text To File</source>
-        <translation type="unfinished">Tallenna Teksti Tiedostoon</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="101"/>
         <source>Cut</source>
-        <translation type="unfinished">Leikkaa</translation>
+        <translation>Potong</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="115"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopioi</translation>
+        <translation>Salin</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="129"/>
         <source>Paste</source>
-        <translation type="unfinished">Liitä</translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="175"/>
         <source>Layer:</source>
-        <translation type="unfinished">Taso:</translation>
+        <translation type="unfinished">Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="234"/>
@@ -7593,7 +7574,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="269"/>
         <source>Angle:</source>
-        <translation type="unfinished">Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="318"/>
@@ -7638,6 +7619,11 @@ so default step value required for baking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/forms/qg_dlgtext.ui" line="825"/>
+        <source>Insert Symbol</source>
+        <translation>Masukkan Simbol</translation>
+    </message>
+    <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="784"/>
         <source>A&amp;ligned</source>
         <translation type="unfinished"></translation>
@@ -7645,12 +7631,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="794"/>
         <source>&amp;Middle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/forms/qg_dlgtext.ui" line="825"/>
-        <source>Insert Symbol</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="838"/>
@@ -7660,12 +7641,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="843"/>
         <source>Degree (°)</source>
-        <translation type="unfinished"></translation>
+        <translation>Derajat (°)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="848"/>
         <source>Plus / Minus (±)</source>
-        <translation type="unfinished">Plus / Miinus (±)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="853"/>
@@ -7675,52 +7656,52 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="858"/>
         <source>Hash (#)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagar (#)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="863"/>
         <source>Dollar ($)</source>
-        <translation type="unfinished">Dollari ($)</translation>
+        <translation type="unfinished">Dolar ($)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="868"/>
         <source>Copyright (©)</source>
-        <translation type="unfinished">Tekijänoikeus (©)</translation>
+        <translation>Hak Cipta (©)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="873"/>
         <source>Registered (®)</source>
-        <translation type="unfinished"></translation>
+        <translation>Terdaftar (®)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="878"/>
         <source>Paragraph (§)</source>
-        <translation type="unfinished"></translation>
+        <translation>Paragraf (§)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="883"/>
         <source>Pi (π)</source>
-        <translation type="unfinished">Pii (π)</translation>
+        <translation>Pi (π)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="888"/>
         <source>Pound (£)</source>
-        <translation type="unfinished">Punta (£)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="893"/>
         <source>Yen (¥)</source>
-        <translation type="unfinished">Jeni (¥)</translation>
+        <translation>Yen (¥)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="898"/>
         <source>Times (×)</source>
-        <translation type="unfinished">Kertaa (×)</translation>
+        <translation>Perkalian (×)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="903"/>
         <source>Division (÷)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembagian (÷)</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="914"/>
@@ -7730,7 +7711,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="920"/>
         <source>Page:</source>
-        <translation type="unfinished"></translation>
+        <translation>Halaman:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="930"/>
@@ -7740,7 +7721,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="953"/>
         <source>[0000-007F] Basic Latin</source>
-        <translation type="unfinished"></translation>
+        <translation>[0000-007F] Latin Dasar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="958"/>
@@ -7775,7 +7756,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="988"/>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0370-03FF] Yunani dan Koptik</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="993"/>
@@ -7790,22 +7771,22 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1003"/>
         <source>[0530-058F] Armenian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0530-058F] Armenia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1008"/>
         <source>[0590-05FF] Hebrew</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0590-05FF] Ibrani</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1013"/>
         <source>[0600-06FF] Arabic</source>
-        <translation type="unfinished">[0600-06FF] Arabialainen</translation>
+        <translation type="unfinished">[0600-06FF] Arab</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1018"/>
         <source>[0700-074F] Syriac</source>
-        <translation type="unfinished">[0700-074F] Syyrialainen</translation>
+        <translation type="unfinished">[0700-074F] Syria</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1023"/>
@@ -7815,12 +7796,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1028"/>
         <source>[0900-097F] Devanagari</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0900-097F] Devanagari\</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1033"/>
         <source>[0980-09FF] Bengali</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0980-09FF] Bengal</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1038"/>
@@ -7830,7 +7811,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1043"/>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0A80-0AFF] Gujarat</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1048"/>
@@ -7840,22 +7821,22 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1053"/>
         <source>[0B80-0BFF] Tamil</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0B80-0BFF] Tamil</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1058"/>
         <source>[0C00-0C7F] Telugu</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0C00-0C7F] Telugu</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1063"/>
         <source>[0C80-0CFF] Kannada</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0C80-0CFF] Kannada</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1068"/>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0D00-0D7F] Malayalam</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1073"/>
@@ -7865,27 +7846,27 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1078"/>
         <source>[0E00-0E7F] Thai</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0E00-0E7F] Thailand</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1083"/>
         <source>[0E80-0EFF] Lao</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0E80-0EFF] Lao</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1088"/>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[0F00-0FFF] Tibet</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1093"/>
         <source>[1000-109F] Myanmar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1000-109F] Myanmar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1098"/>
         <source>[10A0-10FF] Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[10A0-10FF] Georgia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1103"/>
@@ -7895,12 +7876,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1108"/>
         <source>[1200-137F] Ethiopic</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1200-137F] Ethiopia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1113"/>
         <source>[13A0-13FF] Cherokee</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[13A0-13FF] Cherokee</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1118"/>
@@ -7920,7 +7901,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1133"/>
         <source>[1700-171F] Tagalog</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1700-171F] Tagalog</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1138"/>
@@ -7940,12 +7921,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1153"/>
         <source>[1780-17FF] Khmer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1780-17FF] Khmer</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1158"/>
         <source>[1800-18AF] Mongolian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[1800-18AF] Mongolia</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1163"/>
@@ -7970,7 +7951,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1183"/>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[20A0-20CF] Simbol Mata Uang</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1188"/>
@@ -7980,7 +7961,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1193"/>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation type="unfinished"></translation>
+        <translation>[2100-214F] Simbol Seperti-Huruf</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1198"/>
@@ -8095,12 +8076,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1308"/>
         <source>[3040-309F] Hiragana</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[3040-309F] Hiragana</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1313"/>
         <source>[30A0-30FF] Katakana</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[30A0-30FF] Katakana</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1318"/>
@@ -8115,7 +8096,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1328"/>
         <source>[3190-319F] Kanbun</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">[3190-319F] Kanbun</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgtext.ui" line="1333"/>
@@ -8283,7 +8264,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_exitdialog.ui" line="26"/>
         <source>QCad</source>
-        <translation type="unfinished"></translation>
+        <translation>QCad</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_exitdialog.ui" line="44"/>
@@ -8292,7 +8273,7 @@ so default step value required for baking</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="obsolete">Sulje</translation>
+        <translation type="obsolete">Tutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_exitdialog.cpp" line="116"/>
@@ -8413,37 +8394,37 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="23"/>
         <source>Bitmap Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukuran Bitmap</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="144"/>
         <source>Width:</source>
-        <translation type="unfinished">Leveys:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="154"/>
         <source>Height:</source>
-        <translation type="unfinished">Korkeus:</translation>
+        <translation type="unfinished">Tinggi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="29"/>
         <source>Resolution:</source>
-        <translation type="unfinished"></translation>
+        <translation>Resolusi:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="43"/>
         <source>auto</source>
-        <translation type="unfinished"></translation>
+        <translation>otomatis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="203"/>
         <source>Background</source>
-        <translation type="unfinished"></translation>
+        <translation>Latar</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="209"/>
         <source>White</source>
-        <translation type="unfinished"></translation>
+        <translation>Putih</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="219"/>
@@ -8458,7 +8439,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="264"/>
         <source>Black / White</source>
-        <translation type="unfinished">Mustavalkoinen</translation>
+        <translation type="unfinished">Hitam / Putih</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dlgimageoptions.ui" line="274"/>
@@ -8499,7 +8480,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/forms/qg_layerdialog.ui" line="20"/>
         <source>Layer Settings</source>
-        <translation type="unfinished">Geruzan asetukset</translation>
+        <translation type="unfinished">Pengaturan Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_layerdialog.ui" line="29"/>
@@ -8510,17 +8491,17 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/forms/qg_layerdialog.ui" line="33"/>
         <source>Construction Layer</source>
-        <translation type="unfinished">Rakennusgeruza</translation>
+        <translation type="unfinished">Lapisan Konstruksi</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_layerdialog.ui" line="46"/>
         <source>Layer Name:</source>
-        <translation type="unfinished">Geruzan nimi:</translation>
+        <translation type="unfinished">Nama Lapisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_layerdialog.cpp" line="65"/>
         <source>Default Pen</source>
-        <translation type="unfinished">Oletuskynä</translation>
+        <translation type="unfinished">Pena Default</translation>
     </message>
 </context>
 <context>
@@ -8528,47 +8509,47 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="227"/>
         <source>Show all layers</source>
-        <translation type="unfinished">Näytä kaikki geruzat</translation>
+        <translation type="unfinished">Tampilkan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="234"/>
         <source>Hide all layers</source>
-        <translation type="unfinished">Piilota kaikki geruzat</translation>
+        <translation type="unfinished">Sembunyikan semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="241"/>
         <source>Unlock all layers</source>
-        <translation type="unfinished">Avaa lukitus kaikista geruzista</translation>
+        <translation type="unfinished">Buka kunci semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="248"/>
         <source>Lock all layers</source>
-        <translation type="unfinished">Lukitse kaikki geruzat</translation>
+        <translation type="unfinished">Kunci semua lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="255"/>
         <source>Add a layer</source>
-        <translation type="unfinished">Lisää geruza</translation>
+        <translation type="unfinished">Tambah lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="269"/>
         <source>Modify layer attributes / rename</source>
-        <translation type="unfinished">Muokkaa geruzan attribuutteja / nimeä uudelleen</translation>
+        <translation type="unfinished">Ubah atribut lapisan / ganti nama</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="276"/>
         <source>Filter</source>
-        <translation type="unfinished">Suodatin</translation>
+        <translation type="unfinished">Filter</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="278"/>
         <source>Looking for matching layer names</source>
-        <translation type="unfinished">Etsitään vastaavia geruzanimia</translation>
+        <translation type="unfinished">Mencari nama lapisan yang cocok</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="549"/>
         <source>Layer Menu</source>
-        <translation type="unfinished">Geruza-valikko</translation>
+        <translation type="unfinished">Menu Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="556"/>
@@ -8593,27 +8574,27 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="569"/>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation type="unfinished">Vaihda geruzan lukitus</translation>
+        <translation type="unfinished">Alihkan Kunci Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="579"/>
         <source>&amp;Add Layer</source>
-        <translation type="unfinished">&amp;Lisää Taso</translation>
+        <translation type="unfinished">&amp;Tambah Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="586"/>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation type="unfinished">&amp;Vie valitut geruzat</translation>
+        <translation type="unfinished">&amp;Ekspor Lapisan Terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="589"/>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation type="unfinished">Vie &amp;näkyvät geruzat</translation>
+        <translation type="unfinished">Ekspor Lapisan &amp;Terlihat</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="575"/>
         <source>&amp;Remove Layer</source>
-        <translation type="unfinished">&amp;Poista Taso</translation>
+        <translation type="unfinished">&amp;Hapus Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="581"/>
@@ -8628,7 +8609,7 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="262"/>
         <source>Remove layer</source>
-        <translation type="unfinished">Poista geruza</translation>
+        <translation type="unfinished">Hapus lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="571"/>
@@ -8638,7 +8619,7 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/qg_layerwidget.cpp" line="573"/>
         <source>Toggle &amp;Construction Layer</source>
-        <translation type="unfinished">Vaihda &amp;rakennusgeruza</translation>
+        <translation type="unfinished">Alihkan Lapisan &amp;Konstruksi</translation>
     </message>
 </context>
 <context>
@@ -8656,12 +8637,12 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/qg_librarywidget.cpp" line="201"/>
         <source>Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Direktori</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_librarywidget.cpp" line="89"/>
         <source>Insert</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -8675,87 +8656,87 @@ The contents of a Construction Layer should not appear in printout.</source>
         <location filename="../src/ui/qg_linetypebox.cpp" line="79"/>
         <location filename="../src/ui/qg_linetypebox.cpp" line="189"/>
         <source>By Layer</source>
-        <translation>Tason Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="80"/>
         <source>By Block</source>
-        <translation>Kappaleen Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="82"/>
         <source>No Pen</source>
-        <translation>Ei Kynää</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="83"/>
         <source>Continuous</source>
-        <translation>Jatkuva</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="84"/>
         <source>Dot</source>
-        <translation>Piste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="85"/>
         <source>Dot (tiny)</source>
-        <translation>Piste (hyvin pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="86"/>
         <source>Dot (small)</source>
-        <translation>Piste (pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="87"/>
         <source>Dot (large)</source>
-        <translation>Piste (suuri)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="88"/>
         <source>Dash</source>
-        <translation>Katkoviiva</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="89"/>
         <source>Dash (tiny)</source>
-        <translation>Katkoviiva (hyvin pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="90"/>
         <source>Dash (small)</source>
-        <translation>Katkoviiva (pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="91"/>
         <source>Dash (large)</source>
-        <translation>Katkoviiva (suuri)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="92"/>
         <source>Dash Dot</source>
-        <translation>Katkopiste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="93"/>
         <source>Dash Dot (tiny)</source>
-        <translation>Katkopiste (hyvin pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="94"/>
         <source>Dash Dot (small)</source>
-        <translation>Katkopiste (pieni)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="95"/>
         <source>Dash Dot (large)</source>
-        <translation>Katkopiste (suuri)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="96"/>
         <source>Divide</source>
-        <translation type="unfinished">Jaa</translation>
+        <translation type="unfinished">Bagi</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_linetypebox.cpp" line="97"/>
@@ -8823,12 +8804,12 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/forms/qg_mousewidget.ui" line="71"/>
         <source>Right</source>
-        <translation type="unfinished">Oikea</translation>
+        <translation>Kanan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_mousewidget.ui" line="108"/>
         <source>Left</source>
-        <translation type="unfinished">Vasen</translation>
+        <translation>Kiri</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_mousewidget.ui" line="130"/>
@@ -8871,7 +8852,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/qg_recentfiles.cpp" line="180"/>
         <source>&amp;%1 %2</source>
-        <translation type="unfinished">&amp;%1 %2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8889,7 +8870,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/forms/qg_selectionwidget.ui" line="114"/>
         <source>Total Length</source>
-        <translation type="unfinished">Kokonaispituus</translation>
+        <translation type="unfinished">Panjang Total</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_selectionwidget.ui" line="139"/>
@@ -9079,22 +9060,22 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/forms/qg_widgetpen.ui" line="26"/>
         <location filename="../src/ui/forms/qg_widgetpen.ui" line="47"/>
         <source>Pen</source>
-        <translation type="unfinished">Kynä</translation>
+        <translation type="unfinished">Pena</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_widgetpen.ui" line="91"/>
         <source>Line type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Jenis garis:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_widgetpen.ui" line="75"/>
         <source>Width:</source>
-        <translation type="unfinished">Leveys:</translation>
+        <translation>Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_widgetpen.ui" line="59"/>
         <source>Color:</source>
-        <translation type="unfinished">Väri:</translation>
+        <translation>Warna:</translation>
     </message>
 </context>
 <context>
@@ -9102,15 +9083,103 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="247"/>
         <source>By Layer</source>
-        <translation>Tason Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>By Block</source>
-        <translation type="vanished">Kappaleen Mukaan</translation>
+        <source>0.00mm</source>
+        <translation type="vanished">0,00mm</translation>
     </message>
     <message>
-        <source>Default</source>
-        <translation type="vanished">Oletus</translation>
+        <source>0.05mm</source>
+        <translation type="vanished">0,05mm</translation>
+    </message>
+    <message>
+        <source>0.09mm</source>
+        <translation type="vanished">0,09mm</translation>
+    </message>
+    <message>
+        <source>0.13mm (ISO)</source>
+        <translation type="vanished">0,13mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.15mm</source>
+        <translation type="vanished">0,15mm</translation>
+    </message>
+    <message>
+        <source>0.18mm (ISO)</source>
+        <translation type="vanished">0,18mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.20mm</source>
+        <translation type="vanished">0,20mm</translation>
+    </message>
+    <message>
+        <source>0.25mm (ISO)</source>
+        <translation type="vanished">0,25mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.30mm</source>
+        <translation type="vanished">0,30mm</translation>
+    </message>
+    <message>
+        <source>0.35mm (ISO)</source>
+        <translation type="vanished">0,35mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.40mm</source>
+        <translation type="vanished">0,40mm</translation>
+    </message>
+    <message>
+        <source>0.50mm (ISO)</source>
+        <translation type="vanished">0,50mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.53mm</source>
+        <translation type="vanished">0,53mm</translation>
+    </message>
+    <message>
+        <source>0.60mm</source>
+        <translation type="vanished">0,60mm</translation>
+    </message>
+    <message>
+        <source>0.70mm (ISO)</source>
+        <translation type="vanished">0,70mm (ISO)</translation>
+    </message>
+    <message>
+        <source>0.80mm</source>
+        <translation type="vanished">0,80mm</translation>
+    </message>
+    <message>
+        <source>0.90mm</source>
+        <translation type="vanished">0,90mm</translation>
+    </message>
+    <message>
+        <source>1.00mm (ISO)</source>
+        <translation type="vanished">1,00mm (ISO)</translation>
+    </message>
+    <message>
+        <source>1.06mm</source>
+        <translation type="vanished">1,06mm</translation>
+    </message>
+    <message>
+        <source>1.20mm</source>
+        <translation type="vanished">1,20mm</translation>
+    </message>
+    <message>
+        <source>1.40mm (ISO)</source>
+        <translation type="vanished">1,40mm (ISO)</translation>
+    </message>
+    <message>
+        <source>1.58mm</source>
+        <translation type="vanished">1,58mm</translation>
+    </message>
+    <message>
+        <source>2.00mm (ISO)</source>
+        <translation type="vanished">2,00mm (ISO)</translation>
+    </message>
+    <message>
+        <source>2.11mm</source>
+        <translation type="vanished">2,11mm</translation>
     </message>
 </context>
 <context>
@@ -9121,7 +9190,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/main/qc_applicationwindow.cpp" line="2092"/>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="215"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Peringatan</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_layerdialog_ex.cpp" line="213"/>
@@ -9189,7 +9258,7 @@ Clear filtering mask and repeat.</source>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1174"/>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1182"/>
         <source>Add Layer</source>
-        <translation type="unfinished">Lisää geruza</translation>
+        <translation type="unfinished">Tambah Lapisan</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_layertreewidget.cpp" line="1130"/>
@@ -9242,7 +9311,6 @@ If No - &quot;By Layer&quot; values remains and so pen of target layer will defi
         <source>Remove %n layer(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -9293,7 +9361,6 @@ If No - &quot;By Layer&quot; values remains and so pen of target layer will defi
         <location filename="../src/ui/qg_dialogfactory.cpp" line="640"/>
         <source>Remove %n block(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -9430,55 +9497,55 @@ Please specify a different value.</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="204"/>
         <source>None</source>
         <comment>unknown length unit</comment>
-        <translation type="unfinished">Ei mitään</translation>
+        <translation type="unfinished">Tidak Ada</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="206"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="262"/>
         <source>Inch</source>
-        <translation type="unfinished"></translation>
+        <translation>Inci</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="208"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="264"/>
         <source>Foot</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaki</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="210"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="266"/>
         <source>Mile</source>
-        <translation type="unfinished"></translation>
+        <translation>Mil</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="212"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="268"/>
         <source>Millimeter</source>
-        <translation type="unfinished"></translation>
+        <translation>Milimeter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="214"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="270"/>
         <source>Centimeter</source>
-        <translation type="unfinished"></translation>
+        <translation>Sentimeter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="216"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="272"/>
         <source>Meter</source>
-        <translation type="unfinished"></translation>
+        <translation>Meter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="218"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="274"/>
         <source>Kilometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Kilometer</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="220"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="276"/>
         <source>Microinch</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikroinci</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="222"/>
@@ -9490,49 +9557,49 @@ Please specify a different value.</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="224"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="280"/>
         <source>Yard</source>
-        <translation type="unfinished"></translation>
+        <translation>Yard</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="226"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="282"/>
         <source>Angstrom</source>
-        <translation type="unfinished"></translation>
+        <translation>Angstrom</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="228"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="284"/>
         <source>Nanometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Nanometer</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="230"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="286"/>
         <source>Micron</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikron</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="232"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="288"/>
         <source>Decimeter</source>
-        <translation type="unfinished"></translation>
+        <translation>Desimeter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="234"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="290"/>
         <source>Decameter</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekameter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="236"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="292"/>
         <source>Hectometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Hektometer</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="238"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="294"/>
         <source>Gigameter</source>
-        <translation type="unfinished"></translation>
+        <translation>Gigameter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="240"/>
@@ -9544,7 +9611,7 @@ Please specify a different value.</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="242"/>
         <location filename="../src/lib/engine/rs_units.cpp" line="298"/>
         <source>Lightyear</source>
-        <translation type="unfinished"></translation>
+        <translation>Tahun cahaya</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="244"/>
@@ -9556,7 +9623,7 @@ Please specify a different value.</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="936"/>
         <source>Custom</source>
         <comment>Paper format</comment>
-        <translation type="unfinished">Mukautettu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="938"/>
@@ -9759,7 +9826,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/main/main.cpp" line="258"/>
         <source>Loading..</source>
-        <translation type="unfinished"></translation>
+        <translation>Memuat..</translation>
     </message>
     <message>
         <location filename="../src/main/main.cpp" line="322"/>
@@ -9769,7 +9836,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/main/main.cpp" line="358"/>
         <source>Loading File %1..</source>
-        <translation type="unfinished"></translation>
+        <translation>Memuat Berkas %1..</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="236"/>
@@ -9780,17 +9847,17 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="704"/>
         <source>All Image Files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Semua Jenis Berkas Gambar (%1)</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="706"/>
         <source>All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Semua Jenis Berkas (*.*)</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="711"/>
         <source>Open Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Gambar</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_dialogfactory.cpp" line="1793"/>
@@ -10188,7 +10255,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/fileio/rs_fileio.cpp" line="113"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Peringatan</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="60"/>
@@ -10199,7 +10266,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="851"/>
         <source>point</source>
         <comment>draw point</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">titik</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="852"/>
@@ -10211,7 +10278,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="155"/>
         <source>line</source>
         <comment>draw line</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">garis</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="154"/>
@@ -10325,7 +10392,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="363"/>
         <source>circle</source>
         <comment>draw circle</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">lingkaran</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="364"/>
@@ -10403,7 +10470,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="838"/>
         <source>text</source>
         <comment>draw text</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">tulisan</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="840"/>
@@ -12066,7 +12133,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1063"/>
         <location filename="../src/cmd/rs_commands.cpp" line="1156"/>
         <source>angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">sudut</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1064"/>
@@ -12077,7 +12144,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1065"/>
         <location filename="../src/cmd/rs_commands.cpp" line="1168"/>
         <source>close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">tutup</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1066"/>
@@ -12089,7 +12156,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1067"/>
         <location filename="../src/cmd/rs_commands.cpp" line="1171"/>
         <source>columns</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">kolom</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1068"/>
@@ -12106,12 +12173,12 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1070"/>
         <location filename="../src/cmd/rs_commands.cpp" line="1179"/>
         <source>factor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">faktor</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1071"/>
         <source>length</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1074"/>
@@ -12122,12 +12189,12 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1075"/>
         <location filename="../src/cmd/rs_commands.cpp" line="1206"/>
         <source>radius</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">jari-jari</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1076"/>
         <source>rows</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">baris</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1077"/>
@@ -12441,7 +12508,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1160"/>
         <source>center</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">pusat</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1161"/>
@@ -12524,19 +12591,19 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1187"/>
         <source>help</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">bantuan</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1188"/>
         <source>?</source>
         <comment>help</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">?</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1190"/>
         <source>length</source>
         <comment>length</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1191"/>
@@ -12554,7 +12621,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1194"/>
         <source>length1</source>
         <comment>length1</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang1</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1195"/>
@@ -12572,7 +12639,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1198"/>
         <source>length2</source>
         <comment>length2</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang2</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1199"/>
@@ -12644,7 +12711,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1218"/>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">tulisan</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1219"/>
@@ -12683,7 +12750,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1230"/>
         <source>back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">mundur</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1231"/>
@@ -12719,17 +12786,17 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1356"/>
         <source>Command: %1 (%2)</source>
-        <translation>Komento: %1 (%2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1363"/>
         <source>RS_Commands:: command not found: %1</source>
-        <translation>RS_Komennot:: komentoa ei löytynyt: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1417"/>
         <source>Command not found: %1</source>
-        <translation>Komentoa ei löytynyt: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1403"/>
@@ -12740,18 +12807,18 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/rs_commands.cpp" line="1072"/>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang1</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1073"/>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">panjang2</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="1456"/>
         <source>Available commands:</source>
-        <translation>Käytettävissä olevat komennot:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_commandedit.cpp" line="120"/>
@@ -12798,38 +12865,38 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="65"/>
         <source>Circle</source>
-        <translation type="unfinished">Ympyrä</translation>
+        <translation type="unfinished">Lingkaran</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="66"/>
         <source>Curve</source>
-        <translation type="unfinished">Kaariviiva</translation>
+        <translation type="unfinished">Kurva</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="67"/>
         <source>Edit</source>
-        <translation type="unfinished">Muokkaa</translation>
+        <translation type="unfinished">Edit</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="68"/>
         <source>Ellipse</source>
-        <translation type="unfinished">Ellipsi</translation>
+        <translation type="unfinished">Lonjong</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="69"/>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="88"/>
         <source>File</source>
-        <translation type="unfinished">Tiedosto</translation>
+        <translation type="unfinished">File</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="70"/>
         <source>Dimension</source>
-        <translation type="unfinished">Mitta</translation>
+        <translation type="unfinished">Dimensi</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="71"/>
         <source>Info</source>
-        <translation type="unfinished">Tiedot</translation>
+        <translation type="unfinished">Info</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="72"/>
@@ -12839,12 +12906,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="73"/>
         <source>Line</source>
-        <translation type="unfinished">Viiva</translation>
+        <translation type="unfinished">Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="74"/>
         <source>Modify</source>
-        <translation type="unfinished">Muokkaa</translation>
+        <translation type="unfinished">Ubah</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="75"/>
@@ -12860,7 +12927,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="77"/>
         <source>Polyline</source>
-        <translation type="unfinished">Liitviiva</translation>
+        <translation type="unfinished">Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="78"/>
@@ -12870,7 +12937,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="79"/>
         <source>Select</source>
-        <translation type="unfinished">Valitse</translation>
+        <translation type="unfinished">Pilih</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="80"/>
@@ -12885,7 +12952,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="82"/>
         <source>View</source>
-        <translation type="unfinished">Näkymä</translation>
+        <translation type="unfinished">Lihat</translation>
     </message>
     <message>
         <location filename="../src/ui/lc_actiongroupmanager.cpp" line="83"/>
@@ -12916,7 +12983,7 @@ Do you want to replace it?</source>
         <location filename="../src/main/qc_applicationwindow.cpp" line="3818"/>
         <location filename="../src/ui/lc_widgetfactory.cpp" line="934"/>
         <source>License</source>
-        <translation type="unfinished">Lisenssi</translation>
+        <translation type="unfinished">Lisensi</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.cpp" line="59"/>
@@ -13108,12 +13175,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/lc_peninforegistry.cpp" line="204"/>
         <source>By Layer</source>
-        <translation type="unfinished">Tason Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/lc_peninforegistry.cpp" line="207"/>
         <source>By Block</source>
-        <translation type="unfinished">Kappaleen Mukaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/lc_peninforegistry.cpp" line="210"/>
@@ -13138,22 +13205,22 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="41"/>
         <source>Default</source>
-        <translation type="unfinished">Oletus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="43"/>
         <source>0.00mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,00mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="45"/>
         <source>0.05mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,05mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="47"/>
         <source>0.09mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,09mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="49"/>
@@ -13163,7 +13230,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="51"/>
         <source>0.15mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,15mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="53"/>
@@ -13173,7 +13240,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="55"/>
         <source>0.20mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,20mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="57"/>
@@ -13183,7 +13250,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="59"/>
         <source>0.30mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,30mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="61"/>
@@ -13193,7 +13260,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="63"/>
         <source>0.40mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,40mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="65"/>
@@ -13203,12 +13270,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="67"/>
         <source>0.53mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,53mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="69"/>
         <source>0.60mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,60mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="71"/>
@@ -13218,12 +13285,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="73"/>
         <source>0.80mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,80mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="75"/>
         <source>0.90mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0,90mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="77"/>
@@ -13233,12 +13300,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="79"/>
         <source>1.06mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1,06mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="81"/>
         <source>1.20mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1,20mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="83"/>
@@ -13248,7 +13315,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="85"/>
         <source>1.58mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1,58mm</translation>
     </message>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="87"/>
@@ -13258,7 +13325,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_widthbox.cpp" line="89"/>
         <source>2.11mm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2,11mm</translation>
     </message>
 </context>
 <context>
@@ -13271,7 +13338,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/actions/rs_actionblockscreate.cpp" line="150"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -13301,7 +13368,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionblocksinsert.cpp" line="269"/>
         <location filename="../src/actions/rs_actionblocksinsert.cpp" line="282"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionblocksinsert.cpp" line="381"/>
@@ -13311,7 +13378,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionblocksinsert.cpp" line="382"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionblocksinsert.cpp" line="385"/>
@@ -13362,7 +13429,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondefault.cpp" line="501"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -13375,7 +13442,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimaligned.cpp" line="253"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimaligned.cpp" line="257"/>
@@ -13386,7 +13453,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondimaligned.cpp" line="258"/>
         <location filename="../src/actions/rs_actiondimaligned.cpp" line="263"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimaligned.cpp" line="262"/>
@@ -13411,7 +13478,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondimangular.cpp" line="245"/>
         <location filename="../src/actions/rs_actiondimangular.cpp" line="250"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimangular.cpp" line="244"/>
@@ -13439,7 +13506,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimdiametric.cpp" line="258"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimdiametric.cpp" line="286"/>
@@ -13450,7 +13517,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondimdiametric.cpp" line="287"/>
         <location filename="../src/actions/rs_actiondimdiametric.cpp" line="291"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimdiametric.cpp" line="291"/>
@@ -13473,7 +13540,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimleader.cpp" line="228"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimleader.cpp" line="231"/>
@@ -13483,7 +13550,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimleader.cpp" line="232"/>
         <source>Finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Selesai</translation>
     </message>
 </context>
 <context>
@@ -13491,7 +13558,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="235"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="283"/>
@@ -13501,7 +13568,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="284"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="288"/>
@@ -13512,7 +13579,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="289"/>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="294"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimlinear.cpp" line="293"/>
@@ -13540,7 +13607,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondimradial.cpp" line="251"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimradial.cpp" line="278"/>
@@ -13551,7 +13618,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondimradial.cpp" line="279"/>
         <location filename="../src/actions/rs_actiondimradial.cpp" line="284"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondimradial.cpp" line="283"/>
@@ -13573,7 +13640,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="303"/>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="318"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="315"/>
@@ -13583,12 +13650,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="336"/>
         <source>Specify center</source>
-        <translation type="unfinished">Määritä keskipiste</translation>
+        <translation type="unfinished">Tentukan pusat</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="336"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="339"/>
@@ -13602,7 +13669,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="352"/>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="356"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc.cpp" line="343"/>
@@ -13640,18 +13707,18 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawarc3p.cpp" line="234"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc3p.cpp" line="238"/>
         <source>Specify second point</source>
-        <translation type="unfinished">Määritä toinen piste</translation>
+        <translation type="unfinished">Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc3p.cpp" line="238"/>
         <location filename="../src/actions/rs_actiondrawarc3p.cpp" line="242"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarc3p.cpp" line="242"/>
@@ -13669,7 +13736,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawarctangential.cpp" line="227"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarctangential.cpp" line="232"/>
@@ -13680,12 +13747,12 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawarctangential.cpp" line="232"/>
         <location filename="../src/actions/rs_actiondrawarctangential.cpp" line="235"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawarctangential.cpp" line="235"/>
         <source>Specify end point</source>
-        <translation type="unfinished">Määritä loppupiste</translation>
+        <translation type="unfinished">Tentukan titik akhir</translation>
     </message>
 </context>
 <context>
@@ -13693,17 +13760,17 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle.cpp" line="189"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle.cpp" line="201"/>
         <source>Specify center</source>
-        <translation type="unfinished">Määritä keskipiste</translation>
+        <translation type="unfinished">Tentukan pusat</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle.cpp" line="201"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle.cpp" line="204"/>
@@ -13713,7 +13780,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle.cpp" line="204"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -13726,22 +13793,22 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle2p.cpp" line="184"/>
         <source>Specify first point</source>
-        <translation type="unfinished">Määritä ensimmäinen piste</translation>
+        <translation type="unfinished">Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle2p.cpp" line="184"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle2p.cpp" line="188"/>
         <source>Specify second point</source>
-        <translation type="unfinished">Määritä toinen piste</translation>
+        <translation type="unfinished">Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle2p.cpp" line="188"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -13754,23 +13821,23 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="186"/>
         <source>Specify first point</source>
-        <translation type="unfinished">Määritä ensimmäinen piste</translation>
+        <translation type="unfinished">Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="187"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="190"/>
         <source>Specify second point</source>
-        <translation type="unfinished">Määritä toinen piste</translation>
+        <translation type="unfinished">Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="191"/>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="195"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircle3p.cpp" line="194"/>
@@ -13798,7 +13865,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcirclecr.cpp" line="193"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcirclecr.cpp" line="223"/>
@@ -13808,7 +13875,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcirclecr.cpp" line="224"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcirclecr.cpp" line="227"/>
@@ -13818,7 +13885,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcirclecr.cpp" line="228"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -13831,7 +13898,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircleinscribe.cpp" line="270"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircleinscribe.cpp" line="274"/>
@@ -13842,7 +13909,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawcircleinscribe.cpp" line="275"/>
         <location filename="../src/actions/rs_actiondrawcircleinscribe.cpp" line="280"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircleinscribe.cpp" line="279"/>
@@ -13860,7 +13927,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan1_2p.cpp" line="426"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan1_2p.cpp" line="430"/>
@@ -13872,7 +13939,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawcircletan1_2p.cpp" line="436"/>
         <location filename="../src/actions/rs_actiondrawcircletan1_2p.cpp" line="440"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan1_2p.cpp" line="435"/>
@@ -13920,7 +13987,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2.cpp" line="329"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2.cpp" line="333"/>
@@ -13931,7 +13998,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawcircletan2.cpp" line="334"/>
         <location filename="../src/actions/rs_actiondrawcircletan2.cpp" line="339"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2.cpp" line="338"/>
@@ -13949,7 +14016,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2_1p.cpp" line="334"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2_1p.cpp" line="338"/>
@@ -13961,7 +14028,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawcircletan2_1p.cpp" line="344"/>
         <location filename="../src/actions/rs_actiondrawcircletan2_1p.cpp" line="348"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan2_1p.cpp" line="343"/>
@@ -13994,14 +14061,14 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan3.cpp" line="464"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan3.cpp" line="469"/>
         <location filename="../src/actions/rs_actiondrawcircletan3.cpp" line="473"/>
         <location filename="../src/actions/rs_actiondrawcircletan3.cpp" line="478"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawcircletan3.cpp" line="477"/>
@@ -14024,7 +14091,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawellipse4points.cpp" line="285"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipse4points.cpp" line="289"/>
@@ -14036,7 +14103,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipse4points.cpp" line="295"/>
         <location filename="../src/actions/rs_actiondrawellipse4points.cpp" line="300"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipse4points.cpp" line="294"/>
@@ -14056,7 +14123,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="325"/>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="337"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="350"/>
@@ -14066,7 +14133,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="351"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="355"/>
@@ -14079,7 +14146,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="367"/>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="372"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseaxis.cpp" line="361"/>
@@ -14108,7 +14175,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="283"/>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="288"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="287"/>
@@ -14124,7 +14191,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="292"/>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="297"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsecenter3points.cpp" line="296"/>
@@ -14147,7 +14214,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="223"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="238"/>
@@ -14157,7 +14224,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="239"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="243"/>
@@ -14168,7 +14235,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="244"/>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="250"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipsefocipoint.cpp" line="249"/>
@@ -14191,7 +14258,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseinscribe.cpp" line="280"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseinscribe.cpp" line="284"/>
@@ -14203,7 +14270,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawellipseinscribe.cpp" line="290"/>
         <location filename="../src/actions/rs_actiondrawellipseinscribe.cpp" line="295"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawellipseinscribe.cpp" line="289"/>
@@ -14221,7 +14288,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="150"/>
         <source>Hatch created successfully.</source>
-        <translation>Täyttökuvio luotu onnistuneesti.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="153"/>
@@ -14231,7 +14298,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="157"/>
         <source>Hatch Error: Pattern not found!</source>
-        <translation>Virhe Täyttökuviossa: Kuviota ei löytynyt!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="160"/>
@@ -14246,12 +14313,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="166"/>
         <source>Hatch Error: Undefined Error!</source>
-        <translation>Virhe Täyttökuviossa: Odottamaton Virhe!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="171"/>
         <source>Total hatch area = %1</source>
-        <translation>Täyttökuvion kokonaisalue = %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawhatch.cpp" line="179"/>
@@ -14266,7 +14333,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawimage.cpp" line="210"/>
         <location filename="../src/actions/rs_actiondrawimage.cpp" line="224"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawimage.cpp" line="308"/>
@@ -14276,7 +14343,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawimage.cpp" line="309"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawimage.cpp" line="312"/>
@@ -14299,12 +14366,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="313"/>
         <source>Specify first point</source>
-        <translation type="unfinished">Määritä ensimmäinen piste</translation>
+        <translation type="unfinished">Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="314"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="337"/>
@@ -14315,7 +14382,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="338"/>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="342"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawline.cpp" line="341"/>
@@ -14344,7 +14411,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="219"/>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="233"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="300"/>
@@ -14354,7 +14421,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="301"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="305"/>
@@ -14365,7 +14432,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="305"/>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="309"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineangle.cpp" line="309"/>
@@ -14379,7 +14446,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="236"/>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="253"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="251"/>
@@ -14395,7 +14462,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="289"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="292"/>
@@ -14407,7 +14474,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="297"/>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="301"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinebisector.cpp" line="296"/>
@@ -14430,7 +14497,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinefree.cpp" line="141"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -14438,22 +14505,22 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinehorvert.cpp" line="157"/>
         <source>Specify first point</source>
-        <translation type="unfinished">Määritä ensimmäinen piste</translation>
+        <translation type="unfinished">Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinehorvert.cpp" line="158"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinehorvert.cpp" line="161"/>
         <source>Specify second point</source>
-        <translation type="unfinished">Määritä toinen piste</translation>
+        <translation type="unfinished">Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinehorvert.cpp" line="162"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14466,7 +14533,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlineorthtan.cpp" line="186"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineorthtan.cpp" line="189"/>
@@ -14476,7 +14543,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlineorthtan.cpp" line="190"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
 </context>
 <context>
@@ -14489,23 +14556,23 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallel.cpp" line="127"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallel.cpp" line="131"/>
         <source>Enter number:</source>
-        <translation type="unfinished">Syötä numero:</translation>
+        <translation type="unfinished">Masukkan angka:</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallel.cpp" line="179"/>
         <location filename="../src/actions/rs_actiondrawlineparallel.cpp" line="198"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallel.cpp" line="195"/>
         <source>Not a valid number. Try 1..99</source>
-        <translation type="unfinished">Ei kelpaa numero. Kokeile 1..99</translation>
+        <translation type="unfinished">Bukan angka yang valid. Coba 1..99</translation>
     </message>
 </context>
 <context>
@@ -14518,7 +14585,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="176"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="180"/>
@@ -14529,22 +14596,22 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="181"/>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="185"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="185"/>
         <source>Number:</source>
-        <translation type="unfinished">Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="241"/>
         <source>Not a valid number. Try 1..99</source>
-        <translation type="unfinished">Ei kelpaa numero. Kokeile 1..99</translation>
+        <translation type="unfinished">Bukan angka yang valid. Coba 1..99</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlineparallelthrough.cpp" line="245"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
 </context>
 <context>
@@ -14552,7 +14619,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon.cpp" line="138"/>
         <source>Specify center</source>
-        <translation type="unfinished">Määritä keskipiste</translation>
+        <translation type="unfinished">Tentukan pusat</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon.cpp" line="143"/>
@@ -14562,17 +14629,17 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon.cpp" line="147"/>
         <source>Enter number:</source>
-        <translation type="unfinished">Syötä numero:</translation>
+        <translation type="unfinished">Masukkan angka:</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon.cpp" line="197"/>
         <source>Not a valid number. Try 1..9999</source>
-        <translation type="unfinished">Ei kelpaa numero. Kokeile 1..9999</translation>
+        <translation type="unfinished">Bukan angka yang valid. Coba 1..9999</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon.cpp" line="200"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
 </context>
 <context>
@@ -14585,7 +14652,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="145"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="149"/>
@@ -14596,17 +14663,17 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="150"/>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="154"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="154"/>
         <source>Number:</source>
-        <translation type="unfinished">Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="208"/>
         <source>Not a valid number. Try 1..9999</source>
-        <translation type="unfinished">Ei kelpaa numero. Kokeile 1..9999</translation>
+        <translation type="unfinished">Bukan angka yang valid. Coba 1..9999</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinepolygon2.cpp" line="211"/>
@@ -14624,7 +14691,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerectangle.cpp" line="156"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerectangle.cpp" line="159"/>
@@ -14634,7 +14701,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerectangle.cpp" line="160"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14643,7 +14710,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="225"/>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="238"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="274"/>
@@ -14653,7 +14720,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="275"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="278"/>
@@ -14663,7 +14730,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinerelangle.cpp" line="279"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14676,7 +14743,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent1.cpp" line="182"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent1.cpp" line="185"/>
@@ -14686,7 +14753,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent1.cpp" line="186"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14699,7 +14766,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent2.cpp" line="283"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent2.cpp" line="286"/>
@@ -14710,7 +14777,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawlinetangent2.cpp" line="287"/>
         <location filename="../src/actions/rs_actiondrawlinetangent2.cpp" line="291"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawlinetangent2.cpp" line="290"/>
@@ -14728,7 +14795,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawmtext.cpp" line="256"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawmtext.cpp" line="260"/>
@@ -14738,7 +14805,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawmtext.cpp" line="261"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
 </context>
 <context>
@@ -14751,7 +14818,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawpoint.cpp" line="117"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -14806,12 +14873,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="678"/>
         <source>Specify first point</source>
-        <translation type="unfinished">Määritä ensimmäinen piste</translation>
+        <translation type="unfinished">Tentukan titik pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="679"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="694"/>
@@ -14822,7 +14889,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="695"/>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="699"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="698"/>
@@ -14837,7 +14904,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawpolyline.cpp" line="772"/>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished">Ei voida peruuttaa: Ei vielä tarpeeksi määriteltyjä kohteita.</translation>
+        <translation type="unfinished">Tidak dapat membatalkan: Belum cukup entitas yang didefinisikan.</translation>
     </message>
 </context>
 <context>
@@ -14845,33 +14912,33 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="276"/>
         <source>Specify first control point</source>
-        <translation type="unfinished">Määritä ensimmäinen ohjauspiste</translation>
+        <translation type="unfinished">Tentukan titik kontrol pertama</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="277"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="289"/>
         <source>Specify next control point or [%1]</source>
-        <translation type="unfinished">Määritä seuraava ohjauspiste tai [%1]</translation>
+        <translation type="unfinished">Tentukan titik kontrol berikutnya atau [%1]</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="290"/>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="294"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="293"/>
         <source>Specify next control point</source>
-        <translation type="unfinished">Määritä seuraava ohjauspiste</translation>
+        <translation type="unfinished">Tentukan titik kontrol berikutnya</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawspline.cpp" line="365"/>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished">Ei voida peruuttaa: Ei vielä tarpeeksi määriteltyjä kohteita.</translation>
+        <translation type="unfinished">Tidak dapat membatalkan: Belum cukup entitas yang didefinisikan.</translation>
     </message>
 </context>
 <context>
@@ -14885,12 +14952,12 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actiondrawtext.cpp" line="282"/>
         <location filename="../src/actions/rs_actiondrawtext.cpp" line="286"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawtext.cpp" line="285"/>
         <source>Specify second point</source>
-        <translation type="unfinished">Määritä toinen piste</translation>
+        <translation type="unfinished">Tentukan titik kedua</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actiondrawtext.cpp" line="290"/>
@@ -14900,7 +14967,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actiondrawtext.cpp" line="291"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14913,7 +14980,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioneditcopy.cpp" line="105"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -14926,7 +14993,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioneditpaste.cpp" line="121"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -14947,12 +15014,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="94"/>
         <source>Angle: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut: %1</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="97"/>
         <source>Lines are parallel</source>
-        <translation>Viivat ovat yhdensuuntaiset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="139"/>
@@ -14962,7 +15029,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="140"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="144"/>
@@ -14972,7 +15039,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoangle.cpp" line="145"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -14980,7 +15047,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="92"/>
         <source>Circumference: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Keliling: %1</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="93"/>
@@ -14995,7 +15062,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="145"/>
         <source>Point: %1/%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Titik: %1/%2</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="165"/>
@@ -15006,7 +15073,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="166"/>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="171"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfoarea.cpp" line="170"/>
@@ -15029,7 +15096,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfodist.cpp" line="170"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfodist.cpp" line="174"/>
@@ -15039,7 +15106,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfodist.cpp" line="175"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15047,7 +15114,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfodist2.cpp" line="73"/>
         <source>Distance: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Jarak: %1</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfodist2.cpp" line="155"/>
@@ -15057,7 +15124,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfodist2.cpp" line="156"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actioninfodist2.cpp" line="160"/>
@@ -15067,7 +15134,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfodist2.cpp" line="161"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15090,7 +15157,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actioninfoinside.cpp" line="85"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -15116,13 +15183,13 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="79"/>
         <source>Cannot open file &apos;%1&apos;</source>
-        <translation>Tiedoston &apos;%1&apos; avaus epäonnistui</translation>
+        <translation>Tak dapat membuka berkas &apos;%1&apos;</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="187"/>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="200"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="249"/>
@@ -15132,7 +15199,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="250"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionlibraryinsert.cpp" line="253"/>
@@ -15159,7 +15226,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="191"/>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="204"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="270"/>
@@ -15169,7 +15236,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="271"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="274"/>
@@ -15181,7 +15248,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="279"/>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="283"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifybevel.cpp" line="278"/>
@@ -15210,32 +15277,32 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="118"/>
         <source>Cutting point is invalid.</source>
-        <translation>Leikkauspiste on virheellinen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="121"/>
         <source>Cutting point is not on entity.</source>
-        <translation>Leikkauspiste ei ole kohteessa.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="145"/>
         <source>Specify entity to cut</source>
-        <translation>Määritä leikattava kohde</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="146"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="149"/>
         <source>Specify cutting point</source>
-        <translation>Määritä leikkauspiste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifycut.cpp" line="150"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15288,7 +15355,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifydeletefree.cpp" line="167"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifydeletefree.cpp" line="170"/>
@@ -15298,7 +15365,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifydeletefree.cpp" line="172"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15311,7 +15378,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifydeletequick.cpp" line="93"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -15324,7 +15391,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifyentity.cpp" line="109"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
 </context>
 <context>
@@ -15337,7 +15404,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymirror.cpp" line="162"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifymirror.cpp" line="166"/>
@@ -15347,7 +15414,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymirror.cpp" line="167"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15365,7 +15432,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymove.cpp" line="171"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifymove.cpp" line="174"/>
@@ -15375,7 +15442,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymove.cpp" line="175"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15383,7 +15450,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="177"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="235"/>
@@ -15393,7 +15460,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="236"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="239"/>
@@ -15404,7 +15471,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="240"/>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="244"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifymoverotate.cpp" line="243"/>
@@ -15422,7 +15489,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifyoffset.cpp" line="101"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
 </context>
 <context>
@@ -15447,7 +15514,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifyrotate.cpp" line="150"/>
         <location filename="../src/actions/rs_actionmodifyrotate.cpp" line="154"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15460,7 +15527,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifyrotate2.cpp" line="149"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifyrotate2.cpp" line="152"/>
@@ -15470,7 +15537,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifyrotate2.cpp" line="153"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15479,7 +15546,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="319"/>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="332"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="410"/>
@@ -15490,7 +15557,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="411"/>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="415"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="414"/>
@@ -15505,7 +15572,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifyround.cpp" line="419"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
 </context>
 <context>
@@ -15530,7 +15597,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifyscale.cpp" line="247"/>
         <location filename="../src/actions/rs_actionmodifyscale.cpp" line="251"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -15543,7 +15610,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifystretch.cpp" line="176"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifystretch.cpp" line="179"/>
@@ -15555,7 +15622,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifystretch.cpp" line="184"/>
         <location filename="../src/actions/rs_actionmodifystretch.cpp" line="188"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifystretch.cpp" line="183"/>
@@ -15579,7 +15646,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="178"/>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="187"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="180"/>
@@ -15590,7 +15657,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="181"/>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="190"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifytrim.cpp" line="186"/>
@@ -15623,7 +15690,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifytrimamount.cpp" line="139"/>
         <source>Not a valid expression</source>
-        <translation type="unfinished">Ei kelpaa lauseke</translation>
+        <translation type="unfinished">Bukan ekspresi yang valid</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionmodifytrimamount.cpp" line="186"/>
@@ -15633,7 +15700,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionmodifytrimamount.cpp" line="187"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15651,7 +15718,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionorder.cpp" line="151"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
 </context>
 <context>
@@ -15685,7 +15752,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylineadd.cpp" line="158"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylineadd.cpp" line="161"/>
@@ -15695,7 +15762,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylineadd.cpp" line="162"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15728,7 +15795,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="192"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="207"/>
@@ -15739,7 +15806,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="208"/>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="212"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="211"/>
@@ -15749,7 +15816,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylineappend.cpp" line="230"/>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="unfinished">Ei voida peruuttaa: Ei vielä tarpeeksi määriteltyjä kohteita.</translation>
+        <translation type="unfinished">Tidak dapat membatalkan: Belum cukup entitas yang didefinisikan.</translation>
     </message>
 </context>
 <context>
@@ -15783,7 +15850,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylinedel.cpp" line="159"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylinedel.cpp" line="162"/>
@@ -15793,7 +15860,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylinedel.cpp" line="163"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -15830,7 +15897,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylinedelbetween.cpp" line="190"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylinedelbetween.cpp" line="193"/>
@@ -15841,7 +15908,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionpolylinedelbetween.cpp" line="194"/>
         <location filename="../src/actions/rs_actionpolylinedelbetween.cpp" line="198"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylinedelbetween.cpp" line="197"/>
@@ -15869,7 +15936,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylineequidistant.cpp" line="370"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -15898,7 +15965,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylinesegment.cpp" line="351"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -15935,7 +16002,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionpolylinetrim.cpp" line="182"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylinetrim.cpp" line="185"/>
@@ -15946,7 +16013,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionpolylinetrim.cpp" line="186"/>
         <location filename="../src/actions/rs_actionpolylinetrim.cpp" line="190"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation type="unfinished">Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionpolylinetrim.cpp" line="189"/>
@@ -16043,7 +16110,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionselect.cpp" line="128"/>
         <location filename="../src/actions/rs_actionselect.cpp" line="131"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionselect.cpp" line="86"/>
@@ -16093,12 +16160,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionselect.cpp" line="113"/>
         <source>Select to mirror</source>
-        <translation>Valitse peilataksesi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionselect.cpp" line="116"/>
         <source>Select to move and rotate</source>
-        <translation>Valitse siirtääksesi ja kiertääksesi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionselect.cpp" line="119"/>
@@ -16144,7 +16211,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionselectintersected.cpp" line="140"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionselectintersected.cpp" line="143"/>
@@ -16154,7 +16221,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionselectintersected.cpp" line="143"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -16162,7 +16229,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionselectwindow.cpp" line="181"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionselectwindow.cpp" line="181"/>
@@ -16177,7 +16244,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionselectwindow.cpp" line="184"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -16195,7 +16262,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionsetrelativezero.cpp" line="99"/>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -16214,7 +16281,7 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionsnapintersectionmanual.cpp" line="183"/>
         <location filename="../src/actions/rs_actionsnapintersectionmanual.cpp" line="187"/>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionsnapintersectionmanual.cpp" line="186"/>
@@ -16246,12 +16313,12 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/rs_actionzoompan.cpp" line="120"/>
         <location filename="../src/actions/rs_actionzoompan.cpp" line="124"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation type="unfinished">Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionzoompan.cpp" line="123"/>
         <source>Zoom panning</source>
-        <translation>Raahaa näkymää</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16264,7 +16331,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionzoomwindow.cpp" line="151"/>
         <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/actions/rs_actionzoomwindow.cpp" line="154"/>
@@ -16274,7 +16341,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/rs_actionzoomwindow.cpp" line="154"/>
         <source>Back</source>
-        <translation type="unfinished">Takaisin</translation>
+        <translation>Mundur</translation>
     </message>
 </context>
 <context>
@@ -16290,7 +16357,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/generic/textfileviewer.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished">Kehys</translation>
+        <translation type="unfinished">Bingkai</translation>
     </message>
 </context>
 <context>
@@ -16303,12 +16370,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_arcoptions.ui" line="77"/>
         <source>Counterclockwise</source>
-        <translation>Vastapäivään</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_arcoptions.ui" line="122"/>
         <source>Clockwise</source>
-        <translation>Myötäpäivään</translation>
+        <translation type="unfinished">Searah jarum jam</translation>
     </message>
 </context>
 <context>
@@ -16332,13 +16399,13 @@ This block cannot be inserted.</source>
         <location filename="../src/ui/forms/qg_arctangentialoptions.ui" line="98"/>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Säde</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_arctangentialoptions.ui" line="120"/>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Kulma</translation>
+        <translation type="unfinished">Sudut</translation>
     </message>
 </context>
 <context>
@@ -16361,12 +16428,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_beveloptions.ui" line="79"/>
         <source>Length 1:</source>
-        <translation>Pituus 1:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_beveloptions.ui" line="92"/>
         <source>Length 2:</source>
-        <translation>Pituus 2:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16379,7 +16446,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_circleoptions.ui" line="50"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation type="unfinished">Jari-jari:</translation>
     </message>
 </context>
 <context>
@@ -16397,7 +16464,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_circletan2options.ui" line="59"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation type="unfinished">Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_circletan2options.ui" line="69"/>
@@ -16415,7 +16482,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_dimlinearoptions.ui" line="68"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
 </context>
 <context>
@@ -16433,38 +16500,38 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="109"/>
         <source>⌀</source>
-        <translation>⌀</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="114"/>
         <source>°</source>
-        <translation>°</translation>
+        <translation type="unfinished">°</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="119"/>
         <source>±</source>
-        <translation>±</translation>
+        <translation type="unfinished">±</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="124"/>
         <source>π</source>
-        <translation>π</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="129"/>
         <source>×</source>
-        <translation>×</translation>
+        <translation type="unfinished">×</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="134"/>
         <source>÷</source>
-        <translation>÷</translation>
+        <translation type="unfinished">÷</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="142"/>
         <location filename="../src/ui/forms/qg_dimoptions.ui" line="163"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
 </context>
 <context>
@@ -16477,32 +16544,32 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="53"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="63"/>
         <source>Rotation Angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut Putaran</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="70"/>
         <source>Factor:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="86"/>
         <source>Scale Factor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor Skala</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="93"/>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_imageoptions.ui" line="100"/>
         <source>DPI of Image</source>
-        <translation>Kuvan DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16515,22 +16582,22 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="65"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="87"/>
         <source>Rotation Angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut Putaran</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="106"/>
         <source>Factor:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="128"/>
         <source>Scale Factor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor Skala</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="163"/>
@@ -16540,27 +16607,27 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="185"/>
         <source>Number of Columns</source>
-        <translation>Sarakkeiden Määrä</translation>
+        <translation type="unfinished">Jumlah Kolom</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="210"/>
         <source>Number of Rows</source>
-        <translation>Rivien Määrä</translation>
+        <translation type="unfinished">Jumlah Baris</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="235"/>
         <source>Spacing:</source>
-        <translation type="unfinished">Väli:</translation>
+        <translation type="unfinished">Penjedaan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="257"/>
         <source>Column Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Penjedaan Kolom</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_insertoptions.ui" line="276"/>
         <source>Row Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Penjedaan Baris</translation>
     </message>
 </context>
 <context>
@@ -16573,22 +16640,22 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_libraryinsertoptions.ui" line="53"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_libraryinsertoptions.ui" line="63"/>
         <source>Rotation Angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut Putaran</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_libraryinsertoptions.ui" line="70"/>
         <source>Factor:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_libraryinsertoptions.ui" line="80"/>
         <source>Scale Factor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Faktor Skala</translation>
     </message>
 </context>
 <context>
@@ -16601,22 +16668,22 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="65"/>
         <source>Angle:</source>
-        <translation type="unfinished">Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="90"/>
         <source>Line angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="109"/>
         <source>Length:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="134"/>
         <source>Length of line</source>
-        <translation type="unfinished">Viivan pituus</translation>
+        <translation type="unfinished">Panjang garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="147"/>
@@ -16626,17 +16693,17 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="170"/>
         <source>Start</source>
-        <translation type="unfinished">Aloitus</translation>
+        <translation type="unfinished">Mulai</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="175"/>
         <source>Middle</source>
-        <translation type="unfinished">Keski</translation>
+        <translation type="unfinished">Tengah</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineangleoptions.ui" line="180"/>
         <source>End</source>
-        <translation type="unfinished">Lopetus</translation>
+        <translation type="unfinished">Akhir</translation>
     </message>
 </context>
 <context>
@@ -16649,7 +16716,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_linebisectoroptions.ui" line="56"/>
         <source>Length:</source>
-        <translation>Pituus:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linebisectoroptions.ui" line="66"/>
@@ -16659,7 +16726,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_linebisectoroptions.ui" line="73"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linebisectoroptions.ui" line="83"/>
@@ -16682,7 +16749,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineoptions.ui" line="56"/>
         <source>Close</source>
-        <translation>Sulje</translation>
+        <translation type="unfinished">Tutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineoptions.ui" line="72"/>
@@ -16692,7 +16759,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineoptions.ui" line="75"/>
         <source>Undo</source>
-        <translation>Kumoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineoptions.ui" line="82"/>
@@ -16720,7 +16787,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="103"/>
         <source>Polyline</source>
-        <translation type="unfinished">Liitviiva</translation>
+        <translation type="unfinished">Poli Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="122"/>
@@ -16730,7 +16797,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="141"/>
         <source>Angle</source>
-        <translation type="unfinished">Kulma</translation>
+        <translation type="unfinished">Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="160"/>
@@ -16740,7 +16807,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="195"/>
         <source>Rel</source>
-        <translation type="unfinished">Relatiivinen</translation>
+        <translation type="unfinished">Rel</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="224"/>
@@ -16750,7 +16817,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="227"/>
         <source>Undo</source>
-        <translation type="unfinished">Kumoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="234"/>
@@ -16760,7 +16827,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="237"/>
         <source>Close</source>
-        <translation type="unfinished">Sulje</translation>
+        <translation type="unfinished">Tutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="253"/>
@@ -16775,7 +16842,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/lc_lineoptions.ui" line="297"/>
         <source>Point</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Titik</translation>
     </message>
 </context>
 <context>
@@ -16788,7 +16855,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineparalleloptions.ui" line="56"/>
         <source>Distance:</source>
-        <translation>Etäisyys:</translation>
+        <translation type="unfinished">Jarak:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineparalleloptions.ui" line="72"/>
@@ -16798,12 +16865,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineparalleloptions.ui" line="85"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineparalleloptions.ui" line="95"/>
         <source>Number of parallels to create</source>
-        <translation>Luotavien yhdensuuntaisten määrä</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16816,12 +16883,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_lineparallelthroughoptions.ui" line="56"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_lineparallelthroughoptions.ui" line="66"/>
         <source>Number of parallels to create</source>
-        <translation>Luotavien yhdensuuntaisten määrä</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16834,12 +16901,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_linepolygon2options.ui" line="56"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linepolygon2options.ui" line="66"/>
         <source>Number of edges</source>
-        <translation>Reunojen määrä</translation>
+        <translation type="unfinished">Jumlah titik sudut</translation>
     </message>
 </context>
 <context>
@@ -16852,12 +16919,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_linepolygonoptions.ui" line="56"/>
         <source>Number:</source>
-        <translation>Määrä:</translation>
+        <translation type="unfinished">Angka:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linepolygonoptions.ui" line="66"/>
         <source>Number of edges</source>
-        <translation>Reunojen määrä</translation>
+        <translation type="unfinished">Jumlah titik sudut</translation>
     </message>
 </context>
 <context>
@@ -16865,27 +16932,27 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_linerelangleoptions.ui" line="32"/>
         <source>Line Relative Angle Options</source>
-        <translation type="unfinished">Viivan suhteellisen kulman asetukset</translation>
+        <translation type="unfinished">Opsi Sudut Relatif Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linerelangleoptions.ui" line="56"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linerelangleoptions.ui" line="72"/>
         <source>Line angle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sudut garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linerelangleoptions.ui" line="85"/>
         <source>Length:</source>
-        <translation>Pituuus:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_linerelangleoptions.ui" line="101"/>
         <source>Length of line</source>
-        <translation>Viivan pituus</translation>
+        <translation type="unfinished">Panjang garis</translation>
     </message>
 </context>
 <context>
@@ -16898,12 +16965,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_mtextoptions.ui" line="53"/>
         <source>Text:</source>
-        <translation>Teksti:</translation>
+        <translation type="unfinished">Tulisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_mtextoptions.ui" line="91"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
 </context>
 <context>
@@ -16916,7 +16983,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_modifyoffsetoptions.ui" line="56"/>
         <source>Distance:</source>
-        <translation>Etäisyys:</translation>
+        <translation type="unfinished">Jarak:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_modifyoffsetoptions.ui" line="72"/>
@@ -16934,7 +17001,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_moverotateoptions.ui" line="50"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
 </context>
 <context>
@@ -16947,17 +17014,17 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="53"/>
         <source>Close</source>
-        <translation>Sulje</translation>
+        <translation type="unfinished">Tutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="60"/>
         <source>Undo</source>
-        <translation>Kumoa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="80"/>
         <source>Line</source>
-        <translation>Viiva</translation>
+        <translation type="unfinished">Garis</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="85"/>
@@ -16972,27 +17039,27 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="95"/>
         <source>Angle</source>
-        <translation>Kulma</translation>
+        <translation type="unfinished">Sudut</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="103"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation type="unfinished">Jari-jari:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="126"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="181"/>
         <source>Counter Clockwise</source>
-        <translation>Vastapäivään</translation>
+        <translation type="unfinished">Melawan arah jarum jam</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_polylineoptions.ui" line="204"/>
         <source>Clockwise</source>
-        <translation>Myötäpäivään</translation>
+        <translation type="unfinished">Searah jarum jam</translation>
     </message>
 </context>
 <context>
@@ -17063,7 +17130,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_roundoptions.ui" line="79"/>
         <source>Radius:</source>
-        <translation>Säde:</translation>
+        <translation type="unfinished">Jari-jari:</translation>
     </message>
 </context>
 <context>
@@ -17076,7 +17143,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_snapdistoptions.ui" line="50"/>
         <source>Distance:</source>
-        <translation>Etäisyys:</translation>
+        <translation type="unfinished">Jarak:</translation>
     </message>
 </context>
 <context>
@@ -17107,17 +17174,17 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_splineoptions.ui" line="56"/>
         <source>Degree:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Derajat:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_splineoptions.ui" line="91"/>
         <source>Closed</source>
-        <translation type="unfinished">Suljettu</translation>
+        <translation type="unfinished">Tertutup</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_splineoptions.ui" line="104"/>
         <source>Undo</source>
-        <translation type="unfinished">Kumoa</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -17130,12 +17197,12 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_textoptions.ui" line="53"/>
         <source>Text:</source>
-        <translation>Teksti:</translation>
+        <translation type="unfinished">Tulisan:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_textoptions.ui" line="91"/>
         <source>Angle:</source>
-        <translation>Kulma:</translation>
+        <translation type="unfinished">Sudut:</translation>
     </message>
 </context>
 <context>
@@ -17153,7 +17220,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/forms/qg_trimamountoptions.ui" line="56"/>
         <source>Length:</source>
-        <translation>Pituus:</translation>
+        <translation type="unfinished">Panjang:</translation>
     </message>
     <message>
         <location filename="../src/ui/forms/qg_trimamountoptions.ui" line="78"/>
@@ -17171,7 +17238,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="14"/>
         <source>Frame</source>
-        <translation>Kehys</translation>
+        <translation>Bingkai</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="96"/>
@@ -17186,95 +17253,88 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="155"/>
         <source>Name</source>
-        <translation>Nimi</translation>
+        <translation>Nama</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="196"/>
         <source>Create</source>
-        <translation>Luo</translation>
+        <translation>Buat</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="209"/>
         <source>Destroy</source>
-        <translation>Tuhoa</translation>
+        <translation>Hancurkan</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="216"/>
         <source>Assign</source>
-        <translation>Määritä</translation>
+        <translation>Tetapkan</translation>
     </message>
     <message>
         <location filename="../src/ui/generic/widgetcreator.ui" line="223"/>
         <source>Update</source>
-        <translation>Päivitä</translation>
+        <translation>Perbarui</translation>
     </message>
 </context>
 <context>
     <name>dibPunto</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
     <name>divide</name>
     <message>
+        <source>length</source>
+        <translation type="obsolete">panjang</translation>
+    </message>
+    <message>
+        <source>radius</source>
+        <translation type="obsolete">jari-jari</translation>
+    </message>
+    <message>
         <source>Closed</source>
-        <translation type="obsolete">Suljettu</translation>
+        <translation type="obsolete">Tertutup</translation>
     </message>
 </context>
 <context>
     <name>dividedlg</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
     <name>lc_Geardlg</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
     <name>lc_Sampledlg</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
     <name>picPunto</name>
     <message>
+        <source>Scale:</source>
+        <translation type="obsolete">Skala:</translation>
+    </message>
+    <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 <context>
     <name>plotDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Peruuta</translation>
-    </message>
-    <message>
-        <source>SplinePoints</source>
-        <comment>Plot Equation to generate 2nd spline by LC_SplinePoints</comment>
-        <translation type="obsolete">Splinipisteet</translation>
-    </message>
-</context>
-<context>
-    <name>pointBox</name>
-    <message>
-        <source>Layer:</source>
-        <translation type="obsolete">Taso:</translation>
-    </message>
-</context>
-<context>
-    <name>textBox</name>
-    <message>
-        <source>Height:</source>
-        <translation type="obsolete">Korkeus:</translation>
+        <translation type="obsolete">Batal</translation>
     </message>
 </context>
 </TS>

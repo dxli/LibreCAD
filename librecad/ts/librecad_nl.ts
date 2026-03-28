@@ -1,14 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="nl">
 <context>
     <name>ColorWizard</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Kader</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation>Aan favorieten toevoegen</translation>
+        <translation>Toevoegen aan favorieten</translation>
     </message>
     <message>
         <source>...</source>
@@ -19,11 +20,11 @@
     <name>ComboBoxOption</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Kader</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation>GroupBox</translation>
+        <translation>Groepsvak</translation>
     </message>
     <message>
         <source>Set</source>
@@ -46,7 +47,7 @@
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>Punten op Spline</translation>
+        <translation>Punten op spline</translation>
     </message>
     <message>
         <source>Control Points</source>
@@ -81,14 +82,14 @@
     </message>
     <message>
         <source>Points on Spline</source>
-        <translation>Punten op Spline</translation>
+        <translation>Punten op spline</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDimArc</name>
     <message>
         <source>Select arc entity</source>
-        <translation>Selecteer boogeenheid</translation>
+        <translation>Selecteer boog-entiteit</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -96,7 +97,7 @@
     </message>
     <message>
         <source>Specify dimension arc location</source>
-        <translation>Dimensiebooglocatie specificeren</translation>
+        <translation>Geef locatie van boogdimensie op</translation>
     </message>
 </context>
 <context>
@@ -104,8 +105,8 @@
     <message>
         <source>radius=%1 is too small for points selected
 distance between points=%2 is larger than diameter=%3</source>
-        <translation>radius=%1 is te klein voor geselecteerde punten
-afstand tussen punten=%2 is groter dan diameter= %3</translation>
+        <translation>radius=%1 is te klein voor de geselecteerde punten
+afstand tussen punten=%2 is groter dan diameter=%3</translation>
     </message>
     <message>
         <source>Select from two possible circle centers</source>
@@ -113,7 +114,7 @@ afstand tussen punten=%2 is groter dan diameter= %3</translation>
     </message>
     <message>
         <source>Specify first point</source>
-        <translation>Eerste punt specificeren</translation>
+        <translation>Geef eerste punt op</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -121,7 +122,7 @@ afstand tussen punten=%2 is groter dan diameter= %3</translation>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>Tweede punt specificeren</translation>
+        <translation>Geef tweede punt op</translation>
     </message>
     <message>
         <source>Back</source>
@@ -129,7 +130,7 @@ afstand tussen punten=%2 is groter dan diameter= %3</translation>
     </message>
     <message>
         <source>Select circle center</source>
-        <translation>Cirkelcentrum selecteren</translation>
+        <translation>Selecteer cirkelcentrum</translation>
     </message>
 </context>
 <context>
@@ -137,7 +138,7 @@ afstand tussen punten=%2 is groter dan diameter= %3</translation>
     <message>
         <source>Specify distance (%1)
 or [%2]</source>
-        <translation>Afstand opgeven (%1)
+        <translation>Geef afstand op (%1)
 of [%2]</translation>
     </message>
     <message>
@@ -155,7 +156,7 @@ of [%2]</translation>
     <message>
         <source>Specify  distance (angle %1 deg)
 or [%2]</source>
-        <translation>Afstand opgeven (hoek %1 graden)
+        <translation>Geef afstand op (hoek %1 graden)
 of [%2]</translation>
     </message>
 </context>
@@ -163,19 +164,19 @@ of [%2]</translation>
     <name>LC_ActionDrawLinePolygonCenTan</name>
     <message>
         <source>Specify center</source>
-        <translation>Midden opgeven</translation>
+        <translation>Geef centrum op</translation>
     </message>
     <message>
         <source>Specify a tangent</source>
-        <translation>Een raaklijn specificeren</translation>
+        <translation>Geef een tangens op</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>Nummer invoeren:</translation>
+        <translation>Voer nummer in:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>Geen geldig nummer. Probeer 1.9999</translation>
+        <translation>Geen geldig nummer. Probeer 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
@@ -186,7 +187,7 @@ of [%2]</translation>
     <name>LC_ActionDrawLineSnake</name>
     <message>
         <source>Specify direction (x or y) or [%1]</source>
-        <translation>Richting opgeven (x of y) of [%1]</translation>
+        <translation>Geef richting op (x of y) of [%1]</translation>
     </message>
     <message>
         <source>Back</source>
@@ -194,7 +195,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify distance (%1) or [%2]</source>
-        <translation>Afstand opgeven (%1) of [%2]</translation>
+        <translation>Geef afstand op (%1) of [%2]</translation>
     </message>
     <message>
         <source>X</source>
@@ -206,22 +207,22 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify distance (%1 deg) or [%2]</source>
-        <translation>Afstand opgeven (%1 graden) of [%2]</translation>
+        <translation>Geef afstand op (%1 graden) of [%2]</translation>
     </message>
     <message>
         <source>Specify angle or [%2]</source>
-        <translation>Specificeer hoek of [%2]</translation>
+        <translation>Geef hoek op of [%2]</translation>
     </message>
     <message>
         <source>Specify point or [%1]</source>
-        <translation>Punt opgeven of [%1]</translation>
+        <translation>Geef punt op of [%1]</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabola4Points</name>
     <message>
         <source>Specify the first point on parabola</source>
-        <translation>Geef het eerste punt op over parabool</translation>
+        <translation>Geef het eerste punt op de parabool op</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -229,7 +230,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify the second point on parabola</source>
-        <translation>Specificeer het tweede punt op parabool</translation>
+        <translation>Geef het tweede punt op de parabool op</translation>
     </message>
     <message>
         <source>Back</source>
@@ -237,22 +238,22 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify the third point on parabola</source>
-        <translation>Geef het derde punt op parabool</translation>
+        <translation>Geef het derde punt op de parabool op</translation>
     </message>
     <message>
         <source>Specify the fourth point on parabola</source>
-        <translation>Geef het vierde punt op parabool</translation>
+        <translation>Geef het vierde punt op de parabool op</translation>
     </message>
     <message>
         <source>Specify the Axis on parabola</source>
-        <translation>Specificeer de as op parabool</translation>
+        <translation>Geef de as op de parabool op</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawParabolaFD</name>
     <message>
         <source>Specify the focus of parabola</source>
-        <translation>De focus van parabool specificeren</translation>
+        <translation>Geef het focus van de parabool op</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -260,7 +261,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify the directrix of parabola</source>
-        <translation>Geef de directrix van parabool</translation>
+        <translation>Geef de richtlijn van de parabool op</translation>
     </message>
     <message>
         <source>Back</source>
@@ -268,30 +269,30 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify the start point on parabola</source>
-        <translation>Geef het startpunt op parabool</translation>
+        <translation>Geef het startpunt op de parabool op</translation>
     </message>
     <message>
         <source>Specify the end point on parabola</source>
-        <translation>Specificeer het eindpunt op parabool</translation>
+        <translation>Geef het eindpunt op de parabool op</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionDrawSliceDivide</name>
     <message>
         <source> is not divided as it is locked.</source>
-        <translation>is niet verdeeld zoals het is vergrendeld.</translation>
+        <translation> wordt niet verdeeld omdat het vergrendeld is.</translation>
     </message>
     <message>
         <source> is not divided as it is part of polyline. Expand polyline first.</source>
-        <translation>is niet verdeeld omdat het deel uitmaakt van polylijn. Breid eerst polylijn uit.</translation>
+        <translation> wordt niet verdeeld omdat het deel uitmaakt van een polyline. Vouw de polyline eerst uit.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation>Lijn</translation>
     </message>
     <message>
         <source>Arc</source>
-        <translation>Arc</translation>
+        <translation>Boog</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -302,7 +303,7 @@ of [%2]</translation>
     <name>LC_ActionDrawSplinePoints</name>
     <message>
         <source>Specify first control point</source>
-        <translation>Eerste controlepunt specificeren</translation>
+        <translation>Geef eerste controlepunt op</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -310,7 +311,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify next control point or [%1]</source>
-        <translation>Geef het volgende controlepunt op of [%1]</translation>
+        <translation>Geef volgend controlepunt op of [%1]</translation>
     </message>
     <message>
         <source>Back</source>
@@ -318,7 +319,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify next control point</source>
-        <translation>Volgend controlepunt opgeven</translation>
+        <translation>Geef volgend controlepunt op</translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
@@ -326,18 +327,18 @@ of [%2]</translation>
     </message>
     <message>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation>Kan niet ongedaan maken: niets kan opnieuw worden gedaan.</translation>
+        <translation>Kan niet ongedaan maken: niets om opnieuw te doen.</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionFactory</name>
     <message>
         <source>&amp;Window Zoom</source>
-        <translation>&amp;Window Zoom</translation>
+        <translation>&amp;Vensterzoom</translation>
     </message>
     <message>
         <source>Zoom &amp;Panning</source>
-        <translation>Zoomen</translation>
+        <translation>Zoom &amp;pannen</translation>
     </message>
     <message>
         <source>Select Entity</source>
@@ -345,7 +346,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Select Window</source>
-        <translation>Venster selecteren</translation>
+        <translation>Selecteer venster</translation>
     </message>
     <message>
         <source>Deselect Window</source>
@@ -353,23 +354,23 @@ of [%2]</translation>
     </message>
     <message>
         <source>(De-)Select &amp;Contour</source>
-        <translation>(De-) &amp;Contour selecteren</translation>
+        <translation>(De)selecteer &amp;contour</translation>
     </message>
     <message>
         <source>Select Intersected Entities</source>
-        <translation>Selecteer geïnterconnecteerde entiteiten</translation>
+        <translation>Selecteer doorsneden entiteiten</translation>
     </message>
     <message>
         <source>Deselect Intersected Entities</source>
-        <translation>Geïnteresseerde entiteiten deselecteren</translation>
+        <translation>Doorsneden entiteiten deselecteren</translation>
     </message>
     <message>
         <source>(De-)Select Layer</source>
-        <translation>(De-) Laag selecteren</translation>
+        <translation>(De)selecteer laag</translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>&amp;Points</translation>
+        <translation>&amp;Punten</translation>
     </message>
     <message>
         <source>&amp;2 Points</source>
@@ -377,7 +378,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Angle</source>
-        <translation>&amp; Hoek</translation>
+        <translation>&amp;Hoek</translation>
     </message>
     <message>
         <source>&amp;Horizontal</source>
@@ -389,11 +390,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Freehand Line</source>
-        <translation>&amp; Vrije handlijn</translation>
+        <translation>&amp;Vrijehand lijn</translation>
     </message>
     <message>
         <source>&amp;Parallel</source>
-        <translation>&amp; Parallel</translation>
+        <translation>&amp;Parallel</translation>
     </message>
     <message>
         <source>Parallel through point</source>
@@ -417,7 +418,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Tangent &amp;Orthogonal</source>
-        <translation>Tangent &amp;Orthogonal</translation>
+        <translation>Tangent &amp;Orthogonaal</translation>
     </message>
     <message>
         <source>Orthogonal</source>
@@ -429,19 +430,19 @@ of [%2]</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Cor)</source>
-        <translation>Pol&amp;ygon (Cen,Cor)</translation>
+        <translation>Polygon (Cen,Cor)</translation>
     </message>
     <message>
         <source>Polygo&amp;n (Cor,Cor)</source>
-        <translation>Polygo&amp;n (Cor,Cor)</translation>
+        <translation>Polygon (Cor,Cor)</translation>
     </message>
     <message>
         <source>Center, &amp;Point</source>
-        <translation>Midden, &amp;Point</translation>
+        <translation>Centrum, &amp;Punt</translation>
     </message>
     <message>
         <source>Center, &amp;Radius</source>
-        <translation>Midden, &amp;Radius</translation>
+        <translation>Centrum, &amp;Radius</translation>
     </message>
     <message>
         <source>2 Points</source>
@@ -449,7 +450,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>2 Points, Radius</source>
-        <translation>2 punten, Straal</translation>
+        <translation>2 punten, radius</translation>
     </message>
     <message>
         <source>3 Points</source>
@@ -461,12 +462,12 @@ of [%2]</translation>
     </message>
     <message>
         <source>Circle &amp;Inscribed</source>
-        <translation>Cirkel &amp;ingeschreven</translation>
+        <translation>Cirkel &amp;Ingeschreven</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, Radius</source>
         <comment>circle tangential with two circles, and given radius</comment>
-        <translation>Tangentieel 2 cirkels, Straal</translation>
+        <translation>Tangentieel 2 cirkels, radius</translation>
     </message>
     <message>
         <source>Tangential 2 Circles, 1 Point</source>
@@ -478,11 +479,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Tangential, 2 P&amp;oints</source>
-        <translation>Tangential, 2 P&amp;oints</translation>
+        <translation>Tangentieel, 2 punten</translation>
     </message>
     <message>
         <source>&amp;Center, Point, Angles</source>
-        <translation>&amp;Center, Point, Hoeken</translation>
+        <translation>&amp;Centrum, punt, hoeken</translation>
     </message>
     <message>
         <source>&amp;3 Points</source>
@@ -490,31 +491,31 @@ of [%2]</translation>
     </message>
     <message>
         <source>Arc &amp;Tangential</source>
-        <translation>Arc &amp;tangentieel</translation>
+        <translation>Boog &amp;Tangentieel</translation>
     </message>
     <message>
         <source>&amp;Ellipse (Axis)</source>
-        <translation>&amp;Ellipse (Axis)</translation>
+        <translation>&amp;Ellipse (as)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Arc (Axis)</source>
-        <translation>Ellipse &amp;Arc (Axis)</translation>
+        <translation>Ellipse &amp;Boog (as)</translation>
     </message>
     <message>
         <source>Ellipse &amp;Foci Point</source>
-        <translation>Ellips &amp; Foci-punt</translation>
+        <translation>Ellipse &amp;Foci punt</translation>
     </message>
     <message>
         <source>Ellipse &amp;4 Point</source>
-        <translation>Ellips &amp;4 punt</translation>
+        <translation>Ellipse &amp;4 punten</translation>
     </message>
     <message>
         <source>Ellipse Center and &amp;3 Points</source>
-        <translation>Ellipscenter en &amp;3 punten</translation>
+        <translation>Ellipse-centrum en &amp;3 punten</translation>
     </message>
     <message>
         <source>Ellipse &amp;Inscribed</source>
-        <translation>Ellips &amp;Ingeschreven</translation>
+        <translation>Ellipse &amp;Ingeschreven</translation>
     </message>
     <message>
         <source>&amp;Spline</source>
@@ -526,39 +527,39 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Polyline</source>
-        <translation>&amp;Polyline</translation>
+        <translation>&amp;Polylines</translation>
     </message>
     <message>
         <source>&amp;Add node</source>
-        <translation>Knooppunt toevoegen</translation>
+        <translation>&amp;Knooppunt toevoegen</translation>
     </message>
     <message>
         <source>A&amp;ppend node</source>
-        <translation>&amp; Gebeurtenisknooppunt</translation>
+        <translation>Knooppunt &amp;toevoegen</translation>
     </message>
     <message>
         <source>&amp;Delete node</source>
-        <translation>Knooppunt verwijderen</translation>
+        <translation>&amp;Knooppunt verwijderen</translation>
     </message>
     <message>
         <source>Delete &amp;between two nodes</source>
-        <translation>Verwijderen tussen twee knooppunten</translation>
+        <translation>Verwijderen &amp;tussen twee knooppunten</translation>
     </message>
     <message>
         <source>&amp;Trim segments</source>
-        <translation>&amp;Trim segmenten</translation>
+        <translation>&amp;Segmenten bijsnijden</translation>
     </message>
     <message>
         <source>Create &amp;Equidistant Polylines</source>
-        <translation>&amp;Equidistante polylijnen aanmaken</translation>
+        <translation>Maak &amp;evenwijdige polylines</translation>
     </message>
     <message>
         <source>Create Polyline from Existing &amp;Segments</source>
-        <translation>Polyline aanmaken van bestaande &amp; segmenten</translation>
+        <translation>Maak polyline van bestaande &amp;segmenten</translation>
     </message>
     <message>
         <source>&amp;MText</source>
-        <translation>&amp; MText</translation>
+        <translation>&amp;Meerdere tekst</translation>
     </message>
     <message>
         <source>&amp;Text</source>
@@ -570,15 +571,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>Insert &amp;Image</source>
-        <translation>&amp; Afbeelding invoegen</translation>
+        <translation>Afbeelding &amp;invoegen</translation>
     </message>
     <message>
         <source>&amp;Aligned</source>
-        <translation>Uitgelijnd</translation>
+        <translation>&amp;Uitgelijnd</translation>
     </message>
     <message>
         <source>&amp;Linear</source>
-        <translation>&amp;Linear</translation>
+        <translation>&amp;Lijn</translation>
     </message>
     <message>
         <source>&amp;Vertical</source>
@@ -590,19 +591,19 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Diametric</source>
-        <translation>&amp; Diametrisch</translation>
+        <translation>&amp;Diameter</translation>
     </message>
     <message>
         <source>&amp;Angular</source>
-        <translation>&amp;Engels</translation>
+        <translation>&amp;Hoek</translation>
     </message>
     <message>
         <source>&amp;Leader</source>
-        <translation>&amp; Leader</translation>
+        <translation>&amp;Leader</translation>
     </message>
     <message>
         <source>&amp;Attributes</source>
-        <translation>&amp; Eigenschappen</translation>
+        <translation>&amp;Attributen</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -610,15 +611,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>Delete Freehand</source>
-        <translation>Freehand verwijderen</translation>
+        <translation>Vrijehand verwijderen</translation>
     </message>
     <message>
         <source>&amp;Move / Copy</source>
-        <translation>&amp; Verplaatsen / kopiëren</translation>
+        <translation>&amp;Verplaatsen / Kopiëren</translation>
     </message>
     <message>
         <source>Re&amp;vert direction</source>
-        <translation>Richting omkeren</translation>
+        <translation>&amp;Richting omkeren</translation>
     </message>
     <message>
         <source>Ctrl+R</source>
@@ -634,23 +635,23 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp; Spiegelen</translation>
+        <translation>&amp;Spiegelen</translation>
     </message>
     <message>
         <source>Rotate T&amp;wo</source>
-        <translation>T&amp;wo draaien</translation>
+        <translation>Draai t&amp;wee</translation>
     </message>
     <message>
         <source>&amp;Properties</source>
-        <translation>Eigenschappen</translation>
+        <translation>&amp;Eigenschappen</translation>
     </message>
     <message>
         <source>&amp;Trim</source>
-        <translation>&amp;Trim</translation>
+        <translation>&amp;Bijsnijden</translation>
     </message>
     <message>
         <source>&amp;Lengthen</source>
-        <translation>&amp;Lengthen</translation>
+        <translation>&amp;Verlengen</translation>
     </message>
     <message>
         <source>&amp;Divide</source>
@@ -658,35 +659,35 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Stretch</source>
-        <translation>&amp;Stretch</translation>
+        <translation>&amp;Uitrekken</translation>
     </message>
     <message>
         <source>&amp;Bevel</source>
-        <translation>&amp; Afschuinen</translation>
+        <translation>&amp;Afschuinen</translation>
     </message>
     <message>
         <source>&amp;Fillet</source>
-        <translation>&amp;Fillet</translation>
+        <translation>&amp;Afronding</translation>
     </message>
     <message>
         <source>&amp;Explode Text into Letters</source>
-        <translation>Tekst &amp;exploderen in letters</translation>
+        <translation>&amp;Tekst exploderen in letters</translation>
     </message>
     <message>
         <source>Point inside contour</source>
-        <translation>Punt binnenomtrek</translation>
+        <translation>Punt binnen contour</translation>
     </message>
     <message>
         <source>&amp;Distance Point to Point</source>
-        <translation>&amp;Afstand wijzen naar punt</translation>
+        <translation>&amp;Afstand punt tot punt</translation>
     </message>
     <message>
         <source>&amp;Distance Entity to Point</source>
-        <translation>&amp;Afstandsentiteit om te wijzen</translation>
+        <translation>&amp;Afstand entiteit tot punt</translation>
     </message>
     <message>
         <source>An&amp;gle between two lines</source>
-        <translation>Hoek tussen twee regels</translation>
+        <translation>Ho&amp;ek tussen twee lijnen</translation>
     </message>
     <message>
         <source>&amp;Total length of selected entities</source>
@@ -694,11 +695,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Polygonal &amp;Area</source>
-        <translation>Veelhoekig &amp;Area</translation>
+        <translation>Polygonaal &amp;Oppervlak</translation>
     </message>
     <message>
         <source>&amp;Selection pointer</source>
-        <translation>&amp;Selectie-aanwijzer</translation>
+        <translation>&amp;Selectieaanwijzer</translation>
     </message>
     <message>
         <source>&amp;Undo</source>
@@ -706,11 +707,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Redo</source>
-        <translation>Opnieuw</translation>
+        <translation>&amp;Opnieuw</translation>
     </message>
     <message>
         <source>Cu&amp;t</source>
-        <translation>Cu&amp;t</translation>
+        <translation>&amp;Knippen</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -730,87 +731,87 @@ of [%2]</translation>
     </message>
     <message>
         <source>raise over entity</source>
-        <translation>verhoging boven entiteit</translation>
+        <translation>verhogen boven entiteit</translation>
     </message>
     <message>
         <source>move to top</source>
-        <translation>naar boven verplaatsen</translation>
+        <translation>verplaatsen naar boven</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>Laag &amp; toevoegen</translation>
+        <translation>&amp;Laag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>Laag verwijderen</translation>
+        <translation>&amp;Laag verwijderen</translation>
     </message>
     <message>
         <source>&amp;Edit Layer</source>
-        <translation>Laag &amp; bewerken</translation>
+        <translation>&amp;Laag bewerken</translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Laag Loc&amp;k aan/uit</translation>
+        <translation>Laagvergrendeling wisselen</translation>
     </message>
     <message>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation>&amp;Laagzicht aan/uit</translation>
+        <translation>&amp;Laagzichtbaarheid wisselen</translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Print</source>
-        <translation>Laag &amp; afdrukken aan/uit</translation>
+        <translation>Laagafdruk wisselen</translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Laag &amp; Constructie aan/uit</translation>
+        <translation>Bouwl&amp;aag wisselen</translation>
     </message>
     <message>
         <source>&amp;Add Block</source>
-        <translation>Blok toevoegen</translation>
+        <translation>&amp;Blok toevoegen</translation>
     </message>
     <message>
         <source>&amp;Remove Block</source>
-        <translation>Blok &amp; verwijderen</translation>
+        <translation>&amp;Blok verwijderen</translation>
     </message>
     <message>
         <source>&amp;Rename Block</source>
-        <translation>Blok &amp;hernoemen</translation>
+        <translation>&amp;Blok hernoemen</translation>
     </message>
     <message>
         <source>&amp;Edit Block</source>
-        <translation>Blok bewerken</translation>
+        <translation>&amp;Blok bewerken</translation>
     </message>
     <message>
         <source>&amp;Save Block</source>
-        <translation>Blok opslaan</translation>
+        <translation>&amp;Blok opslaan</translation>
     </message>
     <message>
         <source>&amp;Insert Block</source>
-        <translation>Blok &amp; invoegen</translation>
+        <translation>&amp;Blok invoegen</translation>
     </message>
     <message>
         <source>Toggle Block &amp;Visibility</source>
-        <translation>Block &amp; Visibility aan/uitschakelen</translation>
+        <translation>Blokzichtbaarheid wisselen</translation>
     </message>
     <message>
         <source>&amp;Create Block</source>
-        <translation>Blok &amp; aanmaken</translation>
+        <translation>&amp;Blok maken</translation>
     </message>
     <message>
         <source>Ex&amp;plode</source>
-        <translation>Ex&amp;plode</translation>
+        <translation>Ex&amp;ploderen</translation>
     </message>
     <message>
         <source>&amp;Application Preferences</source>
-        <translation>&amp; Toepassingsvoorkeuren</translation>
+        <translation>&amp;Applicatievoorkeuren</translation>
     </message>
     <message>
         <source>Current &amp;Drawing Preferences</source>
-        <translation>Huidige &amp; Tekenvoorkeuren</translation>
+        <translation>Huidige &amp;tekeningvoorkeuren</translation>
     </message>
     <message>
         <source>&amp;Delete selected</source>
-        <translation>Geselecteerd verwijderen</translation>
+        <translation>&amp;Verwijder geselecteerde</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
@@ -818,11 +819,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Deselect &amp;all</source>
-        <translation>&amp; Niet selecteren</translation>
+        <translation>Alles deselecteren</translation>
     </message>
     <message>
         <source>Ctrl+K</source>
-        <translation>Druk op Ctrl+K</translation>
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <source>Invert Selection</source>
@@ -830,7 +831,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>&amp; Zoomen In</translation>
+        <translation>&amp;Inzoomen</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
@@ -842,11 +843,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Previous &amp;View</source>
-        <translation>Vorige &amp; weergave</translation>
+        <translation>Vorige &amp;weergave</translation>
     </message>
     <message>
         <source>&amp;Redraw</source>
-        <translation>&amp;Redraw</translation>
+        <translation>&amp;Opnieuw tekenen</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -854,15 +855,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>New From &amp;Template</source>
-        <translation>Nieuw van &amp; sjabloon</translation>
+        <translation>Nieuw van &amp;sjabloon</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>Openen...</translation>
+        <translation>&amp;Openen...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>Opslaan</translation>
+        <translation>&amp;Opslaan</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
@@ -870,7 +871,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Export as image</source>
-        <translation>Als afbeelding &amp; exporteren</translation>
+        <translation>&amp;Exporteer als afbeelding</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -878,15 +879,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Print...</source>
-        <translation>Afdrukken...</translation>
+        <translation>&amp;Afdrukken...</translation>
     </message>
     <message>
         <source>Export as PDF</source>
-        <translation>Exporteren als PDF</translation>
+        <translation>Exporteer als PDF</translation>
     </message>
     <message>
         <source>Print Pre&amp;view</source>
-        <translation>Print Pre&amp;view</translation>
+        <translation>Afdrukvoor&amp;beeld</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -898,7 +899,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>&amp;Fullscreen</source>
-        <translation>&amp; Volledig scherm</translation>
+        <translation>&amp;Volledig scherm</translation>
     </message>
     <message>
         <source>&amp;Grid</source>
@@ -907,11 +908,11 @@ of [%2]</translation>
     <message>
         <source>Ctrl+G</source>
         <comment>Toggle Grid</comment>
-        <translation>Druk op Ctrl+G</translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <source>&amp;Draft</source>
-        <translation>&amp;Draft</translation>
+        <translation>&amp;Concept</translation>
     </message>
     <message>
         <source>&amp;Statusbar</source>
@@ -924,7 +925,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Focus on &amp;Command Line</source>
-        <translation>Focus op &amp; Command Line</translation>
+        <translation>Focus op &amp;commandolijn</translation>
     </message>
     <message>
         <source>Widget Options</source>
@@ -960,11 +961,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Mo&amp;ve and Rotate</source>
-        <translation>Verplaatsen en roteren</translation>
+        <translation>Ver&amp;plaatsen en draaien</translation>
     </message>
     <message>
         <source>Tr&amp;im Two</source>
-        <translation>Tr&amp;im Twee</translation>
+        <translation>Knippen &amp;twee</translation>
     </message>
     <message>
         <source>O&amp;ffset</source>
@@ -972,72 +973,72 @@ of [%2]</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>Menu-maker</translation>
+        <translation>Menu Maker</translation>
     </message>
     <message>
         <source>Toolbar Creator</source>
-        <translation>Werkbalkmaker</translation>
+        <translation>Werkbalk Maker</translation>
     </message>
     <message>
         <source>Ctrl+D</source>
         <comment>Toggle Draft Mode</comment>
-        <translation>Druk op Ctrl+D</translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <source>Pol&amp;ygon (Cen,Tan)</source>
-        <translation>Pol&amp;ygon (Cen, Tan)</translation>
+        <translation>Polygon (Cen,Tan)</translation>
     </message>
     <message>
         <source>&amp;Arc</source>
-        <translation>&amp; Arc</translation>
+        <translation>&amp;Boog</translation>
     </message>
     <message>
         <source>&amp;Show all layers</source>
-        <translation>Alle lagen tonen</translation>
+        <translation>&amp;Toon alle lagen</translation>
     </message>
     <message>
         <source>&amp;Hide all layers</source>
-        <translation>Alle lagen &amp; verbergen</translation>
+        <translation>&amp;Verberg alle lagen</translation>
     </message>
     <message>
         <source>&amp;Unlock all</source>
-        <translation>Alles ontgrendelen</translation>
+        <translation>&amp;Ontgrendel alles</translation>
     </message>
     <message>
         <source>&amp;Lock all</source>
-        <translation>Alles &amp; vergrendelen</translation>
+        <translation>&amp;Vergrendel alles</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>Geselecteerde laag(s) &amp; exporteren</translation>
+        <translation>&amp;Exporteer geselecteerde laag(en)</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>&amp;Zichtbare laag(s) exporteren</translation>
+        <translation>Exporteer &amp;zichtbare laag(en)</translation>
     </message>
     <message>
         <source>&amp;Show all blocks</source>
-        <translation>Alle blokken tonen</translation>
+        <translation>&amp;Toon alle blokken</translation>
     </message>
     <message>
         <source>&amp;Hide all blocks</source>
-        <translation>Alle blokken &amp; verbergen</translation>
+        <translation>&amp;Verberg alle blokken</translation>
     </message>
     <message>
         <source>Export as CA&amp;M/plain SVG...</source>
-        <translation>Exporteren als CA&amp;M/plain SVG...</translation>
+        <translation>Exporteer als CA&amp;M/eenvoudige SVG...</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation>Alles sluiten</translation>
+        <translation>Sluit alles</translation>
     </message>
     <message>
         <source>Re-dock Widgets</source>
-        <translation>Widgets herladen</translation>
+        <translation>Widgets opnieuw dokken</translation>
     </message>
     <message>
         <source>Save A&amp;ll...</source>
-        <translation>A&amp;ll opslaan...</translation>
+        <translation>Alles opslaan...</translation>
     </message>
     <message>
         <source>Cross</source>
@@ -1073,15 +1074,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>Break/Divide</source>
-        <translation>Break/Divide</translation>
+        <translation>Breken/Verdeeld</translation>
     </message>
     <message>
         <source>Line Gap</source>
-        <translation>Line Gap</translation>
+        <translation>Lijnopening</translation>
     </message>
     <message>
         <source>Angle From Line</source>
-        <translation>Hoek van lijn</translation>
+        <translation>Hoek vanaf lijn</translation>
     </message>
     <message>
         <source>Orthogonal From Line</source>
@@ -1089,39 +1090,39 @@ of [%2]</translation>
     </message>
     <message>
         <source>From Point To Line</source>
-        <translation>Van punt naar regel</translation>
+        <translation>Van punt naar lijn</translation>
     </message>
     <message>
         <source>Slice/Divide Line</source>
-        <translation>Regel snijden/verdelen</translation>
+        <translation>Snijden/Verdeeld lijn</translation>
     </message>
     <message>
         <source>Slice/Divide Circle</source>
-        <translation>Cirkel snijden/verdelen</translation>
+        <translation>Snijden/Verdeeld cirkel</translation>
     </message>
     <message>
         <source>Line of Points</source>
-        <translation>Puntlijn</translation>
+        <translation>Lijn van punten</translation>
     </message>
     <message>
         <source>By Arc</source>
-        <translation>Op Arc</translation>
+        <translation>Via boog</translation>
     </message>
     <message>
         <source>Para&amp;bola 4 points</source>
-        <translation>Para&amp;bola 4 punten</translation>
+        <translation>Para&amp;bool 4 punten</translation>
     </message>
     <message>
         <source>Parabola &amp;Focus Directrix</source>
-        <translation>Parabola &amp; Focus Directrix</translation>
+        <translation>Parabool &amp;Focus directrix</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>Pen uit entiteit kiezen</translation>
+        <translation>&amp;Pennen uit entiteit kiezen</translation>
     </message>
     <message>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>&amp;Pick Pen from Entity (opgelost)</translation>
+        <translation>&amp;Pennen uit entiteit kiezen (opgelost)</translation>
     </message>
     <message>
         <source>Apply Pen to Entity</source>
@@ -1133,15 +1134,15 @@ of [%2]</translation>
     </message>
     <message>
         <source>Line Join</source>
-        <translation>Regel samenvoegen</translation>
+        <translation>Lijnverbinding</translation>
     </message>
     <message>
         <source>Duplicate</source>
         <translation>Dupliceren</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Huidige pen bijwerken op actieve laag Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Update huidige pen met pen van actieve laag</translation>
     </message>
 </context>
 <context>
@@ -1154,15 +1155,15 @@ of [%2]</translation>
 <context>
     <name>LC_ActionLayersExport</name>
     <message>
-        <source>Saving layer "%1" as "%2" </source>
-        <translation>Laag "%1" opslaan als "%2"</translation>
+        <source>Saving layer &quot;%1&quot; as &quot;%2&quot; </source>
+        <translation>Opslaan van laag „%1“ als „%2“ </translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenApply</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Geef entiteit om de pen te kiezen</translation>
+        <translation>Geef entiteit op om pen te kiezen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1170,14 +1171,14 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify entity to apply pen</source>
-        <translation>Specificeer entiteit om pen toe te passen</translation>
+        <translation>Geef entiteit op om pen toe te passen</translation>
     </message>
 </context>
 <context>
     <name>LC_ActionPenPick</name>
     <message>
         <source>Specify entity to pick the pen</source>
-        <translation>Geef entiteit om de pen te kiezen</translation>
+        <translation>Geef entiteit op om pen te kiezen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1188,7 +1189,7 @@ of [%2]</translation>
     <name>LC_ActionSnapMiddleManual</name>
     <message>
         <source>Specify percentage / start-point</source>
-        <translation>Percentage / startpunt specificeren</translation>
+        <translation>Geef percentage / startpunt op</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1196,11 +1197,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>Specify start point</source>
-        <translation>Beginpunt opgeven</translation>
+        <translation>Geef startpunt op</translation>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>Eindpunt specificeren</translation>
+        <translation>Geef eindpunt op</translation>
     </message>
     <message>
         <source>Back</source>
@@ -1219,7 +1220,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation>Oorspronkelijk</translation>
+        <translation>Origineel</translation>
     </message>
     <message>
         <source>Original Resolved</source>
@@ -1227,7 +1228,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Radius Shift:</source>
-        <translation>Straalverschuiving:</translation>
+        <translation>Radiusverschuiving:</translation>
     </message>
     <message>
         <source>Layer:</source>
@@ -1250,7 +1251,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation>Uitbreiding</translation>
+        <translation>Extensie</translation>
     </message>
     <message>
         <source>Total Length</source>
@@ -1258,7 +1259,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>Percentage</translation>
+        <translation>Procent</translation>
     </message>
     <message>
         <source>X:</source>
@@ -1296,7 +1297,7 @@ of [%2]</translation>
     <name>LC_DlgParabola</name>
     <message>
         <source>Parabola control points cannot be collinear</source>
-        <translation>Parabola controlepunten kunnen niet collineair zijn</translation>
+        <translation>Controlepunten van parabool kunnen niet colineair zijn</translation>
     </message>
 </context>
 <context>
@@ -1311,11 +1312,11 @@ of [%2]</translation>
     </message>
     <message>
         <source>In Place</source>
-        <translation>Plaats</translation>
+        <translation>Op plaats</translation>
     </message>
     <message>
         <source>Offset X:</source>
-        <translation>Verschuiving X:</translation>
+        <translation>X-verschuiving:</translation>
     </message>
     <message>
         <source>Active</source>
@@ -1323,7 +1324,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation>Oorspronkelijk</translation>
+        <translation>Origineel</translation>
     </message>
     <message>
         <source>Original Resolved</source>
@@ -1331,7 +1332,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Offset Y:</source>
-        <translation>Verschuiving Y:</translation>
+        <translation>Y-verschuiving:</translation>
     </message>
     <message>
         <source>Pen:</source>
@@ -1346,7 +1347,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Parent Layers Path:</source>
-        <translation>Pad naar boven lagen:</translation>
+        <translation>Pad van bovenliggende lagen:</translation>
     </message>
     <message>
         <source>Layer Type</source>
@@ -1354,7 +1355,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>Voorlichting</translation>
+        <translation>Informatief</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -1362,7 +1363,7 @@ of [%2]</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>Afmetingen</translation>
+        <translation>Dimensies</translation>
     </message>
     <message>
         <source>Alternative Position</source>
@@ -1371,12 +1372,12 @@ of [%2]</translation>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Een bouwlaag heeft entiteiten van oneindige rechte lijnen bestemd voor geometrische constructie.
-De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
+        <translation>Een constructielaag bevat entiteiten van oneindige rechte lijnen bedoeld voor geometrische constructie.
+       De inhoud van een constructielaag mag niet in afdrukken verschijnen.</translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>Bouwlaag</translation>
+        <translation>Constructielaag</translation>
     </message>
     <message>
         <source>Layer Name:</source>
@@ -1400,7 +1401,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Default Pen</source>
-        <translation>Standaard Pen</translation>
+        <translation>Standaard pen</translation>
     </message>
     <message>
         <source>Rename Layer</source>
@@ -1411,31 +1412,31 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     <name>LC_LayerTreeOptionsDialog</name>
     <message>
         <source>Layers Tree Options</source>
-        <translation>Lagenboomopties</translation>
+        <translation>Opties voor lagenboom</translation>
     </message>
     <message>
         <source>Naming Convention</source>
-        <translation>Naamgevingsverdrag</translation>
+        <translation>Naamgevingsconventie</translation>
     </message>
     <message>
         <source>Layer Level Name Separator</source>
-        <translation>Laagniveaunaamscheiding</translation>
+        <translation>Naamscheidingsteken voor lageniveau</translation>
     </message>
     <message>
         <source>Secondary Layer Suffixes</source>
-        <translation>Secundaire lagen</translation>
+        <translation>Achtervoegsels voor secundaire lagen</translation>
     </message>
     <message>
         <source>Dimensional</source>
-        <translation>Afmetingen</translation>
+        <translation>Dimensioneel</translation>
     </message>
     <message>
         <source>Informational</source>
-        <translation>Voorlichting</translation>
+        <translation>Informatief</translation>
     </message>
     <message>
         <source>Alternative Position </source>
-        <translation>Alternatieve positie</translation>
+        <translation>Alternatieve positie </translation>
     </message>
     <message>
         <source>Duplicating Name</source>
@@ -1455,23 +1456,23 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Show full name as ToolTip</source>
-        <translation>Volledige naam tonen als ToolTip</translation>
+        <translation>Volledige naam als tooltip tonen</translation>
     </message>
     <message>
         <source>Show layer type icons</source>
-        <translation>Laagtypepictogrammen tonen</translation>
+        <translation>Laagtype-iconen tonen</translation>
     </message>
     <message>
         <source>Show indented layer names. Ident size:</source>
-        <translation>Ingespringde laagnamen tonen. Identiteitsgrootte:</translation>
+        <translation>Ingesprongen laagnamen tonen. Inspringgrootte:</translation>
     </message>
     <message>
         <source>Allow restructuring via Drag&amp;Drop</source>
-        <translation>Herstructurering toestaan via Drag&amp;Drop</translation>
+        <translation>Herschikking via slepen&amp;laten vallen toestaan</translation>
     </message>
     <message>
         <source>Rename secondary layers on primary rename</source>
-        <translation>Tweede lagen hernoemen bij primaire hernoemen</translation>
+        <translation>Secundaire lagen hernoemen bij primaire hernoeming</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -1479,7 +1480,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Matched item in highlight filter mode</source>
-        <translation>Bijbehorend item in markeerfiltermodus</translation>
+        <translation>Overeenkomend item in highlight-filtermodus</translation>
     </message>
     <message>
         <source>#1E90FF</source>
@@ -1487,11 +1488,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Virtual layer background color</source>
-        <translation>Virtuele laag achtergrondkleur</translation>
+        <translation>Achtergrondkleur van virtuele laag</translation>
     </message>
     <message>
         <source>Threeview items separator grid</source>
-        <translation>Threeview items scheidingsraster</translation>
+        <translation>Scheidingsraster voor drieweergave-items</translation>
     </message>
     <message>
         <source>Selected items background color</source>
@@ -1499,11 +1500,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Active layer background color</source>
-        <translation>Actieve laag achtergrondkleur</translation>
+        <translation>Achtergrondkleur van actieve laag</translation>
     </message>
     <message>
         <source>Default Pens</source>
-        <translation>Standaard Pennen</translation>
+        <translation>Standaard pennen</translation>
     </message>
     <message>
         <source>Normal Layer</source>
@@ -1511,7 +1512,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Dimensional Layer</source>
-        <translation>Dimensielaag</translation>
+        <translation>Dimensionele laag</translation>
     </message>
     <message>
         <source>Informational Layer</source>
@@ -1523,7 +1524,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Select Color</source>
-        <translation>Kleur selecteren</translation>
+        <translation>Kies kleur</translation>
     </message>
 </context>
 <context>
@@ -1534,11 +1535,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Op zoek naar bijpassende laagnamen</translation>
+        <translation>Zoeken naar overeenkomende laagnamen</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Oplichten</translation>
+        <translation>Markeermodus</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1546,15 +1547,15 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Show all layers</source>
-        <translation>Alle lagen tonen</translation>
+        <translation>Toon alle lagen</translation>
     </message>
     <message>
         <source>Hide all layers</source>
-        <translation>Alle lagen verbergen</translation>
+        <translation>Verberg alle lagen</translation>
     </message>
     <message>
         <source>Show Secondary Layers</source>
-        <translation>Secundaire lagen tonen</translation>
+        <translation>Toon secundaire lagen</translation>
     </message>
     <message>
         <source>Show Active Layer Only</source>
@@ -1566,11 +1567,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation>Alles invouwen</translation>
+        <translation>Alles samenvouwen</translation>
     </message>
     <message>
         <source>Collapse Secondary</source>
-        <translation>Secundair instorten</translation>
+        <translation>Secundaire samenvouwen</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
@@ -1582,11 +1583,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Add a layer</source>
-        <translation>Een laag toevoegen</translation>
+        <translation>Laag toevoegen</translation>
     </message>
     <message>
         <source>Add dimensions Layer</source>
-        <translation>Afmetingen toevoegen Laag</translation>
+        <translation>Dimensielaag toevoegen</translation>
     </message>
     <message>
         <source>Remove layer</source>
@@ -1594,7 +1595,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Modify layer attributes / rename</source>
-        <translation>Laagattributen wijzigen - hernoemen</translation>
+        <translation>Laagattributen wijzigen / hernoemen</translation>
     </message>
     <message>
         <source>Flat List Mode)</source>
@@ -1602,55 +1603,55 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Layer Menu</source>
-        <translation>Menu Laag</translation>
+        <translation>Laagmenu</translation>
     </message>
     <message>
         <source>&amp;Add Child Layer</source>
-        <translation>Laag &amp; toevoegen</translation>
+        <translation>&amp;Kindlaag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Rename</source>
-        <translation>Hernoemen</translation>
+        <translation>&amp;Hernoemen</translation>
     </message>
     <message>
         <source>&amp;Remove Layers (Sub-Tree)</source>
-        <translation>Lagen verwijderen (sub-boom)</translation>
+        <translation>&amp;Lagen verwijderen (sub-boom)</translation>
     </message>
     <message>
         <source>&amp;Copy Structure (Sub-Tree)</source>
-        <translation>Structuur &amp; kopiëren (subboom)</translation>
+        <translation>&amp;Structuur kopiëren (sub-boom)</translation>
     </message>
     <message>
         <source>&amp;Duplicate Content (Sub-Tree)</source>
-        <translation>Inhoud &amp;dupliceren (subboom)</translation>
+        <translation>&amp;Inhoud dupliceren (sub-boom)</translation>
     </message>
     <message>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>&amp;Selecteer entiteiten (sub-boom)</translation>
+        <translation>&amp;Entiteiten selecteren (sub-boom)</translation>
     </message>
     <message>
         <source>&amp;Edit Layer &amp;Attributes</source>
-        <translation>Laag &amp; Eigenschappen bewerken</translation>
+        <translation>&amp;Laagattributen &amp;bewerken</translation>
     </message>
     <message>
         <source>&amp;Remove Layer</source>
-        <translation>Laag verwijderen</translation>
+        <translation>&amp;Laag verwijderen</translation>
     </message>
     <message>
         <source>&amp;Add Dimensions Sub-Layer</source>
-        <translation>Afmetingen sublaag toevoegen</translation>
+        <translation>&amp;Dimensies sub-laag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Add Info Sub-Layer</source>
-        <translation>Info-sublaag toevoegen</translation>
+        <translation>&amp;Info sub-laag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Add Alternative View Sub-Layer</source>
-        <translation>Alternatieve weergave-sublayer toevoegen</translation>
+        <translation>&amp;Alternatieve weergave sub-laag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Remove Sub-layers</source>
-        <translation>Sublagen &amp; verwijderen</translation>
+        <translation>&amp;Sub-lagen verwijderen</translation>
     </message>
     <message>
         <source>Convert to Dimensional Layer</source>
@@ -1658,7 +1659,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Convert to Info Layer</source>
-        <translation>Omzetten naar informatielaag</translation>
+        <translation>Omzetten naar infolaag</translation>
     </message>
     <message>
         <source>Convert to Alternative Position Layer</source>
@@ -1669,16 +1670,16 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
         <translation>Omzetten naar normale laag</translation>
     </message>
     <message>
-        <source>&amp;Select Layer's Entities</source>
-        <translation>Laagentiteiten &amp; selecteren</translation>
+        <source>&amp;Select Layer&apos;s Entities</source>
+        <translation>&amp;Entiteiten van laag selecteren</translation>
     </message>
     <message>
         <source>&amp;Create Layer Copy</source>
-        <translation>Laagkopie &amp; aanmaken</translation>
+        <translation>&amp;Laagkopie maken</translation>
     </message>
     <message>
         <source>&amp;Duplicate Layer With Content</source>
-        <translation>Laag &amp;dupliceren met inhoud</translation>
+        <translation>&amp;Laag dupliceren met inhoud</translation>
     </message>
     <message>
         <source>Move Selection to Layer</source>
@@ -1690,39 +1691,39 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>&amp;Add Layer</source>
-        <translation>Laag &amp; toevoegen</translation>
+        <translation>&amp;Laag toevoegen</translation>
     </message>
     <message>
         <source>&amp;Freeze Others Layers</source>
-        <translation>Andere lagen &amp; vrijmaken</translation>
+        <translation>&amp;Andere lagen bevriezen</translation>
     </message>
     <message>
         <source>&amp;Defreeze All Layers</source>
-        <translation>Alle lagen verwijderen</translation>
+        <translation>&amp;Alle lagen ontdooien</translation>
     </message>
     <message>
         <source>&amp;Freeze All Layers</source>
-        <translation>Alle lagen &amp;vrijmaken</translation>
+        <translation>&amp;Alle lagen bevriezen</translation>
     </message>
     <message>
         <source>&amp;Unlock All Layers</source>
-        <translation>Alle lagen ontgrendelen</translation>
+        <translation>&amp;Alle lagen ontgrendelen</translation>
     </message>
     <message>
         <source>&amp;Lock All Layers</source>
-        <translation>Alle lagen &amp; vergrendelen</translation>
+        <translation>&amp;Alle lagen vergrendelen</translation>
     </message>
     <message>
         <source>Enable &amp;Printing All Layers</source>
-        <translation>Alle lagen activeren</translation>
+        <translation>&amp;Afdrukken van alle lagen inschakelen</translation>
     </message>
     <message>
         <source>&amp;Disable Printing All Layers</source>
-        <translation>Afdrukken van alle lagen &amp; uitschakelen</translation>
+        <translation>&amp;Afdrukken van alle lagen uitschakelen</translation>
     </message>
     <message>
         <source>&amp;Find And Remove Empty Layers</source>
-        <translation>Lege lagen zoeken en verwijderen</translation>
+        <translation>&amp;Lege lagen zoeken en verwijderen</translation>
     </message>
 </context>
 <context>
@@ -1741,7 +1742,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1753,19 +1754,19 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Regelafbreking:</translation>
+        <translation>Lijnsnap:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relatief</translation>
     </message>
     <message>
         <source>Divide</source>
-        <translation>Verdelen</translation>
+        <translation>Verdeeld</translation>
     </message>
     <message>
         <source>Tick Snap:</source>
-        <translation>Tick Snap:</translation>
+        <translation>Ticksnap:</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -1777,7 +1778,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Afstand knippen:</translation>
+        <translation>Snap-afstand:</translation>
     </message>
 </context>
 <context>
@@ -1800,7 +1801,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>To Intersection</source>
-        <translation>Naar intersectie</translation>
+        <translation>Naar kruispunt</translation>
     </message>
     <message>
         <source>Fixed Length</source>
@@ -1808,11 +1809,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>End offset:</source>
-        <translation>Eindeverschuiving:</translation>
+        <translation>Eindverschuiving:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1828,7 +1829,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Knap:</translation>
+        <translation>Snap:</translation>
     </message>
 </context>
 <context>
@@ -1839,7 +1840,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Extend/Trim</source>
-        <translation>Extended/Trim</translation>
+        <translation>Verlengen/bijsnijden</translation>
     </message>
     <message>
         <source>Add segment</source>
@@ -1847,11 +1848,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>No change</source>
-        <translation>Geen wijziging</translation>
+        <translation>Geen verandering</translation>
     </message>
     <message>
         <source>Create Polyline</source>
-        <translation>Polyline aanmaken</translation>
+        <translation>Polyline maken</translation>
     </message>
     <message>
         <source>Attributes:</source>
@@ -1863,7 +1864,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Line 1</source>
-        <translation>Regel 1</translation>
+        <translation>Lijn 1</translation>
     </message>
     <message>
         <source>Line 2</source>
@@ -1875,7 +1876,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Remove originals</source>
-        <translation>Originelen verwijderen</translation>
+        <translation>Originele verwijderen</translation>
     </message>
     <message>
         <source>Line 2:</source>
@@ -1898,7 +1899,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Fit Line</source>
-        <translation>Regel aanpassen</translation>
+        <translation>Lijn aanpassen</translation>
     </message>
     <message>
         <source>None</source>
@@ -1910,7 +1911,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>End</source>
@@ -1960,7 +1961,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Remove Selected</source>
-        <translation>Geselecteerd verwijderen</translation>
+        <translation>Geselecteerde verwijderen</translation>
     </message>
 </context>
 <context>
@@ -1971,11 +1972,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Gap Snap:</source>
-        <translation>Gap Snap:</translation>
+        <translation>Gapsnap:</translation>
     </message>
     <message>
         <source>Snap Distance:</source>
-        <translation>Afstand knippen:</translation>
+        <translation>Snap-afstand:</translation>
     </message>
     <message>
         <source>Free</source>
@@ -1983,11 +1984,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Gap Size:</source>
-        <translation>Gapgrootte:</translation>
+        <translation>Grootte van opening:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -1999,42 +2000,42 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Line Snap:</source>
-        <translation>Regelafbreking:</translation>
+        <translation>Lijnsnap:</translation>
     </message>
 </context>
 <context>
     <name>LC_PenPaletteOptionsDialog</name>
     <message>
         <source>Pen Palette Settings</source>
-        <translation>Pen Paletinstellingen</translation>
+        <translation>Instellingen penpalet</translation>
     </message>
     <message>
         <source>Columns to display</source>
-        <translation>Te tonen kolommen</translation>
+        <translation>Weer te geven kolommen</translation>
     </message>
     <message>
         <source>Line Type Name</source>
-        <translation>Lijntypenaam</translation>
+        <translation>Naam lijntype</translation>
     </message>
     <message>
         <source>Color Name</source>
-        <translation>Kleurnaam</translation>
+        <translation>Naam kleur</translation>
     </message>
     <message>
         <source>Line Type Icon</source>
-        <translation>Regeltype-pictogram</translation>
+        <translation>Icoon lijntype</translation>
     </message>
     <message>
         <source>Color Icon</source>
-        <translation>Kleurpictogram</translation>
+        <translation>Icoon kleur</translation>
     </message>
     <message>
         <source>Line Width Icon</source>
-        <translation>Lijnbreedte-pictogram</translation>
+        <translation>Icoon lijnbreedte</translation>
     </message>
     <message>
         <source>Line Width Name</source>
-        <translation>Lijnbreedtenaam</translation>
+        <translation>Naam lijnbreedte</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -2042,11 +2043,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Active Pen Background:</source>
-        <translation>Actieve Pen Achtergrond:</translation>
+        <translation>Achtergrond actieve pen:</translation>
     </message>
     <message>
         <source>Entire table row is bold for active pen</source>
-        <translation>Volledige tabel rij is vet voor actieve pen</translation>
+        <translation>Gehele tabelrij is vet voor actieve pen</translation>
     </message>
     <message>
         <source>Grid Color:</source>
@@ -2054,19 +2055,19 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Matched Item Color:</source>
-        <translation>Bijpassende itemkleur:</translation>
+        <translation>Kleur overeenkomend item:</translation>
     </message>
     <message>
         <source>Case-insensitive pens filtering</source>
-        <translation>Niet-gevoelige pennen filteren</translation>
+        <translation>Hoofdletterongevoelig filteren van pennen</translation>
     </message>
     <message>
         <source>Controls whether tooltip will be shown for table item or not</source>
-        <translation>Bepaalt of tooltip al dan niet getoond zal worden voor tabelitem</translation>
+        <translation>Bepaalt of tooltip voor tabelitem wordt getoond</translation>
     </message>
     <message>
         <source>Show tooltip for table items</source>
-        <translation>Werkbalk voor tabelitems tonen</translation>
+        <translation>Tooltip voor tabelitems tonen</translation>
     </message>
     <message>
         <source>Pens file:</source>
@@ -2074,7 +2075,7 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Show colorn name as</source>
-        <translation>Kleurennaam tonen als</translation>
+        <translation>Toon kleurnaam als</translation>
     </message>
     <message>
         <source>HEX</source>
@@ -2086,15 +2087,15 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Natural name where possible</source>
-        <translation>Natuurlijke naam, indien mogelijk</translation>
+        <translation>Natuurlijke naam waar mogelijk</translation>
     </message>
     <message>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>Infobericht tonen als er geen entiteiten kunnen worden geselecteerd met pen</translation>
+        <translation>Info bericht tonen als geen entiteiten met pen kunnen worden geselecteerd</translation>
     </message>
     <message>
         <source>On double click on table item</source>
-        <translation>Bij dubbelklikken op tabel-item</translation>
+        <translation>Bij dubbelklik op tabelitem</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2102,11 +2103,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Select entities by attributes pen</source>
-        <translation>Selecteer entiteiten per attributen pen</translation>
+        <translation>Entiteiten selecteren met attribuutpen</translation>
     </message>
     <message>
         <source>Select entities by drawing pen</source>
-        <translation>Selecteer entiteiten door pen te tekenen</translation>
+        <translation>Entiteiten selecteren met tekenpen</translation>
     </message>
 </context>
 <context>
@@ -2125,11 +2126,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Filter...</source>
-        <translation>Filter.</translation>
+        <translation>Filter...</translation>
     </message>
     <message>
         <source>Highlight Mode</source>
-        <translation>Oplichten</translation>
+        <translation>Markeermodus</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -2145,19 +2146,19 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>Pen-editor vullen door entiteit tekenpen</translation>
+        <translation>Pen-editor vullen met entiteit-tekenpen</translation>
     </message>
     <message>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>Pen-editor vullen op entiteit-attributen</translation>
+        <translation>Pen-editor vullen met entiteitattributen</translation>
     </message>
     <message>
         <source>Select Entities By Drawing Pen</source>
-        <translation>Entiteiten selecteren door pen te tekenen</translation>
+        <translation>Entiteiten selecteren met tekenpen</translation>
     </message>
     <message>
         <source>Select Entities By Pen Attributes</source>
-        <translation>Entiteiten selecteren op Penattributen</translation>
+        <translation>Entiteiten selecteren met penattributen</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2169,31 +2170,31 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Fill Editor Pen by Current Pen</source>
-        <translation>Editor Pen vullen met huidige pen</translation>
+        <translation>Editorpen vullen met huidige pen</translation>
     </message>
     <message>
         <source>Apply Editor Pen As Current Pen</source>
-        <translation>Editor Pen toepassen als huidige pen</translation>
+        <translation>Editorpen toepassen als huidige pen</translation>
     </message>
     <message>
         <source>to current</source>
         <translation>naar huidige</translation>
     </message>
     <message>
-        <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>Huidige pen bijwerken op actieve laag Pen</translation>
+        <source>Update Current Pen by Active Layer&apos; Pen</source>
+        <translation>Huidige pen bijwerken met pen van actieve laag</translation>
     </message>
     <message>
-        <source>Fill Pen Editor from Active Layer's Pen</source>
-        <translation>Penbewerker vullen uit de pen van de actieve laag</translation>
+        <source>Fill Pen Editor from Active Layer&apos;s Pen</source>
+        <translation>Pen-editor vullen met pen van actieve laag</translation>
     </message>
     <message>
         <source>Pick from Active Layer</source>
-        <translation>Kies uit actieve laag</translation>
+        <translation>Kiezen uit actieve laag</translation>
     </message>
     <message>
         <source>Apply Editor Pen to Active Layer Pen</source>
-        <translation>Editor Pen toepassen op actieve laag Pen</translation>
+        <translation>Editorpen toepassen op pen van actieve laag</translation>
     </message>
     <message>
         <source>Apply To Layer</source>
@@ -2209,39 +2210,39 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Pens Menu</source>
-        <translation>Menu Pennen</translation>
+        <translation>Pennenmenu</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>Pen &amp; toepassen op selectie</translation>
+        <translation>&amp;Pen toepassen op selectie</translation>
     </message>
     <message>
         <source>&amp;Set As Current Pen</source>
-        <translation>&amp;Instellen als huidige pen</translation>
+        <translation>&amp;Als huidige pen instellen</translation>
     </message>
     <message>
         <source>&amp;Apply Pen To Active Layer</source>
-        <translation>Pen &amp; toepassen op actieve laag</translation>
+        <translation>&amp;Pen toepassen op actieve laag</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>&amp;Selecteer entiteiten met attributen Pen</translation>
+        <translation>&amp;Entiteiten selecteren met attribuutpen</translation>
     </message>
     <message>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>&amp;Selecteer entiteiten met tekenpen</translation>
+        <translation>&amp;Entiteiten selecteren met tekenpen</translation>
     </message>
     <message>
         <source>&amp;Edit Pen</source>
-        <translation>Pen bewerken</translation>
+        <translation>&amp;Pen bewerken</translation>
     </message>
     <message>
         <source>&amp;Remove Pen</source>
-        <translation>Pen verwijderen</translation>
+        <translation>&amp;Pen verwijderen</translation>
     </message>
     <message>
         <source>&amp;Remove Pens</source>
-        <translation>Pennen verwijderen</translation>
+        <translation>&amp;Pennen verwijderen</translation>
     </message>
     <message>
         <source>Pen palette</source>
@@ -2250,10 +2251,10 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     <message>
         <source>Location of pens file is changed, please restart the application so new pens file will be used.
 
-Please note that if you'll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation>Locatie van het penbestand is gewijzigd, start de toepassing opnieuw op zodat er een nieuw penbestand wordt gebruikt.
+Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
+        <translation>De locatie van het pennenbestand is gewijzigd. Herstart de toepassing zodat het nieuwe pennenbestand wordt gebruikt.
 
-Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te starten, de huidige pennen van het palet in het nieuwe bestand zullen worden opgeslagen en daarom de bestaande inhoud ervan zal worden overschreven.</translation>
+Let op: als u een pen opslaat via de editor zonder te herstarten, worden de huidige pennen uit de palet opgeslagen in het nieuwe bestand en wordt de bestaande inhoud overschreven.</translation>
     </message>
 </context>
 <context>
@@ -2264,7 +2265,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polylijn</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -2280,7 +2281,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Size inner</source>
-        <translation>Grootte binnenkant</translation>
+        <translation>Binnenmaat</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2288,11 +2289,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Snap:</source>
-        <translation>Knap:</translation>
+        <translation>Snap:</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2300,7 +2301,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Top-left</source>
-        <translation>Linksboven</translation>
+        <translation>Links-boven</translation>
     </message>
     <message>
         <source>Top</source>
@@ -2308,7 +2309,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Top-right</source>
-        <translation>Rechtsboven</translation>
+        <translation>Rechts-boven</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2324,7 +2325,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Bottom-left</source>
-        <translation>Linksonder</translation>
+        <translation>Links-onder</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -2332,7 +2333,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Bottom-right</source>
-        <translation>Rechtsonder</translation>
+        <translation>Rechts-onder</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2344,11 +2345,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Afschuining</translation>
+        <translation>Afschuinen</translation>
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap shift</translation>
+        <translation>Snapverschuiving</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2368,7 +2369,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Basishoek:</translation>
+        <translation>Basis hoek:</translation>
     </message>
 </context>
 <context>
@@ -2379,11 +2380,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap shift</translation>
+        <translation>Snapverschuiving</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Edges:</source>
@@ -2391,11 +2392,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polylijn</translation>
     </message>
     <message>
         <source>End Snap:</source>
-        <translation>Einde snap:</translation>
+        <translation>Eindsnap:</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2407,7 +2408,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Start Snap:</source>
-        <translation>Starten:</translation>
+        <translation>Startsnap:</translation>
     </message>
     <message>
         <source>Corner</source>
@@ -2415,11 +2416,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Mid-Vertical</source>
-        <translation>Middenverticaal</translation>
+        <translation>Midden-verticaal</translation>
     </message>
     <message>
         <source>Mid-Horizontal</source>
-        <translation>Midden-Horizontaal</translation>
+        <translation>Midden-horizontaal</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2427,7 +2428,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Base Angle:</source>
-        <translation>Basishoek:</translation>
+        <translation>Basis hoek:</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -2439,7 +2440,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Afschuining</translation>
+        <translation>Afschuinen</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2466,7 +2467,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polylijn</translation>
     </message>
     <message>
         <source>Both</source>
@@ -2486,11 +2487,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Quadrangle</source>
-        <translation>Kwartel</translation>
+        <translation>Vierhoek</translation>
     </message>
     <message>
         <source>Fixed Base Angle:</source>
-        <translation>Vaste basishoek:</translation>
+        <translation>Vaste basis hoek:</translation>
     </message>
     <message>
         <source>Length X:</source>
@@ -2506,7 +2507,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Bevel</source>
-        <translation>Afschuining</translation>
+        <translation>Afschuinen</translation>
     </message>
     <message>
         <source>Corners:</source>
@@ -2514,7 +2515,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Snap shift</source>
-        <translation>Snap shift</translation>
+        <translation>Snapverschuiving</translation>
     </message>
     <message>
         <source>Length Y:</source>
@@ -2522,7 +2523,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation>Radius:</translation>
     </message>
     <message>
         <source>Fixed Inner Angle:</source>
@@ -2556,7 +2557,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>End</source>
@@ -2564,11 +2565,11 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Edge Tick:</source>
-        <translation>Rand-tick:</translation>
+        <translation>Randmarkering:</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation>Relatief</translation>
     </message>
     <message>
         <source>Offset:</source>
@@ -2580,15 +2581,15 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Start Circle Angle:</source>
-        <translation>Begincirkelhoek:</translation>
+        <translation>Startcirkelhoek:</translation>
     </message>
     <message>
         <source>Tick Length:</source>
-        <translation>Tiklengte:</translation>
+        <translation>Markeerlengte:</translation>
     </message>
     <message>
         <source>Tick snap:</source>
-        <translation>Tick snap:</translation>
+        <translation>Markeersnap:</translation>
     </message>
     <message>
         <source>Angle:</source>
@@ -2596,7 +2597,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Divide</source>
-        <translation>Verdelen</translation>
+        <translation>Verdeeld</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2604,7 +2605,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Fixed </source>
-        <translation>Vast</translation>
+        <translation>Vast </translation>
     </message>
     <message>
         <source>Distance:</source>
@@ -2619,15 +2620,15 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Radius Inner</source>
-        <translation>Straal binnen</translation>
+        <translation>Binnenradius</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polylijn</translation>
     </message>
     <message>
         <source>Radius Outer</source>
-        <translation>Straal buiten</translation>
+        <translation>Buitenradius</translation>
     </message>
     <message>
         <source>Symmetric</source>
@@ -2646,19 +2647,19 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Command line</source>
-        <translation>Commandoregel</translation>
+        <translation>Commandolijn</translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Dok</translation>
+        <translation>Dokken</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Zwevend</translation>
+        <translation>Zweven</translation>
     </message>
     <message>
         <source>Lines</source>
-        <translation>Regels</translation>
+        <translation>Lijnen</translation>
     </message>
     <message>
         <source>Circles</source>
@@ -2666,7 +2667,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Freehand</source>
-        <translation>Vrije hand</translation>
+        <translation>Vrijehand</translation>
     </message>
     <message>
         <source>Ellipses</source>
@@ -2682,7 +2683,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>Afmetingen</translation>
+        <translation>Dimensies</translation>
     </message>
     <message>
         <source>Modify</source>
@@ -2690,7 +2691,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Measure</source>
-        <translation>Maatregel</translation>
+        <translation>Meting</translation>
     </message>
 </context>
 <context>
@@ -2705,7 +2706,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Icon Size</source>
-        <translation>Pictogramgrootte</translation>
+        <translation>Icoongrootte</translation>
     </message>
     <message>
         <source>General</source>
@@ -2733,15 +2734,15 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Input the path of a Qt style sheet.</source>
-        <translation>Voer het pad van een Qt-stijlblad in.</translation>
+        <translation>Voer het pad in van een Qt-stijlblad.</translation>
     </message>
     <message>
         <source>side length in pixels</source>
-        <translation>zijdelengte in pixels</translation>
+        <translation>zijlengte in pixels</translation>
     </message>
     <message>
         <source>Use themed icons</source>
-        <translation>Themapictogrammen gebruiken</translation>
+        <translation>Thematische iconen gebruiken</translation>
     </message>
     <message>
         <source>Left toolbar columns:</source>
@@ -2752,7 +2753,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     <name>LG_DimzerosBox</name>
     <message>
         <source>select:</source>
-        <translation>selecteren:</translation>
+        <translation>selecteer:</translation>
     </message>
     <message>
         <source>remove left</source>
@@ -2763,27 +2764,27 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
         <translation>rechts verwijderen</translation>
     </message>
     <message>
-        <source>remove 0'</source>
-        <translation>0" verwijderen</translation>
+        <source>remove 0&apos;</source>
+        <translation>0&apos; verwijderen</translation>
     </message>
     <message>
-        <source>remove 0"</source>
-        <translation>0" verwijderen</translation>
+        <source>remove 0&quot;</source>
+        <translation>0&quot; verwijderen</translation>
     </message>
 </context>
 <context>
     <name>PolylineEquidistantOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>Regelrelatieve hoekopties</translation>
+        <translation>Opties voor relatieve hoek van lijn</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>Ruimte:</translation>
+        <translation>Spatiëring:</translation>
     </message>
     <message>
         <source>Distance from original polyline</source>
-        <translation>Afstand tot originele polylijn</translation>
+        <translation>Afstand van originele polyline</translation>
     </message>
     <message>
         <source>Copies:</source>
@@ -2923,7 +2924,7 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
     </message>
     <message>
         <source>Tool Options</source>
-        <translation>Gereedschapsopties</translation>
+        <translation>Toolopties</translation>
     </message>
     <message>
         <source>Layer List</source>
@@ -2978,8 +2979,8 @@ Houd er rekening mee dat als u de pen via de editor opslaat zonder opnieuw te st
         <translation>Comando Regel</translation>
     </message>
     <message>
-        <source>Block '%1'</source>
-        <translation>Blok '%1'</translation>
+        <source>Block &apos;%1&apos;</source>
+        <translation>Blok &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Cannot open the file
@@ -3038,19 +3039,19 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Tile &amp;Vertically</source>
-        <translation>Tegel &amp;Vertically</translation>
+        <translation>Verticaal &amp;tegelen</translation>
     </message>
     <message>
         <source>Ta&amp;b mode</source>
-        <translation>Ta&amp;b-modus</translation>
+        <translation>Tab&amp;bladmodus</translation>
     </message>
     <message>
         <source>New document from template: </source>
-        <translation>Nieuw document uit sjabloon:</translation>
+        <translation>Nieuw document van sjabloon: </translation>
     </message>
     <message>
         <source>Select Template aborted</source>
-        <translation>Selecteer sjabloon afgebroken</translation>
+        <translation>Selectie sjabloon afgebroken</translation>
     </message>
     <message>
         <source>Auto-saving failed</source>
@@ -3058,7 +3059,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Snap Selection</source>
-        <translation>Selectie knappen</translation>
+        <translation>Snap-selectie</translation>
     </message>
     <message>
         <source>Export as</source>
@@ -3086,7 +3087,7 @@ Auto-save disabled.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation>Uitvoer</translation>
+        <translation>Exporteren</translation>
     </message>
     <message>
         <source>Cannot open the file
@@ -3094,11 +3095,11 @@ Auto-save disabled.</source>
 Please check its existence and permissions.</source>
         <translation>Kan het bestand niet openen
 %1
-Controleer het bestaan en de rechten.</translation>
+Controleer of het bestaat en de machtigingen.</translation>
     </message>
     <message>
-        <source>File '%1' does not exist. Opening aborted</source>
-        <translation>Bestand '%1' bestaat niet. Openen afgebroken</translation>
+        <source>File &apos;%1&apos; does not exist. Opening aborted</source>
+        <translation>Bestand &apos;%1&apos; bestaat niet. Openen afgebroken</translation>
     </message>
     <message>
         <source>Categories</source>
@@ -3106,11 +3107,11 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation>&amp; Order</translation>
+        <translation>&amp;Volgorde</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation>Beschikking</translation>
+        <translation>Volgorde</translation>
     </message>
     <message>
         <source>Select</source>
@@ -3118,7 +3119,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation>Lijn</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -3126,11 +3127,11 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>&amp;Curve</source>
-        <translation>&amp;Curve</translation>
+        <translation>&amp;Kromme</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curve</translation>
+        <translation>Kromme</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -3138,11 +3139,11 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation>Polylijn</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>Afmetingen</translation>
+        <translation>Dimensie</translation>
     </message>
     <message>
         <source>Modify</source>
@@ -3150,7 +3151,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Informatie</translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Dock Areas</source>
@@ -3186,11 +3187,11 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Dime&amp;nsion</source>
-        <translation>Afwijken</translation>
+        <translation>Dimen&amp;sie</translation>
     </message>
     <message>
         <source>Dock Wid&amp;gets</source>
-        <translation>Dok-wid&amp;gets</translation>
+        <translation>Dokwi&amp;dgets</translation>
     </message>
     <message>
         <source>Recent Files</source>
@@ -3202,7 +3203,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Boost Version: %1.%2.%3</source>
-        <translation>Versie versterken: %1.%2.%3</translation>
+        <translation>Boost-versie: %1.%2.%3</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -3210,7 +3211,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Contributors</source>
-        <translation>Bijdragen</translation>
+        <translation>Bijdragers</translation>
     </message>
     <message>
         <source>License</source>
@@ -3226,15 +3227,15 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Menu Creator</source>
-        <translation>Menu-maker</translation>
+        <translation>Menumaker</translation>
     </message>
     <message>
         <source>Menu Assigner</source>
-        <translation>Menu Assigner</translation>
+        <translation>Menutoewijzer</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp; Gereedschappen</translation>
+        <translation>&amp;Hulpmiddelen</translation>
     </message>
     <message>
         <source>&amp;Drawings</source>
@@ -3255,12 +3256,12 @@ Controleer het bestaan en de rechten.</translation>
     <message>
         <source>Save changes to the following item?
 %1</source>
-        <translation>Wijzigingen in het volgende item opslaan?
+        <translation>Wijzigingen opslaan voor het volgende item?
 %1</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>Opslaan</translation>
+        <translation>&amp;Opslaan</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
@@ -3268,19 +3269,19 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>&amp;Save %1</source>
-        <translation>%1 opslaan</translation>
+        <translation>&amp;Opslaan %1</translation>
     </message>
     <message>
         <source>Save %1 &amp;as...</source>
-        <translation>%1 &amp;as opslaan...</translation>
+        <translation>%1 opslaan &amp;als...</translation>
     </message>
     <message>
         <source>&amp;Window mode</source>
-        <translation>&amp;Window-modus</translation>
+        <translation>&amp;Venstermodus</translation>
     </message>
     <message>
         <source>&amp;Layout</source>
-        <translation>&amp;Layout</translation>
+        <translation>&amp;Indeling</translation>
     </message>
     <message>
         <source>Rounded</source>
@@ -3308,7 +3309,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>&amp;Arrange</source>
-        <translation>&amp; Arrangeren</translation>
+        <translation>&amp;Schikken</translation>
     </message>
     <message>
         <source>&amp;Maximized</source>
@@ -3332,24 +3333,24 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Zwevend</translation>
+        <translation>Zweven</translation>
     </message>
     <message>
         <source>Dock</source>
         <comment>Dock the command widget to the main window</comment>
-        <translation>Dok</translation>
+        <translation>Dokken</translation>
     </message>
     <message>
         <source>&amp;Wiki</source>
         <translation>&amp;Wiki</translation>
     </message>
     <message>
-        <source>User's &amp;Manual</source>
-        <translation>Gebruikershandleiding</translation>
+        <source>User&apos;s &amp;Manual</source>
+        <translation>Gebruikers&amp;handleiding</translation>
     </message>
     <message>
         <source>&amp;Commands</source>
-        <translation>&amp; Commando's</translation>
+        <translation>&amp;Opdrachten</translation>
     </message>
     <message>
         <source>&amp;Style Sheets</source>
@@ -3357,7 +3358,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Wid&amp;gets</source>
-        <translation>Wid&amp;gets</translation>
+        <translation>Wi&amp;dgets</translation>
     </message>
     <message>
         <source>&amp;Forum</source>
@@ -3369,7 +3370,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>&amp;Release Information</source>
-        <translation>Informatie &amp;verwijderen</translation>
+        <translation>&amp;Release-informatie</translation>
     </message>
     <message>
         <source>On&amp;line</source>
@@ -3381,7 +3382,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Please adjust scaling and positioning in print preview first.</source>
-        <translation>Stel eerst de schaalverdeling en positionering in afdrukvoorbeeld aan.</translation>
+        <translation>Pas eerst schaling en positie aan in afdrukvoorbeeld.</translation>
     </message>
     <message>
         <source>Pen Palette</source>
@@ -3389,7 +3390,7 @@ Controleer het bestaan en de rechten.</translation>
     </message>
     <message>
         <source>Layer Tree</source>
-        <translation>Laagboom</translation>
+        <translation>Lagenboom</translation>
     </message>
 </context>
 <context>
@@ -3397,42 +3398,38 @@ Controleer het bestaan en de rechten.</translation>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>ontsnappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: restored snapping mode to normal</source>
-        <translation>Spatiebalk: knipmodus hersteld naar normaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spacebar: temporarily set snapping mode to free snapping</source>
-        <translation>Spatiebalk: zet de knipmodus tijdelijk op vrije snapping</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_ActiveLayerName</name>
     <message>
         <source>Selection</source>
-        <translation>Selectie</translation>
+        <translation type="unfinished">Selectie</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Current Layer</source>
-        <translation>Huidige laag</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;bodystyle="lettertype-familie:'Helvetica'; lettergrootte:7pt; lettertypegewicht:400; lettertypestijl:normaal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-links:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt; Naam van de huidige actieve laag&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Name of Current Active Layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3450,8 +3447,8 @@ p, li { white-space: pre-wrap; }
         <translation>Blok aan het herbenoemen</translation>
     </message>
     <message>
-        <source>Could not name block. A block named "%1" already exists.</source>
-        <translation>Kon blok niet benoemen. Er bestaat al een blok genaamd "%1".</translation>
+        <source>Could not name block. A block named &quot;%1&quot; already exists.</source>
+        <translation>Kon blok niet benoemen. Er bestaat al een blok genaamd &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -3520,27 +3517,27 @@ in een separate Venster</translation>
     </message>
     <message>
         <source>Create Block</source>
-        <translation>Blok aanmaken</translation>
+        <translation type="unfinished">Nieuwe Blok</translation>
     </message>
     <message>
         <source>Add an empty block</source>
-        <translation>Een leeg blok toevoegen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>save the active block to a file</source>
-        <translation>het actieve blok opslaan in een bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove block</source>
-        <translation>Blok verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation type="unfinished">Filter</translation>
     </message>
     <message>
         <source>Looking for matching block names</source>
-        <translation>Op zoek naar bijpassende bloknamen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3595,65 +3592,65 @@ in een separate Venster</translation>
     </message>
     <message>
         <source>Dark Red</source>
-        <translation>Donkerrood</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Yellow</source>
-        <translation>Donkergeel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Green</source>
-        <translation>Donkergroen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Cyan</source>
-        <translation>Donkere cyaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Blue</source>
-        <translation>Donkerblauw</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Magenta</source>
-        <translation>Donker Magenta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation>Donkergrijs</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation>Aangepast</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>/ColorBox</source>
-        <translation>Kleurvak</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Aangepast gekozen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_CommandEdit</name>
     <message>
         <source>clear</source>
-        <translation>duidelijk</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_CommandHistory</name>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopiëren</translation>
+        <translation type="unfinished">&amp;Kopieer</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation>&amp;Alles selecteren</translation>
+        <translation type="unfinished">Selecteer &amp;Alles</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>Wissen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3668,36 +3665,36 @@ in een separate Venster</translation>
     </message>
     <message>
         <source>Unknown command: %1</source>
-        <translation>Onbekende opdracht: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Command history and output</source>
-        <translation>Commandogeschiedenis en uitvoer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>ontsnappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dock</source>
-        <translation>Dok</translation>
+        <translation type="unfinished">Dokken</translation>
     </message>
     <message>
         <source>Float</source>
-        <translation>Zwevend</translation>
+        <translation type="unfinished">Zweven</translation>
     </message>
     <message>
         <source>Command line</source>
-        <translation>Commandoregel</translation>
+        <translation type="unfinished">Comando Regel</translation>
     </message>
     <message>
         <source>Cmd</source>
-        <translation>Cmd</translation>
+        <translation type="unfinished">Cmd</translation>
     </message>
 </context>
 <context>
@@ -3712,7 +3709,7 @@ in een separate Venster</translation>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3751,25 +3748,25 @@ in een separate Venster</translation>
     </message>
     <message>
         <source>⌀ (Diameter)</source>
-        <translation>(Diameter)</translation>
+        <translation type="unfinished">⌀ (Diameter)</translation>
     </message>
     <message>
         <source>π (Pi)</source>
-        <translation>π (Pi)</translation>
+        <translation type="unfinished">π (Pi)</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Format of the dimension text, &amp;lt;&amp;gt; can be used as a placeholder for the dimension measurement value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Formaat van de dimensietekst, &lt;&gt; kan worden gebruikt als plaatshouder voor de maatmetingswaarde&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimesnion prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3824,12 +3821,11 @@ in een separate Venster</translation>
     <message>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>Pas attributen ook toe op alle sub-entiteiten van geselecteerde INSERT.
-Dit wijzigt recursief alle entiteiten van het Blok zelf.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply attributes Block-deep</source>
-        <translation>Attributen toepassen Blok-diep</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3968,62 +3964,62 @@ Dit wijzigt recursief alle entiteiten van het Blok zelf.</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Gebied</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgImage</name>
     <message>
         <source>Image</source>
-        <translation>Afbeelding</translation>
+        <translation type="unfinished">Afbeelding</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Laag:</translation>
+        <translation type="unfinished">Laag:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometrie</translation>
+        <translation type="unfinished">Geometrie</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation type="unfinished">Breedte:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Hoogte:</translation>
+        <translation type="unfinished">Hoogte:</translation>
     </message>
     <message>
         <source>insert (x):</source>
-        <translation>invoegen (x):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale:</source>
-        <translation>Schaal:</translation>
+        <translation type="unfinished">Schaal:</translation>
     </message>
     <message>
         <source>Size (px):</source>
-        <translation>Grootte (px):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>path:</source>
-        <translation>pad:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>insert (y):</source>
-        <translation>invoegen (y):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select an image file</source>
-        <translation>Selecteer een afbeeldingsbestand</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4045,16 +4041,12 @@ Dit wijzigt recursief alle entiteiten van het Blok zelf.</translation>
         <translation>Commando Taal:</translation>
     </message>
     <message>
-        <source>&lt;font size="+1"&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
+        <source>&lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Welcome to LibreCAD&lt;/b&gt;
 &lt;/font&gt;
 &lt;br&gt;
 Please choose the unit you want to use for new drawings and your preferred language.&lt;br&gt;
 (You can changes these settings later.)</source>
-        <translation>&lt;lettergrootte="+1"&gt;&lt;b&gt;Welkom bij LibreCAD&lt;/b&gt;
-&lt;/lettertype&gt;
-&lt;br&gt;
-Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.&lt;br&gt;
-(U kunt deze instellingen later wijzigen.)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4101,11 +4093,11 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Scale X:</source>
-        <translation>Schaal X:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale Y:</source>
-        <translation>Y-schaal:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4140,158 +4132,158 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>ID: </source>
-        <translation>ID:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgMText</name>
     <message>
         <source>MText</source>
-        <translation>MText</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Laag:</translation>
+        <translation type="unfinished">Laag:</translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>&amp; Hoogte:</translation>
+        <translation type="unfinished">&amp;Hoogte:</translation>
     </message>
     <message>
         <source>&amp;Default line spacing</source>
-        <translation>&amp;Standaard regelafstand</translation>
+        <translation type="unfinished">&amp;Standaard regelafstand</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation>Alt+D</translation>
+        <translation type="unfinished">Alt+D</translation>
     </message>
     <message>
         <source>Alignment</source>
-        <translation>Uitlijning</translation>
+        <translation type="unfinished">Uitlijnen</translation>
     </message>
     <message>
         <source>Top Right</source>
-        <translation>Rechtsboven</translation>
+        <translation type="unfinished">Boven Rechts</translation>
     </message>
     <message>
         <source>Top Left</source>
-        <translation>Linksboven</translation>
+        <translation type="unfinished">Boven Links</translation>
     </message>
     <message>
         <source>Middle Left</source>
-        <translation>Midden links</translation>
+        <translation type="unfinished">Midden Links</translation>
     </message>
     <message>
         <source>Middle Center</source>
-        <translation>Midden</translation>
+        <translation type="unfinished">Midden Center</translation>
     </message>
     <message>
         <source>Middle Right</source>
-        <translation>Middenrechts</translation>
+        <translation type="unfinished">Midden Rechts</translation>
     </message>
     <message>
         <source>Bottom Left</source>
-        <translation>Linksonder</translation>
+        <translation type="unfinished">Onder Links</translation>
     </message>
     <message>
         <source>Bottom Right</source>
-        <translation>Rechtsonder</translation>
+        <translation type="unfinished">Onder Rechts</translation>
     </message>
     <message>
         <source>Bottom Center</source>
-        <translation>Onderste midden</translation>
+        <translation type="unfinished">Onder Center</translation>
     </message>
     <message>
         <source>Top Center</source>
-        <translation>Boven centrum</translation>
+        <translation type="unfinished">Boven Center</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Hoek</translation>
+        <translation type="unfinished">Hoek</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Tekst:</translation>
+        <translation type="unfinished">Tekst:</translation>
     </message>
     <message>
         <source>Clear Text</source>
-        <translation>Tekst wissen</translation>
+        <translation type="unfinished">Wis Tekst</translation>
     </message>
     <message>
         <source>Load Text From File</source>
-        <translation>Tekst uit bestand laden</translation>
+        <translation type="unfinished">Laad tekst van Bestand</translation>
     </message>
     <message>
         <source>Save Text To File</source>
-        <translation>Tekst opslaan in bestand</translation>
+        <translation type="unfinished">Bewaar tekst naar Bestand</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation type="unfinished">Knip</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation type="unfinished">Kopieer</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation type="unfinished">Plak</translation>
     </message>
     <message>
         <source>Insert Symbol</source>
-        <translation>Symbool invoegen</translation>
+        <translation type="unfinished">Voeg Symbool in</translation>
     </message>
     <message>
         <source>Degree (°)</source>
-        <translation>Graad (°)</translation>
+        <translation type="unfinished">Graden (°)</translation>
     </message>
     <message>
         <source>Plus / Minus (±)</source>
-        <translation>Plus / minus (±)</translation>
+        <translation type="unfinished">Plus / Minus (±)</translation>
     </message>
     <message>
         <source>At (@)</source>
-        <translation>Op (@)</translation>
+        <translation type="unfinished">Aapje (@)</translation>
     </message>
     <message>
         <source>Hash (#)</source>
-        <translation>Hash (#)</translation>
+        <translation type="unfinished">Hekje (#)</translation>
     </message>
     <message>
         <source>Dollar ($)</source>
-        <translation>Dollar ($)</translation>
+        <translation type="unfinished">Dollar ($)</translation>
     </message>
     <message>
         <source>Copyright (©)</source>
-        <translation>Copyright (©)</translation>
+        <translation type="unfinished">Copyright (©)</translation>
     </message>
     <message>
         <source>Registered (®)</source>
-        <translation>Geregistreerd (®)</translation>
+        <translation type="unfinished">Registered (®)</translation>
     </message>
     <message>
         <source>Paragraph (§)</source>
-        <translation>Paragraaf (§)</translation>
+        <translation type="unfinished">Paragraaf (§)</translation>
     </message>
     <message>
         <source>Pi (π)</source>
-        <translation>Pi (π)</translation>
+        <translation type="unfinished">Pi (π)</translation>
     </message>
     <message>
         <source>Pound (£)</source>
-        <translation>Pond (£)</translation>
+        <translation type="unfinished">Pond (£)</translation>
     </message>
     <message>
         <source>Yen (¥)</source>
-        <translation>Yen (¥)</translation>
+        <translation type="unfinished">Yen (¥)</translation>
     </message>
     <message>
         <source>Times (×)</source>
-        <translation>Tijden (×)</translation>
+        <translation type="unfinished">Vermenigvuldigen (×)</translation>
     </message>
     <message>
         <source>Division (÷)</source>
-        <translation>Sector</translation>
+        <translation type="unfinished">Delen (÷)</translation>
     </message>
     <message>
         <source>Insert Unicode</source>
@@ -4299,471 +4291,471 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Page:</source>
-        <translation>Bladzijde:</translation>
+        <translation type="unfinished">Pagina:</translation>
     </message>
     <message>
         <source>Char:</source>
-        <translation>Char:</translation>
+        <translation type="unfinished">Karakter:</translation>
     </message>
     <message>
         <source>[0000-007F] Basic Latin</source>
-        <translation>[0000-007F] Latijn</translation>
+        <translation type="unfinished">[0000-007F] Basic Latin</translation>
     </message>
     <message>
         <source>[0080-00FF] Latin-1 Supplementary</source>
-        <translation>[0080-00FF] Latijn-1 Aanvullend</translation>
+        <translation type="unfinished">[0080-00FF] Latin-1 Supplementary</translation>
     </message>
     <message>
         <source>[0100-017F] Latin Extended-A</source>
-        <translation>[0100-017F] Latijn uitgebreid A</translation>
+        <translation type="unfinished">[0100-017F] Latin Extended-A</translation>
     </message>
     <message>
         <source>[0180-024F] Latin Extended-B</source>
-        <translation>[0180-024F] Latijn uitgebreid-B</translation>
+        <translation type="unfinished">[0180-024F] Latin Extended-B</translation>
     </message>
     <message>
         <source>[0250-02AF] IPA Extensions</source>
-        <translation>[0250-02AF] IPA-uitbreidingen</translation>
+        <translation type="unfinished">[0250-02AF] IPA Extensies</translation>
     </message>
     <message>
         <source>[02B0-02FF] Spacing Modifier Letters</source>
-        <translation>[02B0-02FF] Ruimte wijzigende letters</translation>
+        <translation type="unfinished">[02B0-02FF] Spacing Modifier Letters</translation>
     </message>
     <message>
         <source>[0300-036F] Combining Diacritical Marks</source>
-        <translation>[0300-036F] Diakritische tekens combineren</translation>
+        <translation type="unfinished">[0300-036F] Combining Diacritical Marks</translation>
     </message>
     <message>
         <source>[0370-03FF] Greek and Coptic</source>
-        <translation>[0370-03FF] Grieks en Koptisch</translation>
+        <translation type="unfinished">[0370-03FF] Greek and Coptic</translation>
     </message>
     <message>
         <source>[0400-04FF] Cyrillic</source>
-        <translation>[0400-04FF] Cyrillisch</translation>
+        <translation type="unfinished">[0400-04FF] Cyrillic</translation>
     </message>
     <message>
         <source>[0500-052F] Cyrillic Supplementary</source>
-        <translation>[050-052F] Cyrillisch supplementair</translation>
+        <translation type="unfinished">[0500-052F] Cyrillic Supplementary</translation>
     </message>
     <message>
         <source>[0530-058F] Armenian</source>
-        <translation>[0530-058F] Armeens</translation>
+        <translation type="unfinished">[0530-058F] Armenian</translation>
     </message>
     <message>
         <source>[0590-05FF] Hebrew</source>
-        <translation>[0590-05FF] Hebreeuws</translation>
+        <translation type="unfinished">[0590-05FF] Hebrew</translation>
     </message>
     <message>
         <source>[0600-06FF] Arabic</source>
-        <translation>[0600-06FF] Arabisch</translation>
+        <translation type="unfinished">[0600-06FF] Arabic</translation>
     </message>
     <message>
         <source>[0700-074F] Syriac</source>
-        <translation>[0700-074F] Syriac</translation>
+        <translation type="unfinished">[0700-074F] Syriac</translation>
     </message>
     <message>
         <source>[0780-07BF] Thaana</source>
-        <translation>[0780-07BF] Thaana</translation>
+        <translation type="unfinished">[0780-07BF] Thaana</translation>
     </message>
     <message>
         <source>[0900-097F] Devanagari</source>
-        <translation>[0900-097F] Devanagari</translation>
+        <translation type="unfinished">[0900-097F] Devanagari</translation>
     </message>
     <message>
         <source>[0980-09FF] Bengali</source>
-        <translation>[0980-09FF] Bengali</translation>
+        <translation type="unfinished">[0980-09FF] Bengali</translation>
     </message>
     <message>
         <source>[0A00-0A7F] Gurmukhi</source>
-        <translation>[0A00-0A7F] Gurmukhi</translation>
+        <translation type="unfinished">[0A00-0A7F] Gurmukhi</translation>
     </message>
     <message>
         <source>[0A80-0AFF] Gujarati</source>
-        <translation>[0A80-0AFF] Gujarati</translation>
+        <translation type="unfinished">[0A80-0AFF] Gujarati</translation>
     </message>
     <message>
         <source>[0B00-0B7F] Oriya</source>
-        <translation>[0B00-0B7F] Oriya</translation>
+        <translation type="unfinished">[0B00-0B7F] Oriya</translation>
     </message>
     <message>
         <source>[0B80-0BFF] Tamil</source>
-        <translation>[0B80-0BFF] Tamil</translation>
+        <translation type="unfinished">[0B80-0BFF] Tamil</translation>
     </message>
     <message>
         <source>[0C00-0C7F] Telugu</source>
-        <translation>[0C00-0C7F] Telugu</translation>
+        <translation type="unfinished">[0C00-0C7F] Telugu</translation>
     </message>
     <message>
         <source>[0C80-0CFF] Kannada</source>
-        <translation>[0C80-0CFF] Kannada</translation>
+        <translation type="unfinished">[0C80-0CFF] Kannada</translation>
     </message>
     <message>
         <source>[0D00-0D7F] Malayalam</source>
-        <translation>[0D00-0D7F] Malayalam</translation>
+        <translation type="unfinished">[0D00-0D7F] Malayalam</translation>
     </message>
     <message>
         <source>[0D80-0DFF] Sinhala</source>
-        <translation>[0D80-0DFF] Sinhala</translation>
+        <translation type="unfinished">[0D80-0DFF] Sinhala</translation>
     </message>
     <message>
         <source>[0E00-0E7F] Thai</source>
-        <translation>[0E00-0E7F] Thais</translation>
+        <translation type="unfinished">[0E00-0E7F] Thai</translation>
     </message>
     <message>
         <source>[0E80-0EFF] Lao</source>
-        <translation>[0E80-0EFF] Lao</translation>
+        <translation type="unfinished">[0E80-0EFF] Lao</translation>
     </message>
     <message>
         <source>[0F00-0FFF] Tibetan</source>
-        <translation>[0F00-0FFF] Tibetan</translation>
+        <translation type="unfinished">[0F00-0FFF] Tibetan</translation>
     </message>
     <message>
         <source>[1000-109F] Myanmar</source>
-        <translation>[1000-109F] Myanmar</translation>
+        <translation type="unfinished">[1000-109F] Myanmar</translation>
     </message>
     <message>
         <source>[10A0-10FF] Georgian</source>
-        <translation>[10A0-10FF] Georgisch</translation>
+        <translation type="unfinished">[10A0-10FF] Georgian</translation>
     </message>
     <message>
         <source>[1100-11FF] Hangul Jamo</source>
-        <translation>[1100-11FF] Hangul Jamo</translation>
+        <translation type="unfinished">[1100-11FF] Hangul Jamo</translation>
     </message>
     <message>
         <source>[1200-137F] Ethiopic</source>
-        <translation>[1200-137F] Ethiopisch</translation>
+        <translation type="unfinished">[1200-137F] Ethiopic</translation>
     </message>
     <message>
         <source>[13A0-13FF] Cherokee</source>
-        <translation>[13A0-13FF] Cherokee</translation>
+        <translation type="unfinished">[13A0-13FF] Cherokee</translation>
     </message>
     <message>
         <source>[1400-167F] Unified Canadian Aboriginal Syllabic</source>
-        <translation>[1400-167F] Unified Canadian Aboriginal Syllabic</translation>
+        <translation type="unfinished">[1400-167F] Unified Canadian Aboriginal Syllabic</translation>
     </message>
     <message>
         <source>[1680-169F] Ogham</source>
-        <translation>[1680-169F] Ogham</translation>
+        <translation type="unfinished">[1680-169F] Ogham</translation>
     </message>
     <message>
         <source>[16A0-16FF] Runic</source>
-        <translation>[16A0-16FF] Runisch</translation>
+        <translation type="unfinished">[16A0-16FF] Runic</translation>
     </message>
     <message>
         <source>[1700-171F] Tagalog</source>
-        <translation>[1700-171F] Tagalog</translation>
+        <translation type="unfinished">[1700-171F] Tagalog</translation>
     </message>
     <message>
         <source>[1720-173F] Hanunoo</source>
-        <translation>[1720-173F] Hanunoo</translation>
+        <translation type="unfinished">[1720-173F] Hanunoo</translation>
     </message>
     <message>
         <source>[1740-175F] Buhid</source>
-        <translation>[1740-175F] Buhid</translation>
+        <translation type="unfinished">[1740-175F] Buhid</translation>
     </message>
     <message>
         <source>[1760-177F] Tagbanwa</source>
-        <translation>[1760-177F] Tagbanwa</translation>
+        <translation type="unfinished">[1760-177F] Tagbanwa</translation>
     </message>
     <message>
         <source>[1780-17FF] Khmer</source>
-        <translation>[1780-17FF] Khmer</translation>
+        <translation type="unfinished">[1780-17FF] Khmer</translation>
     </message>
     <message>
         <source>[1800-18AF] Mongolian</source>
-        <translation>[1800-18AF] Mongools</translation>
+        <translation type="unfinished">[1800-18AF] Mongolian</translation>
     </message>
     <message>
         <source>[1E00-1EFF] Latin Extended Additional</source>
-        <translation>[1E00-1EFF] Latin Extended Extra</translation>
+        <translation type="unfinished">[1E00-1EFF] Latin Extended Additional</translation>
     </message>
     <message>
         <source>[1F00-1FFF] Greek Extended</source>
-        <translation>[1F00-1FFF] Grieks uitgebreid</translation>
+        <translation type="unfinished">[1F00-1FFF] Greek Extended</translation>
     </message>
     <message>
         <source>[2000-206F] General Punctuation</source>
-        <translation>[2000-206F] Algemene interpunctie</translation>
+        <translation type="unfinished">[2000-206F] General Punctuation</translation>
     </message>
     <message>
         <source>[2070-209F] Superscripts and Subscripts</source>
-        <translation>[2070-209F] Superscripts en subscripts</translation>
+        <translation type="unfinished">[2070-209F] Superscripts and Subscripts</translation>
     </message>
     <message>
         <source>[20A0-20CF] Currency Symbols</source>
-        <translation>[20A0-20CF] Valutasymbolen</translation>
+        <translation type="unfinished">[20A0-20CF] Currency Symbols</translation>
     </message>
     <message>
         <source>[20D0-20FF] Combining Marks for Symbols</source>
-        <translation>[20D0-20FF] Samenvoegen van tekens voor symbolen</translation>
+        <translation type="unfinished">[20D0-20FF] Combining Marks for Symbols</translation>
     </message>
     <message>
         <source>[2100-214F] Letterlike Symbols</source>
-        <translation>[2100-214F] Letterachtige symbolen</translation>
+        <translation type="unfinished">[2100-214F] Letterlike Symbols</translation>
     </message>
     <message>
         <source>[2150-218F] Number Forms</source>
-        <translation>[2150-218F] Nummerformulieren</translation>
+        <translation type="unfinished">[2150-218F] Number Forms</translation>
     </message>
     <message>
         <source>[2190-21FF] Arrows</source>
-        <translation>[2190-21FF] Pijlen</translation>
+        <translation type="unfinished">[2190-21FF] Arrows</translation>
     </message>
     <message>
         <source>[2200-22FF] Mathematical Operators</source>
-        <translation>[2200-22FF] Wiskundige exploitanten</translation>
+        <translation type="unfinished">[2200-22FF] Mathematical Operators</translation>
     </message>
     <message>
         <source>[2300-23FF] Miscellaneous Technical</source>
-        <translation>[2300-23FF] Diversen</translation>
+        <translation type="unfinished">[2300-23FF] Miscellaneous Technical</translation>
     </message>
     <message>
         <source>[2400-243F] Control Pictures</source>
-        <translation>[240-243F] Controlefoto's</translation>
+        <translation type="unfinished">[2400-243F] Control Pictures</translation>
     </message>
     <message>
         <source>[2440-245F] Optical Character Recognition</source>
-        <translation>[2440-245F] Optische karakterherkenning</translation>
+        <translation type="unfinished">[2440-245F] Optical Character Recognition</translation>
     </message>
     <message>
         <source>[2460-24FF] Enclosed Alphanumerics</source>
-        <translation>[2460-24FF] Afgesloten Alfanumerieke gegevens</translation>
+        <translation type="unfinished">[2460-24FF] Enclosed Alphanumerics</translation>
     </message>
     <message>
         <source>[2500-257F] Box Drawing</source>
-        <translation>[2500-257F] Vaktekening</translation>
+        <translation type="unfinished">[2500-257F] Box Drawing</translation>
     </message>
     <message>
         <source>[2580-259F] Block Elements</source>
-        <translation>[2580-259F] Blokelementen</translation>
+        <translation type="unfinished">[2580-259F] Block Elements</translation>
     </message>
     <message>
         <source>[25A0-25FF] Geometric Shapes</source>
-        <translation>[25A0-25FF] Geometrische vormen</translation>
+        <translation type="unfinished">[25A0-25FF] Geometric Shapes</translation>
     </message>
     <message>
         <source>[2600-26FF] Miscellaneous Symbols</source>
-        <translation>[2600-26FF] Diverse symbolen</translation>
+        <translation type="unfinished">[2600-26FF] Miscellaneous Symbols</translation>
     </message>
     <message>
         <source>[2700-27BF] Dingbats</source>
-        <translation>[2700-27BF] Dingbats</translation>
+        <translation type="unfinished">[2700-27BF] Dingbats</translation>
     </message>
     <message>
         <source>[27C0-27EF] Miscellaneous Mathematical Symbols-A</source>
-        <translation>[27C0-27EF] Diverse wiskundige symbolen- A</translation>
+        <translation type="unfinished">[27C0-27EF] Miscellaneous Mathematical Symbols-A</translation>
     </message>
     <message>
         <source>[27F0-27FF] Supplemental Arrows-A</source>
-        <translation>[27F0-27FF] Aanvullende pijlen- A</translation>
+        <translation type="unfinished">[27F0-27FF] Supplemental Arrows-A</translation>
     </message>
     <message>
         <source>[2800-28FF] Braille Patterns</source>
-        <translation>[2800-28FF] Braillepatronen</translation>
+        <translation type="unfinished">[2800-28FF] Braille Patterns</translation>
     </message>
     <message>
         <source>[2900-297F] Supplemental Arrows-B</source>
-        <translation>[2900-297F] Aanvullende pijlen-B</translation>
+        <translation type="unfinished">[2900-297F] Supplemental Arrows-B</translation>
     </message>
     <message>
         <source>[2980-29FF] Miscellaneous Mathematical Symbols-B</source>
-        <translation>[2980-29FF] Diverse wiskundige symbolen-B</translation>
+        <translation type="unfinished">[2980-29FF] Miscellaneous Mathematical Symbols-B</translation>
     </message>
     <message>
         <source>[2A00-2AFF] Supplemental Mathematical Operators</source>
-        <translation>[2A00-2AFF] Aanvullende wiskundige exploitanten</translation>
+        <translation type="unfinished">[2A00-2AFF] Supplemental Mathematical Operators</translation>
     </message>
     <message>
         <source>[2E80-2EFF] CJK Radicals Supplement</source>
-        <translation>[2E80-2EFF] CJK Radicalen Supplement</translation>
+        <translation type="unfinished">[2E80-2EFF] CJK Radicals Supplement</translation>
     </message>
     <message>
         <source>[2F00-2FDF] Kangxi Radicals</source>
-        <translation>[2F00-2FDF] Kangxi-radicalen</translation>
+        <translation type="unfinished">[2F00-2FDF] Kangxi Radicals</translation>
     </message>
     <message>
         <source>[2FF0-2FFF] Ideographic Description Characters</source>
-        <translation>[2FF0-2FFF] Ideografische beschrijving tekens</translation>
+        <translation type="unfinished">[2FF0-2FFF] Ideographic Description Characters</translation>
     </message>
     <message>
         <source>[3000-303F] CJK Symbols and Punctuation</source>
-        <translation>[3000-303F] CJK-symbolen en leestekens</translation>
+        <translation type="unfinished">[3000-303F] CJK Symbols and Punctuation</translation>
     </message>
     <message>
         <source>[3040-309F] Hiragana</source>
-        <translation>[3040-309F] Hiragana</translation>
+        <translation type="unfinished">[3040-309F] Hiragana</translation>
     </message>
     <message>
         <source>[30A0-30FF] Katakana</source>
-        <translation>[30A0-30FF] Katakana</translation>
+        <translation type="unfinished">[30A0-30FF] Katakana</translation>
     </message>
     <message>
         <source>[3100-312F] Bopomofo</source>
-        <translation>[3100-312F] Bopomofo</translation>
+        <translation type="unfinished">[3100-312F] Bopomofo</translation>
     </message>
     <message>
         <source>[3130-318F] Hangul Compatibility Jamo</source>
-        <translation>[3130-318F] Hangul Compatibiliteit Jamo</translation>
+        <translation type="unfinished">[3130-318F] Hangul Compatibility Jamo</translation>
     </message>
     <message>
         <source>[3190-319F] Kanbun</source>
-        <translation>[3190-319F] Kanbun</translation>
+        <translation type="unfinished">[3190-319F] Kanbun</translation>
     </message>
     <message>
         <source>[31A0-31BF] Bopomofo Extended</source>
-        <translation>[31A0-31BF] Bopomofo uitgebreid</translation>
+        <translation type="unfinished">[31A0-31BF] Bopomofo Extended</translation>
     </message>
     <message>
         <source>[3200-32FF] Enclosed CJK Letters and Months</source>
-        <translation>[3200-32FF] Ingesloten CJK-brieven en -maanden</translation>
+        <translation type="unfinished">[3200-32FF] Enclosed CJK Letters and Months</translation>
     </message>
     <message>
         <source>[3300-33FF] CJK Compatibility</source>
-        <translation>[3300-33FF] CJK-compatibiliteit</translation>
+        <translation type="unfinished">[3300-33FF] CJK Compatibility</translation>
     </message>
     <message>
         <source>[3400-4DBF] CJK Unified Ideographs Extension A</source>
-        <translation>[3400-4DBF] CJK Unified Ideografs Extension A</translation>
+        <translation type="unfinished">[3400-4DBF] CJK Unified Ideographs Extension A</translation>
     </message>
     <message>
         <source>[4E00-9FAF] CJK Unified Ideographs</source>
-        <translation>[4E00-9FAF] CJK Unified Ideografs</translation>
+        <translation type="unfinished">[4E00-9FAF] CJK Unified Ideographs</translation>
     </message>
     <message>
         <source>[A000-A48F] Yi Syllables</source>
-        <translation>[A000-A48F] Yi Syllables</translation>
+        <translation type="unfinished">[A000-A48F] Yi Syllables</translation>
     </message>
     <message>
         <source>[A490-A4CF] Yi Radicals</source>
-        <translation>[A490-A4CF] Yi radicalen</translation>
+        <translation type="unfinished">[A490-A4CF] Yi Radicals</translation>
     </message>
     <message>
         <source>[AC00-D7AF] Hangul Syllables</source>
-        <translation>[AC00-D7AF] Hangul Syllables</translation>
+        <translation type="unfinished">[AC00-D7AF] Hangul Syllables</translation>
     </message>
     <message>
         <source>[D800-DBFF] High Surrogates</source>
-        <translation>[D800-DBFF] Hoge surrogaten</translation>
+        <translation type="unfinished">[D800-DBFF] High Surrogates</translation>
     </message>
     <message>
         <source>[DC00-DFFF] Low Surrogate Area</source>
-        <translation>[DC00-DFFF] Laag draagvlak</translation>
+        <translation type="unfinished">[DC00-DFFF] Low Surrogate Area</translation>
     </message>
     <message>
         <source>[E000-F8FF] Private Use Area</source>
-        <translation>[E000-F8FF] Gebied voor privégebruik</translation>
+        <translation type="unfinished">[E000-F8FF] Private Use Area</translation>
     </message>
     <message>
         <source>[F900-FAFF] CJK Compatibility Ideographs</source>
-        <translation>[F900-FAFF] CJK Compatibiliteitsideo's</translation>
+        <translation type="unfinished">[F900-FAFF] CJK Compatibility Ideographs</translation>
     </message>
     <message>
         <source>[FB00-FB4F] Alphabetic Presentation Forms</source>
-        <translation>[FB00-FB4F] Alfabetische presentatieformulieren</translation>
+        <translation type="unfinished">[FB00-FB4F] Alphabetic Presentation Forms</translation>
     </message>
     <message>
         <source>[FB50-FDFF] Arabic Presentation Forms-A</source>
-        <translation>[FB50-FDFF] Arabische presentatieformulieren- A</translation>
+        <translation type="unfinished">[FB50-FDFF] Arabic Presentation Forms-A</translation>
     </message>
     <message>
         <source>[FE00-FE0F] Variation Selectors</source>
-        <translation>[FE00-FE0F] Variatiekiezers</translation>
+        <translation type="unfinished">[FE00-FE0F] Variation Selectors</translation>
     </message>
     <message>
         <source>[FE20-FE2F] Combining Half Marks</source>
-        <translation>[FE20-FE2F] Halve markeringen combineren</translation>
+        <translation type="unfinished">[FE20-FE2F] Combining Half Marks</translation>
     </message>
     <message>
         <source>[FE30-FE4F] CJK Compatibility Forms</source>
-        <translation>[FE30-FE4F] CJK-compatibiliteitsformulieren</translation>
+        <translation type="unfinished">[FE30-FE4F] CJK Compatibility Forms</translation>
     </message>
     <message>
         <source>[FE50-FE6F] Small Form Variants</source>
-        <translation>[FE50-FE6F] Kleine vorm Varianten</translation>
+        <translation type="unfinished">[FE50-FE6F] Small Form Variants</translation>
     </message>
     <message>
         <source>[FE70-FEFF] Arabic Presentation Forms-B</source>
-        <translation>[FE70-FEFF] Arabische presentatieformulieren-B</translation>
+        <translation type="unfinished">[FE70-FEFF] Arabic Presentation Forms-B</translation>
     </message>
     <message>
         <source>[FF00-FFEF] Halfwidth and Fullwidth Forms</source>
-        <translation>[FF00-FFEF] Halfbreedte en volledige breedte formulieren</translation>
+        <translation type="unfinished">[FF00-FFEF] Halfwidth and Fullwidth Forms</translation>
     </message>
     <message>
         <source>[FFF0-FFFF] Specials</source>
-        <translation>[FFF0-FFFF] Speciale</translation>
+        <translation type="unfinished">[FFF0-FFFF] Specials</translation>
     </message>
     <message>
         <source>[10300-1032F] Old Italic</source>
-        <translation>[10300-1032F] Oud cursief</translation>
+        <translation type="unfinished">[10300-1032F] Old Italic</translation>
     </message>
     <message>
         <source>[10330-1034F] Gothic</source>
-        <translation>[10330-1034F] Gothic</translation>
+        <translation type="unfinished">[10330-1034F] Gothic</translation>
     </message>
     <message>
         <source>[10400-1044F] Deseret</source>
-        <translation>[10400-1044F] Deseret</translation>
+        <translation type="unfinished">[10400-1044F] Deseret</translation>
     </message>
     <message>
         <source>[1D000-1D0FF] Byzantine Musical Symbols</source>
-        <translation>[1D000-1D0FF] Byzantijnse muzieksymbolen</translation>
+        <translation type="unfinished">[1D000-1D0FF] Byzantine Musical Symbols</translation>
     </message>
     <message>
         <source>[1D100-1D1FF] Musical Symbols</source>
-        <translation>[1D100-1D1FF] Muzieksymbolen</translation>
+        <translation type="unfinished">[1D100-1D1FF] Musical Symbols</translation>
     </message>
     <message>
         <source>[1D400-1D7FF] Mathematical Alphanumeric Symbols</source>
-        <translation>[1D400-1D7FF] Wiskundige Alfanumerieke Symbolen</translation>
+        <translation type="unfinished">[1D400-1D7FF] Mathematical Alphanumeric Symbols</translation>
     </message>
     <message>
         <source>[20000-2A6DF] CJK Unified Ideographs Extension B</source>
-        <translation>[20000-2A6DF] CJK Unified Ideografs Extension B</translation>
+        <translation type="unfinished">[20000-2A6DF] CJK Unified Ideographs Extension B</translation>
     </message>
     <message>
         <source>[2F800-2FA1F] CJK Compatibility Ideographs Supplement</source>
-        <translation>[2F800-2FA1F] CJK Compatibiliteitsideograafsupplement</translation>
+        <translation type="unfinished">[2F800-2FA1F] CJK Compatibility Ideographs Supplement</translation>
     </message>
     <message>
         <source>[E0000-E007F] Tags</source>
-        <translation>[E0000-E007F] Tags</translation>
+        <translation type="unfinished">[E0000-E007F] Tags</translation>
     </message>
     <message>
         <source>[F0000-FFFFD] Supplementary Private Use Area-A</source>
-        <translation>[F0000-FFFFD] Aanvullende zone voor privégebruik A</translation>
+        <translation type="unfinished">[F0000-FFFFD] Supplementary Private Use Area-A</translation>
     </message>
     <message>
         <source>[100000-10FFFD] Supplementary Private Use Area-B</source>
-        <translation>[100000-10FFFD] Aanvullende zone voor privégebruik-B</translation>
+        <translation type="unfinished">[100000-10FFFD] Supplementary Private Use Area-B</translation>
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diameter</translation>
+        <translation type="unfinished">Diameter (⌀)</translation>
     </message>
     <message>
         <source>&amp;Line spacing:</source>
-        <translation>&amp; Regelafstand:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font Settings</source>
-        <translation>Lettertypeinstellingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font:</source>
-        <translation>Lettertype:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text Direction</source>
-        <translation>Tekstrichting</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left to right</source>
-        <translation>Links naar rechts</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right to left</source>
-        <translation>Rechts naar links</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4829,11 +4821,11 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Move/Copy Options</source>
-        <translation>Opties verplaatsen/kopiëren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Number of copies. Maximum 100</source>
-        <translation>Aantal exemplaren. Maximaal 100</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4876,7 +4868,7 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="unfinished">Ctrl+S</translation>
     </message>
 </context>
 <context>
@@ -4950,7 +4942,7 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
         <translation>Graden</translation>
     </message>
     <message>
-        <source>Surveyor's units</source>
+        <source>Surveyor&apos;s units</source>
         <translation>Te meten eenheid</translation>
     </message>
     <message>
@@ -4958,8 +4950,8 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
         <translation>Opties</translation>
     </message>
     <message>
-        <source>For the length formats 'Engineering' and 'Architectural', the unit must be set to Inch.</source>
-        <translation>Voor de lengte formaten 'Werktuigbouw' en 'Bouwkunde' moet de eenheid naar Inch worden gezet.</translation>
+        <source>For the length formats &apos;Engineering&apos; and &apos;Architectural&apos;, the unit must be set to Inch.</source>
+        <translation>Voor de lengte formaten &apos;Werktuigbouw&apos; en &apos;Bouwkunde&apos; moet de eenheid naar Inch worden gezet.</translation>
     </message>
     <message>
         <source>Arrow size:</source>
@@ -5043,267 +5035,267 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Crosshair</source>
-        <translation>Kruisdraad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left crosshair with isometric grid</source>
-        <translation>Linkerkruis met isometrisch raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Links</translation>
+        <translation type="unfinished">Links</translation>
     </message>
     <message>
         <source>Top crosshair with isometric grid</source>
-        <translation>Bovenste kruisdraad met isometrische raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>Boven</translation>
+        <translation type="unfinished">Boven</translation>
     </message>
     <message>
         <source>Right crosshair with isometric grid</source>
-        <translation>Rechterkruisdraad met isometrisch raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Rechts</translation>
+        <translation type="unfinished">Rechts</translation>
     </message>
     <message>
         <source>Use orthogonal grid</source>
-        <translation>Orthogonaal raster gebruiken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Orthogonal Grid</source>
-        <translation>Orthogonaal raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use isometric grid</source>
-        <translation>Isometrisch raster gebruiken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Isometric Grid</source>
-        <translation>Isometrisch raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tick size:</source>
-        <translation>Tikgrootte:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won't be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Dimension Tick grootte. Stel het in op 0 zal de tekenmaat uitschakelen. Dimensie pijl zal niet worden getekend wanneer tekenteken is ingeschakeld.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension Tick size. Set it to 0 will disable the dimension tick. Dimension arrow won&apos;t be drawn when dimension tick is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal</source>
-        <translation>Horizontaal</translation>
+        <translation type="unfinished">Horizontaal</translation>
     </message>
     <message>
         <source>General Scale:</source>
-        <translation>Algemene schaal:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension values.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Schaal om alle dimensiewaarden te vermenigvuldigen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scale to multiply all dimension geometries.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Schaal om alle dimensies te vermenigvuldigen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text style:</source>
-        <translation>Tekststijl:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>'.' (Period)</source>
-        <translation>"" (Periode)</translation>
+        <source>&apos;.&apos; (Period)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>',' (Comma)</source>
-        <translation>"," (Comma)</translation>
+        <source>&apos;,&apos; (Comma)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decimal separator:</source>
-        <translation>Decimaal scheidingsteken:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear units:</source>
-        <translation>Lineaire eenheden:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation>Kleur:</translation>
+        <translation type="unfinished">Kleur:</translation>
     </message>
     <message>
         <source>Length Factor:</source>
-        <translation>Lengtefactor:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular units:</source>
-        <translation>Hoekeenheden:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear zeros:</source>
-        <translation>Lineaire nullen:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Format units</source>
-        <translation>Formaateenheden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distance gap around text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Afstandskloof rond tekst&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text size &amp; position</source>
-        <translation>Tekstgrootte &amp; positie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length to enlarge over dimension line</source>
-        <translation>Lengte om over dimensielijn te vergroten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name="result_box"/&gt;without effect when tick size &lt;a name="result_box"/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Afmetingen pijlgrootte. &lt;a naam="result box"/&gt;zonder effect bij tekengrootte &lt;a naam="result box"/&gt;is anders dan 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dimension arrow size. &lt;a name=&quot;result_box&quot;/&gt;without effect when tick size &lt;a name=&quot;result_box&quot;/&gt;is other than 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation type="unfinished">Breedte:</translation>
     </message>
     <message>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation>Dimensielijnen, pijlen &amp; teken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular zeros:</source>
-        <translation>Nullen van de hoek:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angular precision:</source>
-        <translation>Hoeknauwkeurigheid:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enlarge:</source>
-        <translation>Vergroot:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offset:</source>
-        <translation>Verschuiving:</translation>
+        <translation type="unfinished">Verschuiving:</translation>
     </message>
     <message>
         <source>Linear precision:</source>
-        <translation>Lineaire precisie:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Tekstuitlijning &lt;a naam="result box"/&gt; ten opzichte van de dimensieregel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name=&quot;result_box&quot;/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Aligned</source>
-        <translation>Uitlijnen</translation>
+        <translation type="unfinished">Uitgelijnd</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Offset from origin point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text alignment:</source>
-        <translation>Tekstuitlijning:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Extension lines</source>
-        <translation>Extensielijnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fixed length:</source>
-        <translation>Vaste lengte:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Format</source>
-        <translation>Formaat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Height:</source>
-        <translation>&amp; Hoogte:</translation>
+        <translation type="unfinished">&amp;Hoogte:</translation>
     </message>
     <message>
         <source>&amp;Width:</source>
-        <translation>&amp; Breedte:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation>Oriëntatie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Margins</source>
-        <translation>Marges</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Onder</translation>
+        <translation type="unfinished">Onder</translation>
     </message>
     <message>
         <source>Number of pages</source>
-        <translation>Aantal bladzijden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontally:</source>
-        <translation>Horizontaal:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vertically:</source>
-        <translation>Verticaal:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fixed extension line length</source>
-        <translation>vaste extensielijnlengte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Splines</source>
-        <translation>&amp;Splines</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Points</source>
-        <translation>&amp;Points</translation>
+        <translation type="unfinished">&amp;Punten</translation>
     </message>
     <message>
         <source>Point Style</source>
-        <translation>Puntstijl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Point Size</source>
-        <translation>Puntgrootte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dwg Units</source>
-        <translation>Dwg-eenheden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size relative to screen</source>
-        <translation>Grootte ten opzichte van scherm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size in drawing units</source>
-        <translation>Grootte in tekeneenheden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>(0 =&gt; 5% relative to screen size)</source>
-        <translation>(0 =&gt; 5% ten opzichte van schermgrootte)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Architectural (metric)</source>
-        <translation>Architectuur (metrisch)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For the length format 'Architectural (metric)', the unit must be set to Meter.</source>
-        <translation>Voor het lengteformaat 'Architectural (metric)' moet de eenheid op Meter worden ingesteld.</translation>
+        <source>For the length format &apos;Architectural (metric)&apos;, the unit must be set to Meter.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Screen %</source>
-        <translation>Scherm %</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5410,342 +5402,334 @@ Kies de eenheid die u wilt gebruiken voor nieuwe tekeningen en de gewenste taal.
     </message>
     <message>
         <source>Drawing unit.</source>
-        <translation>Tekeneenheid.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time between automatic saving of the document in minutes.</source>
-        <translation>Tijd tussen automatisch opslaan van het document in minuten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When set, LibreCAD will automatically generate a backup of your current drawing.</source>
-        <translation>Wanneer ingesteld, zal LibreCAD automatisch een back-up van uw huidige tekening genereren.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto backup</source>
-        <translation>Automatisch backuppen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Template:</source>
-        <translation>Sjabloon:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>St&amp;art Handle Color:</source>
-        <translation>St&amp;art handle kleur:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Handle Color:</source>
-        <translation>Kleur &amp;handle:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;End Handle Color:</source>
-        <translation>&amp;End handle kleur:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Graphic Colors</source>
-        <translation>Grafische kleuren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator:</source>
-        <translation>Snap indicator:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anti-aliasing</source>
-        <translation>Anti-aliasing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify layer of selected entities, at  layer activation</source>
-        <translation>Laag van geselecteerde entiteiten wijzigen bij het activeren van lagen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear Settings</source>
-        <translation>Instellingen wissen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restores program geometry/layout to original state</source>
-        <translation>herstelt programmageometrie/layout naar originele staat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation>Indeling</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restores the program to its original state</source>
-        <translation>herstelt het programma in zijn oorspronkelijke staat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation>Alles</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scrollbars</source>
-        <translation>Schuifbalken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator lines</source>
-        <translation>Indicatorlijnen knappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap indicator shape</source>
-        <translation>Snap indicatorvorm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide cursor when snapping</source>
-        <translation>Cursor verbergen bij het knippen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start in tab mode</source>
-        <translation>Beginnen in tabmodus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Startup</source>
-        <translation>Starten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Display loading screen</source>
-        <translation>Ladend scherm tonen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start with main window maximized</source>
-        <translation>Beginnen met gemaximaliseerd hoofdvenster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable CAD dockwidgets</source>
-        <translation>CAD-dockwidgets inschakelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable CAD toolbars</source>
-        <translation>CAD-werkbalken inschakelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>#1E90FF</source>
-        <translation>#1E90FF</translation>
+        <translation type="unfinished">#1E90FF</translation>
     </message>
     <message>
         <source>Clear settings</source>
-        <translation>Instellingen wissen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This will also include custom menus and toolbars. Continue?</source>
-        <translation>Dit omvat ook aangepaste menu's en werkbalken. Doorgaan?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Indien ingeschakeld zou het activeren van een laag alle geselecteerde entiteiten in die nieuwe laag wijzigen. Om de laag van meerdere entiteiten te wijzigen: selecteer eerst de benodigde entiteiten; activeer een laag in het laagwidget. Dit maakt alle geselecteerde entiteiten aangepast om tot de nieuwe laag te behoren.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Variable File:</source>
-        <translation>Variabele bestand:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation>Minimale rasterafstand (p&amp;x):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>N&amp;umber of preview entities:</source>
-        <translation>Aantal voorvertoningen:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Don't use native OS file open dialog</source>
-        <translation>Het dialoogvenster Native OS-bestand niet gebruiken</translation>
+        <source>Don&apos;t use native OS file open dialog</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto-panning</source>
-        <translation>Automatisch paneren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide the relative-&amp;zero marker</source>
-        <translation>Verberg de relatieve-&amp;zero-markering</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alt+Z</source>
-        <translation>Alt+Z</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Visualize the entity under the cursor</source>
-        <translation>Visualiseer de entiteit onder de cursor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mouse-over effects</source>
-        <translation>Muisovereffecten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Relative-Zero Marker Color:</source>
-        <translation>&amp;Relative-Zero Marker Kleur:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto save time (minutes):</source>
-        <translation>Automatisch tijd besparen (minuten):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Shift key.</source>
-        <translation>Invert scrollen richting bij gebruik van muiswiel met Shift toets.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert horizontal scrolling direction</source>
-        <translation>Horizontale schuifrichting omkeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts scrolling direction when using mouse wheel with Ctrl key.</source>
-        <translation>Invert scrollen richting bij gebruik van muiswiel met Ctrl-toets.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert vertical scrolling direction</source>
-        <translation>Vertikale schuifrichting omkeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inverts zoom direction when using mouse wheel.</source>
-        <translation>Omkert de zoomrichting bij het gebruik van het muiswiel.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invert zoom direction</source>
-        <translation>Zoomrichting omkeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Toetsenbordinstellingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Evaluate commands when SPACE BAR is pressed</source>
-        <translation>Opdrachten evalueren wanneer SPACE BAR wordt ingedrukt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle free snap mode when SPACE BAR is pressed</source>
-        <translation>Schakel vrije snap-modus in wanneer SPACE BAR wordt ingedrukt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CAD Preferences</source>
-        <translation>CAD-voorkeuren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatically zoom drawing when opening</source>
-        <translation>Automatisch zoomen bij openen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span-stijl="font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji'; lettergrootte:14px; kleur:#1f2328; achtergrondkleur:#ffffff;"&gt; Deel bibliotheekmap. De symbol library dxf-bestanden moeten zich in de submappen van deze map bevinden. De submappen worden weergegeven in de Bibliotheekbrowser.&lt;/span&gt;&lt;/p&gt;&lt;spanstijl="font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Noto Sans','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji', font-size:14px; color:#1f2328; background-color:#ffffff;"&gt;( Menu: Widgets &gt; Dock Widgets &gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;Part library folder. The symbol library dxf files must be located in the subdirectories of this folder. The subfolder names will be displayed in the Library Browser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;-apple-system&apos;,&apos;BlinkMacSystemFont&apos;,&apos;Segoe UI&apos;,&apos;Noto Sans&apos;,&apos;Helvetica&apos;,&apos;Arial&apos;,&apos;sans-serif&apos;,&apos;Apple Color Emoji&apos;,&apos;Segoe UI Emoji&apos;; font-size:14px; color:#1f2328; background-color:#ffffff;&quot;&gt;( Menu: Widgets &amp;gt; Dock Widgets &amp;gt; Library Browser)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open last opened files</source>
-        <translation>Laatste geopende bestanden openen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Temporarily toggle free snapping when the spacebar is pressed and the command window is activated&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Bij indrukken van de spatiebalk en het commandovenster wordt &lt;/p&gt;&lt;/body&gt;&lt;/html&gt; tijdelijk aan/uitgeschakeld</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_DlgOptionsMakerCam</name>
     <message>
         <source>Layers</source>
-        <translation>Lagen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export invisible layers</source>
-        <translation>Onzichtbare lagen exporteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export visible construction layers</source>
-        <translation>Zichtbare bouwlagen exporteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blocks</source>
-        <translation>Blok</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Convert blocks to safe inline SVG content</source>
-        <translation>Blokken omzetten naar veilige inline SVG-inhoud</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ellipses / Ellipse arcs</source>
-        <translation>Ellipsen / Ellipsboog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Approximate ellipses and ellipse arcs with cubic béziers</source>
-        <translation>Geschatte ellipsen en ellipsboogjes met kubieke bézier</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export as CAM/plain SVG</source>
-        <translation>Exporteren als CAM/plain SVG</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default width of elements, mm</source>
-        <translation>Standaardbreedte van de elementen, mm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Afbeeldingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Raster Image export</source>
-        <translation>Rasterafbeelding exporteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash/Dot Lines</source>
-        <translation>Dash/Dot-lijnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length of the pattern, mm</source>
-        <translation>Lengte van het patroon, mm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bake dash/dot lines to SVG path</source>
-        <translation>Dash/dotlijnen bakken naar SVG-pad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 does not hide SVG content 
-that has been set invisibe ("display: none" or "visibility: hidden").</source>
-        <translation>MakerCAM vanaf november 2014 niet verbergen SVG inhoud
-dat onzichtbaar is gezet ("display: none" of "visibility: hidden").</translation>
+that has been set invisibe (&quot;display: none&quot; or &quot;visibility: hidden&quot;).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of November 2014 cannot correctly deal with blocks,
 because it does not take into account the reference point in the &lt;use&gt;.</source>
-        <translation>MakerCAM vanaf november 2014 kan niet correct omgaan met blokken,
-omdat het geen rekening houdt met het referentiepunt in het &lt;gebruik&gt;.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MakerCAM as of March 2015 cannot display ellipses and ellipse arcs correctly, 
 when they are created using the &lt;ellipse&gt; tag  with a rotation in 
 the &lt;transform&gt; attribute or as &lt;path&gt; using elliptic arc segments.</source>
-        <translation>MakerCAM kan vanaf maart 2015 geen ellips en ellipsboogjes correct weergeven,
-wanneer ze zijn aangemaakt met de &lt;ellipse&gt; tag met een rotatie in
-het &lt;transform&gt; attribuut of als &lt;path&gt; met behulp van elliptische boogsegmenten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exported images can be useful in SVG editors (Inkscape, etc), 
-but avoided in some CAM's.</source>
-        <translation>Geexporteerde afbeeldingen kunnen nuttig zijn in SVG-editors (Inkscape, etc),
-maar vermeden in sommige CAM's.</translation>
+but avoided in some CAM&apos;s.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Many CAM's(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
+        <source>Many CAM&apos;s(MakerCAM, EleskCAM, LaserWeb) ignore dashed/doted line style, 
 which can be useful in lasercut of plywood or for papercraft. </source>
-        <translation>Veel CAM's(MakerCAM, EleskCAM, LaserWeb) negeren gestreepte/gedoteerde lijnstijl,
-die nuttig kunnen zijn in lasercut van multiplex of voor papercraft.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Default width of elements can affect some CAM's/SVG Editors, 
+        <source>Default width of elements can affect some CAM&apos;s/SVG Editors, 
 but ignored by other</source>
-        <translation>Standaardbreedte van elementen kan invloed hebben op sommige CAM's/SVG Editors,
-maar genegeerd door andere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Length of line pattern related to zoom, 
 so default step value required for baking</source>
-        <translation>Lengte van het lijnpatroon in verband met zoom,
-dus standaard stapwaarde vereist voor bakken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Points</source>
-        <translation>Punten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export Points</source>
-        <translation>Uitvoerpunten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Whether to export points</source>
-        <translation>Of punten geëxporteerd moeten worden</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5775,19 +5759,19 @@ dus standaard stapwaarde vereist voor bakken</translation>
     <name>QG_DlgPolyline</name>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished">Polylijn</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Laag:</translation>
+        <translation type="unfinished">Laag:</translation>
     </message>
     <message>
         <source>Geometry</source>
-        <translation>Geometrie</translation>
+        <translation type="unfinished">Geometrie</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Gesloten</translation>
+        <translation type="unfinished">Gesloten</translation>
     </message>
 </context>
 <context>
@@ -5908,23 +5892,23 @@ dus standaard stapwaarde vereist voor bakken</translation>
     </message>
     <message>
         <source>Scale by the same factor at both x- and y- directions</source>
-        <translation>Schaal met dezelfde factor in zowel x- als y-richtingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Isotropic Scaling</source>
-        <translation>Isotroop schalen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished">Y</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Zoek de schaalverhoudingen rond het centrum door een referentiepunt en een doelpunt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6530,59 +6514,59 @@ dus standaard stapwaarde vereist voor bakken</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation>Laag:</translation>
+        <translation type="unfinished">Laag:</translation>
     </message>
     <message>
         <source>Font settings</source>
-        <translation>Lettertypeinstellingen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Oblique:</source>
-        <translation>Oblique:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width factor:</source>
-        <translation>Breedtefactor:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Font:</source>
-        <translation>Lettertype:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Baseline Left</source>
-        <translation>Basislijn Links</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <source>Baseline Right</source>
-        <translation>Basisrecht</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Baseline Center</source>
-        <translation>Baseline Center</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Past</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Diameter (⌀)</source>
-        <translation>Diameter</translation>
+        <translation type="unfinished">Diameter (⌀)</translation>
     </message>
     <message>
         <source>A&amp;ligned</source>
-        <translation>A&amp;ligned</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Middle</source>
-        <translation>&amp;Midden</translation>
+        <translation type="unfinished">&amp;Middel</translation>
     </message>
 </context>
 <context>
@@ -6601,91 +6585,91 @@ dus standaard stapwaarde vereist voor bakken</translation>
     </message>
     <message>
         <source>Discard All</source>
-        <translation>Alles weggooien</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>Gooien</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_FileDialog</name>
     <message>
         <source>Drawing Exchange DXF 2000 %1</source>
-        <translation>Tekenbeurs DXF 2000 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing Exchange DXF R12 %1</source>
-        <translation>Tekenbeurs DXF R12 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>LFF-lettertype %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>QCad Font %1</source>
-        <translation>QCad-lettertype %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Jww Drawing %1</source>
-        <translation>Jww-tekening %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing Exchange %1</source>
-        <translation>Tekenbeurs %1</translation>
+        <translation type="unfinished">Tekening Uitwisseling %1</translation>
     </message>
     <message>
         <source>QCad 1.x file %1</source>
-        <translation>QCad 1.x-bestand %1</translation>
+        <translation type="unfinished">QCad 1.x bestand %1</translation>
     </message>
     <message>
         <source>Drawing Exchange DXF 2007 %1</source>
-        <translation>Tekenbeurs DXF 2007 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing Exchange DXF 2004 %1</source>
-        <translation>Tekenbeurs DXF 2004 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing Exchange DXF R14 %1</source>
-        <translation>Tekenbeurs DXF R14 %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
         <comment>block file</comment>
-        <translation>Blok</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drawing</source>
         <comment>drawing file</comment>
-        <translation>Tekening</translation>
+        <translation type="unfinished">Tekening</translation>
     </message>
     <message>
         <source>Open %1</source>
-        <translation>%1 openen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save %1 As</source>
-        <translation>%1 opslaan als</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg Tekening %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled</source>
-        <translation>Naamloos</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_GraphicView</name>
     <message>
         <source>Edit Properties</source>
-        <translation>Eigenschappen bewerken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit Block</source>
-        <translation>Blok bewerken</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6724,35 +6708,35 @@ dus standaard stapwaarde vereist voor bakken</translation>
     </message>
     <message>
         <source>Colouring</source>
-        <translation>Kleur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Black / White</source>
-        <translation>Zwart/wit</translation>
+        <translation type="unfinished">Zwart / Wit</translation>
     </message>
     <message>
         <source>Coloured</source>
-        <translation>Gekleurd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Borders</source>
-        <translation>Randen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Top / Bottom - Border:</source>
-        <translation>Boven / onder - rand:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left / Right - Border:</source>
-        <translation>Links / rechts - rand:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>set same size</source>
-        <translation>dezelfde grootte instellen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>B&amp;lack</source>
-        <translation>B&amp;lack</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6779,12 +6763,11 @@ dus standaard stapwaarde vereist voor bakken</translation>
     <message>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
 The contents of a Construction Layer should not appear in printout.</source>
-        <translation>Een bouwlaag heeft entiteiten van oneindige rechte lijnen bestemd voor geometrische constructie.
-De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Construction Layer</source>
-        <translation>Bouwlaag</translation>
+        <translation type="unfinished">Constructielaag</translation>
     </message>
 </context>
 <context>
@@ -6827,59 +6810,59 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Looking for matching layer names</source>
-        <translation>Op zoek naar bijpassende laagnamen</translation>
+        <translation type="unfinished">Zoeken naar overeenkomende laagnamen</translation>
     </message>
     <message>
         <source>Edit Layer &amp;Attributes</source>
-        <translation>Laag &amp; Eigenschappen bewerken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Visibility</source>
-        <translation>Laag &amp;zicht aan/uit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer &amp;Printing</source>
-        <translation>Laag &amp; afdrukken aan/uit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>Laag &amp; Constructie aan/uit</translation>
+        <translation type="unfinished">Bouwl&amp;aag wisselen</translation>
     </message>
     <message>
         <source>Unlock all layers</source>
-        <translation>Alle lagen ontgrendelen</translation>
+        <translation type="unfinished">Alle lagen ontgrendelen</translation>
     </message>
     <message>
         <source>Lock all layers</source>
-        <translation>Alle lagen vergrendelen</translation>
+        <translation type="unfinished">Alle lagen vergrendelen</translation>
     </message>
     <message>
         <source>Remove layer</source>
-        <translation>Laag verwijderen</translation>
+        <translation type="unfinished">Laag verwijderen</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation type="unfinished">Filter</translation>
     </message>
     <message>
         <source>&amp;Unlock all Layers</source>
-        <translation>Alle lagen ontgrendelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Lock all Layers</source>
-        <translation>Alle lagen &amp; vergrendelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>Laag Loc&amp;k aan/uit</translation>
+        <translation type="unfinished">Laagvergrendeling wisselen</translation>
     </message>
     <message>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>Geselecteerde laag(s) &amp; exporteren</translation>
+        <translation type="unfinished">&amp;Exporteer geselecteerde laag(en)</translation>
     </message>
     <message>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>&amp;Zichtbare laag(s) exporteren</translation>
+        <translation type="unfinished">Exporteer &amp;zichtbare laag(en)</translation>
     </message>
 </context>
 <context>
@@ -6894,11 +6877,11 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Verversen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rebuild</source>
-        <translation>Herbouwen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6997,27 +6980,27 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
     </message>
     <message>
         <source>Dot (tiny)</source>
-        <translation>Punt (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash (tiny)</source>
-        <translation>Dash (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dash Dot (tiny)</source>
-        <translation>Dash Dot (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Divide (tiny)</source>
-        <translation>Verdelen (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Center (tiny)</source>
-        <translation>Midden (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Border (tiny)</source>
-        <translation>Rand (klein)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7035,45 +7018,41 @@ De inhoud van een bouwlaag mag niet in printout verschijnen.</translation>
         <translation>Links</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Helvetica'; font-size:9pt;"&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;bodystyle="lettertype-familie:'Ubuntu'; lettergrootte:11pt; lettertypegewicht:400; lettertypestijl:normaal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-links:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span-stijl="font-family:'Helvetica"; font-size:9pt;"&gt; Hint over links/rechts muisknop acties&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Helvetica&apos;; font-size:9pt;&quot;&gt;Hint about left/right mouse button actions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_PenToolBar</name>
     <message>
         <source>Line color</source>
-        <translation>Regelkleur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line width</source>
-        <translation>Lijnbreedte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line type</source>
-        <translation>Regeltype</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_PolylineOptions</name>
     <message>
         <source>wrong action type</source>
-        <translation>verkeerde actietype</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_RecentFiles</name>
     <message>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="unfinished">&amp;%1 %2</translation>
     </message>
 </context>
 <context>
@@ -7084,166 +7063,158 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Selected</source>
-        <translation>Geselecteerd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total Length</source>
-        <translation>Totale lengte</translation>
+        <translation type="unfinished">Totale lengte</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;bodystyle="lettertype-familie:'Helvetica'; lettergrootte:7pt; lettertypegewicht:400; lettertypestijl:normaal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-links:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Aantal geselecteerde entiteiten&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Helvetica'; font-size:7pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;bodystyle="lettertype-familie:'Helvetica'; lettergrootte:7pt; lettertypegewicht:400; lettertypestijl:normaal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-links:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Totale lengte van geselecteerde entiteiten&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Helvetica&apos;; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Total length of selected entities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QG_SnapToolBar</name>
     <message>
         <source>Snap</source>
-        <translation>Knap</translation>
+        <translation type="unfinished">Snap</translation>
     </message>
     <message>
         <source>Snap to Endpoints</source>
-        <translation>Naar eindpunten knippen</translation>
+        <translation type="unfinished">Snap naar Eindpunten</translation>
     </message>
     <message>
         <source>Snap to equidistant points of entity</source>
-        <translation>Snap naar equidistante punten van entiteit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap to center points</source>
-        <translation>Knap naar middenpunten</translation>
+        <translation type="unfinished">Snap naar Centerpunten</translation>
     </message>
     <message>
         <source>Snap to intersections automatically</source>
-        <translation>Snap automatisch naar kruispunten</translation>
+        <translation type="unfinished">Snap Automatisch naar Intersectie Punten</translation>
     </message>
     <message>
         <source>Snap to closest point on entity</source>
-        <translation>Snap naar het dichtstbijzijnde punt op entiteit</translation>
+        <translation type="unfinished">Snap naar dichtstbijzijnde Punt op Element</translation>
     </message>
     <message>
         <source>Snap to point with given distance to endpoint</source>
-        <translation>Snap naar punt met gegeven afstand tot eindpunt</translation>
+        <translation type="unfinished">Snap naar punt op gegeven afstand vanaf Eindpunt</translation>
     </message>
     <message>
         <source>Snap to intersections manually</source>
-        <translation>Handmatig knippen naar kruispunten</translation>
+        <translation type="unfinished">Snap handmatig naar Intersectie Punten</translation>
     </message>
     <message>
         <source>Snap to grid</source>
-        <translation>Aan raster kleven</translation>
+        <translation type="unfinished">Snap naar Grid</translation>
     </message>
     <message>
         <source>Restrict Horizontally</source>
-        <translation>Horizontaal beperken</translation>
+        <translation type="unfinished">Beperk Horizontaal</translation>
     </message>
     <message>
         <source>Restrict Vertically</source>
-        <translation>Verticaal beperken</translation>
+        <translation type="unfinished">Beperk Vertikaal</translation>
     </message>
     <message>
         <source>Move relative Zero</source>
-        <translation>Relatieve nul verplaatsen</translation>
+        <translation type="unfinished">Plaats relatieve Oorsprong</translation>
     </message>
     <message>
         <source>Lock relative Zero</source>
-        <translation>Relatieve nul vergrendelen</translation>
+        <translation type="unfinished">Vergrendel relatieve Oorsprong</translation>
     </message>
     <message>
         <source>Free Snap</source>
-        <translation>Vrije snap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on grid</source>
-        <translation>Knip op raster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on Endpoints</source>
-        <translation>Knap op eindpunten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap on Entity</source>
-        <translation>Naam</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Center</source>
-        <translation>Midden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Middle</source>
-        <translation>Midden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Distance</source>
-        <translation>Afstand knippen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Intersection</source>
-        <translation>Snap doorsnede</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Horizontal</source>
-        <translation>Horizontaal beperken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Vertical</source>
-        <translation>Verticaal beperken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Orthogonal</source>
-        <translation>Orthogonaal beperken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Nothing</source>
-        <translation>Niets beperken</translation>
+        <translation type="unfinished">Beperk Niets</translation>
     </message>
     <message>
         <source>Set relative zero position</source>
-        <translation>Relatieve nulpositie instellen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lock relative zero position</source>
-        <translation>Relatieve nulpositie vergrendelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exclusive Snap Mode</source>
-        <translation>Exclusieve snapmodus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Relative zero position is %1</source>
-        <translation>Relatieve nulpositie is %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>locked</source>
-        <translation>vergrendeld</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unlocked</source>
-        <translation>ontgrendeld</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Middle Manual</source>
-        <translation>Middenhandleiding knappen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7391,8 +7362,8 @@ p, li { white-space: pre-wrap; }
         <translation>Wis Laag</translation>
     </message>
     <message>
-        <source>Layer "%1" can never be removed.</source>
-        <translation>Laag "%1" kan niet worden verwijderd.</translation>
+        <source>Layer &quot;%1&quot; can never be removed.</source>
+        <translation>Laag &quot;%1&quot; kan niet worden verwijderd.</translation>
     </message>
     <message>
         <source>Layer Dialog</source>
@@ -7403,234 +7374,219 @@ p, li { white-space: pre-wrap; }
         <translation>Wis Blok</translation>
     </message>
     <message>
-        <source>Block "%1" and all its entities will be removed.</source>
-        <translation>Blok "%1" en alle elementen daarop worden verwijderd.</translation>
+        <source>Block &quot;%1&quot; and all its entities will be removed.</source>
+        <translation>Blok &quot;%1&quot; en alle elementen daarop worden verwijderd.</translation>
     </message>
     <message>
         <source>Layer Properties</source>
         <translation>Laag Eigenschappen</translation>
     </message>
     <message>
-        <source>Layer with a name "%1" already exists. Please specify a different name.</source>
-        <translation>Laag met naam "%1" bestaat al. Kies een andere naam.</translation>
+        <source>Layer with a name &quot;%1&quot; already exists. Please specify a different name.</source>
+        <translation>Laag met naam &quot;%1&quot; bestaat al. Kies een andere naam.</translation>
     </message>
     <message>
-        <source>Layer "%1" and all entities on it will be removed.
+        <source>Layer &quot;%1&quot; and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>Laag "%1" en alle entiteiten erop worden verwijderd.
-Deze actie kan NIET ongedaan worden gemaakt.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Layer "0" can never be removed.</source>
-        <translation>Laag "0" kan nooit verwijderd worden.</translation>
+        <source>Layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Remove %n layer(s)</source>
-        <translation>Verwijder %n laag(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <source>Listed layers and all entities on them will be removed.</source>
-        <translation>Opgenomen lagen en alle entiteiten op hen zullen worden verwijderd.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning: this action can NOT be undone!</source>
-        <translation>Waarschuwing: deze actie kan NIET ongedaan worden gemaakt!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Warning: layer "0" can never be removed.</source>
-        <translation>Waarschuwing: laag "0" kan nooit verwijderd worden.</translation>
+        <source>Warning: layer &quot;0&quot; can never be removed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layers for removal:</source>
-        <translation>Lagen voor verwijdering:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Remove %n block(s)</source>
-        <translation>Verwijder %n blok(s)<numerusform />
-            <numerusform />
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <source>Listed blocks and all their entities will be removed.</source>
-        <translation>Opgenomen blokken en al hun entiteiten zullen worden verwijderd.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blocks for removal:</source>
-        <translation>Verwijderblokken:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer empty name is not allowed.</source>
-        <translation>Laag lege naam is niet toegestaan.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Attempt to create layer with duplicating name. Duplicated layer name is 
 [%1].
 Please specify a different name.</source>
-        <translation>Poging om laag te maken met duplicerende naam. Gedupliceerde laagnaam is
-[%1].
-Geef een andere naam op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer list separator string is empty. It will not be possible to build layers tree.
 Please specify a different value.</source>
-        <translation>Laaglijst scheidingsteken is leeg. Het zal niet mogelijk zijn om lagen boom te bouwen.
-Geef een andere waarde op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provide for %1 color.
 Please specify a different value.</source>
-        <translation>Ongeldige waarde geeft voor %1 kleur.
-Geef een andere waarde op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove empty layers</source>
-        <translation>Lege lagen verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
 Clear filtering mask and repeat.</source>
-        <translation>Laag(s) zonder gevonden entiteiten, maar ze zijn gefilterd en niet zichtbaar.
-
-Filtermasker wissen en herhalen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>Geen lagen zonder entiteiten gevonden, niets te verwijderen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Laag toevoegen</translation>
+        <translation type="unfinished">Laag toevoegen</translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 Please specify a different name.</source>
-        <translation>Deze dochterlaag bestaat al voor
-[%1].
-Geef een andere naam op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such child layer already exist for 
 [%1].
 </source>
-        <translation>Deze dochterlaag bestaat al voor
-[%1].</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dimensional layer may be added only for normal active layer.
 </source>
-        <translation>Dimensielaag mag alleen voor normale actieve laag worden toegevoegd.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move Selection</source>
-        <translation>Selectie verplaatsen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate Selection</source>
-        <translation>Selectie dupliceren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace "By Layer" value to source layers values?
+        <source>Replace &quot;By Layer&quot; value to source layers values?
 
-If Yes - entities with "By Layer" pens will look on new layer exactly as on previous layers and "By Layer" value will be replaced by resolved pens.
+If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
 
-If No - "By Layer" values remains and so pen of target layer will define pen for such entities.</source>
-        <translation>"Door laag" te vervangen door bronlagenwaarden?
-
-Als Ja - entiteiten met "By Layer" pennen op een nieuwe laag zullen kijken precies zoals op de vorige lagen en "By Layer" waarde zal worden vervangen door opgeloste pennen.
-
-Als Nee - "Door Laag" waarden blijven en pen van doellaag zal pen voor dergelijke entiteiten definiëren.</translation>
+If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layer DialogEx</source>
-        <translation>LaagdialoogEx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid value provided for %1 color.
 Please specify a different value.</source>
-        <translation>Ongeldige waarde opgegeven voor %1 kleur.
-Geef een andere waarde op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid path to pens file.
 %1 
 Please specify a different value.</source>
-        <translation>Ongeldig pad naar penbestand.
-%1
-Geef een andere waarde op.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pen</source>
-        <translation>Verwijder pen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Pen zal worden verwijderd uit palet, tekening entiteiten zullen niet worden beïnvloed.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Are you sure you'd like to proceed?</source>
-        <translation>Weet je zeker dat je wilt doorgaan?</translation>
+        <source>Are you sure you&apos;d like to proceed?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen for removal:</source>
-        <translation>Pen voor verwijdering:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove pens</source>
-        <translation>Verwijder pennen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>Pennen worden uit palet verwijderd, tekeneenheden worden niet beïnvloed.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pens for removal:</source>
-        <translation>Pennen voor verwijdering:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Entities </source>
-        <translation>Selecteer entiteiten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>There are no entities that matches pen on visible layers.</source>
-        <translation>Er zijn geen entiteiten die overeenkomen met de pen op zichtbare lagen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on frozen layers.
 </source>
-        <translation>Dergelijke entiteiten bestaan op bevroren lagen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Such entities exist on locked layers.
 </source>
-        <translation>Dergelijke entiteiten bestaan op vergrendelde lagen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use different pen attributes.</source>
-        <translation>Gebruik attributen van verschillende pen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set pen by entity</source>
-        <translation>Pen per entiteit instellen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please select only one entity to pick pen setting.</source>
-        <translation>Selecteer slechts één entiteit om peninstelling te kiezen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saving Pens Data</source>
-        <translation>Gegevens van Pennen opslaan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unable to save pens data to specified pens file. Would you like to specify correct path to the file?</source>
-        <translation>Kan pengegevens niet opslaan in opgegeven penbestand. Wilt u het juiste pad naar het bestand opgeven?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7823,2937 +7779,2937 @@ Wilt u het vervangen?</translation>
     </message>
     <message>
         <source>LFF Font %1</source>
-        <translation>LFF-lettertype %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Jww %1</source>
-        <translation>Jww %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scalable Vector Graphics</source>
-        <translation>Schaalbare Vector Graphics</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SGI Black &amp; White</source>
-        <translation>SGI zwart-wit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript</source>
-        <translation>Encapsulated PostScript</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript Format</source>
-        <translation>Encapsulated PostScript Format</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encapsulated PostScript Interchange</source>
-        <translation>Encapsulated PostScript Interchange</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Windows Icon</source>
-        <translation>Windows-pictogram</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>JPEG 2000</source>
-        <translation>JPEG 2000</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ZSoft Paintbrush</source>
-        <translation>ZSoft Penseel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PC Paint</source>
-        <translation>PC Paint</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SGI-Bilddatei</source>
-        <translation>SGI-Bilddatei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Targa Image File</source>
-        <translation>Targa-imagebestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tagged Image File Format</source>
-        <translation>Getagd afbeeldingsbestandsformaat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Old Drawing Exchange %1</source>
-        <translation>Oude tekenbeurs %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Opened dwg file version %1.</source>
-        <translation>Opende dwg-bestandsversie %1.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unknown error opening dwg file</source>
-        <translation>onbekende fout bij openen van dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>can't open this dwg file</source>
-        <translation>kan dit dwg-bestand niet openen</translation>
+        <source>can&apos;t open this dwg file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unsupported dwg version</source>
-        <translation>niet ondersteunde dwg-versie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading file header in dwg file</source>
-        <translation>fout bij lezen van bestandskop in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading header vars in dwg file</source>
-        <translation>fout bij lezen van header vars in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading classes in dwg file</source>
-        <translation>fout bij lezen van klassen in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading offsets in dwg file</source>
-        <translation>fout bij het lezen van offsets in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading tables in dwg file</source>
-        <translation>fout bij het lezen van tabellen in dwg bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading entities in dwg file</source>
-        <translation>fout bij het lezen van entiteiten in dwg bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dwg Drawing %1</source>
-        <translation>dwg Tekening %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File on disk modified. Please save to another file to avoid data loss! File modified: %1</source>
-        <translation>Bestand op schijf gewijzigd. Gelieve op te slaan in een ander bestand om verlies van gegevens te voorkomen! Bestand gewijzigd: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
-        <translation>Hatch is mislukt vanwege een kloof=%1 tussen (%2, %3) en (%4, %5)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Waarschuwing</translation>
+        <translation type="unfinished">Waarschuwing</translation>
     </message>
     <message>
         <source>error reading blocks in dwg file</source>
-        <translation>fout bij lezen van blokken in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading objects in dwg file</source>
-        <translation>fout bij lezen van objecten in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>: duplicated command: %1 is already taken by %2</source>
-        <translation>: gedupliceerd commando: %1 is al genomen door %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point</source>
         <comment>draw point</comment>
-        <translation>punt</translation>
+        <translation type="unfinished">punt</translation>
     </message>
     <message>
         <source>po</source>
         <comment>draw point</comment>
-        <translation>po</translation>
+        <translation type="unfinished">pu</translation>
     </message>
     <message>
         <source>line</source>
         <comment>draw line</comment>
-        <translation>regel</translation>
+        <translation type="unfinished">lijn</translation>
     </message>
     <message>
         <source>li</source>
         <comment>draw line</comment>
-        <translation>li</translation>
+        <translation type="unfinished">li</translation>
     </message>
     <message>
         <source>l</source>
         <comment>draw line</comment>
-        <translation>l</translation>
+        <translation type="unfinished">l</translation>
     </message>
     <message>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>polyline</translation>
+        <translation type="unfinished">vrije vorm</translation>
     </message>
     <message>
         <source>pl</source>
         <comment>draw polyline</comment>
-        <translation>pl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>free</source>
         <comment>draw freehand line</comment>
-        <translation>vrij</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fhl</source>
         <comment>draw freehand line</comment>
-        <translation>fhl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>spline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spl</source>
         <comment>draw spline</comment>
-        <translation>spl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>spline2</source>
         <comment>spline through points</comment>
-        <translation>spline2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>stp</source>
         <comment>spline through points</comment>
-        <translation>stp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ptp</source>
         <comment>parallel through point</comment>
-        <translation>ptp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation>bisect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bi</source>
         <comment>angle bisector</comment>
-        <translation>bi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tanpc</source>
         <comment>tangent point and circle</comment>
-        <translation>tanpc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ortho</source>
         <comment>perpendicular line</comment>
-        <translation>ortho</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect</source>
         <comment>draw rectangle</comment>
-        <translation>rect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>polygon2v</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>poly2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>poly2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle</source>
         <comment>draw circle</comment>
-        <translation>cirkel</translation>
+        <translation type="unfinished">cirkel</translation>
     </message>
     <message>
         <source>ci</source>
         <comment>draw circle</comment>
-        <translation>ci</translation>
+        <translation type="unfinished">ci</translation>
     </message>
     <message>
         <source>c2</source>
         <comment>circle 2 points</comment>
-        <translation>c2</translation>
+        <translation type="unfinished">c2</translation>
     </message>
     <message>
         <source>c3</source>
         <comment>circle 3 points</comment>
-        <translation>c3</translation>
+        <translation type="unfinished">c3</translation>
     </message>
     <message>
         <source>tan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>tan3color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ct3</source>
         <comment>circle tangent to 3</comment>
-        <translation>ct3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation>ellipseingeschreven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ei</source>
         <comment>inscribed ellipse</comment>
-        <translation>ei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ie</source>
         <comment>inscribed ellipse</comment>
-        <translation>ie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hatch</source>
         <comment>draw hatch</comment>
-        <translation>luik</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ha</source>
         <comment>draw hatch</comment>
-        <translation>ha</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mtext</source>
         <comment>draw mtext</comment>
-        <translation>mtext</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mtxt</source>
         <comment>draw mtext</comment>
-        <translation>mtxt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>text</source>
         <comment>draw text</comment>
-        <translation>tekst</translation>
+        <translation type="unfinished">tekst</translation>
     </message>
     <message>
         <source>txt</source>
         <comment>draw text</comment>
-        <translation>txt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>regen</source>
         <comment>zoom - redraw</comment>
-        <translation>regen</translation>
+        <translation type="unfinished">regen</translation>
     </message>
     <message>
         <source>redraw</source>
         <comment>zoom - redraw</comment>
-        <translation>hertekenen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rg</source>
         <comment>zoom - redraw</comment>
-        <translation>rg</translation>
+        <translation type="unfinished">bv</translation>
     </message>
     <message>
         <source>zr</source>
         <comment>zoom - redraw</comment>
-        <translation>zr</translation>
+        <translation type="unfinished">ht</translation>
     </message>
     <message>
         <source>zoomwindow</source>
         <comment>zoom - window</comment>
-        <translation>zoomvenster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zw</source>
         <comment>zoom - window</comment>
-        <translation>zw</translation>
+        <translation type="unfinished">zv</translation>
     </message>
     <message>
         <source>zoomauto</source>
         <comment>zoom - auto</comment>
-        <translation>zoomauto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>za</source>
         <comment>zoom - auto</comment>
-        <translation>za</translation>
+        <translation type="unfinished">za</translation>
     </message>
     <message>
         <source>zoompan</source>
         <comment>zoom - pan</comment>
-        <translation>zoompan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zp</source>
         <comment>zoom - pan</comment>
-        <translation>zp</translation>
+        <translation type="unfinished">zp</translation>
     </message>
     <message>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation>zoomprevious</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>zv</source>
         <comment>zoom - previous</comment>
-        <translation>zv</translation>
+        <translation type="unfinished">zv</translation>
     </message>
     <message>
         <source>kill</source>
         <comment>kill all actions</comment>
-        <translation>doden</translation>
+        <translation type="unfinished">verwijder</translation>
     </message>
     <message>
         <source>k</source>
         <comment>kill all actions</comment>
-        <translation>k</translation>
+        <translation type="unfinished">k</translation>
     </message>
     <message>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>ongedaan maken</translation>
+        <translation type="unfinished">herstel</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo cycle</comment>
-        <translation>u</translation>
+        <translation type="unfinished">h</translation>
     </message>
     <message>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>opnieuw</translation>
+        <translation type="unfinished">terughalen</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo cycle</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimaligned</source>
         <comment>dimension - aligned</comment>
-        <translation>dimgebonden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimhorizontal</source>
         <comment>dimension - horizontal</comment>
-        <translation>dimhorizontaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dh</source>
         <comment>dimension - horizontal</comment>
-        <translation>dh</translation>
+        <translation type="unfinished">mh</translation>
     </message>
     <message>
         <source>dimvertical</source>
         <comment>dimension - vertical</comment>
-        <translation>dimvertisch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dv</source>
         <comment>dimension - vertical</comment>
-        <translation>dv</translation>
+        <translation type="unfinished">mv</translation>
     </message>
     <message>
         <source>dimlinear</source>
         <comment>dimension - linear</comment>
-        <translation>dimlineair</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dl</source>
         <comment>dimension - linear</comment>
-        <translation>dl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimangular</source>
         <comment>dimension - angular</comment>
-        <translation>dimangular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dan</source>
         <comment>dimension - angular</comment>
-        <translation>dan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimradial</source>
         <comment>dimension - radial</comment>
-        <translation>dimradial</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimdiametric</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiametrisch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimdiameter</source>
         <comment>dimension - diametric</comment>
-        <translation>dimdiameter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dd</source>
         <comment>dimension - diametric</comment>
-        <translation>dd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimleader</source>
         <comment>dimension - leader</comment>
-        <translation>dimleader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ld</source>
         <comment>dimension - leader</comment>
-        <translation>ld</translation>
+        <translation type="unfinished">ml</translation>
     </message>
     <message>
         <source>dimregen</source>
         <comment>dimension - regenerate</comment>
-        <translation>dimregen</translation>
+        <translation type="unfinished">maatregen</translation>
     </message>
     <message>
         <source>restrictnothing</source>
         <comment>restrict - nothing</comment>
-        <translation>beperken niets</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rn</source>
         <comment>restrict - nothing</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restrictorthogonal</source>
         <comment>restrict - orthogonal</comment>
-        <translation>limitorthogonaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rr</source>
         <comment>restrict - orthogonal</comment>
-        <translation>rr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restricthorizontal</source>
         <comment>restrict - horizontal</comment>
-        <translation>horizontaal beperken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rh</source>
         <comment>restrict - horizontal</comment>
-        <translation>rh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>restrictvertical</source>
         <comment>restrict - vertical</comment>
-        <translation>beperkenverticaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rv</source>
         <comment>restrict - vertical</comment>
-        <translation>rv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mv</source>
         <comment>modify - move (copy)</comment>
-        <translation>mv</translation>
+        <translation type="unfinished">vp</translation>
     </message>
     <message>
         <source>bev</source>
         <comment>modify - bevel</comment>
-        <translation>bev</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ch</source>
         <comment>modify - bevel</comment>
-        <translation>ch</translation>
+        <translation type="unfinished">af</translation>
     </message>
     <message>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation>fi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>knippen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>div</source>
         <comment>modify - divide (cut)</comment>
-        <translation>div</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mi</source>
         <comment>modify -  mirror</comment>
-        <translation>mi</translation>
+        <translation type="unfinished">sp</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>modify -  revert direction</comment>
-        <translation>rev</translation>
+        <translation type="unfinished">omg</translation>
     </message>
     <message>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation>ge</translation>
+        <translation type="unfinished">ro</translation>
     </message>
     <message>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>sz</translation>
+        <translation type="unfinished">sc</translation>
     </message>
     <message>
         <source>tm</source>
         <comment>modify - trim (extend)</comment>
-        <translation>tm</translation>
+        <translation type="unfinished">tm</translation>
     </message>
     <message>
         <source>tm2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>tm2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>le</source>
         <comment>modify - lengthen</comment>
-        <translation>le</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>ss</translation>
+        <translation type="unfinished">ur</translation>
     </message>
     <message>
         <source>er</source>
         <comment>modify - delete (erase)</comment>
-        <translation>er</translation>
+        <translation type="unfinished">vw</translation>
     </message>
     <message>
         <source>del</source>
         <comment>modify - delete (erase)</comment>
-        <translation>del</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>xp</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>xp</translation>
+        <translation type="unfinished">xp</translation>
     </message>
     <message>
         <source>snapfree</source>
         <comment>snap - free</comment>
-        <translation>snapfree</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>os</source>
         <comment>snap - free</comment>
-        <translation>os</translation>
+        <translation type="unfinished">sn</translation>
     </message>
     <message>
         <source>snapcenter</source>
         <comment>snap - center</comment>
-        <translation>snapcenter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sc</source>
         <comment>snap - center</comment>
-        <translation>sc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapdist</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>snapdist</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sd</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>sd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapend</source>
         <comment>snap - end points</comment>
-        <translation>snapend</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>se</source>
         <comment>snap - end points</comment>
-        <translation>se</translation>
+        <translation type="unfinished">se</translation>
     </message>
     <message>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>snapgrid</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sg</source>
         <comment>snap - grid</comment>
-        <translation>sg</translation>
+        <translation type="unfinished">sg</translation>
     </message>
     <message>
         <source>snapintersection</source>
         <comment>snap - intersection</comment>
-        <translation>snapintersectie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>si</source>
         <comment>snap - intersection</comment>
-        <translation>si</translation>
+        <translation type="unfinished">si</translation>
     </message>
     <message>
         <source>snapmiddle</source>
         <comment>snap - middle points</comment>
-        <translation>snapmiddle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sm</source>
         <comment>snap - middle points</comment>
-        <translation>sm</translation>
+        <translation type="unfinished">sm</translation>
     </message>
     <message>
         <source>snaponentity</source>
         <comment>snap - on entity</comment>
-        <translation>snaponentiteit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sn</source>
         <comment>snap - on entity</comment>
-        <translation>n</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>np</source>
         <comment>snap - on entity</comment>
-        <translation>np</translation>
+        <translation type="unfinished">sp</translation>
     </message>
     <message>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>setrelatief nulo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rz</source>
         <comment>set relative zero position</comment>
-        <translation>rz</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation>selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sa</source>
         <comment>Select all entities</comment>
-        <translation>sa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>deselectall</source>
         <comment>deselect all entities</comment>
-        <translation>deselectall</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tn</source>
         <comment>deselect all entities</comment>
-        <translation>n</translation>
+        <translation type="unfinished">da</translation>
     </message>
     <message>
         <source>attr</source>
         <comment>modify attribute</comment>
-        <translation>attr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ma</source>
         <comment>modify attribute</comment>
-        <translation>ma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>prop</source>
         <comment>modify properties</comment>
-        <translation>prop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist</source>
         <comment>distance point to point</comment>
-        <translation>dist</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dpp</source>
         <comment>distance point to point</comment>
-        <translation>dpp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ang</source>
         <comment>measure angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">hoek</translation>
     </message>
     <message>
         <source>angle</source>
-        <translation>hoek</translation>
+        <translation type="unfinished">hoek</translation>
     </message>
     <message>
         <source>dpi</source>
-        <translation>dpi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>close</source>
-        <translation>sluiten</translation>
+        <translation type="unfinished">sluiten</translation>
     </message>
     <message>
         <source>chord length</source>
-        <translation>akkoordlengte</translation>
+        <translation type="unfinished">booglengte</translation>
     </message>
     <message>
         <source>columns</source>
-        <translation>kolommen</translation>
+        <translation type="unfinished">kolommen</translation>
     </message>
     <message>
         <source>columnspacing</source>
-        <translation>columnspacing</translation>
+        <translation type="unfinished">kolomtussenafstand</translation>
     </message>
     <message>
         <source>factor</source>
-        <translation>factor</translation>
+        <translation type="unfinished">waarde</translation>
     </message>
     <message>
         <source>length</source>
-        <translation>lengte</translation>
+        <translation type="unfinished">lengte</translation>
     </message>
     <message>
         <source>number</source>
-        <translation>aantal</translation>
+        <translation type="unfinished">aantal</translation>
     </message>
     <message>
         <source>radius</source>
-        <translation>straal</translation>
+        <translation type="unfinished">radius</translation>
     </message>
     <message>
         <source>rows</source>
-        <translation>rijen</translation>
+        <translation type="unfinished">rijen</translation>
     </message>
     <message>
         <source>rowspacing</source>
-        <translation>rijenpacing</translation>
+        <translation type="unfinished">rijtussenafstand</translation>
     </message>
     <message>
         <source>through</source>
-        <translation>door</translation>
+        <translation type="unfinished">door</translation>
     </message>
     <message>
         <source>trim</source>
-        <translation>trim</translation>
+        <translation type="unfinished">trim</translation>
     </message>
     <message>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>ang</translation>
+        <translation type="unfinished">hoek</translation>
     </message>
     <message>
         <source>an</source>
         <comment>angle</comment>
-        <translation>a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>center</source>
-        <translation>centrum</translation>
+        <translation type="unfinished">center</translation>
     </message>
     <message>
         <source>cen</source>
         <comment>center</comment>
-        <translation>cen</translation>
+        <translation type="unfinished">cen</translation>
     </message>
     <message>
         <source>ce</source>
         <comment>center</comment>
-        <translation>ce</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cl</source>
         <comment>chord length</comment>
-        <translation>cl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c</source>
         <comment>close</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cols</source>
         <comment>columns</comment>
-        <translation>kols</translation>
+        <translation type="unfinished">koln</translation>
     </message>
     <message>
         <source>co</source>
         <comment>columns</comment>
-        <translation>co</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>columnspacing</translation>
+        <translation type="unfinished">kolomtussenafstand</translation>
     </message>
     <message>
         <source>colspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>colspacing</translation>
+        <translation type="unfinished">kolafstand</translation>
     </message>
     <message>
         <source>cs</source>
         <comment>columnspacing for inserts</comment>
-        <translation>cs</translation>
+        <translation type="unfinished">ka</translation>
     </message>
     <message>
         <source>fact</source>
         <comment>factor</comment>
-        <translation>feit</translation>
+        <translation type="unfinished">waarde</translation>
     </message>
     <message>
         <source>f</source>
         <comment>factor</comment>
-        <translation>f</translation>
+        <translation type="unfinished">w</translation>
     </message>
     <message>
         <source>help</source>
-        <translation>hulp</translation>
+        <translation type="unfinished">help</translation>
     </message>
     <message>
         <source>?</source>
         <comment>help</comment>
-        <translation>?</translation>
+        <translation type="unfinished">?</translation>
     </message>
     <message>
         <source>length</source>
         <comment>length</comment>
-        <translation>lengte</translation>
+        <translation type="unfinished">lengte</translation>
     </message>
     <message>
         <source>len</source>
         <comment>length</comment>
-        <translation>len</translation>
+        <translation type="unfinished">len</translation>
     </message>
     <message>
         <source>l</source>
         <comment>length</comment>
-        <translation>l</translation>
+        <translation type="unfinished">l</translation>
     </message>
     <message>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>lengte1</translation>
+        <translation type="unfinished">lengte1</translation>
     </message>
     <message>
         <source>len1</source>
         <comment>length1</comment>
-        <translation>len1</translation>
+        <translation type="unfinished">len1</translation>
     </message>
     <message>
         <source>l1</source>
         <comment>length1</comment>
-        <translation>l1</translation>
+        <translation type="unfinished">l1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>lengte2</translation>
+        <translation type="unfinished">lengte2</translation>
     </message>
     <message>
         <source>len2</source>
         <comment>length2</comment>
-        <translation>len2</translation>
+        <translation type="unfinished">len2</translation>
     </message>
     <message>
         <source>l2</source>
         <comment>length2</comment>
-        <translation>l2</translation>
+        <translation type="unfinished">l2</translation>
     </message>
     <message>
         <source>number</source>
         <comment>number</comment>
-        <translation>aantal</translation>
+        <translation type="unfinished">aantal</translation>
     </message>
     <message>
         <source>num</source>
         <comment>number</comment>
-        <translation>num</translation>
+        <translation type="unfinished">aant</translation>
     </message>
     <message>
         <source>n</source>
         <comment>number</comment>
-        <translation>n</translation>
+        <translation type="unfinished">n</translation>
     </message>
     <message>
         <source>ra</source>
         <comment>radius</comment>
-        <translation>re</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>omgekeerd</translation>
+        <translation type="unfinished">omgekeerd</translation>
     </message>
     <message>
         <source>rev</source>
         <comment>reversed</comment>
-        <translation>rev</translation>
+        <translation type="unfinished">omg</translation>
     </message>
     <message>
         <source>row</source>
         <comment>row</comment>
-        <translation>rij</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rijenpacing</translation>
+        <translation type="unfinished">rijtussenafstand</translation>
     </message>
     <message>
         <source>rs</source>
         <comment>rowspacing for inserts</comment>
-        <translation>rs</translation>
+        <translation type="unfinished">ra</translation>
     </message>
     <message>
         <source>text</source>
-        <translation>tekst</translation>
+        <translation type="unfinished">tekst</translation>
     </message>
     <message>
         <source>t</source>
         <comment>text</comment>
-        <translation>e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>t</source>
         <comment>through</comment>
-        <translation>e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>undo</source>
-        <translation>ongedaan maken</translation>
+        <translation type="unfinished">herstel</translation>
     </message>
     <message>
         <source>u</source>
         <comment>undo</comment>
-        <translation>u</translation>
+        <translation type="unfinished">h</translation>
     </message>
     <message>
         <source>redo</source>
-        <translation>opnieuw</translation>
+        <translation type="unfinished">terughalen</translation>
     </message>
     <message>
         <source>r</source>
         <comment>redo</comment>
-        <translation>r</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>back</source>
-        <translation>terug</translation>
+        <translation type="unfinished">terug</translation>
     </message>
     <message>
         <source>b</source>
         <comment>back</comment>
-        <translation>b</translation>
+        <translation type="unfinished">b</translation>
     </message>
     <message>
         <source>paperoffset</source>
-        <translation>paperoffset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>graphoffset</source>
-        <translation>grafiekoffset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Command: %1 (%2)</source>
-        <translation>Commando: %1 (%2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RS_Commands:: command not found: %1</source>
-        <translation>RS Commands:: opdracht niet gevonden: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Command not found: %1</source>
-        <translation>Opdracht niet gevonden: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Accepted keycode: %1</source>
-        <translation>Geaccepteerde sleutelcode: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Available commands:</source>
-        <translation>Beschikbare opdrachten:</translation>
+        <translation type="unfinished">Beschikbare commando&apos;s:</translation>
     </message>
     <message>
         <source>None</source>
         <comment>unknown length unit</comment>
-        <translation>Geen</translation>
+        <translation type="unfinished">Geen</translation>
     </message>
     <message>
         <source>error reading file metadata in dwg file</source>
-        <translation>fout bij het lezen van bestandsmetadata in dwg-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator error for input: </source>
-        <translation>Calculatorfout voor invoer:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bw</source>
-        <translation>lg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>blackwhite</source>
-        <translation>zwartwit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>color</source>
-        <translation>kleur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>di</source>
         <comment>modify - divide (cut)</comment>
-        <translation>di</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>t2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>t2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mp</source>
         <comment>modify properties</comment>
-        <translation>mp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Block</source>
-        <translation>Blok</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Circle</source>
-        <translation>Cirkel</translation>
+        <translation type="unfinished">Cirkel</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation>Curve</translation>
+        <translation type="unfinished">Kromme</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation type="unfinished">Bewerken</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellips</translation>
+        <translation type="unfinished">Ovaal</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation type="unfinished">Bestand</translation>
     </message>
     <message>
         <source>Dimension</source>
-        <translation>Afmetingen</translation>
+        <translation type="unfinished">maatgeving</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation>Informatie</translation>
+        <translation type="unfinished">Info</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation>Laag</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation type="unfinished">Lijn</translation>
     </message>
     <message>
         <source>Modify</source>
-        <translation>Wijzigen</translation>
+        <translation type="unfinished">Bewerken</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Opties</translation>
+        <translation type="unfinished">Opties</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Andere</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished">Polylijn</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Beperking</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Selecteren</translation>
+        <translation type="unfinished">Selecteer</translation>
     </message>
     <message>
         <source>Snap</source>
-        <translation>Knap</translation>
+        <translation type="unfinished">Snap</translation>
     </message>
     <message>
         <source>Snap Extras</source>
-        <translation>Extra's knappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Beeld</translation>
+        <translation type="unfinished">Beeld</translation>
     </message>
     <message>
         <source>Widgets</source>
-        <translation>Eigenschappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Creators</source>
-        <translation>Makers</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All</source>
-        <translation>Alles</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid objects removed:</source>
-        <translation>Ongeldige objecten verwijderd:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pen Wizard</source>
-        <translation>Pen-assistent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select objects</source>
-        <translation>Objecten selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply to selected</source>
-        <translation>Toepassen op geselecteerde</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You must input a distance first.</source>
-        <translation>Je moet eerst een afstand invoeren.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal</source>
-        <translation>cal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator mode: On</source>
-        <translation>Calculatormodus: Aan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculator mode: Off</source>
-        <translation>Calculatormodus: uitgeschakeld</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>License</source>
-        <translation>Licentie</translation>
+        <translation type="unfinished">Licentie</translation>
     </message>
     <message>
         <source>No %1 layers found</source>
-        <translation>Geen %1-lagen gevonden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>line2p</source>
         <comment>draw line</comment>
-        <translation>regel2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineang</source>
         <comment>angled line</comment>
-        <translation>lijnang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>la</source>
         <comment>angled line</comment>
-        <translation>la</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linehor</source>
         <comment>horizontal line</comment>
-        <translation>linehor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lh</source>
         <comment>horizontal line</comment>
-        <translation>lh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linever</source>
         <comment>vertical line</comment>
-        <translation>lijnver</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lv</source>
         <comment>vertical line</comment>
-        <translation>lv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linerec</source>
         <comment>draw rectangle</comment>
-        <translation>regelrec</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re</source>
         <comment>draw rectangle</comment>
-        <translation>re</translation>
+        <translation type="unfinished">re</translation>
     </message>
     <message>
         <source>linepar</source>
         <comment>create parallel</comment>
-        <translation>lijnpar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineoff</source>
         <comment>create parallel</comment>
-        <translation>lineoff</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pa</source>
         <comment>create parallel</comment>
-        <translation>pa</translation>
+        <translation type="unfinished">zp</translation>
     </message>
     <message>
         <source>ll</source>
         <comment>create parallel</comment>
-        <translation>ii</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineparthro</source>
         <comment>parallel through point</comment>
-        <translation>lineparthro</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lp</source>
         <comment>parallel through point</comment>
-        <translation>id</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linebisect</source>
         <comment>angle bisector</comment>
-        <translation>linebisect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetancp</source>
         <comment>tangent point and circle</comment>
-        <translation>linetancp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lt</source>
         <comment>tangent point and circle</comment>
-        <translation>lt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetan2c</source>
         <comment>tangent two circles</comment>
-        <translation>linetan2c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lc</source>
         <comment>tangent two circles</comment>
-        <translation>lc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linetancper</source>
         <comment>tangent line and circle</comment>
-        <translation>linetancper</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>or</source>
         <comment>tangent line and circle</comment>
-        <translation>of</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lineperp</source>
         <comment>perpendicular line</comment>
-        <translation>lineperp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lo</source>
         <comment>perpendicular line</comment>
-        <translation>6.2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linerelang</source>
         <comment>relative line</comment>
-        <translation>linerelang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lr</source>
         <comment>relative line</comment>
-        <translation>lr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polygoncencor</source>
         <comment>polygon centre point</comment>
-        <translation>polygoncencor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pp</source>
         <comment>polygon centre point</comment>
-        <translation>pp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polycp</source>
         <comment>polygon centre point</comment>
-        <translation>polycp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pcp</source>
         <comment>polygon centre point</comment>
-        <translation>pcp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polygoncentan</source>
         <comment>polygon centre vertex</comment>
-        <translation>polygoncentan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pv</source>
         <comment>polygon centre vertex</comment>
-        <translation>pv</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>polyct</source>
         <comment>polygon centre vertex</comment>
-        <translation>polyct</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>p2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c</source>
         <comment>draw circle</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle2p</source>
         <comment>circle 2 points</comment>
-        <translation>cirkel2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c2p</source>
         <comment>circle 2 points</comment>
-        <translation>c2p</translation>
+        <translation type="unfinished">c2p</translation>
     </message>
     <message>
         <source>circle2pr</source>
         <comment>circle 2 points radius</comment>
-        <translation>cirkel2pr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cc</source>
         <comment>circle 2 points radius</comment>
-        <translation>cc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circle3p</source>
         <comment>circle 3 points</comment>
-        <translation>cirkel3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>c3p</source>
         <comment>circle 3 points</comment>
-        <translation>c3p</translation>
+        <translation type="unfinished">c3p</translation>
     </message>
     <message>
         <source>circlecr</source>
         <comment>circle point radius</comment>
-        <translation>cirkelcr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cr</source>
         <comment>circle point radius</comment>
-        <translation>c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ccr</source>
         <comment>circle point radius</comment>
-        <translation>ccr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2cp</source>
         <comment>circle 2 tangent point</comment>
-        <translation>circletan2cp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tr</source>
         <comment>circle 2 tangent point</comment>
-        <translation>tr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2p</source>
         <comment>circle tangent 2 points</comment>
-        <translation>circletan2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>td</source>
         <comment>circle tangent 2 points</comment>
-        <translation>td</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan2cr</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>circletan2cr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tc</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>tc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>circletan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>circletan3color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>t3</source>
         <comment>circle tangent to 3</comment>
-        <translation>t3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arc</source>
         <comment>arc point radius</comment>
-        <translation>boog</translation>
+        <translation type="unfinished">boog</translation>
     </message>
     <message>
         <source>ar</source>
         <comment>arc point radius</comment>
-        <translation>er</translation>
+        <translation type="unfinished">bo</translation>
     </message>
     <message>
         <source>a</source>
         <comment>arc point radius</comment>
-        <translation>a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arc3p</source>
         <comment>draw 3pt arc</comment>
-        <translation>boog3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>a3</source>
         <comment>draw 3pt arc</comment>
-        <translation>a3</translation>
+        <translation type="unfinished">b3</translation>
     </message>
     <message>
         <source>arctan</source>
         <comment>arc tangent</comment>
-        <translation>arctan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>at</source>
         <comment>arc tangent</comment>
-        <translation>op</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sf</source>
         <comment>draw spline</comment>
-        <translation>sf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sp</source>
         <comment>spline through points</comment>
-        <translation>sp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arcellc2ax</source>
         <comment>arc ellipse</comment>
-        <translation>arcellc2ax</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ae</source>
         <comment>arc ellipse</comment>
-        <translation>ae</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fh</source>
         <comment>draw freehand line</comment>
-        <translation>fh</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipsec2p</source>
         <comment>ellipse axis</comment>
-        <translation>ellipsec2p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ea</source>
         <comment>ellipse axis</comment>
-        <translation>ea</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipse3p</source>
         <comment>ellipse foci</comment>
-        <translation>ellipse3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ef</source>
         <comment>ellipse foci</comment>
-        <translation>ef</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipse4p</source>
         <comment>ellipse 4 point</comment>
-        <translation>ellips4p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>e4</source>
         <comment>ellipse 4 point</comment>
-        <translation>e4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ellipsec3p</source>
         <comment>ellipse center 3 point</comment>
-        <translation>ellipsec3p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>e3</source>
         <comment>ellipse center 3 point</comment>
-        <translation>e3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plineadd</source>
         <comment>pl add node</comment>
-        <translation>plineadd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pi</source>
         <comment>pl add node</comment>
-        <translation>pi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plineapp</source>
         <comment>pl append node</comment>
-        <translation>plineapp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pn</source>
         <comment>pl append node</comment>
-        <translation>pn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinedel</source>
         <comment>pl delete node</comment>
-        <translation>plinedel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pd</source>
         <comment>pl delete node</comment>
-        <translation>pd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinedeltwn</source>
         <comment>pl del between nodes</comment>
-        <translation>plinedeltwn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pr</source>
         <comment>pl del between nodes</comment>
-        <translation>e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinetrm</source>
         <comment>pl trim segments</comment>
-        <translation>plinetrm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pt</source>
         <comment>pl trim segments</comment>
-        <translation>pt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinepar</source>
         <comment>pl equidistant</comment>
-        <translation>plinepar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pe</source>
         <comment>pl equidistant</comment>
-        <translation>pe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plinejoin</source>
         <comment>pl join</comment>
-        <translation>plinejoin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pj</source>
         <comment>pl join</comment>
-        <translation>pj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sx</source>
         <comment>deselect all entities</comment>
-        <translation>sx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>invertselect</source>
         <comment>invert select</comment>
-        <translation>omkerselecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>is</source>
         <comment>invert select</comment>
-        <translation>is</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ds</source>
         <comment>dimension - aligned</comment>
-        <translation>ds</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dimradius</source>
         <comment>dimension - radial</comment>
-        <translation>dimradius</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dr</source>
         <comment>dimension - radial</comment>
-        <translation>dr</translation>
+        <translation type="unfinished">mr</translation>
     </message>
     <message>
         <source>da</source>
         <comment>dimension - angular</comment>
-        <translation>da</translation>
+        <translation type="unfinished">mu</translation>
     </message>
     <message>
         <source>dg</source>
         <comment>dimension - regenerate</comment>
-        <translation>dg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmove</source>
         <comment>modify - move (copy)</comment>
-        <translation>move</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modrotate</source>
         <comment>modify - rotate</comment>
-        <translation>modrotaat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modscale</source>
         <comment>modify - scale</comment>
-        <translation>modschaal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmirror</source>
         <comment>modify -  mirror</comment>
-        <translation>modmirror</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modmovrot</source>
         <comment>modify - move rotate</comment>
-        <translation>modmovrot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mr</source>
         <comment>modify - move rotate</comment>
-        <translation>mr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mod2rot</source>
         <comment>modify - rotate2</comment>
-        <translation>mod2rot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>r2</source>
         <comment>modify - rotate2</comment>
-        <translation>r2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modrevert</source>
         <comment>modify -  revert direction</comment>
-        <translation>modrevert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>md</source>
         <comment>modify -  revert direction</comment>
-        <translation>md</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modtrim</source>
         <comment>modify - trim (extend)</comment>
-        <translation>modtrim</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modtrim2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>modtrim2color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modlengthen</source>
         <comment>modify - lengthen</comment>
-        <translation>modlengen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modoffset</source>
         <comment>modify - offset</comment>
-        <translation>modoffset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mo</source>
         <comment>modify - offset</comment>
-        <translation>ma</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moff</source>
         <comment>modify - offset</comment>
-        <translation>moff</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modbevel</source>
         <comment>modify - bevel</comment>
-        <translation>modbevel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modfillet</source>
         <comment>modify - fillet</comment>
-        <translation>modfillet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moddivide</source>
         <comment>modify - divide (cut)</comment>
-        <translation>moddivide</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modstretch</source>
         <comment>modify - stretch</comment>
-        <translation>modstretch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modproperties</source>
         <comment>modify properties</comment>
-        <translation>eigenschappen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modattr</source>
         <comment>modify attribute</comment>
-        <translation>modattr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>modexpltext</source>
         <comment>explode text strings</comment>
-        <translation>modexpltext</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>xt</source>
         <comment>explode text strings</comment>
-        <translation>xt</translation>
+        <translation type="unfinished">xt</translation>
     </message>
     <message>
         <source>modexplode</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>modexplode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>moddelete</source>
         <comment>modify - delete (erase)</comment>
-        <translation>moddelete</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infodistance</source>
         <comment>distance point to point</comment>
-        <translation>infoafstand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>id</source>
         <comment>distance point to point</comment>
-        <translation>id</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infodistep</source>
         <comment>distance entity to point</comment>
-        <translation>infodistep</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ii</source>
         <comment>distance entity to point</comment>
-        <translation>ii</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dep</source>
         <comment>distance entity to point</comment>
-        <translation>dep</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infoangle</source>
         <comment>measure angle</comment>
-        <translation>infoangle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ia</source>
         <comment>measure angle</comment>
-        <translation>ia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>infoarea</source>
         <comment>measure area</comment>
-        <translation>infogebied</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>aa</source>
         <comment>measure area</comment>
-        <translation>aa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mt</source>
         <comment>draw mtext</comment>
-        <translation>mt</translation>
+        <translation type="unfinished">mt</translation>
     </message>
     <message>
         <source>tx</source>
         <comment>draw text</comment>
-        <translation>tx</translation>
+        <translation type="unfinished">te</translation>
     </message>
     <message>
         <source>so</source>
         <comment>snap - free</comment>
-        <translation>dus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ki</source>
         <comment>kill all actions</comment>
-        <translation>ki</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>un</source>
         <comment>undo cycle</comment>
-        <translation>un</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rd</source>
         <comment>redo cycle</comment>
-        <translation>rd</translation>
+        <translation type="unfinished">vv</translation>
     </message>
     <message>
         <source>drawpref</source>
         <comment>drawing preferences</comment>
-        <translation>drawpref</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dp</source>
         <comment>drawing preferences</comment>
-        <translation>dp</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>equation</source>
-        <translation>vergelijking</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation>lengte1</translation>
+        <translation type="unfinished">lengte1</translation>
     </message>
     <message>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation>lengte2</translation>
+        <translation type="unfinished">lengte2</translation>
     </message>
     <message>
         <source>eqn</source>
         <comment>equation</comment>
-        <translation>eqn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>eq</source>
         <comment>equation</comment>
-        <translation>eq</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom</source>
         <comment>Paper format</comment>
-        <translation>Aangepast</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A0</source>
         <comment>Paper format</comment>
-        <translation>A0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A1</source>
         <comment>Paper format</comment>
-        <translation>A1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A2</source>
         <comment>Paper format</comment>
-        <translation>A2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A3</source>
         <comment>Paper format</comment>
-        <translation>A3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>A4</source>
         <comment>Paper format</comment>
-        <translation>A4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Letter / ANSI A</source>
         <comment>Paper format</comment>
-        <translation>Brief / ANSI A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Legal</source>
         <comment>Paper format</comment>
-        <translation>Juridisch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tabloid / ANSI B</source>
         <comment>Paper format</comment>
-        <translation>Tabloid / ANSI B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI C</source>
         <comment>Paper format</comment>
-        <translation>ANSI C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI D</source>
         <comment>Paper format</comment>
-        <translation>ANSI D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ANSI E</source>
         <comment>Paper format</comment>
-        <translation>ANSI E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch A</source>
         <comment>Paper format</comment>
-        <translation>Arch A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch B</source>
         <comment>Paper format</comment>
-        <translation>Arch B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch C</source>
         <comment>Paper format</comment>
-        <translation>Arch C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch D</source>
         <comment>Paper format</comment>
-        <translation>Arch D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arch E</source>
         <comment>Paper format</comment>
-        <translation>Boog E</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
         <comment>Paper format</comment>
-        <translation>aangepast</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>a0</source>
         <comment>Paper format</comment>
-        <translation>a0</translation>
+        <translation type="unfinished">b0</translation>
     </message>
     <message>
         <source>a1</source>
         <comment>Paper format</comment>
-        <translation>a1</translation>
+        <translation type="unfinished">b1</translation>
     </message>
     <message>
         <source>a2</source>
         <comment>Paper format</comment>
-        <translation>a2</translation>
+        <translation type="unfinished">b2</translation>
     </message>
     <message>
         <source>a3</source>
         <comment>Paper format</comment>
-        <translation>a3</translation>
+        <translation type="unfinished">b3</translation>
     </message>
     <message>
         <source>a4</source>
         <comment>Paper format</comment>
-        <translation>a4</translation>
+        <translation type="unfinished">b4</translation>
     </message>
     <message>
         <source>letter</source>
         <comment>Paper format</comment>
-        <translation>letter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>legal</source>
         <comment>Paper format</comment>
-        <translation>wettelijk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>tabloid</source>
         <comment>Paper format</comment>
-        <translation>tabloid</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi c</source>
         <comment>Paper format</comment>
-        <translation>ansi c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi d</source>
         <comment>Paper format</comment>
-        <translation>ansi d</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ansi e</source>
         <comment>Paper format</comment>
-        <translation>ansi e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch a</source>
         <comment>Paper format</comment>
-        <translation>a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch b</source>
         <comment>Paper format</comment>
-        <translation>boog b</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch c</source>
         <comment>Paper format</comment>
-        <translation>boog c</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch d</source>
         <comment>Paper format</comment>
-        <translation>arch d</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>arch e</source>
         <comment>Paper format</comment>
-        <translation>arch e</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DWG support is not complete!</source>
-        <translation>DWG ondersteuning is niet compleet!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If this file fails to open try an older DWG format</source>
-        <translation>Als dit bestand niet geopend kan worden, probeer dan een ouder DWG-formaat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>or try to find a converter to make it a DXF file.</source>
-        <translation>of probeer een converter te vinden om het een DXF bestand te maken.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Information</source>
-        <translation>Informatie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
         <comment>fileImport</comment>
-        <translation>Fout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import error:</source>
         <comment>fileImport</comment>
-        <translation>Importfout:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
-        <translation>Hoe dan ook, er zijn een aantal entiteiten geïdentificeerd.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
-        <translation>Als u het bestand nu opent, kan de tekening niet volledig of onbruikbaar zijn.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
-        <translation>Fout negeren en het bestand openen?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>geen DXF/DWG-fout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij openen van DXF/DWG-bestand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>niet-ondersteunde DXF/DWG bestandsversie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij het lezen van DXF/DWG metagegevens</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG bestandskop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG header dara</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG header dara</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG-objectkaart</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG-klassen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij het lezen van DXF/DWG-tabellen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG blokken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij het lezen van DXF/DWG entiteiten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG-objecten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG secties</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>fout bij lezen van DXF/DWG-code</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>undefined error</source>
         <comment>RS_FilterInterface</comment>
-        <translation>ongedefinieerde fout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usage: </source>
-        <translation>gebruik:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> [options] &lt;dxf_files&gt;</source>
-        <translation>[opties] &lt;dxf files&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> *.dxf</source>
-        <translation>*.dxf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation>-- print alle dxf bestanden naar pdf bestanden met dezelfde namen.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> -o some.pdf *.dxf</source>
-        <translation>-o some.pdf *.dxf</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-- print all dxf files to 'some.pdf' file.</source>
-        <translation>-- print alle dxf bestanden naar 'some.pdf' bestand.</translation>
+        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto fit and center drawing to page.</source>
-        <translation>Auto pasvorm en middentekening naar pagina.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto center drawing on page.</source>
-        <translation>Auto center tekening op pagina.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print grayscale.</source>
-        <translation>Grayschaal afdrukken.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print monochrome (black/white).</source>
-        <translation>Druk monochroom af (zwart/wit).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paper size (Width x Height) in mm.</source>
         <comment>WxH</comment>
-        <translation>Papiergrootte (breedte x hoogte) in mm.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output resolution (DPI).</source>
         <comment>integer</comment>
-        <translation>Uitvoerresolutie (DPI).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
-        <translation>Uitvoerschaal. Bijvoorbeeld: 0,01 (voor 1:100 schaal).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paper margins in mm (integer or float).</source>
-        <translation>Papiermarges in mm (integer of float).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print on multiple pages (Horiz. x Vert.).</source>
-        <translation>Print op meerdere pagina's (Horiz. x Vert.).</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output PDF file.</source>
         <comment>file</comment>
-        <translation>Uitvoer PDF-bestand.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Target output directory.</source>
-        <translation>Doeluitvoermap.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;dxf_files&gt;</source>
-        <translation>&lt;dxf files&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Input DXF file(s)</source>
-        <translation>Invoer DXF-bestand(s)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keycode mode</source>
-        <translation>Sleutelcodemodus</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Load command file</source>
-        <translation>Commandobestand laden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste multiple commands</source>
-        <translation>Meerdere commando's plakken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine all layers</source>
-        <translation>Alle lagen combineren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>File "%1" already exists. Do you want to replace it?</source>
-        <translation>Bestand "%1" bestaat al. Wil je het vervangen?</translation>
+        <source>File &quot;%1&quot; already exists. Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>/CustomColor%1</source>
-        <translation>/Aangepaste kleur%1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Custom Picked</source>
-        <translation>Aangepast gekozen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noname</source>
         <comment>default layer name</comment>
-        <translation>geen naam</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>R</source>
         <comment>Radial dimension prefix</comment>
-        <translation>R</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>sline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>sli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>sl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>slinex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>slix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rlx</source>
         <comment>draw snake line (X)</comment>
-        <translation>rlx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>sliney</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>slank</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rly</source>
         <comment>draw snake line (Y)</comment>
-        <translation>rly</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>rect1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>re1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>rect2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re2</source>
         <comment>draw rectangle (2 Points)</comment>
-        <translation>re2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>rect3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>re3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>re3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>plakje</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>sll</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>plakc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>slc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>ster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>st</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>kruis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cx</source>
         <comment>draw cross for circle</comment>
-        <translation>cx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>regelpunten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>lpunten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>criclebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>criclebyarc</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cba</source>
         <comment>draw circle by arc</comment>
-        <translation>cba</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>duplicaat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>dup</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>linejoin</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>lj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>breekverdeling</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bd</source>
         <comment>break or divide entity</comment>
-        <translation>bd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>gapline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>gl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>parabola4p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>pl4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>parabolafd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>plfd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>hoeklijn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>rortoline</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>kort</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>punt2line</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p2l</source>
         <comment>draw line from point to line</comment>
-        <translation>p2l</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>snapmiddle manual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>snaphandleiding</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>smm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>y</source>
-        <translation>y</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>p</source>
-        <translation>p</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>anglerel</source>
-        <translation>anglerel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>start</source>
-        <translation>start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>offset</source>
-        <translation>offset</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>linesnap</source>
-        <translation>regelafbreking</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ticksnap</source>
-        <translation>tekennap</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>width</source>
-        <translation>breedte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>height</source>
-        <translation>hoogte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>pos</source>
-        <translation>po</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>size</source>
-        <translation>grootte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bevels</source>
-        <translation>afschuiningen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nopoly</source>
-        <translation>nopoly</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>usepoly</source>
-        <translation>usepoly</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corners</source>
-        <translation>hoeken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>str</source>
-        <translation>str</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>round</source>
-        <translation>rond</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap1</source>
-        <translation>snap1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topl</source>
-        <translation>topl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>top</source>
-        <translation>boven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>topr</source>
-        <translation>topr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>left</source>
-        <translation>links</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>middle</source>
-        <translation>midden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>right</source>
-        <translation>rechts</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottoml</source>
-        <translation>bodem</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottom</source>
-        <translation>onder</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>bottomr</source>
-        <translation>onderste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapcorner</source>
-        <translation>snapcorner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snapshift</source>
-        <translation>snapshift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizein</source>
-        <translation>sizein</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sizeout</source>
-        <translation>grootteuit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>hor</source>
-        <translation>hor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vert</source>
-        <translation>vert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>snap2</source>
-        <translation>snap2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>corner</source>
-        <translation>hoek</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-vert</source>
-        <translation>midvert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>mid-hor</source>
-        <translation>halflang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quad</source>
-        <translation>quad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>noquad</source>
-        <translation>noquad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>angle_inner</source>
-        <translation>hoek inner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edges</source>
-        <translation>randen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-none</source>
-        <translation>rand-geen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-both</source>
-        <translation>rand-beide</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-start</source>
-        <translation>rand-start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>edge-end</source>
-        <translation>randeind</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>end</source>
-        <translation>einde</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>both</source>
-        <translation>beide</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>none</source>
-        <translation>geen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fit</source>
-        <translation>fit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nofit</source>
-        <translation>nofit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_fixed</source>
-        <translation>verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>dist_flex</source>
-        <translation>dist flex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>distance</source>
-        <translation>afstand</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>sym</source>
-        <translation>sym</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>nosym</source>
-        <translation>nosym</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: no pattern found. Please set pattern path in application preferences</source>
-        <translation>Hatch:: geen patroon gevonden. Stel patroonpad in in toepassingsvoorkeuren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch:: loading pattern failed: %1</source>
-        <translation>Hatch:: laadpatroon mislukt: %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PenTB</source>
-        <translation>PenTB</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>By Layer</source>
-        <translation>Op laag</translation>
+        <translation type="unfinished">Door Laag bepaald</translation>
     </message>
     <message>
         <source>By Block</source>
-        <translation>Op blok</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>- Unchanged -</source>
-        <translation>- Ongewijzigd -</translation>
+        <translation type="unfinished">- Ongewijzigd -</translation>
     </message>
     <message>
         <source>User Color</source>
-        <translation>Gebruikerskleur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>cal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>berekenen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>-Unchanged-</source>
-        <translation>- Ongewijzigd..</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByLayer</source>
-        <translation>DoorLayer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ByBlock</source>
-        <translation>ByBlock</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Standaard</translation>
+        <translation type="unfinished">Standaard</translation>
     </message>
     <message>
         <source>0.00mm</source>
-        <translation>0,00mm</translation>
+        <translation type="unfinished">0.00mm</translation>
     </message>
     <message>
         <source>0.05mm</source>
-        <translation>0,05mm</translation>
+        <translation type="unfinished">0.05mm</translation>
     </message>
     <message>
         <source>0.09mm</source>
-        <translation>0,09mm</translation>
+        <translation type="unfinished">0.09mm</translation>
     </message>
     <message>
         <source>0.13mmISO</source>
-        <translation>0,13mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.15mm</source>
-        <translation>0,15 mm</translation>
+        <translation type="unfinished">0.15mm</translation>
     </message>
     <message>
         <source>0.18mmISO</source>
-        <translation>0,18mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.20mm</source>
-        <translation>0,20mm</translation>
+        <translation type="unfinished">0.20mm</translation>
     </message>
     <message>
         <source>0.25mmISO</source>
-        <translation>0,25mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.30mm</source>
-        <translation>0.30mm</translation>
+        <translation type="unfinished">0.30mm</translation>
     </message>
     <message>
         <source>0.35mmISO</source>
-        <translation>0,35mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.40mm</source>
-        <translation>0,40mm</translation>
+        <translation type="unfinished">0.40mm</translation>
     </message>
     <message>
         <source>0.50mmISO</source>
-        <translation>0,50mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.53mm</source>
-        <translation>0,53mm</translation>
+        <translation type="unfinished">0.53mm</translation>
     </message>
     <message>
         <source>0.60mm</source>
-        <translation>0,60mm</translation>
+        <translation type="unfinished">0.60mm</translation>
     </message>
     <message>
         <source>0.70mmISO</source>
-        <translation>0,70mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>0.80mm</source>
-        <translation>0,80mm</translation>
+        <translation type="unfinished">0.80mm</translation>
     </message>
     <message>
         <source>0.90mm</source>
-        <translation>0,90mm</translation>
+        <translation type="unfinished">0.90mm</translation>
     </message>
     <message>
         <source>1.00mmISO</source>
-        <translation>1.00mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.06mm</source>
-        <translation>1,06mm</translation>
+        <translation type="unfinished">1.06mm</translation>
     </message>
     <message>
         <source>1.20mm</source>
-        <translation>1,20mm</translation>
+        <translation type="unfinished">1.20mm</translation>
     </message>
     <message>
         <source>1.40mmISO</source>
-        <translation>1,40mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.58mm</source>
-        <translation>1,58mm</translation>
+        <translation type="unfinished">1.58mm</translation>
     </message>
     <message>
         <source>2.00mmISO</source>
-        <translation>2,00mmISO</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.11mm</source>
-        <translation>2.11mm</translation>
+        <translation type="unfinished">2.11mm</translation>
     </message>
 </context>
 <context>
@@ -10806,29 +10762,29 @@ Wilt u het vervangen?</translation>
         <translation>Geef de ruimte tussen de rijen op:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Block cannot contain an insert of itself.</source>
-        <translation>Blok kan geen insert van zichzelf bevatten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> has nested insert of current block in:
 </source>
-        <translation>heeft geneste insert van het huidige blok in:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>
 This block cannot be inserted.</source>
-        <translation>Dit blok kan niet worden ingevoegd.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksSave</name>
     <message>
         <source>No block activated to save</source>
-        <translation>Geen blok geactiveerd om op te slaan</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11040,7 +10996,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify end angle or [angle/chord length]</source>
-        <translation>Eindhoek opgeven of [hoek/korflengte]</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11067,7 +11023,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify startpoint or [center]</source>
-        <translation>Startpunt opgeven of [centrum]</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11090,7 +11046,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify end point</source>
-        <translation>Eindpunt specificeren</translation>
+        <translation type="unfinished">Geef eindpunt op</translation>
     </message>
 </context>
 <context>
@@ -11113,7 +11069,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify point on circle</source>
-        <translation>Punt op cirkel specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11190,193 +11146,193 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>radius=%1 is invalid (expression)</source>
-        <translation>radius=%1 is ongeldig (expressie)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>radius=%1 is invalid (negative)</source>
-        <translation>radius=%1 is ongeldig (negatief)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>radius=%1 is invalid (zero)</source>
-        <translation>radius=%1 is ongeldig (nul)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>Geef de eerste regel op</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>De tweede regel specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>De derde regel specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan1_2P</name>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the first point on the tangent circle</source>
-        <translation>Geef het eerste punt op de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify the second point on the tangent circle</source>
-        <translation>Geef het tweede punt op de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selecteer het midden van de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>Een lijn/arc/circle specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2</name>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>Geef de eerste regel/arc/circle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>Specificeer de tweede lijn/arc/circle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selecteer het midden van de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid expression '%1' for radius</source>
-        <translation>Ongeldige uitdrukking '%1' voor straal</translation>
+        <source>Invalid expression &apos;%1&apos; for radius</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid negative radius '%1'</source>
-        <translation>Ongeldige negatieve straal '%1'</translation>
+        <source>Invalid negative radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Invalid zero radius '%1'</source>
-        <translation>Ongeldige nulstraal '%1'</translation>
+        <source>Invalid zero radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No tangent circle possible for radius '%1'</source>
-        <translation>Geen raakcirkel mogelijk voor straal '%1'</translation>
+        <source>No tangent circle possible for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No common tangential circle for radius '%1'</source>
-        <translation>Geen gemeenschappelijke raakcirkel voor radius '%1'</translation>
+        <source>No common tangential circle for radius &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan2_1P</name>
     <message>
         <source>Specify a line/arc/circle</source>
-        <translation>Een lijn/arc/circle specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the another arc/circle</source>
-        <translation>Vermeld de andere boog/cirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify a point on the tangent circle</source>
-        <translation>Geef een punt op de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selecteer het midden van de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawCircleTan3</name>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Select the center of the tangent circle</source>
-        <translation>Selecteer het midden van de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the first line/arc/circle</source>
-        <translation>Geef de eerste regel/arc/circle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second line/arc/circle</source>
-        <translation>Specificeer de tweede lijn/arc/circle</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the third line/arc/circle</source>
-        <translation>Specificeer de derde lijn/arc/circle</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipse4Points</name>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>Geef het eerste punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>Geef het tweede punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>Geef het derde punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the fourth point on ellipse</source>
-        <translation>Geef het vierde punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>Kan geen unieke ellips bepalen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11418,93 +11374,93 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawEllipseCenter3Points</name>
     <message>
         <source>Specify the center of ellipse</source>
-        <translation>Het midden van de ellips opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the first point on ellipse</source>
-        <translation>Geef het eerste punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second point on ellipse</source>
-        <translation>Geef het tweede punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify the third point on ellipse</source>
-        <translation>Geef het derde punt op ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseFociPoint</name>
     <message>
         <source>Not a valid expression</source>
-        <translation>Geen geldige uitdrukking</translation>
+        <translation type="unfinished">Geen geldige expressie</translation>
     </message>
     <message>
         <source>Specify first focus of ellipse</source>
-        <translation>Geef de eerste focus van ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify second focus of ellipse</source>
-        <translation>Geef tweede focus van ellips</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify a point on ellipse or total distance to foci</source>
-        <translation>Geef een punt op ellips of totale afstand tot foci</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>specify a point on ellipse, or total distance to foci</source>
-        <translation>geef een punt op ellips, of totale afstand tot foci</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total distance %1 is smaller than distance between foci</source>
-        <translation>Totale afstand %1 is kleiner dan afstand tussen foci</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawEllipseInscribe</name>
     <message>
         <source>Specify the first line</source>
-        <translation>Geef de eerste regel op</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the second line</source>
-        <translation>De tweede regel specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Specify the third line</source>
-        <translation>De derde regel specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify the fourth line</source>
-        <translation>Geef de vierde regel op</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Can not determine uniquely an ellipse</source>
-        <translation>Kan geen unieke ellips bepalen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11519,27 +11475,27 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Hatch Error: Invalid contour found!</source>
-        <translation>Hatch Fout: Ongeldige contour gevonden!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Pattern not found!</source>
-        <translation>Hatch Fout: Patroon niet gevonden!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Contour or pattern too small!</source>
-        <translation>Hatch Fout: Contour of patroon te klein!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Contour too big!</source>
-        <translation>Hatch Fout: Contour te groot!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hatch Error: Undefined Error!</source>
-        <translation>Hatch Fout: ongedefinieerde fout!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total hatch area = %1</source>
-        <translation>Totale luikoppervlakte = %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11565,12 +11521,12 @@ This block cannot be inserted.</source>
         <translation>Geef een waarde op:</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
         <source>Enter dpi:</source>
-        <translation>Geef dpi:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11597,15 +11553,15 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
-        <translation>Kan de reeks regels niet sluiten: nog niet genoeg entiteiten gedefinieerd of reeds gesloten.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>Kan niet ongedaan maken: Begin geschiedenis bereikt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cannot redo: End of history reached</source>
-        <translation>Kan niet opnieuw doen: einde geschiedenis bereikt</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11668,7 +11624,7 @@ This block cannot be inserted.</source>
     <message>
         <source>Number sector lines not in range: </source>
         <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation>Aantal sectorlijnen die niet binnen het bereik liggen:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11705,19 +11661,19 @@ This block cannot be inserted.</source>
     <name>RS_ActionDrawLineOrthTan</name>
     <message>
         <source>Select a line</source>
-        <translation>Selecteer een regel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select circle, arc or ellipse</source>
-        <translation>Cirkel, boog of ellips selecteren</translation>
+        <translation type="unfinished">Selecteer cirkel, boog of ovaal</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -11777,62 +11733,62 @@ This block cannot be inserted.</source>
 <context>
     <name>RS_ActionDrawLinePolygon</name>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLinePolygonCenCor</name>
     <message>
         <source>Specify center</source>
-        <translation>Midden opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify a corner</source>
-        <translation>Een hoek opgeven</translation>
+        <translation type="unfinished">Specificeer een hoek</translation>
     </message>
     <message>
         <source>Enter number:</source>
-        <translation>Nummer invoeren:</translation>
+        <translation type="unfinished">Geef een aantal op:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>Geen geldig nummer. Probeer 1.9999</translation>
+        <translation type="unfinished">Geen geldig aantal. Probeer 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression</source>
-        <translation>Geen geldige uitdrukking</translation>
+        <translation type="unfinished">Geen geldige expressie</translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawLinePolygonCorCor</name>
     <message>
         <source>Specify first corner</source>
-        <translation>Eerste hoek opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify second corner</source>
-        <translation>Tweede hoek opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Not a valid number. Try 1..9999</source>
-        <translation>Geen geldig nummer. Probeer 1.9999</translation>
+        <translation type="unfinished">Geen geldig aantal. Probeer 1..9999</translation>
     </message>
     <message>
         <source>Not a valid expression.</source>
-        <translation>Geen geldige uitdrukking.</translation>
+        <translation type="unfinished">Geen geldige expressie.</translation>
     </message>
 </context>
 <context>
@@ -11908,34 +11864,34 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Select first circle/ellipse/parabola</source>
-        <translation>Selecteer eerste cirkel/ellips/parabool</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select second circle/ellipse/parabola</source>
-        <translation>Selecteer tweede cirkel/ellips/parabool</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the tangent line closest to cursor</source>
-        <translation>Selecteer de raaklijn die het dichtst bij de cursor staat</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionDrawMText</name>
     <message>
         <source>Specify insertion point</source>
-        <translation>Invoegpunt specificeren</translation>
+        <translation type="unfinished">Specificeer invoerpunt</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation>Tekst invoeren:</translation>
+        <translation type="unfinished">Voer tekst in:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -11981,39 +11937,39 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Enter the end point x</source>
-        <translation>Voer het eindpunt x in</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter number of polylines</source>
-        <translation>Aantal polylijnen invoeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>equation</source>
-        <translation>vergelijking</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter an equation, f(x)</source>
-        <translation>Voer een vergelijking in, f(x)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>x</source>
-        <translation>x</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter the start point x</source>
-        <translation>Voer het startpunt x in</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The entered x is invalid.</source>
-        <translation>De ingevoerde x is ongeldig.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The step size entered is invalid.</source>
-        <translation>De opgegeven stapgrootte is ongeldig.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The value x entered is invalid.</source>
-        <translation>De ingevoerde waarde x is ongeldig.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12063,7 +12019,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify second point</source>
-        <translation>Tweede punt specificeren</translation>
+        <translation type="unfinished">Specificeer tweede punt</translation>
     </message>
 </context>
 <context>
@@ -12092,11 +12048,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionEditUndo</name>
     <message>
         <source>Nothing to undo!</source>
-        <translation>Niets om ongedaan te maken!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nothing to redo!</source>
-        <translation>Niets om over te doen!</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12123,7 +12079,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Angle: %1</source>
-        <translation>Hoek: %1</translation>
+        <translation type="unfinished">Hoek: %1</translation>
     </message>
 </context>
 <context>
@@ -12150,11 +12106,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Closing Point: %1/%2</source>
-        <translation>Punt sluiten: %1/%2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Area: %1 %2^2</source>
-        <translation>Gebied: %1 %2^2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12177,7 +12133,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Distance: %1 Cartesian: (%2 , %3), Polar: (%4&lt;%5)</source>
-        <translation>Afstand: %1 Cartesian: (%2 , %3), Polar: (%4&lt;%5)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12260,12 +12216,12 @@ This block cannot be inserted.</source>
         <translation>Voeg Bibliotheek Object in</translation>
     </message>
     <message>
-        <source />
-        <translation />
+        <source></source>
+        <translation></translation>
     </message>
     <message>
-        <source>Cannot open file '%1'</source>
-        <translation>Kan bestand '%1' niet openen</translation>
+        <source>Cannot open file &apos;%1&apos;</source>
+        <translation>Kan bestand &apos;%1&apos; niet openen</translation>
     </message>
 </context>
 <context>
@@ -12338,7 +12294,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation>De entiteit moet een lijn, boog, cirkel, ellips of interpolatie spline zijn.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12373,23 +12329,23 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Parent of second entity is nullptr</source>
-        <translation>Moeder van de tweede entiteit is nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>One of the chosen entities is nullptr</source>
-        <translation>Een van de gekozen entiteiten is nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Parent of first entity is nullptr</source>
-        <translation>Moeder van eerste entiteit is nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>First entity is nullptr</source>
-        <translation>Eerste entiteit is nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Second entity is nullptr</source>
-        <translation>Tweede entiteit is nulptr</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12407,11 +12363,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionModifyEntity</name>
     <message>
         <source>Click on entity to modify</source>
-        <translation>Klik op entiteit om te wijzigen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12453,7 +12409,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Invalid number of copies, use %1 </source>
-        <translation>Ongeldig aantal kopieën, gebruik %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12487,11 +12443,11 @@ This block cannot be inserted.</source>
     <name>RS_ActionModifyOffset</name>
     <message>
         <source>Specify direction of offset</source>
-        <translation>Configuratierichting specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -12506,11 +12462,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify rotation center</source>
-        <translation>Rotatiecentrum opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify target point to rotate to</source>
-        <translation>Geef doelpunt om naar te draaien</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12556,7 +12512,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation>Eerste entiteit opgeven of straal &lt;%1&gt; invoeren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12571,11 +12527,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Specify scale center</source>
-        <translation>Schaalcentrum opgeven</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Specify target point</source>
-        <translation>Doelpunt specificeren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12663,15 +12619,15 @@ This block cannot be inserted.</source>
     <name>RS_ActionOrder</name>
     <message>
         <source>No Entity found.</source>
-        <translation>Geen entiteit gevonden.</translation>
+        <translation type="unfinished">Geen Element gevonden.</translation>
     </message>
     <message>
         <source>Choose entity for order</source>
-        <translation>Kies entiteit voor bestelling</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12705,7 +12661,7 @@ This block cannot be inserted.</source>
         <translation>Geef aan vrije vorm om knooppunten toe te voegen</translation>
     </message>
     <message>
-        <source>Specify adding node's point</source>
+        <source>Specify adding node&apos;s point</source>
         <translation>Geef toe te voegen knooppunt</translation>
     </message>
 </context>
@@ -12745,11 +12701,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Can not append nodes in a closed polyline.</source>
-        <translation>Kan geen nodes toevoegen in een gesloten polyline.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>Kan niet ongedaan maken: nog niet genoeg entiteiten gedefinieerd.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12775,16 +12731,16 @@ This block cannot be inserted.</source>
         <translation>Geef vrije vorm om knooppunt te verwijderen</translation>
     </message>
     <message>
-        <source>Specify deleting node's point</source>
+        <source>Specify deleting node&apos;s point</source>
         <translation>Geef de te verwijderen knoop punt</translation>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>Verwijderen punt is ongeldig.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deleting point is not on entity.</source>
-        <translation>Het verwijderen van punt is niet op entiteit.</translation>
+        <translation type="unfinished">De te verwijderen punt is niet op een element.</translation>
     </message>
 </context>
 <context>
@@ -12823,7 +12779,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Deleting point is invalid.</source>
-        <translation>Verwijderen punt is ongeldig.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12861,11 +12817,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Entity can not be a closed polyline.</source>
-        <translation>Entiteit kan geen gesloten polylijn zijn.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline created</source>
-        <translation>Polyline aangemaakt</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12911,126 +12867,126 @@ This block cannot be inserted.</source>
     <name>RS_ActionPrintPreview</name>
     <message>
         <source>RS_ActionPrintPreview::fit(): Invalid paper size</source>
-        <translation>RS ActionPrintPreview::fit(): Ongeldige papiergrootte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates by (%1, %2)</source>
-        <translation>Afdrukverschuiving in papieren coördinaten door (%1, %2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates by (%1, %2)</source>
-        <translation>Afdrukverschuiving in grafiekcoördinaten door (%1, %2)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in graph coordinates</source>
-        <translation>Afdrukverschuiving in grafiekcoördinaten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout offset in paper coordinates</source>
-        <translation>Afdrukcompensatie in papieren coördinaten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>: select printout offset coordinates</source>
-        <translation>: selecteer offsetcoördinaten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>type in offset from command line to offset printout</source>
-        <translation>typ in offset van opdrachtregel naar offset afdruk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>Printout offset negeert relatief nul. Negeren '@'</translation>
+        <source>Printout offset ignores relative zero. Ignoring &apos;@&apos;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout in Black/White</source>
-        <translation>Afdrukken in zwart/wit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Printout in color</source>
-        <translation>Afdrukken in kleur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>RS_ActionPrintPreview::calcPagesNum(): Limit of pages has been exceeded.</source>
-        <translation>RS ActionPrintPreview::calcPagesNum(): De limiet van pagina's is overschreden.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionSelect</name>
     <message>
         <source>Select to modify attributes</source>
-        <translation>Selecteer om attributen te wijzigen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to delete</source>
-        <translation>Te verwijderen selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to delete immediately</source>
-        <translation>Selecteer direct verwijderen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to move</source>
-        <translation>Te verplaatsen selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to rotate</source>
-        <translation>Te draaien selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to scale</source>
-        <translation>Te schalen selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to mirror</source>
-        <translation>Selecteren om te spiegelen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to move and rotate</source>
-        <translation>Te verplaatsen en te draaien selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select for two axis rotation</source>
-        <translation>Selecteer voor twee assen rotatie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to explode text</source>
-        <translation>Selecteer om tekst te ontploffen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to create block</source>
-        <translation>Selecteer om blok aan te maken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to copy</source>
-        <translation>Selecteer om te kopiëren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to cut</source>
-        <translation>Te knippen selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No entity selected!</source>
-        <translation>Geen entiteit geselecteerd!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to create offset</source>
-        <translation>Selecteer om offset aan te maken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select entities to order</source>
-        <translation>Te bestellen entiteiten selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to explode block</source>
-        <translation>Te ontploffen blok selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select to revert direction</source>
-        <translation>Omkeerrichting selecteren</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13075,7 +13031,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Click and drag for the selection window</source>
-        <translation>Klik en sleep voor het selectievenster</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13090,7 +13046,7 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Set &amp;Relative Zero</source>
-        <translation>&amp;Relatieve nul instellen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13127,15 +13083,15 @@ This block cannot be inserted.</source>
     <name>RS_ActionZoomPan</name>
     <message>
         <source>Click and drag to pan zoom</source>
-        <translation>Klik en sleep naar pan zoom</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zoom panning</source>
-        <translation>Panning zoomen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13161,737 +13117,737 @@ This block cannot be inserted.</source>
     <name>RS_GraphicView</name>
     <message>
         <source>Draft</source>
-        <translation>Ontwerp</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TextFileViewer</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation type="unfinished">Kader</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcOptions</name>
     <message>
         <source>Arc Options</source>
-        <translation>Arc-opties</translation>
+        <translation type="unfinished">Boog Opties</translation>
     </message>
     <message>
         <source>Counterclockwise</source>
-        <translation>Tegen de klok in</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>Met de klok mee</translation>
+        <translation type="unfinished">Rechtsom</translation>
     </message>
 </context>
 <context>
     <name>Ui_ArcTangentialOptions</name>
     <message>
         <source>Tangential Arc Options</source>
-        <translation>Tangential Arc-opties</translation>
+        <translation type="unfinished">Tangentiële Boog Opties</translation>
     </message>
     <message>
         <source>Radius of the tangential arc</source>
-        <translation>Straal van de raakboog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>Totale subtending hoek van de raakboog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Straal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle</source>
         <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation>Hoek</translation>
+        <translation type="unfinished">Hoek</translation>
     </message>
 </context>
 <context>
     <name>Ui_BevelOptions</name>
     <message>
         <source>Bevel Options</source>
-        <translation>Afschuinopties</translation>
+        <translation type="unfinished">Afschuin Opties</translation>
     </message>
     <message>
         <source>Check to trim both entities to the bevel</source>
-        <translation>Controleren om beide entiteiten aan de afschuining te trimmen</translation>
+        <translation type="unfinished">Vink af om beide Elementen tot een Afschuining te trimmen</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished">Trim</translation>
     </message>
     <message>
         <source>Length 1:</source>
-        <translation>Lengte 1:</translation>
+        <translation type="unfinished">Lengte 1:</translation>
     </message>
     <message>
         <source>Length 2:</source>
-        <translation>Lengte 2:</translation>
+        <translation type="unfinished">Lengte 2:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleOptions</name>
     <message>
         <source>Circle Options</source>
-        <translation>Cirkelopties</translation>
+        <translation type="unfinished">Cirkel Opties</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation type="unfinished">Radius:</translation>
     </message>
 </context>
 <context>
     <name>Ui_CircleTan2Options</name>
     <message>
         <source>Circle Tangential2 Options</source>
-        <translation>Cirkeltangentiaal2 opties</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Straal van de raakcirkel om &lt;/p&gt;&lt;/body&gt;&lt;/html&gt; te tekenen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation type="unfinished">Radius:</translation>
     </message>
     <message>
         <source>Radius of tangential circle</source>
-        <translation>Straal van de raakcirkel</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_DimLinearOptions</name>
     <message>
         <source>Linear Dimension Options</source>
-        <translation>Opties voor lineaire dimensie</translation>
+        <translation type="unfinished">Liniaire Maat Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
 </context>
 <context>
     <name>Ui_DimOptions</name>
     <message>
         <source>Dimension Options</source>
-        <translation>Dimensieopties</translation>
+        <translation type="unfinished">Maat Opties</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Label:</translation>
+        <translation type="unfinished">Label:</translation>
     </message>
     <message>
         <source>⌀</source>
-        <translation>Wat</translation>
+        <translation type="unfinished">⌀</translation>
     </message>
     <message>
         <source>°</source>
-        <translation>°</translation>
+        <translation type="unfinished">°</translation>
     </message>
     <message>
         <source>±</source>
-        <translation>±</translation>
+        <translation type="unfinished">±</translation>
     </message>
     <message>
         <source>π</source>
-        <translation>π</translation>
+        <translation type="unfinished">π</translation>
     </message>
     <message>
         <source>×</source>
-        <translation>×</translation>
+        <translation type="unfinished">×</translation>
     </message>
     <message>
         <source>÷</source>
-        <translation>*</translation>
+        <translation type="unfinished">÷</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_ImageOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Opties invoegen</translation>
+        <translation type="unfinished">Invoeg Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Rotatiehoek</translation>
+        <translation type="unfinished">Rotatie Hoek</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Schaalfactor</translation>
+        <translation type="unfinished">Schaal Factor</translation>
     </message>
     <message>
         <source>DPI</source>
-        <translation>DPI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DPI of Image</source>
-        <translation>DPI van afbeelding</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_InsertOptions</name>
     <message>
         <source>Insert Options</source>
-        <translation>Opties invoegen</translation>
+        <translation type="unfinished">Invoeg Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Rotatiehoek</translation>
+        <translation type="unfinished">Rotatie Hoek</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Schaalfactor</translation>
+        <translation type="unfinished">Schaal Factor</translation>
     </message>
     <message>
         <source>Array:</source>
-        <translation>Array:</translation>
+        <translation type="unfinished">Opstelling:</translation>
     </message>
     <message>
         <source>Number of Columns</source>
-        <translation>Aantal kolommen</translation>
+        <translation type="unfinished">Aantal Kolommen</translation>
     </message>
     <message>
         <source>Number of Rows</source>
-        <translation>Aantal rijen</translation>
+        <translation type="unfinished">Aantal Rijen</translation>
     </message>
     <message>
         <source>Spacing:</source>
-        <translation>Ruimte:</translation>
+        <translation type="unfinished">Tussenafstand:</translation>
     </message>
     <message>
         <source>Column Spacing</source>
-        <translation>Kolomruimte</translation>
+        <translation type="unfinished">Kolom Tussenafstand</translation>
     </message>
     <message>
         <source>Row Spacing</source>
-        <translation>Rijafstand</translation>
+        <translation type="unfinished">Rij Tussenafstend</translation>
     </message>
 </context>
 <context>
     <name>Ui_LibraryInsertOptions</name>
     <message>
         <source>Library Insert Options</source>
-        <translation>Bibliotheekopties invoegen</translation>
+        <translation type="unfinished">Invoeg Opties Bibliotheek</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Rotation Angle</source>
-        <translation>Rotatiehoek</translation>
+        <translation type="unfinished">Rotatie Hoek</translation>
     </message>
     <message>
         <source>Factor:</source>
-        <translation>Factor:</translation>
+        <translation type="unfinished">Factor:</translation>
     </message>
     <message>
         <source>Scale Factor</source>
-        <translation>Schaalfactor</translation>
+        <translation type="unfinished">Schaal Factor</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineAngleOptions</name>
     <message>
         <source>Line Angle Options</source>
-        <translation>Lijnhoekopties</translation>
+        <translation type="unfinished">Lijn Hoek Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>Lijnhoek</translation>
+        <translation type="unfinished">Lijn Hoek</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lengte:</translation>
+        <translation type="unfinished">Lengte:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>Lengte van de lijn</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Snap Point:</source>
-        <translation>Knippunt:</translation>
+        <translation type="unfinished">Snap Punt:</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Begin</translation>
+        <translation type="unfinished">Start</translation>
     </message>
     <message>
         <source>Middle</source>
-        <translation>Midden</translation>
+        <translation type="unfinished">Middel</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>Einde</translation>
+        <translation type="unfinished">Einde</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineBisectorOptions</name>
     <message>
         <source>Line Bisector Options</source>
-        <translation>Line Bisector Opties</translation>
+        <translation type="unfinished">Lijn Bisectice Opties</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lengte:</translation>
+        <translation type="unfinished">Lengte:</translation>
     </message>
     <message>
         <source>Length of bisector</source>
-        <translation>Lengte van de bisector</translation>
+        <translation type="unfinished">Lente van Bisectrice</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Number of bisectors to create</source>
-        <translation>Aantal te creëren bisectoren</translation>
+        <translation type="unfinished">Aantal nieuwe Bisectoren</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptions</name>
     <message>
         <source>Line Options</source>
-        <translation>Regelopties</translation>
+        <translation type="unfinished">Lijn Opties</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Vorm een gesloten contour van getrokken lijnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Sluiten</translation>
+        <translation type="unfinished">Sluiten</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>De laatste lijntekening ongedaan maken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation type="unfinished">Herstel</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>De laatste lijntekening opnieuw uitvoeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Opnieuw</translation>
+        <translation type="unfinished">Opnieuw</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineOptionsRel</name>
     <message>
         <source>Line Options</source>
-        <translation>Regelopties</translation>
+        <translation type="unfinished">Lijn Opties</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation>Richting:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polyline</source>
-        <translation>Polyline</translation>
+        <translation type="unfinished">Polylijn</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation type="unfinished">Y</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Hoek</translation>
+        <translation type="unfinished">Hoek</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <source>Rel</source>
-        <translation>Rel</translation>
+        <translation type="unfinished">Relatief</translation>
     </message>
     <message>
         <source>Undo the last line drawing</source>
-        <translation>De laatste lijntekening ongedaan maken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation type="unfinished">Herstel</translation>
     </message>
     <message>
         <source>Form a closed contour from lines drawn</source>
-        <translation>Vorm een gesloten contour van getrokken lijnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Sluiten</translation>
+        <translation type="unfinished">Sluiten</translation>
     </message>
     <message>
         <source>Redo the last line drawing</source>
-        <translation>De laatste lijntekening opnieuw uitvoeren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Opnieuw</translation>
+        <translation type="unfinished">Opnieuw</translation>
     </message>
     <message>
         <source>Point</source>
-        <translation>Punt</translation>
+        <translation type="unfinished">Punt</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelOptions</name>
     <message>
         <source>Line Parallel Options</source>
-        <translation>Lijn parallelle opties</translation>
+        <translation type="unfinished">Lijn Parallel Opties</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Afstand:</translation>
+        <translation type="unfinished">Afstand:</translation>
     </message>
     <message>
         <source>Distance to original entity</source>
-        <translation>Afstand tot oorspronkelijke entiteit</translation>
+        <translation type="unfinished">Afstan tot origineel Element</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>Aantal aan te maken parallellen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_LineParallelThroughOptions</name>
     <message>
         <source>Line Parallel Through Options</source>
-        <translation>Lijn parallel door opties</translation>
+        <translation type="unfinished">Lijn Parallel Door Opties</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Number of parallels to create</source>
-        <translation>Aantal aan te maken parallellen</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygon2Options</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Veelhoekopties</translation>
+        <translation type="unfinished">Polygoon Opties</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>Aantal randen</translation>
+        <translation type="unfinished">Aantal Kanten</translation>
     </message>
 </context>
 <context>
     <name>Ui_LinePolygonOptions</name>
     <message>
         <source>Polygon Options</source>
-        <translation>Veelhoekopties</translation>
+        <translation type="unfinished">Polygoon Opties</translation>
     </message>
     <message>
         <source>Number:</source>
-        <translation>Aantal:</translation>
+        <translation type="unfinished">Aantal:</translation>
     </message>
     <message>
         <source>Number of edges</source>
-        <translation>Aantal randen</translation>
+        <translation type="unfinished">Aantal Kanten</translation>
     </message>
 </context>
 <context>
     <name>Ui_LineRelAngleOptions</name>
     <message>
         <source>Line Relative Angle Options</source>
-        <translation>Regelrelatieve hoekopties</translation>
+        <translation type="unfinished">Lijn Relatieve Hoek Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Line angle</source>
-        <translation>Lijnhoek</translation>
+        <translation type="unfinished">Lijn Hoek</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lengte:</translation>
+        <translation type="unfinished">Lengte:</translation>
     </message>
     <message>
         <source>Length of line</source>
-        <translation>Lengte van de lijn</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_MTextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>Tekstopties</translation>
+        <translation type="unfinished">Tekst Opties</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Tekst:</translation>
+        <translation type="unfinished">Tekst:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
 </context>
 <context>
     <name>Ui_ModifyOffsetOptions</name>
     <message>
         <source>Modify Offset Options</source>
-        <translation>Verschuivingsopties wijzigen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Afstand:</translation>
+        <translation type="unfinished">Afstand:</translation>
     </message>
     <message>
         <source>Offset from original entity</source>
-        <translation>Verschuiving van oorspronkelijke entiteit</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_MoveRotateOptions</name>
     <message>
         <source>Move Rotate Options</source>
-        <translation>Draaiopties verplaatsen</translation>
+        <translation type="unfinished">Verplaats Roteer Opties</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
 </context>
 <context>
     <name>Ui_PolylineOptions</name>
     <message>
         <source>Polyline Options</source>
-        <translation>Polylijnopties</translation>
+        <translation type="unfinished">Vrije vorm Opties</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Sluiten</translation>
+        <translation type="unfinished">Sluiten</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation type="unfinished">Herstel</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation type="unfinished">Lijn</translation>
     </message>
     <message>
         <source>Tangential</source>
-        <translation>Tangential</translation>
+        <translation type="unfinished">Tangentieel</translation>
     </message>
     <message>
         <source>Tan Radius</source>
-        <translation>Tan Radius</translation>
+        <translation type="unfinished">Tan Radius</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation>Hoek</translation>
+        <translation type="unfinished">Hoek</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation type="unfinished">Radius:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
     <message>
         <source>Counter Clockwise</source>
-        <translation>Tegen de klok in</translation>
+        <translation type="unfinished">Linksom</translation>
     </message>
     <message>
         <source>Clockwise</source>
-        <translation>Met de klok mee</translation>
+        <translation type="unfinished">Rechtsom</translation>
     </message>
 </context>
 <context>
     <name>Ui_PrintPreviewOptions</name>
     <message>
         <source>Print Preview Options</source>
-        <translation>Afdrukvoorbeeldopties</translation>
+        <translation type="unfinished">Afdruk Voorbeeld Opties</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Afdrukschaal is vergrendeld naar de huidige waarde&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>fixed</source>
-        <translation>vast</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Toggle Black / White mode</source>
-        <translation>Zwart/wit schakelen</translation>
+        <translation type="unfinished">Wissel Zwart / Wit-modus</translation>
     </message>
     <message>
         <source>Center to page</source>
-        <translation>Midden naar pagina</translation>
+        <translation type="unfinished">Centreer op pagina</translation>
     </message>
     <message>
         <source>Fit to page</source>
-        <translation>Past op pagina</translation>
+        <translation type="unfinished">Passend op pagina</translation>
     </message>
     <message>
         <source>Apply Print Scale to line width</source>
-        <translation>Printschaal toepassen op lijnbreedte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Calculate number of pages needed to contain the drawing</source>
-        <translation>Bereken aantal pagina's die nodig zijn om de tekening te bevatten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size: tekengrootte&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_RoundOptions</name>
     <message>
         <source>Round Options</source>
-        <translation>Ronde opties</translation>
+        <translation type="unfinished">Afrond Opties</translation>
     </message>
     <message>
         <source>Check to trim both edges to the rounding</source>
-        <translation>Controleer om beide randen te trimmen tot de afronding</translation>
+        <translation type="unfinished">Vink af om beide elementen tot een afronding te trimmen</translation>
     </message>
     <message>
         <source>Trim</source>
-        <translation>Trim</translation>
+        <translation type="unfinished">Trim</translation>
     </message>
     <message>
         <source>Radius:</source>
-        <translation>Straal:</translation>
+        <translation type="unfinished">Radius:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Afstandsopties</translation>
+        <translation type="unfinished">Snap Afstand Opties</translation>
     </message>
     <message>
         <source>Distance:</source>
-        <translation>Afstand:</translation>
+        <translation type="unfinished">Afstand:</translation>
     </message>
 </context>
 <context>
     <name>Ui_SnapMiddleOptions</name>
     <message>
         <source>Snap Distance Options</source>
-        <translation>Afstandsopties</translation>
+        <translation type="unfinished">Snap Afstand Opties</translation>
     </message>
     <message>
         <source>Middle Points:</source>
-        <translation>Middenpunten:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Number of equidistant division points</source>
-        <translation>Aantal gelijkwaardige divisiepunten</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Ui_SplineOptions</name>
     <message>
         <source>Spline Options</source>
-        <translation>Spline-opties</translation>
+        <translation type="unfinished">Spline Opties</translation>
     </message>
     <message>
         <source>Degree:</source>
-        <translation>Mate:</translation>
+        <translation type="unfinished">Graad:</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>Gesloten</translation>
+        <translation type="unfinished">Gesloten</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation type="unfinished">Herstel</translation>
     </message>
 </context>
 <context>
     <name>Ui_TextOptions</name>
     <message>
         <source>Text Options</source>
-        <translation>Tekstopties</translation>
+        <translation type="unfinished">Tekst Opties</translation>
     </message>
     <message>
         <source>Text:</source>
-        <translation>Tekst:</translation>
+        <translation type="unfinished">Tekst:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Hoek:</translation>
+        <translation type="unfinished">Hoek:</translation>
     </message>
 </context>
 <context>
     <name>Ui_TrimAmountOptions</name>
     <message>
         <source>Trim Amount Options</source>
-        <translation>Opties voor het bedrag van de trim</translation>
+        <translation type="unfinished">Trim Hoeveelheid Opties</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation>Afstand. Negatieve waarden voor het trimmen, positieve waarden voor het verlengen.</translation>
+        <translation type="unfinished">Afstand. Negatieve waarden trimmen, positieve verlengen.</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation>Lengte:</translation>
+        <translation type="unfinished">Lengte:</translation>
     </message>
     <message>
         <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation>Afstand. Negatieve waarden voor het trimmen, positieve waarden voor het verlengen. Negatieve teken wordt genegeerd wanneer trimmen tot uiteindelijke totale lengte.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation>De ingang lengte wordt gebruikt als totale lengte na trimmen, in plaats van lengte toename</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WidgetCreator</name>
     <message>
         <source>Frame</source>
-        <translation>Frame</translation>
+        <translation>Kader</translation>
     </message>
     <message>
         <source>&gt;</source>
@@ -13907,11 +13863,11 @@ This block cannot be inserted.</source>
     </message>
     <message>
         <source>Create</source>
-        <translation>Aanmaken</translation>
+        <translation>Maken</translation>
     </message>
     <message>
         <source>Destroy</source>
-        <translation>Vernietigen</translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Assign</source>
