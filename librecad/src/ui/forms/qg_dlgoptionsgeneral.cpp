@@ -85,7 +85,7 @@ void QG_DlgOptionsGeneral::init()
         QString l = RS_SYSTEM->symbolToLanguage(lang).toLower();
         if (!l.isEmpty() && cbLanguage->findText(l) == -1 && cbLanguage->findData(lang)==-1) {
             RS_DEBUG->print("QG_DlgOptionsGeneral::init: %s", l.toLatin1().data());
-			cbLanguage->addItem(l,lang);
+			cbLanguage->addItem(l, lang);
 			cbLanguageCmd->addItem(l, lang);
         }
     }
@@ -96,10 +96,10 @@ void QG_DlgOptionsGeneral::init()
     QString def_lang = "en";
 
     QString lang = RS_SETTINGS->readEntry("/Language", def_lang);
-    cbLanguage->setCurrentIndex( cbLanguage->findText(RS_SYSTEM->symbolToLanguage(lang)) );
+    cbLanguage->setCurrentIndex( cbLanguage->findData(RS_SYSTEM->symbolToLanguage(lang)) );
 
     QString langCmd = RS_SETTINGS->readEntry("/LanguageCmd", def_lang);
-    cbLanguageCmd->setCurrentIndex( cbLanguageCmd->findText(RS_SYSTEM->symbolToLanguage(langCmd)) );
+    cbLanguageCmd->setCurrentIndex( cbLanguageCmd->findData(RS_SYSTEM->symbolToLanguage(langCmd)) );
 
     // graphic view:
 

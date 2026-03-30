@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="lv">
 <context>
     <name>AsciiFile</name>
@@ -59,16 +60,16 @@ Ok to accept and start alignment.</source>
 Ok pieņemt un sākt saskaņošanu.</translation>
     </message>
     <message>
-        <source>If 'Keep original objects' is checked,
+        <source>If &apos;Keep original objects&apos; is checked,
 Align will copy rather than move the selected objects.
 
-If 'Specify base points first' is checked,
+If &apos;Specify base points first&apos; is checked,
 Align will prompt for the alignment points in the order
 first base, second base, first target, second target.</source>
-        <translation>Ja pārbauda 'Saglabāt oriģinālos objektus',
+        <translation>Ja pārbauda &apos;Saglabāt oriģinālos objektus&apos;,
 Izlīdzināt pārkopēs, nevis pārvietos iezīmētos objektus.
 
-Ja atzīmēts 'Norādīt bāzes punktus vispirms',
+Ja atzīmēts &apos;Norādīt bāzes punktus vispirms&apos;,
 Izlīdzināt veicinās saskaņošanas punktiem secībā
 pirmā bāze, otrā bāze, pirmais mērķis, otrais mērķis.</translation>
     </message>
@@ -487,7 +488,7 @@ pirmā bāze, otrā bāze, pirmais mērķis, otrais mērķis.</translation>
         <translation>Datne %1 neeksistē</translation>
     </message>
     <message>
-        <source>Can't open the file %1</source>
+        <source>Can&apos;t open the file %1</source>
         <translation>Nevar atvērt datni %1</translation>
     </message>
 </context>
@@ -672,7 +673,7 @@ pirmā bāze, otrā bāze, pirmais mērķis, otrais mērķis.</translation>
         <source>Enter start
 angle, in
 decimal degrees
-0° at 3 o'clock
+0° at 3 o&apos;clock
 goes
 anti-clockwise.</source>
         <translation>Ievadiet sākumu
@@ -683,8 +684,8 @@ iet
 pretēji pulksteņrādītāja virzienam.</translation>
     </message>
     <message>
-        <source>&lt;i&gt;"New"&lt;/i&gt;&lt;br&gt;Enter name&lt;br&gt;for a new layer&lt;br&gt;(if required?) to&lt;br&gt;draw ticks on.</source>
-        <translation>"Jauns" &lt;/i&gt;Ievadiet nosaukumu &lt;br&gt; jaunam slānim &lt;br&gt; (ja nepieciešams?) &lt;br&gt; draw ērces.</translation>
+        <source>&lt;i&gt;&quot;New&quot;&lt;/i&gt;&lt;br&gt;Enter name&lt;br&gt;for a new layer&lt;br&gt;(if required?) to&lt;br&gt;draw ticks on.</source>
+        <translation>&quot;Jauns&quot; &lt;/i&gt;Ievadiet nosaukumu &lt;br&gt; jaunam slānim &lt;br&gt; (ja nepieciešams?) &lt;br&gt; draw ērces.</translation>
     </message>
     <message>
         <source>Ticks</source>
@@ -898,7 +899,7 @@ pretēji pulksteņrādītāja virzienam.</translation>
         <translation>Fails% 1 neeksistē</translation>
     </message>
     <message>
-        <source>Can't open the file %1</source>
+        <source>Can&apos;t open the file %1</source>
         <translation>Nevar atvērt failu% 1</translation>
     </message>
     <message>
@@ -933,7 +934,7 @@ pretēji pulksteņrādītāja virzienam.</translation>
     </message>
     <message>
         <source>This plugin allows you to plot mathematical equations.
-If you don't want to use the parametric form, just leave out "Equation2".
+If you don&apos;t want to use the parametric form, just leave out &quot;Equation2&quot;.
 You can use pi when you need the value of pi (i.e. (3*pi)).
 Use t or x in your equation as a variable/parameter.
 </source>
