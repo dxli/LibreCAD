@@ -36,6 +36,19 @@
 #include "rs_settings.h"
 #include "rs_units.h"
 
+namespace {
+    // set Language/LanguageCmd selection
+    void setLanguageItem(QComboBox* box, QString configItem)
+    {
+        if (box == nullptr)
+            return;
+        QString lang = RS_SETTINGS->readEntry(configItem, "en");
+        int index = box->findText(RS_SYSTEM->symbolToLanguage(lang));
+        if (index < 0)
+            index = box->findData("en");
+        box->setCurrentIndex(index);
+    }
+}    
 /*
  *  Constructs a QG_DlgOptionsGeneral as a child of 'parent', with the
  *  name 'name' and widget flags set to 'f'.
@@ -80,26 +93,21 @@ void QG_DlgOptionsGeneral::init()
     for(const QString& lang: std::as_const(languageList)){
 
         RS_DEBUG->print("QG_DlgOptionsGeneral::init: adding %s to combobox",
-						lang.toLatin1().data());
+                        lang.toLatin1().data());
 
-        QString l = RS_SYSTEM->symbolToLanguage(lang).toLower();
+        QString l = RS_SYSTEM->symbolToLanguage(lang);
         if (!l.isEmpty() && cbLanguage->findText(l) == -1 && cbLanguage->findData(lang)==-1) {
             RS_DEBUG->print("QG_DlgOptionsGeneral::init: %s", l.toLatin1().data());
-			cbLanguage->addItem(l, lang);
-			cbLanguageCmd->addItem(l, lang);
+            cbLanguage->addItem(l, lang);
+            cbLanguageCmd->addItem(l, lang);
         }
     }
 
     RS_SETTINGS->beginGroup("/Appearance");
 
     // set current language:
-    QString def_lang = "en";
-
-    QString lang = RS_SETTINGS->readEntry("/Language", def_lang);
-    cbLanguage->setCurrentIndex( cbLanguage->findData(RS_SYSTEM->symbolToLanguage(lang)) );
-
-    QString langCmd = RS_SETTINGS->readEntry("/LanguageCmd", def_lang);
-    cbLanguageCmd->setCurrentIndex( cbLanguageCmd->findData(RS_SYSTEM->symbolToLanguage(langCmd)) );
+    setLanguageItem(cbLanguage, "/Language");
+    setLanguageItem(cbLanguageCmd, "/Language");
 
     // graphic view:
 
@@ -142,7 +150,7 @@ void QG_DlgOptionsGeneral::init()
     scrollbars_check_box->setChecked(checked?true:false);
 
     // preview:
-	initComboBox(cbMaxPreview, RS_SETTINGS->readEntry("/MaxPreview", "100"));
+    initComboBox(cbMaxPreview, RS_SETTINGS->readEntry("/MaxPreview", "100"));
 
     RS_SETTINGS->endGroup();
 
@@ -191,16 +199,16 @@ void QG_DlgOptionsGeneral::init()
     cbInvertZoomDirection->setChecked(RS_SETTINGS->readNumEntry("/InvertZoomDirection", 0));
     RS_SETTINGS->endGroup();
 
-	//update entities to selected entities to the current active layer
-	RS_SETTINGS->beginGroup("/Modify");
-	auto toActive=RS_SETTINGS->readNumEntry("/ModifyEntitiesToActiveLayer", 0);
-	cbToActiveLayer->setChecked(toActive==1);
-	RS_SETTINGS->writeEntry("/ModifyEntitiesToActiveLayer", cbToActiveLayer->isChecked()?1:0);
-	RS_SETTINGS->endGroup();
+    //update entities to selected entities to the current active layer
+    RS_SETTINGS->beginGroup("/Modify");
+    auto toActive=RS_SETTINGS->readNumEntry("/ModifyEntitiesToActiveLayer", 0);
+    cbToActiveLayer->setChecked(toActive==1);
+    RS_SETTINGS->writeEntry("/ModifyEntitiesToActiveLayer", cbToActiveLayer->isChecked()?1:0);
+    RS_SETTINGS->endGroup();
 
-	RS_SETTINGS->beginGroup("/CADPreferences");
-	cbAutoZoomDrawing->setChecked(RS_SETTINGS->readNumEntry("/AutoZoomDrawing"));
-	RS_SETTINGS->endGroup();
+    RS_SETTINGS->beginGroup("/CADPreferences");
+    cbAutoZoomDrawing->setChecked(RS_SETTINGS->readNumEntry("/AutoZoomDrawing"));
+    RS_SETTINGS->endGroup();
 
     RS_SETTINGS->beginGroup("Startup");
     cbSplash->setChecked(RS_SETTINGS->readNumEntry("/ShowSplash",1)==1);
@@ -211,19 +219,19 @@ void QG_DlgOptionsGeneral::init()
     cbOpenLastFiles->setChecked(RS_SETTINGS->readNumEntry("/OpenLastOpenedFiles", 1));
     RS_SETTINGS->endGroup();
 
-	cbEvaluateOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/EvaluateCommandOnSpace", false));
-	cbToggleFreeSnapOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/ToggleFreeSnapOnSpace", false));
+    cbEvaluateOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/EvaluateCommandOnSpace", false));
+    cbToggleFreeSnapOnSpace->setChecked(RS_SETTINGS->readNumEntry("/Keyboard/ToggleFreeSnapOnSpace", false));
 
     restartNeeded = false;
 }
 
 void QG_DlgOptionsGeneral::initComboBox(QComboBox* cb, const QString& text) {
-	int idx = cb->findText(text);
-	if( idx < 0) {
-		idx =0;
-		cb->insertItem(idx, text);
-	}
-	cb->setCurrentIndex( idx );
+    int idx = cb->findText(text);
+    if( idx < 0) {
+        idx =0;
+        cb->insertItem(idx, text);
+    }
+    cb->setCurrentIndex( idx );
 }
 
 void QG_DlgOptionsGeneral::setRestartNeeded() {
@@ -298,9 +306,9 @@ void QG_DlgOptionsGeneral::ok()
         RS_SETTINGS->writeEntry("/ModifyEntitiesToActiveLayer", cbToActiveLayer->isChecked()?1:0);
         RS_SETTINGS->endGroup();
 
-		RS_SETTINGS->beginGroup("/CADPreferences");
-		RS_SETTINGS->writeEntry("/AutoZoomDrawing", cbAutoZoomDrawing->isChecked() ? 1 : 0);
-		RS_SETTINGS->endGroup();
+        RS_SETTINGS->beginGroup("/CADPreferences");
+        RS_SETTINGS->writeEntry("/AutoZoomDrawing", cbAutoZoomDrawing->isChecked() ? 1 : 0);
+        RS_SETTINGS->endGroup();
 
         RS_SETTINGS->beginGroup("Startup");
         RS_SETTINGS->writeEntry("/ShowSplash", cbSplash->isChecked()?1:0);
@@ -311,11 +319,11 @@ void QG_DlgOptionsGeneral::ok()
         RS_SETTINGS->writeEntry("/OpenLastOpenedFiles", cbOpenLastFiles->isChecked() ? 1: 0);
         RS_SETTINGS->endGroup();
 
-		RS_SETTINGS->writeEntry("/Keyboard/EvaluateCommandOnSpace", cbEvaluateOnSpace->isChecked() ? 1 : 0);
-		RS_SETTINGS->writeEntry("/Keyboard/ToggleFreeSnapOnSpace", cbToggleFreeSnapOnSpace->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/Keyboard/EvaluateCommandOnSpace", cbEvaluateOnSpace->isChecked() ? 1 : 0);
+        RS_SETTINGS->writeEntry("/Keyboard/ToggleFreeSnapOnSpace", cbToggleFreeSnapOnSpace->isChecked() ? 1 : 0);
     }
-	
-	if (restartNeeded==true) {
+    
+    if (restartNeeded==true) {
         QMessageBox::warning( this, tr("Preferences"),
                               tr("Please restart the application to apply all changes."),
                               QMessageBox::Ok,
@@ -336,7 +344,7 @@ void QG_DlgOptionsGeneral::set_color(QComboBox* combo, QColor custom)
     current.setNamedColor(combo->lineEdit()->text());
 
     QColorDialog dlg;
-	dlg.setCustomColor(0, custom.rgb());
+    dlg.setCustomColor(0, custom.rgb());
 
     QColor color = dlg.getColor(current, this, "Select Color", QColorDialog::DontUseNativeDialog);
     if (color.isValid())
