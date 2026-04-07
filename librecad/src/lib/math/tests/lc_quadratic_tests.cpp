@@ -136,10 +136,35 @@ TEST_CASE("Two circles with equal radius produce degenerate hyperbola (treated a
     }
 }
 
-TEST_CASE("Two circles intersection (coeff-based) gives two points (standard example)", "[intersection][circle-circle]") {
+TEST_CASE("Issue 2523", "[intersection][circle-circle]") {
     // circle1 at (0,0) r=1 ; circle2 at (1,0) r=1
-    LC_Quadratic c1 = makeCircleCoeffs(0.0, 0.0, 1.0);
-    LC_Quadratic c2 = makeCircleCoeffs(1.0, 0.0, 1.0);
+    RS_Cirlce c0{nullptr, {{40., 60.}, 10. * std::sqrt(2.)}};
+    RS_Cirlce c1{nullptr, {{40., 30.}, 22.3607}};
+
+    RS_VectorSolutions sol = RS_Circle::createTan2({{&c0, &c1}}, 5.);
+    REQUIRE(sol.size() == 6);
+
+    // LC_Quadratic c1 = makeCircleCoeffs(0.0, 0.0, 1.0);
+    // LC_Quadratic c2 = makeCircleCoeffs(1.0, 0.0, 1.0);
+
+    // auto sol = LC_Quadratic::getIntersection(c1, c2);
+    // REQUIRE(sol.size() == 2);
+
+    // double xexp = 0.5;
+    // double yexp = std::sqrt(3.0) / 2.0;
+    // bool found_pos = false, found_neg = false;
+    // for (auto const& p : sol) {
+    //     if (p.x == Catch::Approx(xexp).margin(1e-9) && p.y == Catch::Approx(yexp).margin(1e-9)) found_pos = true;
+    //     if (p.x == Catch::Approx(xexp).margin(1e-9) && p.y == Catch::Approx(-yexp).margin(1e-9)) found_neg = true;
+    // }
+    // CHECK(found_pos);
+    // CHECK(found_neg);
+}
+
+TEST_CASE("Two circles intersection", "[intersection][circle-circle]") {
+    // circle1 at (0,0) r=1 ; circle2 at (1,0) r=1
+    LC_Quadratic c1 = makeCircleCoeffs(40.0, 60.0, 27.3606797749979);
+    LC_Quadratic c2 = makeCircleCoeffs(4.0, 30.0, 19.14213562373095);
 
     auto sol = LC_Quadratic::getIntersection(c1, c2);
     REQUIRE(sol.size() == 2);
