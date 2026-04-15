@@ -1275,6 +1275,8 @@ set(SHARED_SOURCES
     librecad/src/ui/dialogs/entity/lc_dlgtolerance.h
     librecad/src/ui/dialogs/entity/lc_ellipsepropertieseditingwidget.cpp
     librecad/src/ui/dialogs/entity/lc_ellipsepropertieseditingwidget.h
+    librecad/src/ui/dialogs/entity/lc_hatchpropertieseditingwidget.cpp
+    librecad/src/ui/dialogs/entity/lc_hatchpropertieseditingwidget.h
     librecad/src/ui/dialogs/entity/lc_entitypropertiesdlg.cpp
     librecad/src/ui/dialogs/entity/lc_entitypropertiesdlg.h
     librecad/src/ui/dialogs/entity/lc_entitypropertieseditor.cpp
