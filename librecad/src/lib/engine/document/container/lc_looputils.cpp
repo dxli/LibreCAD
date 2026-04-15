@@ -714,6 +714,26 @@ double LC_Loops::getTotalArea() const {
   });
 }
 
+LC_FirstMoment LC_Loops::getTotalFirstMoment() const {
+  // Mirror the recursive hole-subtraction of getTotalArea():
+  //   net = outer - sum(children)
+  return std::accumulate(m_children.begin(), m_children.end(),
+                         m_loop->firstMomentLineIntegral(),
+                         [](LC_FirstMoment acc, const LC_Loops& child) {
+                             return acc - child.getTotalFirstMoment();
+                         });
+}
+
+LC_SecondMoment LC_Loops::getTotalSecondMoment() const {
+  // Mirror the recursive hole-subtraction of getTotalArea():
+  //   net = outer - sum(children)
+  return std::accumulate(m_children.begin(), m_children.end(),
+                         m_loop->secondMomentLineIntegral(),
+                         [](LC_SecondMoment acc, const LC_Loops& child) {
+                             return acc - child.getTotalSecondMoment();
+                         });
+}
+
 /**
  * @brief Parametric equation for point on ellipse.
  */

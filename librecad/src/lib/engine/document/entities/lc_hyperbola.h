@@ -284,6 +284,34 @@ public:
    * contribution)
    */
   double areaLineIntegral() const override;
+
+  /**
+   * @brief firstMomentLineIntegral - computes the first-order moments of area
+   *        via Green's theorem contour integrals.
+   *    * Returns:
+   *   mx = ∬ x dA   (first moment with respect to y-axis)
+   *   my = ∬ y dA   (first moment with respect to x-axis)
+   *    * These values are used to compute the centroid: cx = mx / A, cy = my / A.
+   *    * @return LC_FirstMoment containing mx and my.
+   * @note For bounded arcs: exact elementary antiderivatives in local frame,
+   *       then rotated and translated to world coordinates.
+   *       Unbounded hyperbolas return zero.
+   */
+  LC_FirstMoment firstMomentLineIntegral() const override;
+
+  /**
+   * @brief secondMomentLineIntegral - computes the second-order moments of area
+   *        via Green's theorem contour integrals.
+   *    * @return LC_SecondMoment {ixx, iyy, ixy}.
+   * @note Exact closed-form in local frame + transformation (replaces previous Gauss quadrature).
+   */
+  LC_SecondMoment secondMomentLineIntegral() const override;
+
+private:
+  // Exact local antiderivatives (Green's theorem)
+  double computeLocalArea(double phi1, double phi2) const;
+  LC_FirstMoment computeLocalFirstMoment(double phi1, double phi2) const;
+  LC_SecondMoment computeLocalSecondMoment(double phi1, double phi2) const;
   double getArcLength(double phi1, double phi2) const;
 
   // both angle1 and angle2 at 0, assumed to be infinite

@@ -110,6 +110,8 @@ RS_Entity* RS_Hatch::clone() const {
     // Force re-optimization and update to deep-copy caches and subcontainers
     cloneHatch->m_needOptimization = true;
     cloneHatch->m_area = RS_MAXDOUBLE;
+    cloneHatch->m_firstMoment = LC_FirstMoment{};
+    cloneHatch->m_secondMomentValid = false;
     cloneHatch->m_updated = false;
     cloneHatch->m_boundaryContainers.clear();  // Will be regenerated
     cloneHatch->update();
@@ -256,6 +258,7 @@ void RS_Hatch::update() {
     // Reset caches
     m_solidPath = std::make_shared<std::vector<QPainterPath>>();
     m_area = RS_MAXDOUBLE;
+    m_secondMomentValid = false;
 
     // Validate and optimize loops (moves boundaries to subcontainers)
     if (!validate()) {
@@ -274,11 +277,16 @@ void RS_Hatch::update() {
         updatePatternHatch(layer, pen);
     }
 
-    // Compute total area from loops
-    m_area = std::accumulate(m_orderedLoops->begin(), m_orderedLoops->end(), 0.0,
-                             [](double accum, const LC_LoopUtils::LC_Loops& loop) {
-                                 return accum + loop.getTotalArea();
-                             });
+    // Compute 0th, 1st, and 2nd moments from loops
+    m_area = 0.0;
+    m_firstMoment = LC_FirstMoment{};
+    m_secondMoment = LC_SecondMoment{};
+    for (const auto& loop : *m_orderedLoops) {
+        m_area         += loop.getTotalArea();
+        m_firstMoment  += loop.getTotalFirstMoment();
+        m_secondMoment += loop.getTotalSecondMoment();
+    }
+    m_secondMomentValid = true;
 
     forcedCalculateBorders();
     activateContour(false);  // Hide boundaries by default
@@ -497,10 +505,21 @@ void RS_Hatch::debugOutPath(const QPainterPath& path) const {
  * @return Total area, or 0 if unoptimized/invalid.
  */
 double RS_Hatch::getTotalArea() const {
-    if (m_area < RS_MAXDOUBLE - RS_Math::ulp(m_area)) {
-        return m_area;
-    }
     return m_area;
+}
+
+RS_Vector RS_Hatch::getCentroid() const {
+    if (m_area < RS_TOLERANCE)
+        return RS_Vector(false);
+    return RS_Vector(m_firstMoment.mx / m_area, m_firstMoment.my / m_area);
+}
+
+LC_SecondMoment RS_Hatch::getMomentOfInertia() const {
+    if (!m_secondMomentValid || m_area < RS_TOLERANCE)
+        return {};
+    const double cx = m_firstMoment.mx / m_area;
+    const double cy = m_firstMoment.my / m_area;
+    return m_secondMoment.getCentral(m_area, cx, cy);
 }
 
 

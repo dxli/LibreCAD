@@ -54,6 +54,10 @@ unix {
     LC_VERSION=$$system([ "$(which git)x" != "x" -a -d ../../.git ] && echo "$(git describe --always)" || echo "$${LC_VERSION}")
 
     macx {
+        equals(QT_ARCH, arm64):greaterThan(QT_MAJOR_VERSION, 5) {
+            # Qt6 on Apple Silicon: qyieldcpu.h uses __yield() which requires arm_acle.h
+            QMAKE_CXXFLAGS += -include arm_acle.h
+        }
         TARGET = LibreCAD
         VERSION=$$system(echo "$${LC_VERSION}" | sed -e 's/\-.*//g')
         QMAKE_INFO_PLIST = Info.plist.app
@@ -443,6 +447,7 @@ HEADERS += \
     lib/engine/document/entities/rs_solid.h \
     lib/engine/document/entities/rs_spline.h \
     lib/engine/document/entities/lc_splinepoints.h \
+    lib/engine/document/entities/lc_secondmoment.h \
     lib/engine/rs_system.h \
     lib/engine/document/entities/rs_text.h \
     lib/engine/undo/lc_undoablerelzero.h \

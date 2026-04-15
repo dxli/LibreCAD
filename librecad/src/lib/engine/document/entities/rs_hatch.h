@@ -31,6 +31,7 @@
 #include <vector>
 #include <QString>
 
+#include "lc_secondmoment.h"
 #include "rs_entitycontainer.h"
 
 class QPainterPath;
@@ -128,9 +129,30 @@ public:
     void setAngle(double angle) { data.angle = angle; }
 
     /**
-     * @return Total enclosed area of loops.
+     * @return Total enclosed area (0th moment) of loops.
      */
     double getTotalArea() const;
+
+    /**
+     * @return Centroid of the hatch region as (cx, cy) = (∬ x dA / A, ∬ y dA / A).
+     * Returns an invalid RS_Vector if area is zero or update() has not run.
+     */
+    RS_Vector getCentroid() const;
+
+    /**
+     * @brief getMomentOfInertia - the three second central moments of area for the
+     * hatch region, computed via Green's theorem line integrals about the centroid.
+     *
+     * Returns LC_SecondMoment{ixx, iyy, ixy} where:
+     *   ixx = ∬ (x - cx)² dA,   iyy = ∬ (y - cy)² dA,   ixy = ∬ (x-cx)(y-cy) dA
+     *
+     * The full inertia tensor about the centroid is:
+     *   I = | iyy  -ixy |
+     *       | -ixy  ixx |
+     *
+     * Must be called after update() has run.
+     */
+    LC_SecondMoment getMomentOfInertia() const;
 
     void calculateBorders() override;
     void update() override;
@@ -179,6 +201,9 @@ private:
     void prepareUpdate();
 
     mutable double m_area = RS_MAXDOUBLE;
+    mutable LC_FirstMoment m_firstMoment;
+    mutable LC_SecondMoment m_secondMoment;
+    mutable bool m_secondMomentValid = false;
     RS_HatchError updateError = HATCH_UNDEFINED;
     bool updateRunning = false;
     bool m_needOptimization = true;
