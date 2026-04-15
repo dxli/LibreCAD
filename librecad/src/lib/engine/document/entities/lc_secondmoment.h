@@ -3,7 +3,8 @@
 **
 ** This file was created for the LibreCAD project (librecad.org), a 2D CAD program.
 **
-** Copyright (C) 2024 librecad (www.librecad.org)
+** Copyright (C) 2026 librecad (www.librecad.org)
+** Copyright (C) 2026 Dongxu Li github.com/dxli
 **
 ** This program is free software; you can redistribute it and/or
 ** modify it under the terms of the GNU General Public License
