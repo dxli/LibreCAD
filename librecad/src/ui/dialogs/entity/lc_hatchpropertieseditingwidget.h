@@ -44,6 +44,7 @@ protected slots:
     void onSolidToggled(bool checked);
 private:
     void updateMomentFields();
+    void saveSettings();
     Ui::LC_HatchPropertiesEditingWidget *ui;
     RS_Hatch* m_entity{nullptr};
 };

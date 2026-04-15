@@ -27,6 +27,7 @@
 
 #include "lc_secondmoment.h"
 #include "rs_hatch.h"
+#include "rs_settings.h"
 #include "ui_lc_hatchpropertieseditingwidget.h"
 
 LC_HatchPropertiesEditingWidget::LC_HatchPropertiesEditingWidget(QWidget *parent)
@@ -46,12 +47,21 @@ LC_HatchPropertiesEditingWidget::~LC_HatchPropertiesEditingWidget() {
 void LC_HatchPropertiesEditingWidget::setEntity(RS_Entity* entity) {
     m_entity = static_cast<RS_Hatch*>(entity);
 
+    LC_GROUP_GUARD("Draw");
     toUIBool(m_entity->isSolid(), ui->cbSolid);
     ui->lePattern->setText(m_entity->getPattern());
     toUIValue(m_entity->getScale(), ui->leScale);
     toUIAngleDeg(m_entity->getAngle(), ui->leAngle);
 
     updateMomentFields();
+}
+
+void LC_HatchPropertiesEditingWidget::saveSettings() {
+    LC_GROUP_GUARD("Draw");
+    LC_SET("HatchSolid", m_entity->isSolid());
+    LC_SET("HatchPattern", m_entity->getPattern());
+    LC_SET("HatchScale", ui->leScale->text());
+    LC_SET("HatchAngle", ui->leAngle->text());
 }
 
 void LC_HatchPropertiesEditingWidget::updateMomentFields() {
@@ -93,12 +103,15 @@ void LC_HatchPropertiesEditingWidget::updateMomentFields() {
 
 void LC_HatchPropertiesEditingWidget::onScaleEditingFinished() {
     m_entity->setScale(toWCSValue(ui->leScale, m_entity->getScale()));
+    saveSettings();
 }
 
 void LC_HatchPropertiesEditingWidget::onAngleEditingFinished() {
     m_entity->setAngle(toWCSAngle(ui->leAngle, m_entity->getAngle()));
+    saveSettings();
 }
 
 void LC_HatchPropertiesEditingWidget::onSolidToggled([[maybe_unused]] bool checked) {
     m_entity->setSolid(ui->cbSolid->isChecked());
+    saveSettings();
 }
