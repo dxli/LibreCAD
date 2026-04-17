@@ -123,12 +123,28 @@ void LC_WidgetViewPortRenderer::doRender() {
 }
 
 void LC_WidgetViewPortRenderer::paintSequental(QPaintDevice* pd) {
+    // width/height are in logical pixels; on HiDPI displays the physical pixel
+    // count is larger by the device pixel ratio (e.g. 1.5x on a 150% scaled desktop).
     int width = viewport->getWidth();
     int height = viewport->getHeight();
+    qreal dpr = pd->devicePixelRatioF();
+    // Allocate pixmaps at physical resolution so the GPU has real pixels to fill,
+    // not a upscaled logical-resolution buffer that Qt would stretch to fit.
+    int physWidth = qRound(width * dpr);
+    int physHeight = qRound(height * dpr);
 
-    QSize const s0(width, height);
+    // QPixmap::size() returns the physical pixel size after setDevicePixelRatioF(),
+    // so compare against physical dimensions to detect actual resize events.
+    QSize const s0(physWidth, physHeight);
     if (pixmapLayerBackground->size() != s0){
-        pixmapLayerBackground = std::make_unique<QPixmap>(width, height);
+        pixmapLayerBackground = std::make_unique<QPixmap>(physWidth, physHeight);
+        // Tell Qt the logical-to-physical mapping so drawPixmap() onto pd places
+        // the content at the correct logical coordinates without blurry upscaling.
+        pixmapLayerBackground->setDevicePixelRatioF(dpr);
+        pixmapLayerDrawing = std::make_unique<QPixmap>(physWidth, physHeight);
+        pixmapLayerDrawing->setDevicePixelRatioF(dpr);
+        pixmapLayerOverlays = std::make_unique<QPixmap>(physWidth, physHeight);
+        pixmapLayerOverlays->setDevicePixelRatioF(dpr);
         redrawMethod=(RS2::RedrawMethod ) (redrawMethod | RS2::RedrawGrid);
     }
 
@@ -168,14 +184,23 @@ void LC_WidgetViewPortRenderer::paintSequental(QPaintDevice* pd) {
 
 
 void LC_WidgetViewPortRenderer::paintClassicalBuffered(QPaintDevice* pd) {
+    // See paintSequental for the HiDPI rationale: pixmaps must be allocated at
+    // physical resolution and marked with the device pixel ratio so Qt maps
+    // logical coordinates to real pixels without blurry upscaling.
     int width = viewport->getWidth();
     int height = viewport->getHeight();
-    QSize const s0(width, height);
+    qreal dpr = pd->devicePixelRatioF();
+    int physWidth = qRound(width * dpr);
+    int physHeight = qRound(height * dpr);
+    QSize const s0(physWidth, physHeight);
     bool sizeDifferent = m_pixmapLayer1->size() != s0;
     if (sizeDifferent){
-        m_pixmapLayer1 = std::make_unique<QPixmap>(width, height);
-        m_pixmapLayer2 = std::make_unique<QPixmap>(width, height);
-        m_pixmapLayer3 = std::make_unique<QPixmap>(width, height);
+        m_pixmapLayer1 = std::make_unique<QPixmap>(physWidth, physHeight);
+        m_pixmapLayer1->setDevicePixelRatioF(dpr);
+        m_pixmapLayer2 = std::make_unique<QPixmap>(physWidth, physHeight);
+        m_pixmapLayer2->setDevicePixelRatioF(dpr);
+        m_pixmapLayer3 = std::make_unique<QPixmap>(physWidth, physHeight);
+        m_pixmapLayer3->setDevicePixelRatioF(dpr);
         redrawMethod = RS2::RedrawAll;
     }
 
