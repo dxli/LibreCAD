@@ -124,6 +124,8 @@ QC_ApplicationWindow::QC_ApplicationWindow(){
     setWindowIcon(QIcon(QC_APP_ICON));
 
     LC_ApplicationWindowInitializer initializer(this);
+    if (m_mdiAreaCAD)
+      LC_ERR<<"XXX: "<<m_mdiAreaCAD->width()<<"x"<<m_mdiAreaCAD->height();
     initializer.initApplication();
 }
 /**
@@ -728,7 +730,7 @@ void QC_ApplicationWindow::slotPenChanged(const RS_Pen& pen) {
 
 
 QC_MDIWindow *QC_ApplicationWindow::createNewDrawingWindow(RS_Document *doc, const QString& expectedFileName) {
-    static int id = 0;
+    static unsigned id = 0;
     id++;
 
     auto *w = new QC_MDIWindow(doc, m_mdiAreaCAD, false, m_actionContext);

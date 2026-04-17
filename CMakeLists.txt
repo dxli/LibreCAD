@@ -1699,6 +1699,7 @@ if(BUILD_TESTS)
         librecad/src/lib/engine/document/entities/tests/lc_hyperbola_tests.cpp
         librecad/src/lib/engine/document/entities/tests/rs_ellipse_tests.cpp
         librecad/src/lib/engine/document/entities/tests/rs_spline_tests.cpp
+        librecad/src/lib/engine/document/entities/tests/rs_hatch_tests.cpp
         librecad/src/lib/math/tests/rs_math_tests.cpp
         librecad/src/lib/math/tests/lc_quadratic_tests.cpp
     )

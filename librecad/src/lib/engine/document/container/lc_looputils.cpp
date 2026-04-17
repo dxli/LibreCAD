@@ -236,9 +236,10 @@ std::vector<std::unique_ptr<RS_EntityContainer>> LoopExtractor::extract() {
       m_data->targetPoint = start;
       m_data->endPoint = end;
       m_data->unprocessed.erase(std::remove(m_data->unprocessed.begin(), m_data->unprocessed.end(), first), m_data->unprocessed.end());
-      size_t iteration = 0;  // NEW: Safety against malformed input
+      size_t iteration = 0;
+      const size_t maxIterations = m_data->unprocessed.size() + 2;  // cap based on remaining edges at loop start
       while (m_data->endPoint.distanceTo(m_data->targetPoint) > ENDPOINT_TOLERANCE) {  // Continue until closure within tolerance
-        if (++iteration > m_data->unprocessed.size() * 2) {
+        if (++iteration > maxIterations) {
           RS_DEBUG->print(RS_Debug::D_WARNING, "LoopExtractor: possible degenerate loop detected");
           break;
         }
@@ -292,7 +293,7 @@ bool LoopExtractor::validate() const {
       RS_Ellipse* ell = static_cast<RS_Ellipse*>(e);
       return ell->getAngleLength() >= 2 * M_PI - RS_TOLERANCE;
     }
-    if (type == RS2::EntitySpline) {  // Closed spline
+    if (type == RS2::EntitySpline || type == RS2::EntitySplinePoints) {  // Closed spline
       LC_SplinePoints* spl = static_cast<LC_SplinePoints*>(e);
       return spl->isClosed();
     }

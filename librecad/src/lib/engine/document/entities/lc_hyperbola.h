@@ -307,15 +307,26 @@ public:
    */
   LC_SecondMoment secondMomentLineIntegral() const override;
 
+  /**
+   * @brief Arc length of the hyperbola between parameter values phi1 and phi2.
+   * @param phi1  Start parameter (degrees).
+   * @param phi2  End parameter (degrees).
+   * @return Arc length ≥ 0.
+   */
+  double getArcLength(double phi1, double phi2) const;
+
+  /**
+   * @brief Returns true when both angle1 and angle2 are 0, meaning the
+   *        hyperbola is unbounded (infinite arc).
+   */
+  bool isInfinite() const;
+
 private:
   // Exact local antiderivatives (Green's theorem)
   double computeLocalArea(double phi1, double phi2) const;
   LC_FirstMoment computeLocalFirstMoment(double phi1, double phi2) const;
   LC_SecondMoment computeLocalSecondMoment(double phi1, double phi2) const;
-  double getArcLength(double phi1, double phi2) const;
 
-  // both angle1 and angle2 at 0, assumed to be infinite
-  bool isInfinite() const;
   /**
    * @brief worldToLocal convert from world coordinates to the local coordinates
    *        the hyperbola is centered in local coordinates, and with majorP along
