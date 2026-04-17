@@ -140,11 +140,12 @@ void LC_WidgetViewPortRenderer::paintSequental(QPaintDevice* pd) {
         pixmapLayerBackground = std::make_unique<QPixmap>(physWidth, physHeight);
         // Tell Qt the logical-to-physical mapping so drawPixmap() onto pd places
         // the content at the correct logical coordinates without blurry upscaling.
-        pixmapLayerBackground->setDevicePixelRatioF(dpr);
+        // QPixmap uses setDevicePixelRatio (not the F variant).
+        pixmapLayerBackground->setDevicePixelRatio(dpr);
         pixmapLayerDrawing = std::make_unique<QPixmap>(physWidth, physHeight);
-        pixmapLayerDrawing->setDevicePixelRatioF(dpr);
+        pixmapLayerDrawing->setDevicePixelRatio(dpr);
         pixmapLayerOverlays = std::make_unique<QPixmap>(physWidth, physHeight);
-        pixmapLayerOverlays->setDevicePixelRatioF(dpr);
+        pixmapLayerOverlays->setDevicePixelRatio(dpr);
         redrawMethod=(RS2::RedrawMethod ) (redrawMethod | RS2::RedrawGrid);
     }
 
@@ -196,11 +197,11 @@ void LC_WidgetViewPortRenderer::paintClassicalBuffered(QPaintDevice* pd) {
     bool sizeDifferent = m_pixmapLayer1->size() != s0;
     if (sizeDifferent){
         m_pixmapLayer1 = std::make_unique<QPixmap>(physWidth, physHeight);
-        m_pixmapLayer1->setDevicePixelRatioF(dpr);
+        m_pixmapLayer1->setDevicePixelRatio(dpr);
         m_pixmapLayer2 = std::make_unique<QPixmap>(physWidth, physHeight);
-        m_pixmapLayer2->setDevicePixelRatioF(dpr);
+        m_pixmapLayer2->setDevicePixelRatio(dpr);
         m_pixmapLayer3 = std::make_unique<QPixmap>(physWidth, physHeight);
-        m_pixmapLayer3->setDevicePixelRatioF(dpr);
+        m_pixmapLayer3->setDevicePixelRatio(dpr);
         redrawMethod = RS2::RedrawAll;
     }
 
