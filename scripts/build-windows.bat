@@ -40,16 +40,11 @@ if NOT exist windows\LibreCAD.exe (
     popd
     exit /b 1
 )
-rem Improved windeployqt: verbose, force copy, standard plugin subdirs
-echo windeployqt: Current directory is: %CD%
-dir windows\
-mkdir windows\ts
-windeployqt.exe --release windows\LibreCAD.exe --verbose 2 --force
-dir librecad\ts\*.ts
+echo windeployqt: deploying from %CD%
+windeployqt6.exe --release --compiler-runtime windows\LibreCAD.exe
 for %%f in (librecad\ts\*.ts plugins\ts\*.ts) do (
   lrelease.exe "%%f"
 )
-dir librecad\ts
 echo [INFO] Extracting version (SCMREVISION)...
 set SCMREVISION=unknown
 rem Parse default LC_VERSION from src.pro (find line starting with LC_VERSION= , allowing spaces)
@@ -122,8 +117,6 @@ if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
     set NSIS_FLAGS=%NSIS_FLAGS% /DWIN64 /DAMD64
 ) else if "%PROCESSOR_ARCHITECTURE%"=="ARM64" (
     set NSIS_FLAGS=%NSIS_FLAGS% /DWIN64 /DARM64
-    rem Pass Qt version for ARM64 (assumes Qt6; override in custom.nsh if needed)
-    set NSIS_FLAGS=%NSIS_FLAGS% /DQt_Version=6.7.2
 )
 rem Pass the extracted SCMREVISION to NSIS
 echo "SCMREVISION=%SCMREVISION%"

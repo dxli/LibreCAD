@@ -308,7 +308,6 @@ jobs:
           cd generated
           dir *.*
           dir Release\*.*
-          dir x64\*.*
         shell: cmd
 
       - name: List files
@@ -382,7 +381,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
+          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -A ARM64 -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib
         shell: cmd
         env:
           BUILD_TYPE: release
@@ -399,8 +398,7 @@ jobs:
         run: |
           cd generated
           dir *.*
-          dir Release\*.*
-          dir ARM64\*.*
+          dir ARM64\Release\*.*
         shell: cmd
 
       - name: List files
@@ -416,7 +414,7 @@ jobs:
           mkdir generated\plugins
           for /r %%a in (*.dll) do copy "%%a" generated\plugins
           cd generated
-          windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
+          windeployqt6.exe --release --compiler-runtime ARM64\Release\LibreCAD.exe
           dir *.*
           pushd "${{ github.workspace }}\scripts"
           call build-win-setup.bat
