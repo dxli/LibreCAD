@@ -29,14 +29,21 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 
+#include <QImage>
+#include <QPainter>
+
+#include "lc_graphicviewport.h"
+#include "lc_looputils.h"
 #include "lc_secondmoment.h"
 #include "lc_splinepoints.h"
 #include "rs_arc.h"
 #include "rs_circle.h"
+#include "rs_color.h"
 #include "rs_ellipse.h"
 #include "rs_entitycontainer.h"
 #include "rs_hatch.h"
 #include "rs_line.h"
+#include "rs_painter.h"
 #include "rs_vector.h"
 
 namespace {
@@ -319,6 +326,51 @@ RS_Hatch* makeClosedSplineHatch()
     hatch->update();
     return hatch;
 }
+
+/**
+ * Minimal painter rig for rendering tests.
+ *
+ * Coordinate system: 1 WCS unit = 1 pixel, y-axis flipped.
+ *   screen_x = wcs_x
+ *   screen_y = H - wcs_y
+ *
+ * Canvas is W×H pixels, filled with white.  Call draw() on an RS_Hatch with
+ * a black pen and the interior pixels will be painted black.
+ */
+struct TestPainter {
+    static constexpr int W = 256;
+    static constexpr int H = 256;
+
+    QImage           image{W, H, QImage::Format_RGB32};
+    LC_GraphicViewport viewport;
+    RS_Painter       painter;
+
+    TestPainter()
+        : painter(&image)
+    {
+        image.fill(Qt::white);
+        // factor = 1, offsets = 0 → 1:1 mapping, y-flipped
+        viewport.setSize(W, H);
+        viewport.justSetOffsetAndFactor(0, 0, 1.0);
+        painter.setViewPort(&viewport);
+
+        // Bounding rect covers the whole canvas (plus margin) so no arc segment
+        // is mistakenly clipped as "out of viewport" during path construction.
+        LC_Rect bounds{RS_Vector(-W, -H), RS_Vector(2 * W, 2 * H)};
+        painter.setWorldBoundingRect(bounds);
+
+        // Use black pen so drawSolidFill picks black as the fill colour.
+        painter.setPen(RS_Color(0, 0, 0));
+    }
+
+    /** True when the pixel at WCS (wcsX, wcsY) has been painted (non-white). */
+    bool filledAt(double wcsX, double wcsY) const {
+        const int px = static_cast<int>(std::round(wcsX));
+        const int py = static_cast<int>(std::round(H - wcsY));
+        if (px < 0 || px >= W || py < 0 || py >= H) return false;
+        return image.pixel(px, py) != qRgb(255, 255, 255);
+    }
+};
 
 } // anonymous namespace
 
@@ -790,4 +842,142 @@ TEST_CASE("RS_Hatch moment of inertia - closed spline diamond", "[rs_hatch][mome
     REQUIRE_THAT(m.ixx, Catch::Matchers::WithinAbs(31.0 / 140.0, 1e-9));
     REQUIRE_THAT(m.iyy, Catch::Matchers::WithinAbs(31.0 / 140.0, 1e-9));
     REQUIRE_THAT(m.ixy, Catch::Matchers::WithinAbs(0.0,           1e-9));
+}
+
+// ============================================================
+// SOLID FILL RENDERING TESTS
+//
+// These tests verify that drawSolidFill() paints pixels inside the hatch
+// boundary and leaves pixels outside unpainted.
+//
+// Canvas: 256×256 pixels, white background.
+// Mapping: screen_x = wcs_x, screen_y = 256 − wcs_y  (1:1 scale, y-flipped).
+// Fill colour: black (pen set to black before drawing).
+// ============================================================
+
+TEST_CASE("RS_Hatch solid fill - rectangle interior is painted", "[rs_hatch][solidfill]")
+{
+    // Rectangle WCS (20,20)-(120,120).  Centre at (70,70) should be filled.
+    // Points outside the rectangle should remain white.
+    std::unique_ptr<RS_Hatch> hatch(makeRectHatch(20.0, 20.0, 120.0, 120.0));
+    REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
+
+    TestPainter tp;
+    hatch->draw(&tp.painter);
+
+    // Interior point — must be painted
+    REQUIRE(tp.filledAt(70.0, 70.0));
+
+    // Exterior points — must remain white
+    REQUIRE_FALSE(tp.filledAt( 5.0,  5.0));   // bottom-left, far outside
+    REQUIRE_FALSE(tp.filledAt(200.0, 70.0));   // right of rect
+    REQUIRE_FALSE(tp.filledAt(70.0, 200.0));   // above rect
+}
+
+TEST_CASE("RS_Hatch solid fill - L-shaped polygon interior is painted", "[rs_hatch][solidfill]")
+{
+    // Reproduces the h4.dxf regression: 6-segment L-shaped polygon.
+    // Before the fix, appendLine called moveTo per entity, producing disconnected
+    // subpaths with zero area, so nothing was painted.
+    //
+    // Vertices (CCW): (20,50)→(80,50)→(80,30)→(60,30)→(60,10)→(20,10)→(20,50)
+    // Interior point: (40, 30) — clearly inside the rectangle leg
+    // Interior point: (50, 40) — inside the top bar
+    // Exterior point: (70, 20) — inside the notch (cut-out region)
+    auto* hatch = new RS_Hatch(nullptr, RS_HatchData(true, 1.0, 0.0, "SOLID"));
+    auto* loop = new RS_EntityContainer(hatch);
+    hatch->addEntity(loop);
+    loop->addEntity(new RS_Line(loop, RS_Vector(20.0, 50.0), RS_Vector(80.0, 50.0)));
+    loop->addEntity(new RS_Line(loop, RS_Vector(80.0, 50.0), RS_Vector(80.0, 30.0)));
+    loop->addEntity(new RS_Line(loop, RS_Vector(80.0, 30.0), RS_Vector(60.0, 30.0)));
+    loop->addEntity(new RS_Line(loop, RS_Vector(60.0, 30.0), RS_Vector(60.0, 10.0)));
+    loop->addEntity(new RS_Line(loop, RS_Vector(60.0, 10.0), RS_Vector(20.0, 10.0)));
+    loop->addEntity(new RS_Line(loop, RS_Vector(20.0, 10.0), RS_Vector(20.0, 50.0)));
+    hatch->update();
+    std::unique_ptr<RS_Hatch> owned(hatch);
+
+    REQUIRE(owned->getUpdateError() == RS_Hatch::HATCH_OK);
+
+    TestPainter tp;
+    owned->draw(&tp.painter);
+
+    // Both legs of the L must be filled
+    REQUIRE(tp.filledAt(40.0, 30.0));   // left vertical leg
+    REQUIRE(tp.filledAt(50.0, 40.0));   // top horizontal bar (above step)
+
+    // The notch cut-out must NOT be filled
+    REQUIRE_FALSE(tp.filledAt(70.0, 20.0));
+
+    // Well outside the shape
+    REQUIRE_FALSE(tp.filledAt( 5.0, 5.0));
+    REQUIRE_FALSE(tp.filledAt(200.0, 200.0));
+}
+
+TEST_CASE("RS_Hatch solid fill - circle interior is painted", "[rs_hatch][solidfill]")
+{
+    // Circle centred at (100, 100) radius 40.
+    // Centre pixel must be filled; a point well outside must not be.
+    std::unique_ptr<RS_Hatch> hatch(makeCircleHatch(100.0, 100.0, 40.0));
+    REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
+
+    TestPainter tp;
+    hatch->draw(&tp.painter);
+
+    REQUIRE(tp.filledAt(100.0, 100.0));   // dead centre
+    REQUIRE(tp.filledAt(110.0, 100.0));   // slightly off-centre, still inside
+
+    REQUIRE_FALSE(tp.filledAt(100.0, 150.0));  // above the circle
+    REQUIRE_FALSE(tp.filledAt(  5.0,   5.0));  // far outside
+}
+
+TEST_CASE("RS_Hatch solid fill - annular rectangle hole excluded", "[rs_hatch][solidfill]")
+{
+    // Outer rect (10,10)-(110,110), inner hole (40,40)-(80,80).
+    // Ring region must be filled; hole and outside must not be.
+    std::unique_ptr<RS_Hatch> hatch(
+        makeAnnularRectHatch(10.0, 10.0, 110.0, 110.0,
+                             40.0, 40.0,  80.0,  80.0));
+    REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
+
+    TestPainter tp;
+    hatch->draw(&tp.painter);
+
+    // Ring (between outer and hole) must be filled
+    REQUIRE(tp.filledAt(20.0,  60.0));   // left strip of ring
+    REQUIRE(tp.filledAt(60.0, 100.0));   // top strip of ring
+
+    // Inside the hole must NOT be filled
+    REQUIRE_FALSE(tp.filledAt(60.0, 60.0));
+
+    // Outside the outer rect must NOT be filled
+    REQUIRE_FALSE(tp.filledAt(5.0, 5.0));
+    REQUIRE_FALSE(tp.filledAt(200.0, 200.0));
+}
+
+TEST_CASE("RS_Hatch solid fill - arc boundary (half-disk) interior is painted", "[rs_hatch][solidfill][arc]")
+{
+    // Upper half-disk: arc from (50,50) angle 0→π, radius 30, closing line.
+    // Centre of the flat face at (50, 50), centroid above it.
+    // Interior point (50, 65) should be inside; (50, 30) is below the flat face.
+    auto* hatch = new RS_Hatch(nullptr, RS_HatchData(true, 1.0, 0.0, "SOLID"));
+    auto* loop = new RS_EntityContainer(hatch);
+    hatch->addEntity(loop);
+    // Arc from (80,50) to (20,50) CCW (upper semicircle centred at (50,50))
+    loop->addEntity(new RS_Arc(loop,
+        RS_ArcData(RS_Vector(50.0, 50.0), 30.0, 0.0, M_PI, false)));
+    // Close with a line from (-r,0)+(50,50)=(20,50) back to (r,0)+(50,50)=(80,50)
+    loop->addEntity(new RS_Line(loop,
+        RS_Vector(20.0, 50.0), RS_Vector(80.0, 50.0)));
+    hatch->update();
+    std::unique_ptr<RS_Hatch> owned(hatch);
+
+    REQUIRE(owned->getUpdateError() == RS_Hatch::HATCH_OK);
+
+    TestPainter tp;
+    owned->draw(&tp.painter);
+
+    REQUIRE(tp.filledAt(50.0, 65.0));    // inside upper half-disk
+
+    REQUIRE_FALSE(tp.filledAt(50.0, 30.0));  // below flat edge, outside
+    REQUIRE_FALSE(tp.filledAt( 5.0,  5.0));  // far outside
 }
