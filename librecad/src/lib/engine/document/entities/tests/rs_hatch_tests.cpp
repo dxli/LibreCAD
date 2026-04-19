@@ -83,6 +83,32 @@ RS_Hatch* makeCircleHatch(double cx, double cy, double radius)
 }
 
 /**
+ * Build a solid hatch with two circular boundary loops (annulus):
+ *   - outer circle: center (cx,cy), radius r_outer
+ *   - inner circle: center (cx,cy), radius r_inner  (hole)
+ *
+ * Analytical area = π (r_outer² - r_inner²)
+ * Centroid = (cx, cy)
+ *
+ * Ownership: caller takes ownership of the returned pointer.
+ */
+RS_Hatch* makeConcentricCircleHatch(double cx, double cy, double r_outer, double r_inner)
+{
+    auto* hatch = new RS_Hatch(nullptr, RS_HatchData(true, 1.0, 0.0, "SOLID"));
+
+    auto* outer = new RS_EntityContainer(hatch);
+    hatch->addEntity(outer);
+    outer->addEntity(new RS_Circle(outer, RS_CircleData(RS_Vector(cx, cy), r_outer)));
+
+    auto* inner = new RS_EntityContainer(hatch);
+    hatch->addEntity(inner);
+    inner->addEntity(new RS_Circle(inner, RS_CircleData(RS_Vector(cx, cy), r_inner)));
+
+    hatch->update();
+    return hatch;
+}
+
+/**
  * Build a solid hatch with two boundary loops:
  *   - outer CCW rectangle from (ox1,oy1) to (ox2,oy2)
  *   - inner CW rectangle from (ix1,iy1) to (ix2,iy2)  (hole)
@@ -320,6 +346,24 @@ TEST_CASE("RS_Hatch area - circle radius 2", "[rs_hatch][area]")
     std::unique_ptr<RS_Hatch> hatch(makeCircleHatch(0.0, 0.0, 2.0));
     REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
     REQUIRE_THAT(hatch->getTotalArea(), Catch::Matchers::WithinAbs(4.0 * M_PI, 1e-4));
+}
+
+TEST_CASE("RS_Hatch area - concentric circles center (100,100) r=40 r=20", "[rs_hatch][area]")
+{
+    // net area = π (40² - 20²) = π * 1200
+    std::unique_ptr<RS_Hatch> hatch(makeConcentricCircleHatch(100.0, 100.0, 40.0, 20.0));
+    REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
+    REQUIRE_THAT(hatch->getTotalArea(), Catch::Matchers::WithinAbs(1200.0 * M_PI, 1e-3));
+}
+
+TEST_CASE("RS_Hatch centroid - concentric circles center (100,100) r=40 r=20", "[rs_hatch][centroid]")
+{
+    std::unique_ptr<RS_Hatch> hatch(makeConcentricCircleHatch(100.0, 100.0, 40.0, 20.0));
+    REQUIRE(hatch->getUpdateError() == RS_Hatch::HATCH_OK);
+    const RS_Vector c = hatch->getCentroid();
+    REQUIRE(c.isValid());
+    REQUIRE_THAT(c.x, Catch::Matchers::WithinAbs(100.0, 1e-3));
+    REQUIRE_THAT(c.y, Catch::Matchers::WithinAbs(100.0, 1e-3));
 }
 
 TEST_CASE("RS_Hatch area - annular rectangle (outer 6×6, hole 2×2)", "[rs_hatch][area]")

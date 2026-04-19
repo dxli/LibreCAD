@@ -124,8 +124,6 @@ QC_ApplicationWindow::QC_ApplicationWindow(){
     setWindowIcon(QIcon(QC_APP_ICON));
 
     LC_ApplicationWindowInitializer initializer(this);
-    if (m_mdiAreaCAD)
-      LC_ERR<<"XXX: "<<m_mdiAreaCAD->width()<<"x"<<m_mdiAreaCAD->height();
     initializer.initApplication();
 }
 /**

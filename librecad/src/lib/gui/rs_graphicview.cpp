@@ -382,7 +382,6 @@ LC_InfoCursorOverlayPrefs* RS_GraphicView::getInfoCursorOverlayPreferences(){
 void RS_GraphicView::resizeEvent(QResizeEvent *event) {
     QWidget::resizeEvent(event);
     m_viewport->setSize(getWidth(), getHeight());
-    LC_ERR<<"XXX: "<<width()<<"x"<<height();
 }
 
 bool RS_GraphicView::isPrintPreview() const {

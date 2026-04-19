@@ -115,8 +115,8 @@ public:
      */
     int countLoops() const;
 
-    /** @return true if solid hatch. */
-    bool isSolid() const { return data.solid; }
+    /** @return true if solid hatch (either flag set or pattern name is "SOLID"). */
+    bool isSolid() const { return data.solid || data.pattern.compare("SOLID", Qt::CaseInsensitive) == 0; }
     void setSolid(bool solid) { data.solid = solid; }
 
     QString getPattern() const { return data.pattern; }
@@ -193,12 +193,10 @@ protected:
     RS_HatchData data{};
 
 private:
-    void debugOutPath(const QPainterPath& tmpPath) const;
     void drawPatternLines(RS_Painter* painter) const;
     void drawSolidFill(RS_Painter* painter);
     void updatePatternHatch(RS_Layer* layer, const RS_Pen& pen);
     void updateSolidHatch(RS_Layer* layer, const RS_Pen& pen);
-    void prepareUpdate();
 
     mutable double m_area = RS_MAXDOUBLE;
     mutable LC_FirstMoment m_firstMoment;
@@ -209,9 +207,8 @@ private:
     bool m_needOptimization = true;
     bool m_updated = false;
     mutable std::shared_ptr<std::vector<LC_LoopUtils::LC_Loops>> m_orderedLoops;
-    mutable std::shared_ptr<std::vector<QPainterPath>> m_solidPath;
 
-    // Internal: Vector of boundary subcontainers (one per loop)
+    // Internal: Vector of boundary subcontainers (one per loop, recursive)
     mutable std::vector<std::shared_ptr<RS_EntityContainer>> m_boundaryContainers;
 };
 

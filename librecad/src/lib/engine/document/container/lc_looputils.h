@@ -360,11 +360,6 @@ private:
    */
   void sortAndBuild();
   /**
-   * @brief Initializes data structures.
-   */
-  void init();
-
-  /**
    * @brief Finds and assigns the parent for a loop.
    * @param loop The child loop.
    * @param sorted Sorted list of all loops.
