@@ -273,7 +273,7 @@ jobs:
           tools-only: 'false'
           modules: 'qt3d qt5compat qtimageformats qtshadertools'
           tools: 'tools_cmake'
-          
+
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
@@ -288,19 +288,63 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
+      - name: Validate SCM version
+        id: version
+        shell: bash
+        run: |
+          SCMREVISION=$(git describe --always 2>/dev/null || true)
+          if [[ -z "$SCMREVISION" || "$SCMREVISION" == "unknown" ]]; then
+            echo "::error::Cannot determine a valid SCM version (got: '$SCMREVISION')"
+            exit 1
+          fi
+          echo "Validated SCMREVISION: $SCMREVISION"
+          echo "SCMREVISION=$SCMREVISION" >> "$GITHUB_OUTPUT"
+
       - name: Build
         run: |
           pushd "${{github.workspace}}\scripts"
-273       build-windows.bat
+          build-windows.bat
         shell: cmd
+        env:
+          LC_ARCH: amd64
+          LC_SKIP_NSIS: "1"
+          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
 
-      - name: listFile
-        run: |
-          cd generated
-          dir *.*
-          dir Release\*.*
-          del /Y *.lib
+      - name: Clean deployment artifacts
         shell: cmd
+        run: |
+          echo Removing .lib and .exp files from windows deployment directory...
+          for /r "%{{github.workspace}}\windows" %%f in (*.lib *.exp) do (
+            echo   deleting %%f
+            del /f /q "%%f"
+          )
+          echo Deployment directory after cleanup:
+          dir "%{{github.workspace}}\windows" /s /b
+
+      - name: Package with NSIS
+        shell: cmd
+        run: |
+          pushd "${{github.workspace}}\scripts"
+          package-windows.bat
+        env:
+          LC_ARCH: amd64
+          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
+
+      - name: Validate installer
+        shell: bash
+        run: |
+          count=$(ls generated/LibreCAD-*.exe 2>/dev/null | wc -l)
+          if [[ "$count" -eq 0 ]]; then
+            echo "::error::No installer found in generated/"
+            exit 1
+          fi
+          for f in generated/LibreCAD-*.exe; do
+            echo "Found installer: $f"
+            if echo "$f" | grep -qi "unknown"; then
+              echo "::error::Installer filename contains 'unknown': $f"
+              exit 1
+            fi
+          done
 
       - name: Rename installer
         run: |
@@ -352,30 +396,67 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
-      - name: build and package
+      - name: Validate SCM version
+        id: version
+        shell: bash
+        run: |
+          SCMREVISION=$(git describe --always 2>/dev/null || true)
+          if [[ -z "$SCMREVISION" || "$SCMREVISION" == "unknown" ]]; then
+            echo "::error::Cannot determine a valid SCM version (got: '$SCMREVISION')"
+            exit 1
+          fi
+          echo "Validated SCMREVISION: $SCMREVISION"
+          echo "SCMREVISION=$SCMREVISION" >> "$GITHUB_OUTPUT"
+
+      - name: Build
         run: |
           pushd "${{github.workspace}}\scripts"
-273       build-windows.bat
+          build-windows.bat
         shell: cmd
         env:
+          LC_ARCH: arm64
+          LC_SKIP_NSIS: "1"
+          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
           BOOST_ROOT: boost
           CMAKE_CXX_FLAGS: " /MP8"
 
-      - name: listFile
-        run: |
-          cd generated
-          dir *.*
-          dir ARM64\Release\*.*
-          del /Y  *.lib
+      - name: Clean deployment artifacts
         shell: cmd
+        run: |
+          echo Removing .lib and .exp files from windows deployment directory...
+          for /r "%{{github.workspace}}\windows" %%f in (*.lib *.exp) do (
+            echo   deleting %%f
+            del /f /q "%%f"
+          )
+          echo Deployment directory after cleanup:
+          dir "%{{github.workspace}}\windows" /s /b
 
-      - name: List files
-        run: |
-            echo "${{ github.workspace }}"
-            dir "${{ github.workspace }}"
+      - name: Package with NSIS
         shell: cmd
+        run: |
+          pushd "${{github.workspace}}\scripts"
+          package-windows.bat
+        env:
+          LC_ARCH: arm64
+          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
+
+      - name: Validate installer
+        shell: bash
+        run: |
+          count=$(ls generated/LibreCAD-*.exe 2>/dev/null | wc -l)
+          if [[ "$count" -eq 0 ]]; then
+            echo "::error::No installer found in generated/"
+            exit 1
+          fi
+          for f in generated/LibreCAD-*.exe; do
+            echo "Found installer: $f"
+            if echo "$f" | grep -qi "unknown"; then
+              echo "::error::Installer filename contains 'unknown': $f"
+              exit 1
+            fi
+          done
 
       - name: Rename installer
         run: |
