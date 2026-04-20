@@ -288,19 +288,10 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
-      - name: Configure CMake
-        run: |
-          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
-        shell: cmd
-        env:
-          BUILD_TYPE: release
-          MSVC_VER_NUMBER: "Visual Studio 17 2022"
-          BOOST_ROOT: boost
-          CMAKE_CXX_FLAGS: " /MP8"
-
       - name: Build
         run: |
-          cmake --build generated --config Release
+          pushd "${{github.workspace}}\scripts"
+273       build-windows.bat
         shell: cmd
 
       - name: listFile
@@ -308,32 +299,12 @@ jobs:
           cd generated
           dir *.*
           dir Release\*.*
-        shell: cmd
-
-      - name: List files
-        run: |
-            echo "${{ github.workspace }}"
-            dir "${{ github.workspace }}"
-        shell: cmd
-
-      - name: winDeployment
-        run: |
-          copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
-          cd generated
-          windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
-          dir Release\*.*
-          cd ..
-          xcopy /E /Y /I generated\Release windows
-          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
-          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
-          set LC_ARCH=AMD64
-          pushd "${{ github.workspace }}\scripts"
-          call build-win-setup.bat
+          del /Y *.lib
         shell: cmd
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*-Windows-x64.exe LibreCAD-`git describe --always`-win64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win64.exe
         shell: bash
 
       - name: Upload artifact
@@ -381,9 +352,10 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
-      - name: Configure CMake
+      - name: build and package
         run: |
-          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -A ARM64 -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib
+          pushd "${{github.workspace}}\scripts"
+273       build-windows.bat
         shell: cmd
         env:
           BUILD_TYPE: release
@@ -391,16 +363,12 @@ jobs:
           BOOST_ROOT: boost
           CMAKE_CXX_FLAGS: " /MP8"
 
-      - name: Build
-        run: |
-          cmake --build generated --config Release
-        shell: cmd
-
       - name: listFile
         run: |
           cd generated
           dir *.*
           dir ARM64\Release\*.*
+          del /Y  *.lib
         shell: cmd
 
       - name: List files
@@ -409,24 +377,9 @@ jobs:
             dir "${{ github.workspace }}"
         shell: cmd
 
-      - name: winDeployment
-        run: |
-          copy CI\custom-win-ARM64.nsh scripts\postprocess-windows\custom.nsh
-          cd generated
-          windeployqt6.exe --release --compiler-runtime ARM64\Release\LibreCAD.exe
-          dir ARM64\Release\*.*
-          cd ..
-          xcopy /E /Y /I generated\ARM64\Release windows
-          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
-          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
-          set LC_ARCH=ARM64
-          pushd "${{ github.workspace }}\scripts"
-          call build-win-setup.bat
-        shell: cmd
-
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*-Windows-arm64.exe LibreCAD-`git describe --always`-winARM64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-winARM64.exe
         shell: bash
 
       - name: Upload artifact
