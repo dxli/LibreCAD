@@ -197,13 +197,14 @@ Section "Associate .dxf files" SecAssoc
   ${If} $R0 != "LibreCAD.DXF"
     WriteRegStr HKLM "${APPREG}" "OldDXFAssoc" $R0
   ${EndIf}
+  ClearErrors
   ; Set new association
   WriteRegStr HKCR ".dxf" "" "LibreCAD.DXF"
   WriteRegStr HKCR "LibreCAD.DXF" "" "DXF File"
   WriteRegStr HKCR "LibreCAD.DXF\DefaultIcon" "" "$INSTDIR\LibreCAD.exe,0"
   WriteRegStr HKCR "LibreCAD.DXF\shell\open\command" "" '"$INSTDIR\LibreCAD.exe" "%1"'
   ; Check for errors
-  ${IfErrors}
+  ${If} ${Errors}
     MessageBox MB_OK|MB_ICONEXCLAMATION "Failed to set .dxf file association!"
     Abort
   ${EndIf}
