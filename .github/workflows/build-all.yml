@@ -318,20 +318,22 @@ jobs:
 
       - name: winDeployment
         run: |
-          copy CI\custom-win.pri custom.pri
           copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
-          mkdir generated\plugins
-          for /r %%a in (*.dll) do copy "%%a" generated\plugins
           cd generated
           windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
-          dir *.*
+          dir Release\*.*
+          cd ..
+          xcopy /E /Y /I generated\Release windows
+          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+          set LC_ARCH=AMD64
           pushd "${{ github.workspace }}\scripts"
           call build-win-setup.bat
         shell: cmd
-        
+
       - name: Rename installer
         run: |
-          mv LibreCAD-Installer.exe LibreCAD-`git describe --always`-win64.exe
+          mv generated/LibreCAD-*-Windows-x64.exe LibreCAD-`git describe --always`-win64.exe
         shell: bash
 
       - name: Upload artifact
@@ -409,20 +411,22 @@ jobs:
 
       - name: winDeployment
         run: |
-          copy CI\custom-win.pri custom.pri
           copy CI\custom-win-ARM64.nsh scripts\postprocess-windows\custom.nsh
-          mkdir generated\plugins
-          for /r %%a in (*.dll) do copy "%%a" generated\plugins
           cd generated
           windeployqt6.exe --release --compiler-runtime ARM64\Release\LibreCAD.exe
-          dir *.*
+          dir ARM64\Release\*.*
+          cd ..
+          xcopy /E /Y /I generated\ARM64\Release windows
+          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+          set LC_ARCH=ARM64
           pushd "${{ github.workspace }}\scripts"
           call build-win-setup.bat
         shell: cmd
-        
+
       - name: Rename installer
         run: |
-          mv LibreCAD-Installer.exe LibreCAD-`git describe --always`-winARM64.exe
+          mv generated/LibreCAD-*-Windows-arm64.exe LibreCAD-`git describe --always`-winARM64.exe
         shell: bash
 
       - name: Upload artifact

@@ -57,6 +57,9 @@ OutFile "../../generated/LibreCAD-${SCMREVISION}-Windows-${ARCH_SUFFIX}.exe"
 InstallDir "${INSTALL_DIR}"
 InstallDirRegKey HKLM "${APPREG}" ""
 RequestExecutionLevel admin
+!ifndef VIProductVersion
+    !define VIProductVersion "2.2.2.0"
+!endif
 VIProductVersion "${VIProductVersion}"
 VIAddVersionKey "ProductName" "${APPNAME}"
 VIAddVersionKey "FileVersion" "${SCMREVISION}"
