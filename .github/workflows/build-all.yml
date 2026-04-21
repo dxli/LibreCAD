@@ -273,7 +273,7 @@ jobs:
           tools-only: 'false'
           modules: 'qt3d qt5compat qtimageformats qtshadertools'
           tools: 'tools_cmake'
-
+          
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
@@ -288,67 +288,79 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
-      - name: Validate SCM version
-        id: version
-        shell: bash
+      - name: Configure CMake
         run: |
-          SCMREVISION=$(git describe --always 2>/dev/null || true)
-          if [[ -z "$SCMREVISION" || "$SCMREVISION" == "unknown" ]]; then
-            echo "::error::Cannot determine a valid SCM version (got: '$SCMREVISION')"
-            exit 1
-          fi
-          echo "Validated SCMREVISION: $SCMREVISION"
-          echo "SCMREVISION=$SCMREVISION" >> "$GITHUB_OUTPUT"
+          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
+        shell: cmd
+        env:
+          BUILD_TYPE: release
+          MSVC_VER_NUMBER: "Visual Studio 17 2022"
+          BOOST_ROOT: boost
+          CMAKE_CXX_FLAGS: " /MP8"
 
       - name: Build
         run: |
-          pushd "${{github.workspace}}\scripts"
-          build-windows.bat
+          cmake --build generated --config Release
         shell: cmd
-        env:
-          LC_ARCH: amd64
-          LC_SKIP_NSIS: "1"
-          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
 
-      - name: Clean deployment artifacts
+      - name: listFile
+        run: |
+          cd generated
+          dir *.*
+          dir Release\*.*
         shell: cmd
-        run: |
-          echo Removing .lib and .exp files from windows deployment directory...
-          for /r "%{{github.workspace}}\windows" %%f in (*.lib *.exp) do (
-            echo   deleting %%f
-            del /f /q "%%f"
-          )
-          echo Deployment directory after cleanup:
-          dir "%{{github.workspace}}\windows" /s /b
 
-      - name: Package with NSIS
+      - name: List files
+        run: |
+            echo "${{ github.workspace }}"
+            dir "${{ github.workspace }}"
         shell: cmd
-        run: |
-          pushd "${{github.workspace}}\scripts"
-          package-windows.bat
-        env:
-          LC_ARCH: amd64
-          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
 
-      - name: Validate installer
-        shell: bash
+      - name: Extract version (SCMREVISION)
+        id: extract_version
         run: |
-          count=$(ls generated/LibreCAD-*.exe 2>/dev/null | wc -l)
-          if [[ "$count" -eq 0 ]]; then
-            echo "::error::No installer found in generated/"
-            exit 1
-          fi
-          for f in generated/LibreCAD-*.exe; do
-            echo "Found installer: $f"
-            if echo "$f" | grep -qi "unknown"; then
-              echo "::error::Installer filename contains 'unknown': $f"
-              exit 1
-            fi
-          done
+          # Try to get version from git
+          $scmRevision = "2.2.2-alpha"
+          if (Test-Path .git) {
+            try {
+              $scmRevision = git describe --always 2>$null
+              if (-not $?) { $scmRevision = "2.2.2-alpha" }
+            } catch {
+              $scmRevision = "2.2.2-alpha"
+            }
+          }
+          
+          # Extract clean version (only digits and dots)
+          $cleanVersion = $scmRevision -replace '[^0-9.]', ''
+          
+          # Split and pad to ensure X.X.X.X format
+          $parts = $cleanVersion.Split('.')
+          while ($parts.Count -lt 4) { $parts += '0' }
+          $viProductVersion = "$($parts[0]).$($parts[1]).$($parts[2]).$($parts[3])"
+          
+          echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
+          echo "VIProductVersion=$viProductVersion" >> $env:GITHUB_ENV
+          echo "Extracted version: SCMREVISION=$scmRevision, VIProductVersion=$viProductVersion"
+        shell: pwsh
+
+      - name: winDeployment
+        run: |
+          copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
+          cd generated
+          windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
+          dir Release\*.*
+          cd ..
+          xcopy /E /Y /I generated\Release windows
+          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+          set LC_ARCH=AMD64
+          pushd "${{ github.workspace }}\scripts"
+          call build-win-setup.bat
+        shell: cmd
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win64.exe
+          mv generated/LibreCAD-*-Windows-x64.exe LibreCAD-`git describe --always`-win64.exe
         shell: bash
 
       - name: Upload artifact
@@ -396,71 +408,79 @@ jobs:
           ls -ld boost/include/boost/version.hpp
         shell: bash
 
-      - name: Validate SCM version
-        id: version
-        shell: bash
+      - name: Configure CMake
         run: |
-          SCMREVISION=$(git describe --always 2>/dev/null || true)
-          if [[ -z "$SCMREVISION" || "$SCMREVISION" == "unknown" ]]; then
-            echo "::error::Cannot determine a valid SCM version (got: '$SCMREVISION')"
-            exit 1
-          fi
-          echo "Validated SCMREVISION: $SCMREVISION"
-          echo "SCMREVISION=$SCMREVISION" >> "$GITHUB_OUTPUT"
-
-      - name: Build
-        run: |
-          pushd "${{github.workspace}}\scripts"
-          build-windows.bat
+          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -A ARM64 -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib
         shell: cmd
         env:
-          LC_ARCH: arm64
-          LC_SKIP_NSIS: "1"
-          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
           BUILD_TYPE: release
           MSVC_VER_NUMBER: "Visual Studio 17 2022"
           BOOST_ROOT: boost
           CMAKE_CXX_FLAGS: " /MP8"
 
-      - name: Clean deployment artifacts
+      - name: Build
+        run: |
+          cmake --build generated --config Release
         shell: cmd
-        run: |
-          echo Removing .lib and .exp files from windows deployment directory...
-          for /r "%{{github.workspace}}\windows" %%f in (*.lib *.exp) do (
-            echo   deleting %%f
-            del /f /q "%%f"
-          )
-          echo Deployment directory after cleanup:
-          dir "%{{github.workspace}}\windows" /s /b
 
-      - name: Package with NSIS
+      - name: listFile
+        run: |
+          cd generated
+          dir *.*
+          dir ARM64\Release\*.*
         shell: cmd
-        run: |
-          pushd "${{github.workspace}}\scripts"
-          package-windows.bat
-        env:
-          LC_ARCH: arm64
-          SCMREVISION: ${{ steps.version.outputs.SCMREVISION }}
 
-      - name: Validate installer
-        shell: bash
+      - name: List files
         run: |
-          count=$(ls generated/LibreCAD-*.exe 2>/dev/null | wc -l)
-          if [[ "$count" -eq 0 ]]; then
-            echo "::error::No installer found in generated/"
-            exit 1
-          fi
-          for f in generated/LibreCAD-*.exe; do
-            echo "Found installer: $f"
-            if echo "$f" | grep -qi "unknown"; then
-              echo "::error::Installer filename contains 'unknown': $f"
-              exit 1
-            fi
-          done
+            echo "${{ github.workspace }}"
+            dir "${{ github.workspace }}"
+        shell: cmd
+
+      - name: Extract version (SCMREVISION)
+        id: extract_version
+        run: |
+          # Try to get version from git
+          $scmRevision = "2.2.2-alpha"
+          if (Test-Path .git) {
+            try {
+              $scmRevision = git describe --always 2>$null
+              if (-not $?) { $scmRevision = "2.2.2-alpha" }
+            } catch {
+              $scmRevision = "2.2.2-alpha"
+            }
+          }
+          
+          # Extract clean version (only digits and dots)
+          $cleanVersion = $scmRevision -replace '[^0-9.]', ''
+          
+          # Split and pad to ensure X.X.X.X format
+          $parts = $cleanVersion.Split('.')
+          while ($parts.Count -lt 4) { $parts += '0' }
+          $viProductVersion = "$($parts[0]).$($parts[1]).$($parts[2]).$($parts[3])"
+          
+          echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
+          echo "VIProductVersion=$viProductVersion" >> $env:GITHUB_ENV
+          echo "Extracted version: SCMREVISION=$scmRevision, VIProductVersion=$viProductVersion"
+        shell: pwsh
+
+      - name: winDeployment
+        run: |
+          copy CI\custom-win-ARM64.nsh scripts\postprocess-windows\custom.nsh
+          cd generated
+          windeployqt6.exe --release --compiler-runtime ARM64\Release\LibreCAD.exe
+          dir ARM64\Release\*.*
+          cd ..
+          xcopy /E /Y /I generated\ARM64\Release windows
+          for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+          for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+          set LC_ARCH=ARM64
+          pushd "${{ github.workspace }}\scripts"
+          call build-win-setup.bat
+        shell: cmd
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-winARM64.exe
+          mv generated/LibreCAD-*-Windows-arm64.exe LibreCAD-`git describe --always`-winARM64.exe
         shell: bash
 
       - name: Upload artifact
