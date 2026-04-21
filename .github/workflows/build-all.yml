@@ -355,7 +355,7 @@ jobs:
           for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
           set LC_ARCH=AMD64
           pushd "${{ github.workspace }}\scripts"
-          call build-win-setup.bat
+          call build-nsis.bat
         shell: cmd
 
       - name: Rename installer
@@ -475,7 +475,7 @@ jobs:
           for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
           set LC_ARCH=ARM64
           pushd "${{ github.workspace }}\scripts"
-          call build-win-setup.bat
+          call build-nsis.bat
         shell: cmd
 
       - name: Rename installer
