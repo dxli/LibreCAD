@@ -360,7 +360,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*-Windows-x64.exe LibreCAD-`git describe --always`-win64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-Win-x64.exe
         shell: bash
 
       - name: Upload artifact
@@ -480,7 +480,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*-Windows-arm64.exe LibreCAD-`git describe --always`-winARM64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-Arm64.exe
         shell: bash
 
       - name: Upload artifact
