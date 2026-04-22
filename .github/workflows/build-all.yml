@@ -343,9 +343,13 @@ jobs:
           echo "Extracted version: SCMREVISION=$scmRevision, VIProductVersion=$viProductVersion"
         shell: pwsh
 
-      - name: winDeployment
+      - name: Generate custom.nsh and Deploy
         run: |
-          copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
+          cd "${{ github.workspace }}"
+          
+          rem Generate custom.nsh automatically based on environment
+          powershell.exe -ExecutionPolicy Bypass -File scripts\generate-custom-nsh.ps1 -Architecture AMD64 -OutputPath "scripts\postprocess-windows\custom.nsh"
+          
           cd generated
           windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
           dir Release\*.*
@@ -463,9 +467,13 @@ jobs:
           echo "Extracted version: SCMREVISION=$scmRevision, VIProductVersion=$viProductVersion"
         shell: pwsh
 
-      - name: winDeployment
+      - name: Generate custom.nsh and Deploy
         run: |
-          copy CI\custom-win-ARM64.nsh scripts\postprocess-windows\custom.nsh
+          cd "${{ github.workspace }}"
+          
+          rem Generate custom.nsh automatically based on environment
+          powershell.exe -ExecutionPolicy Bypass -File scripts\generate-custom-nsh.ps1 -Architecture ARM64 -OutputPath "scripts\postprocess-windows\custom.nsh"
+          
           cd generated
           windeployqt6.exe --release --compiler-runtime ARM64\Release\LibreCAD.exe
           dir ARM64\Release\*.*
