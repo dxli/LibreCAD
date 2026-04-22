@@ -137,9 +137,12 @@ Section "Main Section" SecMain
   ; Set registry view based on architecture
   SetRegView ${REG_VIEW}
   SetOutPath "$INSTDIR"
-  ; windeployqt output — exclude translations subdir, copied explicitly below
+  ; Copy all files from windeployqt output
   File /r /x "*.pdb" /x "translations" "..\..\windows\*.*"
-  File /nonfatal "${MUI_ICON}"
+  
+  ; Ensure application icon is installed (required for shortcuts and Add/Remove Programs)
+  File "${MUI_ICON}"
+  
   ; Fallback Qt plugin copies (non-fatal; windeployqt should have handled these)
   SetOutPath "$INSTDIR\platforms"
   File /nonfatal "${PLUGINS_DIR}\platforms\qwindows.dll"
@@ -173,9 +176,9 @@ Section "Main Section" SecMain
   WriteUninstaller "$INSTDIR\Uninstall.exe"
   SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\${APPNAME}"
-  CreateShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe"
-  CreateShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-  CreateShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe"
+  CreateShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe" "" "$INSTDIR\librecad.ico"
+  CreateShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\Uninstall.exe" "" "${MUI_UNICON}"
+  CreateShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\LibreCAD.exe" "" "$INSTDIR\librecad.ico"
   ; Add/Remove Programs entries - show architecture
   WriteRegStr HKLM "${UNINSTKEY}" "DisplayName" "${APPNAME} ${SCMREVISION} (${ARCH_SUFFIX})"
   WriteRegStr HKLM "${UNINSTKEY}" "DisplayIcon" "$INSTDIR\librecad.ico"
