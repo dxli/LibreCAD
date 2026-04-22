@@ -86,14 +86,13 @@ if ($Architecture -eq "AMD64") {
     $appKeyName = "LibreCADx64"
     $appName = "LibreCAD (x64)"
     $programsFolder = '$PROGRAMFILES64'
-    $defineArch = ""
 } elseif ($Architecture -eq "ARM64") {
     $msvcVer = "msvc2022_arm64"
     $archSuffix = "_arm64"
     $appKeyName = "LibreCADARM64"
     $appName = "LibreCAD (ARM64)"
     $programsFolder = '$PROGRAMFILES64'
-    $defineArch = "!define ARM64"
+    # Note: ARM64 is already defined via /DARM64 command-line parameter in build-nsis.bat
 }
 
 Write-Host "[INFO] MSVC Variant: $msvcVer"
@@ -112,9 +111,6 @@ $nshContent += "!define InstallerName `"LibreCAD-Installer`"`n"
 $nshContent += "!define ProgramsFolder `"$programsFolder`"`n"
 $nshContent += "!define AppKeyName `"$appKeyName`"`n"
 $nshContent += "!define AppName `"$appName`"`n"
-if ($defineArch) {
-    $nshContent += "$defineArch`n"
-}
 
 # Ensure output directory exists
 $outputDir = Split-Path $OutputPath -Parent
