@@ -70,7 +70,7 @@ if (-not $qtVersion) {
         if ($versionDirs.Count -gt 0) {
             $qtVersion = $versionDirs[0].Name
         } else {
-            $qtVersion = "6.9.0"  # Default fallback
+            $qtVersion = "6.9.0"
             Write-Host "[WARNING] Could not detect Qt version, using default: $qtVersion"
         }
     }
@@ -86,7 +86,7 @@ if ($Architecture -eq "AMD64") {
     $appKeyName = "LibreCADx64"
     $appName = "LibreCAD (x64)"
     $programsFolder = '$PROGRAMFILES64'
-    $defineArch = ""  # Don't define AMD64, let NSIS detect it from command line
+    $defineArch = ""
 } elseif ($Architecture -eq "ARM64") {
     $msvcVer = "msvc2022_arm64"
     $archSuffix = "_arm64"
@@ -100,20 +100,21 @@ Write-Host "[INFO] MSVC Variant: $msvcVer"
 Write-Host "[INFO] Application Name: $appName"
 
 # Generate custom.nsh content
-$nshContent = @"; Auto-generated custom.nsh for NSIS installer
-; Generated on: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
-; Architecture: $Architecture
-
-!define Qt_Dir 	`"$qtDir`"
-!define Qt6_Dir 	`"$qtDir`"
-!define Qt_Version 	`"$qtVersion`"
-!define Mingw_Ver 	`"$msvcVer`"
-!define InstallerName 	`"LibreCAD-Installer`"
-!define ProgramsFolder 	`"$programsFolder`"
-!define AppKeyName 	`"$appKeyName`"
-!define AppName	`"$appName`"
-$defineArch
-"
+$nshContent = "; Auto-generated custom.nsh for NSIS installer`n"
+$nshContent += "; Generated on: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n"
+$nshContent += "; Architecture: $Architecture`n"
+$nshContent += "`n"
+$nshContent += "!define Qt_Dir `"$qtDir`"`n"
+$nshContent += "!define Qt6_Dir `"$qtDir`"`n"
+$nshContent += "!define Qt_Version `"$qtVersion`"`n"
+$nshContent += "!define Mingw_Ver `"$msvcVer`"`n"
+$nshContent += "!define InstallerName `"LibreCAD-Installer`"`n"
+$nshContent += "!define ProgramsFolder `"$programsFolder`"`n"
+$nshContent += "!define AppKeyName `"$appKeyName`"`n"
+$nshContent += "!define AppName `"$appName`"`n"
+if ($defineArch) {
+    $nshContent += "$defineArch`n"
+}
 
 # Ensure output directory exists
 $outputDir = Split-Path $OutputPath -Parent
@@ -129,6 +130,7 @@ try {
     Write-Host "[INFO] Content preview:"
     Write-Host $nshContent
 } catch {
-    Write-Error "[ERROR] Failed to write custom.nsh: $_"
+    $errorMsg = "[ERROR] Failed to write custom.nsh: " + $_.Exception.Message
+    Write-Error $errorMsg
     exit 1
 }
