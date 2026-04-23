@@ -93,12 +93,34 @@ void LC_HatchPropertiesEditingWidget::updateMomentFields() {
     double I1 = avg + R;  // maximum principal moment
     double I2 = avg - R;  // minimum principal moment
 
+    // Check for degeneracy: when R is very small, I1 ≈ I2
+    // This indicates rotational symmetry (e.g., circle, square)
+    // In such cases, any direction is a principal axis
+    const double tolerance = 1e-10;
+    bool isDegenerate = (R <= tolerance);
+    
     // Principal axis angle (angle of I2 axis measured from x-axis)
-    double theta = 0.5 * std::atan2(-m.ixy, delta);  // radians
+    // Avoid calling atan2(0, 0) in degenerate cases
+    double theta = 0.0;  // default to 0 for degenerate cases
+    if (!isDegenerate) {
+        // Non-degenerate case: calculate principal axis angle
+        theta = 0.5 * std::atan2(-m.ixy, delta);  // radians
+    }
+    // else: degenerate case (I1 ≈ I2), keep theta = 0
 
     toUIValue(I1, ui->leI1);
     toUIValue(I2, ui->leI2);
     toUIAngleDeg(theta, ui->lePrincipalAngle);
+    
+    // Display degeneracy status
+    ui->leDegenerate->setText(isDegenerate ? tr("Yes") : tr("No"));
+    if (isDegenerate) {
+        ui->leDegenerate->setStyleSheet("QLineEdit { color: gray; font-style: italic; }");
+        ui->lePrincipalAngle->setStyleSheet("QLineEdit { color: gray; font-style: italic; }");
+    } else {
+        ui->leDegenerate->setStyleSheet("");
+        ui->lePrincipalAngle->setStyleSheet("");
+    }
 }
 
 void LC_HatchPropertiesEditingWidget::onScaleEditingFinished() {

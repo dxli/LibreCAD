@@ -311,6 +311,26 @@
         </property>
        </widget>
       </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="lDegenerate">
+        <property name="toolTip">
+         <string>Indicates if the moment of inertia matrix is degenerate (I₁ ≈ I₂)</string>
+        </property>
+        <property name="text">
+         <string>Degenerate:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="leDegenerate">
+        <property name="toolTip">
+         <string>Shows whether the shape has rotational symmetry (any axis is principal)</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
