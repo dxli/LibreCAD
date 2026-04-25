@@ -1,132 +1,109 @@
 # generate-custom-nsh.ps1
-# Automatically generates custom.nsh for NSIS based on CI environment
-# Usage: .\generate-custom-nsh.ps1 -Architecture AMD64|ARM64 -OutputPath "scripts\postprocess-windows\custom.nsh"
+# Emit scripts/postprocess-windows/custom.nsh with Qt install paths consumed by nsis-msvc.nsi.
+# Usage: .\generate-custom-nsh.ps1 -Architecture AMD64|ARM64 [-OutputPath <path>]
 
 param(
     [Parameter(Mandatory=$true)]
     [ValidateSet("AMD64", "ARM64")]
     [string]$Architecture,
-    
+
     [Parameter(Mandatory=$false)]
     [string]$OutputPath = "scripts\postprocess-windows\custom.nsh"
 )
 
-Write-Host "[INFO] Generating custom.nsh for $Architecture architecture..."
+Write-Host "[INFO] Generating custom.nsh for $Architecture..."
 
-# Detect Qt installation path from environment variables
-$qtDir = $null
-$qtVersion = $null
-
-# Try various environment variables that jurplel/install-qt-action might set
-if ($env:Qt6_DIR) {
-    $qtDir = $env:Qt6_DIR
-    Write-Host "[INFO] Found Qt6_DIR: $qtDir"
-} elseif ($env:QT_ROOT_DIR) {
-    $qtDir = $env:QT_ROOT_DIR
-    Write-Host "[INFO] Found QT_ROOT_DIR: $qtDir"
-} elseif ($env:Qt5_DIR) {
-    $qtDir = $env:Qt5_DIR
-    Write-Host "[INFO] Found Qt5_DIR: $qtDir"
+# 1. Locate the Qt arch directory, e.g. D:\a\LibreCAD\Qt\6.9.3\msvc2022_64
+#    install-qt-action exports QT_ROOT_DIR / Qt6_DIR pointing at this dir
+#    (some action versions set Qt6_DIR to <arch>\lib\cmake\Qt6 — handle both).
+$qtArchDir = $null
+foreach ($candidate in @($env:QT_ROOT_DIR, $env:Qt6_DIR, $env:Qt5_DIR)) {
+    if (-not $candidate) { continue }
+    if ($candidate -match '(?i)^(.+)\\lib\\cmake\\Qt[56]\\?$') {
+        $candidate = $Matches[1]
+    }
+    if (Test-Path $candidate) {
+        $qtArchDir = (Resolve-Path $candidate).Path
+        Write-Host "[INFO] Qt arch dir from env: $qtArchDir"
+        break
+    }
 }
 
-# If no env var found, try to detect from common locations
-if (-not $qtDir) {
-    Write-Host "[WARNING] No Qt environment variable found. Trying common locations..."
-    
-    # Check if Qt is installed in C:\Qt
-    if (Test-Path "C:\Qt") {
-        $qtDirs = Get-ChildItem "C:\Qt" -Directory | Where-Object { $_.Name -match '^\d+\.\d+' } | Sort-Object Name -Descending
-        if ($qtDirs.Count -gt 0) {
-            $qtDir = "C:\Qt"
-            $qtVersion = $qtDirs[0].Name
-            Write-Host "[INFO] Detected Qt at: $qtDir\$qtVersion"
-        }
+# 2. Probe common locations as fallback
+if (-not $qtArchDir) {
+    Write-Host "[WARNING] No Qt env var resolved; probing filesystem..."
+    $expectedLeaf = if ($Architecture -eq "ARM64") { "msvc2022_arm64" } else { "msvc2022_64" }
+    $searchRoots = @("C:\Qt")
+    if ($env:GITHUB_WORKSPACE) {
+        $searchRoots += (Join-Path $env:GITHUB_WORKSPACE "..\Qt")
     }
-    
-    # GitHub Actions typical location
-    if (-not $qtDir -and $env:GITHUB_WORKSPACE) {
-        $githubQt = Join-Path $env:GITHUB_WORKSPACE "..\Qt"
-        if (Test-Path $githubQt) {
-            $qtDir = $githubQt
-            Write-Host "[INFO] Using GitHub Actions Qt path: $qtDir"
+    foreach ($root in $searchRoots) {
+        if (-not (Test-Path $root)) { continue }
+        $found = Get-ChildItem -Path $root -Directory -Recurse -Filter $expectedLeaf -ErrorAction SilentlyContinue |
+                 Sort-Object FullName -Descending | Select-Object -First 1
+        if ($found) {
+            $qtArchDir = $found.FullName
+            Write-Host "[INFO] Qt arch dir from probe: $qtArchDir"
+            break
         }
     }
 }
 
-# Fallback to default
-if (-not $qtDir) {
-    $qtDir = "C:\Qt"
-    Write-Host "[WARNING] Using default Qt path: $qtDir"
+if (-not $qtArchDir) {
+    $qtArchDir = if ($Architecture -eq "ARM64") { "C:\Qt\6.9.0\msvc2022_arm64" } else { "C:\Qt\6.9.0\msvc2022_64" }
+    Write-Warning "[WARNING] Falling back to hard-coded path: $qtArchDir"
 }
 
-# Extract Qt version from path if not already set
-if (-not $qtVersion) {
-    # Try to extract version from path like "C:\Qt\6.9.0" or "D:\a\LibreCAD\Qt\6.9.0"
-    if ($qtDir -match '\\(\d+\.\d+\.\d+)\\?$') {
-        $qtVersion = $Matches[1]
-    } else {
-        # Look for version subdirectory
-        $versionDirs = Get-ChildItem $qtDir -Directory | Where-Object { $_.Name -match '^\d+\.\d+' } | Sort-Object Name -Descending
-        if ($versionDirs.Count -gt 0) {
-            $qtVersion = $versionDirs[0].Name
-        } else {
-            $qtVersion = "6.9.0"
-            Write-Host "[WARNING] Could not detect Qt version, using default: $qtVersion"
-        }
-    }
+# 3. Decompose <root>\<version>\<archSubdir>
+$archSubdir = Split-Path $qtArchDir -Leaf
+$versionDir = Split-Path $qtArchDir -Parent
+$qtVersion  = Split-Path $versionDir -Leaf
+$qtRoot     = Split-Path $versionDir -Parent
+
+if ($qtVersion -notmatch '^\d+\.\d+(\.\d+)?$') {
+    Write-Warning "[WARNING] Extracted Qt version '$qtVersion' is unusual"
 }
 
-Write-Host "[INFO] Qt Directory: $qtDir"
-Write-Host "[INFO] Qt Version: $qtVersion"
-
-# Determine MSVC variant based on architecture
+# 4. Per-architecture display names
 if ($Architecture -eq "AMD64") {
-    $msvcVer = "msvc2022_64"
-    $archSuffix = "_64"
     $appKeyName = "LibreCADx64"
-    $appName = "LibreCAD (x64)"
-    $programsFolder = '$PROGRAMFILES64'
-} elseif ($Architecture -eq "ARM64") {
-    $msvcVer = "msvc2022_arm64"
-    $archSuffix = "_arm64"
+    $appName    = "LibreCAD (x64)"
+    $archSuffix = "_64"
+} else {
     $appKeyName = "LibreCADARM64"
-    $appName = "LibreCAD (ARM64)"
-    $programsFolder = '$PROGRAMFILES64'
-    # Note: ARM64 is already defined via /DARM64 command-line parameter in build-nsis.bat
+    $appName    = "LibreCAD (ARM64)"
+    $archSuffix = "_arm64"
 }
 
-Write-Host "[INFO] MSVC Variant: $msvcVer"
-Write-Host "[INFO] Application Name: $appName"
+Write-Host "[INFO] Qt root        : $qtRoot"
+Write-Host "[INFO] Qt version     : $qtVersion"
+Write-Host "[INFO] Qt arch subdir : $archSubdir"
 
-# Generate custom.nsh content
-$nshContent = "; Auto-generated custom.nsh for NSIS installer`n"
-$nshContent += "; Generated on: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n"
-$nshContent += "; Architecture: $Architecture`n"
-$nshContent += "`n"
-$nshContent += "!define Qt_Dir `"$qtDir`"`n"
-$nshContent += "!define Qt6_Dir `"$qtDir`"`n"
-$nshContent += "!define Qt_Version `"$qtVersion`"`n"
-$nshContent += "!define Mingw_Ver `"$msvcVer`"`n"
-$nshContent += "!define InstallerName `"LibreCAD-Installer`"`n"
-$nshContent += "!define ProgramsFolder `"$programsFolder`"`n"
-$nshContent += "!define AppKeyName `"$appKeyName`"`n"
-$nshContent += "!define AppName `"$appName`"`n"
+# 5. Emit custom.nsh — defines consumed by nsis-msvc.nsi
+$lines = @(
+    "; Auto-generated by scripts/generate-custom-nsh.ps1 - do not edit by hand"
+    "; Architecture: $Architecture"
+    ""
+    "!define Qt_Dir       `"$qtRoot`""
+    "!define Qt_Version   `"$qtVersion`""
+    "!define MSVC_Ver     `"$archSubdir`""
+    "!define Arch_Suffix  `"$archSuffix`""
+    "!define InstallerName `"LibreCAD-Installer`""
+    "!define ProgramsFolder `"`$PROGRAMFILES64`""
+    "!define AppKeyName   `"$appKeyName`""
+    "!define AppName      `"$appName`""
+    ""
+)
+$nshContent = ($lines -join "`r`n")
 
-# Ensure output directory exists
 $outputDir = Split-Path $OutputPath -Parent
-if (-not (Test-Path $outputDir)) {
+if ($outputDir -and -not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
-    Write-Host "[INFO] Created directory: $outputDir"
 }
 
-# Write to file
-try {
-    $nshContent | Out-File -FilePath $OutputPath -Encoding UTF8 -NoNewline
-    Write-Host "[SUCCESS] custom.nsh generated successfully at: $OutputPath"
-    Write-Host "[INFO] Content preview:"
-    Write-Host $nshContent
-} catch {
-    $errorMsg = "[ERROR] Failed to write custom.nsh: " + $_.Exception.Message
-    Write-Error $errorMsg
-    exit 1
-}
+# ASCII keeps NSIS happy across versions (no BOM, plain text)
+[System.IO.File]::WriteAllText((Resolve-Path -LiteralPath (Split-Path $OutputPath -Parent)).Path + "\" + (Split-Path $OutputPath -Leaf), $nshContent, [System.Text.Encoding]::ASCII)
+
+Write-Host "[SUCCESS] Wrote $OutputPath"
+Write-Host "---- contents ----"
+Write-Host $nshContent
