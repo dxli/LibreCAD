@@ -68,7 +68,7 @@ if ($qtVersion -notmatch '^\d+\.\d+(\.\d+)?$') {
 if ($Architecture -eq "AMD64") {
     $appKeyName = "LibreCADx64"
     $appName    = "LibreCAD (x64)"
-    $archSuffix = "_64"
+    $archSuffix = "_x64"
 } else {
     $appKeyName = "LibreCADARM64"
     $appName    = "LibreCAD (ARM64)"
@@ -87,7 +87,6 @@ $lines = @(
     "!define Qt_Dir       `"$qtRoot`""
     "!define Qt_Version   `"$qtVersion`""
     "!define MSVC_Ver     `"$archSubdir`""
-    "!define Arch_Suffix  `"$archSuffix`""
     "!define InstallerName `"LibreCAD-Installer`""
     "!define ProgramsFolder `"`$PROGRAMFILES64`""
     "!define AppKeyName   `"$appKeyName`""
