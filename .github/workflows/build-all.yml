@@ -25,7 +25,7 @@ jobs:
           sudo apt-get -qq install libgl-dev libxcb-cursor0 libmuparser-dev libboost-dev libssl-dev libssl3
           sudo apt-get -qq install imagemagick librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2 rsync
           sudo apt-get -qq install cmake
-          
+
       - name: Set Dark splash
         # Test setting dark splash screen for `2.2.2_alpha`,
         # then switch "Loading..." label text color to white.
@@ -41,7 +41,7 @@ jobs:
           cmake -S . -B unix -DBUILD_TESTS=ON
           echo "cmake build"
           cmake --build unix -j$(nproc)
-          
+
       - name: Run Tests
         run: |
           cd unix
@@ -135,7 +135,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: master
-          
+
       - name: Install Qt6
         uses: jurplel/install-qt-action@v4
         with:
@@ -144,7 +144,7 @@ jobs:
 
       - name: install snap
         uses: samuelmeuli/action-snapcraft@v2
-          
+
       - name: Create snapcraft
         run: |
           pwd
@@ -273,7 +273,7 @@ jobs:
           tools-only: 'false'
           modules: 'qt3d qt5compat qtimageformats qtshadertools'
           tools: 'tools_cmake'
-          
+
       - name: (3) Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
 
@@ -290,7 +290,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib 
+          cmake.exe -S . -B generated -G "Visual Studio 17 2022" -DBoost_INCLUDE_DIR=%BOOST_ROOT%/include -DBoost_LIBRARY_DIRS=%BOOST_ROOT%/lib
         shell: cmd
         env:
           BUILD_TYPE: release
@@ -358,7 +358,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-Win-x64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-x64.exe
         shell: bash
 
       - name: Upload artifact
@@ -474,7 +474,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-Arm64.exe
+          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-arm64.exe
         shell: bash
 
       - name: Upload artifact
