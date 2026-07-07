@@ -76,11 +76,11 @@ public:
      * @param ext should the extrusion be applied to convert in 2D?
      * @return true for success
      */
-    bool read(DRW_Interface *interface_, bool ext);
-    bool readAscii(DRW_Interface *interface_, bool ext, std::string& content);
+    [[nodiscard]] bool read(DRW_Interface *interface_, bool ext);
+    [[nodiscard]] bool readAscii(DRW_Interface *interface_, bool ext, std::string& content);
     void setBinary(bool b) {binFile = b;}
 
-    bool write(DRW_Interface *interface_, DRW::Version ver, bool bin);
+    [[nodiscard]] bool write(DRW_Interface *interface_, DRW::Version ver, bool bin);
     bool writeLineType(DRW_LType *ent);
     bool writeLayer(DRW_Layer *ent);
     bool writeDimstyle(DRW_Dimstyle *ent);
@@ -102,27 +102,39 @@ public:
     bool writeLWPolyline(DRW_LWPolyline *ent);
     bool writePolyline(DRW_Polyline *ent);
     bool writeSpline(DRW_Spline *ent);
+    bool writeHelix(DRW_Helix *ent);
     bool writeBlockRecord(std::string name, int insUnits = 0);
     bool writeBlock(DRW_Block *ent);
     bool writeInsert(DRW_Insert *ent);
+    bool writeTable(DRW_Table *ent);
     bool writeAttrib(DRW_Attrib *ent);
+    bool writeAttdef(DRW_Attdef *ent);
     bool writeMText(DRW_MText *ent);
     bool writeMLine(DRW_MLine *ent);
     bool writeUnderlay(DRW_Underlay *ent);
     bool writeText(DRW_Text *ent);
+    bool writeRText(DRW_RText *ent);
+    bool writeArcAlignedText(DRW_ArcAlignedText *ent);
     bool writeTolerance(DRW_Tolerance *ent);
     bool writeHatch(DRW_Hatch *ent);
+    bool writeMPolygon(DRW_MPolygon *ent);
     bool writeViewport(DRW_Viewport *ent);
     bool writeLight(DRW_Light *ent);
+    bool writeMesh(DRW_Mesh *ent);
     bool writeShape(DRW_Shape *ent);
     bool writeOle2Frame(DRW_Ole2Frame *ent);
     DRW_ImageDef *writeImage(DRW_Image *ent, std::string name);
-    bool writeWipeout(DRW_Image *ent);
+    bool writeWipeout(DRW_Wipeout *ent);
+    bool writePointCloud(DRW_PointCloud *ent);
+    bool writePointCloudEx(DRW_PointCloudEx *ent);
+    bool writeSurface(DRW_Surface *ent);
+    bool writeModelerGeometry(DRW_ModelerGeometry *ent);
     bool writeMultiLeader(DRW_MLeader *ent);
     bool writeLeader(DRW_Leader *ent);
     bool writeDimension(DRW_Dimension *ent);
     void setEllipseParts(int parts){elParts = parts;} /*!< set parts number when convert ellipse to polyline */
     bool writePlotSettings(DRW_PlotSettings *ent);
+    bool writeLayout(DRW_Layout *ent);
     /*!< F4 — typed DXF emitters for the routed data-only OBJECTS the DWG reader
      * populates only into typed metadata (SUN/SCALE/DICTIONARYVAR/
      * RASTERVARIABLES). The DXF group-code shape is the inverse of each type's
@@ -136,6 +148,13 @@ public:
     bool writeScale(DRW_Scale *ent);
     bool writeDictionaryVar(DRW_DictionaryVar *ent);
     bool writeRasterVariables(DRW_RasterVariables *ent);
+    bool writeUnderlayDefinition(DRW_UnderlayDefinition *ent);
+    bool writeMLeaderStyle(DRW_MLeaderStyle *ent);
+    bool writeGeoData(DRW_GeoData *ent);
+    bool writeSpatialFilter(DRW_SpatialFilter *ent);
+    bool writeSortEntsTable(DRW_SortEntsTable *ent);
+    bool writeField(DRW_Field *ent);
+    bool writeFieldList(DRW_FieldList *ent);
     /*!< MLINESTYLE is a FIXED built-in (no CLASS record); DWG read populates
      * only typed metadata, so the filter emits it typed on DWG->DXF, deduped vs
      * the raw net by handle. */
@@ -234,6 +253,7 @@ private:
     bool processBlock();
     bool processEntities(bool isblock);
     bool processObjects();
+    bool processUnderlayDefinition();
     bool processDetailViewStyle();
     bool processSectionViewStyle();
     bool processBreakData();
@@ -273,6 +293,7 @@ private:
     bool processTrace();
     bool processSolid();
     bool processInsert();
+    bool processTable();
     bool processAttrib(DRW_Insert* insert);
     bool processLWPolyline();
     bool processPolyline();
@@ -280,20 +301,28 @@ private:
     bool processText();
     bool processTolerance();
     bool processMText();
+    bool processRText();
+    bool processArcAlignedText();
     bool processMLine();
     bool processUnderlay(const std::string& kind);
     bool processHatch();
     bool processMPolygon();
     bool processSpline();
+    bool processHelix();
     bool process3dface();
     bool processMesh();
     bool processViewport();
     bool processImage();
     bool processImageDef();
     bool processWipeout();
+    bool processPointCloud();
+    bool processPointCloudEx();
+    bool processSurface();
+    bool processModelerGeometry();
     bool processMultiLeader();
     bool processDimension();
     bool processArcDimension();
+    bool processLargeRadialDimension();
     bool processLeader();
     bool processPlotSettings();
     bool processGroup();
@@ -303,6 +332,8 @@ private:
     bool processDictionaryVar();
     bool processDictionaryWithDefault();
     bool processRasterVariables();
+    bool processField();
+    bool processFieldList();
     bool processSun();
     bool processLayout();
     bool processWipeoutVariables();
@@ -328,6 +359,7 @@ private:
     // (writePolyline/writeInsert) so they do not pollute the source->minted map.
     bool writeEntity(DRW_Entity *ent, bool captureSourceHandle = true);
     bool writeArcDimension(DRW_DimArc *d);
+    bool writeLargeRadialDimension(DRW_DimLargeRadial *d);
     bool writeTables();
     bool writeBlocks();
     bool writeObjects();
@@ -339,6 +371,7 @@ private:
      * parentHandle when nonzero, else root dict "C" so it is reachable and not
      * pruned as an orphan); no-op pre-R2000 (DXF has no OBJECTS 330 then). */
     void writeObjectOwner(std::uint32_t parentHandle);
+    void writePlotSettingsFields(const DRW_PlotSettings *ent);
     /*use version from dwgutil.h*/
     std::string toHexStr(int n);//RLZ removeme
     bool writeAppData(const std::list<std::list<DRW_Variant>> &appData);

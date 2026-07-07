@@ -14,6 +14,8 @@
 #ifndef LIBDWGR_H
 #define LIBDWGR_H
 
+#include <cstddef>
+#include <cstdint>
 #include <string>
 #include <memory>
 #include <set>
@@ -25,6 +27,7 @@
 #include "drw_interface.h"
 
 class dwgReader;
+class dwgBuffer;
 class dwgWriter;
 
 /// Public DWG read/write API.  Renamed from `class dwgR` (read-only)
@@ -37,14 +40,33 @@ public:
     explicit dwgRW(const char* name);
     ~dwgRW();
     //read: return true if all ok
-    bool read(DRW_Interface *interface_, bool ext);
+    [[nodiscard]] bool read(DRW_Interface *interface_, bool ext);
+    [[nodiscard]] bool readBuffer(const std::uint8_t *data, std::uint64_t size,
+                    DRW_Interface *interface_, bool ext);
 
     /// Write the in-memory model (driven via DRW_Interface callbacks)
     /// out to the file named at construction.
     /// The `bin` parameter is ignored — DWG is always binary — but
     /// kept for API symmetry with `dxfRW::write`.  Returns true on
     /// success, false on error; error code accessible via `getError()`.
-    bool write(DRW_Interface *interface_, DRW::Version ver, bool bin);
+    [[nodiscard]] bool write(DRW_Interface *interface_, DRW::Version ver, bool bin);
+
+    struct WriteSkipCounters {
+        std::size_t entityWrites { 0 };
+        std::size_t tableRecordWrites { 0 };
+        std::size_t objectWrites { 0 };
+        std::size_t classRegistrations { 0 };
+        std::size_t rawObjectWrites { 0 };
+        std::size_t rawSectionWrites { 0 };
+        std::size_t blockDefinitions { 0 };
+
+        std::size_t total() const {
+            return entityWrites + tableRecordWrites + objectWrites
+                + classRegistrations + rawObjectWrites + rawSectionWrites
+                + blockDefinitions;
+        }
+    };
+    WriteSkipCounters getWriteSkipCounters() const { return m_writeSkipCounters; }
 
     /// Per-entity write API — invoked from the caller's `writeEntities`
     /// iface callback.  Each method allocates a handle, populates the
@@ -59,6 +81,8 @@ public:
     bool writeArc(DRW_Arc *ent);
     bool writeEllipse(DRW_Ellipse *ent);
     bool writeText(DRW_Text *ent);
+    bool writeRText(DRW_RText *ent);
+    bool writeArcAlignedText(DRW_ArcAlignedText *ent);
     bool writeLWPolyline(DRW_LWPolyline *ent);
     bool writeRay(DRW_Ray *ent);
     bool writeXline(DRW_Xline *ent);
@@ -66,21 +90,30 @@ public:
     bool writeSolid(DRW_Solid *ent);
     bool write3dface(DRW_3Dface *ent);
     bool writeInsert(DRW_Insert *ent);
+    bool writeTable(DRW_Table *ent);
     bool writeMText(DRW_MText *ent);
     bool writeSpline(DRW_Spline *ent);
+    bool writeHelix(DRW_Helix *ent);
     bool writeAttrib(DRW_Attrib *ent);
     bool writeAttdef(DRW_Attdef *ent);
     bool writeHatch(DRW_Hatch *ent);
+    bool writeMPolygon(DRW_MPolygon *ent);
     bool writeDimension(DRW_Dimension *ent);
     bool writeTolerance(DRW_Tolerance *ent);
     bool writeLight(DRW_Light *ent);
     bool writeMLine(DRW_MLine *ent);
+    bool writeUnderlay(DRW_Underlay *ent);
     bool writePolyline(DRW_Polyline *ent);
     bool writeLeader(DRW_Leader *ent);
     bool writeMLeader(DRW_MLeader *ent);
     bool writeViewport(DRW_Viewport *ent);
     bool writeShape(DRW_Shape *ent);
     bool writeOle2Frame(DRW_Ole2Frame *ent);
+    bool writeMesh(DRW_Mesh *ent);
+    bool writeWipeout(DRW_Wipeout *ent);
+    bool writePointCloud(DRW_PointCloud *ent);
+    bool writePointCloudEx(DRW_PointCloudEx *ent);
+    bool writeSurface(DRW_Surface *ent);
 
     /// Define an empty user-block.  Allocates fresh Block_Record + Block
     /// + ENDBLK handles, emits all three into the object stream, and
@@ -111,6 +144,7 @@ public:
     bool addLType(DRW_LType *ent);
     bool addLayer(DRW_Layer *ent);
     bool addTextstyle(DRW_Textstyle *ent);
+    bool addUCS(DRW_UCS *ent);
     bool addView(DRW_View *ent);
     bool addVport(DRW_Vport *ent);
     bool addDimstyle(DRW_Dimstyle *ent);
@@ -124,8 +158,11 @@ public:
     bool writeXRecord(DRW_XRecord *object);
     bool writeLayout(DRW_Layout *object);
     bool writeGroup(DRW_Group *object);
+    bool writeMLineStyle(DRW_MLineStyle *object);
     bool registerRasterVariablesObjectClass(DRW_RasterVariables *object);
     bool writeRasterVariables(DRW_RasterVariables *object);
+    bool registerWipeoutVariablesObjectClass(DRW_WipeoutVariables *object);
+    bool writeWipeoutVariables(DRW_WipeoutVariables *object);
     bool registerGeoDataObjectClass(DRW_GeoData *object);
     bool writeGeoData(DRW_GeoData *object);
     bool registerSpatialFilterObjectClass(DRW_SpatialFilter *object);
@@ -150,6 +187,8 @@ public:
     bool writeFieldList(DRW_FieldList *object);
     bool registerFieldObjectClass(DRW_Field *object);
     bool writeField(DRW_Field *object);
+    bool registerUnderlayDefinitionObjectClass(DRW_UnderlayDefinition *object);
+    bool writeUnderlayDefinition(DRW_UnderlayDefinition *object);
     bool registerRawDwgObjectClass(const DRW_UnsupportedObject *object);
     bool writeRawDwgObject(DRW_UnsupportedObject *object);
     bool writeRawDwgSection(const DRW_RawDwgSection *section);
@@ -193,9 +232,27 @@ bool testReader();
     void setDebug(DRW::DebugLevel lvl);
 
 private:
-    bool openFile(std::ifstream *filestr);
-    bool processDwg();
-    static std::unique_ptr< dwgReader > createReaderForVersion(DRW::Version version, std::ifstream *stream, dwgRW *p);
+    enum class WriteSkipKind {
+        Entity,
+        TableRecord,
+        Object,
+        ClassRegistration,
+        RawObject,
+        RawSection,
+        BlockDefinition
+    };
+
+    [[nodiscard]] bool openFile(std::ifstream *filestr);
+    [[nodiscard]] bool openBuffer(std::unique_ptr<dwgBuffer> buffer);
+    [[nodiscard]] bool readInstalledReader();
+    void captureReaderDiagnostics();
+    void resetReadDiagnostics();
+    void resetWriteSkipCounters();
+    [[nodiscard]] bool recordWriteResult(WriteSkipKind kind, bool ok);
+    [[nodiscard]] bool encodeEntityForWrite(DRW_Entity *ent);
+    [[nodiscard]] bool processDwg();
+    static DRW::Version sniffVersion(dwgBuffer *buffer);
+    static std::unique_ptr< dwgReader > createReaderForVersion(DRW::Version version, std::unique_ptr<dwgBuffer> buffer, dwgRW *p);
 
 private:
     DRW::Version version { DRW::UNKNOWNV };
@@ -236,6 +293,7 @@ private:
     /// reader.reset() so the getters work post-read.
     std::vector<std::string> m_layerNameOrder;
     std::vector<std::string> m_ltypeNameOrder;
+    WriteSkipCounters m_writeSkipCounters;
 
 };
 

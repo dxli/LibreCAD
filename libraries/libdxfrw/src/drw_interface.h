@@ -78,6 +78,8 @@ public:
     virtual void addTableStyle(const DRW_TableStyle& data) { (void) data; }
     /** Called for every standalone TABLECONTENT object. */
     virtual void addTableContent(const DRW_TableContentObject& data) { (void) data; }
+    /** Called for typed standalone *OBJECTCONTEXTDATA metadata shells. */
+    virtual void addObjectContextData(const DRW_ObjectContextData& data) { (void) data; }
     /** Called for every CELLSTYLEMAP object. */
     virtual void addCellStyleMap(const DRW_CellStyleMap& data) { (void) data; }
     /** Called for every Layout (paperspace, ODA fixed type 82). */
@@ -287,10 +289,26 @@ public:
     /**
      * Called for every WIPEOUT entity.  WIPEOUT shares the binary layout of
      * IMAGE (subclass AcDbWipeout); the meaningful payload is the polygon
-     * stored in DRW_Image::clipPath.  Default no-op so existing implementers
+     * stored in DRW_Wipeout::clipPath.  Default no-op so existing implementers
      * compile unchanged; override to consume.
      */
-    virtual void addWipeout(const DRW_Image *data) { (void) data; }
+    virtual void addWipeout(const DRW_Wipeout *data) { (void) data; }
+
+    /**
+     * Called for every POINTCLOUD entity. Default no-op; override to consume.
+     */
+    virtual void addPointCloud(const DRW_PointCloud *data) { (void) data; }
+
+    /**
+     * Called for every POINTCLOUDEX entity. Default no-op; override to consume.
+     */
+    virtual void addPointCloudEx(const DRW_PointCloudEx *data) { (void) data; }
+
+    /**
+     * Called for every surface entity (PLANESURFACE, EXTRUDEDSURFACE, etc.).
+     * Default no-op; override to consume.
+     */
+    virtual void addSurface(const DRW_Surface *data) { (void) data; }
 
     /**
      * Called for every MULTILEADER (MLEADER) entity.  AcDbMLeader subclass,

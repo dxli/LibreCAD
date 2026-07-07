@@ -135,6 +135,13 @@ TEST_CASE("DWG advanced metadata caches raw and semantic sidecars",
   rawEntity.m_rawBytes = {0x04u};
   metadata.addUnsupportedObject(rawEntity);
 
+  DRW_UnsupportedObject rawModelerEntity;
+  rawModelerEntity.m_objectType = 37;
+  rawModelerEntity.m_handle = 0x7Au;
+  rawModelerEntity.m_isEntity = true;
+  rawModelerEntity.m_rawBytes = {0x25u, 0x01u, 0x02u};
+  metadata.addUnsupportedObject(rawModelerEntity);
+
   DRW_UnsupportedObject rawWithoutBytes;
   rawWithoutBytes.m_objectType = 79;
   rawWithoutBytes.m_handle = 0x79u;
@@ -685,7 +692,7 @@ TEST_CASE("DWG advanced metadata caches raw and semantic sidecars",
   acshObject.m_binaryBlob2 = {0x03u, 0x04u, 0x05u};
   metadata.addAcShObject(acshObject);
 
-  REQUIRE(metadata.rawObjects().size() == 3);
+  REQUIRE(metadata.rawObjects().size() == 4);
   CHECK(metadata.rawObjects().front().handle == 0x77u);
   CHECK(metadata.rawObjects().front().bodyBitSize == 128u);
   CHECK(metadata.rawObjects().front().family ==
@@ -696,6 +703,10 @@ TEST_CASE("DWG advanced metadata caches raw and semantic sidecars",
   CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(metadata.rawObjects()[1]) ==
         LC_DwgAdvancedMetadata::ReplayBlocker::EntityReplayUnsupported);
   CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(metadata.rawObjects()[2]) ==
+        LC_DwgAdvancedMetadata::ReplayBlocker::None);
+  CHECK(LC_DwgAdvancedMetadata::isReplayableFixedModelerRawEntity(
+            metadata.rawObjects()[2]));
+  CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(metadata.rawObjects()[3]) ==
         LC_DwgAdvancedMetadata::ReplayBlocker::MissingRawBytes);
   CHECK(metadata.hasBlockedRawReplay());
   CHECK(std::string(LC_DwgAdvancedMetadata::replayBlockerName(
@@ -2446,6 +2457,79 @@ TEST_CASE("DWG advanced metadata classifies raw object families",
         == 1u);
 }
 
+TEST_CASE("DWG advanced metadata stores typed object-context shells",
+          "[entity_metadata][dwg_metadata][object-context]") {
+  LC_DwgAdvancedMetadata metadata;
+
+  DRW_ObjectContextData textContext(
+      "TEXTOBJECTCONTEXTDATA", DRW_ObjectContextData::Kind::Text);
+  textContext.handle = 0x910u;
+  textContext.parentHandle = 0x700u;
+  textContext.m_classVersion = 4u;
+  textContext.m_defaultFlag = true;
+  textContext.m_scaleHandle = 0x701u;
+  textContext.m_annotatedHandle = 0x700u;
+  textContext.m_horizontalMode = 2u;
+  textContext.m_rotation = 0.25;
+  textContext.m_insertionPoint = DRW_Coord{1.0, 2.0, 0.0};
+  textContext.m_alignmentPoint = DRW_Coord{3.0, 4.0, 0.0};
+  metadata.addObjectContextData(textContext);
+
+  DRW_ObjectContextData dimContext(
+      "ALDIMOBJECTCONTEXTDATA", DRW_ObjectContextData::Kind::AlignedDimension);
+  dimContext.handle = 0x920u;
+  dimContext.parentHandle = 0x710u;
+  dimContext.m_classVersion = 5u;
+  dimContext.m_scaleHandle = 0x711u;
+  dimContext.m_blockHandle = 0x712u;
+  dimContext.m_definitionPoint = DRW_Coord{5.0, 6.0, 0.0};
+  dimContext.m_isDefaultTextLocation = true;
+  dimContext.m_dimTofl = true;
+  dimContext.m_hasArrow2 = true;
+  dimContext.m_flipArrow1 = true;
+  dimContext.m_textRotation = 0.5;
+  dimContext.m_overrideCode = 7u;
+  metadata.addObjectContextData(dimContext);
+
+  REQUIRE(metadata.objectContextData().size() == 2u);
+  const auto &textRecord = metadata.objectContextData()[0];
+  CHECK(textRecord.handle == 0x910u);
+  CHECK(textRecord.parentHandle == 0x700u);
+  CHECK(textRecord.recordName == "TEXTOBJECTCONTEXTDATA");
+  CHECK(textRecord.kind == DRW_ObjectContextData::Kind::Text);
+  CHECK(textRecord.classVersion == 4u);
+  CHECK(textRecord.defaultFlag);
+  CHECK(textRecord.scaleHandle == 0x701u);
+  CHECK(textRecord.annotatedHandle == 0x700u);
+  CHECK(textRecord.horizontalMode == 2);
+  CHECK(textRecord.rotation == 0.25);
+  CHECK(textRecord.insertionPoint.x == 1.0);
+  CHECK(textRecord.alignmentPoint.y == 4.0);
+
+  const auto &dimRecord = metadata.objectContextData()[1];
+  CHECK(dimRecord.handle == 0x920u);
+  CHECK(dimRecord.kind == DRW_ObjectContextData::Kind::AlignedDimension);
+  CHECK(dimRecord.scaleHandle == 0x711u);
+  CHECK(dimRecord.blockHandle == 0x712u);
+  CHECK(dimRecord.definitionPoint.x == 5.0);
+  CHECK(dimRecord.isDefaultTextLocation);
+  CHECK(dimRecord.dimTofl);
+  CHECK(dimRecord.hasArrow2);
+  CHECK(dimRecord.flipArrow1);
+  CHECK(dimRecord.textRotation == 0.5);
+  CHECK(dimRecord.overrideCode == 7);
+
+  metadata.invalidateByHandle(0x910u);
+  REQUIRE(metadata.objectContextData().size() == 2u);
+  CHECK(metadata.objectContextData()[0].replayState ==
+        LC_DwgAdvancedMetadata::ReplayState::ReplayInvalidated);
+  CHECK(metadata.objectContextData()[1].replayState ==
+        LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed);
+
+  metadata.clear();
+  CHECK(metadata.objectContextData().empty());
+}
+
 TEST_CASE("DWG advanced metadata reports graph replay policy by family",
           "[entity_metadata][dwg_metadata][raw-replay][assoc]") {
   LC_DwgAdvancedMetadata metadata;
@@ -3278,7 +3362,7 @@ public:
   void addHatch(const DRW_Hatch *) override {}
   void addViewport(const DRW_Viewport &) override {}
   void addImage(const DRW_Image *) override {}
-  void addWipeout(const DRW_Image *) override {}
+  void addWipeout(const DRW_Wipeout *) override {}
   void addMLeader(const DRW_MLeader *) override {}
   void addMLeaderStyle(const DRW_MLeaderStyle *) override {}
   void linkImage(const DRW_ImageDef *) override {}
@@ -3430,6 +3514,7 @@ TEST_CASE("DXF round-trip: default-valued entity emits no metadata codes",
   CHECK(content.find("\n430\n") == std::string::npos);
   CHECK(content.find("\n440\n") == std::string::npos);
 
+  in.close();
   std::filesystem::remove(path);
 }
 
@@ -3465,6 +3550,7 @@ TEST_CASE("DXF write: app-data doubles preserve fractional values",
   CHECK(content.find("\n 40\n12.75\n") != std::string::npos);
   CHECK(content.find("\n102\n}\n") != std::string::npos);
 
+  in.close();
   std::filesystem::remove(path);
 }
 

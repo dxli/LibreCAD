@@ -78,8 +78,16 @@ public:
                               dwgBufferW* buf) {
         return e.encodeDwg(v, buf);
     }
+    static bool encodeMLineStyle(const DRW_MLineStyle& e, DRW::Version v,
+                                 dwgBufferW* buf) {
+        return e.encodeDwg(v, buf);
+    }
     static bool encodeRasterVariables(const DRW_RasterVariables& e,
                                        DRW::Version v, dwgBufferW* buf) {
+        return e.encodeDwg(v, buf);
+    }
+    static bool encodeWipeoutVariables(const DRW_WipeoutVariables& e,
+                                        DRW::Version v, dwgBufferW* buf) {
         return e.encodeDwg(v, buf);
     }
     static bool encodeSortEntsTable(const DRW_SortEntsTable& e,
@@ -589,6 +597,34 @@ TEST_CASE("DRW_WipeoutVariables::parseDwg captures display_frame flag",
     REQUIRE(dst.m_displayFrame == 1);
 }
 
+// WIPEOUTVARIABLES encoder round-trip. Body: one display-frame BS plus the
+// common handle prefix, with no type-specific handle tail.
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DRW_WipeoutVariables::encodeDwg round-trips display frame",
+          "[dwg-write][object-encode][wipeoutvariables]") {
+    DRW_WipeoutVariables src;
+    src.handle = 0x601;
+    src.parentHandle = 0xC;          // Named-objects dictionary
+    src.m_displayFrame = 1;
+    DrwObjectEncodeTestAccess::setNumReactors(src, 0);
+    DrwObjectEncodeTestAccess::setXDictFlag(src, 1);   // no xdic
+
+    DRW::Version ver = DRW::AC1018;
+    dwgBufferW w;
+    emitObjectPreamble(w, ver, /*oType=*/0 /* custom-class */, src.handle,
+                       /*numReactors=*/0, /*xDictFlag=*/1);
+    REQUIRE(DrwObjectEncodeTestAccess::encodeWipeoutVariables(src, ver, &w));
+
+    auto bytes = snapshot(w);
+    dwgBuffer r(bytes.data(), bytes.size());
+    DRW_WipeoutVariables dst;
+    REQUIRE(DrwObjectEncodeTestAccess::parse(dst, ver, &r));
+
+    REQUIRE(dst.m_displayFrame == 1);
+    REQUIRE(static_cast<std::uint32_t>(dst.parentHandle) == 0xCu);
+    REQUIRE(r.isGood());
+}
+
 // P4-13 (gap object-imagedef-uv-size-dropped): DRW_ImageDef::parseDwg read
 // the image pixel size (DXF 10/20) via get2RawDouble and discarded it; it now
 // assigns u/v (distinct from the up/vp pixel-scale fields).
@@ -729,6 +765,51 @@ TEST_CASE("DRW_MLineStyle::parseDwg captures per-element signed lt index (pre-R2
 // opaque, so we exercise only the timestamp capture.  Handle stream is
 // gated to AC1024+ in the parser; under AC1018 the handles are not read.
 // NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DRW_MLineStyle::encodeDwg round-trips elements (pre-R2018)",
+          "[dwg-write][object-encode][mlinestyle]") {
+    DRW::Version ver = DRW::AC1015;
+    DRW_MLineStyle src;
+    src.handle = 0x401;
+    src.name = "MyStyle";
+    src.description = "desc";
+    src.flags = 3;
+    src.fillColor = 4;
+    src.startAngle = 1.0471975512;
+    src.endAngle = 2.0943951024;
+    DRW_MLineElement a;
+    a.offset = 0.5;
+    a.color = 1;
+    a.linetypeIndex = 0;
+    DRW_MLineElement b;
+    b.offset = -0.5;
+    b.color = 2;
+    b.linetypeIndex = -2;
+    src.elements.push_back(a);
+    src.elements.push_back(b);
+
+    dwgBufferW w;
+    emitObjectPreamble(w, ver, /*oType=*/73, src.handle);
+    REQUIRE(DrwObjectEncodeTestAccess::encodeMLineStyle(src, ver, &w));
+
+    auto bytes = snapshot(w);
+    dwgBuffer r(bytes.data(), bytes.size());
+    DRW_MLineStyle dst;
+    REQUIRE(DrwObjectEncodeTestAccess::parse(dst, ver, &r));
+
+    REQUIRE(dst.name == "MyStyle");
+    REQUIRE(dst.description == "desc");
+    REQUIRE(dst.flags == 3);
+    REQUIRE(dst.fillColor == 4);
+    REQUIRE(dst.elements.size() == 2u);
+    REQUIRE(dst.elements[0].offset == Approx(0.5));
+    REQUIRE(dst.elements[0].color == 1);
+    REQUIRE(dst.elements[0].linetypeIndex == 0);
+    REQUIRE(dst.elements[1].offset == Approx(-0.5));
+    REQUIRE(dst.elements[1].color == 2);
+    REQUIRE(dst.elements[1].linetypeIndex == -2);
+    REQUIRE(r.isGood());
+}
+
 TEST_CASE("DRW_SpatialIndex::parseDwg captures timestamps",
           "[dwg-read][object-encode][spatialindex]") {
     DRW::Version ver = DRW::AC1018;

@@ -82,6 +82,27 @@ public:
         // siblings above. (write-review #14)
         registerDwgClass({503, 0x401, "ACAD",
                           "AcDbHelix", "HELIX", false, 0x1F2});
+        // MPOLYGON (class 518): classes 500..517 are already occupied by the
+        // writer's typed entity/object set; appName follows the DXF CLASS
+        // metadata and AutoCAD Map/Civil object naming.
+        registerDwgClass({518, 0x401, "AcMPolygonObj15",
+                          "AcDbMPolygon", "MPOLYGON", false, 0x1F2});
+        registerDwgClass({519, 0x401, "ACAD",
+                          "AcDbRadialDimensionLarge", "LARGE_RADIAL_DIMENSION",
+                          false, 0x1F2});
+        registerDwgClass({520, 0x401, "SCENEOE",
+                          "AcDbSubDMesh", "MESH", false, 0x1F2});
+        registerDwgClass({521, 0x401, "EXPRESS",
+                          "AcDbRText", "RTEXT", false, 0x1F2});
+        registerDwgClass({522, 0x401, "EXPRESS",
+                          "AcDbArcAlignedText", "ARCALIGNEDTEXT", false,
+                          0x1F2});
+        registerDwgClass({523, 0x401, "ObjectDBX Classes",
+                          "AcDbPdfReference", "PDFUNDERLAY", false, 0x1F2});
+        registerDwgClass({524, 0x401, "ObjectDBX Classes",
+                          "AcDbDgnReference", "DGNUNDERLAY", false, 0x1F2});
+        registerDwgClass({525, 0x401, "ObjectDBX Classes",
+                          "AcDbDwfReference", "DWFUNDERLAY", false, 0x1F2});
     }
 
     virtual ~dwgWriter() = default;
@@ -239,6 +260,22 @@ public:
         definition.m_appName = "ISM";
         definition.m_className = "AcDbRasterVariables";
         definition.m_recordName = "RASTERVARIABLES";
+        definition.m_entityFlagRaw = 0x1F3;  // object class (ODA item_class_id)
+        if (handle != 0
+            && m_rawClassInstanceHandles.insert({definition.m_classNum,
+                                                 handle}).second) {
+            definition.m_instanceCount = 1;
+        }
+        return registerDwgClass(definition);
+    }
+
+    bool registerWipeoutVariablesObjectClass(std::uint32_t handle = 0) {
+        DwgClassDefinition definition;
+        definition.m_classNum = DRW_WipeoutVariables::kDwgClassNum;
+        definition.m_proxyFlag = 0x401;
+        definition.m_appName = "WipeOut";
+        definition.m_className = "AcDbWipeoutVariables";
+        definition.m_recordName = "WIPEOUTVARIABLES";
         definition.m_entityFlagRaw = 0x1F3;  // object class (ODA item_class_id)
         if (handle != 0
             && m_rawClassInstanceHandles.insert({definition.m_classNum,
@@ -430,6 +467,38 @@ public:
         return registerDwgClass(definition);
     }
 
+    bool registerUnderlayDefinitionObjectClass(DRW_UnderlayDefinition::Kind kind,
+                                               std::uint32_t handle = 0) {
+        DwgClassDefinition definition;
+        definition.m_proxyFlag = 0x401;
+        definition.m_appName = "ObjectDBX Classes";
+        definition.m_entityFlagRaw = 0x1F3;  // object class (ODA item_class_id)
+        switch (kind) {
+        case DRW_UnderlayDefinition::DGN:
+            definition.m_classNum = DRW_UnderlayDefinition::kDwgClassNumDgn;
+            definition.m_className = "AcDbDgnDefinition";
+            definition.m_recordName = "DGNDEFINITION";
+            break;
+        case DRW_UnderlayDefinition::DWF:
+            definition.m_classNum = DRW_UnderlayDefinition::kDwgClassNumDwf;
+            definition.m_className = "AcDbDwfDefinition";
+            definition.m_recordName = "DWFDEFINITION";
+            break;
+        case DRW_UnderlayDefinition::PDF:
+        default:
+            definition.m_classNum = DRW_UnderlayDefinition::kDwgClassNumPdf;
+            definition.m_className = "AcDbPdfDefinition";
+            definition.m_recordName = "PDFDEFINITION";
+            break;
+        }
+        if (handle != 0
+            && m_rawClassInstanceHandles.insert({definition.m_classNum,
+                                                 handle}).second) {
+            definition.m_instanceCount = 1;
+        }
+        return registerDwgClass(definition);
+    }
+
     bool hasDwgClassDefinition(std::uint16_t classNum) const {
         return std::any_of(m_dwgClassDefinitions.begin(), m_dwgClassDefinitions.end(),
                            [classNum](const DwgClassDefinition& definition) {
@@ -466,6 +535,8 @@ protected:
         // matching filter-side gate (`canRegisterCustomClassObjects`)
         // already issues the registration at AC1015+.
         if (definition.m_classNum == DRW_RasterVariables::kDwgClassNum)
+            return m_version >= DRW::AC1015;
+        if (definition.m_classNum == DRW_WipeoutVariables::kDwgClassNum)
             return m_version >= DRW::AC1015;
         if (definition.m_classNum == DRW_GeoData::kDwgClassNum)
             return m_version >= DRW::AC1015;

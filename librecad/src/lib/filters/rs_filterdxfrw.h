@@ -65,6 +65,8 @@ class RS_Solid;
 class RS_Spline;
 class RS_Text;
 
+struct DRW_AcisBrep;
+
 // test-only friend; defined in tests/dwg_header_app_vars_tests.cpp. Grants
 // the header-var regression suite access to the private m_graphic/
 // m_currentContainer so it can exercise addHeader against a real RS_Graphic.
@@ -92,7 +94,10 @@ public:
 
     bool canExport(const QString &/*fileName*/, RS2::FormatType t) const override {
 #ifdef DWGSUPPORT
-        if (t == RS2::FormatDWG || t == RS2::FormatDWG2004) return true;
+        if (t == RS2::FormatDWG || t == RS2::FormatDWG2004
+            || t == RS2::FormatDWG2010 || t == RS2::FormatDWG2013
+            || t == RS2::FormatDWG2018)
+            return true;
 #endif
         return (t==RS2::FormatDXFRW2018 || t==RS2::FormatDXFRW || t==RS2::FormatDXFRW2004
                 || t==RS2::FormatDXFRW2000 || t==RS2::FormatDXFRW14 || t==RS2::FormatDXFRW12);
@@ -155,6 +160,17 @@ public:
     void addSolid(const DRW_Solid& data) override;
     void addModelerGeometry(const DRW_ModelerGeometry &data) override;
     void addMesh(const DRW_Mesh &data) override;
+    void addSurface(const DRW_Surface *data) override;
+    //! Convert a decoded ACIS wireframe into RS_* entities, parented to and added
+    //! into `container` (projected to 2D by dropping Z, exactly like addMesh).
+    //! Straight edges -> RS_Line, ellipse edges -> RS_Ellipse (line fallback when
+    //! degenerate), intcurve edges -> RS_Spline through the control polygon (line
+    //! fallback), isolated vertices -> RS_Point. Returns the created entities
+    //! WITHOUT attributes applied, so callers can post-process them (e.g.
+    //! setEntityAttributes). Static + container-scoped so it is unit-testable
+    //! without a full DXF import (no m_graphic needed).
+    static std::vector<RS_Entity*> acisWireframeToEntities(
+        const DRW_AcisBrep &brep, RS_EntityContainer *container);
     void addLight(const DRW_Light &data) override;
     void addMText(const DRW_MText& data) override;
     /** Build an RS_MText from a DRW_MText payload, handling alignment / drawing
@@ -174,7 +190,7 @@ public:
     void addViewport(const DRW_Viewport& /*data*/) override{}
     void addImage(const DRW_Image* data) override;
     void linkImage(const DRW_ImageDef* data) override;
-    void addWipeout(const DRW_Image *data) override;
+    void addWipeout(const DRW_Wipeout *data) override;
     void addMLeader(const DRW_MLeader *data) override;
     void addMLeaderStyle(const DRW_MLeaderStyle *data) override;
     void addDetailViewStyle(const DRW_DetailViewStyle &data) override;
@@ -190,6 +206,7 @@ public:
     void addTableGeometry(const DRW_TableGeometry &data) override;
     void addTableStyle(const DRW_TableStyle &data) override;
     void addTableContent(const DRW_TableContentObject &data) override;
+    void addObjectContextData(const DRW_ObjectContextData &data) override;
     void addCellStyleMap(const DRW_CellStyleMap &data) override;
     void addUnsupportedObject(const DRW_UnsupportedObject &data) override;
     void addRawDwgSection(const DRW_RawDwgSection &data) override;
@@ -222,6 +239,11 @@ public:
 
     // Export:
     bool fileExport(RS_Graphic& g, const QString& file, RS2::FormatType type) override;
+#ifdef DWGSUPPORT
+    dwgRW::WriteSkipCounters lastDwgWriteSkipCounters() const {
+        return m_lastDwgWriteSkipCounters;
+    }
+#endif
 
     void writeHeader(DRW_Header& data) override;
     void writeDwgClasses() override;
@@ -467,6 +489,7 @@ private:
     dxfRW *m_dxfR {nullptr};
 #ifdef DWGSUPPORT
     dwgRW *m_dwgW {nullptr};
+    dwgRW::WriteSkipCounters m_lastDwgWriteSkipCounters;
 #endif
     /** If saved version are 2004 or above can save color in RGB value. */
     bool m_exactColor = false;

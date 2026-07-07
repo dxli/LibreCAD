@@ -109,6 +109,12 @@ bool dwgReader18::parseSysPage(std::uint8_t *decompSec, std::uint32_t decompSize
 
  //called ???: Section map: 0x4163003b
 bool dwgReader18::parseDataPage(const dwgSectionInfo &si/*, std::uint8_t *dData*/){
+    return parseDataPage(si, objData, uncompSize);
+}
+
+bool dwgReader18::parseDataPage(const dwgSectionInfo& si,
+                                std::unique_ptr<std::uint8_t[]>& sectionData,
+                                std::uint64_t& sectionSize) {
     DRW_DBG("\nparseDataPage\n ");
     if (si.size == 0)
         return false;
@@ -152,9 +158,9 @@ bool dwgReader18::parseDataPage(const dwgSectionInfo &si/*, std::uint8_t *dData*
         DRW_DBG("parseDataPage: invalid decompression buffer size\n");
         return false;
     }
-    objData.reset(new std::uint8_t[bufSize]);
-    std::fill(objData.get(), objData.get() + bufSize, 0);
-    uncompSize = bufSize; // buffer size for section readers' dwgBuffer spans
+    sectionData.reset(new std::uint8_t[bufSize]);
+    std::fill(sectionData.get(), sectionData.get() + bufSize, 0);
+    sectionSize = bufSize; // buffer size for section readers' dwgBuffer spans
 
     // libdxfrw produces AC1018-format data pages even for AC1024/AC1027
     // (it has no Reed-Solomon ENCODER), whereas real AutoCAD R2010+ files
@@ -209,7 +215,7 @@ bool dwgReader18::parseDataPage(const dwgSectionInfo &si/*, std::uint8_t *dData*
                 DRW_DBG("parseDataPage (AC1021+): RS decode failed\n");
                 return false;
             }
-            std::uint8_t *pageData = objData.get() + pi.startOffset;
+            std::uint8_t *pageData = sectionData.get() + pi.startOffset;
             dwgCompressor comp;
             if (!comp.decompress21(tmpPageRS.data(), pageData, pi.cSize, pi.uSize)) {
                 return false;
@@ -305,7 +311,7 @@ bool dwgReader18::parseDataPage(const dwgSectionInfo &si/*, std::uint8_t *dData*
         // dec.byte = address; dec.size = dec.byte + max_decomp_size. The page
         // header's uSize is NOT the real content limit: the actual content
         // can extend past it up to maxSize (e.g. the CLASSES string stream).
-        std::uint8_t* oData = objData.get() + pi.startOffset;
+        std::uint8_t* oData = sectionData.get() + pi.startOffset;
         if (si.compressed == 1) {
             // type 1 = store (no compression)
             const std::uint64_t copyLen =
@@ -343,8 +349,13 @@ bool dwgReader18::readMetaData() {
     DRW_DBG("\napp maintenance version= "); DRW_DBGH(appMaintenanceVersion);
     std::uint16_t cp = fileBuf->getRawShort16();
     DRW_DBG("\ncodepage= "); DRW_DBG(cp);
-    if (const char* cpName = dwgCodePageName(cp))
-        decoder.setCodePage(cpName, false);
+    // R2007+ (AC1021+) store all text as UTF-16LE; the DWGCODEPAGE field is only
+    // meaningful for R2004 and earlier. Applying it for 2007+ would clobber the
+    // UTF-16 decoder configured by setVersion() and corrupt Unicode names.
+    if (version <= DRW::AC1018) {
+        if (const char* cpName = dwgCodePageName(cp))
+            decoder.setCodePage(cpName, false);
+    }
     DRW_DBG("\n3 0x00 bytes(seems 0x00, appDwgV & appMaintV) = "); DRW_DBGH(fileBuf->getRawChar8()); DRW_DBG(", ");
     DRW_DBGH(fileBuf->getRawChar8()); DRW_DBG(", "); DRW_DBGH(fileBuf->getRawChar8());
     securityFlags = fileBuf->getRawLong32();
@@ -793,10 +804,6 @@ bool dwgReader18::readDwgTables(DRW_Header& hdr) {
     if (!captureRawDwgDataSections())
         return false;
 
-    // Restore OBJECTS data after raw-section capture, which reuses objData.
-    if (!parseDataPage(si))
-        return false;
-    // uncompSize set by parseDataPage (num_pages x maxSize buffer model)
     return true;
 }
 
@@ -811,9 +818,13 @@ bool dwgReader18::captureRawDwgDataSections() {
     section.m_version = version;
 
     if (si.size != 0) {
-        if (!parseDataPage(si))
+        std::unique_ptr<std::uint8_t[]> sectionData;
+        std::uint64_t sectionSize = 0;
+        if (!parseDataPage(si, sectionData, sectionSize))
             return false;
-        section.m_data.assign(objData.get(), objData.get() + si.size);
+        if (si.size > sectionSize)
+            return false;
+        section.m_data.assign(sectionData.get(), sectionData.get() + si.size);
     }
 
     m_rawDwgSections.push_back(std::move(section));

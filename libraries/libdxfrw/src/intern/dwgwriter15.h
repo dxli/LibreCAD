@@ -54,10 +54,12 @@ public:
                                     {"BYBLOCK",    0x0Fu}};
         m_writingCtx.layerMap    = {{"0",        0x12u}};
         m_writingCtx.styleMap    = {{"STANDARD", 0x13u}};
+        m_writingCtx.ucsMap      = {};
         m_writingCtx.viewMap     = {};
         m_writingCtx.appidMap    = {{"ACAD",     0x14u}};
         m_writingCtx.dimstyleMap = {{"STANDARD", 0x15u}};
         m_writingCtx.vportMap    = {{"*ACTIVE",  0x16u}};
+        m_writingCtx.mlineStyleMap = {};
     }
 
     bool writeFileHeaderStub() override;
@@ -83,6 +85,7 @@ public:
     void addLType(const DRW_LType& lt);
     void addLayer(const DRW_Layer& lay);
     void addTextstyle(const DRW_Textstyle& ts);
+    void addUcs(const DRW_UCS& ucs);
     void addView(const DRW_View& view);
     void addVport(const DRW_Vport& vp);
     void addDimstyle(const DRW_Dimstyle& ds);
@@ -95,7 +98,9 @@ public:
     bool writeXRecord(const DRW_XRecord& xrecord);
     bool writeLayout(const DRW_Layout& layout);
     bool writeGroup(const DRW_Group& group);
+    bool writeMLineStyle(const DRW_MLineStyle& style);
     bool writeRasterVariables(const DRW_RasterVariables& rasterVariables);
+    bool writeWipeoutVariables(const DRW_WipeoutVariables& wipeoutVariables);
     bool writeGeoData(const DRW_GeoData& geoData);
     bool writeSpatialFilter(const DRW_SpatialFilter& filter);
     // PR 8d.2a — five small no-storage OBJECTS families.
@@ -109,6 +114,7 @@ public:
     bool writeSortEntsTable(const DRW_SortEntsTable& sortEntsTable);
     bool writeFieldList(const DRW_FieldList& fieldList);
     bool writeField(const DRW_Field& field);
+    bool writeUnderlayDefinition(const DRW_UnderlayDefinition& definition);
 
 protected:
     /// Begin a new object in the object stream (the unsentinel'd byte
@@ -159,7 +165,9 @@ protected:
     /// the BLOCK_CONTROL `+2` phantom handles (0x17, 0x18) without
     /// failing the block walk.
     void emitBlockRecord(std::uint32_t handle, const std::string& name,
+                         const DRW_Coord& basePoint,
                          std::uint32_t blockHandle, std::uint32_t endBlockHandle,
+                         const std::vector<std::uint32_t>& entityHandles,
                          int insUnits = 0);
 
     /// Phase 4d helper: emit a Block entity at `handle`.  `isEnd=true`
@@ -172,6 +180,7 @@ protected:
     void emitLtypeRecord(std::uint32_t handle, const DRW_LType& lt);
     void emitLayerRecord(std::uint32_t handle, const DRW_Layer& lay);
     void emitStyleRecord(std::uint32_t handle, const DRW_Textstyle& ts);
+    void emitUcsRecord(std::uint32_t handle, const DRW_UCS& ucs);
     void emitViewRecord(std::uint32_t handle, const DRW_View& view);
     void emitVportRecord(std::uint32_t handle, const DRW_Vport& vp);
     void emitAppIdRecord(std::uint32_t handle, const DRW_AppId& ai);
@@ -184,8 +193,12 @@ protected:
     void emitXRecordObject(std::uint32_t handle, const DRW_XRecord& xrecord);
     void emitLayoutObject(std::uint32_t handle, const DRW_Layout& layout);
     void emitGroupObject(std::uint32_t handle, const DRW_Group& group);
+    void emitMLineStyleObject(std::uint32_t handle,
+                              const DRW_MLineStyle& style);
     void emitRasterVariablesObject(std::uint32_t handle,
                                    const DRW_RasterVariables& rasterVariables);
+    void emitWipeoutVariablesObject(std::uint32_t handle,
+                                    const DRW_WipeoutVariables& wipeoutVariables);
     void emitGeoDataObject(std::uint32_t handle, const DRW_GeoData& geoData);
     void emitSpatialFilterObject(std::uint32_t handle,
                                  const DRW_SpatialFilter& filter);
@@ -205,6 +218,8 @@ protected:
                                   const DRW_SortEntsTable& sortEntsTable);
     void emitFieldListObject(std::uint32_t handle, const DRW_FieldList& fieldList);
     void emitFieldObject(std::uint32_t handle, const DRW_Field& field);
+    void emitUnderlayDefinitionObject(std::uint32_t handle,
+                                      const DRW_UnderlayDefinition& definition);
 
 protected:
     /// Populate m_header's ctrl-handle fields with canonical reserved values
@@ -264,6 +279,7 @@ protected:
     DRW_Layer m_layer0;
     bool      m_haveLayer0{false};
     std::vector<std::pair<std::uint32_t, DRW_Textstyle>> m_pendingStyles;
+    std::vector<std::pair<std::uint32_t, DRW_UCS>>        m_pendingUcs;
     std::vector<std::pair<std::uint32_t, DRW_View>>      m_pendingViews;
     std::vector<std::pair<std::uint32_t, DRW_Vport>>     m_pendingVports;
     std::vector<std::pair<std::uint32_t, DRW_Dimstyle>>  m_pendingDimstyles;
@@ -280,11 +296,21 @@ private:
     /// AuxHeader records.
     std::uint8_t m_numSections {6};
 
-    /// Block_Record handles for user-defined blocks (from defineBlock).
-    /// Consumed by emitDeferredBlockControl to populate BLOCK_CONTROL's
-    /// numEntries + child handle list.  +2 phantom handles for
-    /// MODEL_SPACE and PAPER_SPACE are added on top.
-    std::vector<std::uint32_t> m_userBlockRecordHandles;
+    struct PendingUserBlock {
+        std::uint32_t blockRecordHandle {0};
+        std::uint32_t blockHandle {0};
+        std::uint32_t endBlockHandle {0};
+        std::string name;
+        DRW_Coord basePoint;
+        int insUnits {0};
+        std::vector<std::uint32_t> entityHandles;
+    };
+
+    /// User-defined blocks from defineBlock().  The Block/ENDBLK entities are
+    /// emitted immediately, while the Block_Record is deferred until after
+    /// writeBlocks() has had a chance to write block-owned entities.
+    std::vector<PendingUserBlock> m_userBlocks;
+    std::uint32_t m_activeUserBlockRecordHandle {0};
 };
 
 #endif // DWGWRITER15_H

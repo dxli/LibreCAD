@@ -42,8 +42,8 @@ static const int DRW_magicNumEnd18[] = {
 
 class dwgReader18 : public dwgReader {
 public:
-    dwgReader18(std::ifstream *stream, dwgRW *p):dwgReader(stream, p){
-    }
+    dwgReader18(std::unique_ptr<dwgBuffer> buffer, dwgRW *p)
+        : dwgReader(std::move(buffer), p) {}
     bool readMetaData() override;
     bool readFileHeader() override;
     bool readDwgHeader(DRW_Header& hdr) override;
@@ -82,6 +82,9 @@ protected:
     bool captureRawDwgDataSections();
     bool parseSysPage(std::uint8_t *decompSec, std::uint32_t decompSize); //called: Section page map: 0x41630e3b
     bool parseDataPage(const dwgSectionInfo &si/*, std::uint8_t *dData*/); //called ???: Section map: 0x4163003b
+    bool parseDataPage(const dwgSectionInfo& si,
+                       std::unique_ptr<std::uint8_t[]>& sectionData,
+                       std::uint64_t& sectionSize);
 
 private:
     void genMagicNumber();

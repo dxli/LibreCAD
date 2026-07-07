@@ -41,6 +41,7 @@
 #endif
 #include <QStringList>
 
+#include "drw_acis.h"
 #include "dxf_format.h"
 #include "lc_containertraverser.h"
 #include "lc_defaults.h"
@@ -276,6 +277,12 @@ bool isMLeaderStyleRawObject(
         || record.className == "AcDbMLeaderStyle";
 }
 
+bool isMLineStyleRawObject(
+    const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
+    return record.objectType == 73 || record.recordName == "MLINESTYLE"
+        || record.className == "AcDbMlineStyle";
+}
+
 // DICTIONARY raw-object predicate.  Fixed type 42 is the universal ODA
 // identifier; recordName / className fallbacks cover custom-class-emitted
 // dictionaries (rare but spec-allowed).
@@ -316,6 +323,12 @@ bool isRasterVariablesRawObject(
     const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
     return record.recordName == "RASTERVARIABLES"
         || record.className == "AcDbRasterVariables";
+}
+
+bool isWipeoutVariablesRawObject(
+    const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
+    return record.recordName == "WIPEOUTVARIABLES"
+        || record.className == "AcDbWipeoutVariables";
 }
 
 // GEODATA raw-object predicate.  Custom-class (no fixed ODA type).
@@ -390,6 +403,16 @@ bool isFieldRawObject(
     const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
     return record.recordName == "FIELD"
         || record.className == "AcDbField";
+}
+
+bool isUnderlayDefinitionRawObject(
+    const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
+    return record.recordName == "PDFDEFINITION"
+        || record.recordName == "DGNDEFINITION"
+        || record.recordName == "DWFDEFINITION"
+        || record.className == "AcDbPdfDefinition"
+        || record.className == "AcDbDgnDefinition"
+        || record.className == "AcDbDwfDefinition";
 }
 
 bool hasReplayableRawMLeaderStyle(const LC_DwgAdvancedMetadata& metadata,
@@ -516,6 +539,17 @@ DRW_Group groupFromMetadata(
     group.m_selectable = record.selectable;
     group.m_entityHandles = record.entityHandles;
     return group;
+}
+
+DRW_UnderlayDefinition underlayDefinitionFromMetadata(
+    const LC_DwgAdvancedMetadata::UnderlayDefinitionRecord& record) {
+    DRW_UnderlayDefinition definition;
+    definition.handle = record.handle;
+    definition.parentHandle = static_cast<int>(record.parentHandle);
+    definition.kind = static_cast<DRW_UnderlayDefinition::Kind>(record.kind);
+    definition.filename = record.path;
+    definition.sheetName = record.sheetName;
+    return definition;
 }
 
 DRW_RasterVariables rasterVariablesFromMetadata(
@@ -1998,16 +2032,155 @@ void RS_FilterDXFRW::addSolid(const DRW_Solid& data) {
     addTrace(data);
 }
 
+// Convert a decoded ACIS wireframe (drw_acis.h) into 2D RS_* entities, mirroring
+// addMesh: LibreCAD is 2D, so every point is projected by dropping Z. The result
+// is added to `container`; the created entities are returned so a caller can
+// apply setEntityAttributes afterwards. Static + free of m_graphic so it can be
+// unit-tested directly against a bare RS_EntityContainer.
+std::vector<RS_Entity*> RS_FilterDXFRW::acisWireframeToEntities(
+        const DRW_AcisBrep &brep, RS_EntityContainer *container) {
+    std::vector<RS_Entity*> created;
+    if (container == nullptr)
+        return created;
+
+    auto xy = [](const DRW_Coord &c) { return RS_Vector(c.x, c.y); };
+    auto pushEntity = [&](RS_Entity *e) {
+        container->addEntity(e);
+        created.push_back(e);
+    };
+    auto addLineSeg = [&](const DRW_AcisEdge &edge) {
+        if (edge.hasStart && edge.hasEnd)
+            pushEntity(new RS_Line(container, {xy(edge.start), xy(edge.end)}));
+    };
+
+    // Parametric (eccentric) angle of a 2D point on an ellipse defined by its
+    // center, major-axis vector and minor/major ratio.
+    auto ellipseParam = [](const RS_Vector &center, const RS_Vector &majorP,
+                           double ratio, const RS_Vector &p) -> double {
+        double majLen = majorP.magnitude();
+        if (majLen < RS_TOLERANCE)
+            return 0.0;
+        RS_Vector d = p - center;
+        RS_Vector majHat = majorP / majLen;
+        RS_Vector minHat(-majHat.y, majHat.x);   // major rotated +90 deg
+        double cosT = d.dotP(majHat) / majLen;
+        double sinT = d.dotP(minHat);
+        if (ratio > RS_TOLERANCE)
+            sinT /= (majLen * ratio);
+        return RS_Math::correctAngle(std::atan2(sinT, cosT));
+    };
+
+    // Track edge endpoints so isolated vertices can be rendered as points.
+    std::vector<RS_Vector> endpoints;
+    auto noteEndpoints = [&](const DRW_AcisEdge &edge) {
+        if (edge.hasStart) endpoints.push_back(xy(edge.start));
+        if (edge.hasEnd)   endpoints.push_back(xy(edge.end));
+    };
+
+    for (const DRW_AcisEdge &edge : brep.edges) {
+        noteEndpoints(edge);
+        switch (edge.curveType) {
+        case DRW_AcisCurve::Straight:
+            addLineSeg(edge);
+            break;
+        case DRW_AcisCurve::Ellipse: {
+            RS_Vector center = xy(edge.p0);
+            RS_Vector majorP = xy(edge.p2);
+            double ratio = edge.ratio;
+            if (majorP.magnitude() < RS_TOLERANCE || ratio <= 0.0) {
+                addLineSeg(edge);   // insufficient/degenerate ellipse params
+                break;
+            }
+            double a1 = 0.0;
+            double a2 = 2.0 * M_PI;
+            if (edge.hasStart && edge.hasEnd) {
+                a1 = ellipseParam(center, majorP, ratio, xy(edge.start));
+                a2 = ellipseParam(center, majorP, ratio, xy(edge.end));
+            }
+            pushEntity(new RS_Ellipse(container, {center, majorP, ratio, a1, a2, false}));
+            break;
+        }
+        case DRW_AcisCurve::Intcurve: {
+            if (edge.controlPoints.size() >= 2) {
+                size_t n = edge.controlPoints.size();
+                int degree = (n >= 4) ? 3 : static_cast<int>(n - 1);
+                RS_SplineData d(degree, /*closed=*/false);
+                auto *spline = new RS_Spline(container, d);
+                for (const DRW_Coord &cp : edge.controlPoints)
+                    spline->addControlPointRaw(RS_Vector(cp.x, cp.y), 1.0);
+                pushEntity(spline);
+            } else {
+                addLineSeg(edge);   // no control polygon -> straight fallback
+            }
+            break;
+        }
+        case DRW_AcisCurve::Unknown:
+        default:
+            addLineSeg(edge);
+            break;
+        }
+    }
+
+    // Isolated vertices (no incident edge endpoint) -> RS_Point.
+    for (const DRW_AcisVertex &v : brep.vertices) {
+        if (!v.valid)
+            continue;
+        RS_Vector p = xy(v.point);
+        bool incident = false;
+        for (const RS_Vector &e : endpoints) {
+            if (std::fabs(e.x - p.x) < RS_TOLERANCE
+                && std::fabs(e.y - p.y) < RS_TOLERANCE) {
+                incident = true;
+                break;
+            }
+        }
+        if (!incident)
+            pushEntity(new RS_Point(container, RS_PointData(p)));
+    }
+
+    return created;
+}
+
 void RS_FilterDXFRW::addModelerGeometry(const DRW_ModelerGeometry &data) {
-    // TODO: Preserve/render ACIS SAT/SAB bodies when LibreCAD grows native
-    // modeler-geometry support. For now this shell prevents silent loss.
+    // Preserve the raw modeler payload as advanced-metadata sidecar so a native
+    // ACIS body is never silently lost on round-trip.
     if (m_graphic != nullptr) {
         m_graphic->dwgAdvancedMetadata().addModelerGeometry(data);
+    }
+    // Additionally render the decoded SAB wireframe as 2D geometry (mirrors
+    // addMesh). Guard: only touch the container when the decode yields edges, so
+    // undecodable bodies keep the previous metadata-only behavior (no regression).
+    DRW_ModelerGeometry &mut = const_cast<DRW_ModelerGeometry &>(data);
+    if (mut.decodeWireframe() && !mut.m_wireframe.edges.empty()) {
+        std::vector<RS_Entity*> ents =
+            acisWireframeToEntities(mut.m_wireframe, m_currentContainer);
+        for (RS_Entity *e : ents)
+            setEntityAttributes(e, &data);
+        RS_DEBUG->print("RS_FilterDXFRW::addModelerGeometry: rendered %zu wireframe entities",
+                        ents.size());
     }
     RS_DEBUG->print("RS_FilterDXFRW::addModelerGeometry: type %d handle %d history %d",
                     static_cast<int>(data.eType),
                     static_cast<int>(data.handle),
                     static_cast<int>(data.m_historyHandle));
+}
+
+void RS_FilterDXFRW::addSurface(const DRW_Surface *data) {
+    if (data == nullptr)
+        return;
+    // Decode the lazily-cached SAB wireframe (idempotent; never throws), then
+    // render its edges as 2D geometry via the shared helper. Guard on edges to
+    // avoid emitting anything for bodies we cannot decode (no regression over the
+    // base no-op).
+    DRW_Surface *surf = const_cast<DRW_Surface *>(data);
+    if (surf->decodeWireframe() && !surf->m_wireframe.edges.empty()) {
+        std::vector<RS_Entity*> ents =
+            acisWireframeToEntities(surf->m_wireframe, m_currentContainer);
+        for (RS_Entity *e : ents)
+            setEntityAttributes(e, data);
+        RS_DEBUG->print("RS_FilterDXFRW::addSurface: rendered %zu wireframe entities",
+                        ents.size());
+    }
 }
 
 void RS_FilterDXFRW::addLight(const DRW_Light &data) {
@@ -2169,7 +2342,7 @@ void RS_FilterDXFRW::addMLine(const DRW_MLine *data) {
 
     // Round-trip metadata as XDATA. Schema per the implementation plan:
     //   1001 "LibreCAD_MLINE", 1000 mlineId, 1000 styleName,
-    //   1040 scale, 1070 justification, 1070 elementCount,
+    //   1071 styleHandle, 1040 scale, 1070 justification, 1070 elementCount,
     //   1070 elementIndex, 1040 offset, 1070 flags.
     // Anchor (i==0) additionally stores per-vertex baseline + miter
     // so the export side can reconstruct without averaging.
@@ -2178,6 +2351,8 @@ void RS_FilterDXFRW::addMLine(const DRW_MLine *data) {
         std::make_shared<DRW_Variant>(1001, std::string("LibreCAD_MLINE")));
     ext.push_back(std::make_shared<DRW_Variant>(1000, mlineId.toStdString()));
     ext.push_back(std::make_shared<DRW_Variant>(1000, data->styleName));
+    ext.push_back(std::make_shared<DRW_Variant>(
+        1071, static_cast<std::int32_t>(data->styleHandle)));
     ext.push_back(std::make_shared<DRW_Variant>(1040, data->scale));
     ext.push_back(
         std::make_shared<DRW_Variant>(1070, std::int32_t{data->justification}));
@@ -4701,7 +4876,7 @@ void RS_FilterDXFRW::addImage(const DRW_Image *data) {
  *                       + (py + 0.5) * sizev * vVector
  * (cf. ODA Open Design Specification §20.4.96; verify on samples — see plan.)
  */
-void RS_FilterDXFRW::addWipeout(const DRW_Image *data) {
+void RS_FilterDXFRW::addWipeout(const DRW_Wipeout *data) {
   RS_DEBUG->print("RS_FilterDXFRW::addWipeout");
   if (m_graphic != nullptr && data != nullptr)
     m_graphic->dwgAdvancedMetadata().addRasterImage(*data, true);
@@ -4946,6 +5121,16 @@ void RS_FilterDXFRW::addTableContent(const DRW_TableContentObject &data) {
   RS_DEBUG->print("RS_FilterDXFRW::addTableContent: %d x %d",
                   static_cast<int>(data.m_content.m_rows.size()),
                   static_cast<int>(data.m_content.m_columns.size()));
+}
+
+void RS_FilterDXFRW::addObjectContextData(const DRW_ObjectContextData &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().addObjectContextData(data);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addObjectContextData: %s handle %d scale %d",
+                  data.m_recordName.empty() ? "(object-context)" : data.m_recordName.c_str(),
+                  static_cast<int>(data.handle),
+                  static_cast<int>(data.m_scaleHandle));
 }
 
 void RS_FilterDXFRW::addCellStyleMap(const DRW_CellStyleMap &data) {
@@ -5368,10 +5553,28 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, RS2::FormatT
 #endif
 
 #ifdef DWGSUPPORT
-    if (type == RS2::FormatDWG || type == RS2::FormatDWG2004) {
-        DRW::Version dwgVer = (type == RS2::FormatDWG2004) ? DRW::AC1018 : DRW::AC1015;
-        m_version = (dwgVer == DRW::AC1018) ? 1018 : 1015;
+    auto dwgVersionForFormat = [](RS2::FormatType format) {
+        switch (format) {
+        case RS2::FormatDWG:     return DRW::AC1015;
+        case RS2::FormatDWG2004: return DRW::AC1018;
+        case RS2::FormatDWG2010: return DRW::AC1024;
+        case RS2::FormatDWG2013: return DRW::AC1027;
+        case RS2::FormatDWG2018: return DRW::AC1032;
+        default:                 return DRW::UNKNOWNV;
+        }
+    };
+    DRW::Version dwgVer = dwgVersionForFormat(type);
+    if (dwgVer != DRW::UNKNOWNV) {
+        switch (dwgVer) {
+        case DRW::AC1015: m_version = 1015; break;
+        case DRW::AC1018: m_version = 1018; break;
+        case DRW::AC1024: m_version = 1024; break;
+        case DRW::AC1027: m_version = 1027; break;
+        case DRW::AC1032: m_version = 1032; break;
+        default: break;
+        }
         m_exactColor = false;
+        m_lastDwgWriteSkipCounters = {};
         m_dwgW = new dwgRW(QFile::encodeName(file).constData());
         // P3 #1: reserve every preserved fixed-type OBJECT + raw-object handle
         // BEFORE write() so defineBlock() (which mints user-block handles from
@@ -5400,6 +5603,7 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, RS2::FormatT
             reserveAll(md.fields());
         }
         bool success = m_dwgW->write(this, dwgVer, false);
+        m_lastDwgWriteSkipCounters = m_dwgW->getWriteSkipCounters();
         delete m_dwgW;
         m_dwgW = nullptr;
         return success;
@@ -5512,19 +5716,34 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, RS2::FormatT
             reserveTyped(record.handle, record.replayState, "DICTIONARYVAR");
         for (const auto &record : metadata.rasterVariables())
             reserveTyped(record.handle, record.replayState, "RASTERVARIABLES");
+        for (const auto &record : metadata.mleaderStyles())
+            reserveTyped(record.handle, record.replayState, "MLEADERSTYLE");
+        for (const auto &record : metadata.geoData())
+            reserveTyped(record.handle, record.replayState, "GEODATA");
+        for (const auto &record : metadata.spatialFilters())
+            reserveTyped(record.handle, record.replayState, "SPATIAL_FILTER");
+        for (const auto &record : metadata.sortEntsTables())
+            reserveTyped(record.handle, record.replayState, "SORTENTSTABLE");
+        for (const auto &record : metadata.fields())
+            reserveTyped(record.handle, record.replayState, "FIELD");
+        for (const auto &record : metadata.fieldLists())
+            reserveTyped(record.handle, record.replayState, "FIELDLIST");
         //SLICE 2: WIPEOUTVARIABLES is a CUSTOM class -> reserve + register CLASS.
         for (const auto &record : metadata.wipeoutVariables())
             reserveTyped(record.handle, record.replayState, "WIPEOUTVARIABLES");
-        //SLICE 1: MLINESTYLE is a FIXED built-in -> reserve its handle but
-        //register NO CLASS (it is intentionally absent from dxfClassForRecordName).
-        for (const auto &record : metadata.mlineStyles()) {
-            if (record.handle == 0
-                || record.replayState
-                       != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
-                || rawObjectHandles.count(record.handle) != 0)
-                continue;
-            m_dxfW->reserveHandle(record.handle);
-        }
+        //SLICE 1: fixed built-ins -> reserve handles but register NO CLASS.
+        auto reserveFixedTyped = [&](std::uint32_t handle,
+                                     LC_DwgAdvancedMetadata::ReplayState state) {
+            if (handle == 0
+                || state != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                || rawObjectHandles.count(handle) != 0)
+                return;
+            m_dxfW->reserveHandle(handle);
+        };
+        for (const auto &record : metadata.mlineStyles())
+            reserveFixedTyped(record.handle, record.replayState);
+        for (const auto &record : metadata.layouts())
+            reserveFixedTyped(record.handle, record.replayState);
 
         if (!classes.empty())
             m_dxfW->setDxfClasses(classes);
@@ -5623,15 +5842,14 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, RS2::FormatT
 
         // (3b) F4-followup: DWG->DXF parent dictionaries for the data-only
         // OBJECTS. On the DWG path the only INVALID_OWNER_HANDLE fixes ezdxf
-        // applies are data-only OBJECTS (SUN / SCALE / DICTIONARYVAR /
-        // RASTERVARIABLES) whose 330 owner is a named dictionary that LibreCAD
-        // does not regenerate (e.g. ACAD_DICTIONARYVAR @0x70 owning the
-        // DICTIONARYVARs). Emit EXACTLY those parent dictionaries as real,
+        // applies are typed OBJECTS (SUN / SCALE / DICTIONARYVAR /
+        // RASTERVARIABLES / LAYOUT / ...) whose 330 owner is a named dictionary
+        // that LibreCAD does not regenerate (e.g. ACAD_DICTIONARYVAR @0x70
+        // owning the DICTIONARYVARs). Emit EXACTLY those parent dictionaries as real,
         // C-owned OBJECTS so the children resolve to a valid owner; keep ONLY the
         // entries that target an object we actually emit (the data-only children)
         // so the dict introduces no new dangling 350. We deliberately do NOT emit
-        // the dictionaries whose children are unmodeled objects LibreCAD drops
-        // (ACAD_VISUALSTYLE / ACAD_MATERIAL / ACAD_MLINESTYLE / ACAD_LAYOUT ...):
+        // the dictionaries whose children are unmodeled objects LibreCAD drops:
         // emitting those would replace one missing-owner fix with many
         // dangling-entry fixes and corrupt cross-refs.
         //
@@ -5658,7 +5876,21 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, RS2::FormatT
             noteDataOnly(r.handle, r.parentHandle, r.replayState);
         for (const auto &r : metadata.rasterVariables())
             noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.mleaderStyles())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.geoData())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.spatialFilters())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.sortEntsTables())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.fields())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.fieldLists())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
         for (const auto &r : metadata.mlineStyles())
+            noteDataOnly(r.handle, r.parentHandle, r.replayState);
+        for (const auto &r : metadata.layouts())
             noteDataOnly(r.handle, r.parentHandle, r.replayState);
         for (const auto &r : metadata.wipeoutVariables())
             noteDataOnly(r.handle, r.parentHandle, r.replayState);
@@ -6023,6 +6255,7 @@ void RS_FilterDXFRW::writeDwgClasses() {
     std::set<std::uint32_t> nativeSunHandles;
     std::set<std::uint32_t> nativeMLeaderStyleHandles;
     std::set<std::uint32_t> nativeRasterVariablesHandles;
+    std::set<std::uint32_t> nativeWipeoutVariablesHandles;
     std::set<std::uint32_t> nativeGeoDataHandles;
     std::set<std::uint32_t> nativeSpatialFilterHandles;
     std::set<std::uint32_t> nativeScaleHandles;
@@ -6034,6 +6267,7 @@ void RS_FilterDXFRW::writeDwgClasses() {
     std::set<std::uint32_t> nativeSortEntsTableHandles;
     std::set<std::uint32_t> nativeFieldListHandles;
     std::set<std::uint32_t> nativeFieldHandles;
+    std::set<std::uint32_t> nativeUnderlayDefinitionHandles;
     if (canWriteModernObjects) {
         for (const auto& record : metadata.suns()) {
             if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
@@ -6081,6 +6315,16 @@ void RS_FilterDXFRW::writeDwgClasses() {
             DRW_RasterVariables rv = rasterVariablesFromMetadata(record);
             if (m_dwgW->registerRasterVariablesObjectClass(&rv))
                 nativeRasterVariablesHandles.insert(record.handle);
+        }
+        // WIPEOUTVARIABLES (AcDbWipeoutVariables, custom class 529).
+        for (const auto& record : metadata.wipeoutVariables()) {
+            if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                || record.handle == 0) {
+                continue;
+            }
+            DRW_WipeoutVariables wv = wipeoutVariablesFromMetadata(record);
+            if (m_dwgW->registerWipeoutVariablesObjectClass(&wv))
+                nativeWipeoutVariablesHandles.insert(record.handle);
         }
         // GEODATA (AcDbGeoData, custom class 506) — PR 8d.1c + PR 13f.
         for (const auto& record : metadata.geoData()) {
@@ -6196,6 +6440,16 @@ void RS_FilterDXFRW::writeDwgClasses() {
             if (m_dwgW->registerFieldObjectClass(&f))
                 nativeFieldHandles.insert(record.handle);
         }
+        for (const auto& record : metadata.underlayDefinitions()) {
+            if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                || record.handle == 0) {
+                continue;
+            }
+            DRW_UnderlayDefinition definition =
+                underlayDefinitionFromMetadata(record);
+            if (m_dwgW->registerUnderlayDefinitionObjectClass(&definition))
+                nativeUnderlayDefinitionHandles.insert(record.handle);
+        }
     }
 
     for (const auto& record : metadata.rawObjects()) {
@@ -6220,6 +6474,9 @@ void RS_FilterDXFRW::writeDwgClasses() {
             continue;
         if (nativeRasterVariablesHandles.count(record.handle) != 0
             && isRasterVariablesRawObject(record))
+            continue;
+        if (nativeWipeoutVariablesHandles.count(record.handle) != 0
+            && isWipeoutVariablesRawObject(record))
             continue;
         if (nativeGeoDataHandles.count(record.handle) != 0
             && isGeoDataRawObject(record))
@@ -6255,6 +6512,9 @@ void RS_FilterDXFRW::writeDwgClasses() {
             continue;
         if (nativeFieldHandles.count(record.handle) != 0
             && isFieldRawObject(record))
+            continue;
+        if (nativeUnderlayDefinitionHandles.count(record.handle) != 0
+            && isUnderlayDefinitionRawObject(record))
             continue;
         DRW_UnsupportedObject object = rawObjectFromMetadata(record);
         m_dwgW->registerRawDwgObjectClass(&object);
@@ -6389,7 +6649,12 @@ void RS_FilterDXFRW::writeUCSs() {
         ucs.orthoType = u->getOrthoType();
         ucs.elevation = u->getElevation();
 
-        m_dxfW->writeUCS(&ucs);
+        if (m_dwgW) {
+            m_dwgW->addUCS(&ucs);
+        }
+        else {
+            m_dxfW->writeUCS(&ucs);
+        }
     }
 }
 
@@ -7068,7 +7333,9 @@ void RS_FilterDXFRW::writeObjects() {
         std::set<std::uint32_t> nativeXRecordHandles;
         std::set<std::uint32_t> nativeLayoutHandles;
         std::set<std::uint32_t> nativeGroupHandles;
+        std::set<std::uint32_t> nativeMLineStyleHandles;
         std::set<std::uint32_t> nativeRasterVariablesHandles;
+        std::set<std::uint32_t> nativeWipeoutVariablesHandles;
         std::set<std::uint32_t> nativeGeoDataHandles;
         std::set<std::uint32_t> nativeSpatialFilterHandles;
         // PR 8d.2a — five small no-storage OBJECTS families.
@@ -7082,6 +7349,7 @@ void RS_FilterDXFRW::writeObjects() {
         std::set<std::uint32_t> nativeSortEntsTableHandles;
         std::set<std::uint32_t> nativeFieldListHandles;
         std::set<std::uint32_t> nativeFieldHandles;
+        std::set<std::uint32_t> nativeUnderlayDefinitionHandles;
         int nativeSunObjects = 0;
         int nativePlaceholderObjects = 0;
         int nativeMLeaderStyleObjects = 0;
@@ -7089,7 +7357,9 @@ void RS_FilterDXFRW::writeObjects() {
         int nativeXRecordObjects = 0;
         int nativeLayoutObjects = 0;
         int nativeGroupObjects = 0;
+        int nativeMLineStyleObjects = 0;
         int nativeRasterVariablesObjects = 0;
+        int nativeWipeoutVariablesObjects = 0;
         int nativeGeoDataObjects = 0;
         int nativeSpatialFilterObjects = 0;
         int nativeScaleObjects = 0;
@@ -7102,6 +7372,7 @@ void RS_FilterDXFRW::writeObjects() {
         int nativeSortEntsTableObjects = 0;
         int nativeFieldListObjects = 0;
         int nativeFieldObjects = 0;
+        int nativeUnderlayDefinitionObjects = 0;
         if (canWriteModernObjects) {
             for (const auto& record : metadata.suns()) {
                 if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
@@ -7145,6 +7416,13 @@ void RS_FilterDXFRW::writeObjects() {
                 if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
                     && record.handle != 0) {
                     nativeRasterVariablesHandles.insert(record.handle);
+                }
+            }
+            // WIPEOUTVARIABLES (AcDbWipeoutVariables, custom class 529).
+            for (const auto& record : metadata.wipeoutVariables()) {
+                if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                    && record.handle != 0) {
+                    nativeWipeoutVariablesHandles.insert(record.handle);
                 }
             }
             // GEODATA (AcDbGeoData, custom class 506) — round-trip-grade
@@ -7226,6 +7504,12 @@ void RS_FilterDXFRW::writeObjects() {
                     nativeFieldHandles.insert(record.handle);
                 }
             }
+            for (const auto& record : metadata.underlayDefinitions()) {
+                if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                    && record.handle != 0) {
+                    nativeUnderlayDefinitionHandles.insert(record.handle);
+                }
+            }
         }
         // PR 13a/b/c — DICTIONARY / XRECORD / GROUP / LAYOUT handle-set
         // construction sits in its own broadened block (≥ AC1015) so the
@@ -7254,6 +7538,12 @@ void RS_FilterDXFRW::writeObjects() {
                 if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
                     && record.handle != 0) {
                     nativeGroupHandles.insert(record.handle);
+                }
+            }
+            for (const auto& record : metadata.mlineStyles()) {
+                if (record.replayState == LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
+                    && record.handle != 0) {
+                    nativeMLineStyleHandles.insert(record.handle);
                 }
             }
             for (const auto& record : metadata.layouts()) {
@@ -7365,8 +7655,20 @@ void RS_FilterDXFRW::writeObjects() {
                 ++blockedReplaced;
                 continue;
             }
+            if (nativeMLineStyleHandles.count(record.handle) != 0
+                && isMLineStyleRawObject(record)) {
+                hasBlockedReplay = true;
+                ++blockedReplaced;
+                continue;
+            }
             if (nativeRasterVariablesHandles.count(record.handle) != 0
                 && isRasterVariablesRawObject(record)) {
+                hasBlockedReplay = true;
+                ++blockedReplaced;
+                continue;
+            }
+            if (nativeWipeoutVariablesHandles.count(record.handle) != 0
+                && isWipeoutVariablesRawObject(record)) {
                 hasBlockedReplay = true;
                 ++blockedReplaced;
                 continue;
@@ -7435,6 +7737,12 @@ void RS_FilterDXFRW::writeObjects() {
             }
             if (nativeFieldHandles.count(record.handle) != 0
                 && isFieldRawObject(record)) {
+                hasBlockedReplay = true;
+                ++blockedReplaced;
+                continue;
+            }
+            if (nativeUnderlayDefinitionHandles.count(record.handle) != 0
+                && isUnderlayDefinitionRawObject(record)) {
                 hasBlockedReplay = true;
                 ++blockedReplaced;
                 continue;
@@ -7577,6 +7885,17 @@ void RS_FilterDXFRW::writeObjects() {
                     ++blockedWriterRejected;
                 }
             }
+            for (const auto& record : metadata.mlineStyles()) {
+                if (nativeMLineStyleHandles.count(record.handle) == 0)
+                    continue;
+                DRW_MLineStyle style = mlineStyleFromMetadata(record);
+                if (m_dwgW->writeMLineStyle(&style)) {
+                    ++nativeMLineStyleObjects;
+                } else {
+                    hasBlockedReplay = true;
+                    ++blockedWriterRejected;
+                }
+            }
             for (const auto& record : metadata.layouts()) {
                 if (nativeLayoutHandles.count(record.handle) == 0)
                     continue;
@@ -7604,6 +7923,17 @@ void RS_FilterDXFRW::writeObjects() {
                 DRW_RasterVariables rv = rasterVariablesFromMetadata(record);
                 if (m_dwgW->writeRasterVariables(&rv)) {
                     ++nativeRasterVariablesObjects;
+                } else {
+                    hasBlockedReplay = true;
+                    ++blockedWriterRejected;
+                }
+            }
+            for (const auto& record : metadata.wipeoutVariables()) {
+                if (nativeWipeoutVariablesHandles.count(record.handle) == 0)
+                    continue;
+                DRW_WipeoutVariables wv = wipeoutVariablesFromMetadata(record);
+                if (m_dwgW->writeWipeoutVariables(&wv)) {
+                    ++nativeWipeoutVariablesObjects;
                 } else {
                     hasBlockedReplay = true;
                     ++blockedWriterRejected;
@@ -7741,6 +8071,18 @@ void RS_FilterDXFRW::writeObjects() {
                     ++blockedWriterRejected;
                 }
             }
+            for (const auto& record : metadata.underlayDefinitions()) {
+                if (nativeUnderlayDefinitionHandles.count(record.handle) == 0)
+                    continue;
+                DRW_UnderlayDefinition definition =
+                    underlayDefinitionFromMetadata(record);
+                if (m_dwgW->writeUnderlayDefinition(&definition)) {
+                    ++nativeUnderlayDefinitionObjects;
+                } else {
+                    hasBlockedReplay = true;
+                    ++blockedWriterRejected;
+                }
+            }
         }
         if (replayedObjects > 0) {
             RS_DEBUG->print("RS_FilterDXFRW::writeObjects: replayed %d raw DWG objects",
@@ -7794,10 +8136,20 @@ void RS_FilterDXFRW::writeObjects() {
                 "RS_FilterDXFRW::writeObjects: wrote %d native GROUP objects",
                 nativeGroupObjects);
         }
+        if (nativeMLineStyleObjects > 0) {
+            RS_DEBUG->print(
+                "RS_FilterDXFRW::writeObjects: wrote %d native MLINESTYLE objects",
+                nativeMLineStyleObjects);
+        }
         if (nativeRasterVariablesObjects > 0) {
             RS_DEBUG->print(
                 "RS_FilterDXFRW::writeObjects: wrote %d native RASTERVARIABLES objects",
                 nativeRasterVariablesObjects);
+        }
+        if (nativeWipeoutVariablesObjects > 0) {
+            RS_DEBUG->print(
+                "RS_FilterDXFRW::writeObjects: wrote %d native WIPEOUTVARIABLES objects",
+                nativeWipeoutVariablesObjects);
         }
         if (nativeGeoDataObjects > 0) {
             RS_DEBUG->print(
@@ -7855,6 +8207,11 @@ void RS_FilterDXFRW::writeObjects() {
             RS_DEBUG->print(
                 "RS_FilterDXFRW::writeObjects: wrote %d native FIELD objects",
                 nativeFieldObjects);
+        }
+        if (nativeUnderlayDefinitionObjects > 0) {
+            RS_DEBUG->print(
+                "RS_FilterDXFRW::writeObjects: wrote %d native UNDERLAYDEFINITION objects",
+                nativeUnderlayDefinitionObjects);
         }
         if (modelerPayloads.recordCount > 0) {
             const RS_Debug::RS_DebugLevel level =
@@ -8157,6 +8514,7 @@ void RS_FilterDXFRW::writeObjects() {
                                 + nativeLayoutObjects
                                 + nativeGroupObjects
                                 + nativeRasterVariablesObjects
+                                + nativeWipeoutVariablesObjects
                                 + nativeGeoDataObjects
                                 + nativeSpatialFilterObjects);
         const size_t semanticOnlyRecords =
@@ -8280,6 +8638,16 @@ void RS_FilterDXFRW::writeObjects() {
             rv.parentHandle = resolveOwner(record.parentHandle);
             m_dxfW->writeRasterVariables(&rv);
         }
+        //MLEADERSTYLE is a custom object with a CLASS record. This is
+        //load-bearing for later MLEADER DXF completion, since MLEADER entities
+        //reference these styles by handle.
+        for (const auto &record : metadata.mleaderStyles()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_MLeaderStyle style = mleaderStyleFromMetadata(record);
+            style.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeMLeaderStyle(&style);
+        }
         //SLICE 1: MLINESTYLE (FIXED built-in, no CLASS). DWG read populates only
         //typed metadata; DXF read keeps it in the raw net (so emitTyped dedups by
         //handle). The STANDARD mline style is present in most drawings.
@@ -8289,6 +8657,60 @@ void RS_FilterDXFRW::writeObjects() {
             DRW_MLineStyle style = mlineStyleFromMetadata(record);
             style.parentHandle = resolveOwner(record.parentHandle);
             m_dxfW->writeMLineStyle(&style);
+        }
+        //LAYOUT is a fixed built-in object. It is typed metadata only on DXF
+        //read too, so emit it here and let the prepass materialize ACAD_LAYOUT
+        //when the source had a reachable layout dictionary.
+        for (const auto &record : metadata.layouts()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_Layout layout = layoutFromMetadata(record);
+            layout.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeLayout(&layout);
+        }
+        //GEODATA is a custom object with a CLASS record. DWG read captures all
+        //typed fields, including mesh points/faces, so emit it on DWG->DXF.
+        for (const auto &record : metadata.geoData()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_GeoData gd = geoDataFromMetadata(record);
+            gd.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeGeoData(&gd);
+        }
+        //SPATIAL_FILTER is a custom object with a CLASS record. The parent is
+        //usually an extension dictionary; resolve it through the materialized
+        //dictionary set so exported DXF owners are reachable.
+        for (const auto &record : metadata.spatialFilters()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_SpatialFilter sf = spatialFilterFromMetadata(record);
+            sf.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeSpatialFilter(&sf);
+        }
+        //SORTENTSTABLE is a custom object with entity draw-order references.
+        //dxfRW remaps source entity handles to the minted DXF entity handles.
+        for (const auto &record : metadata.sortEntsTables()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_SortEntsTable se = sortEntsTableFromMetadata(record);
+            se.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeSortEntsTable(&se);
+        }
+        //FIELD/FIELDLIST are custom objects. Emit FIELD first so FIELDLIST 330
+        //references point at an object that already exists in OBJECTS.
+        for (const auto &record : metadata.fields()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_Field field = fieldFromMetadata(record);
+            field.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeField(&field);
+        }
+        for (const auto &record : metadata.fieldLists()) {
+            if (!emitTyped(record.handle, record.replayState))
+                continue;
+            DRW_FieldList fieldList = fieldListFromMetadata(record);
+            fieldList.parentHandle = resolveOwner(record.parentHandle);
+            m_dxfW->writeFieldList(&fieldList);
         }
         //SLICE 2: WIPEOUTVARIABLES (custom, CLASS registered). Same dedup-vs-raw
         //-net + owner re-attach as the other data-only OBJECTS.
@@ -8351,10 +8773,8 @@ void RS_FilterDXFRW::writeEntities(){
   // Both the DXF and DWG writers expose writeRay/writeXline/writeTrace/
   // write3dface, so this runs for either output.
   reconstructTypedConversions(m_graphic, consumed);
-  // DWG writer has no UNDERLAY encoder yet — keep that reconstruction DXF-only.
-  if (!m_dwgW) {
-    reconstructUnderlays(m_graphic, consumed);
-  }
+  // Rebuild underlay sidecar metadata into native writer calls.
+  reconstructUnderlays(m_graphic, consumed);
   for (RS_Entity *e :
        lc::LC_ContainerTraverser{*m_graphic, RS2::ResolveNone}.entities()) {
     if (e->getFlag(RS2::FlagUndone))
@@ -8373,6 +8793,27 @@ void RS_FilterDXFRW::writeEntities(){
              m_graphic->dwgAdvancedMetadata().rawDxfEntities()) {
       DRW_RawDxfObject entity = rawEntity;
       m_dxfW->writeRawDxfObject(&entity);
+    }
+    // 3DSOLID/REGION/BODY modeler shells read from DWG or typed DXF live only
+    // on the metadata shelf. Re-emit their opaque ACIS/SAB payload without
+    // attempting B-rep interpretation.
+    for (const auto &rec : m_graphic->dwgAdvancedMetadata().modelerGeometry()) {
+      if (rec.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed)
+        continue;
+      DRW_ModelerGeometry geom(rec.type);
+      geom.handle = rec.handle;
+      geom.parentHandle = rec.parentHandle;
+      geom.m_modelerVersion = rec.modelerVersion;
+      geom.m_bodyBitSize = static_cast<std::uint32_t>(rec.rawBodyByteCount * 8u);
+      geom.m_objectSize = rec.objectSize;
+      geom.m_isEmpty = rec.isEmpty;
+      geom.m_hasModelerData = rec.hasModelerData;
+      geom.m_modelerDataUnknownBit = rec.modelerDataUnknownBit;
+      geom.m_hasWireframe = rec.hasWireframe;
+      geom.m_historyHandle = rec.historyHandle;
+      geom.m_rawBytes = rec.rawBytes;
+      geom.extData = rec.extData;
+      m_dxfW->writeModelerGeometry(&geom);
     }
     // LIGHT entities read from a DWG live only on the metadata shelf (no RS_Light
     // model), so without this loop a DWG->DXF export silently drops them. Re-emit
@@ -8450,6 +8891,7 @@ struct MLineEntry {
   RS_Entity *entity = nullptr;
   QString mlineId;
   QString styleName;
+  std::uint32_t styleHandle = 0;
   double scale = 1.0;
   int justification = 0;
   int elementCount = 0;
@@ -8774,6 +9216,9 @@ std::optional<MLineEntry> extractMLineMeta(RS_Entity *e) {
       ++seen1070;
       break;
     }
+    case 1071:
+      m.styleHandle = static_cast<std::uint32_t>(sp->i_val());
+      break;
     case 1011: {
       // Anchor-only baseline vertex
       const auto *c = sp->coord();
@@ -9068,6 +9513,22 @@ void RS_FilterDXFRW::reconstructMLines(RS_EntityContainer *container,
     // Build DRW_MLine from anchor metadata + baseline vertices.
     DRW_MLine ml;
     ml.styleName = anchor->styleName.toStdString();
+    if (anchor->styleHandle != 0) {
+      ml.styleHandle = anchor->styleHandle;
+    } else if (m_dwgW && m_graphic != nullptr) {
+      const auto &metadata = m_graphic->dwgAdvancedMetadata();
+      for (const auto &record : metadata.mlineStyles()) {
+        if (record.handle == 0
+            || record.replayState
+                   != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed)
+          continue;
+        if (QString::compare(QString::fromUtf8(record.name.c_str()),
+                             anchor->styleName, Qt::CaseInsensitive) == 0) {
+          ml.styleHandle = record.handle;
+          break;
+        }
+      }
+    }
     ml.scale = anchor->scale;
     ml.justification = static_cast<std::uint8_t>(anchor->justification);
     ml.openClosed = anchor->openClosed;
@@ -9433,7 +9894,10 @@ void RS_FilterDXFRW::reconstructUnderlays(RS_EntityContainer *container,
       u.clipBoundary.emplace_back(rx, ry, 0.0);
     }
 
-    m_dxfW->writeUnderlay(&u);
+    if (m_dwgW)
+      m_dwgW->writeUnderlay(&u);
+    else
+      m_dxfW->writeUnderlay(&u);
     consumed.insert(e);
   }
 }
@@ -10562,7 +11026,7 @@ void RS_FilterDXFRW::writeWipeout(LC_Wipeout *w) {
   // back to v) yields exactly the original WCS vertices.  This trades
   // byte-identical round-trip of the original IMAGE-frame fields for a
   // simpler entity model in LibreCAD; the rendered geometry is preserved.
-  DRW_Image img;
+  DRW_Wipeout img;
   getEntityAttributes(&img, w);
   img.basePoint = DRW_Coord(0.0, 0.0, 0.0);
   img.secPoint = DRW_Coord(1.0, 0.0, 0.0);

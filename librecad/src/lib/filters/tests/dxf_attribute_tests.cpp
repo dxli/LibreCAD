@@ -27,11 +27,15 @@
 
 #include <catch2/catch_test_macros.hpp>
 
+#include <cstdint>
 #include <filesystem>
 #include <fstream>
+#include <memory>
 #include <string>
+#include <vector>
 
 #include "drw_entities.h"
+#include "drw_objects.h"
 #include "libdxfrw.h"
 
 namespace {
@@ -79,7 +83,7 @@ public:
   void addHatch(const DRW_Hatch *) override {}
   void addViewport(const DRW_Viewport &) override {}
   void addImage(const DRW_Image *) override {}
-  void addWipeout(const DRW_Image *) override {}
+  void addWipeout(const DRW_Wipeout *) override {}
   void addMLeader(const DRW_MLeader *) override {}
   void addMLeaderStyle(const DRW_MLeaderStyle *) override {}
   void linkImage(const DRW_ImageDef *) override {}
@@ -129,7 +133,7 @@ public:
     m_lastImage = *d;
     ++m_imageCount;
   }
-  void addWipeout(const DRW_Image *d) override {
+  void addWipeout(const DRW_Wipeout *d) override {
     m_lastWipeout = *d;
     ++m_wipeoutCount;
   }
@@ -138,7 +142,7 @@ public:
 // Emits a single WIPEOUT with a triangular clip path.
 class WipeoutEmitter : public StubInterface {
 public:
-  DRW_Image m_wipeout;
+  DRW_Wipeout m_wipeout;
   dxfRW *m_rw = nullptr;
   void writeEntities() override { m_rw->writeWipeout(&m_wipeout); }
 };
@@ -166,12 +170,62 @@ public:
   }
 };
 
+class SurfaceCapture : public StubInterface {
+public:
+  int m_callCount = 0;
+  DRW_Surface m_captured;
+  void addSurface(const DRW_Surface *d) override {
+    if (m_callCount == 0)
+      m_captured = *d;
+    ++m_callCount;
+  }
+};
+
+class ModelerGeometryCapture : public StubInterface {
+public:
+  std::vector<DRW_ModelerGeometry> m_items;
+  void addModelerGeometry(const DRW_ModelerGeometry &d) override {
+    m_items.push_back(d);
+  }
+};
+
+class ModelerGeometryEmitter : public StubInterface {
+public:
+  std::vector<DRW_ModelerGeometry> m_items;
+  dxfRW *m_rw = nullptr;
+  void writeEntities() override {
+    for (DRW_ModelerGeometry &item : m_items)
+      m_rw->writeModelerGeometry(&item);
+  }
+};
+
 // Emits a single INSERT (with whatever attlist it carries) on write.
 class AttribEmitter : public StubInterface {
 public:
   DRW_Insert m_insert;
   dxfRW *m_rw = nullptr;
   void writeEntities() override { m_rw->writeInsert(&m_insert); }
+};
+
+class AttdefEmitter : public StubInterface {
+public:
+  DRW_Attdef m_attdef;
+  bool m_viaAttrib = false;
+  dxfRW *m_rw = nullptr;
+  void writeEntities() override {
+    if (m_viaAttrib)
+      m_rw->writeAttrib(&m_attdef);
+    else
+      m_rw->writeAttdef(&m_attdef);
+  }
+};
+
+class RawEntityCapture : public StubInterface {
+public:
+  std::vector<DRW_RawDxfObject> m_entities;
+  void addRawDxfEntity(const DRW_RawDxfObject &d) override {
+    m_entities.push_back(d);
+  }
 };
 
 // Emits a single LINE on write (for the thickness/extrusion field-drop test).
@@ -213,6 +267,45 @@ void readDxf(const std::string &dxf, DRW_Interface &cap, const char *name) {
   dxfRW r(path.string().c_str());
   REQUIRE(r.read(&cap, /*ext=*/true));
   std::filesystem::remove(path);
+}
+
+bool hasStringGroup(const DRW_RawDxfObject &obj, int code, const char *value) {
+  for (const DRW_Variant &group : obj.groups) {
+    if (group.code() == code && group.type() == DRW_Variant::STRING &&
+        std::string(group.c_str()) == value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool hasIntGroup(const DRW_RawDxfObject &obj, int code, int value) {
+  for (const DRW_Variant &group : obj.groups) {
+    if (group.code() == code && group.type() == DRW_Variant::INTEGER &&
+        group.i_val() == value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+std::vector<std::uint8_t> bytesOf(const std::string &text) {
+  return std::vector<std::uint8_t>(text.begin(), text.end());
+}
+
+std::vector<std::uint8_t> modelerPayload(const std::string &prefix,
+                                         std::size_t size) {
+  std::vector<std::uint8_t> bytes = bytesOf(prefix);
+  for (std::size_t i = bytes.size(); i < size; ++i)
+    bytes.push_back(static_cast<std::uint8_t>((i * 17u) & 0xffu));
+  return bytes;
+}
+
+void addXData(DRW_Entity &entity, const char *payload) {
+  entity.extData.push_back(
+      std::make_shared<DRW_Variant>(1001, std::string{"MODELAPP"}));
+  entity.extData.push_back(
+      std::make_shared<DRW_Variant>(1000, std::string{payload}));
 }
 
 // Minimal ENTITIES-only DXF: INSERT (66=1) + one ATTRIB + SEQEND.
@@ -277,6 +370,146 @@ TEST_CASE("DXF malformed ASCII group code is rejected", "[dxf][malformed]") {
   StubInterface cap;
   dxfRW r(path.string().c_str());
   CHECK_FALSE(r.read(&cap, /*ext=*/true));
+  std::filesystem::remove(path);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DXF SURFACE malformed ACIS hex is rejected without throwing",
+          "[dxf][surface][malformed]") {
+  for (const char *hex : {"GG", "A"}) {
+    const std::string dxf =
+        std::string("0\nSECTION\n2\nENTITIES\n")
+        + "0\nPLANESURFACE\n8\n0\n100\nAcDbEntity\n100\nAcDbSurface\n"
+        + "70\n1\n71\n0\n72\n0\n310\n" + hex + "\n"
+        + "0\nENDSEC\n0\nEOF\n";
+
+    const auto path =
+        std::filesystem::temp_directory_path() / "lc_surface_bad_acis_hex.dxf";
+    std::filesystem::remove(path);
+    {
+      std::ofstream out(path);
+      out << dxf;
+    }
+
+    SurfaceCapture cap;
+    dxfRW r(path.string().c_str());
+    bool ok = true;
+    REQUIRE_NOTHROW(ok = r.read(&cap, /*ext=*/true));
+    CHECK_FALSE(ok);
+    CHECK(cap.m_callCount == 0);
+    std::filesystem::remove(path);
+  }
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DXF modeler geometry entities read raw SAT/SAB payloads",
+          "[dxf][modeler]") {
+  ModelerGeometryCapture cap;
+  const char *dxf =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\n3DSOLID\n5\n4A\n330\n1F\n100\nAcDbEntity\n"
+      "100\nAcDbModelerGeometry\n100\nAcDb3dSolid\n70\n1\n"
+      "310\n41434953\n310\n2042696E61727946696C65\n"
+      "1001\nMODELAPP\n1000\nsolid-xdata\n"
+      "0\nREGION\n5\n4B\n330\n1F\n100\nAcDbEntity\n"
+      "100\nAcDbModelerGeometry\n100\nAcDbRegion\n"
+      "1\nBegin-of-ACIS-History\n3\n-SAT-\n"
+      "0\nBODY\n5\n4C\n330\n1F\n100\nAcDbEntity\n"
+      "100\nAcDbModelerGeometry\n100\nAcDbBody\n310\n00FF10\n"
+      "0\nENDSEC\n0\nEOF\n";
+  readDxf(dxf, cap, "lc_modeler_geometry_read.dxf");
+
+  REQUIRE(cap.m_items.size() == 3u);
+  CHECK(cap.m_items[0].eType == DRW::E3DSOLID);
+  CHECK(cap.m_items[0].handle == 0x4Au);
+  CHECK(cap.m_items[0].parentHandle == 0x1Fu);
+  CHECK(cap.m_items[0].m_modelerVersion == 1u);
+  CHECK(cap.m_items[0].m_rawBytes == bytesOf("ACIS BinaryFile"));
+  REQUIRE(cap.m_items[0].extData.size() == 2u);
+  CHECK(cap.m_items[0].extData[1]->code() == 1000);
+  CHECK(std::string(cap.m_items[0].extData[1]->c_str()) == "solid-xdata");
+
+  CHECK(cap.m_items[1].eType == DRW::REGION);
+  CHECK(cap.m_items[1].m_rawBytes == bytesOf("Begin-of-ACIS-History-SAT-"));
+
+  CHECK(cap.m_items[2].eType == DRW::BODY);
+  REQUIRE(cap.m_items[2].m_rawBytes.size() == 3u);
+  CHECK(cap.m_items[2].m_rawBytes[0] == 0x00u);
+  CHECK(cap.m_items[2].m_rawBytes[1] == 0xffu);
+  CHECK(cap.m_items[2].m_rawBytes[2] == 0x10u);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DXF modeler geometry raw payload round-trips through typed writer",
+          "[dxf][modeler][dxf_roundtrip]") {
+  const auto path =
+      std::filesystem::temp_directory_path() / "lc_modeler_geometry_rt.dxf";
+  std::filesystem::remove(path);
+
+  ModelerGeometryEmitter emitter;
+  DRW_ModelerGeometry solid(DRW::E3DSOLID);
+  solid.layer = "0";
+  solid.m_modelerVersion = 1;
+  solid.m_rawBytes = modelerPayload("ACIS BinaryFile", 180);
+  addXData(solid, "roundtrip-solid");
+  emitter.m_items.push_back(solid);
+
+  DRW_ModelerGeometry region(DRW::REGION);
+  region.layer = "0";
+  region.m_rawBytes = bytesOf("Begin-of-ACIS-History-SAT-region");
+  emitter.m_items.push_back(region);
+
+  DRW_ModelerGeometry body(DRW::BODY);
+  body.layer = "0";
+  body.m_rawBytes = {0x00u, 0x7fu, 0x80u, 0xffu};
+  emitter.m_items.push_back(body);
+
+  {
+    dxfRW w(path.string().c_str());
+    emitter.m_rw = &w;
+    REQUIRE(w.write(&emitter, DRW::AC1021, false));
+  }
+
+  ModelerGeometryCapture cap;
+  {
+    dxfRW r(path.string().c_str());
+    REQUIRE(r.read(&cap, /*ext=*/true));
+  }
+  std::filesystem::remove(path);
+
+  REQUIRE(cap.m_items.size() == 3u);
+  CHECK(cap.m_items[0].eType == DRW::E3DSOLID);
+  CHECK(cap.m_items[0].m_modelerVersion == 1u);
+  CHECK(cap.m_items[0].m_rawBytes == solid.m_rawBytes);
+  REQUIRE(cap.m_items[0].extData.size() == 2u);
+  CHECK(std::string(cap.m_items[0].extData[1]->c_str()) == "roundtrip-solid");
+
+  CHECK(cap.m_items[1].eType == DRW::REGION);
+  CHECK(cap.m_items[1].m_rawBytes == region.m_rawBytes);
+  CHECK(cap.m_items[2].eType == DRW::BODY);
+  CHECK(cap.m_items[2].m_rawBytes == body.m_rawBytes);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DXF modeler geometry malformed ACIS hex is rejected without throwing",
+          "[dxf][modeler][malformed]") {
+  const auto path =
+      std::filesystem::temp_directory_path() / "lc_modeler_bad_acis_hex.dxf";
+  std::filesystem::remove(path);
+  {
+    std::ofstream out(path);
+    out << "0\nSECTION\n2\nENTITIES\n"
+           "0\n3DSOLID\n8\n0\n100\nAcDbEntity\n"
+           "100\nAcDbModelerGeometry\n100\nAcDb3dSolid\n310\nGG\n"
+           "0\nENDSEC\n0\nEOF\n";
+  }
+
+  ModelerGeometryCapture cap;
+  dxfRW r(path.string().c_str());
+  bool ok = true;
+  REQUIRE_NOTHROW(ok = r.read(&cap, /*ext=*/true));
+  CHECK_FALSE(ok);
+  CHECK(cap.m_items.empty());
   std::filesystem::remove(path);
 }
 
@@ -569,6 +802,54 @@ TEST_CASE("DXF ATTRIB AcDbAttribute codes 73/74 round-trip (attrib-73)",
   const DRW_Attrib &att2 = *cap2.m_captured.attlist[0];
   CHECK(att2.m_fieldLength == 7);
   CHECK(att2.alignV == DRW_Text::VMiddle);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DXF ATTDEF writer emits attribute definition fields",
+          "[dxf][attdef][dxf_roundtrip]") {
+  for (const bool viaAttrib : {false, true}) {
+    const auto path = std::filesystem::temp_directory_path() /
+        (viaAttrib ? "lc_attdef_via_attrib.dxf" : "lc_attdef_direct.dxf");
+    std::filesystem::remove(path);
+
+    AttdefEmitter em;
+    em.m_viaAttrib = viaAttrib;
+    em.m_attdef.layer = "0";
+    em.m_attdef.basePoint = DRW_Coord(1.0, 2.0, 0.0);
+    em.m_attdef.secPoint = DRW_Coord(3.0, 4.0, 0.0);
+    em.m_attdef.height = 0.5;
+    em.m_attdef.text = "Default";
+    em.m_attdef.tag = "PARTNO";
+    em.m_attdef.prompt = "Part number?";
+    em.m_attdef.attribFlags = 3;
+    em.m_attdef.m_fieldLength = 12;
+    em.m_attdef.alignV = DRW_Text::VMiddle;
+    em.m_attdef.lockPosition = true;
+    {
+      dxfRW w(path.string().c_str());
+      em.m_rw = &w;
+      REQUIRE(w.write(&em, DRW::AC1021, false));
+    }
+
+    RawEntityCapture cap;
+    {
+      dxfRW r(path.string().c_str());
+      REQUIRE(r.read(&cap, /*ext=*/true));
+    }
+    std::filesystem::remove(path);
+
+    REQUIRE(cap.m_entities.size() == 1);
+    const DRW_RawDxfObject &attdef = cap.m_entities[0];
+    CHECK(attdef.name == "ATTDEF");
+    CHECK(hasStringGroup(attdef, 100, "AcDbAttributeDefinition"));
+    CHECK(hasStringGroup(attdef, 1, "Default"));
+    CHECK(hasStringGroup(attdef, 2, "PARTNO"));
+    CHECK(hasStringGroup(attdef, 3, "Part number?"));
+    CHECK(hasIntGroup(attdef, 70, 3));
+    CHECK(hasIntGroup(attdef, 73, 12));
+    CHECK(hasIntGroup(attdef, 74, DRW_Text::VMiddle));
+    CHECK(hasIntGroup(attdef, 280, 1));
+  }
 }
 
 // image-wipeout-71: DXF code 71 (clip boundary type) was not stored by

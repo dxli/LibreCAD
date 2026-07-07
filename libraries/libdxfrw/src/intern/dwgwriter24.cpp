@@ -55,7 +55,9 @@ bool dwgWriter24::writeDwgHeader() {
         dwgBufferW dataBuf;
         dwgBufferW handleBuf;
         dwgBufferW strBuf;
-        m_header->encodeDwg(m_version, &dataBuf, &handleBuf, &strBuf);
+        // Propagate encode failure: writeDwgHeader reports success as a bool.
+        if (!m_header->encodeDwg(m_version, &dataBuf, &handleBuf, &strBuf))
+            return false;
         dataBuf.alignToByte();
         strBuf.alignToByte();
         handleBuf.alignToByte();
@@ -181,10 +183,17 @@ bool dwgWriter24::encodeEntity(DRW_Entity *ent) {
             : static_cast<std::uint32_t>(0x12);
     }
     if (ent->lTypeH.ref == 0 && !ent->lineType.empty()) {
-        auto ltUp = toUpperCase(ent->lineType);
-        auto it = m_writingCtx.ltypeMap.find(ltUp);
-        if (it != m_writingCtx.ltypeMap.end())
+        if (auto it = m_writingCtx.ltypeMap.find(toUpperCase(ent->lineType));
+            it != m_writingCtx.ltypeMap.end())
             ent->lTypeH.ref = it->second;
+    }
+    if (ent->eType == DRW::MLINE) {
+        auto *mline = dynamic_cast<DRW_MLine *>(ent);
+        if (mline != nullptr && mline->styleHandle == 0 && !mline->styleName.empty()) {
+            if (auto styleIt = m_writingCtx.mlineStyleMap.find(toUpperCase(mline->styleName));
+                styleIt != m_writingCtx.mlineStyleMap.end())
+                mline->styleHandle = styleIt->second;
+        }
     }
 
     beginObject(ent->handle);

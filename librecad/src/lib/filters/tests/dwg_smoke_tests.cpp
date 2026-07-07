@@ -34,11 +34,14 @@
 
 #include <cctype>
 #include <cmath>
+#include <cstdint>
 #include <cstring>
 #include <algorithm>
 #include <filesystem>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <regex>
 #include <set>
@@ -194,7 +197,7 @@ public:
   void addHatch(const DRW_Hatch *e) override { track(*e); }
   void addViewport(const DRW_Viewport &e) override { track(e); }
   void addImage(const DRW_Image *e) override { track(*e); }
-  void addWipeout(const DRW_Image *e) override {
+  void addWipeout(const DRW_Wipeout *e) override {
     track(*e);
     wipeouts++;
     wipeoutVertices += static_cast<int>(e->clipPath.size());
@@ -241,6 +244,21 @@ public:
   void writeAppId() override {}
 };
 
+struct XlineCaptureIface : public CountingIface {
+  std::vector<DRW_Xline> xlines;
+  int lineCallbacks = 0;
+
+  void addLine(const DRW_Line &e) override {
+    CountingIface::addLine(e);
+    ++lineCallbacks;
+  }
+
+  void addXline(const DRW_Xline &e) override {
+    CountingIface::addXline(e);
+    xlines.push_back(e);
+  }
+};
+
 // ---- helpers ----------------------------------------------------------------
 
 struct DwgResult {
@@ -273,6 +291,48 @@ DwgResult readDwg(const std::string &path, bool verbose = false,
     return {false,          DRW::BAD_UNKNOWN, DRW::UNKNOWNV,
             iface.entities, iface.blocks,     iface.layers};
   }
+}
+
+DwgResult readDwgBuffer(const std::string &path, bool verbose = false,
+                        CountingIface *outIface = nullptr) {
+  CountingIface localIface;
+  CountingIface &iface = outIface ? *outIface : localIface;
+  try {
+    std::ifstream in(path, std::ios::binary);
+    if (!in)
+      return {false, DRW::BAD_OPEN, DRW::UNKNOWNV, 0, 0, 0};
+    std::vector<std::uint8_t> bytes(
+        (std::istreambuf_iterator<char>(in)),
+        std::istreambuf_iterator<char>());
+
+    dwgR reader(path.c_str());
+    if (verbose)
+      reader.setDebug(DRW::DebugLevel::Debug);
+    bool ok = reader.readBuffer(bytes.data(), bytes.size(), &iface, true);
+    return {
+        ok,           reader.getError(), reader.getVersion(), iface.entities,
+        iface.blocks, iface.layers};
+  } catch (const std::exception &e) {
+    std::cerr << "  [EXCEPTION: " << e.what() << "]\n";
+    return {false,          DRW::BAD_UNKNOWN, DRW::UNKNOWNV,
+            iface.entities, iface.blocks,     iface.layers};
+  } catch (...) {
+    std::cerr << "  [UNKNOWN EXCEPTION]\n";
+    return {false,          DRW::BAD_UNKNOWN, DRW::UNKNOWNV,
+            iface.entities, iface.blocks,     iface.layers};
+  }
+}
+
+std::string libredwgFixturePath(const char *release, const char *file) {
+  const char *root = getenv("LIBREDWG_TEST_DATA");
+  if (root && root[0] != '\0')
+    return (std::filesystem::path(root) / release / file).string();
+  const char *home = getenv("HOME");
+  if (!home || home[0] == '\0')
+    return {};
+  return (std::filesystem::path(home) / "dev" / "libredwg" / "test" /
+          "test-data" / release / file)
+      .string();
 }
 
 // DRW_LW_Conv::lineWidth enum -> human-readable mm
@@ -544,7 +604,7 @@ public:
   void addViewport(const DRW_Viewport &e) override { trackT(e, "VIEWPORT"); }
   void addImage(const DRW_Image *e) override { trackT(*e, "IMAGE"); }
   void addMLeader(const DRW_MLeader *e) override { trackT(*e, "MLEADER"); }
-  void addWipeout(const DRW_Image *e) override {
+  void addWipeout(const DRW_Wipeout *e) override {
     trackT(*e, "WIPEOUT");
     // Surface the polygon size so tests can sanity-check that the boundary
     // actually came through — empty clipPath is the historical bug shape.
@@ -1042,6 +1102,75 @@ public:
 };
 
 } // namespace
+
+TEST_CASE("dwgRW::readBuffer matches file-path read for a committed fixture",
+          "[dwg][readbuffer][libdxfrw]") {
+  const std::string path =
+      std::string(LIBRECAD_TEST_DIR) + "/mpolygon_solid.dwg";
+  REQUIRE(std::filesystem::exists(path));
+
+  CountingIface fileIface;
+  const DwgResult fileRead = readDwg(path, /*verbose=*/false, &fileIface);
+  REQUIRE(fileRead.ok);
+  REQUIRE(fileRead.error == DRW::BAD_NONE);
+
+  CountingIface memoryIface;
+  const DwgResult memoryRead =
+      readDwgBuffer(path, /*verbose=*/false, &memoryIface);
+  REQUIRE(memoryRead.ok);
+  REQUIRE(memoryRead.error == DRW::BAD_NONE);
+
+  CHECK(memoryRead.version == fileRead.version);
+  CHECK(memoryRead.entities == fileRead.entities);
+  CHECK(memoryRead.blocks == fileRead.blocks);
+  CHECK(memoryRead.layers == fileRead.layers);
+  CHECK(memoryIface.entityLWeights == fileIface.entityLWeights);
+  CHECK(memoryIface.layerLWeights == fileIface.layerLWeights);
+}
+
+TEST_CASE("DWG XLINE reads as typed construction line across LibreDWG versions",
+          "[dwg][xline]") {
+  struct Fixture {
+    const char *file;
+    DRW::Version version;
+  };
+
+  const Fixture fixtures[] = {
+      {"xline/constructionline_2000.dwg", DRW::AC1015},
+      {"xline/constructionline_2004.dwg", DRW::AC1018},
+      // LibreDWG's AC1021/R2007 ConstructionLine.dwg currently fails this
+      // reader at BAD_READ_HEADER, before any XLINE dispatch can be exercised.
+      {"xline/constructionline_2010.dwg", DRW::AC1024},
+      {"xline/constructionline_2013.dwg", DRW::AC1027},
+      {"xline/constructionline_2018.dwg", DRW::AC1032},
+  };
+
+  for (const Fixture &fixture : fixtures) {
+    const std::string path =
+        std::string(LIBRECAD_TEST_DIR) + "/" + fixture.file;
+    INFO("fixture: " << fixture.file);
+    REQUIRE(std::filesystem::is_regular_file(path));
+
+    XlineCaptureIface iface;
+    const DwgResult result = readDwg(path, /*verbose=*/false, &iface);
+    REQUIRE(result.ok);
+    REQUIRE(result.error == DRW::BAD_NONE);
+    CHECK(result.version == fixture.version);
+    CHECK(result.entities == 1);
+    CHECK(iface.lineCallbacks == 0);
+    REQUIRE(iface.xlines.size() == 1);
+
+    const DRW_Xline &xline = iface.xlines.front();
+    CHECK(xline.eType == DRW::XLINE);
+    CHECK(std::isfinite(xline.basePoint.x));
+    CHECK(std::isfinite(xline.basePoint.y));
+    CHECK(std::isfinite(xline.secPoint.x));
+    CHECK(std::isfinite(xline.secPoint.y));
+    const double dirLen =
+        std::hypot(xline.secPoint.x, xline.secPoint.y);
+    CHECK(dirLen > 0.0);
+  }
+}
 
 TEST_CASE("DWG smoke test: read ~/doc/dwg/*.dwg and report entity counts") {
   // The test corpus lives in a developer-local directory (~/doc/dwg/) and
@@ -3081,7 +3210,7 @@ TEST_CASE("DWG corpus: WIPEOUT entity inventory", "[.dwg_wipeout]") {
     CountingIface iface;
     try {
       dwgR reader(p.string().c_str());
-      reader.read(&iface, true);
+      (void)reader.read(&iface, true);
     } catch (...) {
       continue;
     }
@@ -3141,7 +3270,7 @@ TEST_CASE("DWG corpus: MULTILEADER entity inventory", "[.dwg_mleader]") {
       CountingIface iface;
       try {
         dwgR reader(p.string().c_str());
-        reader.read(&iface, true);
+        (void)reader.read(&iface, true);
       } catch (...) {
         continue;
       }
@@ -3370,7 +3499,7 @@ TEST_CASE("DWG acdbcolor probe: count DBCOLOR objects + resolved entity refs",
     AcDbColorIface iface;
     try {
       dwgR reader(f.path.c_str());
-      reader.read(&iface, true);
+      (void)reader.read(&iface, true);
     } catch (...) {
       std::cout << "EXCEPTION on " << f.path << "\n";
       continue;
@@ -3435,7 +3564,7 @@ TEST_CASE("DWG acdbcolor: book color load + dbColor object inventory",
   int entities = 0;
   try {
     dwgR reader(path.c_str());
-    reader.read(&iface, true);
+    (void)reader.read(&iface, true);
     err = reader.getError();
     entities = iface.modelSpaceEntities + iface.blockSpaceEntities;
   } catch (const std::exception &ex) {
@@ -3520,7 +3649,7 @@ TEST_CASE("DWG acdbcolor: layer colorName probe",
       LayerColorIface iface;
       try {
         dwgR reader(p.string().c_str());
-        reader.read(&iface, true);
+        (void)reader.read(&iface, true);
       } catch (...) {
         continue;
       }
@@ -3607,7 +3736,7 @@ TEST_CASE("DWG plotsettings probe: count PLOTSETTINGS objects per file",
       PlotSettingsIface iface;
       try {
         dwgR reader(p.string().c_str());
-        reader.read(&iface, true);
+        (void)reader.read(&iface, true);
       } catch (...) {
         continue;
       }
@@ -3733,7 +3862,7 @@ TEST_CASE("DWG transparency probe: count entities with ENC alpha set",
       TransparencyIface iface;
       try {
         dwgR reader(p.string().c_str());
-        reader.read(&iface, true);
+        (void)reader.read(&iface, true);
       } catch (...) {
         continue;
       }
@@ -3909,7 +4038,7 @@ TEST_CASE("DWG dimension field parity: measureValue + flipArrow populate",
       continue;
     FieldCaptureIface iface;
     try {
-      dwgR reader(entry.path().c_str());
+      dwgR reader(entry.path().string().c_str());
       reader.setDebug(DRW::DebugLevel::None);
       if (!reader.read(&iface, true))
         continue;
@@ -4433,6 +4562,92 @@ TEST_CASE("DWG arch_multileaders: SCALE table delivery") {
   CHECK(foundUnit); // at least one 1:1 entry present
 }
 
+TEST_CASE("DWG Mechanical and Annotative: object-context data delivery",
+          "[.dwg_object_context]") {
+  const std::string targetName = "Mechanical and Annotative.dwg";
+  std::vector<std::filesystem::path> candidates;
+
+  const std::filesystem::path manifest = "D:/data/dli/doc/dwg_files.txt";
+  if (std::filesystem::is_regular_file(manifest)) {
+    std::ifstream in(manifest);
+    std::string line;
+    while (std::getline(in, line)) {
+      if (line.find(targetName) != std::string::npos)
+        candidates.emplace_back(line);
+    }
+  }
+  candidates.emplace_back("D:/data/dli/doc/dwg3/Mechanical and Annotative.dwg");
+  if (const char *home = getenv("HOME"))
+    candidates.emplace_back(std::string(home) +
+                            "/doc/dwg3/Mechanical and Annotative.dwg");
+
+  std::filesystem::path path;
+  for (const auto &candidate : candidates) {
+    if (std::filesystem::is_regular_file(candidate)) {
+      path = candidate;
+      break;
+    }
+  }
+  if (path.empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  class ObjectContextIface : public TypeTrackingIface {
+  public:
+    int typedContexts = 0;
+    int textContexts = 0;
+    int dimensionContexts = 0;
+    int scaleLinkedContexts = 0;
+    int rawObjectContexts = 0;
+    std::map<DRW_ObjectContextData::Kind, int> byKind;
+
+    void addObjectContextData(const DRW_ObjectContextData &d) override {
+      ++typedContexts;
+      ++byKind[d.m_kind];
+      if (d.isTextFamily())
+        ++textContexts;
+      if (d.isDimensionFamily())
+        ++dimensionContexts;
+      if (d.m_scaleHandle != 0)
+        ++scaleLinkedContexts;
+    }
+
+    void addUnsupportedObject(const DRW_UnsupportedObject &o) override {
+      if (o.m_recordName.find("OBJECTCONTEXTDATA") != std::string::npos ||
+          o.m_className.find("ObjectContextData") != std::string::npos) {
+        ++rawObjectContexts;
+      }
+    }
+  };
+
+  ObjectContextIface iface;
+  std::unordered_map<std::string, size_t> skippedUnsupported;
+  {
+    dwgR reader(path.string().c_str());
+    REQUIRE(reader.read(&iface, true));
+    REQUIRE(reader.getError() == DRW::BAD_NONE);
+    skippedUnsupported = reader.getSkippedUnsupportedObjects();
+  }
+
+  CHECK(iface.typedContexts >= 43);
+  CHECK(iface.textContexts >= 14);
+  CHECK(iface.dimensionContexts >= 29);
+  CHECK(iface.scaleLinkedContexts >= 43);
+  CHECK(iface.rawObjectContexts >= iface.typedContexts);
+  CHECK(iface.byKind[DRW_ObjectContextData::Kind::AlignedDimension] >= 23);
+  CHECK(iface.byKind[DRW_ObjectContextData::Kind::Text] >= 11);
+  CHECK(iface.byKind[DRW_ObjectContextData::Kind::RadialDimension] >= 6);
+  CHECK(iface.byKind[DRW_ObjectContextData::Kind::MText] >= 3);
+
+  for (const auto &kv : skippedUnsupported) {
+    CHECK(kv.first.find("ALDIMOBJECTCONTEXTDATA") == std::string::npos);
+    CHECK(kv.first.find("TEXTOBJECTCONTEXTDATA") == std::string::npos);
+    CHECK(kv.first.find("RADIMOBJECTCONTEXTDATA") == std::string::npos);
+    CHECK(kv.first.find("MTEXTOBJECTCONTEXTDATA") == std::string::npos);
+  }
+}
+
 TEST_CASE("DWG arch_multileaders: OBJECTS metadata delivery") {
   const char *home = getenv("HOME");
   if (!home) {
@@ -4795,7 +5010,7 @@ TEST_CASE("DWG corpus audit: per-file TSV vs oracle", "[.audit]") {
       std::string skipped;
       try {
         dwgR reader(p.string().c_str());
-        reader.read(&iface, true);
+        (void)reader.read(&iface, true);
         err = reader.getError();
         ver = reader.getVersion();
         proxyPrims = reader.getDecodedProxyPrimitives();
@@ -4847,7 +5062,7 @@ TEST_CASE("DWG MESH decoded + delivered, not skipped", "[.dwg_readback_corpus]")
       MeshProbe probe;
       try {
         dwgR reader(de.path().string().c_str());
-        reader.read(&probe, true);
+        (void)reader.read(&probe, true);
         meshCount += probe.meshCount;
         meshVerts += probe.meshVertices;
         const auto sk = reader.getSkippedCustomClasses();
@@ -5138,7 +5353,7 @@ TEST_CASE("proxy attr layer-order oracle pin", "[.dwg_proxy_attr]") {
 // Pre-R13 (AC1009/R11) minimal read support. The corpus lives in the
 // developer-local LibreDWG checkout; skip gracefully if absent. dwgReaderR11
 // reads the ENTITIES section's non-chained geometry (LINE/POINT/CIRCLE/ARC/
-// TEXT/SOLID/TRACE/3DFACE); INSERT/POLYLINE/blocks are a follow-up.
+// TEXT/SOLID/TRACE/3DLINE/3DFACE); INSERT/POLYLINE/blocks are a follow-up.
 TEST_CASE("DWG pre-R13: read AC1009/R11 entities section") {
   const char *home = getenv("HOME");
   if (!home) {
@@ -5160,6 +5375,49 @@ TEST_CASE("DWG pre-R13: read AC1009/R11 entities section") {
   CHECK(r.version == DRW::AC1009);
   CHECK(r.entities >= 23);              // + inserts + attrib/attdef + dimension block
   CHECK(r.blocks >= 3);                 // BLOCK1 / BLOCK2 / *D
+}
+
+namespace {
+struct R11LineCollector : public CountingIface {
+  std::vector<DRW_Line> lines;
+  void addLine(const DRW_Line &e) override {
+    CountingIface::addLine(e);
+    lines.push_back(e);
+  }
+};
+}  // namespace
+
+TEST_CASE("DWG pre-R13: map R11 3DLINE to DRW_Line") {
+  const std::string path = libredwgFixturePath("r11", "entities-3d.dwg");
+  if (path.empty()) {
+    SUCCEED("pre-R13 corpus root absent; skipping");
+    return;
+  }
+  std::ifstream probe(path, std::ios::binary);
+  if (!probe.good()) {
+    SUCCEED("entities-3d.dwg absent; skipping");
+    return;
+  }
+  probe.close();
+
+  R11LineCollector iface;
+  const DwgResult r = readDwg(path, /*verbose=*/false, &iface);
+  REQUIRE(r.ok);
+  REQUIRE(r.version == DRW::AC1009);
+
+  bool found3DLine = false;
+  auto near = [](double a, double b) { return std::abs(a - b) < 1e-12; };
+  for (const auto &line : iface.lines) {
+    if (near(line.basePoint.x, 2.0) && near(line.basePoint.y, 3.0) &&
+        near(line.basePoint.z, 4.0) && near(line.secPoint.x, 3.0) &&
+        near(line.secPoint.y, 4.0) && near(line.secPoint.z, 5.0)) {
+      found3DLine = true;
+      break;
+    }
+  }
+  // Oracle: LibreDWG r11/entities-3d.dxf from the same corpus emits this
+  // legacy DWG type-21 record as a DXF LINE with 3D endpoints.
+  CHECK(found3DLine);
 }
 
 // Pre-R13 R11 typed DIMENSION (LINEAR + ALIGNED). Phase 4 swaps the previous
