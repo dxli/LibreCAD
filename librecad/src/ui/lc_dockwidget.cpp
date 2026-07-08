@@ -42,6 +42,8 @@ LC_DockWidget::LC_DockWidget(QWidget* parent)
     grid->setSpacing(2);
 	grid->setContentsMargins(1,1,1,1);
 	frame->setLayout(grid);
+
+	setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 }
 
 void LC_DockWidget::add_actions(const QList<QAction*>& list, int columns, int icon_size)
