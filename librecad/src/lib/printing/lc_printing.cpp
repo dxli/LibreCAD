@@ -119,27 +119,30 @@ void LC_Printing::Print(QC_MDIWindow &mdiWindow, PrinterType printerType)
     QPageSize::PageSizeId paperSizeName = LC_Printing::rsToQtPaperFormat(paperformat);
     RS_Vector paperSize = graphic->getPaperSize();
     RS2::Unit unit = graphic->getUnit();
-    if (paperSizeName == QPageSize::Custom) {
-        RS_Vector s = RS_Units::convert(paperSize, unit, RS2::Millimeter);
-        if (landscape) s = s.flipXY();
-        printer.setPageSize(QPageSize{QSizeF(s.x, s.y), QPageSize::Millimeter});
-        // RS_DEBUG->print(RS_Debug::D_ERROR, "set Custom paper size to (%g, %g)\n", s.x,s.y);
-    } else {
-        printer.setPageSize(QPageSize{static_cast<QPageSize::PageSizeId>(paperSizeName)});
-    }
-    // qDebug()<<"paper size=("<<printer.paperSize(QPrinter::Millimeter).width()<<", "<<printer.paperSize(QPrinter::Millimeter).height()<<")";
-    printer.setPageOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
-    // PR 12 — straightened argument order to match Qt's canonical
-    // QMarginsF(left, top, right, bottom) signature. Pre-PR 12 the call
-    // site passed (left, right, top, bottom) — a swap masked by the
-    // symmetric default margins most documents ship with. activeLayoutMargins()
-    // returns {left, top, right, bottom}; pass elements in the same order.
     const auto printMargins = graphic->activeLayoutMargins();
     QMarginsF paperMargins{printMargins[0],   // left
                            printMargins[1],   // top
                            printMargins[2],   // right
                            printMargins[3]};  // bottom
-    printer.setPageMargins(paperMargins, QPageLayout::Millimeter);
+
+    // Issue #2337: use QPageLayout to set page size, orientation, and margins
+    // together. On Linux/CUPS, setting orientation via setPageOrientation()
+    // after setPageSize() with a standard size ID may not propagate correctly,
+    // resulting in portrait-only output regardless of the landscape setting.
+    QPageLayout layout;
+    layout.setMode(QPageLayout::FullPageMode);
+    layout.setUnits(QPageLayout::Millimeter);
+
+    if (paperSizeName == QPageSize::Custom) {
+        RS_Vector s = RS_Units::convert(paperSize, unit, RS2::Millimeter);
+        if (landscape)
+            s = s.flipXY();
+        layout.setPageSize(QPageSize{QSizeF(s.x, s.y), QPageSize::Millimeter}, paperMargins);
+    } else {
+        layout.setPageSize(QPageSize{static_cast<QPageSize::PageSizeId>(paperSizeName)}, paperMargins);
+    }
+    layout.setOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
+    printer.setPageLayout(layout);
 
     // Issue #2130: populate the output file name for
     QString defaultFile = setFileNameColor(printer, *graphic);
@@ -147,20 +150,13 @@ void LC_Printing::Print(QC_MDIWindow &mdiWindow, PrinterType printerType)
     // printer setup:
     bool bStartPrinting = false;
     if (printerType == PrinterType::PDF) {
-        printer.setFullPage(true);
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setColorMode(QPrinter::Color);
         printer.setResolution(1200);
         // Issue #1897, exporting PDF margins to to follow the drawing settings
-        QPageLayout layout = printer.pageLayout();
-        layout.setMode(QPageLayout::FullPageMode);
-        layout.setUnits(QPageLayout::Millimeter);
-        layout.setMinimumMargins({});
-        RS_Vector s=RS_Units::convert(paperSize, unit, RS2::Millimeter);
-        if(landscape)
-            s=s.flipXY();
-        layout.setPageSize(QPageSize{QSizeF(s.x, s.y), QPageSize::Millimeter}, paperMargins);
-        printer.setPageLayout(layout);
+        QPageLayout pdfLayout = printer.pageLayout();
+        pdfLayout.setMinimumMargins({});
+        printer.setPageLayout(pdfLayout);
         QString pdfFie = QFileDialog::getSaveFileName(
             &mdiWindow,
             QObject::tr("Export to PDF"),
@@ -261,7 +257,7 @@ void LC_Printing::Print(QC_MDIWindow &mdiWindow, PrinterType printerType)
             QApplication::restoreOverrideCursor();
         }};
 
-        // fixme - sand rework this later - it seems that printing in general should be refined.  
+        // fixme - sand rework this later - it seems that printing in general should be refined.
         QG_GraphicView *graphicView = mdiWindow.getGraphicView();
         RS2::DrawingMode drawingMode = RS2::DrawingMode::ModeAuto;
         if (graphicView->isPrintPreview()){
