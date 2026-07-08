@@ -335,6 +335,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
         dock_pen_palette = new QDockWidget(main_window);
         dock_pen_palette->setWindowTitle(QC_ApplicationWindow::tr("Pen Palette"));
         dock_pen_palette->setObjectName("pen_palette_dockwidget");
+        dock_pen_palette->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
         pen_palette = new LC_PenPaletteWidget("Layer", dock_pen_palette);
         pen_palette->setFocusPolicy(Qt::NoFocus);
         connect(pen_palette, SIGNAL(escape()), main_window, SLOT(slotFocus()));
@@ -356,6 +357,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
         dock_layer_tree = new QDockWidget(main_window);
         dock_layer_tree->setWindowTitle(QC_ApplicationWindow::tr("Layer Tree"));
         dock_layer_tree->setObjectName("layer_tree_dockwidget");
+        dock_layer_tree->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
         layer_tree_widget = new LC_LayerTreeWidget(action_handler, dock_layer_tree, "Layer Tree");
         layer_tree_widget->setFocusPolicy(Qt::NoFocus);
         connect(layer_tree_widget, SIGNAL(escape()), main_window, SLOT(slotFocus()));
@@ -465,7 +467,7 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler)
     snap_toolbar->setSizePolicy(toolBarPolicy);
     snap_toolbar->setObjectName("snap_toolbar" );
     action_handler->set_snap_toolbar(snap_toolbar);
-    connect( main_window,  &QC_ApplicationWindow::signalEnableRelativeZeroSnaps, 
+    connect( main_window,  &QC_ApplicationWindow::signalEnableRelativeZeroSnaps,
              snap_toolbar, &QG_SnapToolBar::slotEnableRelativeZeroSnaps);
 
     pen_toolbar = new QG_PenToolBar(QC_ApplicationWindow::tr("Pen"), main_window);
