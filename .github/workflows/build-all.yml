@@ -78,7 +78,7 @@ jobs:
           echo  ${{github.workspace}}
           ls  ${{github.workspace}}/
           ls  ${{github.workspace}}/**.AppImage
-          ls 
+          ls
 
       - name: Upload artifact
         uses: actions/upload-artifact@v5
@@ -95,7 +95,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
-          
+
       - name: Install dependencies
         run: |
           sudo apt-get -y update
@@ -118,7 +118,7 @@ jobs:
           echo  ${{github.workspace}}
           ls  ${{github.workspace}}/
           ls  ${{github.workspace}}/**.AppImage
-          ls 
+          ls
 
       - name: Upload artifact
         uses: actions/upload-artifact@v5
@@ -158,7 +158,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
-          
+
       - name: Install Qt5
         uses: jurplel/install-qt-action@v3
         with:
@@ -176,15 +176,15 @@ jobs:
         run: |
           rm -f /usr/local/bin/2to3
           brew install boost
-          
+
       - name: Kill XProtectBehaviorService
         run: |
           echo Killing XProtect.
           sudo pkill -9 XProtect >/dev/null || true
-      
+
       - name: Build and packaging
         run: |
-          scripts/build-osx.sh
+          scripts/build-osx.sh -cert=-
           mv LibreCAD.dmg LibreCAD-`git describe --always`.dmg
 
       - name: Upload artifact
@@ -202,7 +202,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
-          
+
       - name: Install dependencies
         run: |
           rm -f /usr/local/bin/2to3
@@ -218,12 +218,12 @@ jobs:
         run: |
           echo Killing XProtect.
           sudo pkill -9 XProtect >/dev/null || true
-      
+
       - name: Build and packaging
         env:
           QMAKE_OPTS: QMAKE_APPLE_DEVICE_ARCHS=arm64
         run: |
-          scripts/build-osx.sh
+          scripts/build-osx.sh -cert=-
           mv LibreCAD.dmg LibreCAD-`git describe --always`-arm64.dmg
 
       - name: Upload artifact
