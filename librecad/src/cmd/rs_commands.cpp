@@ -1292,7 +1292,10 @@ void RS_Commands::updateAlias(){
 
     //add alias to shortCommands
     for(auto const& p: aliasList){
-        if(m_shortCommands.count(p.first)) continue;
+        // Issue #2656: allow a user alias to override a built-in short command
+        // (e.g. remap "c" from circle to modmove). Only refuse to redefine a
+        // full/main command, which would break command lookup / cause cyclic
+        // resolution. Ported from the master alias cleanup (Issue #2019).
         if(m_mainCommands.count(p.first)) continue;
         if(m_mainCommands.count(p.second)){
             RS_DEBUG->print("adding command alias: %s\t%s\n", p.first.toStdString().c_str(), p.second.toStdString().c_str());
