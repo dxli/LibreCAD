@@ -98,6 +98,25 @@ QPageSize::PageSizeId LC_Printing::rsToQtPaperFormat(RS2::PaperFormat paper){
     return (paperToPage.count(paper) == 1) ? paperToPage.at(paper) : QPageSize::Custom;
 }
 
+void LC_Printing::setupPageLayout(QPrinter& printer, bool landscape, QPageSize::PageSizeId paperSizeName,
+                                  const RS_Vector& paperSize, RS2::Unit unit, const QMarginsF& paperMargins)
+{
+    QPageLayout layout;
+    layout.setMode(QPageLayout::FullPageMode);
+    layout.setUnits(QPageLayout::Millimeter);
+
+    if (paperSizeName == QPageSize::Custom) {
+        RS_Vector s = RS_Units::convert(paperSize, unit, RS2::Millimeter);
+        if (landscape)
+            s = s.flipXY();
+        layout.setPageSize(QPageSize{QSizeF(s.x, s.y), QPageSize::Millimeter}, paperMargins);
+    } else {
+        layout.setPageSize(QPageSize{paperSizeName}, paperMargins);
+    }
+    layout.setOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
+    printer.setPageLayout(layout);
+}
+
 void LC_Printing::Print(QC_MDIWindow &mdiWindow, PrinterType printerType)
 {
     RS_Graphic *graphic = mdiWindow.getDocument()->getGraphic();
@@ -129,20 +148,7 @@ void LC_Printing::Print(QC_MDIWindow &mdiWindow, PrinterType printerType)
     // together. On Linux/CUPS, setting orientation via setPageOrientation()
     // after setPageSize() with a standard size ID may not propagate correctly,
     // resulting in portrait-only output regardless of the landscape setting.
-    QPageLayout layout;
-    layout.setMode(QPageLayout::FullPageMode);
-    layout.setUnits(QPageLayout::Millimeter);
-
-    if (paperSizeName == QPageSize::Custom) {
-        RS_Vector s = RS_Units::convert(paperSize, unit, RS2::Millimeter);
-        if (landscape)
-            s = s.flipXY();
-        layout.setPageSize(QPageSize{QSizeF(s.x, s.y), QPageSize::Millimeter}, paperMargins);
-    } else {
-        layout.setPageSize(QPageSize{static_cast<QPageSize::PageSizeId>(paperSizeName)}, paperMargins);
-    }
-    layout.setOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
-    printer.setPageLayout(layout);
+    LC_Printing::setupPageLayout(printer, landscape, paperSizeName, paperSize, unit, paperMargins);
 
     // Issue #2130: populate the output file name for
     QString defaultFile = setFileNameColor(printer, *graphic);
