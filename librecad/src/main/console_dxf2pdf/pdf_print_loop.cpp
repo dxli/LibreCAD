@@ -224,26 +224,26 @@ static void setupPrinterAndPaper(RS_Graphic* graphic, QPrinter& printer,
     RS2::PaperFormat pf = graphic->getPaperFormat(&landscape);
     QPageSize::PageSizeId paperSize = LC_Printing::rsToQtPaperFormat(pf);
 
+    // Use QPageLayout to set page size and orientation together.
+    // This ensures consistent behavior across platforms and avoids
+    // potential issues with setPageOrientation() not propagating
+    // correctly after setPageSize().
+    QPageLayout layout;
+    layout.setMode(QPageLayout::FullPageMode);
+    layout.setUnits(QPageLayout::Millimeter);
+
     if (paperSize == QPageSize::Custom){
         RS_Vector r = graphic->getPaperSize();
         RS_Vector s = RS_Units::convert(r, graphic->getUnit(),
             RS2::Millimeter);
         if (landscape)
             s = s.flipXY();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-        printer.setPageSize(QPageSize{QSizeF{s.x,s.y}, QPageSize::Millimeter});
-#else
-        printer.setPaperSize(QSizeF{s.x,s.y}, QPrinter::Millimeter);
-#endif
+        layout.setPageSize(QPageSize{QSizeF{s.x,s.y}, QPageSize::Millimeter});
     } else {
-        printer.setPageSize(paperSize);
+        layout.setPageSize(QPageSize{paperSize});
     }
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    printer.setPageOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
-#else
-    printer.setOrientation(landscape ? QPrinter::Landscape : QPrinter::Portrait);
-#endif
+    layout.setOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
+    printer.setPageLayout(layout);
 
     printer.setOutputFileName(params.outFile);
     printer.setOutputFormat(QPrinter::PdfFormat);
