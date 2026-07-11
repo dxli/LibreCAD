@@ -222,28 +222,14 @@ static void setupPrinterAndPaper(RS_Graphic* graphic, QPrinter& printer,
     bool landscape = false;
 
     RS2::PaperFormat pf = graphic->getPaperFormat(&landscape);
-    QPageSize::PageSizeId paperSize = LC_Printing::rsToQtPaperFormat(pf);
+    QPageSize::PageSizeId paperSizeName = LC_Printing::rsToQtPaperFormat(pf);
+    RS_Vector paperSize = graphic->getPaperSize();
+    QMarginsF paperMargins{graphic->getMarginLeft(),
+                           graphic->getMarginRight(),
+                           graphic->getMarginTop(),
+                           graphic->getMarginBottom()};
 
-    if (paperSize == QPageSize::Custom){
-        RS_Vector r = graphic->getPaperSize();
-        RS_Vector s = RS_Units::convert(r, graphic->getUnit(),
-            RS2::Millimeter);
-        if (landscape)
-            s = s.flipXY();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-        printer.setPageSize(QPageSize{QSizeF{s.x,s.y}, QPageSize::Millimeter});
-#else
-        printer.setPaperSize(QSizeF{s.x,s.y}, QPrinter::Millimeter);
-#endif
-    } else {
-        printer.setPageSize(paperSize);
-    }
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    printer.setPageOrientation(landscape ? QPageLayout::Landscape : QPageLayout::Portrait);
-#else
-    printer.setOrientation(landscape ? QPrinter::Landscape : QPrinter::Portrait);
-#endif
+    LC_Printing::setupPageLayout(printer, landscape, paperSizeName, paperSize, graphic->getUnit(), paperMargins);
 
     printer.setOutputFileName(params.outFile);
     printer.setOutputFormat(QPrinter::PdfFormat);
