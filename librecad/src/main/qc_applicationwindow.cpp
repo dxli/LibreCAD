@@ -2443,9 +2443,10 @@ void QC_ApplicationWindow::slotFilePrint(bool printPDF) {
     QPrinter::PageSize paperSizeName = LC_Printing::rsToQtPaperFormat(pf);
     RS_Vector paperSize = graphic->getPaperSize();
     // margins in mm
+    // QMarginsF is (left, top, right, bottom)
     QMarginsF paperMargins{graphic->getMarginLeft(),
-                                            graphic->getMarginRight(),
                                             graphic->getMarginTop(),
+                                            graphic->getMarginRight(),
                                             graphic->getMarginBottom()};
 
     printMargins(paperMargins, "Drawing");
