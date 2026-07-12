@@ -92,8 +92,24 @@ bool dwgReader21::parseSysPage(std::uint64_t sizeCompressed, std::uint64_t sizeU
         return false;
     }
 
-    dwgCompressor comp;
-    return comp.decompress21(tmpDataRS.data(), decompData, sizeCompressed, sizeUncompressed);
+    if (sizeCompressed < sizeUncompressed) {
+        dwgCompressor comp;
+        return comp.decompress21(tmpDataRS.data(), decompData, sizeCompressed, sizeUncompressed);
+    }
+    // Stored (incompressible) system page: sizeCompressed >= sizeUncompressed
+    // means the writer left the page (page map / section map) uncompressed, so
+    // the RS-decoded buffer is the raw payload — copy it verbatim rather than
+    // feeding non-LZ77 bytes to decompress21.  Mirrors the parseDataPage stored
+    // path and LibreDWG read_system_page.  (Defensive: R2007 system pages are
+    // small and effectively always compress, so no corpus file exercises this;
+    // it can never regress an existing read because those all take the branch
+    // above.)
+    if (sizeUncompressed > tmpDataRS.size()) {
+        DRW_DBG("\nERROR: dwgReader21::parseSysPage: stored page uSize exceeds RS buffer\n");
+        return false;
+    }
+    std::memcpy(decompData, tmpDataRS.data(), sizeUncompressed);
+    return true;
 }
 
 bool dwgReader21::parseDataPage(const dwgSectionInfo &si, std::uint8_t *dData){
