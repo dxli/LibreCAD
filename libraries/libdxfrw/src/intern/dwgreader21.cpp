@@ -12,6 +12,7 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -151,9 +152,22 @@ bool dwgReader21::parseDataPage(const dwgSectionInfo &si, std::uint8_t *dData){
         DRW_DBG("\noffset: ");
         DRW_DBG(static_cast<unsigned long long>(pi.startOffset));
         std::uint8_t *pageData = dData + pi.startOffset;
-        dwgCompressor comp;
-        if (!comp.decompress21(tmpPageRS.data(), pageData, pi.cSize, pi.uSize)) {
-            return false;
+        if (pi.cSize < pi.uSize) {
+            dwgCompressor comp;
+            if (!comp.decompress21(tmpPageRS.data(), pageData, pi.cSize, pi.uSize)) {
+                return false;
+            }
+        } else {
+            // Stored (incompressible) page: cSize >= uSize means the writer left this
+            // page uncompressed because LZ77 would not shrink it. The RS-decoded buffer
+            // is the raw payload verbatim, so copy it rather than running the LZ77
+            // decoder on non-LZ77 bytes. Mirrors LibreDWG read_data_page
+            // (decode_r2007.c): size_comp < size_uncomp -> decompress; else memcpy.
+            if (pi.uSize > pi.size) {   // tmpPageRS holds pi.size RS-decoded bytes
+                DRW_DBG("\nERROR: dwgReader21::parseDataPage: stored page uSize exceeds raw page size\n");
+                return false;
+            }
+            std::memcpy(pageData, tmpPageRS.data(), pi.uSize);
         }
 
     #ifdef DRW_DBG_DUMP

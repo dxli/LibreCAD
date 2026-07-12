@@ -1148,6 +1148,32 @@ TEST_CASE("DWG R2007: section names decode via UTF-16 (no BAD_READ_HEADER)",
   CHECK(r.entities > 0);
 }
 
+// Regression for BAD_READ_TABLES on a stored (incompressible) R2007 data page.
+// The $100-bill raster artwork produces an AcDb:AcDbObjects page with
+// cSize==uSize that dwgReader21::parseDataPage must memcpy, not LZ77-decompress
+// (mirrors LibreDWG read_data_page). The file is 30 MB -> developer-local, skip
+// if absent (tag hidden with leading '.').
+TEST_CASE("DWG R2007 stored-page: usa_dollar100_front.dwg reads tables",
+          "[.dwg6_stored_page]") {
+  const char *home = std::getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg6/usa_dollar100_front.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("usa_dollar100_front.dwg not present; skipping");
+    return;
+  }
+  CountingIface iface;
+  const DwgResult r = readDwg(path, /*verbose=*/false, &iface);
+  REQUIRE(r.error == DRW::BAD_NONE); // was BAD_READ_TABLES before the fix
+  CHECK(iface.entities == 41368);    // dwgread: 41364 POLYLINE_3D + 4 LWPOLYLINE
+  CHECK(iface.blocks == 2);
+  CHECK(iface.layers == 1);
+}
+
 TEST_CASE("DWG XLINE reads as typed construction line across LibreDWG versions",
           "[dwg][xline]") {
   struct Fixture {
