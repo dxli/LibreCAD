@@ -40,8 +40,20 @@ bool dwgReader21::readMetaData() {
     DRW_DBG("\napp writer maintenance version= "); DRW_DBGH(appMaintenanceVersion);
     std::uint16_t cp = fileBuf->getRawShort16();
     DRW_DBG("\ncodepage= "); DRW_DBG(cp);
-    if (const char* cpName = dwgCodePageName(cp))
-        decoder.setCodePage(cpName, false);
+    // R2007+ (AC1021+) store all text — section-map names and entity strings —
+    // as UTF-16LE; the DWGCODEPAGE field is only meaningful for R2004 and
+    // earlier.  Applying it here would replace the UTF-16 decoder that
+    // setVersion(AC1021) installed with a single-byte ANSI table, leaving the
+    // interleaved 0x00 bytes in getUCSStr()'s output so section names like
+    // "AcDb:Header" never match secEnum::getEnum() -> every section collapses
+    // to UNKNOWNS, HEADER stays Id==-1, and readDwgHeader() fails with
+    // BAD_READ_HEADER (systemic across all R2007 files).  reader21 is dispatched
+    // only for AC1021, so this guard skips the override entirely; the clause
+    // mirrors dwgReader18::readFileHeader for symmetry.
+    if (version <= DRW::AC1018) {
+        if (const char* cpName = dwgCodePageName(cp))
+            decoder.setCodePage(cpName, false);
+    }
     /* UNKNOUWN SECTION 2 bytes*/
     DRW_DBG("\nUNKNOWN SECTION= "); DRW_DBG(fileBuf->getRawShort16());
     DRW_DBG("\nUNKNOUWN SECTION 3b= "); DRW_DBG(fileBuf->getRawChar8());

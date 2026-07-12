@@ -214,10 +214,11 @@ TEST_CASE("DWG VISUALSTYLE legacy body decodes (Point_1.dwg / AC1021)",
 
   VisualStyleCapture cap;
   if (!tryReadVisualStyles(path, cap)) {
-    // Point_1.dwg is AC1021 (R2007); libdxfrw's R2007 header reader has a
-    // pre-existing BAD_READ_HEADER hazard (same class as the 7 accepted
-    // dwg_smoke_tests failures). This test starts firing once that lands.
-    SUCCEED("visualstyle_r2007.dwg: pre-existing R2007 BAD_READ_HEADER");
+    // Point_1.dwg is AC1021 (R2007).  The R2007 BAD_READ_HEADER blocker (a
+    // section-name UTF-16 decode bug in dwgReader21::readMetaData) is now
+    // fixed, so this normally reads and asserts the legacy-body decode below;
+    // this branch only guards a missing/unreadable fixture.
+    SUCCEED("visualstyle_r2007.dwg: fixture unavailable");
     return;
   }
   REQUIRE(cap.m_styles.size() >= 1);

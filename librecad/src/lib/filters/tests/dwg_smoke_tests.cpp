@@ -1128,6 +1128,26 @@ TEST_CASE("dwgRW::readBuffer matches file-path read for a committed fixture",
   CHECK(memoryIface.layerLWeights == fileIface.layerLWeights);
 }
 
+// Regression guard for the R2007/AC1021 header-read fix: dwgReader21 previously
+// clobbered the UTF-16 decoder with the legacy codepage, so section names
+// decoded with embedded 0x00 bytes, no section matched secEnum::getEnum(), and
+// every R2007 file failed at BAD_READ_HEADER. The committed AC1021 fixture must
+// now read clean.
+TEST_CASE("DWG R2007: section names decode via UTF-16 (no BAD_READ_HEADER)",
+          "[dwg][r2007]") {
+  const std::string path =
+      std::string(LIBRECAD_TEST_DIR) + "/visualstyle_r2007.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("visualstyle_r2007.dwg fixture absent; skipping");
+    return;
+  }
+  const DwgResult r = readDwg(path);
+  REQUIRE(r.version == DRW::AC1021);
+  REQUIRE(r.error == DRW::BAD_NONE); // was BAD_READ_HEADER before the fix
+  REQUIRE(r.ok);
+  CHECK(r.entities > 0);
+}
+
 TEST_CASE("DWG XLINE reads as typed construction line across LibreDWG versions",
           "[dwg][xline]") {
   struct Fixture {
@@ -1138,8 +1158,8 @@ TEST_CASE("DWG XLINE reads as typed construction line across LibreDWG versions",
   const Fixture fixtures[] = {
       {"xline/constructionline_2000.dwg", DRW::AC1015},
       {"xline/constructionline_2004.dwg", DRW::AC1018},
-      // LibreDWG's AC1021/R2007 ConstructionLine.dwg currently fails this
-      // reader at BAD_READ_HEADER, before any XLINE dispatch can be exercised.
+      // (R2007/AC1021 row omitted only because no constructionline_2007.dwg
+      //  fixture is committed; the former BAD_READ_HEADER blocker is now fixed.)
       {"xline/constructionline_2010.dwg", DRW::AC1024},
       {"xline/constructionline_2013.dwg", DRW::AC1027},
       {"xline/constructionline_2018.dwg", DRW::AC1032},
