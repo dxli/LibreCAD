@@ -7223,6 +7223,16 @@ bool DRW_VisualStyle::parseCode(int code, const std::unique_ptr<dxfReader>& read
 
 // object is parsed from a size-bounded buffer so any unread tail is
 // safely discarded by the caller.
+//
+// Full AcDbVisualStyle body decode. Field order transcribed 1:1 from dwgTs
+// parseObjects.ts parseVisualStyle / readVisualStyleLegacyBody (1587-1627) /
+// readVisualStyleR2010bBody (1762-1832) / readVisualStyleR2013bExpansion
+// (1651-1710), cross-checked against libreDWG dwg2.spec:2119-2289.
+// Bit-primitive map: readBitLong->getBitLong, readBitDouble->getBitDouble,
+// readBitShort->getBitShort, readBit->getBit, readRawChar->getRawChar8,
+// readCmColor->readObjectCmColor, readObjectText->getVariableText.
+// Graceful degrade: always return true once the common preamble parses, so
+// dwgreader's `if(ret)` still delivers BOTH addVisualStyle and the raw shelf.
 bool DRW_VisualStyle::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
     dwgBuffer sBuff = *buf;
     dwgBuffer *sBuf = buf;
@@ -7232,9 +7242,142 @@ bool DRW_VisualStyle::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32
     bool ret = DRW_TableEntry::parseDwg(version, buf, sBuf, bs);
     DRW_DBG("\n***************************** parsing VISUALSTYLE *********************\n");
     if (!ret) return ret;
-    // No further field reads — the stub delivers an entry to addVisualStyle
-    // so the file's class table doesn't lose phantom entries.
-    return buf->isGood();
+
+    // hasBodyBytesRemaining (dwgTs :8033): for R2007+ the body ends at objSize
+    // (the handle-stream start, in bits); guard every optional read against it.
+    // Pre-R2007 uses numRemainingBytes() to match dwgTs's buf.remaining() > 0
+    // (isGood() stays true at EOF, giving false-positive tail admits).
+    auto bodyBytesRemaining = [&]() -> bool {
+        if (version > DRW::AC1018 && objSize > 0)
+            return currentObjectDwgBit(buf) < objSize;
+        return buf->numRemainingBytes() > 0;
+    };
+
+    if (bodyBytesRemaining())
+        desc = sBuf->getVariableText(version, false);   // FIELD_T description (2)
+    if (bodyBytesRemaining())
+        type = buf->getBitLong();                       // FIELD_BL style_type (70)
+
+    if (version < DRW::AC1024 && bodyBytesRemaining()) {
+        // ---- legacy body (< AC1024) : parseObjects.ts:1587-1627 / dwg2.spec PRE(R_2010b) ----
+        m_body.faceLightingModel     = buf->getBitLong();
+        m_body.faceLightingQuality   = buf->getBitLong();
+        m_body.faceColorMode         = buf->getBitLong();
+        m_body.faceOpacity           = buf->getBitDouble();
+        m_body.faceSpecular          = buf->getBitDouble();
+        m_body.faceMonoColor         = readObjectCmColor(version, buf, sBuf);
+        m_body.faceModifier          = buf->getBitLong();
+
+        m_body.edgeModel             = buf->getBitLong();
+        m_body.edgeStyle             = buf->getBitLong();
+        m_body.edgeIntersectionColor = readObjectCmColor(version, buf, sBuf);
+        m_body.edgeObscuredColor     = readObjectCmColor(version, buf, sBuf);
+        m_body.edgeObscuredLtype     = buf->getBitLong();
+        m_body.edgeCreaseAngle       = buf->getBitDouble();
+        m_body.edgeModifier          = buf->getBitLong();
+        m_body.edgeColor             = readObjectCmColor(version, buf, sBuf);
+        m_body.edgeOpacity           = buf->getBitDouble();
+        m_body.edgeWidth             = buf->getBitShort();   // FIELD_CAST BS->BL (2149)
+        m_body.edgeOverhang          = buf->getBitShort();   // FIELD_CAST BS->BL (2150)
+        m_body.edgeJitter            = buf->getBitLong();
+        m_body.edgeSilhouetteColor   = readObjectCmColor(version, buf, sBuf);
+        m_body.edgeSilhouetteWidth   = buf->getBitShort();   // FIELD_CAST BS->BL (2153)
+        m_body.edgeHaloGap           = buf->getRawChar8();   // FIELD_CAST RC->BL (2154)
+        m_body.edgeIsolines          = buf->getBitShort();   // FIELD_CAST BS->BL (2155)
+        m_body.edgeDoHidePrecision   = buf->getBit() != 0;
+        m_body.edgeStyleApply        = buf->getBitShort();   // FIELD_CAST BS->BL (2157)
+        m_body.edgeIntersectionLtype = buf->getBitShort();   // FIELD_CAST BS->BL (2158)
+
+        m_body.displaySettings       = buf->getBitLong();
+        m_body.displayBrightness     = static_cast<double>(buf->getBitLong()); // FIELD_BLd (2160)
+
+        if (bodyBytesRemaining()) {                          // dwg2.spec:2162 tail guard
+            m_body.displayShadowType = buf->getBitLong();
+            if (version >= DRW::AC1021)
+                buf->getBitDouble();                         // bd2007_45 (45), discarded
+            m_body.internalOnly      = buf->getBit() != 0;
+        }
+    } else if (version >= DRW::AC1024 && bodyBytesRemaining()) {
+        // ---- r2010b body (>= AC1024) : parseObjects.ts:1762-1827 / dwg2.spec SINCE(R_2010b) ----
+        m_body.extLightingModel      = buf->getBitShort();   // FIELD_BS ext_lighting_model (177)
+        m_body.internalOnly          = buf->getBit() != 0;   // FIELD_B internal_only (291)
+
+        // value + BS "_int" companion (companion consumed/discarded):
+        m_body.faceLightingModel     = buf->getBitLong();   buf->getBitShort();
+        m_body.faceLightingQuality   = buf->getBitLong();   buf->getBitShort();
+        m_body.faceColorMode         = buf->getBitLong();   buf->getBitShort();
+        m_body.faceModifier          = buf->getBitShort();  buf->getBitShort();  // FIELD_CAST BS->BL (2189)
+        m_body.faceOpacity           = buf->getBitDouble(); buf->getBitShort();
+        m_body.faceSpecular          = buf->getBitDouble(); buf->getBitShort();
+        m_body.faceMonoColor         = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+
+        m_body.edgeModel             = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeStyle             = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeIntersectionColor = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+        m_body.edgeObscuredColor     = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+        m_body.edgeObscuredLtype     = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeIntersectionLtype = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeCreaseAngle       = buf->getBitDouble(); buf->getBitShort();
+        m_body.edgeModifier          = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeColor             = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+        m_body.edgeOpacity           = buf->getBitDouble(); buf->getBitShort();
+        m_body.edgeWidth             = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeOverhang          = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeJitter            = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeSilhouetteColor   = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+        m_body.edgeSilhouetteWidth   = buf->getBitLong();   buf->getBitShort();
+        m_body.edgeHaloGap           = buf->getBitLong();   buf->getBitShort();
+        {
+            const std::int32_t isolines = buf->getBitLong();
+            m_body.edgeIsolines      = isolines > 5000 ? 5000 : isolines;  // VALUEOUTOFBOUNDS (2210)
+            buf->getBitShort();
+        }
+        m_body.edgeDoHidePrecision   = buf->getBit() != 0;  buf->getBitShort();
+
+        m_body.displaySettings       = buf->getBitLong();   buf->getBitShort();
+        m_body.displayBrightness     = buf->getBitDouble(); buf->getBitShort();
+        m_body.displayShadowType     = buf->getBitLong();   buf->getBitShort();
+
+        if (version >= DRW::AC1027) {
+            // ---- r2013b expansion : parseObjects.ts:1651-1710 / dwg2.spec SINCE(R_2013b) ----
+            m_body.hasR2013bExpansion = true;
+            m_body.bProp1c = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp1d = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp1e = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp1f = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp20 = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp21 = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp22 = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp23 = buf->getBit() != 0;   buf->getBitShort();
+            m_body.bProp24 = buf->getBit() != 0;   buf->getBitShort();
+            m_body.blProp25 = buf->getBitLong();   buf->getBitShort();
+            m_body.bdProp26 = buf->getBitDouble(); buf->getBitShort();
+            m_body.bdProp27 = buf->getBitDouble(); buf->getBitShort();
+            m_body.blProp28 = buf->getBitLong();   buf->getBitShort();
+            m_body.cProp29  = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+            m_body.blProp2a = buf->getBitLong();   buf->getBitShort();
+            m_body.blProp2b = buf->getBitLong();   buf->getBitShort();
+            m_body.cProp2c  = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+            m_body.bProp2d  = buf->getBit() != 0;  buf->getBitShort();
+            m_body.blProp2e = buf->getBitLong();   buf->getBitShort();
+            m_body.blProp2f = buf->getBitLong();   buf->getBitShort();
+            m_body.blProp30 = buf->getBitLong();   buf->getBitShort();
+            m_body.bProp31  = buf->getBit() != 0;  buf->getBitShort();
+            m_body.blProp32 = buf->getBitLong();   buf->getBitShort();
+            m_body.cProp33  = readObjectCmColor(version, buf, sBuf); buf->getBitShort();
+            m_body.bdProp34 = buf->getBitDouble(); buf->getBitShort();
+            m_body.edgeWiggle = buf->getBitLong(); buf->getBitShort();       // prop 0x35
+            m_body.strokes  = sBuf->getVariableText(version, false); buf->getBitShort(); // prop 0x36
+            m_body.bProp37  = buf->getBit() != 0;  buf->getBitShort();
+            m_body.bdProp38 = buf->getBitDouble(); buf->getBitShort();
+            m_body.bdProp39 = buf->getBitDouble(); buf->getBitShort();
+        }
+    }
+
+    // m_bodyDecoded reflects whether the walk stayed inside the object; the
+    // object (typed + raw shelf) is delivered regardless (graceful degrade).
+    m_bodyDecoded = buf->isGood();
+    return true;
 }
 
 // DBCOLOR (AcDbColor) per ODA spec §20.4 / libreDWG dwg2.spec:2404-2408.

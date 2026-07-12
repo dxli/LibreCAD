@@ -1830,6 +1830,7 @@ if(BUILD_TESTS)
         librecad/src/lib/filters/tests/rtext_arctext_tests.cpp
         librecad/src/lib/filters/tests/large_radial_dim_dxf_tests.cpp
         librecad/src/lib/filters/tests/large_radial_dim_dwg_tests.cpp
+        librecad/src/lib/filters/tests/visualstyle_dwg_tests.cpp
         librecad/src/lib/filters/tests/mleader_text_tests.cpp
         librecad/src/lib/filters/tests/mleader_dxf_context_tests.cpp
         librecad/src/lib/filters/tests/dxf_roundtrip_tests.cpp

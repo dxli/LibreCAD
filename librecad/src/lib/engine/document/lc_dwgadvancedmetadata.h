@@ -743,7 +743,7 @@ public:
         std::uint32_t parentHandle = 0;
         std::string name;
         std::string description;
-        std::uint16_t type = 0;
+        std::int32_t type = 0;   // mirrors DRW_VisualStyle::type widening BS->BL (P3.3)
         ReplayState replayState = ReplayState::ReplayAllowed;
     };
 

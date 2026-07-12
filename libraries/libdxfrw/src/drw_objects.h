@@ -2537,25 +2537,79 @@ protected:
     bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
 };
 
+//! AcDbVisualStyle body — face/edge/display property groups + r2013b expansion.
+/*!
+ *  Primary values only (named); the interleaved BS "_int" companions from the
+ *  r2010b/r2013b layout are consumed for bit-alignment and discarded (they are
+ *  near-constant 0/1 sentinels). Disjoint subsets populate per version:
+ *  legacy (< AC1024) fills face/edge/display; r2010b (>= AC1024) fills those
+ *  plus extLightingModel; r2013b (>= AC1027) additionally fills the b/bl/bd/c
+ *  prop* expansion. Colors are stored as the CMC index returned by
+ *  readObjectCmColor (matches the DRW_TableStyle color-as-int convention).
+ */
+struct DRW_VisualStyleBody {
+    // face group
+    int    faceLightingModel = 0, faceLightingQuality = 0, faceColorMode = 0, faceModifier = 0;
+    double faceOpacity = 0.0, faceSpecular = 0.0;
+    int    faceMonoColor = 0;
+    // edge group
+    int    edgeModel = 0, edgeStyle = 0, edgeIntersectionColor = 0, edgeObscuredColor = 0;
+    int    edgeObscuredLtype = 0, edgeIntersectionLtype = 0, edgeModifier = 0, edgeColor = 0;
+    int    edgeWidth = 0, edgeOverhang = 0, edgeJitter = 0, edgeSilhouetteColor = 0, edgeSilhouetteWidth = 0;
+    int    edgeHaloGap = 0, edgeIsolines = 0, edgeStyleApply = 0;
+    double edgeCreaseAngle = 0.0, edgeOpacity = 0.0;
+    bool   edgeDoHidePrecision = false;
+    // display group
+    int    displaySettings = 0, displayShadowType = 0;
+    double displayBrightness = 0.0;
+    // r2010b header
+    int    extLightingModel = 0;
+    bool   internalOnly = false;
+    // r2013b expansion (>= AC1027)
+    bool   hasR2013bExpansion = false;
+    bool   bProp1c = false, bProp1d = false, bProp1e = false, bProp1f = false;
+    bool   bProp20 = false, bProp21 = false, bProp22 = false, bProp23 = false, bProp24 = false;
+    int    blProp25 = 0;
+    double bdProp26 = 0.0, bdProp27 = 0.0;
+    int    blProp28 = 0, cProp29 = 0, blProp2a = 0, blProp2b = 0, cProp2c = 0;
+    bool   bProp2d = false;
+    int    blProp2e = 0, blProp2f = 0, blProp30 = 0;
+    bool   bProp31 = false;
+    int    blProp32 = 0, cProp33 = 0;
+    double bdProp34 = 0.0;
+    int    edgeWiggle = 0;
+    UTF8STRING strokes;
+    bool   bProp37 = false;
+    double bdProp38 = 0.0, bdProp39 = 0.0;
+};
+
 //! Class to handle VISUALSTYLE (AcDbVisualStyle) — custom-class object §20.4.95.
 /*!
- *  Stub: full ODA spec lists 60+ fields for visual styles, but LibreCAD is 2D
- *  and never consumes them. We only need round-trip identity at the OBJECTS-
- *  section dispatch boundary so the file's class table doesn't drop a phantom
- *  entry. Each object is parsed from a size-bounded buffer so misalignment
- *  within parseDwg can't propagate to neighbors.
+ *  Decodes the full AcDbVisualStyle body (legacy < AC1024 / r2010b >= AC1024 /
+ *  r2013b expansion >= AC1027) into m_body for structured-metadata parity with
+ *  dwgTs. Object is parsed from a size-bounded buffer and the raw shelf carries
+ *  the byte image, so a short-read degrades gracefully (typed metadata may be
+ *  partial; parseDwg always returns true once the common preamble parses).
  */
 class DRW_VisualStyle : public DRW_TableEntry {
     SETOBJFRIENDS
 public:
     DRW_VisualStyle() { reset(); }
-    void reset() { tType = DRW::VISUALSTYLE; desc.clear(); type = 0; }
+    void reset() {
+        tType = DRW::VISUALSTYLE;
+        desc.clear();
+        type = 0;
+        m_body = DRW_VisualStyleBody{};
+        m_bodyDecoded = false;
+    }
 protected:
     bool parseCode(int code, const std::unique_ptr<dxfReader>& reader) override;
     bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
 public:
     UTF8STRING desc;       /*!< description (TV in DWG) */
-    std::uint16_t type = 0;      /*!< visual-style type code (BS in DWG) */
+    std::int32_t type = 0;      /*!< visual-style type code (BL style_type in DWG, 70) */
+    DRW_VisualStyleBody m_body;  /*!< decoded body (DWG); empty on DXF/short-read */
+    bool m_bodyDecoded = false;  /*!< true if the body reached the handle-stream cleanly */
 };
 
 //! Class to handle UNDERLAYDEFINITION (AcDb*Definition) — custom-class object.
