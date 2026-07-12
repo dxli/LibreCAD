@@ -2085,9 +2085,9 @@ public:
  *  scaffold is AcDbObjectContextData:
  *    BS classVersion, B defaultFlag, handle stream ... scaleHandle.
  *
- *  Text and dimension families are decoded far enough to prove typed coverage
- *  and expose useful placement/scale links. Leader/MLeader/FCF/BlkRef context
- *  records remain raw-preserved until a consumer needs them.
+ *  Text, dimension, leader and block-reference families are decoded far enough
+ *  to prove typed coverage and expose useful placement/scale links. MLeader/FCF
+ *  context records remain raw-preserved until a consumer needs them.
  */
 class DRW_ObjectContextData : public DRW_TableEntry {
     SETOBJFRIENDS
@@ -2103,7 +2103,9 @@ public:
         AngularDimension,
         RadialDimension,
         LargeRadialDimension,
-        DiameterDimension
+        DiameterDimension,
+        Leader,
+        BlockReference
     };
 
     explicit DRW_ObjectContextData(const UTF8STRING& recordName = UTF8STRING(),
@@ -2165,6 +2167,18 @@ public:
     bool m_flipArrow1 = false;
     DRW_Coord m_featureLocationPoint;      /*!< ordinate dimensions only */
     DRW_Coord m_leaderEndpoint;            /*!< ordinate dimensions only */
+
+    // Leader context subset (LEADEROBJECTCONTEXTDATA).
+    std::vector<DRW_Coord> m_leaderPoints;
+    bool m_leaderUnknown290 = false;
+    DRW_Coord m_leaderXDir{1.0, 0.0, 0.0};
+    DRW_Coord m_leaderInsertionOffset;
+    DRW_Coord m_leaderEndpointProjection;
+
+    // Block-reference context subset (BLKREFOBJECTCONTEXTDATA).
+    double m_blkRefRotation = 0.0;
+    DRW_Coord m_blkRefInsertionPoint;
+    DRW_Coord m_blkRefScale{1.0, 1.0, 1.0};
 };
 
 struct DRW_DimensionAssociationOsnapRef {

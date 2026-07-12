@@ -5591,6 +5591,39 @@ bool DRW_ObjectContextData::parseDwg(DRW::Version version, dwgBuffer *buf, std::
     case Kind::DiameterDimension:
         if (hasBody()) readDimensionBody();
         break;
+    case Kind::Leader:
+        // AcDbLeaderObjectContextData. Field order per LibreDWG
+        // dwg2.spec DWG_OBJECT(LEADEROBJECTCONTEXTDATA) (empirically the
+        // ground truth; note x_direction precedes b290 — dwgTs has these two
+        // swapped): BL num_points, num_points x 3BD points, 3BD x_direction,
+        // B b290, 3BD inspt_offset, 3BD endptproj.
+        if (hasBody()) {
+            std::int32_t pointCount = buf->getBitLong();
+            if (pointCount < 0) pointCount = 0;
+            // Each point is three bit-doubles; cap so a corrupt count cannot
+            // run away (the per-iteration hasBody()/isGood() guards remain the
+            // primary stop and never truncate a valid list).
+            const std::int32_t cap = 1 << 20;
+            if (pointCount > cap) pointCount = cap;
+            m_leaderPoints.reserve(
+                static_cast<std::size_t>(std::min<std::int32_t>(pointCount, 4096)));
+            for (std::int32_t i = 0; i < pointCount && hasBody() && buf->isGood(); ++i)
+                m_leaderPoints.push_back(buf->get3BitDouble());
+        }
+        if (hasBody()) m_leaderXDir = buf->get3BitDouble();
+        if (hasBody()) m_leaderUnknown290 = buf->getBit() != 0;
+        if (hasBody()) m_leaderInsertionOffset = buf->get3BitDouble();
+        if (hasBody()) m_leaderEndpointProjection = buf->get3BitDouble();
+        break;
+    case Kind::BlockReference:
+        // AcDbBlkrefObjectContextData (dwgTs parseBlockReferenceObjectContextData):
+        // BD rotation, 3RD insertionPoint, BD xScale, BD yScale, BD zScale.
+        if (hasBody()) m_blkRefRotation = buf->getBitDouble();
+        if (hasBody()) m_blkRefInsertionPoint = buf->get3BitDouble();
+        if (hasBody()) m_blkRefScale.x = buf->getBitDouble();
+        if (hasBody()) m_blkRefScale.y = buf->getBitDouble();
+        if (hasBody()) m_blkRefScale.z = buf->getBitDouble();
+        break;
     case Kind::AnnotScale:
     case Kind::Unknown:
     default:

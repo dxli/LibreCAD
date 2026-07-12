@@ -116,6 +116,14 @@ namespace {
             kind = DRW_ObjectContextData::Kind::DiameterDimension;
             return true;
         }
+        if (matches("LEADEROBJECTCONTEXTDATA")) {
+            kind = DRW_ObjectContextData::Kind::Leader;
+            return true;
+        }
+        if (matches("BLKREFOBJECTCONTEXTDATA", "BLOCKREFERENCEOBJECTCONTEXTDATA")) {
+            kind = DRW_ObjectContextData::Kind::BlockReference;
+            return true;
+        }
 
         return false;
     }
@@ -2504,11 +2512,11 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         break;
                     }
                     // OBJECTCONTEXTDATA (annotative per-object context) -
-                    // metadata-only shell. Text/MTEXT and dimension-family
-                    // contexts are now typed for corpus coverage, but raw DWG
-                    // bytes are still emitted for lossless replay. Leader /
-                    // MLeader / FCF / BlockRef contexts intentionally remain
-                    // on the raw-preserved fallback path.
+                    // metadata-only shell. Text/MTEXT, dimension-family, leader
+                    // and block-reference contexts are now typed for corpus
+                    // coverage, but raw DWG bytes are still emitted for lossless
+                    // replay. MLeader / FCF contexts intentionally remain on the
+                    // raw-preserved fallback path.
                     {
                         DRW_ObjectContextData::Kind contextKind =
                             DRW_ObjectContextData::Kind::Unknown;
