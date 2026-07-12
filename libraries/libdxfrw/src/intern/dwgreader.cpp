@@ -1820,7 +1820,7 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                     }
                     break;
                 }
-                if (version > DRW::AC1018 && cit != classesmap.end() && cit->second
+                if (cit != classesmap.end() && cit->second
                     && (cit->second->recName == "ACAD_TABLE"
                         || cit->second->className == "AcDbTable")) {
                     DRW_Table e;

@@ -3895,7 +3895,7 @@ bool DRW_Insert::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs
 }
 
 bool DRW_Table::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
-    if (version <= DRW::AC1018)
+    if (version < DRW::AC1015)
         return false;
 
     dwgBuffer sBuff = *buf;
@@ -3934,6 +3934,15 @@ bool DRW_Table::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
         objCount = buf->getBitLong();
 
     dwgBuffer hBuff = *buf;
+    if (version <= DRW::AC1018) {
+        // R2000/R2004: parseDwgEntHandle only re-seeks to the handle stream
+        // for version > AC1018 (2007+ string area).  For the legacy versions
+        // seek the snapshot to the handle-stream start (objSize is the
+        // bit offset of the handle stream, RL field read in
+        // DRW_Entity::parseDwg) or every handle below reads mid-DATA garbage.
+        hBuff.setPosition(objSize >> 3);
+        hBuff.setBitPos(objSize & 7);
+    }
     ret = DRW_Entity::parseDwgEntHandle(version, &hBuff);
     blockRecH = hBuff.getHandle();
 
@@ -4044,9 +4053,17 @@ bool DRW_Table::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
     m_tableStyleHandle = readTableHandle(&hBuff);
     m_content.m_tableStyleHandle = m_tableStyleHandle;
     m_semanticContentComplete = true;
+    // For <=AC1018 (R2000/R2004) there is no separate R2007+ string stream:
+    // DRW_Entity::parseDwg only seeks sBuf when version > AC1018 (see the
+    // `strBuf != NULL && version > DRW::AC1018` guard there), so legacy cell
+    // text is inline in `buf`.  Passing the stale sBuf copy here would read
+    // text from the wrong position and desync `buf`.  Pass nullptr so the
+    // cell readers' `textBuf = strBuf ? strBuf : buf` falls back to the
+    // inline `buf`.  R2007 (AC1021) keeps the separate sBuf stream.
+    dwgBuffer *cellStrBuf = (version > DRW::AC1018) ? sBuf : nullptr;
     for (std::uint32_t row = 0; row < rows && m_semanticContentComplete; ++row) {
         for (std::uint32_t column = 0; column < columns; ++column) {
-            if (!parseR2007TableCell(version, buf, sBuf, &hBuff,
+            if (!parseR2007TableCell(version, buf, cellStrBuf, &hBuff,
                                      m_content.m_rows[row].m_cells[column],
                                      &m_content.m_subrecordRanges)) {
                 m_semanticContentComplete = false;
@@ -4057,7 +4074,7 @@ bool DRW_Table::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
 
     if (m_semanticContentComplete)
         m_semanticContentComplete = skipR2007TableOverrides(
-            version, buf, sBuf, &hBuff, &m_content.m_subrecordRanges);
+            version, buf, cellStrBuf, &hBuff, &m_content.m_subrecordRanges);
     if (!m_semanticContentComplete)
         DRW_DBG("R2007 TABLE cell parse incomplete; anonymous block insert kept\n");
 
