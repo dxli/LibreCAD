@@ -2391,6 +2391,11 @@ public:
     double m_alignAngle = 0.0;
     std::vector<std::uint8_t> m_binaryBlob1;
     std::vector<std::uint8_t> m_binaryBlob2;
+    //! Decoded primitive dimensions for ACSH_*_CLASS shape objects.
+    //! BOX/WEDGE = {length, width, height}; SPHERE = {radius};
+    //! CYLINDER/CONE = {height, majorRadius, minorRadius, xRadius}.
+    //! Empty for shape classes that are only prefix-decoded + raw-shelved.
+    std::vector<double> m_shapeParams;
     std::vector<DRW_AssociativePrefixStatus> m_prefixStatuses;
 };
 

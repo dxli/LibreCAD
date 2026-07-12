@@ -2318,8 +2318,12 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         }
                         break;
                     }
-                    if (rn == "ACSH_HISTORY_CLASS"
-                        || rn == "ACSH_SWEEP_CLASS") {
+                    if (rn.rfind("ACSH_", 0) == 0) {
+                        // Every ACSH_* solid-history class routes to the shell
+                        // parser: HISTORY/SWEEP + the BOX/WEDGE/SPHERE/CYLINDER/
+                        // CONE shape bodies decode structured fields; the rest
+                        // run the shared prefix (or nothing) and are preserved
+                        // byte-for-byte by the raw shelf below.
                         DRW_AcShHistoryObject e(rn);
                         ret = e.parseDwg(version, &buff, bs);
                         if (ret) {

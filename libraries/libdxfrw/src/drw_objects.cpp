@@ -6706,6 +6706,48 @@ bool DRW_AcShHistoryObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
                 static_cast<std::uint16_t>(m_major), 0,
                 m_binaryBlob1.size() + m_binaryBlob2.size(), blob1Size);
         }
+    } else if (m_recordName == "ACSH_BOX_CLASS"
+               || m_recordName == "ACSH_WEDGE_CLASS"
+               || m_recordName == "ACSH_SPHERE_CLASS"
+               || m_recordName == "ACSH_CYLINDER_CLASS"
+               || m_recordName == "ACSH_CONE_CLASS") {
+        // Primitive-shape body = AcDbEvalExpr_fields + AcDbShHistoryNode_fields
+        // + major BL + minor BL + per-class dims (BD). Reuses the shared prefix
+        // skips from the SWEEP arm; matches dwgTs parseAcshBoxOrWedgeBody /
+        // parseAcshSphereClass / parseAcshCylinderOrConeBody.
+        const std::uint64_t evalStartBit = currentObjectDwgBit(buf);
+        const bool evalParsed = skipEvalExpr(version, buf, sBuf, &hBuff);
+        appendPrefixStatus(
+            DRW_AssociativePrefixStatus::Kind::AcDbEvalExpr, evalStartBit,
+            prefixStatusFromGood(evalParsed), 0, 1, 1, 0);
+        const std::uint64_t historyStartBit = currentObjectDwgBit(buf);
+        const bool historyParsed = evalParsed
+            && skipShHistoryNode(version, buf, sBuf, &hBuff);
+        appendPrefixStatus(
+            DRW_AssociativePrefixStatus::Kind::AcDbShHistoryNode,
+            historyStartBit, prefixStatusFromGood(historyParsed), 0, 1, 0, 0);
+        if (evalParsed && historyParsed && buf->isGood()) {
+            const std::uint64_t shapeStartBit = currentObjectDwgBit(buf);
+            m_major = static_cast<std::uint32_t>(buf->getBitLong());
+            m_minor = static_cast<std::uint32_t>(buf->getBitLong());
+            int dimCount = 3;                                   // box / wedge
+            if (m_recordName == "ACSH_SPHERE_CLASS")
+                dimCount = 1;                                   // radius
+            else if (m_recordName == "ACSH_CYLINDER_CLASS"
+                     || m_recordName == "ACSH_CONE_CLASS")
+                dimCount = 4;   // height, majorRadius, minorRadius, xRadius
+            m_shapeParams.clear();
+            m_shapeParams.reserve(static_cast<size_t>(dimCount));
+            for (int i = 0; i < dimCount && buf->isGood(); ++i)
+                m_shapeParams.push_back(buf->getBitDouble());
+            const bool shapeOk = buf->isGood()
+                && static_cast<int>(m_shapeParams.size()) == dimCount;
+            appendPrefixStatus(
+                DRW_AssociativePrefixStatus::Kind::AcShActionBody,
+                shapeStartBit, prefixStatusFromGood(shapeOk),
+                static_cast<std::uint16_t>(m_major), 0,
+                m_shapeParams.size(), dimCount);
+        }
     }
 
     DRW_UNUSED(sBuf);
