@@ -1547,6 +1547,15 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
             if (entryParse(e, buff, bs, ret)) {
                 intfa.addViewport(e);
             }
+            // P1.4a: preserve VIEWPORT (fixed type 34) byte-for-byte so it
+            // survives DWG->DWG. VIEWPORT has no RS twin (unlike REGION/
+            // SOLID3D/BODY, which also get a typed addModelerGeometry), so this
+            // raw carrier is its only representation. Shelved unconditionally
+            // (mirrors the SHAPE both-branch pattern above): makeRawEntity
+            // captures tmpByteStr regardless of parse status, so the bytes
+            // survive even if entryParse failed. Fixed type 34 => isCustomClass
+            // = false => no CLASSES entry.
+            intfa.addUnsupportedObject(makeRawEntity(oType));
             break; }
         case dwgType::ELLIPSE: {
             DRW_Ellipse e;

@@ -4835,7 +4835,8 @@ public:
 
     static bool isReplayableFixedModelerRawEntity(const RawObjectRecord& record) {
         return record.isEntity && !record.isCustomClass
-            && (record.objectType == 37 || record.objectType == 38
+            && (record.objectType == 34   // VIEWPORT (paper-space; no typed RS entity)
+                || record.objectType == 37 || record.objectType == 38
                 || record.objectType == 39);
     }
 
