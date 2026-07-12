@@ -6275,27 +6275,25 @@ bool DRW_EvaluationGraph::parseDwg(DRW::Version version, dwgBuffer *buf, std::ui
     if (!ret)
         return ret;
 
-    if (version <= DRW::AC1018)
-        return false;
-
-    dwgBuffer hBuff = *buf;
-    seekObjectHandleStream(version, &hBuff, objSize);
-    readCommonObjectHandles(&hBuff, handle, numReactors, xDictFlag, &parentHandle);
-
+    // Body layout (value96/97, nodes, edges) is identical at every version
+    // (matches dwgTs parseEvaluationGraph + LibreDWG DWG_OBJECT(EVALUATION_GRAPH)),
+    // and the body holds no strings, so sBuf is unused here. Read the whole body
+    // from buf, then the handle stream — seeking buf itself the same way
+    // DRW_Dictionary does — so node expression handles resolve on R2000/R2004
+    // (handles inline, seek is a no-op) and R2007+ (separate handle stream) alike.
     m_value96 = buf->getBitLong();
     m_value97 = buf->getBitLong();
 
-    const std::int32_t nodeCount = buf->getBitLong();
+    std::int32_t nodeCount = buf->getBitLong();
     if (nodeCount < 0 || nodeCount > 100000)
-        return false;
+        nodeCount = 0;  // graceful-degrade: drop the typed body, stay raw-shelved
     m_nodes.clear();
     m_nodes.reserve(static_cast<size_t>(nodeCount));
-    for (std::int32_t i = 0; i < nodeCount; ++i) {
+    for (std::int32_t i = 0; i < nodeCount && buf->isGood(); ++i) {
         DRW_EvaluationGraphNode node;
         node.m_index = buf->getBitLong();
         node.m_flags = buf->getBitLong();
         node.m_nextNodeIndex = buf->getBitLong();
-        node.m_expressionHandle = readObjectHandleRef(&hBuff);
         node.m_data1 = buf->getBitLong();
         node.m_data2 = buf->getBitLong();
         node.m_data3 = buf->getBitLong();
@@ -6303,12 +6301,12 @@ bool DRW_EvaluationGraph::parseDwg(DRW::Version version, dwgBuffer *buf, std::ui
         m_nodes.push_back(node);
     }
 
-    const std::int32_t edgeCount = buf->getBitLong();
+    std::int32_t edgeCount = buf->getBitLong();
     if (edgeCount < 0 || edgeCount > 100000)
-        return false;
+        edgeCount = 0;  // graceful-degrade: never drop the delivered object
     m_edges.clear();
     m_edges.reserve(static_cast<size_t>(edgeCount));
-    for (std::int32_t i = 0; i < edgeCount; ++i) {
+    for (std::int32_t i = 0; i < edgeCount && buf->isGood(); ++i) {
         DRW_EvaluationGraphEdge edge;
         edge.m_value92 = buf->getBitLong();
         edge.m_value93 = buf->getBitLong();
@@ -6323,10 +6321,18 @@ bool DRW_EvaluationGraph::parseDwg(DRW::Version version, dwgBuffer *buf, std::ui
         m_edges.push_back(edge);
     }
 
+    seekObjectHandleStream(version, buf, objSize);
+    readCommonObjectHandles(buf, handle, numReactors, xDictFlag, &parentHandle);
+    for (auto &node : m_nodes) {
+        if (!buf->isGood())
+            break;
+        node.m_expressionHandle = readObjectHandleRef(buf);
+    }
+
     DRW_DBG("EVALUATION_GRAPH nodes: "); DRW_DBG(static_cast<int>(m_nodes.size()));
     DRW_DBG(" edges: "); DRW_DBG(static_cast<int>(m_edges.size())); DRW_DBG("\n");
     DRW_UNUSED(sBuf);
-    return buf->isGood() && hBuff.isGood();
+    return true;  // graceful-degrade: always delivered (typed body + raw shelf)
 }
 
 bool DRW_AcDbPlaceholder::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){

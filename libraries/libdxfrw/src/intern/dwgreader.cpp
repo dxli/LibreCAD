@@ -2304,10 +2304,11 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         || cit->second->className == "AcDbEvalGraph") {
                         DRW_EvaluationGraph e;
                         ret = e.parseDwg(version, &buff, bs);
-                        // Raw replay preserves the full byte image (Phase 2b.4).
-                        // Unconditional: parseDwg declines for <=AC1018 (R2007+
-                        // body layout only) — eval graphs appear since AutoCAD
-                        // 2006, so preserve verbatim rather than drop.
+                        // parseDwg now decodes the typed body at every version
+                        // (R2000/R2004 handles inline, R2007+ separate stream).
+                        // Raw replay still preserves the full byte image
+                        // (Phase 2b.4) unconditionally, so the object round-trips
+                        // verbatim even when the typed decode degrades.
                         if (ret)
                             intfa.addEvaluationGraph(e);
                         intfa.addUnsupportedObject(makeRawObject(oType, cit->second));
