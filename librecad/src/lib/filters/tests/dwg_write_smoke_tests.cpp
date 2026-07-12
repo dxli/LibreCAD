@@ -6820,3 +6820,35 @@ TEST_CASE("DWG cross-tool: VIEWPORT raw carrier round-trips through dwgread",
     CHECK(json.find("\"width\": 11.638") != std::string::npos);
     CHECK(json.find("\"height\": 8.993") != std::string::npos);
 }
+
+// Alt-A: the raw-object replay version gate is widened from strict source==target
+// to same object-encoding family, so raw-preserved metadata survives an in-family
+// DWG upgrade (R2000<->R2004, or any pair within R2010/R2013/R2018). Cross-family
+// (esp. any R2007 source — its own family, with no write target) stays dropped so
+// no malformed bytes are ever written.
+TEST_CASE("RS_FilterDXFRW raw-object replay allows same-encoding-family upgrades",
+          "[dwg_write][rawfamily]") {
+    using F = RS_FilterDXFRW;
+    // identity always matches (preserves the original strict behavior)
+    for (DRW::Version v : {DRW::AC1015, DRW::AC1018, DRW::AC1021, DRW::AC1024,
+                           DRW::AC1027, DRW::AC1032})
+        CHECK(F::sameRawObjectEncodingFamily(v, v));
+    // family 1 {AC1015, AC1018} — symmetric
+    CHECK(F::sameRawObjectEncodingFamily(DRW::AC1015, DRW::AC1018));
+    CHECK(F::sameRawObjectEncodingFamily(DRW::AC1018, DRW::AC1015));
+    // family 3 {AC1024, AC1027, AC1032} — all pairs
+    CHECK(F::sameRawObjectEncodingFamily(DRW::AC1024, DRW::AC1032));
+    CHECK(F::sameRawObjectEncodingFamily(DRW::AC1032, DRW::AC1024));
+    CHECK(F::sameRawObjectEncodingFamily(DRW::AC1027, DRW::AC1024));
+    // R2007 is its own family — never matches another version (the key correction:
+    // R2007 raw bytes cannot be replayed into any other-family container)
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1021, DRW::AC1018));
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1021, DRW::AC1024));
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1018, DRW::AC1021));
+    // cross-family boundaries stay blocked
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1015, DRW::AC1024)); // fam1 vs fam3
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1018, DRW::AC1032)); // fam1 vs fam3
+    // pre-R2000 / unknown never cross-version matches
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1014, DRW::AC1015));
+    CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::UNKNOWNV, DRW::AC1018));
+}

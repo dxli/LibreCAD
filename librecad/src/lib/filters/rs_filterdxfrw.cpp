@@ -6454,13 +6454,16 @@ void RS_FilterDXFRW::writeDwgClasses() {
 
     for (const auto& record : metadata.rawObjects()) {
         // Version guard: never register a CLASSES entry for a raw object whose
-        // captured bytes are from a different DWG version than the file being
-        // written. Without this, registerRawDwgObjectClass below would add an
-        // orphan CLASSES entry (numInstances=1) for an object the emit loop in
-        // writeObjects then drops on the same guard — a CLASSES/OBJECT
-        // mismatch AutoCAD rejects. Mirrors the emit-loop guard.
+        // captured bytes cannot be replayed into the file being written. Raw
+        // OBJECT bytes are valid within the same object-encoding family (see
+        // sameRawObjectEncodingFamily), not only at the exact source version,
+        // so this allows in-family upgrades (e.g. R2000->R2004). Without the
+        // guard, registerRawDwgObjectClass below would add an orphan CLASSES
+        // entry for an object the emit loop then drops — a CLASSES/OBJECT
+        // mismatch AutoCAD rejects. Must mirror the emit-loop guard exactly.
         if (metadata.sourceDwgVersion() != DRW::UNKNOWNV
-            && metadata.sourceDwgVersion() != m_dwgW->getVersion()) {
+            && !sameRawObjectEncodingFamily(metadata.sourceDwgVersion(),
+                                            m_dwgW->getVersion())) {
             continue;
         }
         if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
@@ -7747,13 +7750,16 @@ void RS_FilterDXFRW::writeObjects() {
                 ++blockedReplaced;
                 continue;
             }
-            // Version guard: raw bytes are only byte-for-byte valid for the
-            // exact source version. If the target write version differs, drop
-            // the raw object (no malformed bytes) and count it. The matching
-            // guard in writeDwgClasses skips its CLASSES registration so no
-            // orphan CLASSES entry is left behind.
+            // Version guard: raw OBJECT bytes are byte-for-byte valid within the
+            // same object-encoding family (sameRawObjectEncodingFamily), not
+            // only at the exact source version — so an in-family upgrade (e.g.
+            // R2000->R2004, R2010->R2018) can replay them, while a cross-family
+            // target (esp. any R2007 source, its own family) is dropped so no
+            // malformed bytes are written. The matching guard in writeDwgClasses
+            // skips CLASSES registration so no orphan entry is left behind.
             if (metadata.sourceDwgVersion() != DRW::UNKNOWNV
-                && metadata.sourceDwgVersion() != m_dwgW->getVersion()) {
+                && !sameRawObjectEncodingFamily(metadata.sourceDwgVersion(),
+                                                m_dwgW->getVersion())) {
                 hasBlockedReplay = true;
                 ++blockedVersionMismatch;
                 continue;
@@ -12270,6 +12276,28 @@ QString RS_FilterDXFRW::printDwgVersion(int v){
         default:
             return "unknown";
     }
+}
+
+bool RS_FilterDXFRW::sameRawObjectEncodingFamily(DRW::Version src, DRW::Version tgt) {
+    if (src == tgt)
+        return true; // identity: preserves the original strict-match behavior
+    auto family = [](DRW::Version v) -> int {
+        switch (v) {
+        case DRW::AC1015:
+        case DRW::AC1018:
+            return 1; // R2000/R2004: strings inline, no bodyBitSize marker
+        case DRW::AC1021:
+            return 2; // R2007: separate string stream (no write target exists)
+        case DRW::AC1024:
+        case DRW::AC1027:
+        case DRW::AC1032:
+            return 3; // R2010/R2013/R2018: three-stream + bodyBitSize marker
+        default:
+            return 0; // pre-R2000 / unknown: never cross-version replayable
+        }
+    };
+    const int fs = family(src);
+    return fs != 0 && fs == family(tgt);
 }
 
 void RS_FilterDXFRW::printDwgError(int le){
