@@ -2188,6 +2188,20 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         }
                         break;
                     }
+                    if (rn == "DATATABLE"
+                        || cit->second->className == "AcDbDataTable") {
+                        DRW_DataTable e;
+                        ret = e.parseDwg(version, &buff, bs);
+                        // DATATABLE's body is a DEBUG_CLASS ("(varies)") whose
+                        // cell walk may drift; parseDwg graceful-degrades to the
+                        // decoded prefix, and the raw shelf preserves the exact
+                        // bytes so the round-trip stays faithful regardless.
+                        if (ret) {
+                            intfa.addDataTable(e);
+                            intfa.addUnsupportedObject(makeRawObject(oType, cit->second));
+                        }
+                        break;
+                    }
                     if (rn == "RASTERVARIABLES"
                         || cit->second->className == "AcDbRasterVariables") {
                         DRW_RasterVariables e;

@@ -3505,6 +3505,79 @@ bool DRW_FieldList::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t
     return true;
 }
 
+// DATATABLE (AcDbDataTable) — ODA / libreDWG dwg2.spec DATATABLE, cross-checked
+// against dwgTs parseDataTable.  Layout (both oracles agree):
+//   BS flags; BL num_cols; BL num_rows; T table_name;
+//   REPEAT num_cols { BL type; T text; REPEAT num_rows { BL data_long;
+//                                                        BD data_double;
+//                                                        T data_string } }
+// The body is a DEBUG_CLASS in libreDWG ("(varies) TODO"): its cell layout is
+// only partially documented, so a misaligned/truncated body can over-read.  We
+// decode the reliable prefix unconditionally, walk the body best-effort with
+// per-iteration isGood() guards + capped counts, and MANDATORY graceful-degrade
+// (always return true — the record is delivered and the caller keeps the raw
+// shelf for a lossless round-trip).
+bool DRW_DataTable::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
+    dwgBuffer sBuff = *buf;
+    dwgBuffer *sBuf = buf;
+    if (version > DRW::AC1018)     // 2007+ keep strings in a separate stream
+        sBuf = &sBuff;
+    bool ret = DRW_TableEntry::parseDwg(version, buf, sBuf, bs);
+    DRW_DBG("\n***************************** parsing DataTable ******************************\n");
+    if (!ret)
+        return ret;
+
+    auto finishSoft = [&]() {
+        if (buf->isGood()) {
+            seekObjectHandleStream(version, buf, objSize);
+            readCommonObjectHandles(buf, handle, numReactors, xDictFlag, &parentHandle);
+        }
+        return true;
+    };
+
+    flags = buf->getBitShort();
+    const std::int32_t rawCols = buf->getBitLong();
+    const std::int32_t rawRows = buf->getBitLong();
+    tableName = sBuf->getVariableText(version, false);
+
+    columnCount = rawCols < 0 ? 0 : rawCols;
+    rowCount = rawRows < 0 ? 0 : rawRows;
+
+    // Bound both counts before the body walk.  isValidAssocCount rejects
+    // negatives and absurd counts (>100000) that a corrupt/misaligned body
+    // would otherwise turn into an unbounded loop.  Prefix stays decoded.
+    if (!isValidAssocCount(columnCount) || !isValidAssocCount(rowCount)) {
+        DRW_DBG("DATATABLE column/row count out of range; keeping shell\n");
+        return finishSoft();
+    }
+
+    columns.clear();
+    columns.reserve(static_cast<std::size_t>(columnCount));
+    for (std::int32_t c = 0; c < columnCount && buf->isGood(); ++c) {
+        Column col;
+        col.type = buf->getBitLong();
+        col.text = sBuf->getVariableText(version, false);
+        col.rows.reserve(static_cast<std::size_t>(rowCount));
+        for (std::int32_t r = 0; r < rowCount && buf->isGood(); ++r) {
+            Row row;
+            row.dataLong = buf->getBitLong();
+            row.dataDouble = buf->getBitDouble();
+            row.dataString = sBuf->getVariableText(version, false);
+            col.rows.push_back(std::move(row));
+        }
+        columns.push_back(std::move(col));
+    }
+
+    DRW_DBG("datatable flags: "); DRW_DBG(flags);
+    DRW_DBG(" cols: "); DRW_DBG(columnCount);
+    DRW_DBG(" rows: "); DRW_DBG(rowCount);
+    DRW_DBG(" name: "); DRW_DBG(tableName.c_str()); DRW_DBG("\n");
+
+    seekObjectHandleStream(version, buf, objSize);
+    readCommonObjectHandles(buf, handle, numReactors, xDictFlag, &parentHandle);
+    return true;
+}
+
 bool DRW_RasterVariables::parseCode(int code, const std::unique_ptr<dxfReader>& reader){
     switch (code) {
     case 90:

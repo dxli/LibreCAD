@@ -5318,6 +5318,17 @@ void RS_FilterDXFRW::addFieldList(const DRW_FieldList &data) {
                   static_cast<int>(data.m_fieldHandles.size()));
 }
 
+void RS_FilterDXFRW::addDataTable(const DRW_DataTable &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().addDataTable(data);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addDataTable: handle %d name=%s cols=%d rows=%d",
+                  static_cast<int>(data.handle),
+                  data.tableName.c_str(),
+                  static_cast<int>(data.columnCount),
+                  static_cast<int>(data.rowCount));
+}
+
 void RS_FilterDXFRW::addField(const DRW_Field &data) {
   if (m_graphic != nullptr) {
     m_graphic->dwgAdvancedMetadata().addField(data);

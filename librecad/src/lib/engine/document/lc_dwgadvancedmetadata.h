@@ -1924,6 +1924,33 @@ public:
         ReplayState replayState = ReplayState::ReplayAllowed;
     };
 
+    /// DATATABLE (AcDbDataTable, custom class 520) — a hidden key/value table
+    /// (no geometry).  We mirror the decoded prefix (flags + column/row counts
+    /// + table name) and the best-effort column/row body captured by the
+    /// parser.  The full byte image is additionally preserved on the raw shelf
+    /// (addUnsupportedObject) so the round-trip stays lossless even when the
+    /// DEBUG-class body walk drifts.
+    struct DataTableRowRecord {
+        std::int32_t dataLong = 0;
+        double dataDouble = 0.0;
+        std::string dataString;
+    };
+    struct DataTableColumnRecord {
+        std::int32_t type = 0;
+        std::string text;
+        std::vector<DataTableRowRecord> rows;
+    };
+    struct DataTableRecord {
+        std::uint32_t handle = 0;
+        std::uint32_t parentHandle = 0;
+        int flags = 0;
+        int columnCount = 0;
+        int rowCount = 0;
+        std::string tableName;
+        std::vector<DataTableColumnRecord> columns;
+        ReplayState replayState = ReplayState::ReplayAllowed;
+    };
+
     /// FIELD (AcDbField, custom class 516) — typed value with child field +
     /// object references and a CadValue payload.  We mirror the on-wire
     /// DRW_CadValue + ChildValue structs verbatim so the encoder can
@@ -2013,6 +2040,7 @@ public:
         m_dictionariesWithDefault.clear();
         m_sortEntsTables.clear();
         m_fieldLists.clear();
+        m_dataTables.clear();
         m_fields.clear();
     }
 
@@ -3129,6 +3157,32 @@ public:
         m_fieldLists.push_back(std::move(record));
     }
 
+    void addDataTable(const DRW_DataTable& dataTable) {
+        DataTableRecord record;
+        record.handle = dataTable.handle;
+        record.parentHandle = dataTable.parentHandle;
+        record.flags = dataTable.flags;
+        record.columnCount = dataTable.columnCount;
+        record.rowCount = dataTable.rowCount;
+        record.tableName = dataTable.tableName;
+        record.columns.reserve(dataTable.columns.size());
+        for (const auto& col : dataTable.columns) {
+            DataTableColumnRecord cr;
+            cr.type = col.type;
+            cr.text = col.text;
+            cr.rows.reserve(col.rows.size());
+            for (const auto& row : col.rows) {
+                DataTableRowRecord rr;
+                rr.dataLong = row.dataLong;
+                rr.dataDouble = row.dataDouble;
+                rr.dataString = row.dataString;
+                cr.rows.push_back(std::move(rr));
+            }
+            record.columns.push_back(std::move(cr));
+        }
+        m_dataTables.push_back(std::move(record));
+    }
+
     static CadValueRecord cadValueFromDrw(const DRW_CadValue& v) {
         CadValueRecord c;
         c.formatFlags = v.m_formatFlags;
@@ -3258,6 +3312,7 @@ public:
     }
     const std::vector<SortEntsTableRecord>& sortEntsTables() const { return m_sortEntsTables; }
     const std::vector<FieldListRecord>& fieldLists() const { return m_fieldLists; }
+    const std::vector<DataTableRecord>& dataTables() const { return m_dataTables; }
     const std::vector<FieldRecord>& fields() const { return m_fields; }
 
     RawObjectFamilyCounts rawObjectFamilyCounts() const {
@@ -7599,6 +7654,7 @@ private:
     std::vector<DictionaryWithDefaultRecord> m_dictionariesWithDefault;
     std::vector<SortEntsTableRecord> m_sortEntsTables;
     std::vector<FieldListRecord> m_fieldLists;
+    std::vector<DataTableRecord> m_dataTables;
     std::vector<FieldRecord> m_fields;
 };
 

@@ -84,7 +84,8 @@ namespace DRW {
          SUNSTUDY,
          RENDERSETTINGS,
          SECTIONOBJ,
-         OBJECTCONTEXTDATA
+         OBJECTCONTEXTDATA,
+         DATATABLE
      };
 
 //pending VP_ENT_HDR, LONG_TRANSACTION,
@@ -1346,6 +1347,53 @@ protected:
 public:
     int m_unknown = 0;
     std::vector<std::uint32_t> m_fieldHandles;
+};
+
+//! Class to handle DATATABLE (AcDbDataTable) — a hidden key/value table that
+//! carries no geometry.  ODA / libreDWG dwg2.spec DATATABLE.  The body layout
+//! (a columns×rows array of bit-packed cell values) is only partially
+//! documented — libreDWG marks it "(varies) TODO" / DEBUG_CLASS — so the body
+//! walk is best-effort with graceful degrade; the reliable prefix (flags,
+//! column/row counts, table name) always decodes and the raw shelf preserves
+//! the exact byte image for a lossless round-trip regardless.
+class DRW_DataTable : public DRW_TableEntry {
+    SETOBJFRIENDS
+public:
+    static constexpr std::uint16_t kDwgClassNum = 520;
+
+    //! One cell of a DATATABLE column.  A cell always carries all three
+    //! variants on the wire (long/double/string); the column's type selects
+    //! which one is meaningful.
+    struct Row {
+        std::int32_t dataLong = 0;    /*!< DXF 93 */
+        double dataDouble = 0.0;      /*!< DXF 40 */
+        UTF8STRING dataString;        /*!< DXF 3 */
+    };
+    //! One DATATABLE column: a cell type, a column name and the rows.
+    struct Column {
+        std::int32_t type = 0;        /*!< DXF 92 */
+        UTF8STRING text;              /*!< DXF 2 (column name) */
+        std::vector<Row> rows;
+    };
+
+    DRW_DataTable() { reset(); }
+    void reset(){
+        tType = DRW::DATATABLE;
+        flags = 0;
+        columnCount = 0;
+        rowCount = 0;
+        tableName.clear();
+        columns.clear();
+        DRW_TableEntry::reset();
+    }
+protected:
+    bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
+public:
+    int flags = 0;                    /*!< DXF 70 */
+    int columnCount = 0;              /*!< DXF 90 (num_cols) */
+    int rowCount = 0;                 /*!< DXF 91 (num_rows) */
+    UTF8STRING tableName;             /*!< DXF 1 */
+    std::vector<Column> columns;
 };
 
 //! Class to handle RASTERVARIABLES (AcDbRasterVariables).
