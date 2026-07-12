@@ -6910,6 +6910,236 @@ bool DRW_AcShHistoryObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
     return ret;
 }
 
+namespace {
+
+bool dynBlockContains(const std::string& s, const char* sub) {
+    return s.find(sub) != std::string::npos;
+}
+
+bool dynBlockEndsWith(const std::string& s, const char* suf) {
+    const std::size_t n = std::char_traits<char>::length(suf);
+    return s.size() >= n && s.compare(s.size() - n, n, suf) == 0;
+}
+
+} // namespace
+
+// True for every dynamic-block custom-class recName.  The dynamic-block classes
+// all carry a PARAMETER / ACTION / GRIP suffix (or COMPONENT), or are one of the
+// named singletons; the structural BLOCK_HEADER / BLOCK_CONTROL / BLOCK_RECORD
+// table objects (which never reach the custom-class dispatch anyway) are rejected
+// explicitly.
+bool DRW_DynamicBlockObject::isDynamicBlockRecName(const UTF8STRING& rn) {
+    if (rn.empty() || rn == "BLOCK" || rn == "BLOCK_HEADER"
+        || rn == "BLOCK_CONTROL" || rn == "BLOCK_RECORD")
+        return false;
+    if (!dynBlockContains(rn, "BLOCK"))
+        return false;
+    return dynBlockEndsWith(rn, "PARAMETER")
+        || dynBlockEndsWith(rn, "ACTION")
+        || dynBlockEndsWith(rn, "GRIP")
+        || dynBlockEndsWith(rn, "COMPONENT")
+        || dynBlockContains(rn, "GRIPLOCATIONCOMPONENT")
+        || dynBlockContains(rn, "PROXYNODE")
+        || dynBlockContains(rn, "PURGEPREVENTER")
+        || dynBlockContains(rn, "PARAMDEPENDENCYBODY")
+        || dynBlockContains(rn, "PROPERTIESTABLE")
+        || dynBlockContains(rn, "REPRESENTATION");
+}
+
+// Map a dynamic-block recName to how much of its body layout is reliably known.
+DRW_DynamicBlockObject::Kind DRW_DynamicBlockObject::classify(const UTF8STRING& rn) {
+    // Bare first: HANDLE_UNKNOWN_BITS classes (leading unknown bits would
+    // misalign any body walk) and the non-evalexpr singletons -> shell only.
+    if (dynBlockContains(rn, "PURGEPREVENTER")
+        || dynBlockContains(rn, "PARAMDEPENDENCYBODY")
+        || dynBlockContains(rn, "REPRESENTATION")
+        || dynBlockContains(rn, "USERPARAMETER")           // AcDbBlockUserParameter
+        || dynBlockContains(rn, "PROPERTIESTABLEGRIP")     // HANDLE_UNKNOWN_BITS
+        || rn == "BLOCKPROPERTIESTABLE")
+        return Kind::Bare;
+    // Full-decode validation classes (both oracles / dwgread agree on the body).
+    if (rn == "BLOCKMOVEACTION")
+        return Kind::MoveAction;
+    if (rn == "BLOCKVISIBILITYPARAMETER")
+        return Kind::VisibilityParameter;
+    // Evalexpr-only.
+    if (dynBlockContains(rn, "PROXYNODE"))
+        return Kind::EvalExprOnly;
+    if (dynBlockContains(rn, "GRIPLOCATIONCOMPONENT")
+        || dynBlockEndsWith(rn, "COMPONENT"))
+        return Kind::GripLocationComponent;
+    // Element-based families (evalexpr + AcDbBlockElement prefix).
+    if (dynBlockEndsWith(rn, "GRIP"))
+        return Kind::Grip;
+    if (dynBlockEndsWith(rn, "ACTION"))
+        return Kind::Action;
+    if (dynBlockEndsWith(rn, "PARAMETER"))
+        return Kind::Parameter;
+    return Kind::EvalExprOnly;
+}
+
+// Dynamic-block object body decode.  Layout per libreDWG dwg2.spec
+// (AcDbEvalExpr_fields / AcDbBlockElement_fields / AcDbBlockParameter_fields /
+// AcDbBlockAction_fields / BLOCKVISIBILITYPARAMETER / BLOCKMOVEACTION),
+// ground-truthed against dwgread -O JSON.  Handle-reference vectors (deps /
+// blocks / params) live in the handle stream and are left deferred (their COUNT
+// is read inline in the data stream; the handles stay raw-shelved).  Every read
+// is isGood()-guarded, every count is bounded, and the parse ALWAYS returns true
+// (graceful degrade) — the caller keeps the raw shelf for a lossless round-trip.
+bool DRW_DynamicBlockObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
+    dwgBuffer sBuff = *buf;
+    dwgBuffer *sBuf = version > DRW::AC1018 ? &sBuff : buf;   // 2007+ string stream
+    bool ret = DRW_TableEntry::parseDwg(version, buf, sBuf, bs);
+    DRW_DBG("\n***************************** parsing DynamicBlock shell ****************\n");
+    if (!ret)
+        return ret;
+
+    // Common + object-specific handles live in the handle stream; read a copy so
+    // the data-stream walk is unaffected.  This also positions hBuff for the rare
+    // evalexpr value_code==91 handle case.
+    dwgBuffer hBuff = *buf;
+    seekObjectHandleStream(version, &hBuff, objSize);
+    readCommonObjectHandles(&hBuff, handle, numReactors, xDictFlag, &parentHandle);
+
+    // Bare classes: shell + handle only (leading unknown bits would misalign a
+    // body walk); the raw shelf preserves the full byte image regardless.
+    if (m_kind == Kind::Bare)
+        return true;
+
+    // ---- AcDbEvalExpr prefix (every non-Bare class) --------------------------
+    m_parentId  = static_cast<std::uint32_t>(buf->getBitLong());   // BLd parentid
+    m_major     = static_cast<std::uint32_t>(buf->getBitLong());   // BL major (98)
+    m_minor     = static_cast<std::uint32_t>(buf->getBitLong());   // BL minor (99)
+    m_valueCode = buf->getSBitShort();                             // BSd value_code (70)
+    switch (m_valueCode) {                                         // value-code switch
+    case 40: buf->getBitDouble(); break;
+    case 10:
+    case 11: buf->get2RawDouble(); break;
+    case 1:  sBuf->getVariableText(version, false); break;
+    case 90: buf->getBitLong(); break;
+    case 91: readObjectHandleRef(&hBuff); break;   // handle stream, no data bits
+    case 70: buf->getBitShort(); break;
+    default: break;
+    }
+    m_nodeId = static_cast<std::uint32_t>(buf->getBitLong());      // BL nodeid
+    m_evalExprParsed = buf->isGood();
+    if (!m_evalExprParsed)
+        return true;
+
+    if (m_kind == Kind::EvalExprOnly)
+        return true;
+
+    if (m_kind == Kind::GripLocationComponent) {
+        // AcDbBlockGripExpr: grip_type BL(91) + grip_expr T(300).
+        m_gripType = buf->getBitLong();
+        m_gripExpr = sBuf->getVariableText(version, false);
+        return true;
+    }
+
+    // ---- AcDbBlockElement prefix (grip / parameter / action classes) ---------
+    m_elementName  = sBuf->getVariableText(version, false);        // T name (300)
+    m_elementMajor = static_cast<std::uint32_t>(buf->getBitLong()); // BL be_major (98)
+    m_elementMinor = static_cast<std::uint32_t>(buf->getBitLong()); // BL be_minor (99)
+    m_eed1071      = buf->getBitLong();                            // BL eed1071 (1071)
+    m_elementParsed = buf->isGood();
+    if (!m_elementParsed)
+        return true;
+
+    // Grip: element prefix only; deeper AcDbBlockGrip body left raw-shelved.
+    if (m_kind == Kind::Grip)
+        return true;
+
+    // AcDbBlockAction classes extend AcDbBlockElement DIRECTLY (no
+    // AcDbBlockParameter bits) — display_location follows element immediately.
+    if (m_kind == Kind::Action || m_kind == Kind::MoveAction) {
+        // Prefix-only for a plain action; the full body is decoded only for the
+        // BLOCKMOVEACTION validation class.
+        if (m_kind == Kind::Action)
+            return true;
+        // AcDbBlockAction (decoder/else branch): display_location 3BD, num_deps
+        // BL, deps handles (deferred), num_actions BL, actions[] BL.
+        m_displayLocation = buf->get3BitDouble();
+        m_dependencyCount = buf->getBitLong();                    // BL num_deps (71)
+        if (!isValidAssocCount(m_dependencyCount))
+            return true;
+        // deps[] handles are deferred (handle stream).
+        m_actionCount = buf->getBitLong();                        // BL num_actions (70)
+        if (!isValidAssocCount(m_actionCount))
+            return true;
+        m_actionIndexes.clear();
+        m_actionIndexes.reserve(static_cast<std::size_t>(m_actionCount));
+        for (std::int32_t a = 0; a < m_actionCount && buf->isGood(); ++a)
+            m_actionIndexes.push_back(buf->getBitLong());         // BL action index (91)
+        // AcDbBlockMoveAction: 2 connection points {code BL, name T}.
+        m_connectionNames.clear();
+        for (int cp = 0; cp < 2 && buf->isGood(); ++cp) {
+            buf->getBitLong();                                    // connection code BL
+            m_connectionNames.push_back(
+                sBuf->getVariableText(version, false));           // connection name T
+        }
+        // AcDbBlockAction_doubles: action_offset_x/y BD + angle_offset BD.
+        m_actionOffsetX = buf->getBitDouble();                    // BD (140)
+        m_actionOffsetY = buf->getBitDouble();                    // BD (141)
+        m_angleOffset   = buf->getBitDouble();                    // BD
+        m_bodyFullyDecoded = buf->isGood();
+        return true;
+    }
+
+    // AcDbBlockParameter: show_properties B(280) + chain_actions B(281).
+    // (Parameter / VisibilityParameter both extend AcDbBlockParameter.)
+    m_showProperties = buf->getBit() != 0;
+    m_chainActions   = buf->getBit() != 0;
+    if (!buf->isGood())
+        return true;
+
+    if (m_kind == Kind::Parameter)
+        return true;
+
+    if (m_kind == Kind::VisibilityParameter) {
+        // AcDbBlock1PtParameter: def_pt 3BD + prop1/prop2 PropInfo + num_propinfos.
+        m_defPoint = buf->get3BitDouble();
+        for (int p = 0; p < 2 && buf->isGood(); ++p) {
+            const std::int32_t numConn = buf->getBitLong();       // BL num_connections
+            if (!isValidAssocCount(numConn))
+                return true;
+            for (std::int32_t c = 0; c < numConn && buf->isGood(); ++c) {
+                buf->getBitLong();                                // connection code BL
+                sBuf->getVariableText(version, false);            // connection name T
+            }
+        }
+        buf->getBitLong();                                        // num_propinfos BL
+        // AcDbBlockVisibilityParameter body.
+        m_isInitialized = buf->getBit() != 0;                     // B is_initialized (281)
+        m_visibilityName = sBuf->getVariableText(version, false); // T blockvisi_name (301)
+        m_visibilityDescription =
+            sBuf->getVariableText(version, false);                // T blockvisi_desc (302)
+        m_unknownBool = buf->getBit() != 0;                       // B (91)
+        m_blockCount = buf->getBitLong();                         // BL num_blocks (93)
+        if (!isValidAssocCount(m_blockCount))
+            return true;
+        // blocks[] handles are deferred (handle stream) — count only here.
+        m_stateCount = buf->getBitLong();                         // BL num_states (92)
+        if (!isValidAssocCount(m_stateCount))
+            return true;
+        m_stateNames.clear();
+        m_stateNames.reserve(static_cast<std::size_t>(m_stateCount));
+        for (std::int32_t s = 0; s < m_stateCount && buf->isGood(); ++s) {
+            m_stateNames.push_back(sBuf->getVariableText(version, false)); // T name (303)
+            const std::int32_t stateBlocks = buf->getBitLong();  // BL num_blocks (94)
+            if (!isValidAssocCount(stateBlocks))
+                return true;
+            const std::int32_t stateParams = buf->getBitLong();  // BL num_params (95)
+            if (!isValidAssocCount(stateParams))
+                return true;
+            // per-state blocks[]/params[] handles are deferred (handle stream).
+        }
+        m_bodyFullyDecoded = buf->isGood();
+        return true;
+    }
+
+    return true;
+}
+
 void DRW_DetailViewStyle::reset() {
     tType = DRW::DETAILVIEWSTYLE;
     m_modelDoc = DRW_ModelDocViewStyle();

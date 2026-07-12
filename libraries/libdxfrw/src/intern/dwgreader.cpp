@@ -2356,6 +2356,24 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         }
                         break;
                     }
+                    if (DRW_DynamicBlockObject::isDynamicBlockRecName(rn)) {
+                        // The dynamic-block object family (BLOCK*PARAMETER /
+                        // BLOCK*ACTION / BLOCK*GRIP / BLOCKGRIPLOCATIONCOMPONENT /
+                        // DYNAMICBLOCK* + singletons) — the largest custom-class
+                        // family.  Every recName routes to the shell parser: the
+                        // shared AcDbEvalExpr (+ AcDbBlockElement/BlockParameter)
+                        // prefix decodes typed, BLOCKVISIBILITYPARAMETER /
+                        // BLOCKMOVEACTION decode fully, and the rest are preserved
+                        // byte-for-byte by the raw shelf below.  parseDwg
+                        // graceful-degrades so a drift never drops the object.
+                        DRW_DynamicBlockObject e(rn);
+                        ret = e.parseDwg(version, &buff, bs);
+                        if (ret) {
+                            intfa.addDynamicBlockObject(e);
+                            intfa.addUnsupportedObject(makeRawObject(oType, cit->second));
+                        }
+                        break;
+                    }
                     if (rn == "ACDBDETAILVIEWSTYLE" || rn == "DETAILVIEWSTYLE"
                         || cit->second->className == "AcDbDetailViewStyle") {
                         DRW_DetailViewStyle e;

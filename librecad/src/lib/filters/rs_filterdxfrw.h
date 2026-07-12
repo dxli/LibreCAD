@@ -229,6 +229,7 @@ public:
     void addSortEntsTable(const DRW_SortEntsTable &data) override;
     void addFieldList(const DRW_FieldList &data) override;
     void addDataTable(const DRW_DataTable &data) override;
+    void addDynamicBlockObject(const DRW_DynamicBlockObject &data) override;
     void addField(const DRW_Field &data) override;
     void addAssociativeObject(const DRW_AssociativeObject &data) override;
     void addAcShHistoryObject(const DRW_AcShHistoryObject &data) override;

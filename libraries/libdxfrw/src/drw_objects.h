@@ -85,7 +85,8 @@ namespace DRW {
          RENDERSETTINGS,
          SECTIONOBJ,
          OBJECTCONTEXTDATA,
-         DATATABLE
+         DATATABLE,
+         DYNAMICBLOCKOBJECT
      };
 
 //pending VP_ENT_HDR, LONG_TRANSACTION,
@@ -2459,6 +2460,105 @@ public:
     //! Empty for shape classes that are only prefix-decoded + raw-shelved.
     std::vector<double> m_shapeParams;
     std::vector<DRW_AssociativePrefixStatus> m_prefixStatuses;
+};
+
+//! Shell parser for the dynamic-block object family (BLOCK*PARAMETER /
+//! BLOCK*ACTION / BLOCK*GRIP / BLOCKGRIPLOCATIONCOMPONENT / DYNAMICBLOCK*
+//! and the singletons).  This is the largest custom-class family; almost none
+//! of it has a native LibreCAD consumer, so the goal is dwgTs-style typed
+//! CAPTURE: every dynamic-block recName is delivered as a DRW_DynamicBlockObject
+//! (instead of raw-only) with the SHARED, oracle-verified prefix decoded —
+//! AcDbEvalExpr for every evalexpr-bearing class, plus AcDbBlockElement /
+//! AcDbBlockParameter element data for the parameter/grip/action classes.  Two
+//! classes (BLOCKVISIBILITYPARAMETER, BLOCKMOVEACTION) additionally decode their
+//! full body as validation.  Deeper per-class params are left raw-shelved.  The
+//! parse graceful-degrades unconditionally (always returns true; every read is
+//! isGood()-guarded and counts are bounded) and the caller keeps the raw shelf,
+//! so the round-trip stays lossless regardless of how far the decode gets.
+class DRW_DynamicBlockObject : public DRW_TableEntry {
+    SETOBJFRIENDS
+public:
+    //! How much of the body layout is known for a given recName.  Selects the
+    //! decode depth in parseDwg; classify() maps a recName to a Kind.
+    enum class Kind {
+        Bare,                  /*!< HANDLE_UNKNOWN_BITS / no evalexpr — shell only */
+        EvalExprOnly,          /*!< AcDbEvalExpr prefix only (e.g. DYNAMICBLOCKPROXYNODE) */
+        GripLocationComponent, /*!< evalexpr + AcDbBlockGripExpr (grip_type + grip_expr) */
+        Grip,                  /*!< evalexpr + AcDbBlockElement prefix */
+        Parameter,             /*!< evalexpr + element + AcDbBlockParameter 2 bits */
+        Action,                /*!< evalexpr + element prefix */
+        VisibilityParameter,   /*!< full BLOCKVISIBILITYPARAMETER body */
+        MoveAction             /*!< full BLOCKMOVEACTION body */
+    };
+
+    explicit DRW_DynamicBlockObject(const UTF8STRING& recordName = UTF8STRING())
+        : m_recordName(recordName) {
+        tType = DRW::DYNAMICBLOCKOBJECT;
+        m_kind = classify(recordName);
+    }
+
+    //! True for every dynamic-block custom-class recName (PARAMETER/ACTION/GRIP
+    //! suffixes + the named singletons).  Explicitly rejects the structural
+    //! BLOCK_HEADER / BLOCK_CONTROL / BLOCK_RECORD table objects.
+    static bool isDynamicBlockRecName(const UTF8STRING& rn);
+    //! Maps a dynamic-block recName to its decode Kind.
+    static Kind classify(const UTF8STRING& rn);
+
+protected:
+    bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
+
+public:
+    UTF8STRING m_recordName;
+    Kind m_kind = Kind::Bare;
+
+    // AcDbEvalExpr prefix (shared by every evalexpr-bearing class).
+    bool m_evalExprParsed = false;
+    std::uint32_t m_parentId = 0;      /*!< BLd evalexpr.parentid (0xFFFFFFFF = -1) */
+    std::uint32_t m_major = 0;         /*!< BL evalexpr.major (DXF 98) */
+    std::uint32_t m_minor = 0;         /*!< BL evalexpr.minor (DXF 99) */
+    std::int16_t  m_valueCode = 0;     /*!< BSd evalexpr.value_code (DXF 70; -9999 = none) */
+    std::uint32_t m_nodeId = 0;        /*!< BL evalexpr.nodeid (DXF 90) */
+
+    // AcDbBlockElement prefix (parameter/grip/action classes).
+    bool m_elementParsed = false;
+    UTF8STRING m_elementName;           /*!< T name (DXF 300) */
+    std::uint32_t m_elementMajor = 0;   /*!< BL be_major (DXF 98) */
+    std::uint32_t m_elementMinor = 0;   /*!< BL be_minor (DXF 99) */
+    std::int32_t  m_eed1071 = 0;        /*!< BL eed1071 (DXF 1071) */
+
+    // AcDbBlockParameter (parameter classes).
+    bool m_showProperties = false;      /*!< B (DXF 280) */
+    bool m_chainActions = false;        /*!< B (DXF 281) */
+
+    // AcDbBlockGripExpr (BLOCKGRIPLOCATIONCOMPONENT).
+    std::int32_t m_gripType = 0;        /*!< BL grip_type (DXF 91) */
+    UTF8STRING m_gripExpr;              /*!< T grip_expr (DXF 300) */
+
+    // AcDbBlock1PtParameter def point (BLOCKVISIBILITYPARAMETER).
+    DRW_Coord m_defPoint;              /*!< 3BD def_pt (DXF 1010) */
+
+    // AcDbBlockVisibilityParameter body.
+    bool m_isInitialized = false;       /*!< B is_initialized (DXF 281) */
+    UTF8STRING m_visibilityName;        /*!< T blockvisi_name (DXF 301) */
+    UTF8STRING m_visibilityDescription; /*!< T blockvisi_desc (DXF 302) */
+    bool m_unknownBool = false;         /*!< B (DXF 91) */
+    std::int32_t m_blockCount = 0;      /*!< BL num_blocks (DXF 93) */
+    std::int32_t m_stateCount = 0;      /*!< BL num_states (DXF 92) */
+    std::vector<UTF8STRING> m_stateNames; /*!< per-state name (DXF 303) */
+
+    // AcDbBlockAction / AcDbBlockMoveAction body.
+    DRW_Coord m_displayLocation;       /*!< 3BD display_location */
+    std::int32_t m_dependencyCount = 0; /*!< BL num_deps (DXF 71) */
+    std::int32_t m_actionCount = 0;     /*!< BL num_actions (DXF 70) */
+    std::vector<std::int32_t> m_actionIndexes; /*!< BL[] actions (DXF 91) */
+    std::vector<UTF8STRING> m_connectionNames; /*!< action connection-point names */
+    double m_actionOffsetX = 0.0;       /*!< BD action_offset_x (DXF 140) */
+    double m_actionOffsetY = 0.0;       /*!< BD action_offset_y (DXF 141) */
+    double m_angleOffset = 0.0;         /*!< BD angle_offset */
+
+    //! True only when a full validation class (VisibilityParameter / MoveAction)
+    //! decoded its whole body without hitting a short read.
+    bool m_bodyFullyDecoded = false;
 };
 
 //! Common AcDbModelDocViewStyle header shared by detail/section view styles.

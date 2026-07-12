@@ -68,6 +68,8 @@ public:
     virtual void addFieldList(const DRW_FieldList& data) { (void) data; }
     /** Called for every DATATABLE object (hidden key/value table). */
     virtual void addDataTable(const DRW_DataTable& data) { (void) data; }
+    /** Called for every dynamic-block object (BLOCK*PARAMETER/ACTION/GRIP etc.). */
+    virtual void addDynamicBlockObject(const DRW_DynamicBlockObject& data) { (void) data; }
     /** Called for every RASTERVARIABLES object. */
     virtual void addRasterVariables(const DRW_RasterVariables& data) { (void) data; }
     /** Called for every WIPEOUTVARIABLES object (global display-frame flag). */

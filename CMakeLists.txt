@@ -1818,6 +1818,7 @@ if(BUILD_TESTS)
         librecad/src/lib/filters/tests/assoc_tests.cpp
         librecad/src/lib/filters/tests/objectcontext_leader_tests.cpp
         librecad/src/lib/filters/tests/datatable_tests.cpp
+        librecad/src/lib/filters/tests/dynblock_tests.cpp
         librecad/src/lib/filters/tests/rs_graphic_layouts_tests.cpp
         librecad/src/lib/filters/tests/mline_tests.cpp
         librecad/src/lib/filters/tests/underlay_tests.cpp

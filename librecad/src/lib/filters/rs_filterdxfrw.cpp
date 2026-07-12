@@ -5329,6 +5329,16 @@ void RS_FilterDXFRW::addDataTable(const DRW_DataTable &data) {
                   static_cast<int>(data.rowCount));
 }
 
+void RS_FilterDXFRW::addDynamicBlockObject(const DRW_DynamicBlockObject &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().addDynamicBlockObject(data);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addDynamicBlockObject: handle %d rec=%s kind=%d",
+                  static_cast<int>(data.handle),
+                  data.m_recordName.c_str(),
+                  static_cast<int>(data.m_kind));
+}
+
 void RS_FilterDXFRW::addField(const DRW_Field &data) {
   if (m_graphic != nullptr) {
     m_graphic->dwgAdvancedMetadata().addField(data);
