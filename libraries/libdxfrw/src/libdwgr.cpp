@@ -220,6 +220,7 @@ void dwgRW::captureReaderDiagnostics() {
     m_decodedProxyPrimitives = reader->m_decodedProxyPrimitives;
     m_layerNameOrder = reader->m_layerNameOrder;
     m_ltypeNameOrder = reader->m_ltypeNameOrder;
+    codePage = reader->getCodePage();
 }
 
 void dwgRW::resetReadDiagnostics() {

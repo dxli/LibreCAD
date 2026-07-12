@@ -196,6 +196,9 @@ public:
     bool getPreview();
     DRW::Version getVersion(){return version;}
     DRW::error getError(){return error;}
+    /// The resolved source codepage name (e.g. "ANSI_1252"), captured from the
+    /// reader's DRW_TextCodec after a successful read. Empty before any read.
+    std::string getCodePage() const { return codePage; }
     /// Per-entity parseDwg failures accumulated during the load. These
     /// are warnings — the file still loads with the surviving entities.
     /// Zero on a clean load. Surface alongside the entity count so users

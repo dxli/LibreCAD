@@ -34,6 +34,18 @@ constexpr std::uint8_t EXTRA_HAS_EED = 0x02;
 constexpr std::uint8_t EXTRA_HAS_VIEWPORT = 0x04;
 }
 
+// Resolve a pre-R13 $DWGCODEPAGE id (read at file offset 0x3f9) to a
+// DRW_TextCodec setCodePage() name, or nullptr to keep the ANSI_1252 default.
+// The gate mirrors libreDWG: numheader_vars<=129 => no codepage field present
+// (header_variables_r11.spec:267). Ids 0/0xff are "undefined"; ids without a
+// libdxfrw ConvTable (DOS-OEM, UTF-16, ...) resolve to nullptr via the shared
+// dwgCodePageName() table so the caller keeps the safe ANSI_1252 fallback.
+const char* preR13CodePageName(std::uint16_t numHeaderVars, std::uint16_t cp) {
+    if (numHeaderVars <= 129) return nullptr;
+    if (cp == 0 || cp == 0xff) return nullptr;
+    return dwgCodePageName(cp);
+}
+
 bool dwgReaderR11::readMetaData() {
     // Identify the precise pre-R13 version from the 6-byte magic. Both AC1006
     // (R10) and AC1009 (R11) are validatable against dwgread; their containers
@@ -79,6 +91,23 @@ bool dwgReaderR11::readFileHeader() {
     if (m_entitiesStart == 0 || m_entitiesEnd <= m_entitiesStart
         || m_entitiesEnd > fileSize)
         return false;  // implausible header -> not a readable pre-R13 file
+
+    // $DWGCODEPAGE (pre-R13): the codepage id lives at the FIXED file offset
+    // 0x3f9 (every preceding header var is fixed-width, so this is version-
+    // invariant across R10/R11), gated on numheader_vars@0x11 > 129. Seek both
+    // fields directly, map via the shared dwgCodePageName() table, and override
+    // readMetaData()'s ANSI_1252 default when a supported codepage is present.
+    // setPosition-guarded so a truncated file silently keeps the default. This
+    // runs before processDwg() reads any table/entity string, so the decoder is
+    // correct for all subsequent text. dwgread reports codepage 30 for ACEB10.
+    if (fileBuf->setPosition(0x11)) {
+        const std::uint16_t numHeaderVars = fileBuf->getRawShort16();
+        if (fileBuf->setPosition(0x3f9)) {
+            const std::uint16_t cp = fileBuf->getRawShort16();
+            if (const char* name = preR13CodePageName(numHeaderVars, cp))
+                setCodePage(name);
+        }
+    }
     return true;
 }
 
@@ -578,12 +607,19 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
     auto rd3 = [&]() { DRW_Coord c; c.x = fileBuf->getRawDouble();
                        c.y = fileBuf->getRawDouble(); c.z = fileBuf->getRawDouble();
                        return c; };
+    // Route pre-R13 codepage-encoded bytes through the decoder set in
+    // readFileHeader() (ANSI_1252 by default). ASCII without \U+/\M+ escapes
+    // is a byte-identical no-op (existing synthetic R11 fixtures unaffected);
+    // high-byte Latin-1/Cyrillic/CJK bytes become valid UTF-8 instead of the
+    // mojibake delivered before. Note: DRW_ConvTable::toUtf8 always interprets
+    // \U+XXXX / \M+cXXXX escapes even on ASCII (matches AutoCAD).
+    auto toUtf8 = [&](const std::string& s) { return decoder.toUtf8(s); };
     auto readTv = [&]() {  // pre-R13 length-prefixed string: RS count + bytes
         const std::uint16_t n = fileBuf->getRawShort16();
         std::string s; s.reserve(n);
         for (std::uint16_t i = 0; i < n; ++i)
             s.push_back(static_cast<char>(fileBuf->getRawChar8()));
-        return s; };
+        return toUtf8(s); };
 
     if (!deleted) {
         switch (type) {
@@ -647,7 +683,7 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             std::string s; s.reserve(tlen);
             for (std::uint16_t i = 0; i < tlen; ++i)
                 s.push_back(static_cast<char>(fileBuf->getRawChar8()));
-            e.text = s;
+            e.text = toUtf8(s);
             if (opts & 0x01) e.angle = rd();
             e.thickness = thickness;
             applyAttrs(e);

@@ -5874,6 +5874,29 @@ TEST_CASE("DWG pre-R13: R11 LAYER/LTYPE/STYLE table records") {
   }
 }
 
+// Pre-R13 codepage end-to-end: ACEB10.dwg stores $DWGCODEPAGE = 30 (ANSI_1252)
+// at the fixed file offset 0x3f9 (numheader_vars=205 @0x11 > 129). dwgread -O
+// JSON reports "codepage": 30. This asserts readFileHeader() reads 0x3f9 and
+// resolves it through preR13CodePageName()/setCodePage(). The value equals the
+// hard-coded readMetaData default, so it also regression-guards the seek path.
+TEST_CASE("DWG pre-R13: ACEB10 resolves $DWGCODEPAGE = ANSI_1252",
+          "[dwg][prer13][codepage]") {
+  const char *home = getenv("HOME");
+  if (!home) { SUCCEED("HOME not set; skipping"); return; }
+  const std::string path =
+      std::string(home) + "/dev/libredwg/test/test-data/r11/ACEB10.dwg";
+  std::ifstream probe(path, std::ios::binary);
+  if (!probe.good()) { SUCCEED("ACEB10.dwg absent"); return; }
+  probe.close();
+  CountingIface iface;
+  dwgR reader(path.c_str());
+  const bool ok = reader.read(&iface, true);
+  REQUIRE(ok);
+  REQUIRE(reader.getVersion() == DRW::AC1009);
+  // cp id 30 -> "ANSI_1252" (dwgread oracle: HEADER.codepage == 30).
+  CHECK(reader.getCodePage() == "ANSI_1252");
+}
+
 // Pre-R13 R10 (AC1006) parity: the table records and header variables are
 // byte-identical to R11 EXCEPT each table record omits the 2-byte `used` field
 // (recSizes R10 37/194/187 vs R11 41/198/191), and the header subset
