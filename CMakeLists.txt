@@ -1815,6 +1815,7 @@ if(BUILD_TESTS)
         librecad/src/lib/filters/tests/dbcolor_tests.cpp
         librecad/src/lib/filters/tests/entity_metadata_tests.cpp
         librecad/src/lib/filters/tests/acsh_tests.cpp
+        librecad/src/lib/filters/tests/assoc_tests.cpp
         librecad/src/lib/filters/tests/rs_graphic_layouts_tests.cpp
         librecad/src/lib/filters/tests/mline_tests.cpp
         librecad/src/lib/filters/tests/underlay_tests.cpp

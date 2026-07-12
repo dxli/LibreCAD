@@ -6517,9 +6517,23 @@ bool DRW_AssociativeObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
         return complete;
     };
 
-    if (m_recordName == "ACDBASSOCACTION") {
-        readActionFields();
-    } else if (m_recordName == "ACDBASSOCNETWORK") {
+    // Route the shell body by class-name suffix, mirroring dwgTs
+    // readAssociativityBody (which infers behaviour from the class /
+    // objectType and defaults unknown subclasses to a raw shell). The
+    // exact-name branches below keep the extended-field decoders
+    // (network / geom-dependency / aligned-dim action body / vertex &
+    // osnap action params / perssubent); every other ACDBASSOC* falls
+    // through to a suffix-inferred common prefix and is preserved verbatim
+    // by the raw shelf. m_recordName (== the associativity class name) is
+    // always set, so the kind stays queryable even for undecoded subclasses.
+    const std::string& rn = m_recordName;
+    const auto endsWith = [](const std::string& s, const char* suffix) {
+        const std::string suf(suffix);
+        return s.size() >= suf.size()
+            && s.compare(s.size() - suf.size(), suf.size(), suf) == 0;
+    };
+
+    if (rn == "ACDBASSOCNETWORK") {
         if (readActionFields()) {
             const std::uint64_t networkStartBit = currentObjectDwgBit(buf);
             buf->getBitShort();
@@ -6558,9 +6572,8 @@ bool DRW_AssociativeObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
                     m_classVersion, 0, 0, actionCount);
             }
         }
-    } else if (m_recordName == "ACDBASSOCDEPENDENCY"
-               || m_recordName == "ACDBASSOCGEOMDEPENDENCY") {
-        if (readDependencyFields() && m_recordName == "ACDBASSOCGEOMDEPENDENCY") {
+    } else if (rn == "ACDBASSOCGEOMDEPENDENCY") {
+        if (readDependencyFields()) {
             const std::uint64_t geomStartBit = currentObjectDwgBit(buf);
             buf->getBitShort();
             buf->getBit();
@@ -6610,8 +6623,8 @@ bool DRW_AssociativeObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
             m_osnapMode = buf->getRawChar8();
             m_parameter = buf->getBitDouble();
         }
-    } else if (m_recordName == "ACDBASSOCPERSSUBENTMANAGER"
-               || m_recordName == "ACDBPERSSUBENTMANAGER") {
+    } else if (rn == "ACDBASSOCPERSSUBENTMANAGER"
+               || rn == "ACDBPERSSUBENTMANAGER") {
         m_classVersion = static_cast<std::uint16_t>(buf->getBitLong());
         buf->getBitLong();
         buf->getBitLong();
@@ -6621,6 +6634,42 @@ bool DRW_AssociativeObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
             for (std::int32_t i = 0; i < stepCount; ++i)
                 buf->getBitLong();
         }
+    } else if (endsWith(rn, "ACTIONPARAM")) {
+        // Generic action-param subclass (edge / path / face / object /
+        // asmbody / ...): decode the shared AcDbAssocActionParam prefix, then
+        // stop — the single/compound tail layouts vary by subclass and are
+        // preserved by the raw shelf. Mirrors the VERTEX/OSNAP branches but
+        // without the variant-specific tail.
+        const std::uint64_t prefixStartBit = currentObjectDwgBit(buf);
+        m_actionParamPrefixParsed = skipAssocActionParamPrefix(version, buf, sBuf);
+        appendPrefixStatus(
+            DRW_AssociativePrefixStatus::Kind::AcDbAssocActionParam,
+            prefixStartBit, prefixStatusFromGood(m_actionParamPrefixParsed),
+            m_classVersion, 0, 0, 0);
+    } else if (endsWith(rn, "DEPENDENCY")) {
+        // ACDBASSOCDEPENDENCY + ACDBASSOCVALUEDEPENDENCY share the
+        // AcDbAssocDependency body (dwgTs cases 1228 / 1256).
+        readDependencyFields();
+    } else if (endsWith(rn, "ACTION") || endsWith(rn, "NETWORK")
+               || endsWith(rn, "VARIABLE")
+               || rn.find("2DCONSTRAINTGROUP") != std::string::npos) {
+        // Action-bodied subclass (ACDBASSOCACTION / ACDBASSOCVARIABLE /
+        // ACDBASSOC2DCONSTRAINTGROUP / ...): decode the AcDbAssocAction
+        // prefix, then stop. The per-subclass extension (workplane, group
+        // nodes, variable value, ...) is undocumented / polymorphic and is
+        // preserved verbatim by the raw shelf.
+        readActionFields();
+    } else {
+        // Any other ACDBASSOC* (surface / array action bodies, dependency
+        // bodies, array parameters, ...): the shared table-entry prefix has
+        // already run; record a Missing marker and let the raw shelf preserve
+        // the opaque body verbatim (matches dwgTs readAssociativityBody's
+        // default -> undefined -> raw-shell path).
+        appendPrefixStatus(
+            DRW_AssociativePrefixStatus::Kind::AcDbAssocActionBody,
+            currentObjectDwgBit(buf),
+            DRW_AssociativePrefixStatus::ParseStatus::Missing,
+            m_classVersion, 0, 0, 0);
     }
 
     DRW_DBG("ACDBASSOC shell: "); DRW_DBG(m_recordName.c_str()); DRW_DBG("\n");

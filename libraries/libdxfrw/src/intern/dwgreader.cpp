@@ -2301,15 +2301,17 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         }
                         break;
                     }
-                    if (rn == "ACDBASSOCACTION"
-                        || rn == "ACDBASSOCNETWORK"
-                        || rn == "ACDBASSOCDEPENDENCY"
-                        || rn == "ACDBASSOCGEOMDEPENDENCY"
-                        || rn == "ACDBASSOCPERSSUBENTMANAGER"
-                        || rn == "ACDBPERSSUBENTMANAGER"
-                        || rn == "ACDBASSOCALIGNEDDIMACTIONBODY"
-                        || rn == "ACDBASSOCVERTEXACTIONPARAM"
-                        || rn == "ACDBASSOCOSNAPPOINTREFACTIONPARAM") {
+                    if (rn.rfind("ACDBASSOC", 0) == 0
+                        || rn == "ACDBPERSSUBENTMANAGER") {
+                        // Every ACDBASSOC* associativity class (plus the bare
+                        // PERSSUBENTMANAGER) routes to the shell parser:
+                        // ACTION/NETWORK/DEPENDENCY/GEOMDEPENDENCY/PERSSUBENT
+                        // and the action-param variants decode structured
+                        // fields; all other subclasses (surface/array action
+                        // bodies, generic action params, value/variable deps,
+                        // 2d-constraint groups) run the shared prefix
+                        // (suffix-inferred in parseDwg) and are preserved
+                        // byte-for-byte by the raw shelf below.
                         DRW_AssociativeObject e(rn);
                         ret = e.parseDwg(version, &buff, bs);
                         if (ret) {
