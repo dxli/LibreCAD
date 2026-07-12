@@ -5513,6 +5513,99 @@ TEST_CASE("DWG pre-R13: R11 typed DIMENSION (LINEAR + ALIGNED)") {
   }
 }
 
+// Pre-R13 R11/R10 SHAPE style_id + ATTDEF/ATTRIB rotation decode (Phase 4b).
+// Two spec-grounded read-width / opt-bit fixes in dwgReaderR11.cpp:
+//   (a) SHAPE style_id is an RC (1 byte; dwg.spec:2338 FIELD_CAST(style_id,RC,
+//       BS,0)). Reading it as a 2-byte RS over-consumed one byte and desynced
+//       the following rotation RD -> garbage m_rotation. The fix stores it in
+//       DRW_Shape::m_shapeIndex (previously read-and-discarded).
+//   (b) ATTDEF/ATTRIB rotation is gated on R11OPTS(2) (opts & 0x02; dwg.spec
+//       :216 ATTRIB / :419 ATTDEF), NOT opts & 0x01. Every ATTDEF/ATTRIB in
+//       the corpus has opts bit0 CLEAR + bit1 SET (dwgread trace: r11 opts=0x2,
+//       r10 ATTRIB opts=0x6), so the old `opts & 0x01` gate SKIPPED the read
+//       and the rendered TEXT angle came through as 0.
+// Ground truth: `dwgread -O JSON` on r11/entities-2d.dwg and r10/entities.dwg
+// (SHAPE + ATTDEF(9,5) + ATTRIB(2,2) are byte-identical across the two files).
+namespace {
+struct R11ShapeAttribCollector : public CountingIface {
+  std::vector<DRW_Shape> shapes;
+  std::vector<DRW_Text> texts;
+  void addShape(const DRW_Shape &e) override {
+    ++entities;                 // CountingIface has no addShape override
+    shapes.push_back(e);
+  }
+  void addText(const DRW_Text &e) override {
+    CountingIface::addText(e);  // increments `entities` via track()
+    texts.push_back(e);
+  }
+};
+}  // namespace
+
+TEST_CASE("DWG pre-R13: R11/R10 SHAPE style_id + ATTDEF/ATTRIB rotation") {
+  auto near = [](double a, double b) { return std::abs(a - b) < 1e-9; };
+
+  auto checkFixture = [&](const char *release, const char *file,
+                          DRW::Version expectVer) {
+    const std::string path = libredwgFixturePath(release, file);
+    if (path.empty()) {
+      SUCCEED("pre-R13 corpus root absent; skipping");
+      return;
+    }
+    std::ifstream probe(path, std::ios::binary);
+    if (!probe.good()) {
+      SUCCEED(std::string(file) + " absent; skipping");
+      return;
+    }
+    probe.close();
+
+    R11ShapeAttribCollector iface;
+    const DwgResult r = readDwg(path, /*verbose=*/false, &iface);
+    REQUIRE(r.ok);
+    REQUIRE(r.version == expectVer);
+
+    // ---- (a) SHAPE: style_id read as 1B RC; rotation not desynced ----------
+    // Oracle (dwgread -O JSON): ins_pt=[6,6], scale=1.0, style_id=131,
+    // rotation=0.5235987755983 (== pi/6). Before the fix, style_id was read as
+    // a 2-byte RS which shifted the rotation read by one byte -> garbage, and
+    // m_shapeIndex stayed 0 (the value was discarded).
+    REQUIRE(iface.shapes.size() == 1);
+    const DRW_Shape &s = iface.shapes[0];
+    CHECK(near(s.m_insertionPoint.x, 6.0));
+    CHECK(near(s.m_insertionPoint.y, 6.0));
+    CHECK(near(s.m_scale, 1.0));
+    CHECK(s.m_shapeIndex == 131);                 // was 0 (discarded)
+    CHECK(near(s.m_rotation, 0.5235987755983));   // was garbage (desynced)
+
+    // ---- (b) ATTDEF/ATTRIB rotation via opts & 0x02 ------------------------
+    // ATTDEF/ATTRIB render as DRW_Text in the R11 reader. Find the unique
+    // ATTRIB (text "4", ins_pt [2,2], height 0.1) and one ATTDEF (text "3",
+    // ins_pt [9,5], height 0.2). Oracle rotations: ATTRIB=1.5707963267949
+    // (pi/2), ATTDEF=1.0471975511966 (pi/3). Before the fix (opts & 0x01, bit0
+    // clear) the read was skipped and both angles were 0.
+    const DRW_Text *attrib = nullptr;
+    const DRW_Text *attdef = nullptr;
+    for (const auto &t : iface.texts) {
+      if (t.text == "4" && near(t.basePoint.x, 2.0) && near(t.basePoint.y, 2.0))
+        attrib = &t;
+      if (t.text == "3" && near(t.basePoint.x, 9.0) && near(t.basePoint.y, 5.0))
+        attdef = &t;
+    }
+    REQUIRE(attrib != nullptr);
+    CHECK(near(attrib->height, 0.1));
+    CHECK(near(attrib->angle, 1.5707963267949));  // was 0.0 (gate skipped)
+    REQUIRE(attdef != nullptr);
+    CHECK(near(attdef->height, 0.2));
+    CHECK(near(attdef->angle, 1.0471975511966));  // was 0.0 (gate skipped)
+  };
+
+  SECTION("r11/entities-2d.dwg (AC1009)") {
+    checkFixture("r11", "entities-2d.dwg", DRW::AC1009);
+  }
+  SECTION("r10/entities.dwg (AC1006)") {
+    checkFixture("r10", "entities.dwg", DRW::AC1006);
+  }
+}
+
 // Pre-R13 R10 (AC1006) routing parity. The R10 container is byte-identical to
 // R11 except for the LTYPE handle width in the entity common header (R10=1B
 // RC; R11=2B RS). dwgReaderR11 branches on `version`; this test exercises the

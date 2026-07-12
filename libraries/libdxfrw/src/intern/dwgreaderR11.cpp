@@ -751,7 +751,7 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             if (type == R11_ATTDEF) readTv();  // ATTDEF prompt (not rendered)
             readTv();                          // tag (not rendered)
             fileBuf->getRawChar8();            // attribute flags (RC 70)
-            if (opts & 0x01) e.angle = rd();   // rotation (shared TEXT opt bit)
+            if (opts & 0x02) e.angle = rd();   // rotation, R11OPTS(2) dwg.spec:216/419
             e.thickness = thickness;
             applyAttrs(e);
             intfa.addText(e);
@@ -870,8 +870,11 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             e.m_insertionPoint = fileBuf->get2RawDouble();
             e.m_insertionPoint.z = elevation;
             e.m_scale = rd();
-            fileBuf->getRawShort16();           // style handle (RS for R11)
-            if (opts & 0x01) e.m_rotation = rd();
+            // style_id is an RC (1 byte, dwg.spec:2338 FIELD_CAST(style_id,RC,
+            // BS,0)) -> the SHAPEFILE glyph index. Reading it as a 2-byte RS
+            // over-consumed one byte and desynced the following rotation RD.
+            e.m_shapeIndex = fileBuf->getRawChar8();   // 1B RC, was RS (desync)
+            if (opts & 0x01) e.m_rotation = rd();      // R11OPTS(1), dwg.spec:2340
             intfa.addShape(e);
             break; }
         case R11_VIEWPORT: {
