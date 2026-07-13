@@ -5860,13 +5860,18 @@ bool DRW_ImageDefinitionReactor::parseDwg(DRW::Version version, dwgBuffer *buf, 
     if (!ret)
         return ret;
 
-    dwgBuffer hBuff = *buf;
-    seekObjectHandleStream(version, &hBuff, objSize);
-    readCommonObjectHandles(&hBuff, handle, numReactors, xDictFlag, &parentHandle);
-
+    // Read the data-stream body (class_version) BEFORE the handle stream, then
+    // seek buf itself to the handle stream: a no-op for <=AC1018 (handles are
+    // inline right after the body) and a reposition for R2007+. The previous
+    // order read parent/reactor/xdict handles from a body-start copy, which the
+    // no-op <=AC1018 seek left pointing at the class_version bytes -> garbage
+    // owner handles in every pre-R2007 drawing with a raster image. This mirrors
+    // the EvaluationGraph fix (7edf47978) and the DRW_Dictionary pattern.
     m_classVersion = buf->getBitLong();
+    seekObjectHandleStream(version, buf, objSize);
+    readCommonObjectHandles(buf, handle, numReactors, xDictFlag, &parentHandle);
     DRW_UNUSED(sBuf);
-    return buf->isGood() && hBuff.isGood();
+    return true;  // graceful-degrade: typed body + raw shelf both delivered
 }
 
 bool DRW_SpatialFilter::parseCode(int code, const std::unique_ptr<dxfReader>& reader){
