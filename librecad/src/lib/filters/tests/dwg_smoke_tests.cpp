@@ -1227,6 +1227,59 @@ TEST_CASE("DWG pre-R13 R11: embedded APPID + DIMSTYLE tables decode name-only",
   CHECK(iface.dimStyles[0] == "STANDARD");
 }
 
+namespace {
+// Captures LINE entities (count + first start point) over CountingIface.
+class LineCapture : public CountingIface {
+public:
+  int lines = 0;
+  RS_Vector firstStart{false};
+  void addLine(const DRW_Line &e) override {
+    CountingIface::addLine(e);
+    if (lines == 0)
+      firstStart = RS_Vector(e.basePoint.x, e.basePoint.y, e.basePoint.z);
+    ++lines;
+  }
+};
+} // namespace
+
+// Pre-R10 tier (R2.6/AC1003, R9/AC1004, R2.10/AC2.10) parse regression. These
+// share the R10/R11 container (dwgReaderR11) but were rejected by readMetaData
+// + the routing in libdwgr.cpp -> 0 entities. Now decoded via version-gated
+// deltas: 1-byte LTYPE handle for all pre-R11, 2D LINE/POINT/3DLINE/3DFACE
+// bodies for pre-R10, elevation-for-all, empty-ENTITIES tolerance, and
+// REPEAT/ENDREP/LOAD structural markers. Each fixture carries a 2D LINE at
+// (6,1,0) (z=0 proves the pre-R10 2D-body path; byte-identical to dwgread).
+TEST_CASE("DWG pre-R10 tier (R2.6/R9/R2.10) reads entities with 2D bodies",
+          "[dwg][pre-r13][pre-r10]") {
+  struct Case { const char *file; DRW::Version version; int minEntities; };
+  const Case cases[] = {
+      {"pre_r10_r26_entities.dwg", DRW::AC1003, 24},
+      {"pre_r10_r9_entities.dwg", DRW::AC1004, 24},
+      {"pre_r10_r210_entities.dwg", DRW::AC210, 15},
+  };
+  for (const Case &c : cases) {
+    const std::string path = std::string(LIBRECAD_TEST_DIR) + "/" + c.file;
+    INFO("fixture: " << c.file);
+    if (!std::filesystem::is_regular_file(path)) {
+      SUCCEED("fixture absent; skipping");
+      continue;
+    }
+    LineCapture iface;
+    dwgR reader(path.c_str());
+    REQUIRE(reader.read(&iface, /*ext=*/true));
+    REQUIRE(reader.getVersion() == c.version);
+    REQUIRE(reader.getError() == DRW::BAD_NONE);
+    // Entities are now delivered (was 0 before the pre-R10 fix).
+    CHECK(iface.entities >= c.minEntities);
+    REQUIRE(iface.lines >= 2);
+    // The (6,1,0) 2D LINE: z==0 confirms the pre-R10 2D-body read (a 3D read
+    // would consume the next entity's bytes as Z).
+    CHECK(iface.firstStart.x == Catch::Approx(6.0));
+    CHECK(iface.firstStart.y == Catch::Approx(1.0));
+    CHECK(iface.firstStart.z == Catch::Approx(0.0));
+  }
+}
+
 // Regression for BAD_READ_TABLES on a stored (incompressible) R2007 data page.
 // The $100-bill raster artwork produces an AcDb:AcDbObjects page with
 // cSize==uSize that dwgReader21::parseDataPage must memcpy, not LZ77-decompress

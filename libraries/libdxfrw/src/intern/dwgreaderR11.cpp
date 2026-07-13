@@ -57,9 +57,15 @@ bool dwgReaderR11::readMetaData() {
     for (int i = 0; i < 6; ++i)
         magic.push_back(static_cast<char>(fileBuf->getRawChar8()));
     if (magic == "AC1009")
-        version = DRW::AC1009;
+        version = DRW::AC1009;              // R11/R12
     else if (magic == "AC1006")
-        version = DRW::AC1006;
+        version = DRW::AC1006;              // R10
+    else if (magic == "AC1004")
+        version = DRW::AC1004;              // R9  (pre-R10, same container)
+    else if (magic == "AC1003")
+        version = DRW::AC1003;              // R2.6
+    else if (magic == "AC2.10")
+        version = DRW::AC210;               // R2.10
     else
         return false;
     // Pre-R13 text is codepage-encoded; default to ANSI_1252 (test corpus is
@@ -88,7 +94,11 @@ bool dwgReaderR11::readFileHeader() {
     m_extrasEnd = m_extrasStart + extrasSize;
 
     const std::uint64_t fileSize = static_cast<std::uint64_t>(fileBuf->size());
-    if (m_entitiesStart == 0 || m_entitiesEnd <= m_entitiesStart
+    // Reject a truly implausible header, but ALLOW an empty ENTITIES section
+    // (entities_end == entities_start): some files (e.g. AC2.10 block.dwg) put
+    // all content in the BLOCKS section and leave ENTITIES empty. readDwgBlocks
+    // still reads the blocks; an empty section walk yields 0 entities, not an error.
+    if (m_entitiesStart == 0 || m_entitiesEnd < m_entitiesStart
         || m_entitiesEnd > fileSize)
         return false;  // implausible header -> not a readable pre-R13 file
 
@@ -652,19 +662,25 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
     // Resolved to a name via m_ltypeNames; ByLayer/ByBlock sentinels handled
     // by ltypeName(). Stored on DRW_Entity.lineType below.
     std::int16_t ltypeOverride = 0;
+    // Pre-R10 (R2.6/R9/R2.10) common-header/body deltas vs R10/R11: 1-byte LTYPE
+    // override handle; HAS_ELEVATION read for ALL types; LINE/POINT/3DLINE/3DFACE
+    // bodies are 2D (Z from elevation). R10 already uses the 1-byte handle.
+    const bool preR10 = (version < DRW::AC1006);
     bool hasLtypeOverride = false;
     if (flag & FLAG_HAS_LTYPE) {
-        if (version == DRW::AC1006)
+        if (version != DRW::AC1009)   // PRE(R_11): 1-byte handle (R10 + pre-R10)
             ltypeOverride =
                 static_cast<std::int16_t>(static_cast<std::int8_t>(fileBuf->getRawChar8()));
-        else
+        else                          // R11: 2-byte handle
             ltypeOverride = static_cast<std::int16_t>(fileBuf->getRawShort16());
         hasLtypeOverride = true;
     }
     double elevation = 0.0;
-    // HAS_ELEVATION is suppressed for LINE/POINT/3DFACE (their Z is in the body).
+    // HAS_ELEVATION: read for ALL types in pre-R10; for R10/R11 it is suppressed
+    // for LINE/POINT/3DFACE (their Z lives in the body).
     if ((flag & FLAG_HAS_ELEVATION)
-        && type != R11_LINE && type != R11_POINT && type != R11_3DFACE)
+        && (preR10
+            || (type != R11_LINE && type != R11_POINT && type != R11_3DFACE)))
         elevation = fileBuf->getRawDouble();
     double thickness = 0.0;
     if (flag & FLAG_HAS_THICKNESS)
@@ -711,10 +727,10 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
         switch (type) {
         case R11_LINE: {
             DRW_Line e;
-            if (!hasElev) {
+            if (!preR10 && !hasElev) {   // R10/R11: full 3D
                 e.basePoint = rd3();
                 e.secPoint = rd3();
-            } else {
+            } else {                     // pre-R10 always 2D; R10/R11 w/ elevation
                 e.basePoint = fileBuf->get2RawDouble(); e.basePoint.z = elevation;
                 e.secPoint = fileBuf->get2RawDouble();  e.secPoint.z = elevation;
             }
@@ -724,10 +740,19 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             break; }
         case R11_3DLINE: {
             DRW_Line e;
-            e.basePoint = rd3();
-            e.secPoint = rd3();
-            if (opts & 0x01)
-                e.extPoint = rd3();
+            if (preR10) {
+                // pre-R10: each endpoint is 3D iff its opts bit is set, else 2D
+                // (Z from elevation); no extrusion vector.
+                if (opts & 0x01) e.basePoint = rd3();
+                else { e.basePoint = fileBuf->get2RawDouble(); e.basePoint.z = elevation; }
+                if (opts & 0x02) e.secPoint = rd3();
+                else { e.secPoint = fileBuf->get2RawDouble(); e.secPoint.z = elevation; }
+            } else {
+                e.basePoint = rd3();
+                e.secPoint = rd3();
+                if (opts & 0x01)
+                    e.extPoint = rd3();
+            }
             e.thickness = thickness;
             applyAttrs(e);
             intfa.addLine(e);
@@ -735,7 +760,8 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
         case R11_POINT: {
             DRW_Point e;
             e.basePoint.x = rd(); e.basePoint.y = rd();
-            if (!hasElev) e.basePoint.z = rd();
+            if (preR10) e.basePoint.z = elevation;   // pre-R10: 2D, Z from elevation
+            else if (!hasElev) e.basePoint.z = rd();
             e.thickness = thickness;
             applyAttrs(e);
             intfa.addPoint(e);
@@ -789,11 +815,11 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             break; }
         case R11_3DFACE: {
             DRW_3Dface e;
-            if (hasElev) {
-                e.basePoint = fileBuf->get2RawDouble();
-                e.secPoint = fileBuf->get2RawDouble();
-                e.thirdPoint = fileBuf->get2RawDouble();
-                e.fourPoint = fileBuf->get2RawDouble();
+            if (preR10 || hasElev) {     // pre-R10 always 2D; R10/R11 w/ elevation
+                e.basePoint = fileBuf->get2RawDouble();   e.basePoint.z = elevation;
+                e.secPoint = fileBuf->get2RawDouble();     e.secPoint.z = elevation;
+                e.thirdPoint = fileBuf->get2RawDouble();   e.thirdPoint.z = elevation;
+                e.fourPoint = fileBuf->get2RawDouble();    e.fourPoint.z = elevation;
             } else {
                 e.basePoint = rd3();
                 e.secPoint = rd3();
@@ -1008,6 +1034,15 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             applyAttrs(e);
             intfa.addViewport(e);
             break; }
+        case R11_REPEAT:
+        case R11_ENDREP:
+        case R11_LOAD:
+            // Pre-R10 structural markers: REPEAT(5)/ENDREP(6) bracket a repeated
+            // entity group, LOAD(10) is a shapefile load directive. They carry no
+            // standalone geometry; skip (the recEnd advance consumes the body) so
+            // they are not miscounted as parse failures. The bracketed entities
+            // are still read once (repeat multiplicity is not expanded).
+            break;
         case R11_JUMP:
             // Section-spanning continuation marker (pre-R13). It carries no
             // geometry and MUST NOT be counted as a parse failure or close an
