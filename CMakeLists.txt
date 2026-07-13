@@ -1823,6 +1823,7 @@ if(BUILD_TESTS)
         librecad/src/lib/filters/tests/evalgraph_tests.cpp
         librecad/src/lib/filters/tests/dwg_handle_stream_tests.cpp
         librecad/src/lib/filters/tests/section_object_tests.cpp
+        librecad/src/lib/filters/tests/dwg_gui_import_repro_tests.cpp
         librecad/src/lib/filters/tests/rs_graphic_layouts_tests.cpp
         librecad/src/lib/filters/tests/mline_tests.cpp
         librecad/src/lib/filters/tests/underlay_tests.cpp

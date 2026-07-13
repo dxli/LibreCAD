@@ -147,7 +147,15 @@ RS_Entity* RS_Polyline::addVertex(const RS_Vector& v, double bulge, bool prepend
             vertex.release();
         }
         m_nextBulge = bulge;
-        endPolyline();
+        // Do NOT call endPolyline() here: it runs a full calculateBorders()
+        // (reset + iterate every segment) on every vertex, making an N-vertex
+        // polyline O(N^2) to build -- pathological for large imported polylines
+        // (e.g. raster traces with 100k+ vertices took minutes). The border is
+        // already maintained incrementally by RS_EntityContainer::addEntity
+        // above (m_autoUpdateBorders defaults to true), and every polyline
+        // builder calls endPolyline() once when finished to add the closing
+        // entity and finalize. See RS_FilterDXFRW::addPolyline (endPolyline at
+        // the end of the vertex loop).
     }
     return entity;
 }
