@@ -1148,6 +1148,49 @@ TEST_CASE("DWG R2007: section names decode via UTF-16 (no BAD_READ_HEADER)",
   CHECK(r.entities > 0);
 }
 
+namespace {
+// Counts POLYLINE deliveries + total vertices, over CountingIface.
+class PolyCountIface : public CountingIface {
+public:
+  int polylines = 0;
+  int polyVerts = 0;
+  void addPolyline(const DRW_Polyline &e) override {
+    CountingIface::addPolyline(e);
+    ++polylines;
+    polyVerts += static_cast<int>(e.vertlist.size());
+  }
+};
+} // namespace
+
+// Pre-R13 (R10/AC1006) JUMP + EXTRAS-section regression. entities_3.dwg holds
+// two POLYLINE_2D; the second is split by a JUMP record whose continuation
+// lives in the EXTRAS section. Before the fix, dwgReaderR11 (a) counted JUMP as
+// a parse failure and (b) never read the EXTRAS section, so only ONE polyline
+// was delivered (entityParseFailures=1). Now both are delivered, 0 failures --
+// matching dwgTs (which reads entities+blocks+extras).
+TEST_CASE("DWG pre-R13 R10: JUMP-split polyline recovered from EXTRAS section",
+          "[dwg][pre-r13][r10][jump]") {
+  const std::string path =
+      std::string(LIBRECAD_TEST_DIR) + "/pre_r13_r10_entities.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("pre_r13_r10_entities.dwg fixture absent; skipping");
+    return;
+  }
+  PolyCountIface iface;
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&iface, /*ext=*/true));
+  REQUIRE(reader.getVersion() == DRW::AC1006);
+  REQUIRE(reader.getError() == DRW::BAD_NONE);
+  // Both POLYLINE entities are now delivered (was 1 before the EXTRAS/JUMP fix,
+  // with a spurious parse failure). The second polyline is JUMP-relocated into
+  // the EXTRAS section; per dwgTs's own note "neither libredwg nor libdxfrw
+  // follows the JUMP", so its 3 vertices are NOT relocated back onto it (dwgTs
+  // leaves them flat; dwgread delivers them as 6 separate VERTEX_2D). We
+  // therefore get 2 polylines carrying the 3 relocatable vertices of the first.
+  CHECK(iface.polylines == 2);
+  CHECK(iface.polyVerts == 3);
+}
+
 // Regression for BAD_READ_TABLES on a stored (incompressible) R2007 data page.
 // The $100-bill raster artwork produces an AcDb:AcDbObjects page with
 // cSize==uSize that dwgReader21::parseDataPage must memcpy, not LZ77-decompress

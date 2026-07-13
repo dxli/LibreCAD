@@ -510,7 +510,27 @@ bool dwgReaderR11::readDwgBlocks(DRW_Interface& intfa) {
 bool dwgReaderR11::readDwgEntities(DRW_Interface& intfa) {
     DRW_DBG("\n=== pre-R13 ENTITIES section ["); DRW_DBGH(m_entitiesStart);
     DRW_DBG(","); DRW_DBGH(m_entitiesEnd); DRW_DBG(") ===\n");
-    return readEntitySection(m_entitiesStart, m_entitiesEnd, intfa);
+    if (!readEntitySection(m_entitiesStart, m_entitiesEnd, intfa))
+        return false;
+
+    // EXTRAS section: same flat record format as ENTITIES. It holds entity
+    // records that overflow the main section -- including JUMP-split POLYLINE
+    // continuations (a VERTEX run interrupted by a JUMP resumes here). dwgTs
+    // reads entities+blocks+extras; we read EXTRAS right after ENTITIES so an
+    // open polyline (m_curPoly) accumulates across the section boundary. Bounds
+    // are best-effort (a malformed/empty EXTRAS is simply skipped).
+    const std::uint32_t fileSize = static_cast<std::uint32_t>(fileBuf->size());
+    if (m_extrasStart != 0 && m_extrasEnd > m_extrasStart
+        && m_extrasEnd <= fileSize) {
+        DRW_DBG("\n=== pre-R13 EXTRAS section ["); DRW_DBGH(m_extrasStart);
+        DRW_DBG(","); DRW_DBGH(m_extrasEnd); DRW_DBG(") ===\n");
+        readEntitySection(m_extrasStart, m_extrasEnd, intfa);
+    }
+
+    // Flush a polyline left open by the last section (missing/JUMP-deferred
+    // SEQEND) so its vertices are not lost.
+    if (m_curPoly) { intfa.addPolyline(*m_curPoly); m_curPoly.reset(); }
+    return true;
 }
 
 bool dwgReaderR11::readEntitySection(std::uint32_t start, std::uint32_t end,
@@ -922,9 +942,17 @@ bool dwgReaderR11::readEntityR11(DRW_Interface& intfa) {
             applyAttrs(e);
             intfa.addViewport(e);
             break; }
+        case R11_JUMP:
+            // Section-spanning continuation marker (pre-R13). It carries no
+            // geometry and MUST NOT be counted as a parse failure or close an
+            // open polyline accumulation: a POLYLINE's VERTEX run can be split
+            // across the entities/blocks/extras sections by a JUMP, and the
+            // vertices resume in the next section (with m_curPoly still open).
+            // The authoritative advance to recEnd below skips its body.
+            break;
         default:
-            // Unhandled type (INSERT/ATTRIB/ATTDEF/SHAPE/DIMENSION/...) -> skipped
-            // for now; counted as a parse "miss" but not a failure (advance by size).
+            // Unhandled type -> skipped for now; counted as a parse "miss" but
+            // not a failure (the recEnd advance below keeps the walk aligned).
             ++m_entityParseFailures;
             break;
         }
