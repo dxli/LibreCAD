@@ -1280,6 +1280,50 @@ TEST_CASE("DWG pre-R10 tier (R2.6/R9/R2.10) reads entities with 2D bodies",
   }
 }
 
+// R1.40 (magic "AC1.40") — the dedicated pre-R2.0b reader (dwgReaderR1_40).
+// Different container: no @0x14 section pointers, no per-record size/CRC; the
+// entity stream runs contiguously from 0x202 to dwg_size@0x24, each record =
+// type(RS)+layer(RS)+body. entities_4.dwg exercises all 14 types; the 9
+// renderable ones are delivered (BLOCK/ENDBLK = scope, REPEAT/ENDREP/LOAD =
+// markers). It carries a LINE (2,3)->(3,4), byte-identical to dwgread.
+TEST_CASE("DWG R1.40 (AC1.40) dedicated reader decodes the entity stream",
+          "[dwg][pre-r13][r1_40]") {
+  const std::string path =
+      std::string(LIBRECAD_TEST_DIR) + "/pre_r10_r140_entities.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("pre_r10_r140_entities.dwg fixture absent; skipping");
+    return;
+  }
+  LineCapture iface;
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&iface, /*ext=*/true));
+  REQUIRE(reader.getVersion() == DRW::AC14);
+  REQUIRE(reader.getError() == DRW::BAD_NONE);
+  // 9 renderable entities (POINT2 LINE3 ARC CIRCLE TEXT TRACE INSERT SHAPE SOLID).
+  CHECK(iface.entities >= 9);
+  REQUIRE(iface.lines >= 3);
+  // No parse failure means the size-less walk landed exactly on dwg_size.
+  bool sawLine23 = false;
+  // firstStart is one delivered LINE start; every LINE is 2D (z==0).
+  CHECK(iface.firstStart.z == Catch::Approx(0.0));
+  // The (2,3)->(3,4) LINE proves correct body geometry vs dwgread.
+  {
+    struct L23 : public LineCapture {
+      bool found = false;
+      void addLine(const DRW_Line &e) override {
+        LineCapture::addLine(e);
+        if (std::abs(e.basePoint.x - 2.0) < 1e-9 &&
+            std::abs(e.basePoint.y - 3.0) < 1e-9)
+          found = true;
+      }
+    } cap;
+    dwgR r2(path.c_str());
+    REQUIRE(r2.read(&cap, /*ext=*/true));
+    sawLine23 = cap.found;
+  }
+  CHECK(sawLine23);
+}
+
 // Regression for BAD_READ_TABLES on a stored (incompressible) R2007 data page.
 // The $100-bill raster artwork produces an AcDb:AcDbObjects page with
 // cSize==uSize that dwgReader21::parseDataPage must memcpy, not LZ77-decompress
