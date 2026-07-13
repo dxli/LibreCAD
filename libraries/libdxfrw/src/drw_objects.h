@@ -2456,9 +2456,37 @@ public:
     std::vector<std::uint8_t> m_binaryBlob2;
     //! Decoded primitive dimensions for ACSH_*_CLASS shape objects.
     //! BOX/WEDGE = {length, width, height}; SPHERE = {radius};
-    //! CYLINDER/CONE = {height, majorRadius, minorRadius, xRadius}.
+    //! CYLINDER/CONE = {height, majorRadius, minorRadius, xRadius};
+    //! TORUS = {majorRadius, minorRadius}.
     //! Empty for shape classes that are only prefix-decoded + raw-shelved.
     std::vector<double> m_shapeParams;
+
+    // --- ACSH_BOOLEAN_CLASS body (AcDbShBoolean) ---
+    std::int32_t m_operation = 0;   //!< RCd operation (0 union, 1 intersect, 2 subtract)
+    std::uint32_t m_operand1 = 0;   //!< BL operand1 step id
+    std::uint32_t m_operand2 = 0;   //!< BL operand2 step id
+    // --- ACSH_CHAMFER_CLASS / ACSH_FILLET_CLASS shared body ---
+    std::uint32_t m_bl92 = 0;       //!< BL bl92 (chamfer + fillet)
+    std::uint32_t m_bl95 = 0;       //!< BL bl95 (chamfer only)
+    double m_baseDist = 0.0;        //!< BD base_dist (chamfer)
+    double m_otherDist = 0.0;       //!< BD other_dist (chamfer)
+    std::vector<std::uint32_t> m_edges;         //!< BL edge indices (chamfer + fillet)
+    std::vector<double> m_radiuses;             //!< BD radii (fillet)
+    std::vector<double> m_startSetbacks;        //!< BD start setbacks (fillet)
+    std::vector<double> m_endSetbacks;          //!< BD end setbacks (fillet)
+    // --- ACSH_REVOLVE_CLASS body (AcDbShRevolve) ---
+    DRW_Coord m_axisPoint;          //!< 3BD axis_pt
+    DRW_Coord m_revolveDirection;   //!< 2RD direction (x,y; z unused)
+    double m_revolveAngle = 0.0;    //!< BD revolve_angle
+    double m_startAngle = 0.0;      //!< BD start_angle
+    double m_bd44 = 0.0;            //!< BD bd44
+    double m_bd45 = 0.0;            //!< BD bd45
+    bool m_b290 = false;            //!< B b290
+    bool m_isCloseToAxis = false;   //!< B is_close_to_axis
+    // --- ACSH_LOFT_CLASS body (AcDbShLoft) ---
+    std::uint32_t m_numCrossSections = 0;  //!< BL num_crosssects
+    std::uint32_t m_numGuides = 0;         //!< BL num_guides
+
     std::vector<DRW_AssociativePrefixStatus> m_prefixStatuses;
 };
 

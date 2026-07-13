@@ -6823,7 +6823,14 @@ bool DRW_AcShHistoryObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
             DRW_AssociativePrefixStatus::Kind::AcDbShHistoryNode, startBit,
             prefixStatusFromGood(buf->isGood() && hBuff.isGood()),
             static_cast<std::uint16_t>(m_major), 1, 0, 0);
-    } else if (m_recordName == "ACSH_SWEEP_CLASS") {
+    } else if (m_recordName == "ACSH_SWEEP_CLASS"
+               || m_recordName == "ACSH_EXTRUSION_CLASS") {
+        // ACSH_EXTRUSION_CLASS (AcDbShExtrusion) shares AcDbShSweepBase with
+        // ACSH_SWEEP_CLASS (dwg2.spec:4257 vs 4210 — only the trailing SUBCLASS
+        // marker differs), so it decodes through the same arm. The reliable
+        // fields are major/minor/direction; the tail past `direction` is an
+        // undocumented embedded sweep/path entity blob + SweepOptions and is
+        // best-effort only (matches dwgTs parseAcshSweepBaseBody).
         const std::uint64_t evalStartBit = currentObjectDwgBit(buf);
         const bool evalParsed = skipEvalExpr(version, buf, sBuf, &hBuff);
         appendPrefixStatus(
@@ -6908,6 +6915,115 @@ bool DRW_AcShHistoryObject::parseDwg(DRW::Version version, dwgBuffer *buf, std::
                 shapeStartBit, prefixStatusFromGood(shapeOk),
                 static_cast<std::uint16_t>(m_major), 0,
                 m_shapeParams.size(), dimCount);
+        }
+    } else if (m_recordName == "ACSH_BOOLEAN_CLASS"
+               || m_recordName == "ACSH_CHAMFER_CLASS"
+               || m_recordName == "ACSH_FILLET_CLASS"
+               || m_recordName == "ACSH_TORUS_CLASS"
+               || m_recordName == "ACSH_REVOLVE_CLASS"
+               || m_recordName == "ACSH_LOFT_CLASS") {
+        // ACSH shape bodies whose fields are scalar and oracle-validatable
+        // (dwgread -O JSON). All share the AcDbEvalExpr_fields +
+        // AcDbShHistoryNode_fields prefix, then per-class dims. Matches dwgTs
+        // parseAcshBooleanClass / parseAcshChamferClass / parseAcshFilletClass /
+        // parseAcshTorusClass / parseAcshRevolveClass / parseAcshLoftClass.
+        // (ACSH_BREP_CLASS is deliberately excluded: its body past the prefix is
+        //  an ACIS solid payload, not scalar fields — dwg2.spec even flags
+        //  "major // also in DWG?" — so it stays prefix-only + raw-shelved.)
+        auto parseSharedPrefix = [&]() -> bool {
+            const std::uint64_t evalStartBit = currentObjectDwgBit(buf);
+            const bool evalParsed = skipEvalExpr(version, buf, sBuf, &hBuff);
+            appendPrefixStatus(
+                DRW_AssociativePrefixStatus::Kind::AcDbEvalExpr, evalStartBit,
+                prefixStatusFromGood(evalParsed), 0, 1, 1, 0);
+            const std::uint64_t historyStartBit = currentObjectDwgBit(buf);
+            const bool historyParsed = evalParsed
+                && skipShHistoryNode(version, buf, sBuf, &hBuff);
+            appendPrefixStatus(
+                DRW_AssociativePrefixStatus::Kind::AcDbShHistoryNode,
+                historyStartBit, prefixStatusFromGood(historyParsed), 0, 1, 0, 0);
+            return evalParsed && historyParsed && buf->isGood();
+        };
+        // Bounded vector<double> reader (BD elements), graceful on short read.
+        auto readBoundedDoubles = [&](std::int32_t count,
+                                      std::vector<double>& out) {
+            out.clear();
+            if (!isValidAssocCount(count))
+                return;
+            out.reserve(static_cast<size_t>(count));
+            for (std::int32_t i = 0; i < count && buf->isGood(); ++i)
+                out.push_back(buf->getBitDouble());
+        };
+
+        if (parseSharedPrefix()) {
+            const std::uint64_t bodyStartBit = currentObjectDwgBit(buf);
+            m_major = static_cast<std::uint32_t>(buf->getBitLong());
+            m_minor = static_cast<std::uint32_t>(buf->getBitLong());
+
+            if (m_recordName == "ACSH_BOOLEAN_CLASS") {
+                m_operation = static_cast<std::int32_t>(
+                    static_cast<std::int8_t>(buf->getRawChar8()));  // RCd
+                m_operand1 = static_cast<std::uint32_t>(buf->getBitLong());
+                m_operand2 = static_cast<std::uint32_t>(buf->getBitLong());
+            } else if (m_recordName == "ACSH_CHAMFER_CLASS") {
+                m_bl92 = static_cast<std::uint32_t>(buf->getBitLong());
+                m_baseDist = buf->getBitDouble();
+                m_otherDist = buf->getBitDouble();
+                const std::int32_t numEdges = buf->getBitLong();
+                m_edges.clear();
+                if (isValidAssocCount(numEdges)) {
+                    m_edges.reserve(static_cast<size_t>(numEdges));
+                    for (std::int32_t i = 0; i < numEdges && buf->isGood(); ++i)
+                        m_edges.push_back(static_cast<std::uint32_t>(buf->getBitLong()));
+                    m_bl95 = static_cast<std::uint32_t>(buf->getBitLong());
+                }
+            } else if (m_recordName == "ACSH_FILLET_CLASS") {
+                m_bl92 = static_cast<std::uint32_t>(buf->getBitLong());
+                const std::int32_t numEdges = buf->getBitLong();
+                m_edges.clear();
+                if (isValidAssocCount(numEdges)) {
+                    m_edges.reserve(static_cast<size_t>(numEdges));
+                    for (std::int32_t i = 0; i < numEdges && buf->isGood(); ++i)
+                        m_edges.push_back(static_cast<std::uint32_t>(buf->getBitLong()));
+                    const std::int32_t numRadiuses = buf->getBitLong();
+                    readBoundedDoubles(numRadiuses, m_radiuses);
+                    const std::int32_t numStartsetbacks = buf->getBitLong();
+                    const std::int32_t numEndsetbacks = buf->getBitLong();
+                    // spec order: endsetbacks[num_endsetbacks] then
+                    // startsetbacks[num_startsetbacks].
+                    readBoundedDoubles(numEndsetbacks, m_endSetbacks);
+                    readBoundedDoubles(numStartsetbacks, m_startSetbacks);
+                }
+            } else if (m_recordName == "ACSH_TORUS_CLASS") {
+                m_shapeParams.clear();
+                m_shapeParams.push_back(buf->getBitDouble());  // major_radius
+                m_shapeParams.push_back(buf->getBitDouble());  // minor_radius
+            } else if (m_recordName == "ACSH_REVOLVE_CLASS") {
+                m_axisPoint = buf->get3BitDouble();
+                m_revolveDirection = buf->get2RawDouble();      // 2RD (finite-but-wrong if degenerate)
+                m_revolveAngle = buf->getBitDouble();
+                m_startAngle = buf->getBitDouble();
+                m_draftAngle = buf->getBitDouble();
+                m_bd44 = buf->getBitDouble();
+                m_bd45 = buf->getBitDouble();
+                m_twistAngle = buf->getBitDouble();
+                m_b290 = buf->getBit() != 0;
+                m_isCloseToAxis = buf->getBit() != 0;
+            } else if (m_recordName == "ACSH_LOFT_CLASS") {
+                const std::int32_t numCross = buf->getBitLong();
+                const std::int32_t numGuides = buf->getBitLong();
+                // crosssects[] / guides[] are CALL_SUBENT decode NOPs — the
+                // per-element handles are not in the data stream (dwgTs).
+                m_numCrossSections = isValidAssocCount(numCross)
+                    ? static_cast<std::uint32_t>(numCross) : 0;
+                m_numGuides = isValidAssocCount(numGuides)
+                    ? static_cast<std::uint32_t>(numGuides) : 0;
+            }
+
+            appendPrefixStatus(
+                DRW_AssociativePrefixStatus::Kind::AcShActionBody, bodyStartBit,
+                prefixStatusFromGood(buf->isGood()),
+                static_cast<std::uint16_t>(m_major), 0, 0, 0);
         }
     }
 

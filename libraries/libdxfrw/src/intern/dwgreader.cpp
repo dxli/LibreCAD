@@ -2345,10 +2345,12 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                     }
                     if (rn.rfind("ACSH_", 0) == 0) {
                         // Every ACSH_* solid-history class routes to the shell
-                        // parser: HISTORY/SWEEP + the BOX/WEDGE/SPHERE/CYLINDER/
-                        // CONE shape bodies decode structured fields; the rest
-                        // run the shared prefix (or nothing) and are preserved
-                        // byte-for-byte by the raw shelf below.
+                        // parser and is delivered through addAcShHistoryObject.
+                        // Structured field decode covers HISTORY, SWEEP/EXTRUSION,
+                        // BOX/WEDGE/SPHERE/CYLINDER/CONE, and (dwgTs parity)
+                        // BOOLEAN/CHAMFER/FILLET/TORUS/REVOLVE/LOFT. BREP and the
+                        // remaining classes run the shared prefix (or nothing) and
+                        // are preserved byte-for-byte by the raw shelf below.
                         DRW_AcShHistoryObject e(rn);
                         ret = e.parseDwg(version, &buff, bs);
                         if (ret) {
