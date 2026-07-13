@@ -1191,6 +1191,42 @@ TEST_CASE("DWG pre-R13 R10: JUMP-split polyline recovered from EXTRAS section",
   CHECK(iface.polyVerts == 3);
 }
 
+namespace {
+// Captures APPID + DIMSTYLE table-record names.
+class TableNameCapture : public CountingIface {
+public:
+  std::vector<std::string> appIds;
+  std::vector<std::string> dimStyles;
+  void addAppId(const DRW_AppId &a) override { appIds.push_back(a.name); }
+  void addDimStyle(const DRW_Dimstyle &d) override { dimStyles.push_back(d.name); }
+};
+} // namespace
+
+// Pre-R13 (R11/AC1009) EMBEDDED extended-table regression. dwgReaderR11 read
+// only LAYER/LTYPE/STYLE; the embedded APPID (@0x512) + DIMSTYLE (@0x522)
+// descriptors (present when numheader_vars@0x11 > 158) were never read. dwgTs
+// decodes these two name-only (VPORT/VIEW/UCS/VX stay dormant in dwgTs too).
+// ACEB10.dwg (R11/AC1009) carries APPID "ACAD" + DIMSTYLE "STANDARD" (dwgread).
+TEST_CASE("DWG pre-R13 R11: embedded APPID + DIMSTYLE tables decode name-only",
+          "[dwg][pre-r13][r11][tables]") {
+  const std::string path =
+      std::string(LIBRECAD_TEST_DIR) + "/pre_r13_r11_tables.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("pre_r13_r11_tables.dwg fixture absent; skipping");
+    return;
+  }
+  TableNameCapture iface;
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&iface, /*ext=*/true));
+  REQUIRE(reader.getVersion() == DRW::AC1009);
+  REQUIRE(reader.getError() == DRW::BAD_NONE);
+  // Both embedded tables now deliver (were absent before the fix).
+  REQUIRE(iface.appIds.size() == 1);
+  CHECK(iface.appIds[0] == "ACAD");
+  REQUIRE(iface.dimStyles.size() == 1);
+  CHECK(iface.dimStyles[0] == "STANDARD");
+}
+
 // Regression for BAD_READ_TABLES on a stored (incompressible) R2007 data page.
 // The $100-bill raster artwork produces an AcDb:AcDbObjects page with
 // cSize==uSize that dwgReader21::parseDataPage must memcpy, not LZ77-decompress

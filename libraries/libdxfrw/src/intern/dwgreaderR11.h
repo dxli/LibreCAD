@@ -89,6 +89,10 @@ private:
     bool readLTypeTable(std::uint32_t hdrPos);
     bool readLayerTable(std::uint32_t hdrPos);
     bool readStyleTable(std::uint32_t hdrPos);
+    // Name-only reader for the EMBEDDED extended tables (APPID/DIMSTYLE). The
+    // 10-byte descriptor @hdrPos matches the @0x2C layout; records carry
+    // flag(RC)+name(32). isDimstyle selects dimstylemap (else appIdmap).
+    void readExtendedNameTable(std::uint32_t hdrPos, bool isDimstyle);
 };
 
 #endif // DWGREADERR11_H

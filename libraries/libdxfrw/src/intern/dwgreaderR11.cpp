@@ -495,7 +495,73 @@ bool dwgReaderR11::readDwgTables(DRW_Header& /*hdr*/) {
     readLTypeTable(0x4A);            // LTYPE table (0x2C + 30)
     readLayerTable(0x36);            // LAYER table (0x2C + 10)
     readStyleTable(0x40);            // STYLE table (0x2C + 20)
+
+    // EMBEDDED extended tables. These exist only when the header carries the
+    // extended variable block: numheader_vars@0x11 > 158 (R10/AC1006 reports
+    // 158 -> none; R11/AC1009 reports 205 -> present). dwgTs reads APPID and
+    // DIMSTYLE here name-only (its "recommended name-only path"); VPORT/VIEW/
+    // UCS/VX are DORMANT in dwgTs too, so we match parity by omitting them.
+    // Fixed on-disk descriptor offsets (byte-verified vs ACEB10.dwg, matching
+    // dwgTs PRE_R13_EMBEDDED_SECTION_HEADERS): APPID @0x512, DIMSTYLE @0x522.
+    std::uint16_t numHeaderVars = 0;
+    if (fileBuf->setPosition(0x11))
+        numHeaderVars = fileBuf->getRawShort16();
+    if (numHeaderVars > 158) {
+        readExtendedNameTable(0x512, /*isDimstyle=*/false); // APPID
+        readExtendedNameTable(0x522, /*isDimstyle=*/true);  // DIMSTYLE
+    }
     return true;
+}
+
+void dwgReaderR11::readExtendedNameTable(std::uint32_t hdrPos, bool isDimstyle) {
+    // Descriptor: recSize RS, recNum RSd(signed), flags RS, address RL (10 bytes,
+    // same as the @0x2C headers). Each record is recSize bytes: flag RC + name
+    // 32 FIXED. We keep name+flag only (dwgTs's name-only path); the record is
+    // stored into the base dimstylemap/appIdmap, which processDwg delivers via
+    // addDimStyle/addAppId (libdwgr.cpp).
+    if (!fileBuf->setPosition(hdrPos))
+        return;
+    const std::uint16_t recSize = fileBuf->getRawShort16();
+    const std::int16_t recNum =
+        static_cast<std::int16_t>(fileBuf->getRawShort16());
+    fileBuf->getRawShort16(); // flags
+    const std::uint32_t addr = fileBuf->getRawLong32();
+    if (addr == 0 || recNum <= 0 || recSize < 33)
+        return;
+    const std::uint64_t fileSize = static_cast<std::uint64_t>(fileBuf->size());
+    if (static_cast<std::uint64_t>(addr)
+            + static_cast<std::uint64_t>(recSize) * recNum > fileSize)
+        return;
+    for (std::int16_t i = 0; i < recNum; ++i) {
+        const std::uint64_t base =
+            static_cast<std::uint64_t>(addr)
+            + static_cast<std::uint64_t>(i) * recSize;
+        if (!fileBuf->setPosition(base))
+            break;
+        const std::uint8_t flag = fileBuf->getRawChar8();
+        std::string name;
+        bool ended = false;
+        for (int j = 0; j < 32; ++j) {
+            const char c = static_cast<char>(fileBuf->getRawChar8());
+            if (c == '\0') ended = true;
+            if (!ended) name.push_back(c);
+        }
+        if (isDimstyle) {
+            auto* ds = new DRW_Dimstyle();
+            ds->name = name;
+            ds->flags = flag;
+            const std::uint32_t key = 0x50000000u | static_cast<std::uint32_t>(i);
+            ds->handle = key;
+            dimstylemap[key] = ds;
+        } else {
+            auto* ai = new DRW_AppId();
+            ai->name = name;
+            ai->flags = flag;
+            const std::uint32_t key = 0x40000000u | static_cast<std::uint32_t>(i);
+            ai->handle = key;
+            appIdmap[key] = ai;
+        }
+    }
 }
 
 bool dwgReaderR11::readDwgBlocks(DRW_Interface& intfa) {
