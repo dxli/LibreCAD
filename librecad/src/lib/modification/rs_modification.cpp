@@ -70,17 +70,19 @@ namespace {
  */
     RS_Vector getPasteScale(const RS_PasteData &data, RS_Graphic *&source, const RS_Graphic &graphic){
 
-        // adjust scaling factor for units conversion in case of clipboard paste
-        double factor = (RS_TOLERANCE < std::abs(data.factor)) ? data.factor : 1.0;
-        // select source for paste
         if (source == nullptr){
-            RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::paste: add graphic source from clipboard");
             source = RS_CLIPBOARD->getGraphic();
-            // graphics from the clipboard need to be scaled. From the part lib not:
-            RS2::Unit sourceUnit = source->getUnit();
-            RS2::Unit targetUnit = graphic.getUnit();
-            factor = RS_Units::convert(factor, sourceUnit, targetUnit);
         }
+        // Always compute unit conversion factor
+        RS2::Unit sourceUnit = source->getUnit();
+        RS2::Unit targetUnit = graphic.getUnit();
+        double factor = RS_Units::convert(1.0, sourceUnit, targetUnit);
+
+        // Compose with user-specified scale factor if provided
+        if (std::abs(data.factor) > RS_TOLERANCE && std::abs(data.factor - 1.0) > RS_TOLERANCE) {
+            factor *= data.factor;
+        }
+
         RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::paste: pasting scale factor: %g", factor);
         // scale factor as vector
         return {factor, factor};
@@ -658,112 +660,101 @@ void RS_Modification::copyBlocks(RS_Entity* e) {
  *      is the clipboard.
  */
 RS_Insert* RS_Modification::paste(const RS_PasteData& data, RS_Graphic* source) {
-  RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::paste:");
+    RS_DEBUG->print(RS_Debug::D_DEBUGGING, "RS_Modification::paste:");
 
-  if (m_container == nullptr || m_container->isLocked() || !m_container->isVisible()) {
-    RS_DEBUG->print(RS_Debug::D_WARNING, "RS_Modification::paste: invalid container");
-    return nullptr;
-  }
-
-  RS_Graphic* src = (source != nullptr) ? source : RS_CLIPBOARD->getGraphic();
-  if (src == nullptr) {
-    RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::paste: no source");
-    return nullptr;
-  }
-
-  src->calculateBorders();
-
-  // Scale (units)
-  RS_Vector scale = getPasteScale(data, source, *m_graphic);
-
-  LC_UndoSection undo(m_document, m_viewport, handleUndo);
-
-  RS_Insert* ret = nullptr;
-  if (data.asInsert) {
-
-    if (!src || src->count() == 0) {
-      RS_DEBUG->print(RS_Debug::D_WARNING, "paste(asInsert): empty or null source graphic");
-      return nullptr;
+    if (m_container == nullptr || m_container->isLocked() || !m_container->isVisible()) {
+        RS_DEBUG->print(RS_Debug::D_WARNING, "RS_Modification::paste: invalid container");
+        return nullptr;
     }
 
-           // Block name – prefer provided, fallback to auto-generated
-    QString name = data.blockName;
-    RS_Block* b = m_graphic->findBlock(name);
-    if (b == nullptr) {
-      // paste as block: create new block:
-      name = m_graphic->newBlockName(name);
-      b = addNewBlock(name, *m_graphic);
+    RS_Graphic* src = (source != nullptr) ? source : RS_CLIPBOARD->getGraphic();
+    if (src == nullptr) {
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::paste: no source");
+        return nullptr;
+    }
 
-             // add entities to block:
-      for(RS_Entity* e: std::as_const(*source)){
-        RS_Entity* e2 = e->clone();
-        e2->reparent(b);
+    src->calculateBorders();
 
-               // For asInsert, if source entity is an insert, preserve its angle and scale
-        if (e2->rtti() == RS2::EntityInsert) {
-          RS_Insert* origInsert = static_cast<RS_Insert*>(e);
-          RS_Insert* newInsert = static_cast<RS_Insert*>(e2);
-          // Preserve and compose
-          newInsert->setAngle(origInsert->getAngle() - data.angle);
-          newInsert->setScale(origInsert->getScale());
-          newInsert->update();
-        } else {
-          if (std::abs(scale.x)>RS_TOLERANCE && std::abs(scale.y)>RS_TOLERANCE) {
-            e2->scale(b->getBasePoint(), scale);
-          }
+    // Scale (units)
+    RS_Vector scale = getPasteScale(data, source, *m_graphic);
+
+    LC_UndoSection undo(m_document, m_viewport, handleUndo);
+
+    RS_Insert* ret = nullptr;
+    if (data.asInsert) {
+
+        if (!src || src->count() == 0) {
+            RS_DEBUG->print(RS_Debug::D_WARNING, "paste(asInsert): empty or null source graphic");
+            return nullptr;
         }
 
-        b->addEntity(e2);
-      }
+        // Block name – prefer provided, fallback to auto-generated
+        QString name = data.blockName;
+        RS_Block* b = m_graphic->findBlock(name);
+        if (b == nullptr) {
+            // paste as block: create new block:
+            name = m_graphic->newBlockName(name);
+            b = addNewBlock(name, *m_graphic);
+
+            // Add entities to block in raw state - no transformations applied.
+            // All scale/rotation is handled by the outer Insert via its
+            // scaleFactor and angle properties during update().
+            // This ensures correct behavior for nested inserts at any depth,
+            // and safe block reuse across multiple pastes.
+            for(RS_Entity* e: std::as_const(*source)){
+                RS_Entity* e2 = e->clone();
+                e2->reparent(b);
+                b->addEntity(e2);
+            }
+        }
+
+        // create insert: outer Insert carries all transformations (scale + angle)
+        RS_InsertData d(name, data.insertionPoint, scale, data.angle, 1,1, RS_Vector(0.0,0.0), nullptr, RS2::Update);  // Use data.angle and force update
+        RS_Insert* ret = new RS_Insert(m_graphic, d);
+        ret->setLayer(m_graphic->getActiveLayer());
+        // Set pen to ByLayer so that inner entities with ByBlock
+        // resolve to the insert's layer color (fixes #2522)
+        ret->setPen(RS_Pen(RS_Color(RS2::FlagByLayer), RS2::WidthByLayer, RS2::LineByLayer));
+
+        ret->update();
+        m_container->addEntity(ret);
+        ret->reparent(m_container);
+
+        undo.addUndoable(ret);
+    } else {
+        // copy as entities
+
+        for(const RS_Entity* e: *source){
+            RS_Entity* e2 = e->clone();
+
+            e2->move(data.insertionPoint);
+
+            // Apply rotation (adds paste angle, rotates position around new point)
+            e2->rotate(data.insertionPoint, data.angle);
+
+            // Apply scale if valid (multiplies for inserts, scales position around new point)
+            if (std::abs(scale.x) > RS_TOLERANCE && std::abs(scale.y) > RS_TOLERANCE) {
+                e2->scale(data.insertionPoint, scale);
+            }
+
+            e2->setLayer(m_graphic->getActiveLayer());
+
+            // Force early update to apply composed angle
+            if (e2->rtti() == RS2::EntityInsert) {
+                static_cast<RS_Insert*>(e2)->update();
+            }
+
+            m_container->addEntity(e2);
+            e2->reparent(m_container);
+            undo.addUndoable(e2);
+        }
     }
 
-           // create insert:
-    RS_InsertData d(name, data.insertionPoint, RS_Vector(1.0,1.0), data.angle, 1,1, RS_Vector(0.0,0.0), nullptr, RS2::Update);  // Use data.angle and force update
-    RS_Insert* ret = new RS_Insert(m_graphic, d);
-    ret->setLayer(m_graphic->getActiveLayer());
-    // Set pen to ByLayer so that inner entities with ByBlock
-    // resolve to the insert's layer color (fixes #2522)
-    ret->setPen(RS_Pen(RS_Color(RS2::FlagByLayer), RS2::WidthByLayer, RS2::LineByLayer));
-
-    ret->update();
-    m_container->addEntity(ret);
-    ret->reparent(m_container);
-
-    undo.addUndoable(ret);
-  } else {
-    // copy as entities
-
-    for(const RS_Entity* e: *source){
-      RS_Entity* e2 = e->clone();
-
-      e2->move(data.insertionPoint);
-
-             // Apply rotation (adds paste angle, rotates position around new point)
-      e2->rotate(data.insertionPoint, data.angle);
-
-             // Apply scale if valid (multiplies for inserts, scales position around new point)
-      if (std::abs(scale.x) > RS_TOLERANCE && std::abs(scale.y) > RS_TOLERANCE) {
-        e2->scale(data.insertionPoint, scale);
-      }
-
-      e2->setLayer(m_graphic->getActiveLayer());
-
-             // Force early update to apply composed angle
-      if (e2->rtti() == RS2::EntityInsert) {
-        static_cast<RS_Insert*>(e2)->update();
-      }
-
-      m_container->addEntity(e2);
-      e2->reparent(m_container);
-      undo.addUndoable(e2);
-    }
-  }
-
-  m_container->calculateBorders();
-  m_graphic->updateInserts();
-  m_viewport->notifyChanged();
-  RS_DEBUG->print(RS_Debug::D_DEBUGGING, "paste: OK ✅");
-  return ret;
+    m_container->calculateBorders();
+    m_graphic->updateInserts();
+    m_viewport->notifyChanged();
+    RS_DEBUG->print(RS_Debug::D_DEBUGGING, "paste: OK ✅");
+    return ret;
 }
 
 /**
