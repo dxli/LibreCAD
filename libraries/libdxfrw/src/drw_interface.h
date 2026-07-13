@@ -208,6 +208,9 @@ public:
     /** Called for LIGHT entity metadata. */
     virtual void addLight(const DRW_Light& data) { (void) data; }
 
+    /** Called for SECTIONOBJECT (AcDbSection) live-section plane metadata. */
+    virtual void addSectionObject(const DRW_SectionObject& data) { (void) data; }
+
     /** Called for every solid start */
     virtual void addSolid(const DRW_Solid& data) = 0;
 

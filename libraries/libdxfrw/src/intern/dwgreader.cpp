@@ -1872,6 +1872,19 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
                         }
                         break;
                     }
+                    if (rn == "SECTIONOBJECT" || cn == "AcDbSection") {
+                        // SECTIONOBJECT (AcDbSection) live-section plane — typed
+                        // decode restores the section geometry + metadata + the
+                        // section_settings reference for dwgTs parity. parseDwg
+                        // graceful-degrades (always true), and the raw shelf is
+                        // emitted unconditionally as the round-trip floor.
+                        DRW_SectionObject e;
+                        if (entryParse(e, buff, bs, ret)) {
+                            intfa.addSectionObject(e);
+                        }
+                        intfa.addUnsupportedObject(makeRawEntity(oType, cit->second));
+                        break;
+                    }
                     if (rn == "SURFACE" || rn == "EXTRUDEDSURFACE" || rn == "REVOLVEDSURFACE"
                         || rn == "LOFTEDSURFACE" || rn == "SWEPTSURFACE" || rn == "PLANESURFACE"
                         || cn == "AcDbSurface" || cn == "AcDbExtrudedSurface"
