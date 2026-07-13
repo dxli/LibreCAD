@@ -147,15 +147,7 @@ RS_Entity* RS_Polyline::addVertex(const RS_Vector& v, double bulge, bool prepend
             vertex.release();
         }
         m_nextBulge = bulge;
-        // Do NOT call endPolyline() here: it runs a full calculateBorders()
-        // (reset + iterate every segment) on every vertex, making an N-vertex
-        // polyline O(N^2) to build -- pathological for large imported polylines
-        // (e.g. raster traces with 100k+ vertices took minutes). The border is
-        // already maintained incrementally by RS_EntityContainer::addEntity
-        // above (m_autoUpdateBorders defaults to true), and every polyline
-        // builder calls endPolyline() once when finished to add the closing
-        // entity and finalize. See RS_FilterDXFRW::addPolyline (endPolyline at
-        // the end of the vertex loop).
+        endPolyline();
     }
     return entity;
 }
@@ -279,7 +271,17 @@ void RS_Polyline::endPolyline() {
             //data.endpoint = data.startpoint;
         }
     }
-    calculateBorders();
+    // Only do the full O(N) border recompute when borders are NOT auto-
+    // maintained. With m_autoUpdateBorders (the default), addEntity already
+    // extended the polyline border incrementally for every segment (including
+    // the closing entity above), so calculateBorders() here is redundant --
+    // and calling it per vertex (endPolyline runs on each addVertex) made
+    // building an N-vertex polyline O(N^2). Skipping the redundant pass keeps
+    // endPolyline O(1) for the common auto-borders case (fixes the ~10-minute
+    // import of usa_dollar100_front.dwg) while preserving the per-vertex
+    // finalize contract every addVertex caller relies on (closing edge, etc.).
+    if (!getAutoUpdateBorders())
+        calculateBorders();
 }
 
 //RLZ: rewrite this:

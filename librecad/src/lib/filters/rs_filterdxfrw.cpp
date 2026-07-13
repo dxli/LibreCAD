@@ -2594,7 +2594,6 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
                 RS_Vector pos(v->basePoint.x, v->basePoint.y);
                 pl->addVertex(pos, 0.0, false);
             }
-            pl->endPolyline(); // finalize once (closing edge if closedN)
             pl->setDrwExtData(makeMeshExtData(i, "row", i, i == 0));
             addMeshSidecarMetadata(pl.get(), i, "row", i, i == 0);
             m_currentContainer->addEntity(pl.release());
@@ -2610,7 +2609,6 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
                 RS_Vector pos(v->basePoint.x, v->basePoint.y);
                 pl->addVertex(pos, 0.0, false);
             }
-            pl->endPolyline(); // finalize once (closing edge if closedM)
             pl->setDrwExtData(
                 makeMeshExtData(M + j, "column", j, false));
             addMeshSidecarMetadata(pl.get(), M + j, "column", j, false);
@@ -2698,11 +2696,6 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
                     pl->addVertex(vertices[idx - 1], 0.0);
                 }
                 if (valid) {
-                    // Finalize once (adds the closing edge; pd is closed). This
-                    // used to happen implicitly via addVertex's per-vertex
-                    // endPolyline(), which was removed as it made polyline builds
-                    // O(N^2). Every builder must now call endPolyline() when done.
-                    pl->endPolyline();
                     pl->setDrwExtData(
                         makePolyfaceExtData(*f, static_cast<int>(faceIndex),
                                             faceIndex == 0));
