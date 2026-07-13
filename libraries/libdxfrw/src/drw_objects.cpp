@@ -7123,9 +7123,16 @@ bool DRW_DynamicBlockObject::parseDwg(DRW::Version version, dwgBuffer *buf, std:
 
     // Common + object-specific handles live in the handle stream; read a copy so
     // the data-stream walk is unaffected.  This also positions hBuff for the rare
-    // evalexpr value_code==91 handle case.
+    // evalexpr value_code==91 handle case.  Seek hBuff to objSize explicitly for
+    // BOTH versions (not seekObjectHandleStream, which is a no-op for <=AC1018):
+    // the body here is decoded only partially (Bare early-return, deferred handle
+    // vectors), so buf never reaches the handle stream on its own, and the no-op
+    // seek would leave hBuff at body-start -> garbage owner/reactor handles on
+    // R2000/R2004. objSize is the handle-stream bit offset at every version
+    // (same technique as the ACAD_TABLE <=AC1018 fix).
     dwgBuffer hBuff = *buf;
-    seekObjectHandleStream(version, &hBuff, objSize);
+    hBuff.setPosition(objSize >> 3);
+    hBuff.setBitPos(objSize & 7);
     readCommonObjectHandles(&hBuff, handle, numReactors, xDictFlag, &parentHandle);
 
     // Bare classes: shell + handle only (leading unknown bits would misalign a

@@ -117,6 +117,15 @@ public:
   }
 };
 
+// Collects every dynamic-block object delivered by the OBJECTS-section dispatch.
+class DynBlockCapture : public StubInterface {
+public:
+  std::vector<DRW_DynamicBlockObject> m_objs;
+  void addDynamicBlockObject(const DRW_DynamicBlockObject &o) override {
+    m_objs.push_back(o);
+  }
+};
+
 } // namespace
 
 // NOLINTNEXTLINE(readability-identifier-naming)
@@ -152,4 +161,42 @@ TEST_CASE("DWG <=AC1018 IMAGEDEF_REACTOR owner handle decodes correctly",
     CHECK(r.m_classVersion == 2);
     CHECK(static_cast<std::int64_t>(r.handle) - r.parentHandle == 1);
   }
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("DWG <=AC1018 dynamic-block object owner handle decodes correctly",
+          "[.dwg6_dynblock_ac1015]") {
+  const char *home = std::getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg6/sample_AC1015.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("sample_AC1015.dwg not present; skipping");
+    return;
+  }
+
+  DynBlockCapture cap;
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&cap, /*ext=*/true));
+  REQUIRE(reader.getError() == DRW::BAD_NONE);
+
+  // dwgread -O JSON: the twelve dynamic-block definition objects
+  // (BLOCK*PARAMETER/GRIP/COMPONENT/ACTION, own handles 2689..2700) are all
+  // owned by handle 2688 -- the *U anonymous dynamic block record. libdxfrw
+  // resolves owner handles in the same numbering here, so assert the owner
+  // equals 2688 for exactly those objects. Before the <=AC1018 handle-stream
+  // fix, seekObjectHandleStream was a no-op so each owner was resolved from that
+  // object's own differing body bytes -> garbage, not 2688.
+  REQUIRE(cap.m_objs.size() >= 12);
+  int ownedBy2688 = 0;
+  for (const auto &o : cap.m_objs) {
+    if (o.handle >= 2689 && o.handle <= 2700) {
+      ++ownedBy2688;
+      CHECK(o.parentHandle == 2688);
+    }
+  }
+  CHECK(ownedBy2688 == 12);
 }
