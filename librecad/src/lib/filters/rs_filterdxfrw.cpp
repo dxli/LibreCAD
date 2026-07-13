@@ -12300,25 +12300,19 @@ QString RS_FilterDXFRW::printDwgVersion(int v){
 }
 
 bool RS_FilterDXFRW::sameRawObjectEncodingFamily(DRW::Version src, DRW::Version tgt) {
-    if (src == tgt)
-        return true; // identity: preserves the original strict-match behavior
-    auto family = [](DRW::Version v) -> int {
-        switch (v) {
-        case DRW::AC1015:
-        case DRW::AC1018:
-            return 1; // R2000/R2004: strings inline, no bodyBitSize marker
-        case DRW::AC1021:
-            return 2; // R2007: separate string stream (no write target exists)
-        case DRW::AC1024:
-        case DRW::AC1027:
-        case DRW::AC1032:
-            return 3; // R2010/R2013/R2018: three-stream + bodyBitSize marker
-        default:
-            return 0; // pre-R2000 / unknown: never cross-version replayable
-        }
-    };
-    const int fs = family(src);
-    return fs != 0 && fs == family(tgt);
+    // STRICT source==target only. The earlier "encoding family" widening (Alt-A)
+    // grouped {AC1015,AC1018} and {AC1024,AC1027,AC1032} as cross-version
+    // replayable, but a deep review proved the raw OBJECT/ENTITY bytes are NOT
+    // safely replayable across a version boundary: the common object/entity
+    // header layout differs (AC1015 lacks the R2004 xDictFlag bit and carries
+    // entity prev/next link handles AC1018 drops; AC1024 lacks the has_ds_data
+    // bit AC1027/AC1032 add), and even where common headers match the per-version
+    // object BODY encoding can differ -- the raw bytes were written FOR the source
+    // version. Replaying them into another version's frame (with a fresh valid
+    // CRC) yields silently-malformed output. So raw replay is allowed only when
+    // the target version equals the source version; a cross-version save cleanly
+    // drops the raw-preserved metadata instead of corrupting it.
+    return src == tgt;
 }
 
 void RS_FilterDXFRW::printDwgError(int le){

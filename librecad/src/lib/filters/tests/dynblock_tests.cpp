@@ -157,10 +157,9 @@ TEST_CASE("DWG dynamic-block family decodes typed (makeall-plus / AC1032)",
   }
 
   DynBlockCapture cap;
-  if (!tryRead(path, cap)) {
-    SUCCEED("dynblock_r2018.dwg read failed (unexpected: AC1032 should read)");
-    return;
-  }
+  // Fixture is committed (present past the is_regular_file gate), so a read
+  // failure is a real regression -- REQUIRE it rather than SUCCEED-skipping.
+  REQUIRE(tryRead(path, cap));
 
   // The whole family is now delivered typed instead of raw-only.
   REQUIRE(cap.m_objects.size() >= 30);

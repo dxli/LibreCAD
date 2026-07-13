@@ -32,7 +32,9 @@
  *   ocd_leader_r2000.dwg   <- ~/dev/libredwg/test/test-data/2000/Leader.dwg (AC1015)
  *       one LEADEROBJECTCONTEXTDATA: classVersion 3, default flag set, 3 points,
  *       xDirection (1,0,0), endpointProjection (0,-0.09,0).
- *   ocd_blkref_makeall.dwg <- ~/doc/dwg6/makeall-plus.dwg
+ *   dynblock_r2018.dwg     <- ~/doc/dwg6/makeall-plus.dwg
+ *       (shared AC1032 kitchen-sink fixture; also used by the dynamic-block and
+ *        EVALUATION_GRAPH suites)
  *       two BLKREFOBJECTCONTEXTDATA: classVersion 4, rotation 0, insertion
  *       (26,24,0), scales (2,2,2) and (4,4,4).
  *
@@ -145,10 +147,9 @@ bool tryRead(const std::string &path, ContextCapture &cap) {
     return false;
   }
   dwgR reader(path.c_str());
-  if (!reader.read(&cap, /*ext=*/true)) {
-    SUCCEED("fixture read failed (unexpected); skipping: " << path);
-    return false;
-  }
+  // Fixture is present (passed the is_regular_file gate above), so a read
+  // failure is a real regression -- REQUIRE it, do not SUCCEED-skip.
+  REQUIRE(reader.read(&cap, /*ext=*/true));
   REQUIRE(reader.getError() == DRW::BAD_NONE);
   CHECK(reader.getEntityParseFailures() == 0u);
   CHECK(reader.getObjectParseFailures() == 0u);
@@ -198,8 +199,10 @@ TEST_CASE("DWG LEADEROBJECTCONTEXTDATA structured decode (Leader / AC1015)",
 // NOLINTNEXTLINE(readability-identifier-naming)
 TEST_CASE("DWG BLKREFOBJECTCONTEXTDATA structured decode (makeall-plus)",
           "[dwg][objectcontext][blkref][parity]") {
+  // Shares the AC1032 makeall-plus kitchen-sink fixture with the dynamic-block
+  // and EVALUATION_GRAPH suites (all three exercise the same file).
   const std::string path =
-      std::string(LIBRECAD_TEST_DIR) + "/ocd_blkref_makeall.dwg";
+      std::string(LIBRECAD_TEST_DIR) + "/dynblock_r2018.dwg";
   ContextCapture cap;
   if (!tryRead(path, cap))
     return;

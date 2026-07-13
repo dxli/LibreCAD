@@ -146,10 +146,9 @@ TEST_CASE("DWG VISUALSTYLE r2010b+r2013b body decodes (Point.dwg / AC1027)",
   }
 
   VisualStyleCapture cap;
-  if (!tryReadVisualStyles(path, cap)) {
-    SUCCEED("visualstyle_r2013.dwg read failed (unexpected: AC1027 should read)");
-    return;
-  }
+  // Fixture is committed (present past the is_regular_file gate), so a read
+  // failure is a real regression -- REQUIRE it rather than SUCCEED-skipping.
+  REQUIRE(tryReadVisualStyles(path, cap));
   REQUIRE(cap.m_styles.size() >= 1);
 
   const DRW_VisualStyle *flat = cap.byDesc("Flat");

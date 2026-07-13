@@ -139,10 +139,9 @@ TEST_CASE("DWG DATATABLE prefix decodes (gh209_1.dwg / AC1024)",
   }
 
   DataTableCapture cap;
-  if (!tryRead(path, cap)) {
-    SUCCEED("datatable_r2010.dwg read failed (unexpected: AC1024 should read)");
-    return;
-  }
+  // Fixture is committed (present past the is_regular_file gate), so a read
+  // failure is a real regression -- REQUIRE it rather than SUCCEED-skipping.
+  REQUIRE(tryRead(path, cap));
 
   // Exactly one DATATABLE in the fixture; the prefix is the reliable,
   // oracle-verified part of the record.

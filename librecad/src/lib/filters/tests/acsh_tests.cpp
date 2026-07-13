@@ -155,10 +155,9 @@ TEST_CASE("DWG ACSH_* shape classes decode primitive dims (ATMOS / AC1021)",
   }
 
   AcShCapture cap;
-  if (!tryReadAcSh(path, cap)) {
-    SUCCEED("acsh_r2007.dwg read failed (unexpected: AC1021 should read)");
-    return;
-  }
+  // The fixture is committed, so a read failure is a real regression -- REQUIRE
+  // it (a SUCCEED-skip here would silently hide a broken AC1021 read).
+  REQUIRE(tryReadAcSh(path, cap));
 
   // Every ACSH_* class routes to the shell parser now, so the collection is
   // populated across many class kinds.

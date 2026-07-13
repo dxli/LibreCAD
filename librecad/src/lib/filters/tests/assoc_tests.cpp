@@ -172,10 +172,9 @@ bool tryReadAssoc(const std::string &path, AssocCapture &cap) {
     return false;
   }
   dwgR reader(path.c_str());
-  if (!reader.read(&cap, /*ext=*/true)) {
-    SUCCEED("fixture read failed (unexpected); skipping: " << path);
-    return false;
-  }
+  // Fixture is present (passed the is_regular_file gate above), so a read
+  // failure is a real regression -- REQUIRE it, do not SUCCEED-skip.
+  REQUIRE(reader.read(&cap, /*ext=*/true));
   // No stream desync: the OBJECTS section fully parsed and every entity /
   // object record was decoded (the widened ACDBASSOC* routing must not
   // introduce failures — bodies that lack a typed decoder are raw-shelved,

@@ -5724,7 +5724,11 @@ bool DRW_ObjectContextData::parseDwg(DRW::Version version, dwgBuffer *buf, std::
     DRW_DBG(" handle="); DRW_DBG(handle);
     DRW_DBG(" scale="); DRW_DBG(m_scaleHandle);
     DRW_DBG("\n");
-    return buf->isGood() && hBuff.isGood();
+    // Graceful-degrade: always return true. The dispatcher adds BOTH the typed
+    // object and the raw-preservation shelf only if this returns true, so a
+    // bounds/overrun (isGood()==false) on a malformed record must not drop the
+    // raw shelf -- the body is under-decode-tolerant, the raw bytes round-trip.
+    return true;
 }
 
 bool DRW_Group::parseCode(int code, const std::unique_ptr<dxfReader>& reader){

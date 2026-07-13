@@ -178,10 +178,8 @@ TEST_CASE("DWG ACSH BOOLEAN/CHAMFER/FILLET/TORUS/EXTRUSION decode (ATMOS AC1021)
     return;
   }
   AcShCapture cap;
-  if (!tryReadAcSh(kAtmos, cap)) {
-    SUCCEED("acsh_r2007.dwg read failed (unexpected: AC1021 should read)");
-    return;
-  }
+  // Committed fixture -> a read failure is a real regression, not a skip.
+  REQUIRE(tryReadAcSh(kAtmos, cap));
   REQUIRE(cap.m_objs.size() >= 1);
 
   SECTION("ACSH_BOOLEAN_CLASS handle 1297") {
@@ -273,10 +271,8 @@ TEST_CASE("DWG ACSH REVOLVE/LOFT/BOOLEAN decode (makeall AC1032 / R2018)",
     return;
   }
   AcShCapture cap;
-  if (!tryReadAcSh(kMakeall, cap)) {
-    SUCCEED("dynblock_r2018.dwg read failed (unexpected: AC1032 should read)");
-    return;
-  }
+  // Committed fixture -> a read failure is a real regression, not a skip.
+  REQUIRE(tryReadAcSh(kMakeall, cap));
   REQUIRE(cap.m_objs.size() >= 1);
 
   SECTION("ACSH_REVOLVE_CLASS handle 191") {
