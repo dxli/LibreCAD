@@ -261,6 +261,8 @@ struct XlineCaptureIface : public CountingIface {
 
 // ---- helpers ----------------------------------------------------------------
 
+const char *versionStr(DRW::Version v);
+
 struct DwgResult {
   bool ok;
   DRW::error error;
@@ -279,6 +281,7 @@ DwgResult readDwg(const std::string &path, bool verbose = false,
     if (verbose)
       reader.setDebug(DRW::DebugLevel::Debug);
     bool ok = reader.read(&iface, true);
+    std::cout << "DWG fixture: " << path << "  version=" << versionStr(reader.getVersion()) << "\n";
     return {
         ok,           reader.getError(), reader.getVersion(), iface.entities,
         iface.blocks, iface.layers};
@@ -309,6 +312,7 @@ DwgResult readDwgBuffer(const std::string &path, bool verbose = false,
     if (verbose)
       reader.setDebug(DRW::DebugLevel::Debug);
     bool ok = reader.readBuffer(bytes.data(), bytes.size(), &iface, true);
+    std::cout << "DWG fixture (buffer): " << path << "  version=" << versionStr(reader.getVersion()) << "\n";
     return {
         ok,           reader.getError(), reader.getVersion(), iface.entities,
         iface.blocks, iface.layers};
@@ -1914,6 +1918,9 @@ TEST_CASE("DWG makeall-plus.dwg: deep coverage diagnostic", "[.dwg_makeall]") {
   struct CoverageIface : public TypeTrackingIface {
     int meshes = 0, modelerGeoms = 0, unsupported = 0;
     std::map<std::string, int> unsupportedByName;
+    std::vector<std::string> blockNames;
+    std::vector<std::pair<std::string, bool>> layerFrozen;
+    std::vector<std::pair<std::string, bool>> insertNames;
     void addMesh(const DRW_Mesh &e) override {
       trackT(e, "MESH");
       ++meshes;
@@ -1925,6 +1932,18 @@ TEST_CASE("DWG makeall-plus.dwg: deep coverage diagnostic", "[.dwg_makeall]") {
     void addUnsupportedObject(const DRW_UnsupportedObject &e) override {
       ++unsupported;
       unsupportedByName[e.m_recordName.empty() ? "(unnamed)" : e.m_recordName]++;
+    }
+    void addBlock(const DRW_Block &b) override {
+      TypeTrackingIface::addBlock(b);
+      blockNames.push_back(b.name);
+    }
+    void addLayer(const DRW_Layer &l) override {
+      TypeTrackingIface::addLayer(l);
+      layerFrozen.push_back({l.name, (l.flags & 0x01) != 0 || l.color < 0});
+    }
+    void addInsert(const DRW_Insert &e) override {
+      TypeTrackingIface::addInsert(e);
+      insertNames.push_back({e.name, !e.visible});
     }
   } iface;
 
@@ -1958,6 +1977,18 @@ TEST_CASE("DWG makeall-plus.dwg: deep coverage diagnostic", "[.dwg_makeall]") {
   std::cout << "\nUnsupported raw carriers delivered (by record name):\n";
   for (const auto &[name, c] : iface.unsupportedByName)
     std::cout << "  " << std::left << std::setw(34) << name << c << "\n";
+
+  std::cout << "\nBlock names (" << iface.blockNames.size() << "):\n";
+  for (const auto &name : iface.blockNames)
+    std::cout << "  '" << name << "'\n";
+
+  std::cout << "\nLayers (" << iface.layerFrozen.size() << "):\n";
+  for (const auto &[name, frozen] : iface.layerFrozen)
+    std::cout << "  " << std::left << std::setw(30) << name << (frozen ? "FROZEN/OFF" : "visible") << "\n";
+
+  std::cout << "\nINSERT entities (" << iface.insertNames.size() << "):\n";
+  for (const auto &[name, invis] : iface.insertNames)
+    std::cout << "  '" << name << "'" << (invis ? " INVISIBLE" : "") << "\n";
 }
 
 TEST_CASE("DWG corpus: load all files in ~/doc/dwg2/") {

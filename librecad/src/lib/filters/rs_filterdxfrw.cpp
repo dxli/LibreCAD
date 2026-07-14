@@ -27,6 +27,7 @@
 #include <array>
 #include<cstdlib>
 #include <cmath>
+#include <iostream>
 #include <set>
 #include <stack>
 #include<utility>
@@ -99,6 +100,91 @@
 namespace {
 
 constexpr int kImportedSplineFallbackSamples = 96;
+
+bool layerExtStringEmpty(const DRW_Variant* v) {
+    if (v == nullptr || v->type() != DRW_Variant::STRING)
+        return false;
+    return v->content.s == nullptr || v->content.s->empty();
+}
+
+QString layerExtAppName(const DRW_Variant* v) {
+    if (v == nullptr || v->code() != 1001 || v->type() != DRW_Variant::STRING
+        || v->content.s == nullptr) {
+        return {};
+    }
+    return QString::fromUtf8(v->content.s->c_str()).trimmed();
+}
+
+// AutoCAD AEC layer-standard marker: APPID + two empty UTF-16 strings, no
+// actionable LibreCAD semantics.
+bool isAcAecLayerStandardMarker(const std::vector<DRW_Variant*>& extData,
+                                std::size_t appBlockStart) {
+    if (appBlockStart >= extData.size())
+        return false;
+    const QString app = layerExtAppName(extData[appBlockStart]);
+    if (!app.compare(QLatin1String("AcAecLayerStandard"), Qt::CaseInsensitive))
+        ;
+    else if (app.startsWith(QLatin1String("AcAec"), Qt::CaseInsensitive)
+             && app.endsWith(QLatin1String("LayerStandard"), Qt::CaseInsensitive))
+        ;
+    else
+        return false;
+
+    std::size_t idx = appBlockStart + 1;
+    int emptyStrings = 0;
+    while (idx < extData.size() && emptyStrings < 2) {
+        const DRW_Variant* v = extData[idx];
+        if (v == nullptr)
+            return false;
+        if (v->code() == 1000) {
+            if (!layerExtStringEmpty(v))
+                return false;
+            ++emptyStrings;
+            ++idx;
+            continue;
+        }
+        if (v->code() == 1002 && v->type() == DRW_Variant::STRING
+            && v->content.s != nullptr
+            && (*v->content.s == "{" || *v->content.s == "}")) {
+            ++idx;
+            continue;
+        }
+        break;
+    }
+    return emptyStrings == 2;
+}
+
+bool isIgnorableLayerExtData(const std::vector<DRW_Variant*>& extData) {
+    if (extData.empty())
+        return true;
+    for (std::size_t i = 0; i < extData.size(); ) {
+        if (extData[i] == nullptr || extData[i]->code() != 1001)
+            return false;
+        if (layerExtAppName(extData[i]).compare(QLatin1String("LibreCad"),
+                                                Qt::CaseInsensitive) == 0) {
+            return false;
+        }
+        if (isAcAecLayerStandardMarker(extData, i)) {
+            std::size_t idx = i + 1;
+            int emptyStrings = 0;
+            while (idx < extData.size() && emptyStrings < 2) {
+                const DRW_Variant* v = extData[idx];
+                if (v != nullptr && v->code() == 1000) {
+                    ++emptyStrings;
+                    ++idx;
+                } else if (v != nullptr && v->code() == 1002) {
+                    ++idx;
+                } else {
+                    break;
+                }
+            }
+            i = idx;
+            continue;
+        }
+        return false;
+    }
+    return true;
+}
 
 bool differsFromUnitWeight(double weight) {
     return std::fabs(weight - 1.0) > 1e-12;
@@ -1118,6 +1204,7 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
         m_graphic->dwgAdvancedMetadata().setSourceDwgVersion(m_dwgVersion);
         RS_DEBUG->print("RS_FilterDXFRW::fileImport: reading DWG file: OK");
         RS_DIALOGFACTORY->commandMessage(QObject::tr("Opened DWG file version %1.").arg(printDwgVersion(dwgr.getVersion())));
+        std::cout << "DWG file version: " << printDwgVersion(dwgr.getVersion()).toStdString() << "\n";
         const size_t parseFailures = dwgr.getEntityParseFailures();
         if (parseFailures > 0) {
           RS_DIALOGFACTORY->commandMessage(
@@ -1222,6 +1309,9 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
             success = m_dxfR->read(this, true);
         }
         RS_DEBUG->print("RS_FilterDXFRW::fileImport: reading file: OK");
+        if (success) {
+            std::cout << "DXF file version: " << printDwgVersion(m_dxfR->getVersion()).toStdString() << "\n";
+        }
         //graphic->setAutoUpdateBorders(true);
 
         if (false == success) {
@@ -1309,7 +1399,11 @@ void RS_FilterDXFRW::addLayer(const DRW_Layer& data) {
 
     //parse extended data to read construction flag
     if (!data.extData.empty()) {
-        RS_DEBUG->print(RS_Debug::D_WARNING, "RS_FilterDXF::addLayer: layer %s have extended data", layer->getName().toStdString().c_str());
+        if (!isIgnorableLayerExtData(data.extData)) {
+            RS_DEBUG->print(RS_Debug::D_DEBUGGING,
+                            "RS_FilterDXFRW::addLayer: layer %s has extended data",
+                            layer->getName().toStdString().c_str());
+        }
         bool isLCdata = false;
         for (std::vector<DRW_Variant*>::const_iterator it=data.extData.begin(); it!=data.extData.end(); ++it){
             if ((*it)->code() == 1001) {
@@ -12408,26 +12502,42 @@ void RS_FilterDXFRW::addPolylineSegment(RS_Polyline& polyline, const RS_Vector& 
 #ifdef DWGSUPPORT
 QString RS_FilterDXFRW::printDwgVersion(int v){
     switch (v) {
+        case DRW::MC00:
+            return "MC0.0/R1.1";
+        case DRW::AC12:
+            return "AC1.2/R1.2";
+        case DRW::AC14:
+            return "AC1.4/R1.4";
+        case DRW::AC150:
+            return "AC1.50/R2.0";
+        case DRW::AC210:
+            return "AC2.10/R2.10";
+        case DRW::AC1002:
+            return "AC1002/R2.5";
+        case DRW::AC1003:
+            return "AC1003/R2.6";
+        case DRW::AC1004:
+            return "AC1004/R9";
         case DRW::AC1006:
-            return "10";
+            return "AC1006/R10";
         case DRW::AC1009:
-            return "dwg version 11 or 12";
+            return "AC1009/R11-R12";
         case DRW::AC1012:
-            return "dwg version 13";
+            return "AC1012/R13";
         case DRW::AC1014:
-            return "dwg version 14";
+            return "AC1014/R14";
         case DRW::AC1015:
-            return "dwg version 2000";
+            return "AC1015/R2000";
         case DRW::AC1018:
-            return "dwg version 2004";
+            return "AC1018/R2004";
         case DRW::AC1021:
-            return "dwg version 2007";
+            return "AC1021/R2007";
         case DRW::AC1024:
-            return "dwg version 2010";
+            return "AC1024/R2010";
         case DRW::AC1027:
-            return "dwg version 2013";
+            return "AC1027/R2013";
         case DRW::AC1032:
-            return "dwg version 2018";
+            return "AC1032/R2018";
         default:
             return "unknown";
     }

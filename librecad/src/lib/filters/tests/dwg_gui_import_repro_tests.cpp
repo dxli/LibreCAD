@@ -21,16 +21,18 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-#include <QCoreApplication>
+#include <QApplication>
 
 #include <cstdlib>
 #include <filesystem>
+#include <iostream>
 #include <string>
 
 #include "rs_debug.h"
 #include "rs_entitycontainer.h"
 #include "rs_filterdxfrw.h"
 #include "rs_graphic.h"
+#include "rs_block.h"
 #include "rs_layer.h"
 #include "rs_settings.h"
 
@@ -51,12 +53,13 @@ TEST_CASE("GUI import of usa_dollar100_front.dwg completes", "[.dwg6_gui_import]
   static int qargc = 1;
   static char qarg0[] = "librecad_tests";
   static char *qargv[] = {qarg0, nullptr};
-  static QCoreApplication *qapp = QCoreApplication::instance()
-                                      ? QCoreApplication::instance()
-                                      : new QCoreApplication(qargc, qargv);
+  static QApplication *qapp = [] {
+    auto *existing = qobject_cast<QApplication*>(QCoreApplication::instance());
+    return existing ? existing : new QApplication(qargc, qargv);
+  }();
   static bool settingsReady = [] {
-    QCoreApplication::setOrganizationName("LibreCAD");
-    QCoreApplication::setApplicationName("LibreCAD-tests");
+    QApplication::setOrganizationName("LibreCAD");
+    QApplication::setApplicationName("LibreCAD-tests");
     RS_Settings::init("LibreCAD", "LibreCAD-tests");
     return true;
   }();
@@ -89,4 +92,64 @@ TEST_CASE("GUI import of usa_dollar100_front.dwg completes", "[.dwg6_gui_import]
   // ~10 minutes it took before RS_Polyline::addVertex stopped calling
   // endPolyline() (a full O(N) calculateBorders) on every vertex (O(N^2)).
   CHECK(polylines >= 41368);
+}
+
+TEST_CASE("GUI import of makeall-plus.dwg counts entities", "[.dwg_makeall_gui]") {
+  const char *home = std::getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg3/makeall-plus.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("makeall-plus.dwg not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QApplication *qapp = [] {
+    auto *existing = qobject_cast<QApplication*>(QCoreApplication::instance());
+    return existing ? existing : new QApplication(qargc, qargv);
+  }();
+  static bool settingsReady = [] {
+    QApplication::setOrganizationName("LibreCAD");
+    QApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_DEBUG->setLevel(RS_Debug::D_NOTHING);
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  const bool imported =
+      filter.fileImport(graphic, QString::fromStdString(path), RS2::FormatDWG);
+  REQUIRE(imported);
+
+  int nTop = 0;
+  int nBlocks = 0;
+  int nBlockEnts = 0;
+  for (auto *e : graphic) {
+    if (e) ++nTop;
+  }
+  nBlocks = graphic.countBlocks();
+  for (unsigned i = 0; i < nBlocks; ++i) {
+    auto* b = graphic.blockAt(i);
+    if (b) {
+      for (auto *e : *b) {
+        if (e) ++nBlockEnts;
+      }
+    }
+  }
+  INFO("top-level entities: " << nTop << " blocks: " << nBlocks << " block entities: " << nBlockEnts);
+  std::cout << "\n=== makeall-plus.dwg GUI import ===\n";
+  std::cout << "top-level: " << nTop << "\n";
+  std::cout << "blocks: " << nBlocks << "\n";
+  std::cout << "entities in blocks: " << nBlockEnts << "\n";
+  CHECK(nTop > 0);
 }
