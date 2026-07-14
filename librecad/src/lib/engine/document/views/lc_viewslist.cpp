@@ -37,7 +37,7 @@ void LC_ViewList::add(LC_View *view) {
     }
 
     // check if layer already exists:
-    LC_View *v = find(view->getName());
+    const LC_View *v = find(view->getName());
     if (v == nullptr) {
         m_namedViews.append(view);
     }
@@ -49,7 +49,7 @@ void LC_ViewList::addNew(LC_View *view) {
     }
 
     // check if layer already exists:
-    LC_View *v = find(view->getName());
+    const LC_View *v = find(view->getName());
     if (v == nullptr) {
         m_namedViews.append(view);
         setModified(true);
@@ -79,6 +79,8 @@ void LC_ViewList::edited([[maybe_unused]]LC_View *view) {
 }
 
 LC_View *LC_ViewList::find(const QString &name) const{
+    // fixme - sand - merge - why we can't just store normalized name with view?? Why calculate it each time? Ans why not use common lambda for such searches?
+
     // NFC-normalize both sides so an NFD-form named view still matches an
     // NFC lookup. Mirrors RS_LayerList::find.
     const QString k = name.normalized(QString::NormalizationForm_C);
@@ -91,6 +93,7 @@ LC_View *LC_ViewList::find(const QString &name) const{
 }
 
 int LC_ViewList::getIndex(const QString &name) const{
+    // fixme - sand - merge - why we can't just store normalized name with view?? Why calculate it each time?
     const QString k = name.normalized(QString::NormalizationForm_C);
     int result = -1;
 
@@ -108,7 +111,7 @@ int LC_ViewList::getIndex(LC_View *view) const{
     return m_namedViews.indexOf(view);
 }
 
-void LC_ViewList::setModified(bool m) {
+void LC_ViewList::setModified(const bool m) {
     m_modified = m;
     fireModified(m);
 }

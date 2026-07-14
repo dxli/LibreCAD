@@ -40,6 +40,10 @@
 #include "lc_actionfileexportmakercam.h"
 #include "lc_documentsstorage.h"
 #include "lc_graphicviewport.h"
+#include "lc_printviewportrenderer.h"
+#include "main.h"
+#include "qc_applicationwindow.h"
+#include "qg_dialogfactory.h"
 #include "rs.h"
 #include "rs_debug.h"
 #include "rs_document.h"
@@ -50,19 +54,17 @@
 #include "rs_patternlist.h"
 #include "rs_settings.h"
 #include "rs_system.h"
-#include "lc_printviewportrenderer.h"
-
 
 ///////////////////////////////////////////////////////////////////////
 /// \brief openDocAndSetGraphic opens a DXF file and prepares all its graphics content
 /// for further manipulations
 /// \return
 //////////////////////////////////////////////////////////////////////
-static std::unique_ptr<RS_Document> openDocAndSetGraphic(QString);
+static std::unique_ptr<RS_Document> openDocAndSetGraphic(const QString&);
 
 static void touchGraphic(RS_Graphic*);
 
-static QSize parsePngSizeArg(QString);
+static QSize parsePngSizeArg(const QString&);
 
 bool slotFileExport(RS_Graphic* graphic,
                     const QString& name,
@@ -104,7 +106,7 @@ bool exportOneImageFile(const ImageCommandSpec& spec, const QString& inputFile,
         bool bw = false;
         ret = slotFileExport(graphic, outputFile, spec.outputExt.toUpper(), outputSize,
                              borders, black, bw);
-    }
+            }
 
     qDebug() << "Printing" << inputFile << "to" << outputFile
              << (ret ? "Done" : "Failed");
@@ -179,7 +181,7 @@ int runImageCommand(int argc, char* argv[], const ImageCommandSpec& spec) {
         parser.showHelp(EXIT_FAILURE);
 
     // Set PNG size from user input
-    QSize pngSize = parsePngSizeArg(parser.value(pngSizeOpt)); // If nothing, use default values.
+    const QSize pngSize = parsePngSizeArg(parser.value(pngSizeOpt)); // If nothing, use default values.
 
     const QStringList inputFiles = LC_Console::collectInputFiles(args, spec.acceptedExts);
     if (inputFiles.isEmpty()) {
@@ -259,9 +261,9 @@ int console_dwg2svg(int argc, char* argv[])
          LC_Console::acceptedExtensions(QStringLiteral("dwg"))});
 }
 
-static std::unique_ptr<RS_Document> openDocAndSetGraphic(QString dxfFile){
+static std::unique_ptr<RS_Document> openDocAndSetGraphic(const QString& dxfFile){
     auto doc = std::make_unique<RS_Graphic>();
-    LC_DocumentsStorage storage;
+    const LC_DocumentsStorage storage;
     if (!storage.loadDocument(doc.get(), dxfFile, RS2::FormatUnknown)) {
     // if (!doc->open(dxfFile, RS2::FormatUnknown)) {
         qDebug() << "ERROR: Failed to open document" << dxfFile;
@@ -269,7 +271,7 @@ static std::unique_ptr<RS_Document> openDocAndSetGraphic(QString dxfFile){
         return {};
     }
 
-    RS_Graphic* graphic = doc->getGraphic();
+    const RS_Graphic* graphic = doc->getGraphic();
     if (graphic == nullptr) {
         qDebug() << "ERROR: No graphic in" << dxfFile;
         return {};
@@ -278,21 +280,23 @@ static std::unique_ptr<RS_Document> openDocAndSetGraphic(QString dxfFile){
     return doc;
 }
 
-static void touchGraphic(RS_Graphic* graphic)
-{
+static void touchGraphic(RS_Graphic* graphic){
     // If margin < 0.0, values from dxf file are used.
-    double marginLeft = -1.0;
-    double marginTop = -1.0;
-    double marginRight = -1.0;
-    double marginBottom = -1.0;
+    constexpr double marginLeft = -1.0;
+    constexpr double marginTop = -1.0;
+    constexpr double marginRight = -1.0;
+    constexpr double marginBottom = -1.0;
 
-    int pagesH = 0;      // If number of pages < 1,
-    int pagesV = 0;      // use value from dxf file.
+    constexpr int pagesH = 0;      // If number of pages < 1,
+    constexpr int pagesV = 0;      // use value from dxf file.
 
     graphic->calculateBorders();
-    graphic->setMargins(marginLeft, marginTop,
+
+
+    LC_PlotSettings* ps = graphic->getPlotSettings();
+    ps->setMarginsInMm(marginLeft, marginTop,
                         marginRight, marginBottom);
-    graphic->setPagesNum(pagesH, pagesV);
+    ps->setPagesNum(pagesH, pagesV);
 
     //if (params.pageSize != RS_Vector(0.0, 0.0))
     //    graphic->setPaperSize(params.pageSize);
@@ -301,7 +305,7 @@ static void touchGraphic(RS_Graphic* graphic)
 }
 
 bool slotFileExport(RS_Graphic* graphic, const QString& name,
-        const QString& format, QSize size, QSize borders, bool black, bool bw) {
+        const QString& format, const QSize size, const QSize borders, const bool black, const bool bw) {
 
     if (graphic==nullptr) {
         RS_DEBUG->print(RS_Debug::D_WARNING,
@@ -314,12 +318,12 @@ bool slotFileExport(RS_Graphic* graphic, const QString& name,
 
     bool ret = false;
     // set vars for normal pictures and vectors (svg)
-    QPixmap* picture = new QPixmap(size);
+    const auto picture = new QPixmap(size);
 
-    QSvgGenerator* vector = new QSvgGenerator();
+    const auto vector = new QSvgGenerator();
 
     // set buffer var
-    QPaintDevice* buffer;
+    QPaintDevice* buffer = nullptr;
 
     if(format.toLower() != "svg") {
         buffer = picture;
@@ -352,7 +356,7 @@ bool slotFileExport(RS_Graphic* graphic, const QString& name,
     viewport.setSize(size.width(), size.height());
     viewport.setBorders(borders.width(), borders.height(), borders.width(), borders.height());
 
-    viewport.setContainer(graphic);
+    viewport.setDocument(graphic);
     viewport.loadSettings();
     viewport.zoomAuto(false);
 
@@ -369,11 +373,10 @@ bool slotFileExport(RS_Graphic* graphic, const QString& name,
     renderer.render();
 
     // end the picture output
-    if(format.toLower() != "svg")
-    {
+    if(format.toLower() != "svg")  {
         // RVT_PORT QImageIO iio;
         QImageWriter iio;
-        QImage img = picture->toImage();
+        const QImage img = picture->toImage();
         // RVT_PORT iio.setImage(img);
         iio.setFileName(name);
         iio.setFormat(format.toLatin1());
@@ -400,19 +403,19 @@ bool slotFileExport(RS_Graphic* graphic, const QString& name,
 /// \param arg - input string
 /// \return
 ///
-static QSize parsePngSizeArg(QString arg)
-{
+static QSize parsePngSizeArg(const QString& arg) {
     QSize v(2000, 1000); // default resolution
 
-    if (arg.isEmpty())
+    if (arg.isEmpty()) {
         return v;
+    }
 
-    QRegularExpression re("^(?<width>\\d+)[x|X]{1}(?<height>\\d+)$");
-    QRegularExpressionMatch match = re.match(arg);
+    const QRegularExpression re("^(?<width>\\d+)[x|X]{1}(?<height>\\d+)$");
+    const QRegularExpressionMatch match = re.match(arg);
 
     if (match.hasMatch()) {
-        QString width = match.captured("width");
-        QString height = match.captured("height");
+        const QString width = match.captured("width");
+        const QString height = match.captured("height");
         v.setWidth(width.toDouble());
         v.setHeight(height.toDouble());
     } else {

@@ -201,10 +201,9 @@ RS_Debug::~RS_Debug() {
     try {
         if (s_logStream != nullptr && s_logStream != stderr && s_logStream != stdout)
             fclose(s_logStream);
-    }
+        }
     catch(...) {
         std::cerr<<"RS_Debug::"<<__func__<<":: Failed to close stream";
-
     }
 }
 
@@ -234,7 +233,7 @@ RS_Debug::RS_DebugLevel RS_Debug::getLevel() { return m_debugLevel; }
 /**
  * Prints the given message to stdout.
  */
-void RS_Debug::print(const char *format...) {
+void RS_Debug::print(const char *format...)  {
     if (m_debugLevel == D_DEBUGGING) {
         va_list ap;
         va_start(ap, format);

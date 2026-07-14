@@ -25,6 +25,7 @@
 
 #include <QIcon>
 #include <QWidget>
+
 #include "lc_graphicviewaware.h"
 
 namespace Ui{
@@ -37,16 +38,16 @@ class LC_AnglesBasisWidget : public QWidget, public LC_GraphicViewAware{
     Q_OBJECT
 public:
     explicit LC_AnglesBasisWidget(QWidget *parent, const char* name);
-    ~LC_AnglesBasisWidget();
-    void update(QString angle, bool counterclockwise);
-    void update(RS_Graphic* graphic);
-    void setGraphicView(RS_GraphicView* gview) override;
+    ~LC_AnglesBasisWidget() override;
+    void update(const QString& angle, bool counterclockwise);
+    void update(const RS_Graphic* graphic);
+    void setGraphicView(RS_GraphicView* gv) override;
 signals:
     void clicked();
 public slots:
-    void onIconsRefreshed();
+    void onIconsRefreshed() const;
 protected:
-    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
     QIcon m_iconClockwise;
     QIcon m_iconCounterClockwise;
     bool m_counterclockwise  = false;
@@ -55,4 +56,4 @@ private:
     int m_iconSize = 24;
 };
 
-#endif // LC_ANGLESBASISWIDGET_H
+#endif

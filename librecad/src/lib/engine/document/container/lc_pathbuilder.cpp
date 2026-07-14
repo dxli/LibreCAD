@@ -78,7 +78,9 @@ PathBuilder::PathBuilder(RS_Painter* painter)
 }
 
 void PathBuilder::append(RS_Entity* entity) {
-  if (!entity || entity->isUndone()) return;
+  if (!entity || entity->isDeleted()) {
+      return;
+  }
 
   RS2::EntityType type = entity->rtti();
   bool appended = false;
@@ -300,7 +302,7 @@ bool PathBuilder::appendSplinePoints(LC_SplinePoints* spline) {
   bool emittedMoveTo = false;
   for (size_t i = 1; i <= iSplines; ++i) {
     RS_Vector start, ctrl, end;
-    int npts = spline->GetQuadPoints(int(i), &start, &ctrl, &end);
+    int npts = spline->getQuadPoints(int(i), &start, &ctrl, &end);
     if (npts < 3) {
       if (npts >= 2 && start.valid && end.valid) {
         const QPointF uiStart = toGuiPoint(start);

@@ -30,7 +30,7 @@ class dwgBuffer;
 class DRW_Class {
 public:
 
-    void write(dxfWriter *writer, DRW::Version ver);
+    void write(dxfWriter *writer, DRW::Version ver) const;
     [[nodiscard]] bool parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer *strBuf);
 
 private:
@@ -43,11 +43,9 @@ public:
     int instanceCount = 0;   /*!< number of instances for a custom class, code 91*/
     int wasaProxyFlag = 0;   /*!< proxy flag (app loaded on save), code 280 */
     int entityFlag = 0;      /*!< entity flag, code 281 (0 object, 1 entity)*/
-public: //only for read dwg
+     //only for read dwg
     std::uint16_t classNum = 0;
     int dwgType = 0;
 };
 
 #endif
-
-// EOF

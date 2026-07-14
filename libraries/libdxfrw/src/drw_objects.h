@@ -127,6 +127,8 @@ public:
         extData.clear();
     }
 
+
+
     DRW_TableEntry(const DRW_TableEntry& e) :
         tType {e.tType},
         handle {e.handle},

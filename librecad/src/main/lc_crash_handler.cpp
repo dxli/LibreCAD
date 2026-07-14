@@ -28,6 +28,8 @@
 #include <cstdlib>
 #include <cstring>
 
+// #include "main.h"
+
 #define _POSIX_C_SOURCE 200809L
 #define _GNU_SOURCE
 #define _XOPEN_SOURCE 700
@@ -35,7 +37,9 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <DbgHelp.h>
+#ifdef _MSC_VER
 #pragma comment(lib, "DbgHelp.lib")
+#endif
 #elif defined(__linux__) || defined(__APPLE__)
 #include <signal.h>
 #include <execinfo.h>
@@ -73,6 +77,7 @@ LONG WINAPI windowsCrashHandler(EXCEPTION_POINTERS* pExceptionInfo)
     if (pFile != nullptr) {
         fprintf(pFile, "=========================================\n");
         fprintf(pFile, "LibreCAD Crash Report\n");
+        // fprintf(pFile, "Version: %s\n", XSTR(LC_VERSION));
         fprintf(pFile, "=========================================\n\n");
 
         SYSTEMTIME st;

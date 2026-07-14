@@ -194,8 +194,8 @@ public:
     bool writeRawDwgSection(const DRW_RawDwgSection *section);
 
     bool getPreview();
-    DRW::Version getVersion(){return version;}
-    DRW::error getError(){return error;}
+    DRW::Version getVersion() const {return version;}
+    DRW::error getError() const {return error;}
     /// The resolved source codepage name (e.g. "ANSI_1252"), captured from the
     /// reader's DRW_TextCodec after a successful read. Empty before any read.
     std::string getCodePage() const { return codePage; }
@@ -257,7 +257,6 @@ private:
     static DRW::Version sniffVersion(dwgBuffer *buffer);
     static std::unique_ptr< dwgReader > createReaderForVersion(DRW::Version version, std::unique_ptr<dwgBuffer> buffer, dwgRW *p);
 
-private:
     DRW::Version version { DRW::UNKNOWNV };
     DRW::error error { DRW::BAD_NONE };
     std::string fileName;
@@ -304,4 +303,4 @@ private:
 /// after one release cycle once internal renames are propagated.
 using dwgR = dwgRW;
 
-#endif // LIBDWGR_H
+#endif

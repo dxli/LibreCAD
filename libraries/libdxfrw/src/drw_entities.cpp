@@ -1070,7 +1070,7 @@ bool DRW_Entity::parseCode(int code, const std::unique_ptr<dxfReader>& reader){
     case 1033:
         if (curr)
             curr->setCoordZ(reader->getDouble());
-		//FIXME, why do we discard curr right after setting the its Z
+        //FIXME, why do we discard curr right after setting the its Z
 //        curr=NULL;
         break;
     case 1040:
@@ -1376,7 +1376,7 @@ bool DRW_Entity::parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer* strBu
     std::uint8_t entmode = buf->get2Bits(); //BB
     if (entmode == 0)
         ownerHandle= true;
-//        entmode = 2;
+    //        entmode = 2;
     else if(entmode ==2)
         entmode = 0;
     space = (DRW::Space)entmode; //RLZ verify cast values
@@ -2552,7 +2552,7 @@ bool DRW_Line::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -2572,7 +2572,7 @@ bool DRW_Ray::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs){
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -2618,7 +2618,7 @@ bool DRW_Circle::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -2762,7 +2762,7 @@ bool DRW_Ellipse::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t b
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -3597,6 +3597,7 @@ bool DRW_Tolerance::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32
     return true;
 }
 
+
 bool DRW_Block::parseCode(int code, const std::unique_ptr<dxfReader>& reader){
     switch (code) {
     case 1:
@@ -3639,7 +3640,7 @@ bool DRW_Block::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -3956,7 +3957,7 @@ bool DRW_Insert::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs
 
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -4272,7 +4273,7 @@ bool DRW_LWPolyline::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_
     if (version > DRW::AC1021) {//2010+
         if (flags & 1024)
             vertexIdCount = buf->getBitLong();
-    }
+        }
     unsigned int widthsnum = 0;
     if (flags & 32)
         widthsnum = static_cast<unsigned int>(buf->getBitLong());
@@ -4322,7 +4323,7 @@ bool DRW_LWPolyline::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_
             double bulge = buf->getBitDouble();
             if (vertlist.size()> i)
                 vertlist.at(i)->bulge = bulge;
-        }
+            }
         //add vertexId
         if (version > DRW::AC1021) {//2010+
             for (int i = 0; i < vertexIdCount; i++){
@@ -6135,7 +6136,7 @@ bool DRW_Vertex::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 
@@ -7325,7 +7326,7 @@ bool DRW_Helix::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
     ret = DRW_Entity::parseDwgEntHandle(version, buf);
     if (!ret)
         return ret;
-//    RS crc;   //RS */
+    //    RS crc;   //RS */
     return buf->isGood();
 }
 

@@ -42,4 +42,4 @@ protected slots:
     void fillMenu();
     void menuTriggered(bool checked = false) const;
 };
-#endif // LC_WORKSPACELISTBUTTON_H
+#endif
