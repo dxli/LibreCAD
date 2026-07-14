@@ -33,6 +33,10 @@
 #include "rs_entity.h"
 #include "rs_entitycontainer.h"
 
+namespace {
+constexpr char const* g_drawingMdiWindowBackground = "#212830";
+}
+
 LC_GraphicViewRenderer::LC_GraphicViewRenderer(LC_GraphicViewport *viewport, QPaintDevice* p)
    :LC_WidgetViewPortRenderer(viewport, p) {
 }
@@ -71,7 +75,12 @@ void LC_GraphicViewRenderer::loadSettings() {
 
     LC_GROUP_GUARD("Colors");
     {
-        setBackground(QColor(LC_GET_STR("background", RS_Settings::background)));
+        const RS_Color background(QColor(LC_GET_STR("background", RS_Settings::background)));
+        if (background.isValid() && background.toIntColor() == RS_Color::Black) {
+            setBackground(RS_Color(QColor(g_drawingMdiWindowBackground)), background);
+        } else {
+            setBackground(background);
+        }
         m_colorSelectedEntity = QColor(LC_GET_STR("select", RS_Settings::select));
         m_colorHighlightedEntity = QColor(LC_GET_STR("highlight", RS_Settings::highlight));
         m_colorStartHandle = QColor(LC_GET_STR("start_handle", RS_Settings::start_handle));
@@ -445,9 +454,9 @@ void LC_GraphicViewRenderer::setPenForEntity(RS_Painter *painter, RS_Entity *e, 
             pen.setLineType(RS2::SolidLine);
         }
         else{
-            if (pen.getColor().isEqualIgnoringFlags(m_colorBackground)
+            if (pen.getColor().isEqualIgnoringFlags(m_colorBackgroundForContrast)
                 || (pen.getColor().toIntColor() == RS_Color::Black) // fixme - sand - think about Black... is it really necessary there?
-                || (pen.getColor().colorDistance(m_colorBackground) < RS_Color::MinColorDistance)) {
+                || (pen.getColor().colorDistance(m_colorBackgroundForContrast) < RS_Color::MinColorDistance)) {
                 pen.setColor(m_colorForeground);
             }
         }
@@ -465,9 +474,9 @@ void LC_GraphicViewRenderer::setPenForEntity(RS_Painter *painter, RS_Entity *e, 
         else  if (e->getFlag(RS2::FlagTransparent)) {
             pen.setColor(m_colorBackground);
         }
-        else if (pen.getColor().isEqualIgnoringFlags(m_colorBackground)
+        else if (pen.getColor().isEqualIgnoringFlags(m_colorBackgroundForContrast)
                  || (pen.getColor().toIntColor() == RS_Color::Black// fixme - sand - think about Black... is it really necessary there?
-                     && pen.getColor().colorDistance(m_colorBackground) < RS_Color::MinColorDistance)) {
+                     && pen.getColor().colorDistance(m_colorBackgroundForContrast) < RS_Color::MinColorDistance)) {
             pen.setColor(m_colorForeground);
         }
     }
@@ -523,8 +532,9 @@ void LC_GraphicViewRenderer::setPenForDraftEntity(RS_Painter *painter, RS_Entity
             pen.setLineType(RS2::SolidLine);
         }
         else{
-            if (pen.getColor().isEqualIgnoringFlags(m_colorBackground) || (pen.getColor().toIntColor() == RS_Color::Black
-                                                                           && pen.getColor().colorDistance(m_colorBackground) < RS_Color::MinColorDistance)) {
+            if (pen.getColor().isEqualIgnoringFlags(m_colorBackgroundForContrast)
+                || (pen.getColor().toIntColor() == RS_Color::Black
+                                                                           && pen.getColor().colorDistance(m_colorBackgroundForContrast) < RS_Color::MinColorDistance)) {
                 pen.setColor(m_colorForeground);
             }
         }
@@ -541,8 +551,9 @@ void LC_GraphicViewRenderer::setPenForDraftEntity(RS_Painter *painter, RS_Entity
         else if (e->getFlag(RS2::FlagTransparent)) {
             pen.setColor(m_colorBackground);
         }
-        else if (pen.getColor().isEqualIgnoringFlags(m_colorBackground) || (pen.getColor().toIntColor() == RS_Color::Black
-                                                                            && pen.getColor().colorDistance(m_colorBackground) < RS_Color::MinColorDistance)) {
+        else if (pen.getColor().isEqualIgnoringFlags(m_colorBackgroundForContrast)
+                 || (pen.getColor().toIntColor() == RS_Color::Black
+                                                                            && pen.getColor().colorDistance(m_colorBackgroundForContrast) < RS_Color::MinColorDistance)) {
             pen.setColor(m_colorForeground);
         }
     }
