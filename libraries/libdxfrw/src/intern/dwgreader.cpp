@@ -1450,13 +1450,13 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
         case dwgType::ARC: {
             DRW_Arc e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addArc(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addArc);
             }
             break; }
         case dwgType::CIRCLE: {
             DRW_Circle e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addCircle(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addCircle);
             }
             break; }
         case dwgType::LINE: {
@@ -1529,13 +1529,13 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
         case dwgType::SOLID: {
             DRW_Solid e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addSolid(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addSolid);
             }
             break; }
         case dwgType::TRACE: {
             DRW_Trace e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addTrace(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addTrace);
             }
             break; }
         case dwgType::SHAPE: {
@@ -1568,7 +1568,7 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
         case dwgType::ELLIPSE: {
             DRW_Ellipse e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addEllipse(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addEllipse);
             }
             break; }
         case dwgType::SPLINE: {
@@ -1662,7 +1662,7 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
         case dwgType::LWPOLYLINE: {
             DRW_LWPolyline e;
             if (entryParse(e, buff, bs, ret)) {
-                intfa.addLWPolyline(e);
+                emitWithExtrusion(e, intfa, &DRW_Interface::addLWPolyline);
             }
             break; }
         case dwgType::HATCH: {

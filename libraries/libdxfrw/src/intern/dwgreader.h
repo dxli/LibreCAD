@@ -303,6 +303,20 @@ protected:
     std::uint32_t nextEntLink{0};
     std::uint32_t prevEntLink{0};
 
+    template<typename T>
+    void emitWithExtrusion(T& e, DRW_Interface& intfa,
+                           void(DRW_Interface::*addFn)(const T&))
+    {
+        if (parent && parent->applyExt) {
+            if (!e.haveExtrusion
+                && (e.extPoint.x != 0.0 || e.extPoint.y != 0.0 || e.extPoint.z != 1.0)) {
+                e.haveExtrusion = true;
+            }
+            e.applyExtrusion();
+        }
+        (intfa.*addFn)(e);
+    }
+
 private:
     template <class T>
     bool entryParse(T &e, dwgBuffer &buff, std::uint32_t bs, bool &ret) {

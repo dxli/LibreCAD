@@ -3428,6 +3428,196 @@ TEST_CASE("DWG robot_handling_cell: entity population", "[.dwg_robot]") {
   printDeepReport("robot_handling_cell.dwg", dr);
 }
 
+// Filter-path audit for robot_handling_cell.dwg: the host carries an unresolved
+// XREF block GRIPPER ASSEMBLY NEW (Windows path in xrefPath). LibreCAD must
+// resolve gripper_assembly_new.dwg from the host directory and embed it.
+//   ./librecad_tests "[.dwg_robot_filter]" -s
+TEST_CASE("DWG robot_handling_cell: filter pipeline + XREF embed",
+          "[.dwg_robot_filter]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg2/robot_handling_cell.dwg";
+  const std::string xrefPath =
+      std::string(home) + "/doc/dwg2/gripper_assembly_new.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("robot_handling_cell.dwg not present; skipping");
+    return;
+  }
+  if (!std::filesystem::is_regular_file(xrefPath)) {
+    SUCCEED("gripper_assembly_new.dwg not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  auto *blockList = graphic.getBlockList();
+  REQUIRE(blockList);
+  RS_Block *gripperBlock = blockList->find("GRIPPER ASSEMBLY NEW");
+  REQUIRE(gripperBlock);
+  INFO("GRIPPER ASSEMBLY NEW direct count = " << gripperBlock->count());
+  // embedXref copies model-space top-level entities from gripper_assembly_new.dwg
+  // (1504) plus namespaced block defs; nested block geometry rides INSERT refs.
+  CHECK(gripperBlock->count() >= 1500);
+
+  auto *layers = graphic.getLayerList();
+  REQUIRE(layers);
+  CHECK(layers->find("GRIPPER ASSEMBLY NEW|AM_0") != nullptr);
+
+  std::cout << "\n=== robot_handling_cell filter audit ===\n";
+  std::cout << "countDeep=" << graphic.countDeep()
+            << " gripperBlock=" << gripperBlock->count()
+            << " gripperDeep=" << gripperBlock->countDeep() << "\n";
+}
+
+// robot_handling_cell.dwg stores many arcs in OCS with extrusion (0,0,-1).
+// Without applyExtrusion the semicircle at OCS center (+900,2217.74) r=66 is
+// drawn on the wrong side of the drawing; WCS center must be (-900,2217.74).
+//   ./librecad_tests "[.dwg_robot_arc_ext]" -s
+TEST_CASE("DWG robot_handling_cell: negative extrusion arc placement",
+          "[.dwg_robot_arc_ext]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg2/robot_handling_cell.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("robot_handling_cell.dwg not present; skipping");
+    return;
+  }
+
+  struct ArcProbe : public DRW_Interface {
+    int negExtHits = 0;
+    int wrongSideHits = 0;
+    void addHeader(const DRW_Header *) override {}
+    void addLType(const DRW_LType &) override {}
+    void addLayer(const DRW_Layer &) override {}
+    void addDimStyle(const DRW_Dimstyle &) override {}
+    void addVport(const DRW_Vport &) override {}
+    void addTextStyle(const DRW_Textstyle &) override {}
+    void addAppId(const DRW_AppId &) override {}
+    void addBlock(const DRW_Block &) override {}
+    void setBlock(const int) override {}
+    void endBlock() override {}
+    void addPoint(const DRW_Point &) override {}
+    void addLine(const DRW_Line &) override {}
+    void addRay(const DRW_Ray &) override {}
+    void addXline(const DRW_Xline &) override {}
+    void addCircle(const DRW_Circle &) override {}
+    void addArc(const DRW_Arc &a) override {
+      if (std::fabs(a.basePoint.y - 2217.73666) > 0.05
+          || std::fabs(a.radious - 66.0) > 0.05) {
+        return;
+      }
+      ++negExtHits;
+      if (a.basePoint.x > 0.0) {
+        ++wrongSideHits;
+      }
+    }
+    void addEllipse(const DRW_Ellipse &) override {}
+    void addLWPolyline(const DRW_LWPolyline &) override {}
+    void addPolyline(const DRW_Polyline &) override {}
+    void addSpline(const DRW_Spline *) override {}
+    void addKnot(const DRW_Entity &) override {}
+    void addInsert(const DRW_Insert &) override {}
+    void addTrace(const DRW_Trace &) override {}
+    void add3dFace(const DRW_3Dface &) override {}
+    void addSolid(const DRW_Solid &) override {}
+    void addMText(const DRW_MText &) override {}
+    void addText(const DRW_Text &) override {}
+    void addDimAlign(const DRW_DimAligned *) override {}
+    void addDimLinear(const DRW_DimLinear *) override {}
+    void addDimRadial(const DRW_DimRadial *) override {}
+    void addDimDiametric(const DRW_DimDiametric *) override {}
+    void addDimAngular(const DRW_DimAngular *) override {}
+    void addDimAngular3P(const DRW_DimAngular3p *) override {}
+    void addDimArc(const DRW_DimArc *) override {}
+    void addDimOrdinate(const DRW_DimOrdinate *) override {}
+    void addLeader(const DRW_Leader *) override {}
+    void addHatch(const DRW_Hatch *) override {}
+    void addViewport(const DRW_Viewport &) override {}
+    void addImage(const DRW_Image *) override {}
+    void linkImage(const DRW_ImageDef *) override {}
+    void addComment(const char *) override {}
+    void addPlotSettings(const DRW_PlotSettings *) override {}
+    void writeHeader(DRW_Header &) override {}
+    void writeBlocks() override {}
+    void writeBlockRecords() override {}
+    void writeEntities() override {}
+    void writeLTypes() override {}
+    void writeLayers() override {}
+    void writeTextstyles() override {}
+    void writeVports() override {}
+    void writeDimstyles() override {}
+    void writeObjects() override {}
+    void writeAppId() override {}
+  } probe;
+
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&probe, true));
+  CHECK(probe.negExtHits >= 1);
+  CHECK(probe.wrongSideHits == 0);
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  bool foundWcsArc = false;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityArc) {
+      continue;
+    }
+    auto *arc = static_cast<RS_Arc *>(e);
+    const RS_Vector c = arc->getCenter();
+    if (std::fabs(c.x + 900.0) < 0.1 && std::fabs(c.y - 2217.73666) < 0.05
+        && std::fabs(arc->getRadius() - 66.0) < 0.05) {
+      foundWcsArc = true;
+      break;
+    }
+  }
+  CHECK(foundWcsArc);
+}
+
 // Scans the corpus for WIPEOUT entities (custom-class oType >= 500 with class
 // recName "WIPEOUT").  Pre-fix these were silently dropped via the
 // [custom-class-skipped] log path; this test asserts the dispatch-and-parse

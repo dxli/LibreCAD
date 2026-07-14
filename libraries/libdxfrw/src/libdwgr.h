@@ -234,6 +234,8 @@ public:
 bool testReader();
     void setDebug(DRW::DebugLevel lvl);
 
+    friend class dwgReader;
+
 private:
     enum class WriteSkipKind {
         Entity,
