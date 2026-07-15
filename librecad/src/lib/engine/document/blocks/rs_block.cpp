@@ -337,6 +337,60 @@ void reanchorSparseWcsOutliers(RS_Block *block) {
     block->calculateBorders();
 }
 
+// Compact WCS symbols used only as nested inserts (ch00a, cush1, CUSH) store
+// geometry at absolute sheet coords. Top-level WCS inserts (11ma, hanging light)
+// encode placement as abs_content+ip and must keep absolute coords.
+// Re-center nested-only compact WCS blocks onto basePoint so nested expand
+// treats them as local furniture near the parent insert.
+constexpr double kCompactWcsMaxSpan = 25000.0;
+
+bool blockUsedAsTopLevelModelInsert(RS_Block *block) {
+    if (block == nullptr)
+        return false;
+    RS_Graphic *g = block->getGraphic();
+    if (g == nullptr)
+        return false;
+    const QString name = block->getName();
+    for (RS_Entity *e : *g) {
+        if (e == nullptr || e->rtti() != RS2::EntityInsert)
+            continue;
+        if (static_cast<RS_Insert *>(e)->getName() == name)
+            return true;
+    }
+    return false;
+}
+
+void recenterCompactNestedOnlyWcsBlock(RS_Block *block) {
+    if (block == nullptr || block->count() == 0)
+        return;
+    block->calculateBorders();
+    const RS_Vector min = block->getMin();
+    const RS_Vector max = block->getMax();
+    if (!min.valid || !max.valid)
+        return;
+    if (!blockEnvelopeHasWcsCoords(min, max))
+        return;
+    const double spanX = max.x - min.x;
+    const double spanY = max.y - min.y;
+    if (spanX > kCompactWcsMaxSpan || spanY > kCompactWcsMaxSpan)
+        return;
+    if (blockUsedAsTopLevelModelInsert(block))
+        return;
+
+    const RS_Vector base = block->getBasePoint();
+    const RS_Vector center = (min + max) * 0.5;
+    if (center.distanceTo(base) < kBlockBaseNormalizeMinDist)
+        return;
+
+    const RS_Vector offset = base - center;
+    for (RS_Entity *e : *block) {
+        if (e != nullptr)
+            e->move(offset);
+    }
+    // Nested insert grips must move with the geometry.
+    block->calculateBorders();
+}
+
 } // namespace
 
 void RS_Block::prepareForInsertExpansion() {
@@ -345,8 +399,9 @@ void RS_Block::prepareForInsertExpansion() {
 
     normalizeBlockGeometryToBase(this);
     reanchorSparseWcsOutliers(this);
+    recenterCompactNestedOnlyWcsBlock(this);
     m_preparedForInsert = 1;
-    // Flags after outlier re-anchor so mixed blocks are not sticky-WCS.
+    // Flags after re-center so nested-only compact WCS becomes local.
     m_wcsEmbeddedGeometry = -1;
     (void)hasWcsEmbeddedGeometry();
     (void)hasWipeoutEntities();

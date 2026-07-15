@@ -364,10 +364,12 @@ void RS_Insert::update() {
                             || childData.insertionPoint.y != rawNestedIp.y;
 
                         // WCS-in-block children nested inside a local parent (CUSH,
-                        // FLOOWER1, LNG-13) must expand first: compound INSERT data
-                        // carries WCS absolute grips that misplace arcs/wipeouts.
-                        // WCS-in-WCS wipeout children still need expand when the
-                        // parent rotates or hosts wipeouts (015/chicun).
+                        // FLOOWER1, LNG-13, ch00a) must expand first: compound
+                        // INSERT data carries WCS absolute grips that misplace
+                        // arcs/wipeouts. WCS-in-WCS wipeout children still need
+                        // expand when the parent rotates or hosts wipeouts.
+                        // Also expand when the nested IP was sanitized from abs
+                        // grips (ch00a/cush1 under local assemblies).
                         const bool needNestedExpand = parentRotates
                                 || (childWcs && childBlk != nullptr
                                     && !parentBlockWcs)
@@ -425,7 +427,8 @@ void RS_Insert::update() {
                                     childData.insertionPoint;
                                 // FLOOWER1/CUSH/chicun: WCS child INSERT grips stored
                                 // as absolute coords inside a local parent block.
-                                if (vectorHasWcsCoords(nestedTarget))
+                                if (vectorHasWcsCoords(nestedTarget)
+                                        || nestedIpSanitized)
                                     nestedTarget = RS_Vector(0., 0.);
                                 reanchorNestedWcsEntity(gc, nestedTarget);
                             }

@@ -6708,22 +6708,23 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   }
 
   // Furniture + elevation catalog envelope after wipeout / nested-IP / mixed-
-  // block outlier fixes (was ~963k×386k; dense leaf core ~259k×50k).
+  // block outlier / nested-only compact WCS re-center fixes
+  // (was ~963k×386k; now ~666k×126k; dense leaf core ~259k×50k).
   CHECK(spanX < 7.0e5);
-  CHECK(spanY < 2.0e5);
+  CHECK(spanY < 1.4e5);
   CHECK(bmax.x < 4.0e5);
   CHECK(bmin.x > -3.5e5);
-  CHECK(bmax.y < 1.2e5);
-  CHECK(bmin.y > -1.0e5);
+  CHECK(bmax.y < 1.15e5);
+  CHECK(bmin.y > -2.5e4);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
 
   // Draw-path envelope must obey the same limits (render-time border drivers).
   CHECK(drawSpanX < 7.0e5);
-  CHECK(drawSpanY < 2.0e5);
+  CHECK(drawSpanY < 1.4e5);
   CHECK(drawEnv.max.x < 4.0e5);
   CHECK(drawEnv.min.x > -3.5e5);
-  CHECK(drawEnv.max.y < 1.2e5);
-  CHECK(drawEnv.min.y > -1.0e5);
+  CHECK(drawEnv.max.y < 1.15e5);
+  CHECK(drawEnv.min.y > -2.5e4);
   // Draw-path and container calculateBorders should agree closely (small
   // leaf vs insert-border differences allowed).
   CHECK(std::fabs(drawEnv.min.x - bmin.x) < 50.0);
