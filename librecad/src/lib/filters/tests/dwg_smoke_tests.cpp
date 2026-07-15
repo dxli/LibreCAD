@@ -3978,6 +3978,145 @@ std::vector<BboxCornerHit> findBboxCornerDrivers(RS_Graphic &graphic,
   return hits;
 }
 
+// Draw-path envelope: walk the same RS_Entity hierarchy RS_EntityContainer::draw
+// uses (id!=0 children), apply render-time isVisible() like
+// LC_GraphicViewRenderer::renderEntity, and collect leaf min/max at the moment
+// justDrawEntity would call e->draw() — not DRW/parser-only, not pre-updateInserts.
+struct DrawPathEnvHit {
+  RS_Entity *entity = nullptr;
+  RS2::EntityType rtti = RS2::EntityUnknown;
+  RS_Vector emin;
+  RS_Vector emax;
+  QString chain;
+};
+
+struct DrawPathEnvelope {
+  RS_Vector min;
+  RS_Vector max;
+  bool valid = false;
+  int visited = 0;
+  int leaves = 0;
+  std::vector<DrawPathEnvHit> leavesList;
+};
+
+void accumulateDrawEnvelope(DrawPathEnvelope &env, const RS_Vector &emin,
+                            const RS_Vector &emax) {
+  if (!emin.valid || !emax.valid)
+    return;
+  if (!env.valid) {
+    env.min = emin;
+    env.max = emax;
+    env.valid = true;
+    return;
+  }
+  env.min = RS_Vector::minimum(env.min, emin);
+  env.max = RS_Vector::maximum(env.max, emax);
+}
+
+// Recurse like EntityContainer::draw → painter->drawEntity → e->draw().
+// Hatch overrides draw (solid path / FlagHatchChild patterns); treat hatch as
+// a leaf for solid fills and recurse only pattern hatch-children.
+void collectDrawPathBorders(RS_Entity *e, DrawPathEnvelope &env) {
+  if (!e || e->getId() == 0)
+    return;
+  // Same gate as LC_GraphicViewRenderer::renderEntity before justDrawEntity.
+  if (!e->isVisible())
+    return;
+  ++env.visited;
+
+  const RS2::EntityType t = e->rtti();
+  if (t == RS2::EntityHatch) {
+    auto *h = static_cast<RS_EntityContainer *>(e);
+    bool anyHatchChild = false;
+    for (RS_Entity *sub : *h) {
+      if (sub && !sub->isContainer() && sub->getFlag(RS2::FlagHatchChild)) {
+        anyHatchChild = true;
+        collectDrawPathBorders(sub, env);
+      }
+    }
+    if (!anyHatchChild) {
+      // Solid fill: hatch.draw paints loops; borders from hatch itself.
+      e->calculateBorders();
+      const RS_Vector emin = e->getMin();
+      const RS_Vector emax = e->getMax();
+      accumulateDrawEnvelope(env, emin, emax);
+      ++env.leaves;
+      env.leavesList.push_back(
+          {e, t, emin, emax, insertChain(e)});
+    }
+    return;
+  }
+
+  if (e->isContainer()) {
+    // RS_EntityContainer::draw / Insert::draw: paint each child with id!=0.
+    auto *c = static_cast<RS_EntityContainer *>(e);
+    for (RS_Entity *child : *c) {
+      if (child != nullptr && child->getId() != 0)
+        collectDrawPathBorders(child, env);
+    }
+    return;
+  }
+
+  // Leaf atomic: borders at the moment draw() would paint this entity.
+  e->calculateBorders();
+  const RS_Vector emin = e->getMin();
+  const RS_Vector emax = e->getMax();
+  accumulateDrawEnvelope(env, emin, emax);
+  ++env.leaves;
+  env.leavesList.push_back({e, t, emin, emax, insertChain(e)});
+}
+
+DrawPathEnvelope collectDrawPathEnvelope(RS_Graphic &graphic) {
+  DrawPathEnvelope env;
+  // Root draw: justDrawEntity(graphic) → Graphic::draw → each model child.
+  for (RS_Entity *e : graphic) {
+    if (e != nullptr && e->getId() != 0)
+      collectDrawPathBorders(e, env);
+  }
+  return env;
+}
+
+void dumpDrawPathBorderDrivers(const DrawPathEnvelope &env,
+                               double boundTol = 15.0) {
+  if (!env.valid)
+    return;
+  int envWest = 0, envEast = 0, envSouth = 0, envNorth = 0;
+  for (const auto &h : env.leavesList) {
+    if (!h.emin.valid || !h.emax.valid)
+      continue;
+    if (std::fabs(h.emin.x - env.min.x) < boundTol) {
+      ++envWest;
+      if (envWest <= 3)
+        std::cout << "  draw-env-west " << rttiName(h.rtti) << " emin=("
+                  << h.emin.x << "," << h.emin.y << ") emax=(" << h.emax.x
+                  << "," << h.emax.y << ") " << h.chain.toStdString() << "\n";
+    }
+    if (std::fabs(h.emax.x - env.max.x) < boundTol) {
+      ++envEast;
+      if (envEast <= 3)
+        std::cout << "  draw-env-east " << rttiName(h.rtti) << " emin=("
+                  << h.emin.x << "," << h.emin.y << ") emax=(" << h.emax.x
+                  << "," << h.emax.y << ") " << h.chain.toStdString() << "\n";
+    }
+    if (std::fabs(h.emin.y - env.min.y) < boundTol) {
+      ++envSouth;
+      if (envSouth <= 3)
+        std::cout << "  draw-env-south " << rttiName(h.rtti) << " emin=("
+                  << h.emin.x << "," << h.emin.y << ") emax=(" << h.emax.x
+                  << "," << h.emax.y << ") " << h.chain.toStdString() << "\n";
+    }
+    if (std::fabs(h.emax.y - env.max.y) < boundTol) {
+      ++envNorth;
+      if (envNorth <= 3)
+        std::cout << "  draw-env-north " << rttiName(h.rtti) << " emin=("
+                  << h.emin.x << "," << h.emin.y << ") emax=(" << h.emax.x
+                  << "," << h.emax.y << ") " << h.chain.toStdString() << "\n";
+    }
+  }
+  std::cout << "draw-envelope west=" << envWest << " east=" << envEast
+            << " south=" << envSouth << " north=" << envNorth << "\n";
+}
+
 bool phantomNear(const RS_Vector &p, double tol = 50.0) {
   for (const auto &t : kPhantoms) {
     if (std::hypot(p.x - t.x, p.y - t.y) < tol)
@@ -6538,8 +6677,27 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   std::cout << "envelope west=" << envWest << " east=" << envEast
             << " south=" << envSouth << " north=" << envNorth << "\n";
 
+  // Draw-time envelope: same RS_Entity hierarchy walk as EntityContainer::draw
+  // + isVisible (renderEntity), collecting leaf calculateBorders at draw time.
+  const auto drawEnv = chicun::collectDrawPathEnvelope(graphic);
+  REQUIRE(drawEnv.valid);
+  const double drawSpanX = drawEnv.max.x - drawEnv.min.x;
+  const double drawSpanY = drawEnv.max.y - drawEnv.min.y;
+  std::cout << "=== chicun draw-path bbox ===\n";
+  std::cout << "draw-path=RS_EntityContainer::draw hierarchy + isVisible + "
+               "leaf calculateBorders (justDrawEntity moment)\n";
+  std::cout << "draw-visited=" << drawEnv.visited
+            << " draw-leaves=" << drawEnv.leaves << "\n";
+  std::cout << "draw-min=(" << drawEnv.min.x << "," << drawEnv.min.y
+            << ") draw-max=(" << drawEnv.max.x << "," << drawEnv.max.y
+            << ")\n";
+  std::cout << "draw-span=(" << drawSpanX << "," << drawSpanY << ")\n";
+  chicun::dumpDrawPathBorderDrivers(drawEnv, boundTol);
+
   CHECK_FALSE(chicun::phantomNear(bmin));
   CHECK_FALSE(chicun::phantomNear(bmax));
+  CHECK_FALSE(chicun::phantomNear(drawEnv.min));
+  CHECK_FALSE(chicun::phantomNear(drawEnv.max));
   for (const auto &h : corners)
     CHECK_FALSE(chicun::phantomNear(h.p));
 
@@ -6557,6 +6715,19 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   CHECK(bmax.y < 3.0e5);
   CHECK(bmin.y > -1.5e5);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
+
+  // Draw-path envelope must obey the same limits (render-time border drivers).
+  CHECK(drawSpanX < 1.1e6);
+  CHECK(drawSpanY < 4.5e5);
+  CHECK(drawEnv.max.x < 7.0e5);
+  CHECK(drawEnv.min.x > -3.5e5);
+  CHECK(drawEnv.max.y < 3.0e5);
+  CHECK(drawEnv.min.y > -1.5e5);
+  // Draw-path and container calculateBorders should agree closely.
+  CHECK(std::fabs(drawEnv.min.x - bmin.x) < 1.0);
+  CHECK(std::fabs(drawEnv.min.y - bmin.y) < 1.0);
+  CHECK(std::fabs(drawEnv.max.x - bmax.x) < 1.0);
+  CHECK(std::fabs(drawEnv.max.y - bmax.y) < 1.0);
 
   // 015/A$C446327FF ellipses must not sit in stray6 phantom band (misplaced INSERT).
   int stray6Band = 0;
