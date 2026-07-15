@@ -6425,6 +6425,8 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   chicun::ensureTestApp();
   RS_Graphic graphic;
   REQUIRE(chicun::importFixture(graphic));
+  // Display path: fileImport already ran updateInserts; same container
+  // min/max APIs as LC_GraphicViewport::zoomAuto (not DRW/parser-only).
   graphic.onLoadingCompleted();
   graphic.calculateBorders();
 
@@ -6433,6 +6435,8 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   const double spanX = bmax.x - bmin.x;
   const double spanY = bmax.y - bmin.y;
   std::cout << "\n=== chicun bbox ===\n";
+  std::cout << "display-path=import+updateInserts+onLoadingCompleted+"
+               "calculateBorders+getMin/getMax (zoomAuto source)\n";
   std::cout << "min=(" << bmin.x << "," << bmin.y << ") max=(" << bmax.x
             << "," << bmax.y << ")\n";
   std::cout << "span=(" << spanX << "," << spanY << ")\n";
@@ -6781,6 +6785,7 @@ TEST_CASE("DWG ACEB10: resolved bbox audit", "[.dwg_aceb10_bbox]") {
   RS_FilterDXFRW filter;
   REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
                             RS2::FormatDWG));
+  // Display path: same container min/max sequence as zoomAuto.
   graphic.onLoadingCompleted();
   graphic.calculateBorders();
 
@@ -6793,6 +6798,8 @@ TEST_CASE("DWG ACEB10: resolved bbox audit", "[.dwg_aceb10_bbox]") {
   const double spanX = bmax.x - bmin.x;
   const double spanY = bmax.y - bmin.y;
   std::cout << "\n=== ACEB10 bbox ===\n";
+  std::cout << "display-path=import+updateInserts+onLoadingCompleted+"
+               "calculateBorders+getMin/getMax (zoomAuto source)\n";
   std::cout << "min=(" << bmin.x << "," << bmin.y << ") max=(" << bmax.x
             << "," << bmax.y << ")\n";
   std::cout << "span=(" << spanX << "," << spanY << ")\n";
