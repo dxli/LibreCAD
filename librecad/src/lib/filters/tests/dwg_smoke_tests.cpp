@@ -6708,23 +6708,24 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
         t.minGlobalDist);
   }
 
-  // After W/N/S shrink: far elevation re-base, oversized wipeouts, ellipse
-  // full-border fix (was ~963k×386k; dense leaf core ~259k×50k).
-  CHECK(spanX < 4.0e5);
-  CHECK(spanY < 9.0e4);
+  // After W/N/S shrink pass 2: adaptive far re-base (hms, A$C759, A$C121B),
+  // wholly-outside model islands (W-Frame), empty-insert origin unpin.
+  // Dense leaf core ~259k×50k; remaining N furniture ~64k, S QBLOCK ~-285.
+  CHECK(spanX < 3.5e5);
+  CHECK(spanY < 6.6e4);
   CHECK(bmax.x < 4.0e5);
-  CHECK(bmin.x > -5.0e3);
-  CHECK(bmax.y < 8.0e4);
-  CHECK(bmin.y > -1.0e4);
+  CHECK(bmin.x > 2.0e4);
+  CHECK(bmax.y < 6.5e4);
+  CHECK(bmin.y > -1.0e3);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
 
   // Draw-path envelope must obey the same limits (render-time border drivers).
-  CHECK(drawSpanX < 4.0e5);
-  CHECK(drawSpanY < 9.0e4);
+  CHECK(drawSpanX < 3.5e5);
+  CHECK(drawSpanY < 6.6e4);
   CHECK(drawEnv.max.x < 4.0e5);
-  CHECK(drawEnv.min.x > -5.0e3);
-  CHECK(drawEnv.max.y < 8.0e4);
-  CHECK(drawEnv.min.y > -1.0e4);
+  CHECK(drawEnv.min.x > 2.0e4);
+  CHECK(drawEnv.max.y < 6.5e4);
+  CHECK(drawEnv.min.y > -1.0e3);
   // Draw-path and container calculateBorders should agree closely (small
   // leaf vs insert-border differences allowed).
   CHECK(std::fabs(drawEnv.min.x - bmin.x) < 50.0);
@@ -10325,3 +10326,55 @@ TEST_CASE("DWG pre-R13: R10 LAYER/LTYPE/STYLE table records + header") {
     CHECK(*clayer->content.s == "0");
   }
 }
+
+TEST_CASE("DWG chicun WNS2 drivers", "[.dwg_chicun_wns2]") {
+  if (chicun::fixturePath().empty()) { SUCCEED("skip"); return; }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+  graphic.onLoadingCompleted();
+  graphic.calculateBorders();
+  const RS_Vector bmin=graphic.getMin(), bmax=graphic.getMax();
+  std::cout << std::setprecision(10)
+            << "bbox min=("<<bmin.x<<","<<bmin.y<<") max=("<<bmax.x<<","
+            <<bmax.y<<") span=("<<(bmax.x-bmin.x)<<","<<(bmax.y-bmin.y)<<")\n";
+
+  std::vector<double> xs, ys;
+  for (RS_Entity *e : lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->isContainer()) continue;
+    e->calculateBorders();
+    auto c=(e->getMin()+e->getMax())*0.5;
+    if (!c.valid || !std::isfinite(c.x)) continue;
+    xs.push_back(c.x); ys.push_back(c.y);
+  }
+  auto pct=[](std::vector<double> v,double p){
+    std::sort(v.begin(),v.end());
+    return v[std::min(v.size()-1,size_t(p*(v.size()-1)))];
+  };
+  std::cout << "n="<<xs.size()
+            <<" x p01="<<pct(xs,0.01)<<" p05="<<pct(xs,0.05)
+            <<" p95="<<pct(xs,0.95)<<" p99="<<pct(xs,0.99)
+            <<" y p01="<<pct(ys,0.01)<<" p05="<<pct(ys,0.05)
+            <<" p95="<<pct(ys,0.95)<<" p99="<<pct(ys,0.99)<<"\n";
+
+  const double tol=50;
+  std::cout << "=== side drivers ===\n";
+  int counts[3]={0,0,0};
+  for (RS_Entity *e : lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->isContainer()) continue;
+    e->calculateBorders();
+    const RS_Vector mn=e->getMin(), mx=e->getMax();
+    int si=-1; char side=0;
+    if (std::fabs(mn.x-bmin.x)<tol) {side='W';si=0;}
+    else if (std::fabs(mx.y-bmax.y)<tol) {side='N';si=1;}
+    else if (std::fabs(mn.y-bmin.y)<tol) {side='S';si=2;}
+    else continue;
+    if (counts[si]++ >= 6) continue;
+    RS_Layer *ly=e->getLayer();
+    std::cout << "  "<<side<<" "<<rttiName(e->rtti())
+              <<" chain="<<chicun::insertChain(e).toStdString()
+              <<" layer="<<(ly?ly->getName().toStdString():"?")
+              <<" box=("<<mn.x<<","<<mn.y<<")-("<<mx.x<<","<<mx.y<<")\n";
+  }
+}
+

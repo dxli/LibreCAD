@@ -287,6 +287,26 @@ RS_Entity* RS_Insert::clone() const{
  * Updates the entity buffer of this insert entity. This method
  * needs to be called whenever the block this insert is based on changes.
  */
+void RS_Insert::calculateBorders() {
+    RS_EntityContainer::calculateBorders();
+    // Empty inserts (or expands that collapse to a point at the world origin)
+    // used to inherit EntityContainer's corrupt-data fallback of (0,0), which
+    // pinned zoomAuto to the origin even when the insertion grip was re-based
+    // (chicun fdfd/ddegh/ghnah). Prefer the insertion point, or leave borders
+    // invalid for a truly empty insert so adjustBorders skips it.
+    const bool originPin =
+        std::abs(minV.x) < 1.0e-9 && std::abs(maxV.x) < 1.0e-9
+        && std::abs(minV.y) < 1.0e-9 && std::abs(maxV.y) < 1.0e-9;
+    if (count() == 0) {
+        resetBorders();
+        return;
+    }
+    if (originPin && m_data.insertionPoint.valid) {
+        minV = m_data.insertionPoint;
+        maxV = m_data.insertionPoint;
+    }
+}
+
 void RS_Insert::update() {
 
     RS_DEBUG->print("RS_Insert::update");

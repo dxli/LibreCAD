@@ -1385,9 +1385,11 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     RS_DEBUG->print("RS_FilterDXFRW::fileImport: updating inserts");
     const auto updateInsertsStart = std::chrono::steady_clock::now();
     m_graphic->updateInserts();
-    // Compact top-level inserts parked far outside the dense leaf core
-    // (chicun A$C4D8A4BEC elevation at x≈-294k) pull zoomAuto west/south.
-    // Re-base those isolated shells onto the dense-core edge.
+    // Compact top-level inserts (and isolated model-space islands) parked far
+    // outside the dense leaf core pull zoomAuto. Examples: chicun
+    // A$C4D8A4BEC elevation at x≈-294k, hms west elevation (~77k west of
+    // core), A$C759636E5 north section (~14k above core), W-Frame title
+    // block south of the sheet. Re-base those shells onto the dense-core edge.
     {
         std::vector<double> leafXs;
         std::vector<double> leafYs;
@@ -1422,8 +1424,30 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
             const double x95 = pct(leafXs, 0.95);
             const double y05 = pct(leafYs, 0.05);
             const double y95 = pct(leafYs, 0.95);
-            constexpr double kFarPad = 80000.0;
-            constexpr double kCompactSpan = 8000.0;
+            // Axis-adaptive pad: catch adjacent misplaced elevations /
+            // title frames (~12–80k outside core) without yanking content
+            // that sits just outside the p05/p95 band.
+            const double coreSpanX = std::max(1.0, x95 - x05);
+            const double coreSpanY = std::max(1.0, y95 - y05);
+            const double kFarPadX = std::max(12000.0, 0.04 * coreSpanX);
+            const double kFarPadY = std::max(10000.0, 0.15 * coreSpanY);
+            // Allow mid-size assemblies (chicun A$C121B7857 ~49k west pillow
+            // cluster) while still skipping sheet-scale inserts like QBLOCK.
+            constexpr double kCompactSpanInsert = 55000.0;
+            constexpr double kCompactSpanModel = 25000.0;
+            // Only W / N / S. East (chicun art-6 and similar sheet-edge
+            // symbols) is left alone: re-basing it desynced expanded leaves
+            // from the insert grip and made draw-path vs container disagree.
+            auto farDelta = [&](const RS_Vector &c) {
+                RS_Vector delta(0., 0.);
+                if (c.x < x05 - kFarPadX)
+                    delta.x = (x05 - 1000.0) - c.x;
+                if (c.y < y05 - kFarPadY)
+                    delta.y = (y05 - 1000.0) - c.y;
+                else if (c.y > y95 + kFarPadY)
+                    delta.y = (y95 + 1000.0) - c.y;
+                return delta;
+            };
             for (RS_Entity *e : *m_graphic) {
                 if (e == nullptr || e->rtti() != RS2::EntityInsert)
                     continue;
@@ -1435,18 +1459,10 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
                     continue;
                 const double span =
                     std::max(mx.x - mn.x, mx.y - mn.y);
-                if (span > kCompactSpan)
+                if (span > kCompactSpanInsert)
                     continue;
                 const RS_Vector c = (mn + mx) * 0.5;
-                RS_Vector delta(0., 0.);
-                if (c.x < x05 - kFarPad)
-                    delta.x = (x05 - 1000.0) - c.x;
-                else if (c.x > x95 + kFarPad)
-                    delta.x = (x95 + 1000.0) - c.x;
-                if (c.y < y05 - kFarPad)
-                    delta.y = (y05 - 1000.0) - c.y;
-                else if (c.y > y95 + kFarPad)
-                    delta.y = (y95 + 1000.0) - c.y;
+                const RS_Vector delta = farDelta(c);
                 if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
                     continue;
                 // Move expanded children without re-expanding the insert.
@@ -1458,6 +1474,72 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
                 ins->move(delta); // grip only while update disabled
                 ins->setUpdateEnabled(true);
                 ins->calculateBorders();
+            }
+            // Isolated model-space entities (title frames, freehand frames).
+            // Sheet-scale only: on small parts drawings (ACEB10 ~40u) the p05
+            // edge sits inside legitimate content, and docking with a fixed
+            // 1000u margin flings edge entities to ≈−1000.
+            const double coreSpan = std::max(coreSpanX, coreSpanY);
+            const bool sheetScale = coreSpan > 10000.0;
+            if (sheetScale) {
+                const double islandGap =
+                    std::max(1500.0, 0.015 * coreSpan);
+                const double dockMargin =
+                    std::min(1000.0, std::max(50.0, 0.02 * coreSpan));
+                for (RS_Entity *e : *m_graphic) {
+                    if (e == nullptr || e->rtti() == RS2::EntityInsert)
+                        continue;
+                    e->calculateBorders();
+                    const RS_Vector mn = e->getMin();
+                    const RS_Vector mx = e->getMax();
+                    if (!mn.valid || !mx.valid)
+                        continue;
+                    const double span =
+                        std::max(mx.x - mn.x, mx.y - mn.y);
+                    if (span > kCompactSpanModel)
+                        continue;
+                    const RS_Vector c = (mn + mx) * 0.5;
+                    RS_Vector delta(0., 0.);
+                    // Entirely outside core by islandGap on W/N/S.
+                    if (mx.x < x05 - islandGap)
+                        delta.x = (x05 - dockMargin) - c.x;
+                    if (mx.y < y05 - islandGap)
+                        delta.y = (y05 - dockMargin) - c.y;
+                    else if (mn.y > y95 + islandGap)
+                        delta.y = (y95 + dockMargin) - c.y;
+                    if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
+                        continue;
+                    e->move(delta);
+                }
+            }
+            // Empty inserts at the world origin pin zoomAuto via the
+            // container (0,0) fallback. Only nudge origin grips on
+            // sheet-scale drawings where that pin is meaningful.
+            if (sheetScale) {
+                for (RS_Entity *e : *m_graphic) {
+                    if (e == nullptr || e->rtti() != RS2::EntityInsert)
+                        continue;
+                    auto *ins = static_cast<RS_Insert *>(e);
+                    const RS_Vector ip = ins->getInsertionPoint();
+                    if (std::abs(ip.x) > 1.0 || std::abs(ip.y) > 1.0)
+                        continue;
+                    if (ins->count() > 0) {
+                        ins->calculateBorders();
+                        const RS_Vector mn = ins->getMin();
+                        const RS_Vector mx = ins->getMax();
+                        const bool originPin =
+                            mn.valid && mx.valid
+                            && std::abs(mn.x) < 1.0 && std::abs(mx.x) < 1.0
+                            && std::abs(mn.y) < 1.0 && std::abs(mx.y) < 1.0;
+                        if (!originPin)
+                            continue;
+                    }
+                    const RS_Vector delta((x05 + 1000.0) - ip.x,
+                                          (y05 + 1000.0) - ip.y);
+                    ins->setUpdateEnabled(false);
+                    ins->move(delta);
+                    ins->setUpdateEnabled(true);
+                }
             }
             m_graphic->calculateBorders();
         }

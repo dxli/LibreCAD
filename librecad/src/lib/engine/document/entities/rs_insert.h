@@ -119,6 +119,7 @@ public:
 	RS_Block* getBlockForInsert() const;
 
     void update() override;
+    void calculateBorders() override;
 
     QString getName() const {
         return m_data.name;
