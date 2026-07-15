@@ -48,6 +48,11 @@ namespace {
 constexpr double MIN_Scale_Factor = 1.0e-6;
 constexpr double kExtrusionPlaneTol = 1.0e-6;
 constexpr double kInsertAngleCompoundTol = 1.0e-9;
+constexpr double kBlockAbsCoordSkip = 100000.0;
+
+bool vectorHasWcsCoords(const RS_Vector &v) {
+    return std::abs(v.x) > kBlockAbsCoordSkip || std::abs(v.y) > kBlockAbsCoordSkip;
+}
 
 bool insertEntityReachesNegativeX(const RS_Entity *entity) {
     if (entity == nullptr)
@@ -98,12 +103,21 @@ void applyInsertTransformToEntity(RS_Entity *entity, const RS_Vector &arrayOffse
     }
 }
 
+void reanchorNestedWcsEntity(RS_Entity *entity,
+                             const RS_Vector &nestedInsertIp) {
+    if (entity == nullptr)
+        return;
+    entity->calculateBorders();
+    const RS_Vector center = (entity->getMin() + entity->getMax()) * 0.5;
+    entity->move(nestedInsertIp - center);
+}
+
 void applyParentInsertTransform(RS_Entity *entity, const RS_Vector &arrayOffset,
                                 const RS_Vector &blockBase,
                                 const RS_Vector &insertionPoint,
                                 const RS_Vector &scaleFactor, double angle,
                                 const RS_Vector &extrusion, bool previewUpdate,
-                                bool wcsEmbeddedChild) {
+                                bool wcsEmbeddedChild, bool parentBlockWcs) {
     if (entity == nullptr)
         return;
     if (entity->rtti() == RS2::EntityInsert) {
@@ -111,13 +125,13 @@ void applyParentInsertTransform(RS_Entity *entity, const RS_Vector &arrayOffset,
         for (RS_Entity *sub : *ins) {
             applyParentInsertTransform(sub, arrayOffset, blockBase, insertionPoint,
                                        scaleFactor, angle, extrusion, previewUpdate,
-                                       wcsEmbeddedChild);
+                                       wcsEmbeddedChild, parentBlockWcs);
         }
         ins->calculateBorders();
         return;
     }
     entity->setUpdateEnabled(false);
-    const bool wcsEmbedded = wcsEmbeddedChild
+    const bool wcsEmbedded = wcsEmbeddedChild && parentBlockWcs
             && entity->rtti() == RS2::EntityWipeout;
     applyInsertTransformToEntity(entity, arrayOffset, blockBase, insertionPoint,
                                  scaleFactor, angle, extrusion, wcsEmbedded);
@@ -270,11 +284,16 @@ void RS_Insert::update() {
                                 && childBlk->hasWcsEmbeddedGeometry();
                         const bool parentRotates =
                             std::abs(m_data.angle) >= kInsertAngleCompoundTol;
-                        // WCS-in-block children with wipeouts (LNG-13) must expand
-                        // first so leaf geometry is not re-scaled in compound data.
-                        // Other WCS children at angle 0 keep the fast compound path.
+                        // WCS-in-block children nested inside a local parent (CUSH,
+                        // FLOOWER1, LNG-13) must expand first: compound INSERT data
+                        // carries WCS absolute grips that misplace arcs/wipeouts.
+                        // WCS-in-WCS wipeout children still need expand when the
+                        // parent rotates or hosts wipeouts (015/chicun).
                         const bool needNestedExpand = parentRotates
                                 || (childWcs && childBlk != nullptr
+                                    && !parentBlockWcs)
+                                || (childWcs && childBlk != nullptr
+                                    && parentBlockWcs
                                     && childBlk->hasWipeoutEntities());
                         RS_Layer *childLayer = e->getLayer();
 
@@ -321,12 +340,22 @@ void RS_Insert::update() {
                             gc->setSelected(isSelected());
                             gc->setPen(updatePen(gc->getPen(false), getPen()));
 
+                            if (childWcs && !parentBlockWcs) {
+                                RS_Vector nestedTarget =
+                                    childIns->getInsertionPoint();
+                                // FLOOWER1/CUSH/chicun: WCS child INSERT grips stored
+                                // as absolute coords inside a local parent block.
+                                if (vectorHasWcsCoords(nestedTarget))
+                                    nestedTarget = RS_Vector(0., 0.);
+                                reanchorNestedWcsEntity(gc, nestedTarget);
+                            }
+
                             applyParentInsertTransform(
                                 gc, arrayOffset, blk->getBasePoint(),
                                 m_data.insertionPoint, m_data.scaleFactor,
                                 m_data.angle, m_data.extrusion,
                                 m_data.updateMode == RS2::PreviewUpdate,
-                                childWcs);
+                                childWcs, parentBlockWcs);
                         }
                         childExpand->calculateBorders();
                         appendEntity(childExpand);

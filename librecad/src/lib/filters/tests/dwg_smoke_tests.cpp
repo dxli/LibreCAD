@@ -6409,8 +6409,9 @@ TEST_CASE("DWG 2带尺寸图库: sofa phantom and real arc anchors",
   chicun::assertProbeEmpty(stray8, 600.0);
   chicun::assertProbeEmpty(stray5d, 1100.0);
 
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
+  // CUSH arcs sit near model insert A$C28F40C54 (~118k,28k), not Y-mirror 835k band.
+  CHECK(chicun::findCushArcEpNearY(graphic, 8500.0, true, 3000.0));
+  CHECK_FALSE(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
 }
 
 // Resolved model-space bbox must not be driven by phantom/stray extrema.
@@ -6544,14 +6545,14 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
         t.minGlobalDist);
   }
 
-  // Post-fix envelope: stray6 west/north phantoms gone; north/east extrema are
-  // real CUSH arcs (~835k), not Y-mirror phantom band (~492k).
-  CHECK(spanX < 4.0e6);
-  CHECK(spanY < 3.2e6);
-  CHECK(bmax.x < 1.34e6);
-  CHECK(bmin.x > -2.24e6);
+  // Tight furniture-cluster envelope (not ±1.1M CUSH / -1.13M LNG-13 wipeouts).
+  CHECK(spanX < 1.1e6);
+  CHECK(spanY < 4.5e5);
+  CHECK(bmax.x < 7.0e5);
+  CHECK(bmin.x > -3.5e5);
+  CHECK(bmax.y < 3.0e5);
+  CHECK(bmin.y > -1.5e5);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
-  CHECK(bmax.y > 8.0e5);
 
   // 015/A$C446327FF ellipses must not sit in stray6 phantom band (misplaced INSERT).
   int stray6Band = 0;
@@ -7139,8 +7140,8 @@ TEST_CASE("DWG 2带尺寸图库: consolidated phantom geometry probes",
   }
   chicun::assertStray3OcsPositive(graphic);
 
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
+  CHECK(chicun::findCushArcEpNearY(graphic, 8500.0, true, 3000.0));
+  CHECK_FALSE(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
 }
 
 // Double updateInserts must not move resolved geometry or reintroduce phantoms.
@@ -7155,14 +7156,14 @@ TEST_CASE("DWG 2带尺寸图库: updateInserts idempotence",
   RS_Graphic graphic;
   REQUIRE(chicun::importFixture(graphic));
 
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  CHECK(chicun::findCushArcEpNearY(graphic, 8500.0, true, 3000.0));
   chicun::assertProbeEmpty(
       chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0),
       600.0);
 
   graphic.updateInserts();
 
-  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  CHECK(chicun::findCushArcEpNearY(graphic, 8500.0, true, 3000.0));
   chicun::assertProbeEmpty(
       chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0),
       600.0);
