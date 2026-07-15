@@ -227,6 +227,7 @@ void RS_Insert::update() {
         RS_DEBUG->print("RS_Insert::update: Block is nullptr");
         return;
     }
+    blk->prepareForInsertExpansion();
 
     if (isUndone()) {
         RS_DEBUG->print("RS_Insert::update: Insert is in undo list");

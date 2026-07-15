@@ -54,6 +54,7 @@ class RS_Ellipse;
 class RS_Hatch;
 class RS_Image;
 class RS_Insert;
+class RS_Layer;
 class RS_Leader;
 class RS_Line;
 class RS_MText;
@@ -381,6 +382,8 @@ protected:
     bool shouldGenerateExtEntityData(const RS_Dimension* entity);
     QString toHexStr(int n);
     void addDimStyleOverrideToExtendedData(LC_ExtEntityData* extEntityData, LC_DimStyle* styleOverride);
+    RS_Layer *importLayerForEntity(const QString &layName,
+                                   const std::string &rawLayerName);
 
 private:
     void prepareBlocks();
@@ -518,6 +521,8 @@ private:
     bool m_exactColor = false;
     /** hash of block containers and handleBlock numbers to read dwg files */
     QHash<int, RS_EntityContainer*> m_blockHash;
+    /** Per-import layer cache keyed by NFC-normalized name. */
+    QHash<QString, RS_Layer *> m_importLayerCache;
     /** Pointer to entity container to store possible orphan entities like paper space */
     RS_EntityContainer* m_dummyContainer = nullptr;
     void applyParsedDimStyleExtData(const LC_DimStyle* dimStyle, const QString& appName, const std::vector<DRW_Variant>& vector);

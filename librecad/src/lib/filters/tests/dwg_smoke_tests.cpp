@@ -70,6 +70,7 @@
 #include "rs_circle.h"
 #include "rs_ellipse.h"
 #include "rs_entitycontainer.h"
+#include "rs_debug.h"
 #include "rs_filterdxfrw.h"
 #include "rs_graphic.h"
 #include "rs_hatch.h"
@@ -3669,6 +3670,7 @@ void ensureTestApp() {
     QCoreApplication::setOrganizationName("LibreCAD");
     QCoreApplication::setApplicationName("LibreCAD-tests");
     RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    RS_DEBUG->setLevel(RS_Debug::D_WARNING);
     return true;
   }();
   (void)qapp;

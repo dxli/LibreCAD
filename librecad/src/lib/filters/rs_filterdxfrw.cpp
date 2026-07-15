@@ -25,6 +25,7 @@
 **********************************************************************/
 
 #include <array>
+#include <chrono>
 #include<cstdlib>
 #include <cmath>
 #include <iostream>
@@ -1218,6 +1219,7 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     // (and, for m_blockHash, potentially dangling) state across imports. XREF
     // sub-imports use a separate child filter, so this never wipes parent state.
     m_blockHash.clear();
+    m_importLayerCache.clear();
     m_mlineStyleCache.clear();
     m_underlayDefMap.clear();
     m_xrefBlockNames.clear();
@@ -1232,7 +1234,13 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
         RS_DEBUG->print("RS_FilterDXFRW::fileImport: reading DWG file");
         if (RS_DEBUG->getLevel()== RS_Debug::D_DEBUGGING)
             dwgr.setDebug(DRW::DebugLevel::Debug);
+        const auto dwgReadStart = std::chrono::steady_clock::now();
         bool success = dwgr.read(this, true);
+        if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
+            const auto dwgReadMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - dwgReadStart).count();
+            std::cerr << "[import-bench] dwg_read_ms=" << dwgReadMs << "\n";
+        }
         // Capture the recognized version BEFORE acting on the result so
         // BAD_VERSION error reporting (printDwgError / lastError) can
         // name the format the user supplied. dwgR::version is set by
@@ -1373,7 +1381,21 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
         m_graphic->activateLayer(cl, true);
     }
     RS_DEBUG->print("RS_FilterDXFRW::fileImport: updating inserts");
+    const auto updateInsertsStart = std::chrono::steady_clock::now();
     m_graphic->updateInserts();
+    if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
+        const auto updateInsertsMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - updateInsertsStart).count();
+        int modelInserts = 0;
+        for (RS_Entity *e : *m_graphic) {
+            if (e != nullptr && e->rtti() == RS2::EntityInsert)
+                ++modelInserts;
+        }
+        std::cerr << "[import-bench] updateInserts_ms=" << updateInsertsMs
+                  << " blocks=" << m_graphic->countBlocks()
+                  << " model_entities=" << m_graphic->count()
+                  << " model_inserts=" << modelInserts << "\n";
+    }
 
     // Orphan XREF detection. An XREF block whose contents were embedded
     // is still invisible in modelspace unless something INSERTs it.
@@ -1413,6 +1435,25 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
 /**
  * Implementation of the method which handles layers.
  */
+RS_Layer *RS_FilterDXFRW::importLayerForEntity(const QString &layName,
+                                               const std::string &rawLayerName) {
+    const QString key = layName.normalized(QString::NormalizationForm_C);
+    auto cached = m_importLayerCache.constFind(key);
+    if (cached != m_importLayerCache.constEnd())
+        return cached.value();
+
+    RS_Layer *layer = m_graphic->findLayer(layName);
+    if (layer == nullptr) {
+        DRW_Layer lay;
+        lay.name = rawLayerName;
+        addLayer(lay);
+        layer = m_graphic->findLayer(layName);
+    }
+    if (layer != nullptr)
+        m_importLayerCache.insert(key, layer);
+    return layer;
+}
+
 void RS_FilterDXFRW::addLayer(const DRW_Layer& data) {
     RS_DEBUG->print("RS_FilterDXF::addLayer");
     RS_DEBUG->print("  adding layer: %s", data.name.c_str());
@@ -1420,8 +1461,16 @@ void RS_FilterDXFRW::addLayer(const DRW_Layer& data) {
     RS_DEBUG->print("RS_FilterDXF::addLayer: creating layer");
 
     QString name = QString::fromUtf8(data.name.c_str());
-    if (name != "0" && m_graphic->findLayer(name)) {
-        return;
+    const QString key = name.normalized(QString::NormalizationForm_C);
+    if (name != "0") {
+        auto cached = m_importLayerCache.constFind(key);
+        if (cached != m_importLayerCache.constEnd())
+            return;
+        RS_Layer *existing = m_graphic->findLayer(name);
+        if (existing != nullptr) {
+            m_importLayerCache.insert(key, existing);
+            return;
+        }
     }
     auto* layer = new RS_Layer(name);
     RS_DEBUG->print("RS_FilterDXF::addLayer: set pen");
@@ -1472,6 +1521,7 @@ void RS_FilterDXFRW::addLayer(const DRW_Layer& data) {
 
     RS_DEBUG->print("RS_FilterDXF::addLayer: add layer to graphic");
     m_graphic->addLayer(layer);
+    m_importLayerCache.insert(key, layer);
     RS_DEBUG->print("RS_FilterDXF::addLayer: OK");
 }
 
@@ -1908,91 +1958,12 @@ void RS_FilterDXFRW::setBlock(const int handle) {
     }
 }
 
-namespace {
-
-// Dynamic/parametric furniture blocks (e.g. deng1, shafa2 in 2带尺寸图库.dwg)
-// often keep geometry at large absolute coordinates while basePoint stays (0,0).
-// Nested INSERT grips are spaced correctly but child geometry stays ~70k away
-// until entities are re-centered on the block base point.
-//
-// Skip blocks whose entity bbox already uses far-off absolute coordinates
-// (e.g. fghfdh567567 at ~(-903k, 548k) or esfsfdds at ~168k). Those blocks
-// store geometry in WCS inside block space; re-centering pulls them onto an
-// unrelated INSERT grip and leaves stray segments in model space.
-constexpr double kBlockBaseNormalizeMinDist = 10000.0;
-constexpr double kBlockAbsCoordSkip = 100000.0;
-
-void normalizeBlockGeometryToBase(RS_Block *block) {
-    if (block == nullptr || block->count() == 0)
-        return;
-
-    block->calculateBorders();
-    const RS_Vector min = block->getMin();
-    const RS_Vector max = block->getMax();
-    if (!min.valid || !max.valid)
-        return;
-
-    const RS_Vector base = block->getBasePoint();
-
-    const auto isAbsCoord = [](double v) {
-        return std::abs(v) > kBlockAbsCoordSkip;
-    };
-    if (isAbsCoord(min.x) || isAbsCoord(min.y) || isAbsCoord(max.x)
-            || isAbsCoord(max.y)) {
-        return;
-    }
-
-    // Blocks grown from basePoint outward include the base in their envelope.
-    if (base.x >= min.x && base.x <= max.x && base.y >= min.y
-            && base.y <= max.y) {
-        return;
-    }
-
-    const RS_Vector center = (min + max) * 0.5;
-    const double centerDist = center.distanceTo(base);
-    if (centerDist < kBlockBaseNormalizeMinDist)
-        return;
-
-    double maxInsertDist = 0.0;
-    bool hasInsertNearBase = false;
-    for (RS_Entity *e : *block) {
-        if (e == nullptr || e->rtti() != RS2::EntityInsert)
-            continue;
-        const double d =
-            static_cast<RS_Insert *>(e)->getInsertionPoint().distanceTo(base);
-        maxInsertDist = std::max(maxInsertDist, d);
-        if (d < kBlockBaseNormalizeMinDist)
-            hasInsertNearBase = true;
-    }
-
-    // WCS-in-block: child INSERT anchors sit with the geometry cluster, not at
-    // the block origin. Parametric blocks keep INSERT grips near base while
-    // geometry is stored at a large offset (deng1/shafa2).
-    if (!hasInsertNearBase && maxInsertDist > kBlockBaseNormalizeMinDist
-            && centerDist > kBlockBaseNormalizeMinDist
-            && maxInsertDist > centerDist * 0.25) {
-        return;
-    }
-
-    const RS_Vector offset = base - center;
-    for (RS_Entity *e : *block) {
-        if (e != nullptr)
-            e->move(offset);
-    }
-    block->calculateBorders();
-}
-
-} // namespace
-
 /**
  * Implementation of the method which closes blocks.
  */
 void RS_FilterDXFRW::endBlock() {
     if (m_currentContainer->rtti() == RS2::EntityBlock) {
         auto bk = static_cast<RS_Block*>(m_currentContainer);
-        normalizeBlockGeometryToBase(bk);
-        (void)bk->hasWcsEmbeddedGeometry();
-        (void)bk->hasWipeoutEntities();
         //remove unnamed blocks *D only if version != R12
         if (m_version != 1009) {
             if (bk->getName().startsWith("*D")) {
@@ -11654,14 +11625,7 @@ void RS_FilterDXFRW::setEntityAttributes(RS_Entity* entity, const DRW_Entity* at
     // stores the RAW name (lay.name = attrib->layer), so a decoded layName
     // would never match it. Use the verbatim UTF-8 name on both paths.
     QString layName = QString::fromUtf8(attrib->layer.c_str());
-
-    // Layer: add layer in case it doesn't exist:
-    if (!m_graphic->findLayer(layName)) {
-        DRW_Layer lay;
-        lay.name = attrib->layer;
-        addLayer(lay);
-    }
-    entity->setLayer(layName);
+    entity->setLayer(importLayerForEntity(layName, attrib->layer));
 
     // Color:
     RS_Color col;

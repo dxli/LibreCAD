@@ -208,6 +208,7 @@ QStringList RS_Block::findNestedInsert(const QString& bName) {
 
 namespace {
 
+constexpr double kBlockBaseNormalizeMinDist = 10000.0;
 constexpr double kBlockAbsCoordSkip = 100000.0;
 
 bool blockEnvelopeHasWcsCoords(const RS_Vector &min, const RS_Vector &max) {
@@ -220,7 +221,68 @@ bool blockEnvelopeHasWcsCoords(const RS_Vector &min, const RS_Vector &max) {
             || isAbsCoord(max.y);
 }
 
+void normalizeBlockGeometryToBase(RS_Block *block) {
+    if (block == nullptr || block->count() == 0)
+        return;
+
+    block->calculateBorders();
+    const RS_Vector min = block->getMin();
+    const RS_Vector max = block->getMax();
+    if (!min.valid || !max.valid)
+        return;
+
+    const RS_Vector base = block->getBasePoint();
+
+    if (blockEnvelopeHasWcsCoords(min, max))
+        return;
+
+    if (base.x >= min.x && base.x <= max.x && base.y >= min.y
+            && base.y <= max.y) {
+        return;
+    }
+
+    const RS_Vector center = (min + max) * 0.5;
+    const double centerDist = center.distanceTo(base);
+    if (centerDist < kBlockBaseNormalizeMinDist)
+        return;
+
+    double maxInsertDist = 0.0;
+    bool hasInsertNearBase = false;
+    for (RS_Entity *e : *block) {
+        if (e == nullptr || e->rtti() != RS2::EntityInsert)
+            continue;
+        const double d =
+            static_cast<RS_Insert *>(e)->getInsertionPoint().distanceTo(base);
+        maxInsertDist = std::max(maxInsertDist, d);
+        if (d < kBlockBaseNormalizeMinDist)
+            hasInsertNearBase = true;
+    }
+
+    if (!hasInsertNearBase && maxInsertDist > kBlockBaseNormalizeMinDist
+            && centerDist > kBlockBaseNormalizeMinDist
+            && maxInsertDist > centerDist * 0.25) {
+        return;
+    }
+
+    const RS_Vector offset = base - center;
+    for (RS_Entity *e : *block) {
+        if (e != nullptr)
+            e->move(offset);
+    }
+    block->calculateBorders();
+}
+
 } // namespace
+
+void RS_Block::prepareForInsertExpansion() {
+    if (m_preparedForInsert >= 0)
+        return;
+
+    normalizeBlockGeometryToBase(this);
+    m_preparedForInsert = 1;
+    (void)hasWcsEmbeddedGeometry();
+    (void)hasWipeoutEntities();
+}
 
 bool RS_Block::hasWcsEmbeddedGeometry() {
     if (m_wcsEmbeddedGeometry >= 0)
