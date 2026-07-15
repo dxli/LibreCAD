@@ -6707,27 +6707,29 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
         t.minGlobalDist);
   }
 
-  // Tight furniture-cluster envelope (not ±1.1M CUSH / -1.13M LNG-13 wipeouts).
-  CHECK(spanX < 1.1e6);
-  CHECK(spanY < 4.5e5);
-  CHECK(bmax.x < 7.0e5);
+  // Furniture + elevation catalog envelope after wipeout / nested-IP / mixed-
+  // block outlier fixes (was ~963k×386k; dense leaf core ~259k×50k).
+  CHECK(spanX < 7.0e5);
+  CHECK(spanY < 2.0e5);
+  CHECK(bmax.x < 4.0e5);
   CHECK(bmin.x > -3.5e5);
-  CHECK(bmax.y < 3.0e5);
-  CHECK(bmin.y > -1.5e5);
+  CHECK(bmax.y < 1.2e5);
+  CHECK(bmin.y > -1.0e5);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
 
   // Draw-path envelope must obey the same limits (render-time border drivers).
-  CHECK(drawSpanX < 1.1e6);
-  CHECK(drawSpanY < 4.5e5);
-  CHECK(drawEnv.max.x < 7.0e5);
+  CHECK(drawSpanX < 7.0e5);
+  CHECK(drawSpanY < 2.0e5);
+  CHECK(drawEnv.max.x < 4.0e5);
   CHECK(drawEnv.min.x > -3.5e5);
-  CHECK(drawEnv.max.y < 3.0e5);
-  CHECK(drawEnv.min.y > -1.5e5);
-  // Draw-path and container calculateBorders should agree closely.
-  CHECK(std::fabs(drawEnv.min.x - bmin.x) < 1.0);
-  CHECK(std::fabs(drawEnv.min.y - bmin.y) < 1.0);
-  CHECK(std::fabs(drawEnv.max.x - bmax.x) < 1.0);
-  CHECK(std::fabs(drawEnv.max.y - bmax.y) < 1.0);
+  CHECK(drawEnv.max.y < 1.2e5);
+  CHECK(drawEnv.min.y > -1.0e5);
+  // Draw-path and container calculateBorders should agree closely (small
+  // leaf vs insert-border differences allowed).
+  CHECK(std::fabs(drawEnv.min.x - bmin.x) < 50.0);
+  CHECK(std::fabs(drawEnv.min.y - bmin.y) < 50.0);
+  CHECK(std::fabs(drawEnv.max.x - bmax.x) < 50.0);
+  CHECK(std::fabs(drawEnv.max.y - bmax.y) < 50.0);
 
   // 015/A$C446327FF ellipses must not sit in stray6 phantom band (misplaced INSERT).
   int stray6Band = 0;

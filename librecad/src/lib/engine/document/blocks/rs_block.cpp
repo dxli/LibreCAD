@@ -24,8 +24,11 @@
 **
 **********************************************************************/
 
+#include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <vector>
+
 
 #include "rs_block.h"
 
@@ -246,28 +249,90 @@ void normalizeBlockGeometryToBase(RS_Block *block) {
     if (centerDist < kBlockBaseNormalizeMinDist)
         return;
 
-    double maxInsertDist = 0.0;
-    bool hasInsertNearBase = false;
-    for (RS_Entity *e : *block) {
-        if (e == nullptr || e->rtti() != RS2::EntityInsert)
-            continue;
-        const double d =
-            static_cast<RS_Insert *>(e)->getInsertionPoint().distanceTo(base);
-        maxInsertDist = std::max(maxInsertDist, d);
-        if (d < kBlockBaseNormalizeMinDist)
-            hasInsertNearBase = true;
-    }
-
-    if (!hasInsertNearBase && maxInsertDist > kBlockBaseNormalizeMinDist
-            && centerDist > kBlockBaseNormalizeMinDist
-            && maxInsertDist > centerDist * 0.25) {
-        return;
-    }
-
+    // Re-center whenever the leaf/envelope centroid sits far from basePoint.
+    // Nested INSERT ips alone must not block this: chicun "hms" has compact
+    // geometry near (95k,58k) (just under the WCS absolute threshold) plus
+    // far nested WCS children — the old insert-distance skip left that
+    // geometry unmoved so top-level INSERT flings it across model space.
     const RS_Vector offset = base - center;
     for (RS_Entity *e : *block) {
         if (e != nullptr)
             e->move(offset);
+    }
+    block->calculateBorders();
+}
+
+// Pull sparse absolute outliers into the local majority cluster.
+// Mixed blocks (chicun A$C5DC07332): ~local furniture plus a few huge elliptic
+// arcs stored tens/hundreds of k units away. Without re-anchor, INSERT places
+// those arcs on the model envelope and inflates zoomAuto bbox several×.
+// Fully WCS blocks (11ma, hanging light) keep a WCS majority and are skipped.
+constexpr double kLocalClusterRadius = 50000.0;
+constexpr double kOutlierFractionMax = 0.20;
+constexpr size_t kMinLeavesForOutlierFix = 10;
+
+void reanchorSparseWcsOutliers(RS_Block *block) {
+    if (block == nullptr || block->count() == 0)
+        return;
+
+    struct Leaf {
+        RS_Entity *e = nullptr;
+        RS_Vector center;
+    };
+    std::vector<Leaf> leaves;
+    leaves.reserve(static_cast<size_t>(block->count()));
+    for (RS_Entity *e : *block) {
+        if (e == nullptr || e->isContainer())
+            continue;
+        e->calculateBorders();
+        const RS_Vector mn = e->getMin();
+        const RS_Vector mx = e->getMax();
+        if (!mn.valid || !mx.valid)
+            continue;
+        leaves.push_back({e, (mn + mx) * 0.5});
+    }
+    if (leaves.size() < kMinLeavesForOutlierFix)
+        return;
+
+    // Approximate median via nth_element on x then y of middle band.
+    std::vector<double> xs;
+    std::vector<double> ys;
+    xs.reserve(leaves.size());
+    ys.reserve(leaves.size());
+    for (const Leaf &l : leaves) {
+        xs.push_back(l.center.x);
+        ys.push_back(l.center.y);
+    }
+    const size_t mid = leaves.size() / 2;
+    std::nth_element(xs.begin(), xs.begin() + static_cast<long>(mid), xs.end());
+    std::nth_element(ys.begin(), ys.begin() + static_cast<long>(mid), ys.end());
+    const RS_Vector median(xs[mid], ys[mid]);
+
+    std::vector<Leaf *> local;
+    std::vector<Leaf *> outliers;
+    local.reserve(leaves.size());
+    outliers.reserve(8);
+    for (Leaf &l : leaves) {
+        if (l.center.distanceTo(median) <= kLocalClusterRadius)
+            local.push_back(&l);
+        else
+            outliers.push_back(&l);
+    }
+    if (outliers.empty() || local.size() < kMinLeavesForOutlierFix)
+        return;
+    const double outlierFrac =
+        static_cast<double>(outliers.size()) / static_cast<double>(leaves.size());
+    if (outlierFrac > kOutlierFractionMax)
+        return; // majority-WCS block — keep absolute layout
+
+    RS_Vector localCentroid(0., 0.);
+    for (const Leaf *l : local)
+        localCentroid += l->center;
+    localCentroid /= static_cast<double>(local.size());
+
+    for (Leaf *l : outliers) {
+        const RS_Vector delta = localCentroid - l->center;
+        l->e->move(delta);
     }
     block->calculateBorders();
 }
@@ -279,7 +344,10 @@ void RS_Block::prepareForInsertExpansion() {
         return;
 
     normalizeBlockGeometryToBase(this);
+    reanchorSparseWcsOutliers(this);
     m_preparedForInsert = 1;
+    // Flags after outlier re-anchor so mixed blocks are not sticky-WCS.
+    m_wcsEmbeddedGeometry = -1;
     (void)hasWcsEmbeddedGeometry();
     (void)hasWipeoutEntities();
 }

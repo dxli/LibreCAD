@@ -54,6 +54,66 @@ bool vectorHasWcsCoords(const RS_Vector &v) {
     return std::abs(v.x) > kBlockAbsCoordSkip || std::abs(v.y) > kBlockAbsCoordSkip;
 }
 
+// Nested INSERT ips that lie far outside the parent block's own leaf envelope
+// are almost always absolute WCS grips (chicun sofa/chair assemblies). Treating
+// them as parent-local offsets flings small symbols across model space.
+constexpr double kNestedIpOutsideMargin = 10000.0;
+
+bool computeParentLeafEnvelope(RS_Block *blk, RS_Vector &outMin,
+                               RS_Vector &outMax) {
+    if (blk == nullptr)
+        return false;
+    bool any = false;
+    RS_Vector mn(false);
+    RS_Vector mx(false);
+    for (RS_Entity *e : *blk) {
+        if (e == nullptr || e->isContainer())
+            continue;
+        e->calculateBorders();
+        const RS_Vector emin = e->getMin();
+        const RS_Vector emax = e->getMax();
+        if (!emin.valid || !emax.valid)
+            continue;
+        if (!any) {
+            mn = emin;
+            mx = emax;
+            any = true;
+        } else {
+            mn = RS_Vector::minimum(mn, emin);
+            mx = RS_Vector::maximum(mx, emax);
+        }
+    }
+    if (!any)
+        return false;
+    outMin = mn;
+    outMax = mx;
+    return true;
+}
+
+RS_Vector sanitizeNestedInsertIp(const RS_Vector &ip, const RS_Vector &leafMin,
+                                 const RS_Vector &leafMax, bool haveLeaves) {
+    if (!ip.valid)
+        return ip;
+    RS_Vector r = ip;
+    if (haveLeaves) {
+        if (ip.x < leafMin.x - kNestedIpOutsideMargin
+                || ip.x > leafMax.x + kNestedIpOutsideMargin)
+            r.x = 0.0;
+        if (ip.y < leafMin.y - kNestedIpOutsideMargin
+                || ip.y > leafMax.y + kNestedIpOutsideMargin)
+            r.y = 0.0;
+        return r;
+    }
+    // Parent is insert-only (no direct leaves): still drop huge absolute
+    // components that cannot be parent-local for a compact assembly.
+    constexpr double kAbsNestedIp = 20000.0;
+    if (std::abs(ip.x) > kAbsNestedIp)
+        r.x = 0.0;
+    if (std::abs(ip.y) > kAbsNestedIp)
+        r.y = 0.0;
+    return r;
+}
+
 bool insertEntityReachesNegativeX(const RS_Entity *entity) {
     if (entity == nullptr)
         return false;
@@ -109,6 +169,8 @@ void reanchorNestedWcsEntity(RS_Entity *entity,
         return;
     entity->calculateBorders();
     const RS_Vector center = (entity->getMin() + entity->getMax()) * 0.5;
+    if (!center.valid)
+        return;
     entity->move(nestedInsertIp - center);
 }
 
@@ -131,10 +193,12 @@ void applyParentInsertTransform(RS_Entity *entity, const RS_Vector &arrayOffset,
         return;
     }
     entity->setUpdateEnabled(false);
-    const bool wcsEmbedded = wcsEmbeddedChild && parentBlockWcs
-            && entity->rtti() == RS2::EntityWipeout;
+    // Apply full INSERT transform to all leaves, including WCS wipeouts.
+    // Skipping scale/rotate for wipeouts left chicun "hanging light 1" /
+    // pd.light wipeouts at entity+ip while siblings used scale around ip.
     applyInsertTransformToEntity(entity, arrayOffset, blockBase, insertionPoint,
-                                 scaleFactor, angle, extrusion, wcsEmbedded);
+                                 scaleFactor, angle, extrusion,
+                                 /*wcsEmbedded=*/false);
     entity->setUpdateEnabled(true);
     if (!previewUpdate) {
         entity->update();
@@ -258,6 +322,10 @@ void RS_Insert::update() {
     RS_DEBUG->print("RS_Insert::update: block has %d entities",
                     blk->count());
     const bool parentBlockWcs = blk->hasWcsEmbeddedGeometry();
+    RS_Vector parentLeafMin(false);
+    RS_Vector parentLeafMax(false);
+    const bool haveParentLeaves =
+        computeParentLeafEnvelope(blk, parentLeafMin, parentLeafMax);
         for(auto* e: *blk){
             for (int c=0; c<m_data.cols; ++c) {
 //            RS_DEBUG->print("RS_Insert::update: col %d", c);
@@ -284,6 +352,17 @@ void RS_Insert::update() {
                                 && childBlk->hasWcsEmbeddedGeometry();
                         const bool parentRotates =
                             std::abs(m_data.angle) >= kInsertAngleCompoundTol;
+                        // Zero nested IP components that sit far outside the
+                        // parent leaf envelope (WCS grips mis-tagged as local).
+                        RS_InsertData childData = childIns->getData();
+                        const RS_Vector rawNestedIp = childData.insertionPoint;
+                        childData.insertionPoint = sanitizeNestedInsertIp(
+                            childData.insertionPoint, parentLeafMin, parentLeafMax,
+                            haveParentLeaves);
+                        const bool nestedIpSanitized =
+                            childData.insertionPoint.x != rawNestedIp.x
+                            || childData.insertionPoint.y != rawNestedIp.y;
+
                         // WCS-in-block children nested inside a local parent (CUSH,
                         // FLOOWER1, LNG-13) must expand first: compound INSERT data
                         // carries WCS absolute grips that misplace arcs/wipeouts.
@@ -294,11 +373,12 @@ void RS_Insert::update() {
                                     && !parentBlockWcs)
                                 || (childWcs && childBlk != nullptr
                                     && parentBlockWcs
-                                    && childBlk->hasWipeoutEntities());
+                                    && childBlk->hasWipeoutEntities())
+                                || (nestedIpSanitized && childWcs);
                         RS_Layer *childLayer = e->getLayer();
 
                         if (!needNestedExpand) {
-                            auto* ne = new RS_Insert(this, childIns->getData());
+                            auto* ne = new RS_Insert(this, childData);
                             ne->setOwner(true);
                             ne->setUpdateEnabled(false);
                             if (childLayer != nullptr && childLayer->getName() == "0")
@@ -321,7 +401,7 @@ void RS_Insert::update() {
                         // Parent rotates or WCS wipeout child: expand first,
                         // then transform leaves. Compounding fails when rotation
                         // and negative scale combine (chicun 015/A$C446327FF).
-                        auto* childExpand = new RS_Insert(this, childIns->getData());
+                        auto* childExpand = new RS_Insert(this, childData);
                         childExpand->setOwner(true);
                         childExpand->setUpdateEnabled(false);
                         if (childLayer != nullptr && childLayer->getName() == "0")
@@ -342,7 +422,7 @@ void RS_Insert::update() {
 
                             if (childWcs && !parentBlockWcs) {
                                 RS_Vector nestedTarget =
-                                    childIns->getInsertionPoint();
+                                    childData.insertionPoint;
                                 // FLOOWER1/CUSH/chicun: WCS child INSERT grips stored
                                 // as absolute coords inside a local parent block.
                                 if (vectorHasWcsCoords(nestedTarget))
@@ -392,12 +472,12 @@ void RS_Insert::update() {
                     ne->setParent(this);
                     ne->setVisible(getFlag(RS2::FlagVisible));
 
-                    const bool wcsEmbedded = parentBlockWcs
-                            && ne->rtti() == RS2::EntityWipeout;
+                    // Full transform for every leaf (including wipeouts in WCS
+                    // blocks). See applyParentInsertTransform above.
                     applyInsertTransformToEntity(
                         ne, arrayOffset, blk->getBasePoint(),
                         m_data.insertionPoint, m_data.scaleFactor, m_data.angle,
-                        m_data.extrusion, wcsEmbedded);
+                        m_data.extrusion, /*wcsEmbedded=*/false);
 
                    // RS_DEBUG->print(RS_Debug::D_ERROR, "ne: angle: %lg\n", data.angle);
                 // Select:
