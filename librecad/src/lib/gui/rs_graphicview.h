@@ -125,6 +125,8 @@ public:
     QIcon getCurrentActionIcon() const;
     void killAllActions() const;
     bool killAllActionsWithResult() const;
+    void beginClose();
+    bool isClosing() const;
     void back(Qt::KeyboardModifiers modifiers) const;
     void processEnterKey() const;
     void commandEvent(RS_CommandEvent *e) const;
@@ -214,6 +216,7 @@ private:
 
     /** if true, graphicView is under cleanup */
     bool m_bIsCleanUp = false;
+    bool m_closing = false;
     bool m_printPreview = false;
 
     RS2::EntityType m_typeToSelect = RS2::EntityType::EntityUnknown;

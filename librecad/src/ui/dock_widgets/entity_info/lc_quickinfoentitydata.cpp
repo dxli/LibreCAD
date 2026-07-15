@@ -277,6 +277,9 @@ QString LC_QuickInfoEntityData::getEntityDescription(RS_Entity* en, const RS2::E
  * @return true it view should be updated, false otherwise
  */
 bool LC_QuickInfoEntityData::processEntity(RS_Entity* en) {
+    if (en == nullptr || m_viewport == nullptr) {
+        return false;
+    }
     // no special value for empty id, yet according to implementation, it seems that 0 should not be used
     if (m_entityId != 0 && en->getId() == m_entityId) {
         // same entity... so we'll try to optimize a bit mouse move there.

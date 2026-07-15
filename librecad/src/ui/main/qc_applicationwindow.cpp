@@ -304,7 +304,13 @@ void QC_ApplicationWindow::activeMDIWindowChanged(QC_MDIWindow* window) {
  * @param activateNext also activate the next window in the window_list, if any
  */
 void QC_ApplicationWindow::doClose(QC_MDIWindow* w, const bool activateNext) {
-    w->getGraphicView()->killAllActions();
+    RS_GraphicView *graphicView = w->getGraphicView();
+    if (graphicView != nullptr && graphicView->isClosing()) {
+        return;
+    }
+    if (graphicView != nullptr) {
+        graphicView->killAllActions();
+    }
 
     QC_MDIWindow* parentWindow = w->getParentWindow();
     if (parentWindow != nullptr) {
@@ -328,6 +334,7 @@ void QC_ApplicationWindow::doClose(QC_MDIWindow* w, const bool activateNext) {
         // support for cancelling of saving untitled new document (via close all and close event)
         return;
     }
+    w->getGraphicView()->beginClose();
     w->close();
     m_windowList.removeOne(w);
 

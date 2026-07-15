@@ -70,6 +70,7 @@ public:
     RS_ActionInterface* getCurrentAction() const;
     bool isValid(const RS_ActionInterface* action) const;
     bool killAllActions();
+    void quiesceForClose();
     bool hasAction() const;
     void setSnapMode(RS_SnapMode sm) const;
     void setSnapRestriction(RS2::SnapRestriction sr) const;

@@ -692,6 +692,10 @@ bool QG_GraphicView::isMouseReleaseEventForDefaultAction(const QMouseEvent* even
 }
 
 void QG_GraphicView::mouseMoveEvent(QMouseEvent* event) {
+    if (isClosing()) {
+        event->accept();
+        return;
+    }
     // LC_ERR << "OWN MOUSE MOVE";
     if (isAutoPan(event)) {
         startAutoPanTimer(event);

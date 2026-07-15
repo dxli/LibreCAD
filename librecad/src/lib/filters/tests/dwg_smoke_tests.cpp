@@ -42,6 +42,7 @@
 #include <iomanip>
 #include <iostream>
 #include <iterator>
+#include <limits>
 #include <map>
 #include <regex>
 #include <set>
@@ -76,6 +77,8 @@
 #include "rs_layer.h"
 #include "rs_line.h"
 #include "rs_math.h"
+#include "rs_solid.h"
+#include "rs_point.h"
 #include "rs_polyline.h"
 #include "rs_settings.h"
 
@@ -3616,6 +3619,3723 @@ TEST_CASE("DWG robot_handling_cell: negative extrusion arc placement",
     }
   }
   CHECK(foundWcsArc);
+}
+
+namespace chicun {
+
+struct NearHit {
+  QString type;
+  QString layer;
+  QString insertChain;
+  quint32 handle = 0;
+  RS_Vector p1;
+  RS_Vector p2;
+  double dist = 0;
+};
+
+struct ProbeResult {
+  std::vector<NearHit> hits;
+  NearHit globalBest;
+};
+
+struct ProbeTarget {
+  const char *label;
+  double x;
+  double y;
+  double tol = 50.0;
+  double minGlobalDist = 1000.0;
+};
+
+QString insertChain(RS_Entity *e) {
+  QString chain;
+  for (RS_Entity *p = e; p; p = p->getParent()) {
+    if (p->rtti() != RS2::EntityInsert)
+      continue;
+    if (!chain.isEmpty())
+      chain += " <- ";
+    chain += static_cast<RS_Insert *>(p)->getName();
+  }
+  return chain;
+}
+
+void ensureTestApp() {
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+}
+
+std::string fixturePath() {
+  const char *home = getenv("HOME");
+  if (!home)
+    return {};
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path))
+    return {};
+  return path;
+}
+
+bool importFixture(RS_Graphic &graphic) {
+  const std::string path = fixturePath();
+  if (path.empty())
+    return false;
+  ensureTestApp();
+  RS_FilterDXFRW filter;
+  return filter.fileImport(graphic, QString::fromStdString(path),
+                           RS2::FormatDWG);
+}
+
+ProbeResult probeResolvedGeometry(RS_Graphic &graphic, double tx, double ty,
+                                  double tol) {
+  ProbeResult result;
+  result.globalBest.dist = std::numeric_limits<double>::infinity();
+
+  auto distToTarget = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(distToTarget(p1), distToTarget(p2))
+                              : distToTarget(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    result.hits.push_back(
+        {type, layer, insertChain(e), e->sourceHandle(), p1, p2, d});
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    auto updateGlobal = [&](const QString &type, const RS_Vector &p) {
+      const double d = distToTarget(p);
+      if (d < result.globalBest.dist)
+        result.globalBest = {type, layer, insertChain(e), e->sourceHandle(),
+                             p, RS_Vector(false), d};
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      consider("LINE", e, l->getStartpoint(), l->getEndpoint());
+      updateGlobal("LINE_SP", l->getStartpoint());
+      updateGlobal("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        updateGlobal("PLINE_VTX", pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      updateGlobal("ARC_CTR", a->getCenter());
+      updateGlobal("ARC_SP", a->getStartpoint());
+      updateGlobal("ARC_EP", a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e, static_cast<RS_Circle *>(e)->getCenter());
+      updateGlobal("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    case RS2::EntityEllipse: {
+      auto *el = static_cast<RS_Ellipse *>(e);
+      e->calculateBorders();
+      consider("ELL_CTR", e, el->getCenter());
+      consider("ELL_MIN", e, e->getMin());
+      consider("ELL_MAX", e, e->getMax());
+      updateGlobal("ELL_CTR", el->getCenter());
+      break;
+    }
+    case RS2::EntityWipeout: {
+      e->calculateBorders();
+      consider("WIPE_MIN", e, e->getMin());
+      consider("WIPE_MAX", e, e->getMax());
+      updateGlobal("WIPE_MIN", e->getMin());
+      break;
+    }
+    default:
+      break;
+    }
+  }
+  return result;
+}
+
+bool findResolvedPoint(RS_Graphic &graphic, const QString &chainSubstr,
+                       const char *pointType, double x, double y,
+                       double tol) {
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || !insertChain(e).contains(chainSubstr))
+      continue;
+    RS_Vector p(false);
+    if (strcmp(pointType, "ARC_EP") == 0 && e->rtti() == RS2::EntityArc)
+      p = static_cast<RS_Arc *>(e)->getEndpoint();
+    else if (strcmp(pointType, "ARC_CTR") == 0 && e->rtti() == RS2::EntityArc)
+      p = static_cast<RS_Arc *>(e)->getCenter();
+    else if (strcmp(pointType, "ARC_SP") == 0 && e->rtti() == RS2::EntityArc)
+      p = static_cast<RS_Arc *>(e)->getStartpoint();
+    else
+      continue;
+    if (std::hypot(p.x - x, p.y - y) < tol)
+      return true;
+  }
+  return false;
+}
+
+bool findCushArcEpNearY(RS_Graphic &graphic, double y, bool positiveX,
+                        double yTol = 5.0) {
+  auto cushChain = [](RS_Entity *e) {
+    return insertChain(e).contains(QStringLiteral("CUSH"));
+  };
+  auto endpointNear = [&](const RS_Vector &ep) {
+    if (std::fabs(ep.y - y) > yTol)
+      return false;
+    if (positiveX && ep.x > 1.0e5)
+      return true;
+    if (!positiveX && ep.x < -1.0e5)
+      return true;
+    return false;
+  };
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || !cushChain(e))
+      continue;
+    if (e->rtti() == RS2::EntityArc) {
+      if (endpointNear(static_cast<RS_Arc *>(e)->getEndpoint()))
+        return true;
+    } else if (e->rtti() == RS2::EntityEllipse) {
+      e->calculateBorders();
+      if (endpointNear(e->getMax()) || endpointNear(e->getMin()))
+        return true;
+    }
+  }
+  return false;
+}
+
+void assertProbeEmpty(const ProbeResult &result, double minGlobalDist) {
+  CHECK(result.hits.empty());
+  if (result.globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(result.globalBest.dist > minGlobalDist);
+}
+
+void assertStray3OcsPositive(RS_Graphic &graphic) {
+  RS_Insert *a4d8Ins = nullptr;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() == QStringLiteral("A$C4D8A4BEC")) {
+      a4d8Ins = ins;
+      break;
+    }
+  }
+  REQUIRE(a4d8Ins != nullptr);
+  CHECK(a4d8Ins->getData().extrusion.z < -0.5);
+  CHECK(a4d8Ins->getScale().z < -0.4);
+
+  const double insX = -294193.370915374, insY = 48561.45784819595;
+  const double expX = insX + 0.5 * 77.14807952690171;
+  const double expY = insY + 0.5 * 219.9479471713712;
+  int primaryCluster = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || !insertChain(e).contains(QStringLiteral("A$C4D8A4BEC")))
+      continue;
+    RS_Vector p(false);
+    if (e->rtti() == RS2::EntityCircle)
+      p = static_cast<RS_Circle *>(e)->getCenter();
+    else if (e->rtti() == RS2::EntityArc)
+      p = static_cast<RS_Arc *>(e)->getCenter();
+    else
+      continue;
+    if (std::hypot(p.x - expX, p.y - expY) < 80.0)
+      ++primaryCluster;
+  }
+  CHECK(primaryCluster >= 4);
+}
+
+const ProbeTarget kPhantoms[] = {
+    {"stray1", -774805.8834, 588320.7858},
+    {"stray2", 52984.74, 222052.06},
+    {"stray3", -294315.207, 48571.65792, 50.0, 0.0},
+    {"stray4A", 104517.7659, -1239995.976, 50.0, 900.0},
+    {"stray4B", 57585.03448, -1240174.235, 50.0, 700.0},
+    {"stray4C", 1322040.68, 492532.476, 50.0, 500.0},
+    {"stray5D", -1099318.43, 492532.476, 50.0, 1100.0},
+    {"stray5E", -952337.4015, 403260.8869},
+    {"stray5F", 1322040.68, 492532.476, 50.0, 500.0},
+    {"stray6", -2230355.08, 1646735.10, 50.0, 500.0},
+    {"stray7", -2230420.44, 1646754.55, 50.0, 500.0},
+    {"stray8", -1099671.573, 492101.3029, 50.0, 500.0},
+};
+
+struct BboxCornerHit {
+  char corner = 0;
+  QString type;
+  RS_Vector p;
+  QString insertChain;
+};
+
+void collectProbePoints(RS_Entity *e, const QString &chain,
+                        std::vector<std::pair<QString, RS_Vector>> &out) {
+  if (!e)
+    return;
+  switch (e->rtti()) {
+  case RS2::EntityLine: {
+    auto *l = static_cast<RS_Line *>(e);
+    out.push_back({"LINE_SP", l->getStartpoint()});
+    out.push_back({"LINE_EP", l->getEndpoint()});
+    break;
+  }
+  case RS2::EntityPolyline: {
+    auto *pl = static_cast<RS_Polyline *>(e);
+    for (RS_Entity *v : *pl) {
+      if (v)
+        out.push_back({"PLINE_VTX", v->getStartpoint()});
+    }
+    break;
+  }
+  case RS2::EntityArc: {
+    auto *a = static_cast<RS_Arc *>(e);
+    out.push_back({"ARC_CTR", a->getCenter()});
+    out.push_back({"ARC_SP", a->getStartpoint()});
+    out.push_back({"ARC_EP", a->getEndpoint()});
+    break;
+  }
+  case RS2::EntityCircle:
+    out.push_back({"CIRCLE", static_cast<RS_Circle *>(e)->getCenter()});
+    break;
+  case RS2::EntityInsert:
+    out.push_back({"INSERT",
+                   static_cast<RS_Insert *>(e)->getInsertionPoint()});
+    break;
+  default:
+    break;
+  }
+  (void)chain;
+}
+
+std::vector<BboxCornerHit> findBboxCornerDrivers(RS_Graphic &graphic,
+                                                 double eps = 1.0) {
+  graphic.calculateBorders();
+  const RS_Vector bmin = graphic.getMin();
+  const RS_Vector bmax = graphic.getMax();
+  std::vector<BboxCornerHit> hits;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString chain = insertChain(e);
+    std::vector<std::pair<QString, RS_Vector>> pts;
+    collectProbePoints(e, chain, pts);
+    for (const auto &[type, p] : pts) {
+      if (!p.valid)
+        continue;
+      if (std::fabs(p.x - bmin.x) < eps)
+        hits.push_back({'W', type, p, chain});
+      if (std::fabs(p.x - bmax.x) < eps)
+        hits.push_back({'E', type, p, chain});
+      if (std::fabs(p.y - bmin.y) < eps)
+        hits.push_back({'S', type, p, chain});
+      if (std::fabs(p.y - bmax.y) < eps)
+        hits.push_back({'N', type, p, chain});
+    }
+  }
+  return hits;
+}
+
+bool phantomNear(const RS_Vector &p, double tol = 50.0) {
+  for (const auto &t : kPhantoms) {
+    if (std::hypot(p.x - t.x, p.y - t.y) < tol)
+      return true;
+  }
+  return false;
+}
+
+} // namespace chicun
+
+// Probe incorrect geometry near WCS (120, 35220) in 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_near]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (120,35220)",
+          "[.dwg_chicun_near]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = 120.0, ty = 35220.0;
+  struct NearHit {
+    QString type;
+    QString layer;
+    RS_Vector p1;
+    RS_Vector p2;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto consider = [&](const QString &type, const QString &layer,
+                      const RS_Vector &p1, const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > 100.0)
+      return;
+    hits.push_back({type, layer, p1, p2, d});
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    switch (e->rtti()) {
+    case RS2::EntityLine:
+      consider("LINE", layer,
+               static_cast<RS_Line *>(e)->getStartpoint(),
+               static_cast<RS_Line *>(e)->getEndpoint());
+      break;
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", layer, a->getCenter());
+      consider("ARC_SP", layer, a->getStartpoint());
+      consider("ARC_EP", layer, a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", layer,
+               static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", layer,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::sort(hits.begin(), hits.end(),
+            [](const NearHit &a, const NearHit &b) { return a.dist < b.dist; });
+
+  std::cout << "\n=== chicun near (120,35220) tol=100 ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+
+  // Paper-space dimension blocks use large absolute coords. Endpoints with
+  // y~35220 often satisfy (paperX - 63880) ~ 120 (display UCS), e.g. *D927
+  // LINE 24EC5E at paper (63999.8, 35223.4).
+  bool foundDim927Ext = false;
+  double bestDy = std::numeric_limits<double>::infinity();
+  RS_Vector bestPaper(false);
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityLine)
+      continue;
+    auto *l = static_cast<RS_Line *>(e);
+    for (const RS_Vector &p : {l->getStartpoint(), l->getEndpoint()}) {
+      if (std::fabs(p.y - ty) > 100.0)
+        continue;
+      const double dy = std::fabs(p.y - ty);
+      if (dy < bestDy) {
+        bestDy = dy;
+        bestPaper = p;
+      }
+      if (std::fabs(p.x - 63999.83) < 1.0 && std::fabs(p.y - 35223.38) < 1.0) {
+        foundDim927Ext = true;
+        std::cout << "  *D927 ext line endpoint paper=(" << p.x << "," << p.y
+                  << ") display~(" << tx << "," << p.y << ") dy=" << (p.y - ty)
+                  << "\n";
+      }
+    }
+  }
+  if (bestPaper.valid) {
+    std::cout << "closest y~35220 line endpoint paper=(" << bestPaper.x << ","
+              << bestPaper.y << ") |dy|=" << bestDy << "\n";
+  }
+  if (foundDim927Ext)
+    std::cout << "matched anonymous dim block *D927 extension line top\n";
+  for (std::size_t i = 0; i < hits.size() && i < 30; ++i) {
+    const auto &h = hits[i];
+    if (h.p2.valid)
+      std::cout << "  " << h.type.toStdString() << " layer="
+                << h.layer.toStdString() << " (" << h.p1.x << "," << h.p1.y
+                << ")->(" << h.p2.x << "," << h.p2.y << ") dist=" << h.dist
+                << "\n";
+    else
+      std::cout << "  " << h.type.toStdString() << " layer="
+                << h.layer.toStdString() << " (" << h.p1.x << "," << h.p1.y
+                << ") dist=" << h.dist << "\n";
+  }
+
+  NearHit globalBest;
+  globalBest.dist = std::numeric_limits<double>::infinity();
+  auto updateGlobal = [&](const QString &type, const QString &layer,
+                          const RS_Vector &p) {
+    const double d = dist(p);
+    if (d < globalBest.dist) {
+      globalBest = {type, layer, p, RS_Vector(false), d};
+    }
+  };
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      updateGlobal("LINE_SP", layer, l->getStartpoint());
+      updateGlobal("LINE_EP", layer, l->getEndpoint());
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      updateGlobal("ARC_SP", layer, a->getStartpoint());
+      updateGlobal("ARC_EP", layer, a->getEndpoint());
+      break;
+    }
+    default:
+      break;
+    }
+  }
+
+  if (!hits.empty()) {
+    const auto &best = hits.front();
+    std::cout << "closest tol100: " << best.type.toStdString()
+              << " dist=" << best.dist << "\n";
+  } else {
+    std::cout << "no hits within tol=100; global closest "
+              << globalBest.type.toStdString() << " layer="
+              << globalBest.layer.toStdString() << " (" << globalBest.p1.x
+              << "," << globalBest.p1.y << ") dist=" << globalBest.dist
+              << "\n";
+  }
+
+  int xNear = 0;
+  std::vector<std::pair<double, QString>> yAt120;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityLine)
+      continue;
+    auto *l = static_cast<RS_Line *>(e);
+    for (const RS_Vector &p : {l->getStartpoint(), l->getEndpoint()}) {
+      if (std::fabs(p.x - tx) < 10.0) {
+        ++xNear;
+        yAt120.emplace_back(p.y, e->getLayer()->getName());
+      }
+    }
+  }
+  std::sort(yAt120.begin(), yAt120.end(),
+            [](const auto &a, const auto &b) {
+              return std::fabs(a.first - 35220.0) < std::fabs(b.first - 35220.0);
+            });
+  std::cout << "line endpoints with |x-120|<10: " << xNear << "\n";
+  for (std::size_t i = 0; i < yAt120.size() && i < 8; ++i)
+    std::cout << "  y=" << yAt120[i].first << " layer="
+              << yAt120[i].second.toStdString() << " dy="
+              << (yAt120[i].first - 35220.0) << "\n";
+
+  // Informational — file may use different coordinate neighborhood.
+  SUCCEED("near-point audit complete");
+}
+
+// Block-local neighborhood for status-bar coords (120,35220) ≈ 117×(1.026,301.026).
+// Dimension _ArchTick inserts use scale 117; library symbols sit at y≈300 in block space.
+//   ./librecad_tests "[.dwg_chicun_blocklocal]" -s
+TEST_CASE("DWG 2带尺寸图库: block-local geometry near (1.026,301.026)",
+          "[.dwg_chicun_blocklocal]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  constexpr double kDimScale = 117.0;
+  constexpr double kLocalX = 120.0 / kDimScale;
+  constexpr double kLocalY = 35220.0 / kDimScale;
+
+  struct ArcProbe : public DRW_Interface {
+    int nearSmallArc = 0;
+    int nearSharedEndArc = 0;
+    int nearCornerLine = 0;
+    std::string currentBlock;
+
+    static double dist(double x, double y, double tx, double ty) {
+      return std::hypot(x - tx, y - ty);
+    }
+
+    void addBlock(const DRW_Block &b) override { currentBlock = b.name; }
+    void endBlock() override { currentBlock.clear(); }
+
+    void addArc(const DRW_Arc &a) override {
+      const double cx = a.basePoint.x;
+      const double cy = a.basePoint.y;
+      const double spx = cx + a.radious * std::cos(a.staangle);
+      const double spy = cy + a.radious * std::sin(a.staangle);
+      const double epx = cx + a.radious * std::cos(a.endangle);
+      const double epy = cy + a.radious * std::sin(a.endangle);
+      const double dCtr = dist(cx, cy, kLocalX, kLocalY);
+      const double dSp = dist(spx, spy, kLocalX, kLocalY);
+      const double dEp = dist(epx, epy, kLocalX, kLocalY);
+      if (std::min({dCtr, dSp, dEp}) > 8.0)
+        return;
+      if (currentBlock == "A$C44380A39" && std::fabs(a.radious - 9.73736) < 0.05)
+        ++nearSmallArc;
+      if (currentBlock == "A$C44380A39"
+          && std::fabs(epx - 7.18846) < 0.05 && std::fabs(epy - 301.9017) < 0.05)
+        ++nearSharedEndArc;
+    }
+
+    void addLine(const DRW_Line &l) override {
+      if (currentBlock != "A$C2F3706B8")
+        return;
+      const auto near = [&](double x, double y) {
+        return dist(x, y, kLocalX, kLocalY) < 5.0;
+      };
+      if (near(l.basePoint.x, l.basePoint.y) || near(l.secPoint.x, l.secPoint.y)) {
+        if (std::fabs(l.basePoint.y - 301.02004368277267) < 0.01
+            || std::fabs(l.secPoint.y - 301.02004368277267) < 0.01)
+          ++nearCornerLine;
+      }
+    }
+
+    void addHeader(const DRW_Header *) override {}
+    void addLType(const DRW_LType &) override {}
+    void addLayer(const DRW_Layer &) override {}
+    void addDimStyle(const DRW_Dimstyle &) override {}
+    void addVport(const DRW_Vport &) override {}
+    void addTextStyle(const DRW_Textstyle &) override {}
+    void addAppId(const DRW_AppId &) override {}
+    void setBlock(const int) override {}
+    void addPoint(const DRW_Point &) override {}
+    void addRay(const DRW_Ray &) override {}
+    void addXline(const DRW_Xline &) override {}
+    void addCircle(const DRW_Circle &) override {}
+    void addEllipse(const DRW_Ellipse &) override {}
+    void addLWPolyline(const DRW_LWPolyline &) override {}
+    void addPolyline(const DRW_Polyline &) override {}
+    void addSpline(const DRW_Spline *) override {}
+    void addKnot(const DRW_Entity &) override {}
+    void addInsert(const DRW_Insert &) override {}
+    void addTrace(const DRW_Trace &) override {}
+    void add3dFace(const DRW_3Dface &) override {}
+    void addSolid(const DRW_Solid &) override {}
+    void addMText(const DRW_MText &) override {}
+    void addText(const DRW_Text &) override {}
+    void addDimAlign(const DRW_DimAligned *) override {}
+    void addDimLinear(const DRW_DimLinear *) override {}
+    void addDimRadial(const DRW_DimRadial *) override {}
+    void addDimDiametric(const DRW_DimDiametric *) override {}
+    void addDimAngular(const DRW_DimAngular *) override {}
+    void addDimAngular3P(const DRW_DimAngular3p *) override {}
+    void addDimArc(const DRW_DimArc *) override {}
+    void addDimOrdinate(const DRW_DimOrdinate *) override {}
+    void addLeader(const DRW_Leader *) override {}
+    void addHatch(const DRW_Hatch *) override {}
+    void addViewport(const DRW_Viewport &) override {}
+    void addImage(const DRW_Image *) override {}
+    void linkImage(const DRW_ImageDef *) override {}
+    void addComment(const char *) override {}
+    void addPlotSettings(const DRW_PlotSettings *) override {}
+    void writeHeader(DRW_Header &) override {}
+    void writeBlocks() override {}
+    void writeBlockRecords() override {}
+    void writeEntities() override {}
+    void writeLTypes() override {}
+    void writeLayers() override {}
+    void writeTextstyles() override {}
+    void writeVports() override {}
+    void writeDimstyles() override {}
+    void writeObjects() override {}
+    void writeAppId() override {}
+  };
+
+  ArcProbe probe;
+  dwgR reader(path.c_str());
+  REQUIRE(reader.read(&probe, true));
+  CHECK(probe.nearSmallArc >= 1);
+  CHECK(probe.nearSharedEndArc >= 2);
+  CHECK(probe.nearCornerLine >= 1);
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  RS_Block *detailBlk = graphic.findBlock(QStringLiteral("A$C44380A39"));
+  REQUIRE(detailBlk != nullptr);
+
+  int sharedEndArcs = 0;
+  int minorSweepOk = 0;
+  for (RS_Entity *e : *detailBlk) {
+    if (!e || e->rtti() != RS2::EntityArc)
+      continue;
+    auto *a = static_cast<RS_Arc *>(e);
+    const RS_Vector ep = a->getEndpoint();
+    if (ep.distanceTo(RS_Vector(7.18846, 301.9017)) > 0.1)
+      continue;
+    ++sharedEndArcs;
+    const double sweep = RS_Math::correctAngle(a->getAngle2() - a->getAngle1());
+    if (sweep < M_PI)
+      ++minorSweepOk;
+  }
+  CHECK(sharedEndArcs >= 2);
+  CHECK(minorSweepOk >= 2);
+
+  bool foundMirroredInsert = false;
+  for (RS_Entity *e : lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() != QStringLiteral("A$C44380A39"))
+      continue;
+    if (std::fabs(ins->getScale().x + 1.0) < 0.01
+        && std::fabs(ins->getInsertionPoint().x - 334984.274) < 1.0) {
+      foundMirroredInsert = true;
+      break;
+    }
+  }
+  CHECK(foundMirroredInsert);
+}
+
+struct Deng1RawIface : public CountingIface {
+  std::string curBlock;
+  void addBlock(const DRW_Block &b) override {
+    CountingIface::addBlock(b);
+    curBlock = b.name;
+    if (curBlock == "deng1")
+      std::cout << "raw deng1 block bp=(" << b.basePoint.x << "," << b.basePoint.y
+                << ")\n";
+  }
+  void endBlock() override {
+    CountingIface::endBlock();
+    curBlock.clear();
+  }
+  void addCircle(const DRW_Circle &e) override {
+    CountingIface::addCircle(e);
+    if (curBlock == "deng1")
+      std::cout << "raw deng1 circle h=0x" << std::hex << e.handle << std::dec
+                << " ctr=(" << e.basePoint.x << "," << e.basePoint.y
+                << ") r=" << e.radious << "\n";
+  }
+};
+
+// Lamp block (deng1) nested in A$C5ABE7CED — circles must land on the compounded
+// insert point (84004, 115511), not at the raw block-local offset (~36k, 58k).
+//   ./librecad_tests "[.dwg_chicun_circle]" -s
+TEST_CASE("DWG 2带尺寸图库: deng1 circles at insert point (84004,115511)",
+          "[.dwg_chicun_circle]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  Deng1RawIface rawIface;
+  readDwg(path, false, &rawIface);
+  std::cout << "raw deng1 read with applyExt=true (see above)\n";
+  {
+    Deng1RawIface noExt;
+    dwgR reader(path.c_str());
+    reader.read(&noExt, false);
+    std::cout << "raw deng1 read with applyExt=false done\n";
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  // Expected WCS for deng1-921 after full nested insert chain (not the stale
+  // partial transform that previously placed geometry ~75k from insertionPoint).
+  const double tx = 84004.0, ty = 115511.0;
+  struct CircleHit {
+    double r = 0;
+    quint32 handle = 0;
+    QString insertChain;
+  };
+  std::vector<CircleHit> hits;
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityCircle)
+      continue;
+    auto *c = static_cast<RS_Circle *>(e);
+    const RS_Vector ctr = c->getCenter();
+    if (std::hypot(ctr.x - tx, ctr.y - ty) > 1.0)
+      continue;
+    hits.push_back({c->getRadius(), e->sourceHandle(), insertChain(e)});
+  }
+  std::sort(hits.begin(), hits.end(),
+            [](const CircleHit &a, const CircleHit &b) { return a.r < b.r; });
+
+  std::cout << "\n=== chicun circle (44748.7,180186.7) ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (const auto &h : hits) {
+    std::cout << "  r=" << h.r << " handle=0x" << std::hex << h.handle
+              << std::dec << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+
+  if (hits.empty()) {
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+      if (!e || e->rtti() != RS2::EntityCircle || e->sourceHandle() != 0x15C6D5u)
+        continue;
+      auto *c = static_cast<RS_Circle *>(e);
+      const RS_Vector ctr = c->getCenter();
+      if (!insertChain(e).contains(QStringLiteral("A$C5ABE7CED")))
+        continue;
+      std::cout << "fallback deng1 circle ctr=(" << ctr.x << "," << ctr.y
+                << ") chain=" << insertChain(e).toStdString() << "\n";
+    }
+  }
+
+  RS_Insert *topParentEarly = nullptr;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() != QStringLiteral("A$C5ABE7CED"))
+      continue;
+    if (ins->getParent() == nullptr
+        || ins->getParent()->rtti() != RS2::EntityGraphic)
+      continue;
+    topParentEarly = ins;
+    break;
+  }
+  if (topParentEarly) {
+    std::cout << "top parent children=" << topParentEarly->count() << "\n";
+    for (RS_Entity *e : *topParentEarly) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      std::cout << " child insert " << ins->getName().toStdString() << " h=0x"
+                << std::hex << ins->sourceHandle() << std::dec << "\n";
+      if (ins->getName() != QStringLiteral("deng1"))
+        continue;
+      RS_Vector firstGeom(false);
+      for (RS_Entity *c : *ins) {
+        if (c && c->rtti() == RS2::EntityCircle) {
+          firstGeom = static_cast<RS_Circle *>(c)->getCenter();
+          break;
+        }
+      }
+      const RS_Vector ip = ins->getInsertionPoint();
+      std::cout << "early resolved deng1 ip=(" << ip.x << "," << ip.y << ")";
+      if (firstGeom.valid)
+        std::cout << " circle=(" << firstGeom.x << "," << firstGeom.y
+                  << ") dist=" << firstGeom.distanceTo(ip);
+      std::cout << "\n";
+    }
+  }
+
+  RS_Block *deng1 = graphic.findBlock(QStringLiteral("deng1"));
+  REQUIRE(deng1 != nullptr);
+  int blockCircles = 0;
+  RS_Vector blockCtr(false);
+  for (RS_Entity *e : *deng1) {
+    if (!e || e->rtti() != RS2::EntityCircle)
+      continue;
+    auto *c = static_cast<RS_Circle *>(e);
+    if (blockCircles == 0)
+      blockCtr = c->getCenter();
+    CHECK(blockCtr.distanceTo(c->getCenter()) < 0.01);
+    ++blockCircles;
+  }
+  CHECK(blockCircles == 3);
+  std::cout << "deng1 block circle center=(" << blockCtr.x << "," << blockCtr.y
+            << ")\n";
+  CHECK(blockCtr.distanceTo(RS_Vector(0.0, 0.0)) < 1.0);
+
+  REQUIRE(hits.size() == 3);
+  CHECK(std::fabs(hits[0].r - 27.5) < 0.05);
+  CHECK(std::fabs(hits[1].r - 110.0) < 0.05);
+  CHECK(std::fabs(hits[2].r - 247.5) < 0.05);
+  CHECK(hits[0].insertChain.contains(QStringLiteral("deng1")));
+  CHECK(hits[0].insertChain.contains(QStringLiteral("A$C5ABE7CED")));
+
+  RS_Arc *blockArc = nullptr;
+  for (RS_Entity *e : *deng1) {
+    if (e && e->rtti() == RS2::EntityArc) {
+      blockArc = static_cast<RS_Arc *>(e);
+      break;
+    }
+  }
+  REQUIRE(blockArc != nullptr);
+  std::cout << "deng1 block arc a1=" << blockArc->getAngle1()
+            << " a2=" << blockArc->getAngle2()
+            << " r=" << blockArc->getRadius() << "\n";
+
+  RS_Block *parentBlk = graphic.findBlock(QStringLiteral("A$C5ABE7CED"));
+  REQUIRE(parentBlk != nullptr);
+  const RS_Vector deng1Bp = deng1->getBasePoint();
+  const RS_Vector parentBp = parentBlk->getBasePoint();
+  std::cout << "deng1 basePoint=(" << deng1Bp.x << "," << deng1Bp.y << ")\n";
+  std::cout << "A$C5ABE7CED basePoint=(" << parentBp.x << "," << parentBp.y
+            << ")\n";
+
+  int parentInsertCount = 0;
+  int parentDeng1Count = 0;
+  std::cout << "INSERTs in A$C5ABE7CED block definition:\n";
+  for (RS_Entity *e : *parentBlk) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    ++parentInsertCount;
+    auto *ins = static_cast<RS_Insert *>(e);
+    const RS_Vector sc = ins->getScale();
+    std::cout << "  " << ins->getName().toStdString() << " h=0x" << std::hex
+              << ins->sourceHandle() << std::dec << " ip=("
+              << ins->getInsertionPoint().x << ","
+              << ins->getInsertionPoint().y << ") sc=(" << sc.x << "," << sc.y
+              << ") ang=" << ins->getAngle() << "\n";
+    if (ins->getName() == QStringLiteral("deng1"))
+      ++parentDeng1Count;
+  }
+  std::cout << "parent inserts total=" << parentInsertCount
+            << " deng1=" << parentDeng1Count << "\n";
+
+  std::cout << "resolved deng1 circle instances (handle 15C6D5):\n";
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityCircle || e->sourceHandle() != 0x15C6D5u)
+      continue;
+    auto *c = static_cast<RS_Circle *>(e);
+    std::cout << "  WCS=(" << c->getCenter().x << "," << c->getCenter().y
+              << ") chain=" << insertChain(e).toStdString() << "\n";
+  }
+
+  RS_Insert *topParent = nullptr;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() != QStringLiteral("A$C5ABE7CED"))
+      continue;
+    if (ins->getParent() == nullptr
+        || ins->getParent()->rtti() != RS2::EntityGraphic)
+      continue;
+    topParent = ins;
+    break;
+  }
+  REQUIRE(topParent != nullptr);
+  const RS_Vector topSc = topParent->getScale();
+  std::cout << "top A$C5ABE7CED h=0x" << std::hex << topParent->sourceHandle()
+            << std::dec << " ip=(" << topParent->getInsertionPoint().x << ","
+            << topParent->getInsertionPoint().y << ") sc=(" << topSc.x << ","
+            << topSc.y << ") ang=" << topParent->getAngle() << "\n";
+
+  const double lampX = tx, lampY = ty;
+  double bestShafa = std::numeric_limits<double>::infinity();
+  RS_Vector bestPt(false);
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityLine)
+      continue;
+    QString chain = insertChain(e);
+    if (!chain.contains(QStringLiteral("shafa2"))
+        || !chain.contains(QStringLiteral("A$C5ABE7CED")))
+      continue;
+    auto *l = static_cast<RS_Line *>(e);
+    for (const RS_Vector &p : {l->getStartpoint(), l->getEndpoint()}) {
+      const double d = std::hypot(p.x - lampX, p.y - lampY);
+      if (d < bestShafa) {
+        bestShafa = d;
+        bestPt = p;
+      }
+    }
+  }
+  std::cout << "nearest shafa2 line endpoint to lamp: dist=" << bestShafa
+            << " at (" << bestPt.x << "," << bestPt.y << ")\n";
+
+  // Block-local: deng1 circle center vs shafa2 insert — should stay clustered.
+  RS_Insert *shafa2Ins = nullptr;
+  for (RS_Entity *e : *parentBlk) {
+    if (e && e->rtti() == RS2::EntityInsert
+        && static_cast<RS_Insert *>(e)->getName() == QStringLiteral("shafa2")) {
+      shafa2Ins = static_cast<RS_Insert *>(e);
+      break;
+    }
+  }
+  REQUIRE(shafa2Ins != nullptr);
+  RS_Insert *deng1Ins921 = nullptr;
+  for (RS_Entity *e : *parentBlk) {
+    if (e && e->rtti() == RS2::EntityInsert
+        && static_cast<RS_Insert *>(e)->getName() == QStringLiteral("deng1")
+        && e->sourceHandle() == 0x1DF921u) {
+      deng1Ins921 = static_cast<RS_Insert *>(e);
+      break;
+    }
+  }
+  REQUIRE(deng1Ins921 != nullptr);
+  const double blockDist = deng1Ins921->getInsertionPoint().distanceTo(
+      shafa2Ins->getInsertionPoint());
+  std::cout << "parent-block dist(deng1-921, shafa2)=" << blockDist << "\n";
+  std::cout << "deng1-921 block ip=" << deng1Ins921->getInsertionPoint().x
+            << "," << deng1Ins921->getInsertionPoint().y
+            << " shafa2 block ip=" << shafa2Ins->getInsertionPoint().x << ","
+            << shafa2Ins->getInsertionPoint().y << "\n";
+
+  // Resolved nested inserts under the top-level parent (post updateInserts).
+  auto dumpResolvedInsert = [](RS_Insert *parent, const char *name,
+                               quint32 handle) {
+    for (RS_Entity *e : *parent) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      if (ins->getName() != QString::fromUtf8(name))
+        continue;
+      if (handle != 0 && ins->sourceHandle() != handle)
+        continue;
+      const RS_Vector sc = ins->getScale();
+      std::cout << "resolved " << name << " h=0x" << std::hex
+                << ins->sourceHandle() << std::dec << " ip=("
+                << ins->getInsertionPoint().x << ","
+                << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+                << sc.y << ") ang=" << ins->getAngle()
+                << " children=" << ins->count() << "\n";
+      RS_Vector firstGeom(false);
+      for (RS_Entity *c : *ins) {
+        if (!c || c->rtti() != RS2::EntityCircle)
+          continue;
+        auto *circ = static_cast<RS_Circle *>(c);
+        if (!firstGeom.valid)
+          firstGeom = circ->getCenter();
+        std::cout << "  circle ctr=(" << circ->getCenter().x << ","
+                  << circ->getCenter().y << ") r=" << circ->getRadius()
+                  << "\n";
+      }
+      if (firstGeom.valid) {
+        const RS_Vector ip = ins->getInsertionPoint();
+        std::cout << "  geom-ip delta=(" << (firstGeom.x - ip.x) << ","
+                  << (firstGeom.y - ip.y) << ") dist="
+                  << firstGeom.distanceTo(ip) << "\n";
+        CHECK(firstGeom.distanceTo(ip) < 0.05);
+      }
+    }
+  };
+  std::cout << "resolved nested inserts under top parent:\n";
+  dumpResolvedInsert(topParent, "deng1", 0x1DF921u);
+  dumpResolvedInsert(topParent, "shafa2", 0x1DF955u);
+}
+
+// Probe stray geometry near WCS (-774805.88, 588320.79) in 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_stray]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (-774805.88,588320.79)",
+          "[.dwg_chicun_stray]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = -774805.8834, ty = 588320.7858;
+  const double tol = 50.0;
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    switch (e->rtti()) {
+    case RS2::EntityLine:
+      consider("LINE", e,
+               static_cast<RS_Line *>(e)->getStartpoint(),
+               static_cast<RS_Line *>(e)->getEndpoint());
+      break;
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e,
+               static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::sort(hits.begin(), hits.end(),
+            [](const NearHit &a, const NearHit &b) { return a.dist < b.dist; });
+
+  std::cout << "\n=== chicun stray (-774805.88,588320.79) tol=" << tol
+            << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (std::size_t i = 0; i < hits.size() && i < 40; ++i) {
+    const auto &h = hits[i];
+    if (h.p2.valid)
+      std::cout << "  " << h.type.toStdString() << " h=0x" << std::hex
+                << h.handle << std::dec << " layer=" << h.layer.toStdString()
+                << " (" << h.p1.x << "," << h.p1.y << ")->(" << h.p2.x << ","
+                << h.p2.y << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+    else
+      std::cout << "  " << h.type.toStdString() << " h=0x" << std::hex
+                << h.handle << std::dec << " layer=" << h.layer.toStdString()
+                << " (" << h.p1.x << "," << h.p1.y << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+
+  double best = std::numeric_limits<double>::infinity();
+  NearHit globalBest;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    auto probe = [&](const QString &type, const RS_Vector &p) {
+      const double d = dist(p);
+      if (d < best) {
+        best = d;
+        globalBest = {type,
+                      e->getLayer() ? e->getLayer()->getName()
+                                    : QStringLiteral("(none)"),
+                      e->sourceHandle(), p, RS_Vector(false), insertChain(e), d};
+      }
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      probe("LINE_SP", l->getStartpoint());
+      probe("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      for (RS_Entity *v : *pl) {
+        if (v)
+          probe("PLINE_VTX", v->getStartpoint());
+      }
+      break;
+    }
+    default:
+      break;
+    }
+  }
+  if (globalBest.dist < std::numeric_limits<double>::infinity()) {
+    std::cout << "global closest: " << globalBest.type.toStdString() << " h=0x"
+              << std::hex << globalBest.handle << std::dec << " ("
+              << globalBest.p1.x << "," << globalBest.p1.y
+              << ") dist=" << globalBest.dist
+              << " insert=" << globalBest.insertChain.toStdString() << "\n";
+  }
+
+  // Stray segments at (-774806,588321) were errant geometry from fghfdh567567
+  // after over-aggressive block re-centering; expect nothing near this point.
+  CHECK(hits.empty());
+  if (globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(globalBest.dist > 1000.0);
+}
+
+// Probe incorrect geometry near WCS (52984.74, 222052.06) in 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_stray2]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (52984.74,222052.06)",
+          "[.dwg_chicun_stray2]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = 52984.73581, ty = 222052.0628;
+  const double tol = 50.0;
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    switch (e->rtti()) {
+    case RS2::EntityLine:
+      consider("LINE", e,
+               static_cast<RS_Line *>(e)->getStartpoint(),
+               static_cast<RS_Line *>(e)->getEndpoint());
+      break;
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e,
+               static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::sort(hits.begin(), hits.end(),
+            [](const NearHit &a, const NearHit &b) { return a.dist < b.dist; });
+
+  std::cout << "\n=== chicun stray2 (52984.74,222052.06) tol=" << tol
+            << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (std::size_t i = 0; i < hits.size() && i < 40; ++i) {
+    const auto &h = hits[i];
+    if (h.p2.valid)
+      std::cout << "  " << h.type.toStdString() << " h=0x" << std::hex
+                << h.handle << std::dec << " layer=" << h.layer.toStdString()
+                << " (" << h.p1.x << "," << h.p1.y << ")->(" << h.p2.x << ","
+                << h.p2.y << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+    else
+      std::cout << "  " << h.type.toStdString() << " h=0x" << std::hex
+                << h.handle << std::dec << " layer=" << h.layer.toStdString()
+                << " (" << h.p1.x << "," << h.p1.y << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+
+  double best = std::numeric_limits<double>::infinity();
+  NearHit globalBest;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    auto probe = [&](const QString &type, const RS_Vector &p) {
+      const double d = dist(p);
+      if (d < best) {
+        best = d;
+        globalBest = {type,
+                      e->getLayer() ? e->getLayer()->getName()
+                                    : QStringLiteral("(none)"),
+                      e->sourceHandle(), p, RS_Vector(false), insertChain(e), d};
+      }
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      probe("LINE_SP", l->getStartpoint());
+      probe("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      for (RS_Entity *v : *pl) {
+        if (v)
+          probe("PLINE_VTX", v->getStartpoint());
+      }
+      break;
+    }
+    default:
+      break;
+    }
+  }
+  if (globalBest.dist < std::numeric_limits<double>::infinity()) {
+    std::cout << "global closest: " << globalBest.type.toStdString() << " h=0x"
+              << std::hex << globalBest.handle << std::dec << " ("
+              << globalBest.p1.x << "," << globalBest.p1.y
+              << ") dist=" << globalBest.dist
+              << " insert=" << globalBest.insertChain.toStdString() << "\n";
+  }
+
+  // WCS-embedded esfsfdds geometry must not be re-centered onto the insert grip.
+  CHECK(hits.empty());
+  if (globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(globalBest.dist > 1000.0);
+}
+
+// Probe incorrect geometry near WCS (-294315.21, 48571.66) in 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_stray3]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (-294315.21,48571.66)",
+          "[.dwg_chicun_stray3]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = -294315.207, ty = 48571.65792;
+  const double tol = 50.0;
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    switch (e->rtti()) {
+    case RS2::EntityLine:
+      consider("LINE", e,
+               static_cast<RS_Line *>(e)->getStartpoint(),
+               static_cast<RS_Line *>(e)->getEndpoint());
+      break;
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e,
+               static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  CHECK(hits.empty());
+
+  // INSERT A$C4D8A4BEC: extrusion (0,0,-1), z-scale -0.5 — fold -X block half.
+  RS_Insert *a4d8Ins = nullptr;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() == QStringLiteral("A$C4D8A4BEC")) {
+      a4d8Ins = ins;
+      break;
+    }
+  }
+  REQUIRE(a4d8Ins != nullptr);
+  CHECK(a4d8Ins->getData().extrusion.z < -0.5);
+  CHECK(a4d8Ins->getScale().z < -0.4);
+
+  // Primary (+77,+220) cluster should remain near expected WCS after OCS fold.
+  const double insX = -294193.370915374, insY = 48561.45784819595;
+  const double expX = insX + 0.5 * 77.14807952690171;
+  const double expY = insY + 0.5 * 219.9479471713712;
+  int primaryCluster = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || !insertChain(e).contains(QStringLiteral("A$C4D8A4BEC")))
+      continue;
+    RS_Vector p(false);
+    if (e->rtti() == RS2::EntityCircle)
+      p = static_cast<RS_Circle *>(e)->getCenter();
+    else if (e->rtti() == RS2::EntityArc)
+      p = static_cast<RS_Arc *>(e)->getCenter();
+    else
+      continue;
+    if (std::hypot(p.x - expX, p.y - expY) < 80.0)
+      ++primaryCluster;
+  }
+  CHECK(primaryCluster >= 4);
+}
+
+// Probe incorrect geometry at three WCS points in 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_stray4]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near stray WCS triple",
+          "[.dwg_chicun_stray4]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  struct Target {
+    const char *label;
+    double x;
+    double y;
+  };
+  const Target targets[] = {
+      {"A", 104517.7659, -1239995.976},
+      {"B", 57585.03448, -1240174.235},
+      {"C", 1322040.68, 492532.476},
+  };
+  const double tol = 50.0;
+
+  struct NearHit {
+    char target = 0;
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+
+  for (const auto &t : targets) {
+    auto dist = [&](const RS_Vector &p) {
+      return std::hypot(p.x - t.x, p.y - t.y);
+    };
+    auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                        const RS_Vector &p2 = RS_Vector(false)) {
+      const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+      if (d > tol)
+        return;
+      const QString layer =
+          e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+      hits.push_back({t.label[0], type, layer, e->sourceHandle(), p1, p2,
+                      insertChain(e), d});
+    };
+
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+      if (!e)
+        continue;
+      switch (e->rtti()) {
+      case RS2::EntityLine:
+        consider("LINE", e,
+                 static_cast<RS_Line *>(e)->getStartpoint(),
+                 static_cast<RS_Line *>(e)->getEndpoint());
+        break;
+      case RS2::EntityPolyline: {
+        auto *pl = static_cast<RS_Polyline *>(e);
+        RS_Vector prev(false);
+        for (RS_Entity *v : *pl) {
+          if (!v)
+            continue;
+          RS_Vector pt = v->getStartpoint();
+          consider("PLINE_VTX", e, pt);
+          if (prev.valid)
+            consider("PLINE_SEG", e, prev, pt);
+          prev = pt;
+        }
+        break;
+      }
+      case RS2::EntityArc: {
+        auto *a = static_cast<RS_Arc *>(e);
+        consider("ARC_CTR", e, a->getCenter());
+        consider("ARC_SP", e, a->getStartpoint());
+        consider("ARC_EP", e, a->getEndpoint());
+        break;
+      }
+      case RS2::EntityCircle:
+        consider("CIRCLE", e,
+                 static_cast<RS_Circle *>(e)->getCenter());
+        break;
+      case RS2::EntityInsert:
+        consider("INSERT", e,
+                 static_cast<RS_Insert *>(e)->getInsertionPoint());
+        break;
+      default:
+        break;
+      }
+    }
+  }
+
+  std::sort(hits.begin(), hits.end(), [](const NearHit &a, const NearHit &b) {
+    if (a.target != b.target)
+      return a.target < b.target;
+    return a.dist < b.dist;
+  });
+
+  std::cout << "\n=== chicun stray4 triple tol=" << tol << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (std::size_t i = 0; i < hits.size() && i < 60; ++i) {
+    const auto &h = hits[i];
+    if (h.p2.valid)
+      std::cout << "  tgt=" << h.target << " " << h.type.toStdString()
+                << " h=0x" << std::hex << h.handle << std::dec
+                << " layer=" << h.layer.toStdString() << " (" << h.p1.x << ","
+                << h.p1.y << ")->(" << h.p2.x << "," << h.p2.y
+                << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+    else
+      std::cout << "  tgt=" << h.target << " " << h.type.toStdString()
+                << " h=0x" << std::hex << h.handle << std::dec
+                << " layer=" << h.layer.toStdString() << " (" << h.p1.x << ","
+                << h.p1.y << ") dist=" << h.dist
+                << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+
+  for (const auto &t : targets) {
+    double best = std::numeric_limits<double>::infinity();
+    NearHit bestHit;
+    for (const auto &h : hits) {
+      if (h.target != t.label[0])
+        continue;
+      if (h.dist < best) {
+        best = h.dist;
+        bestHit = h;
+      }
+    }
+    if (best < std::numeric_limits<double>::infinity()) {
+      std::cout << "target " << t.label << " (" << t.x << "," << t.y
+                << ") closest: " << bestHit.type.toStdString() << " dist="
+                << best << " insert=" << bestHit.insertChain.toStdString()
+                << "\n";
+    } else {
+      std::cout << "target " << t.label << " (" << t.x << "," << t.y
+                << ") no hits within tol\n";
+    }
+  }
+
+  // Diagnostic: list top-level INSERTs near each target.
+  for (const auto &t : targets) {
+    std::cout << "INSERTs near target " << t.label << ":\n";
+    int n = 0;
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      const RS_Vector ip = ins->getInsertionPoint();
+      const double d = std::hypot(ip.x - t.x, ip.y - t.y);
+      if (d > 500.0)
+        continue;
+      std::cout << "  " << ins->getName().toStdString() << " ip=(" << ip.x
+                << "," << ip.y << ") sc=(" << ins->getScale().x << ","
+                << ins->getScale().y << "," << ins->getScale().z
+                << ") ext.z=" << ins->getData().extrusion.z << " dist=" << d
+                << "\n";
+      if (++n >= 8)
+        break;
+    }
+  }
+
+  // Global closest (any distance) for diagnosis.
+  for (const auto &t : targets) {
+    double best = std::numeric_limits<double>::infinity();
+    QString bestType;
+    QString bestChain;
+    RS_Vector bestP(false);
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+      if (!e)
+        continue;
+      auto probe = [&](const QString &type, const RS_Vector &p) {
+        const double d = std::hypot(p.x - t.x, p.y - t.y);
+        if (d < best) {
+          best = d;
+          bestType = type;
+          bestChain = insertChain(e);
+          bestP = p;
+        }
+      };
+      switch (e->rtti()) {
+      case RS2::EntityLine: {
+        auto *l = static_cast<RS_Line *>(e);
+        probe("LINE_SP", l->getStartpoint());
+        probe("LINE_EP", l->getEndpoint());
+        break;
+      }
+      case RS2::EntityArc: {
+        auto *a = static_cast<RS_Arc *>(e);
+        probe("ARC_CTR", a->getCenter());
+        probe("ARC_SP", a->getStartpoint());
+        probe("ARC_EP", a->getEndpoint());
+        break;
+      }
+      case RS2::EntityCircle:
+        probe("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+        break;
+      case RS2::EntityPolyline: {
+        auto *pl = static_cast<RS_Polyline *>(e);
+        for (RS_Entity *v : *pl) {
+          if (v)
+            probe("PLINE_VTX", v->getStartpoint());
+        }
+        break;
+      }
+      default:
+        break;
+      }
+    }
+    if (best < std::numeric_limits<double>::infinity()) {
+      std::cout << "global " << t.label << ": " << bestType.toStdString()
+                << " (" << bestP.x << "," << bestP.y << ") dist=" << best
+                << " insert=" << bestChain.toStdString() << "\n";
+    }
+  }
+
+  CHECK(hits.empty());
+}
+
+// Probe incorrect geometry at three WCS points (negative-X mirror pair + E).
+//   ./librecad_tests "[.dwg_chicun_stray5]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near stray WCS triple (neg X)",
+          "[.dwg_chicun_stray5]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  struct Target {
+    const char *label;
+    double x;
+    double y;
+  };
+  const Target targets[] = {
+      {"D", -1099318.43, 492532.476},
+      {"E", -952337.4015, 403260.8869},
+      {"F", 1322040.68, 492532.476},
+  };
+  const double tol = 50.0;
+
+  struct NearHit {
+    char target = 0;
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+
+  for (const auto &t : targets) {
+    auto dist = [&](const RS_Vector &p) {
+      return std::hypot(p.x - t.x, p.y - t.y);
+    };
+    auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                        const RS_Vector &p2 = RS_Vector(false)) {
+      const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+      if (d > tol)
+        return;
+      const QString layer =
+          e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+      hits.push_back({t.label[0], type, layer, e->sourceHandle(), p1, p2,
+                      insertChain(e), d});
+    };
+
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+      if (!e)
+        continue;
+      switch (e->rtti()) {
+      case RS2::EntityLine:
+        consider("LINE", e,
+                 static_cast<RS_Line *>(e)->getStartpoint(),
+                 static_cast<RS_Line *>(e)->getEndpoint());
+        break;
+      case RS2::EntityPolyline: {
+        auto *pl = static_cast<RS_Polyline *>(e);
+        RS_Vector prev(false);
+        for (RS_Entity *v : *pl) {
+          if (!v)
+            continue;
+          RS_Vector pt = v->getStartpoint();
+          consider("PLINE_VTX", e, pt);
+          if (prev.valid)
+            consider("PLINE_SEG", e, prev, pt);
+          prev = pt;
+        }
+        break;
+      }
+      case RS2::EntityArc: {
+        auto *a = static_cast<RS_Arc *>(e);
+        consider("ARC_CTR", e, a->getCenter());
+        consider("ARC_SP", e, a->getStartpoint());
+        consider("ARC_EP", e, a->getEndpoint());
+        break;
+      }
+      case RS2::EntityCircle:
+        consider("CIRCLE", e,
+                 static_cast<RS_Circle *>(e)->getCenter());
+        break;
+      case RS2::EntityInsert:
+        consider("INSERT", e,
+                 static_cast<RS_Insert *>(e)->getInsertionPoint());
+        break;
+      default:
+        break;
+      }
+    }
+  }
+
+  std::cout << "\n=== chicun stray5 triple tol=" << tol << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (const auto &h : hits) {
+    std::cout << "  tgt=" << h.target << " " << h.type.toStdString() << " ("
+              << h.p1.x << "," << h.p1.y << ") dist=" << h.dist
+              << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+
+  for (const auto &t : targets) {
+    double best = std::numeric_limits<double>::infinity();
+    QString bestType;
+    QString bestChain;
+    RS_Vector bestP(false);
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+      if (!e)
+        continue;
+      auto probe = [&](const QString &type, const RS_Vector &p) {
+        const double d = std::hypot(p.x - t.x, p.y - t.y);
+        if (d < best) {
+          best = d;
+          bestType = type;
+          bestChain = insertChain(e);
+          bestP = p;
+        }
+      };
+      switch (e->rtti()) {
+      case RS2::EntityLine: {
+        auto *l = static_cast<RS_Line *>(e);
+        probe("LINE_SP", l->getStartpoint());
+        probe("LINE_EP", l->getEndpoint());
+        break;
+      }
+      case RS2::EntityArc: {
+        auto *a = static_cast<RS_Arc *>(e);
+        probe("ARC_CTR", a->getCenter());
+        probe("ARC_SP", a->getStartpoint());
+        probe("ARC_EP", a->getEndpoint());
+        break;
+      }
+      case RS2::EntityCircle:
+        probe("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+        break;
+      case RS2::EntityPolyline: {
+        auto *pl = static_cast<RS_Polyline *>(e);
+        for (RS_Entity *v : *pl) {
+          if (v)
+            probe("PLINE_VTX", v->getStartpoint());
+        }
+        break;
+      }
+      default:
+        break;
+      }
+    }
+    if (best < std::numeric_limits<double>::infinity()) {
+      std::cout << "global " << t.label << ": " << bestType.toStdString()
+                << " (" << bestP.x << "," << bestP.y << ") dist=" << best
+                << " insert=" << bestChain.toStdString() << "\n";
+    }
+  }
+
+  CHECK(hits.empty());
+}
+
+// Probe incorrect geometry near WCS (-2230355.08, 1646735.10).
+//   ./librecad_tests "[.dwg_chicun_stray6]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (-2230355.08,1646735.10)",
+          "[.dwg_chicun_stray6]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = -2230355.082, ty = 1646735.104;
+  const double tol = 50.0;
+
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  NearHit globalBest;
+  globalBest.dist = std::numeric_limits<double>::infinity();
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    auto updateGlobal = [&](const QString &type, const RS_Vector &p) {
+      const double d = dist(p);
+      if (d < globalBest.dist)
+        globalBest = {type, layer, e->sourceHandle(), p, RS_Vector(false),
+                      insertChain(e), d};
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      consider("LINE", e, l->getStartpoint(), l->getEndpoint());
+      updateGlobal("LINE_SP", l->getStartpoint());
+      updateGlobal("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        updateGlobal("PLINE_VTX", pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      updateGlobal("ARC_CTR", a->getCenter());
+      updateGlobal("ARC_SP", a->getStartpoint());
+      updateGlobal("ARC_EP", a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e, static_cast<RS_Circle *>(e)->getCenter());
+      updateGlobal("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::cout << "\n=== chicun stray6 (-2230355,1646735) tol=" << tol << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (const auto &h : hits) {
+    std::cout << "  " << h.type.toStdString() << " (" << h.p1.x << ","
+              << h.p1.y << ") dist=" << h.dist
+              << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+  if (globalBest.dist < std::numeric_limits<double>::infinity()) {
+    std::cout << "global closest: " << globalBest.type.toStdString() << " ("
+              << globalBest.p1.x << "," << globalBest.p1.y
+              << ") dist=" << globalBest.dist
+              << " insert=" << globalBest.insertChain.toStdString() << "\n";
+  }
+
+  CHECK(hits.empty());
+  if (globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(globalBest.dist > 1000.0);
+}
+
+// Second vertex of the stray6 phantom cluster (~68 units away).
+//   ./librecad_tests "[.dwg_chicun_stray7]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (-2230420.44,1646754.55)",
+          "[.dwg_chicun_stray7]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = -2230420.436, ty = 1646754.547;
+  const double tol = 50.0;
+
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  NearHit globalBest;
+  globalBest.dist = std::numeric_limits<double>::infinity();
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    auto updateGlobal = [&](const QString &type, const RS_Vector &p) {
+      const double d = dist(p);
+      if (d < globalBest.dist)
+        globalBest = {type, layer, e->sourceHandle(), p, RS_Vector(false),
+                      insertChain(e), d};
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      consider("LINE", e, l->getStartpoint(), l->getEndpoint());
+      updateGlobal("LINE_SP", l->getStartpoint());
+      updateGlobal("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        updateGlobal("PLINE_VTX", pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      updateGlobal("ARC_CTR", a->getCenter());
+      updateGlobal("ARC_SP", a->getStartpoint());
+      updateGlobal("ARC_EP", a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e, static_cast<RS_Circle *>(e)->getCenter());
+      updateGlobal("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::cout << "\n=== chicun stray7 (-2230420,1646754) tol=" << tol << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (const auto &h : hits) {
+    std::cout << "  " << h.type.toStdString() << " (" << h.p1.x << ","
+              << h.p1.y << ") dist=" << h.dist
+              << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+  if (globalBest.dist < std::numeric_limits<double>::infinity()) {
+    std::cout << "global closest: " << globalBest.type.toStdString() << " ("
+              << globalBest.p1.x << "," << globalBest.p1.y
+              << ") dist=" << globalBest.dist
+              << " insert=" << globalBest.insertChain.toStdString() << "\n";
+  }
+
+  CHECK(hits.empty());
+  if (globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(globalBest.dist > 1000.0);
+}
+
+// Broad diagnostic for stray8: all entity types, block defs, Y-mirror band.
+//   ./librecad_tests "[.dwg_chicun_stray8_diag]" -s
+TEST_CASE("DWG 2带尺寸图库: stray8 broad diagnostic",
+          "[.dwg_chicun_stray8_diag]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  const double tx = -1099671.573, ty = 492101.3029;
+  const double tol = 500.0;
+  struct Hit {
+    QString scope;
+    QString type;
+    QString blockOrChain;
+    RS_Vector p;
+    double dist = 0;
+  };
+  std::vector<Hit> hits;
+
+  auto record = [&](const QString &scope, const QString &type,
+                    const QString &chain, const RS_Vector &p) {
+    const double d = std::hypot(p.x - tx, p.y - ty);
+    if (d > tol)
+      return;
+    hits.push_back({scope, type, chain, p, d});
+  };
+
+  auto probeEntity = [&](const QString &scope, RS_Entity *e,
+                         const QString &chain) {
+    if (!e)
+      return;
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      record(scope, "LINE_SP", chain, l->getStartpoint());
+      record(scope, "LINE_EP", chain, l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      for (RS_Entity *v : *pl) {
+        if (v)
+          record(scope, "PLINE_VTX", chain, v->getStartpoint());
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      record(scope, "ARC_CTR", chain, a->getCenter());
+      record(scope, "ARC_SP", chain, a->getStartpoint());
+      record(scope, "ARC_EP", chain, a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      record(scope, "CIRCLE", chain,
+             static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityEllipse: {
+      auto *el = static_cast<RS_Ellipse *>(e);
+      record(scope, "ELL_CTR", chain, el->getCenter());
+      break;
+    }
+    case RS2::EntitySplinePoints: {
+      auto *sp = static_cast<LC_SplinePoints *>(e);
+      for (const RS_Vector &p : sp->getPoints())
+        record(scope, "SPLINE_PT", chain, p);
+      break;
+    }
+    case RS2::EntityPoint:
+      record(scope, "POINT", chain,
+             static_cast<RS_Point *>(e)->getStartpoint());
+      break;
+    case RS2::EntityInsert:
+      record(scope, "INSERT", chain,
+             static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  };
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    probeEntity("resolved", e, chicun::insertChain(e));
+  }
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    probeEntity("model", e, chicun::insertChain(e));
+  }
+  if (auto *bl = graphic.getBlockList()) {
+    for (int i = 0; i < bl->count(); ++i) {
+      RS_Block *b = bl->at(i);
+      if (!b)
+        continue;
+      const QString bname = b->getName();
+      if (!bname.contains(QStringLiteral("CUSH"))
+          && !bname.contains(QStringLiteral("sofa"))
+          && !bname.startsWith(QStringLiteral("A$C28F40C54")))
+        continue;
+      for (RS_Entity *e : *b)
+        probeEntity("block:" + bname, e, bname);
+    }
+  }
+
+  std::sort(hits.begin(), hits.end(),
+            [](const Hit &a, const Hit &b) { return a.dist < b.dist; });
+  std::cout << "\n=== stray8_diag tol=" << tol << " hits=" << hits.size()
+            << " countDeep=" << graphic.countDeep() << " ===\n";
+  for (std::size_t i = 0; i < hits.size() && i < 40; ++i) {
+    const auto &h = hits[i];
+    std::cout << "  " << h.scope.toStdString() << " " << h.type.toStdString()
+              << " (" << h.p.x << "," << h.p.y << ") dist=" << h.dist
+              << " chain=" << h.blockOrChain.toStdString() << "\n";
+  }
+
+  // Y-mirror band: any resolved point with y~492101 near sofa chain
+  int mirrorBand = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!chicun::insertChain(e).contains(QStringLiteral("CUSH")))
+      continue;
+    auto check = [&](const RS_Vector &p) {
+      if (std::fabs(p.y - ty) < 200.0 && p.x < -1.0e5)
+        ++mirrorBand;
+    };
+    if (e->rtti() == RS2::EntityLine) {
+      auto *l = static_cast<RS_Line *>(e);
+      check(l->getStartpoint());
+      check(l->getEndpoint());
+    } else if (e->rtti() == RS2::EntityArc) {
+      auto *a = static_cast<RS_Arc *>(e);
+      check(a->getStartpoint());
+      check(a->getEndpoint());
+      check(a->getCenter());
+    }
+  }
+  std::cout << "CUSH chain points in y-mirror band (|y-492101|<200, x<-100k): "
+            << mirrorBand << "\n";
+
+  CHECK(hits.empty());
+}
+
+// GUI load path calls onLoadingCompleted() -> updateDimensions().
+//   ./librecad_tests "[.dwg_chicun_stray8_gui]" -s
+TEST_CASE("DWG 2带尺寸图库: stray8 after GUI onLoadingCompleted",
+          "[.dwg_chicun_stray8_gui]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+  graphic.onLoadingCompleted();
+
+  const auto result =
+      chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0);
+  std::cout << "\n=== stray8_gui hits=" << result.hits.size()
+            << " countDeep=" << graphic.countDeep() << " ===\n";
+  for (const auto &h : result.hits) {
+    std::cout << "  " << h.type.toStdString() << " (" << h.p1.x << ","
+              << h.p1.y << ") dist=" << h.dist
+              << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+  chicun::assertProbeEmpty(result, 1000.0);
+}
+
+// Snap-style: nearest point on CUSH-chain arc curves to phantom coordinate.
+//   ./librecad_tests "[.dwg_chicun_stray8_snap]" -s
+TEST_CASE("DWG 2带尺寸图库: stray8 nearest-on-arc snap distance",
+          "[.dwg_chicun_stray8_snap]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+  graphic.onLoadingCompleted();
+
+  const RS_Vector target(-1099671.573, 492101.3029);
+  double best = std::numeric_limits<double>::infinity();
+  QString bestChain;
+  RS_Vector bestPt(false);
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityArc)
+      continue;
+    if (!chicun::insertChain(e).contains(QStringLiteral("CUSH")))
+      continue;
+    double dist = 0.0;
+    const RS_Vector on =
+        static_cast<RS_Arc *>(e)->getNearestPointOnEntity(target, true, &dist);
+    if (dist < best) {
+      best = dist;
+      bestChain = chicun::insertChain(e);
+      bestPt = on;
+    }
+  }
+  std::cout << "\n=== stray8_snap nearest CUSH arc point: (" << bestPt.x
+            << "," << bestPt.y << ") dist=" << best
+            << " chain=" << bestChain.toStdString() << " ===\n";
+  CHECK(best > 1000.0);
+}
+
+// Second vertex of stray5-D phantom cluster (~557 units from D).
+//   ./librecad_tests "[.dwg_chicun_stray8]" -s
+TEST_CASE("DWG 2带尺寸图库: entities near (-1099671.57,492101.30)",
+          "[.dwg_chicun_stray8]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  const double tx = -1099671.573, ty = 492101.3029;
+  const double tol = 50.0;
+
+  struct NearHit {
+    QString type;
+    QString layer;
+    quint32 handle = 0;
+    RS_Vector p1;
+    RS_Vector p2;
+    QString insertChain;
+    double dist = 0;
+  };
+  std::vector<NearHit> hits;
+
+  auto dist = [&](const RS_Vector &p) {
+    return std::hypot(p.x - tx, p.y - ty);
+  };
+  auto insertChain = [](RS_Entity *e) {
+    QString chain;
+    for (RS_Entity *p = e; p; p = p->getParent()) {
+      if (p->rtti() != RS2::EntityInsert)
+        continue;
+      if (!chain.isEmpty())
+        chain += " <- ";
+      chain += static_cast<RS_Insert *>(p)->getName();
+    }
+    return chain;
+  };
+  auto consider = [&](const QString &type, RS_Entity *e, const RS_Vector &p1,
+                      const RS_Vector &p2 = RS_Vector(false)) {
+    const double d = p2.valid ? std::min(dist(p1), dist(p2)) : dist(p1);
+    if (d > tol)
+      return;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    hits.push_back({type, layer, e->sourceHandle(), p1, p2, insertChain(e), d});
+  };
+
+  NearHit globalBest;
+  globalBest.dist = std::numeric_limits<double>::infinity();
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString layer =
+        e->getLayer() ? e->getLayer()->getName() : QStringLiteral("(none)");
+    auto updateGlobal = [&](const QString &type, const RS_Vector &p) {
+      const double d = dist(p);
+      if (d < globalBest.dist)
+        globalBest = {type, layer, e->sourceHandle(), p, RS_Vector(false),
+                      insertChain(e), d};
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      consider("LINE", e, l->getStartpoint(), l->getEndpoint());
+      updateGlobal("LINE_SP", l->getStartpoint());
+      updateGlobal("LINE_EP", l->getEndpoint());
+      break;
+    }
+    case RS2::EntityPolyline: {
+      auto *pl = static_cast<RS_Polyline *>(e);
+      RS_Vector prev(false);
+      for (RS_Entity *v : *pl) {
+        if (!v)
+          continue;
+        RS_Vector pt = v->getStartpoint();
+        consider("PLINE_VTX", e, pt);
+        if (prev.valid)
+          consider("PLINE_SEG", e, prev, pt);
+        updateGlobal("PLINE_VTX", pt);
+        prev = pt;
+      }
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      consider("ARC_CTR", e, a->getCenter());
+      consider("ARC_SP", e, a->getStartpoint());
+      consider("ARC_EP", e, a->getEndpoint());
+      updateGlobal("ARC_CTR", a->getCenter());
+      updateGlobal("ARC_SP", a->getStartpoint());
+      updateGlobal("ARC_EP", a->getEndpoint());
+      break;
+    }
+    case RS2::EntityCircle:
+      consider("CIRCLE", e, static_cast<RS_Circle *>(e)->getCenter());
+      updateGlobal("CIRCLE", static_cast<RS_Circle *>(e)->getCenter());
+      break;
+    case RS2::EntityInsert:
+      consider("INSERT", e,
+               static_cast<RS_Insert *>(e)->getInsertionPoint());
+      break;
+    default:
+      break;
+    }
+  }
+
+  std::cout << "\n=== chicun stray8 (-1099671,492101) tol=" << tol << " ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << " hits=" << hits.size()
+            << "\n";
+  for (const auto &h : hits) {
+    std::cout << "  " << h.type.toStdString() << " (" << h.p1.x << ","
+              << h.p1.y << ") dist=" << h.dist
+              << " insert=" << h.insertChain.toStdString() << "\n";
+  }
+  if (globalBest.dist < std::numeric_limits<double>::infinity()) {
+    std::cout << "global closest: " << globalBest.type.toStdString() << " ("
+              << globalBest.p1.x << "," << globalBest.p1.y
+              << ") dist=" << globalBest.dist
+              << " insert=" << globalBest.insertChain.toStdString() << "\n";
+  }
+
+  CHECK(hits.empty());
+  if (globalBest.dist < std::numeric_limits<double>::infinity())
+    CHECK(globalBest.dist > 1000.0);
+}
+
+// Sofa Y-mirror phantom regression: stray8/stray5-D negative + real arc positive.
+//   ./librecad_tests "[.dwg_chicun_sofa]" -s
+TEST_CASE("DWG 2带尺寸图库: sofa phantom and real arc anchors",
+          "[.dwg_chicun_sofa]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  const auto stray8 =
+      chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0);
+  const auto stray5d =
+      chicun::probeResolvedGeometry(graphic, -1099318.43, 492532.476, 50.0);
+  chicun::assertProbeEmpty(stray8, 600.0);
+  chicun::assertProbeEmpty(stray5d, 1100.0);
+
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
+}
+
+// Resolved model-space bbox must not be driven by phantom/stray extrema.
+//   ./librecad_tests "[.dwg_chicun_bbox]" -s
+TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
+          "[.dwg_chicun_bbox]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+  graphic.onLoadingCompleted();
+  graphic.calculateBorders();
+
+  const RS_Vector bmin = graphic.getMin();
+  const RS_Vector bmax = graphic.getMax();
+  const double spanX = bmax.x - bmin.x;
+  const double spanY = bmax.y - bmin.y;
+  std::cout << "\n=== chicun bbox ===\n";
+  std::cout << "min=(" << bmin.x << "," << bmin.y << ") max=(" << bmax.x
+            << "," << bmax.y << ")\n";
+  std::cout << "span=(" << spanX << "," << spanY << ")\n";
+
+  const auto corners = chicun::findBboxCornerDrivers(graphic, 5.0);
+  std::cout << "corner drivers=" << corners.size() << "\n";
+  for (std::size_t i = 0; i < corners.size() && i < 20; ++i) {
+    const auto &h = corners[i];
+    std::cout << "  corner=" << h.corner << " " << h.type.toStdString()
+              << " (" << h.p.x << "," << h.p.y << ")"
+              << " chain=" << h.insertChain.toStdString() << "\n";
+  }
+  const double boundTol = 15.0;
+  int west = 0, east = 0, south = 0, north = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    std::vector<std::pair<QString, RS_Vector>> pts;
+    chicun::collectProbePoints(e, chicun::insertChain(e), pts);
+    for (const auto &[type, p] : pts) {
+      if (!p.valid)
+        continue;
+      if (std::fabs(p.x - bmin.x) < boundTol) {
+        ++west;
+        if (west <= 3)
+          std::cout << "  west " << type.toStdString() << " (" << p.x << ","
+                    << p.y << ") " << chicun::insertChain(e).toStdString()
+                    << "\n";
+      }
+      if (std::fabs(p.x - bmax.x) < boundTol) {
+        ++east;
+        if (east <= 3)
+          std::cout << "  east " << type.toStdString() << " (" << p.x << ","
+                    << p.y << ") " << chicun::insertChain(e).toStdString()
+                    << "\n";
+      }
+      if (std::fabs(p.y - bmin.y) < boundTol) {
+        ++south;
+        if (south <= 3)
+          std::cout << "  south " << type.toStdString() << " (" << p.x << ","
+                    << p.y << ") " << chicun::insertChain(e).toStdString()
+                    << "\n";
+      }
+      if (std::fabs(p.y - bmax.y) < boundTol) {
+        ++north;
+        if (north <= 3)
+          std::cout << "  north " << type.toStdString() << " (" << p.x << ","
+                    << p.y << ") " << chicun::insertChain(e).toStdString()
+                    << "\n";
+      }
+    }
+  }
+  std::cout << "bound hits west=" << west << " east=" << east
+            << " south=" << south << " north=" << north << "\n";
+  int envWest = 0, envEast = 0, envSouth = 0, envNorth = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    e->calculateBorders();
+    const RS_Vector emin = e->getMin();
+    const RS_Vector emax = e->getMax();
+    if (!emin.valid || !emax.valid)
+      continue;
+    if (std::fabs(emin.x - bmin.x) < boundTol) {
+      ++envWest;
+      if (envWest <= 3)
+        std::cout << "  env-west " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emax.x - bmax.x) < boundTol) {
+      ++envEast;
+      if (envEast <= 3)
+        std::cout << "  env-east " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emin.y - bmin.y) < boundTol) {
+      ++envSouth;
+      if (envSouth <= 3)
+        std::cout << "  env-south " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emax.y - bmax.y) < boundTol) {
+      ++envNorth;
+      if (envNorth <= 3)
+        std::cout << "  env-north " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+  }
+  std::cout << "envelope west=" << envWest << " east=" << envEast
+            << " south=" << envSouth << " north=" << envNorth << "\n";
+
+  CHECK_FALSE(chicun::phantomNear(bmin));
+  CHECK_FALSE(chicun::phantomNear(bmax));
+  for (const auto &h : corners)
+    CHECK_FALSE(chicun::phantomNear(h.p));
+
+  for (const auto &t : chicun::kPhantoms) {
+    chicun::assertProbeEmpty(
+        chicun::probeResolvedGeometry(graphic, t.x, t.y, t.tol),
+        t.minGlobalDist);
+  }
+
+  // Post-fix envelope: stray6 west/north phantoms gone; north/east extrema are
+  // real CUSH arcs (~835k), not Y-mirror phantom band (~492k).
+  CHECK(spanX < 4.0e6);
+  CHECK(spanY < 3.2e6);
+  CHECK(bmax.x < 1.34e6);
+  CHECK(bmin.x > -2.24e6);
+  CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
+  CHECK(bmax.y > 8.0e5);
+
+  // 015/A$C446327FF ellipses must not sit in stray6 phantom band (misplaced INSERT).
+  int stray6Band = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityEllipse)
+      continue;
+    if (!chicun::insertChain(e).contains(QStringLiteral("A$C446327FF")))
+      continue;
+    e->calculateBorders();
+    const RS_Vector emin = e->getMin();
+    if (emin.x < -2.0e6 && emin.y > 1.5e6)
+      ++stray6Band;
+  }
+  std::cout << "A$C446327FF ellipses in stray6 bbox band=" << stray6Band << "\n";
+  CHECK(stray6Band == 0);
+}
+
+// Audit A$C446327FF / 015 insert transform (bbox west/north drivers).
+//   ./librecad_tests "[.dwg_chicun_015_audit]" -s
+TEST_CASE("DWG 2带尺寸图库: 015 insert transform audit",
+          "[.dwg_chicun_015_audit]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  RS_Block *blk015 = graphic.findBlock(QStringLiteral("015"));
+  REQUIRE(blk015 != nullptr);
+  blk015->calculateBorders();
+  std::cout << "\n=== block 015 def ===\n";
+  std::cout << "base=" << blk015->getBasePoint().x << ","
+            << blk015->getBasePoint().y << " min=(" << blk015->getMin().x
+            << "," << blk015->getMin().y << ") max=(" << blk015->getMax().x
+            << "," << blk015->getMax().y << ")\n";
+  int ell = 0;
+  for (RS_Entity *e : *blk015) {
+    if (!e || e->rtti() != RS2::EntityEllipse)
+      continue;
+    ++ell;
+    if (ell <= 3) {
+      auto *el = static_cast<RS_Ellipse *>(e);
+      std::cout << "  ell ctr=(" << el->getCenter().x << ","
+                << el->getCenter().y << ")\n";
+    }
+  }
+  std::cout << "block ellipses=" << ell << "\n";
+
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() != QStringLiteral("A$C446327FF"))
+      continue;
+    const RS_Vector sc = ins->getScale();
+    std::cout << "top A$C446327FF ip=(" << ins->getInsertionPoint().x << ","
+              << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+              << sc.y << "," << sc.z << ") ext.z="
+              << ins->getData().extrusion.z << " ang=" << ins->getAngle()
+              << "\n";
+    break;
+  }
+
+  RS_Vector sampleCtr(false);
+  int resolved015Ell = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    const QString chain = chicun::insertChain(e);
+    if (!chain.contains(QStringLiteral("A$C446327FF"))
+        || !chain.contains(QStringLiteral("015")))
+      continue;
+    if (e->rtti() == RS2::EntityEllipse) {
+      ++resolved015Ell;
+      if (!sampleCtr.valid)
+        sampleCtr = static_cast<RS_Ellipse *>(e)->getCenter();
+    }
+  }
+  std::cout << "resolved 015 ellipses=" << resolved015Ell;
+  if (sampleCtr.valid)
+    std::cout << " sampleCtr=(" << sampleCtr.x << "," << sampleCtr.y << ")";
+  std::cout << "\n";
+  CHECK(resolved015Ell == 92);
+  REQUIRE(sampleCtr.valid);
+  CHECK(std::hypot(sampleCtr.x - 230585.0, sampleCtr.y - 61374.0) < 700.0);
+}
+
+// LNG-13 / A$C38DF2CE2 / A$C64247511 wipeout south-bbox audit.
+//   ./librecad_tests "[.dwg_chicun_lng13_audit]" -s
+TEST_CASE("DWG 2带尺寸图库: LNG-13 wipeout insert audit",
+          "[.dwg_chicun_lng13_audit]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+  graphic.onLoadingCompleted();
+  graphic.calculateBorders();
+
+  const RS_Vector bmin = graphic.getMin();
+  const RS_Vector bmax = graphic.getMax();
+  std::cout << "\n=== LNG-13 audit ===\n";
+  std::cout << "bbox min=(" << bmin.x << "," << bmin.y << ") max=(" << bmax.x
+            << "," << bmax.y << ")\n";
+
+  RS_Block *lng = graphic.findBlock(QStringLiteral("LNG-13"));
+  REQUIRE(lng != nullptr);
+  lng->calculateBorders();
+  std::cout << "LNG-13 block base=(" << lng->getBasePoint().x << ","
+            << lng->getBasePoint().y << ") min=(" << lng->getMin().x << ","
+            << lng->getMin().y << ") max=(" << lng->getMax().x << ","
+            << lng->getMax().y << ")\n";
+  int wipeDef = 0;
+  for (RS_Entity *e : *lng) {
+    if (!e || e->rtti() != RS2::EntityWipeout)
+      continue;
+    e->calculateBorders();
+    std::cout << "  def wipe emin=(" << e->getMin().x << "," << e->getMin().y
+              << ") emax=(" << e->getMax().x << "," << e->getMax().y << ")\n";
+    ++wipeDef;
+  }
+  std::cout << "LNG-13 def wipeouts=" << wipeDef << "\n";
+
+  for (const char *outer : {"A$C38DF2CE2", "A$C64247511"}) {
+    RS_Block *ob = graphic.findBlock(QString::fromLatin1(outer));
+    if (!ob)
+      continue;
+    ob->calculateBorders();
+    std::cout << outer << " block base=(" << ob->getBasePoint().x << ","
+              << ob->getBasePoint().y << ") min=(" << ob->getMin().x << ","
+              << ob->getMin().y << ") max=(" << ob->getMax().x << ","
+              << ob->getMax().y << ")\n";
+    for (RS_Entity *e : *ob) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      const RS_Vector sc = ins->getScale();
+      std::cout << "  " << outer << " child INSERT " << ins->getName().toStdString()
+                << " ip=(" << ins->getInsertionPoint().x << ","
+                << ins->getInsertionPoint().y << ") sc=(" << sc.x << "," << sc.y
+                << ") ang=" << ins->getAngle() << "\n";
+    }
+  }
+
+  for (const char *insName :
+       {"A$C38DF2CE2", "A$C64247511"}) {
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      if (ins->getName() != QString::fromLatin1(insName))
+        continue;
+      const RS_Vector sc = ins->getScale();
+      std::cout << "model INSERT " << insName << " ip=("
+                << ins->getInsertionPoint().x << ","
+                << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+                << sc.y << "," << sc.z << ") ext.z="
+                << ins->getData().extrusion.z << " ang=" << ins->getAngle()
+                << "\n";
+    }
+  }
+
+  int southBand = 0;
+  int westBand = 0;
+  const double southY = -1.24092e6;
+  const double westX = -1.10031e6;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntityWipeout)
+      continue;
+    const QString chain = chicun::insertChain(e);
+    if (!chain.contains(QStringLiteral("LNG-13")))
+      continue;
+    e->calculateBorders();
+    const RS_Vector emin = e->getMin();
+    const RS_Vector emax = e->getMax();
+    if (std::fabs(emin.y - southY) < 2.0e4)
+      ++southBand;
+    if (std::fabs(emin.x - westX) < 2.0e4)
+      ++westBand;
+    if (southBand + westBand <= 6)
+      std::cout << "resolved wipe emin=(" << emin.x << "," << emin.y
+                << ") emax=(" << emax.x << "," << emax.y
+                << ") chain=" << chain.toStdString() << "\n";
+  }
+  std::cout << "resolved LNG-13 wipeouts southBand=" << southBand
+            << " westBand=" << westBand << "\n";
+
+  const auto stray4a =
+      chicun::probeResolvedGeometry(graphic, 104517.7659, -1239995.976, 50.0);
+  const auto stray4b =
+      chicun::probeResolvedGeometry(graphic, 57585.03448, -1240174.235, 50.0);
+  std::cout << "stray4A hits=" << stray4a.hits.size()
+            << " globalBest=" << stray4a.globalBest.dist
+            << " stray4B hits=" << stray4b.hits.size()
+            << " globalBest=" << stray4b.globalBest.dist << "\n";
+
+  CHECK(stray4a.hits.empty());
+  CHECK(stray4b.hits.empty());
+  SUCCEED("audit complete");
+}
+
+// ACEB10.dwg (R11/AC1009): bbox audit for misplaced INSERT/phantom extrema.
+//   ./librecad_tests "[.dwg_aceb10_bbox]" -s
+TEST_CASE("DWG ACEB10: resolved bbox audit", "[.dwg_aceb10_bbox]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg3/ACEB10.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("ACEB10.dwg not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+  graphic.onLoadingCompleted();
+  graphic.calculateBorders();
+
+  std::cout << "ACADVER="
+            << graphic.getVariableString("$ACADVER", "(none)").toStdString()
+            << "\n";
+
+  const RS_Vector bmin = graphic.getMin();
+  const RS_Vector bmax = graphic.getMax();
+  const double spanX = bmax.x - bmin.x;
+  const double spanY = bmax.y - bmin.y;
+  std::cout << "\n=== ACEB10 bbox ===\n";
+  std::cout << "min=(" << bmin.x << "," << bmin.y << ") max=(" << bmax.x
+            << "," << bmax.y << ")\n";
+  std::cout << "span=(" << spanX << "," << spanY << ")\n";
+
+  const auto corners = chicun::findBboxCornerDrivers(graphic, 5.0);
+  std::cout << "corner drivers=" << corners.size() << "\n";
+  for (std::size_t i = 0; i < corners.size() && i < 30; ++i) {
+    const auto &h = corners[i];
+    std::cout << "  corner=" << h.corner << " " << h.type.toStdString()
+              << " (" << h.p.x << "," << h.p.y << ")"
+              << " chain=" << h.insertChain.toStdString() << "\n";
+  }
+
+  const double boundTol = 5.0;
+  int envWest = 0, envEast = 0, envSouth = 0, envNorth = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    e->calculateBorders();
+    const RS_Vector emin = e->getMin();
+    const RS_Vector emax = e->getMax();
+    if (!emin.valid || !emax.valid)
+      continue;
+    if (std::fabs(emin.x - bmin.x) < boundTol) {
+      ++envWest;
+      if (envWest <= 5)
+        std::cout << "  env-west " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emax.x - bmax.x) < boundTol) {
+      ++envEast;
+      if (envEast <= 5)
+        std::cout << "  env-east " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emin.y - bmin.y) < boundTol) {
+      ++envSouth;
+      if (envSouth <= 5)
+        std::cout << "  env-south " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+    if (std::fabs(emax.y - bmax.y) < boundTol) {
+      ++envNorth;
+      if (envNorth <= 5)
+        std::cout << "  env-north " << rttiName(e->rtti()) << " emin=("
+                  << emin.x << "," << emin.y << ") emax=(" << emax.x << ","
+                  << emax.y << ") " << chicun::insertChain(e).toStdString()
+                  << "\n";
+    }
+  }
+  std::cout << "envelope west=" << envWest << " east=" << envEast
+            << " south=" << envSouth << " north=" << envNorth << "\n";
+
+  int modelInserts = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    ++modelInserts;
+    auto *ins = static_cast<RS_Insert *>(e);
+    const RS_Vector sc = ins->getScale();
+    std::cout << "model INSERT " << ins->getName().toStdString() << " ip=("
+              << ins->getInsertionPoint().x << ","
+              << ins->getInsertionPoint().y << ") sc=(" << sc.x << "," << sc.y
+              << ") ang=" << ins->getAngle() << "\n";
+  }
+  std::cout << "model INSERT count=" << modelInserts << "\n";
+
+  int straySolids = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->rtti() != RS2::EntitySolid)
+      continue;
+    e->calculateBorders();
+    const RS_Vector emin = e->getMin();
+    const RS_Vector emax = e->getMax();
+    if (emin.x > -5.0)
+      continue;
+    ++straySolids;
+    if (straySolids <= 10) {
+      auto *s = static_cast<RS_Solid *>(e);
+      const RS_Vector c1 = s->getCorner(0);
+      const RS_Vector c4 = s->getCorner(3);
+      QString parents;
+      for (RS_Entity *p = e->getParent(); p; p = p->getParent()) {
+        if (!parents.isEmpty())
+          parents += " <- ";
+        parents += rttiName(p->rtti());
+        if (p->rtti() == RS2::EntityInsert)
+          parents += "(" + static_cast<RS_Insert *>(p)->getName() + ")";
+      }
+      std::cout << "stray Solid emin=(" << emin.x << "," << emin.y
+                << ") emax=(" << emax.x << "," << emax.y << ") chain="
+                << chicun::insertChain(e).toStdString() << " parents="
+                << parents.toStdString() << " c1=(" << c1.x << "," << c1.y
+                << ") c4=(" << c4.x << "," << c4.y << ")\n";
+    }
+  }
+  std::cout << "stray solids (x<-5)=" << straySolids << "\n";
+
+  int modelSolids = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntitySolid)
+      continue;
+    ++modelSolids;
+    e->calculateBorders();
+    if (modelSolids <= 8) {
+      auto *s = static_cast<RS_Solid *>(e);
+      std::cout << "model Solid #" << modelSolids << " emin=(" << e->getMin().x
+                << "," << e->getMin().y << ") c1=(" << s->getCorner(0).x << ","
+                << s->getCorner(0).y << ")\n";
+    }
+  }
+  std::cout << "model-space solids=" << modelSolids << "\n";
+
+  int starDBlocks = 0;
+  for (int i = 0; i < graphic.getBlockList()->count(); ++i) {
+    RS_Block *blk = graphic.getBlockList()->at(i);
+    if (!blk || !blk->getName().startsWith(QStringLiteral("*D")))
+      continue;
+    ++starDBlocks;
+    blk->calculateBorders();
+    int solids = 0;
+    for (RS_Entity *e : *blk) {
+      if (e && e->rtti() == RS2::EntitySolid)
+        ++solids;
+    }
+    if (starDBlocks <= 8)
+      std::cout << "*D block " << blk->getName().toStdString() << " min=("
+                << blk->getMin().x << "," << blk->getMin().y << ") max=("
+                << blk->getMax().x << "," << blk->getMax().y << ") solids="
+                << solids << "\n";
+  }
+  std::cout << "*D blocks=" << starDBlocks << "\n";
+
+  struct SolidAuditIface : public CountingIface {
+    int blockDepth = 0;
+    QString currentBlock;
+    void addBlock(const DRW_Block &b) override {
+      CountingIface::addBlock(b);
+      currentBlock = QString::fromUtf8(b.name.c_str());
+      ++blockDepth;
+    }
+    void endBlock() override {
+      --blockDepth;
+      if (blockDepth <= 0) {
+        blockDepth = 0;
+        currentBlock.clear();
+      }
+    }
+    void addSolid(const DRW_Solid &e) override {
+      CountingIface::addSolid(e);
+      const double minX = std::min({e.basePoint.x, e.secPoint.x, e.thirdPoint.x,
+                                    e.fourPoint.x});
+      if (blockDepth == 0)
+        ++modelSolids;
+      ++solidsLogged;
+      (void)minX;
+    }
+    int solidsLogged = 0;
+    int modelSolids = 0;
+  } drwAudit;
+  const DwgResult drw = readDwg(path, false, &drwAudit);
+  std::cout << "DRW solids delivered=" << drwAudit.solidsLogged
+            << " model-scope=" << drwAudit.modelSolids << "\n";
+  REQUIRE(drw.ok);
+
+  std::cout << "RS blocks total=" << graphic.countBlocks() << "\n";
+  for (int i = 0; i < graphic.getBlockList()->count(); ++i) {
+    RS_Block *blk = graphic.getBlockList()->at(i);
+    if (!blk)
+      continue;
+    const QString n = blk->getName();
+    if (n.contains(QLatin1Char('*')) || n.startsWith(QLatin1String("EB10")))
+      std::cout << "RS block " << n.toStdString() << " ents=" << blk->count()
+                << "\n";
+  }
+
+  for (const char *blkName :
+       {"EB10-LEFT", "EB10-FRONT", "EB10-TOP", "EB10-RIGHT", "EB10-REAR",
+        "EB10-BOTTOM", "MOUNTINGKIT-EB4-LEFT", "LABEL"}) {
+    RS_Block *blk = graphic.findBlock(QString::fromLatin1(blkName));
+    if (!blk)
+      continue;
+    blk->calculateBorders();
+    std::cout << "block " << blkName << " base=(" << blk->getBasePoint().x
+              << "," << blk->getBasePoint().y << ") min=(" << blk->getMin().x
+              << "," << blk->getMin().y << ") max=(" << blk->getMax().x << ","
+              << blk->getMax().y << ") count=" << blk->count() << "\n";
+    int solids = 0;
+    for (RS_Entity *e : *blk) {
+      if (!e || e->rtti() != RS2::EntitySolid)
+        continue;
+      e->calculateBorders();
+      if (solids < 3) {
+        std::cout << "  def solid emin=(" << e->getMin().x << ","
+                  << e->getMin().y << ") emax=(" << e->getMax().x << ","
+                  << e->getMax().y << ")\n";
+      }
+      ++solids;
+    }
+    if (solids)
+      std::cout << "  def solids=" << solids << "\n";
+  }
+
+  CHECK(bmin.x > -5.0);
+  CHECK(bmax.x < 50.0);
+  CHECK(bmin.y > -1.0);
+  CHECK(bmax.y < 40.0);
+  CHECK(straySolids == 0);
+}
+
+// CUSH/sofa insert chain diagnostic.
+//   ./librecad_tests "[.dwg_chicun_cush_diag]" -s
+TEST_CASE("DWG 2带尺寸图库: CUSH sofa insert chain diagnostic",
+          "[.dwg_chicun_cush_diag]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  RS_Block *cushBlk = graphic.findBlock(QStringLiteral("CUSH"));
+  REQUIRE(cushBlk != nullptr);
+  cushBlk->calculateBorders();
+  std::cout << "\n=== CUSH block def ===\n";
+  std::cout << "base=(" << cushBlk->getBasePoint().x << ","
+            << cushBlk->getBasePoint().y << ") min=(" << cushBlk->getMin().x
+            << "," << cushBlk->getMin().y << ") max=(" << cushBlk->getMax().x
+            << "," << cushBlk->getMax().y << ")\n";
+  int arcDef = 0;
+  for (RS_Entity *e : *cushBlk) {
+    if (!e || e->rtti() != RS2::EntityArc)
+      continue;
+    auto *a = static_cast<RS_Arc *>(e);
+    std::cout << "  def ARC ctr=(" << a->getCenter().x << ","
+              << a->getCenter().y << ") ep=(" << a->getEndpoint().x << ","
+              << a->getEndpoint().y << ")\n";
+    if (++arcDef >= 4)
+      break;
+  }
+
+  auto dumpInsert = [&](const QString &name) {
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      if (ins->getName() != name)
+        continue;
+      const RS_Vector sc = ins->getScale();
+      std::cout << "model INSERT " << name.toStdString() << " ip=("
+                << ins->getInsertionPoint().x << ","
+                << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+                << sc.y << ") ang=" << ins->getAngle() << "\n";
+    }
+    for (int i = 0; i < graphic.getBlockList()->count(); ++i) {
+      RS_Block *b = graphic.getBlockList()->at(i);
+      if (!b || !b->getName().contains(QStringLiteral("sofa")))
+        continue;
+      for (RS_Entity *e : *b) {
+        if (!e || e->rtti() != RS2::EntityInsert)
+          continue;
+        auto *ins = static_cast<RS_Insert *>(e);
+        if (!ins->getName().contains(QStringLiteral("CUSH")))
+          continue;
+        const RS_Vector sc = ins->getScale();
+        std::cout << "block " << b->getName().toStdString() << " INSERT "
+                  << ins->getName().toStdString() << " ip=("
+                  << ins->getInsertionPoint().x << ","
+                  << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+                  << sc.y << ") ang=" << ins->getAngle() << "\n";
+      }
+    }
+  };
+  RS_Block *sofaBlk = graphic.findBlock(QStringLiteral("sofa 1"));
+  if (sofaBlk) {
+    for (RS_Entity *e : *sofaBlk) {
+      if (!e || e->rtti() != RS2::EntityInsert)
+        continue;
+      auto *ins = static_cast<RS_Insert *>(e);
+      if (ins->getName() != QStringLiteral("sofa 1")
+          && ins->getName() != QStringLiteral("CUSH"))
+        continue;
+      const RS_Vector sc = ins->getScale();
+      std::cout << "sofa1 block INSERT " << ins->getName().toStdString()
+                << " ip=(" << ins->getInsertionPoint().x << ","
+                << ins->getInsertionPoint().y << ") sc=(" << sc.x << ","
+                << sc.y << ") ang=" << ins->getAngle() << "\n";
+    }
+  }
+  dumpInsert(QStringLiteral("A$C28F40C54"));
+
+  int resolvedArc = 0;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || !chicun::insertChain(e).contains(QStringLiteral("CUSH")))
+      continue;
+    if (e->rtti() == RS2::EntityArc) {
+      auto *a = static_cast<RS_Arc *>(e);
+      std::cout << "resolved ARC ctr=(" << a->getCenter().x << ","
+                << a->getCenter().y << ") ep=(" << a->getEndpoint().x << ","
+                << a->getEndpoint().y << ") chain="
+                << chicun::insertChain(e).toStdString() << "\n";
+      if (++resolvedArc >= 6)
+        break;
+    }
+  }
+  SUCCEED("diagnostic only");
+}
+
+// Single-load phantom suite for 2带尺寸图库.dwg.
+//   ./librecad_tests "[.dwg_chicun_phantoms]" -s
+TEST_CASE("DWG 2带尺寸图库: consolidated phantom geometry probes",
+          "[.dwg_chicun_phantoms]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  std::cout << "\n=== chicun phantoms single-load ===\n";
+  std::cout << "countDeep=" << graphic.countDeep() << "\n";
+
+  for (const auto &t : chicun::kPhantoms) {
+    const auto result =
+        chicun::probeResolvedGeometry(graphic, t.x, t.y, t.tol);
+    std::cout << "  " << t.label << " hits=" << result.hits.size();
+    if (result.globalBest.dist < std::numeric_limits<double>::infinity())
+      std::cout << " globalBest=" << result.globalBest.dist;
+    std::cout << "\n";
+    chicun::assertProbeEmpty(result, t.minGlobalDist);
+  }
+  chicun::assertStray3OcsPositive(graphic);
+
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, true, 700.0));
+}
+
+// Double updateInserts must not move resolved geometry or reintroduce phantoms.
+//   ./librecad_tests "[.dwg_chicun_insert_idempotent]" -s
+TEST_CASE("DWG 2带尺寸图库: updateInserts idempotence",
+          "[.dwg_chicun_insert_idempotent]") {
+  if (chicun::fixturePath().empty()) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+  chicun::ensureTestApp();
+  RS_Graphic graphic;
+  REQUIRE(chicun::importFixture(graphic));
+
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  chicun::assertProbeEmpty(
+      chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0),
+      600.0);
+
+  graphic.updateInserts();
+
+  CHECK(chicun::findCushArcEpNearY(graphic, 834595.0, false, 700.0));
+  chicun::assertProbeEmpty(
+      chicun::probeResolvedGeometry(graphic, -1099671.573, 492101.3029, 50.0),
+      600.0);
+}
+
+// Block-definition audit: WCS-in-block must stay absolute; parametric blocks
+// must re-center onto basePoint.
+//   ./librecad_tests "[.dwg_chicun_blocks]" -s
+TEST_CASE("DWG 2带尺寸图库: block normalization guards",
+          "[.dwg_chicun_blocks]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path = std::string(home) + "/doc/dwg4/2带尺寸图库.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+
+  RS_Block *esfs = graphic.findBlock(QStringLiteral("esfsfdds"));
+  REQUIRE(esfs != nullptr);
+  esfs->calculateBorders();
+  CHECK(esfs->getMin().x > 100000.0);
+  CHECK(esfs->getMin().y < -100000.0);
+
+  RS_Block *fgh = graphic.findBlock(QStringLiteral("fghfdh567567"));
+  REQUIRE(fgh != nullptr);
+  fgh->calculateBorders();
+  CHECK(fgh->getMin().x < -200000.0);
+
+  RS_Block *deng1 = graphic.findBlock(QStringLiteral("deng1"));
+  REQUIRE(deng1 != nullptr);
+  RS_Vector deng1Ctr(false);
+  for (RS_Entity *e : *deng1) {
+    if (!e || e->rtti() != RS2::EntityCircle)
+      continue;
+    deng1Ctr = static_cast<RS_Circle *>(e)->getCenter();
+    break;
+  }
+  REQUIRE(deng1Ctr.valid);
+  CHECK(deng1Ctr.distanceTo(RS_Vector(0.0, 0.0)) < 1.0);
+
+  RS_Insert *esfsIns = nullptr;
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+    if (!e || e->rtti() != RS2::EntityInsert)
+      continue;
+    auto *ins = static_cast<RS_Insert *>(e);
+    if (ins->getName() != QStringLiteral("esfsfdds"))
+      continue;
+    if (ins->getParent() == nullptr
+        || ins->getParent()->rtti() != RS2::EntityGraphic)
+      continue;
+    esfsIns = ins;
+    break;
+  }
+  REQUIRE(esfsIns != nullptr);
+  const RS_Vector grip = esfsIns->getInsertionPoint();
+  double nearestGeom = std::numeric_limits<double>::infinity();
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e)
+      continue;
+    auto probe = [&](const RS_Vector &p) {
+      QString chain;
+      for (RS_Entity *pEnt = e; pEnt; pEnt = pEnt->getParent()) {
+        if (pEnt->rtti() != RS2::EntityInsert)
+          continue;
+        if (!chain.isEmpty())
+          chain += " <- ";
+        chain += static_cast<RS_Insert *>(pEnt)->getName();
+      }
+      if (!chain.contains(QStringLiteral("esfsfdds")))
+        return;
+      nearestGeom = std::min(nearestGeom, p.distanceTo(grip));
+    };
+    switch (e->rtti()) {
+    case RS2::EntityLine: {
+      auto *l = static_cast<RS_Line *>(e);
+      probe(l->getStartpoint());
+      probe(l->getEndpoint());
+      break;
+    }
+    case RS2::EntityArc: {
+      auto *a = static_cast<RS_Arc *>(e);
+      probe(a->getStartpoint());
+      probe(a->getEndpoint());
+      break;
+    }
+    default:
+      break;
+    }
+  }
+  CHECK(nearestGeom > 5000.0);
+}
+
+// tArch / architectural detail fixture (AC1021, ~104k entities, Chinese names).
+//   ./librecad_tests "[.dwg_jiedian]" -s
+TEST_CASE("DWG 全国通用节点详细解析: libdxfrw + filter load",
+          "[.dwg_jiedian]") {
+  const char *home = getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg4/全国通用节点详细解析.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("fixture not present; skipping");
+    return;
+  }
+
+  dwgR reader(path.c_str());
+  TypeTrackingIface iface;
+  REQUIRE(reader.read(&iface, true));
+  REQUIRE(reader.getError() == DRW::BAD_NONE);
+  int total = 0;
+  for (const auto &kv : iface.typeCounts)
+    total += kv.second;
+  CHECK(total >= 100000);
+  CHECK(iface.blocks >= 900);
+  CHECK(iface.layers >= 70);
+  CHECK(reader.getEntityParseFailures() == 0);
+  CHECK(iface.typeCounts["LINE"] >= 60000);
+  CHECK(iface.typeCounts["HATCH"] >= 3000);
+  CHECK(iface.layerEntities["c-装饰线"] >= 1000);
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QCoreApplication *qapp = QCoreApplication::instance()
+                                      ? QCoreApplication::instance()
+                                      : new QCoreApplication(qargc, qargv);
+  static bool settingsReady = [] {
+    QCoreApplication::setOrganizationName("LibreCAD");
+    QCoreApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  REQUIRE(filter.fileImport(graphic, QString::fromStdString(path),
+                            RS2::FormatDWG));
+  CHECK(graphic.countDeep() >= 100000);
+
+  std::cout << "\n=== 全国通用节点详细解析 load audit ===\n";
+  std::cout << "libdxfrw entities=" << total
+            << " filter countDeep=" << graphic.countDeep()
+            << " blocks=" << graphic.countBlocks()
+            << " parseFail=" << reader.getEntityParseFailures() << "\n";
 }
 
 // Scans the corpus for WIPEOUT entities (custom-class oType >= 500 with class

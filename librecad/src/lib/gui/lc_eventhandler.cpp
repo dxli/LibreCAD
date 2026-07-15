@@ -117,6 +117,10 @@ void LC_EventHandler::mouseReleaseEvent(QMouseEvent* e) {
 }
 
 void LC_EventHandler::mouseMoveEvent(QMouseEvent* e) {
+    if (m_graphicView != nullptr && m_graphicView->isClosing()) {
+        e->accept();
+        return;
+    }
     if (hasAction()) {
         auto current = m_currentAction; // keep alive in case it self-switches mid-dispatch
         current->mouseMoveEvent(e);
@@ -400,6 +404,10 @@ RS_ActionInterface* LC_EventHandler::getDefaultAction() const {
  * Sets the default action.
  */
 void LC_EventHandler::setDefaultAction(RS_ActionInterface* action) {
+    if (m_graphicView != nullptr && m_graphicView->isClosing()) {
+        delete action;
+        return;
+    }
     if (m_defaultAction) {
         m_defaultAction->finish();
     }
@@ -410,6 +418,12 @@ void LC_EventHandler::setDefaultAction(RS_ActionInterface* action) {
  * Kills all running actions. Called when a window is closed.
  */
 bool LC_EventHandler::killAllActions() {
+    // beginClose()/quiesceForClose() may already have run (e.g. doClose() calls
+    // w->close(), which re-enters doClose() via closeEvent).
+    if (m_graphicView != nullptr && m_graphicView->isClosing()) {
+        return true;
+    }
+
     bool mayTerminate = true;
     RS2::ActionType prevActionRtti = RS2::ActionNone;
     if (m_currentAction != nullptr) {
@@ -431,16 +445,45 @@ bool LC_EventHandler::killAllActions() {
         if (m_QAction != nullptr) {
             m_QAction->setChecked(false);
             m_QAction = nullptr;
-            m_graphicView->notifyCurrentActionChanged(defaultActionRtti);
+            if (m_graphicView != nullptr) {
+                m_graphicView->notifyCurrentActionChanged(defaultActionRtti);
+            }
         }
 
+        if (m_defaultAction) {
+            if (!m_defaultAction->isFinished()) {
+                m_defaultAction->finish();
+            }
+            m_defaultAction->init(0);
+            if (m_graphicView != nullptr) {
+                m_graphicView->onSwitchToDefaultAction(true, defaultActionRtti,
+                                                      prevActionRtti);
+            }
+        }
+    }
+    return mayTerminate;
+}
+
+void LC_EventHandler::quiesceForClose() {
+    if (isActive(m_currentAction)) {
+        m_currentAction->finish();
+        m_currentAction.reset();
+    }
+
+    if (m_QAction) {
+        m_QAction->setChecked(false);
+        m_QAction = nullptr;
+        if (m_graphicView != nullptr) {
+            m_graphicView->notifyCurrentActionChanged(RS2::ActionNone);
+        }
+    }
+
+    if (m_defaultAction) {
         if (!m_defaultAction->isFinished()) {
             m_defaultAction->finish();
         }
-        m_defaultAction->init(0);
-        m_graphicView->onSwitchToDefaultAction(true, defaultActionRtti, prevActionRtti);
+        m_defaultAction.reset();
     }
-    return mayTerminate;
 }
 
 /**
@@ -488,6 +531,12 @@ QAction* LC_EventHandler::getQAction() const {
 }
 
 void LC_EventHandler::setQAction(QAction* action) {
+    if (m_graphicView != nullptr && m_graphicView->isClosing()) {
+        if (action != nullptr && action->isCheckable()) {
+            action->setChecked(false);
+        }
+        return;
+    }
     if (action->isCheckable()) {
         if (!action->isChecked()) {
             action->setChecked(true);

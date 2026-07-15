@@ -1130,6 +1130,41 @@ QString RS_FilterDXFRW::lastError() const{
     return RS_FilterInterface::lastError();
 }
 
+namespace {
+
+// Pre-R13 DWG files often omit $ACADVER from the table snapshot delivered to
+// addHeader(), leaving m_version at the 1021 fallback during entity import.
+// Sniff the on-disk magic so import-time guards can key off AC1009 et al.
+int versionIdFromDwgMagic(const QString &filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly))
+        return 0;
+    const QByteArray magic = file.read(6);
+    if (magic.size() < 6)
+        return 0;
+    if (magic == "AC1009")
+        return 1009;
+    if (magic == "AC1012")
+        return 1012;
+    if (magic == "AC1014")
+        return 1014;
+    if (magic == "AC1015")
+        return 1015;
+    if (magic == "AC1018")
+        return 1018;
+    if (magic == "AC1021")
+        return 1021;
+    if (magic == "AC1024")
+        return 1024;
+    if (magic == "AC1027")
+        return 1027;
+    if (magic == "AC1032")
+        return 1032;
+    return 0;
+}
+
+} // namespace
+
 /**
  * Implementation of the method used for RS_Import to communicate
  * with this filter.
@@ -1189,6 +1224,10 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
 
 #ifdef DWGSUPPORT
     if (type == RS2::FormatDWG) {
+        const int magicVersion = versionIdFromDwgMagic(file);
+        if (magicVersion != 0)
+            m_version = magicVersion;
+
         dwgR dwgr(QFile::encodeName(file));
         RS_DEBUG->print("RS_FilterDXFRW::fileImport: reading DWG file");
         if (RS_DEBUG->getLevel()== RS_Debug::D_DEBUGGING)
@@ -1869,12 +1908,89 @@ void RS_FilterDXFRW::setBlock(const int handle) {
     }
 }
 
+namespace {
+
+// Dynamic/parametric furniture blocks (e.g. deng1, shafa2 in 2带尺寸图库.dwg)
+// often keep geometry at large absolute coordinates while basePoint stays (0,0).
+// Nested INSERT grips are spaced correctly but child geometry stays ~70k away
+// until entities are re-centered on the block base point.
+//
+// Skip blocks whose entity bbox already uses far-off absolute coordinates
+// (e.g. fghfdh567567 at ~(-903k, 548k) or esfsfdds at ~168k). Those blocks
+// store geometry in WCS inside block space; re-centering pulls them onto an
+// unrelated INSERT grip and leaves stray segments in model space.
+constexpr double kBlockBaseNormalizeMinDist = 10000.0;
+constexpr double kBlockAbsCoordSkip = 100000.0;
+
+void normalizeBlockGeometryToBase(RS_Block *block) {
+    if (block == nullptr || block->count() == 0)
+        return;
+
+    block->calculateBorders();
+    const RS_Vector min = block->getMin();
+    const RS_Vector max = block->getMax();
+    if (!min.valid || !max.valid)
+        return;
+
+    const RS_Vector base = block->getBasePoint();
+
+    const auto isAbsCoord = [](double v) {
+        return std::abs(v) > kBlockAbsCoordSkip;
+    };
+    if (isAbsCoord(min.x) || isAbsCoord(min.y) || isAbsCoord(max.x)
+            || isAbsCoord(max.y)) {
+        return;
+    }
+
+    // Blocks grown from basePoint outward include the base in their envelope.
+    if (base.x >= min.x && base.x <= max.x && base.y >= min.y
+            && base.y <= max.y) {
+        return;
+    }
+
+    const RS_Vector center = (min + max) * 0.5;
+    const double centerDist = center.distanceTo(base);
+    if (centerDist < kBlockBaseNormalizeMinDist)
+        return;
+
+    double maxInsertDist = 0.0;
+    bool hasInsertNearBase = false;
+    for (RS_Entity *e : *block) {
+        if (e == nullptr || e->rtti() != RS2::EntityInsert)
+            continue;
+        const double d =
+            static_cast<RS_Insert *>(e)->getInsertionPoint().distanceTo(base);
+        maxInsertDist = std::max(maxInsertDist, d);
+        if (d < kBlockBaseNormalizeMinDist)
+            hasInsertNearBase = true;
+    }
+
+    // WCS-in-block: child INSERT anchors sit with the geometry cluster, not at
+    // the block origin. Parametric blocks keep INSERT grips near base while
+    // geometry is stored at a large offset (deng1/shafa2).
+    if (!hasInsertNearBase && maxInsertDist > kBlockBaseNormalizeMinDist
+            && centerDist > kBlockBaseNormalizeMinDist
+            && maxInsertDist > centerDist * 0.25) {
+        return;
+    }
+
+    const RS_Vector offset = base - center;
+    for (RS_Entity *e : *block) {
+        if (e != nullptr)
+            e->move(offset);
+    }
+    block->calculateBorders();
+}
+
+} // namespace
+
 /**
  * Implementation of the method which closes blocks.
  */
 void RS_FilterDXFRW::endBlock() {
     if (m_currentContainer->rtti() == RS2::EntityBlock) {
-        const auto bk = static_cast<RS_Block*>(m_currentContainer);
+        auto bk = static_cast<RS_Block*>(m_currentContainer);
+        normalizeBlockGeometryToBase(bk);
         //remove unnamed blocks *D only if version != R12
         if (m_version != 1009) {
             if (bk->getName().startsWith("*D")) {
@@ -2069,6 +2185,14 @@ void RS_FilterDXFRW::addEllipse(const DRW_Ellipse& data) {
  * Implementation of the method which handles trace entities.
  */
 void RS_FilterDXFRW::addTrace(const DRW_Trace& data) {
+    // Pre-R13 (AC1009) typed LINEAR/ALIGNED dimensions rebuild arrows in
+    // RS_DimLinear/RS_DimAligned. ENTITIES-section SOLID/TRACE records are
+    // duplicate *D-block graphics (ACEB10 and peers); importing them inflates
+    // the model-space bbox with misplaced arrow triangles.
+    if (m_version == 1009 && m_currentContainer == m_graphic) {
+        return;
+    }
+
     RS_Solid* entity;
     const RS_Vector v1{data.basePoint.x, data.basePoint.y};
     const RS_Vector v2{data.secPoint.x, data.secPoint.y};
@@ -3006,15 +3130,18 @@ void RS_FilterDXFRW::addHelix(const DRW_Helix* data) {
 void RS_FilterDXFRW::addInsert(const DRW_Insert& data) {
     RS_DEBUG->print("RS_FilterDXF::addInsert");
 
-    const RS_Vector ip(data.basePoint.x, data.basePoint.y);
-    const RS_Vector sc(data.xscale, data.yscale);
-    const RS_Vector sp(data.colspace, data.rowspace);
+    RS_Vector ip(data.basePoint.x, data.basePoint.y);
+    RS_Vector sc(data.xscale, data.yscale, data.zscale);
+    RS_Vector sp(data.colspace, data.rowspace);
 
     //cout << "Insert: " << name << " " << ip << " " << cols << "/" << rows << endl;
 
-    const RS_InsertData d(QString::fromUtf8(data.name.c_str()), ip, sc, data.angle, data.colcount, data.rowcount, sp, nullptr,
-                          RS2::NoUpdate);
-    const auto entity = new RS_Insert(m_currentContainer, d);
+    RS_InsertData d( QString::fromUtf8(data.name.c_str()),
+                    ip, sc, data.angle,
+                    data.colcount, data.rowcount,
+					sp, nullptr, RS2::NoUpdate);
+    d.extrusion = RS_Vector(data.extPoint.x, data.extPoint.y, data.extPoint.z);
+    RS_Insert* entity = new RS_Insert(m_currentContainer, d);
     setEntityAttributes(entity, &data);
     RS_DEBUG->print("  id: %lu", entity->getId());
     //    entity->update();
@@ -5698,8 +5825,12 @@ void RS_FilterDXFRW::addHeader(const DRW_Header* data) {
     m_versionStr = acadver;
     acadver.replace(QRegularExpression("[a-zA-Z]"), "");
     bool ok;
-    m_version = acadver.toInt(&ok);
-    if (!ok) {
+    const int parsedVersion = acadver.toInt(&ok);
+    if (ok) {
+        m_version = parsedVersion;
+    } else if (m_version == 0) {
+        // Pre-R13 DWG may omit $ACADVER; fileImport primes m_version from the
+        // on-disk magic before entities are read.
         m_version = 1021;
     }
 

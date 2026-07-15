@@ -187,6 +187,22 @@ bool RS_GraphicView::killAllActionsWithResult() const {
     return true;
 }
 
+void RS_GraphicView::beginClose() {
+    if (m_closing) {
+        return;
+    }
+    m_closing = true;
+    m_bIsCleanUp = true;
+    setEnabled(false);
+    if (m_eventHandler != nullptr) {
+        m_eventHandler->quiesceForClose();
+    }
+}
+
+bool RS_GraphicView::isClosing() const {
+    return m_closing;
+}
+
 /**
  * Go back in menu or current action.
  */
