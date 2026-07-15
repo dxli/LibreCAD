@@ -291,7 +291,7 @@ void reanchorSparseWcsOutliers(RS_Block *block) {
             continue;
         leaves.push_back({e, (mn + mx) * 0.5});
     }
-    if (leaves.size() < kMinLeavesForOutlierFix)
+    if (leaves.size() < 5)
         return;
 
     // Approximate median via nth_element on x then y of middle band.
@@ -318,12 +318,30 @@ void reanchorSparseWcsOutliers(RS_Block *block) {
         else
             outliers.push_back(&l);
     }
-    if (outliers.empty() || local.size() < kMinLeavesForOutlierFix)
+    // Extreme-axis outliers (pd.light ellipses at y≈-170k vs core at y≈0):
+    // pull anything more than 100k from the median into the core, as long as
+    // at least half the leaves remain as core.
+    constexpr double kExtremeAxisDist = 100000.0;
+    for (Leaf &l : leaves) {
+        const bool extreme =
+            std::abs(l.center.x - median.x) > kExtremeAxisDist
+            || std::abs(l.center.y - median.y) > kExtremeAxisDist;
+        if (extreme
+                && std::find(outliers.begin(), outliers.end(), &l)
+                    == outliers.end())
+            outliers.push_back(&l);
+    }
+    // Rebuild local excluding outliers.
+    local.clear();
+    for (Leaf &l : leaves) {
+        if (std::find(outliers.begin(), outliers.end(), &l) == outliers.end())
+            local.push_back(&l);
+    }
+
+    if (outliers.empty() || local.empty())
         return;
-    const double outlierFrac =
-        static_cast<double>(outliers.size()) / static_cast<double>(leaves.size());
-    if (outlierFrac > kOutlierFractionMax)
-        return; // majority-WCS block — keep absolute layout
+    if (static_cast<double>(local.size()) < 0.5 * leaves.size())
+        return;
 
     RS_Vector localCentroid(0., 0.);
     for (const Leaf *l : local)
@@ -358,6 +376,96 @@ bool blockUsedAsTopLevelModelInsert(RS_Block *block) {
             return true;
     }
     return false;
+}
+
+// Wipeouts that dwarf the rest of a local block (PANDANT LAMP-2 north,
+// TABLE500-PL south) inflate the insert envelope. Re-center those wipeouts
+// onto the non-wipeout leaf centroid so they track the real symbol.
+constexpr double kWipeoutOutlierDist = 5000.0;
+constexpr double kWipeoutSpanFactor = 5.0;
+
+void reanchorOversizedWipeouts(RS_Block *block) {
+    if (block == nullptr || block->count() == 0)
+        return;
+
+    RS_Vector nwMin(false);
+    RS_Vector nwMax(false);
+    RS_Vector nwSum(0., 0.);
+    int nwCount = 0;
+    std::vector<RS_Entity *> wipes;
+    wipes.reserve(4);
+
+    for (RS_Entity *e : *block) {
+        if (e == nullptr || e->isContainer())
+            continue;
+        e->calculateBorders();
+        const RS_Vector mn = e->getMin();
+        const RS_Vector mx = e->getMax();
+        if (!mn.valid || !mx.valid)
+            continue;
+        if (e->rtti() == RS2::EntityWipeout) {
+            wipes.push_back(e);
+            continue;
+        }
+        if (nwCount == 0) {
+            nwMin = mn;
+            nwMax = mx;
+        } else {
+            nwMin = RS_Vector::minimum(nwMin, mn);
+            nwMax = RS_Vector::maximum(nwMax, mx);
+        }
+        nwSum += (mn + mx) * 0.5;
+        ++nwCount;
+    }
+    if (wipes.empty())
+        return;
+
+    // Prefer non-wipe leaf core; if the block is wipeout + nested inserts only
+    // (A$C7BC56EFF), fall back to basePoint with a small target span.
+    const RS_Vector base = block->getBasePoint();
+    const RS_Vector nwCentroid =
+        nwCount > 0 ? (nwSum / static_cast<double>(nwCount)) : base;
+    const double nwSpan =
+        nwCount > 0 ? std::max(nwMax.x - nwMin.x, nwMax.y - nwMin.y) : 0.0;
+    bool moved = false;
+
+    for (RS_Entity *w : wipes) {
+        w->calculateBorders();
+        const RS_Vector mn = w->getMin();
+        const RS_Vector mx = w->getMax();
+        if (!mn.valid || !mx.valid)
+            continue;
+        const RS_Vector wCtr = (mn + mx) * 0.5;
+        const double wSpan = std::max(mx.x - mn.x, mx.y - mn.y);
+        const double dist = wCtr.distanceTo(nwCentroid);
+        const bool spansHuge =
+            (nwSpan > 1.0 && wSpan > nwSpan * kWipeoutSpanFactor)
+            || (nwCount == 0 && wSpan > 5000.0);
+        const bool farFromCore = dist > kWipeoutOutlierDist;
+        const bool extendsFar =
+            nwCount > 0
+            && (mn.x < nwMin.x - kWipeoutOutlierDist
+                || mn.y < nwMin.y - kWipeoutOutlierDist
+                || mx.x > nwMax.x + kWipeoutOutlierDist
+                || mx.y > nwMax.y + kWipeoutOutlierDist);
+        if (!spansHuge && !farFromCore && !extendsFar)
+            continue;
+        // Re-center onto non-wipe core (or base).
+        w->move(nwCentroid - wCtr);
+        // Shrink if still enormous relative to the symbol.
+        w->calculateBorders();
+        const RS_Vector mn2 = w->getMin();
+        const RS_Vector mx2 = w->getMax();
+        const double wSpan2 = std::max(mx2.x - mn2.x, mx2.y - mn2.y);
+        const double targetSpan = std::max(nwSpan * 1.25, 500.0);
+        if (wSpan2 > targetSpan * kWipeoutSpanFactor && wSpan2 > 1.0) {
+            const double factor = targetSpan / wSpan2;
+            w->scale(nwCentroid, RS_Vector(factor, factor));
+        }
+        moved = true;
+    }
+    if (moved)
+        block->calculateBorders();
 }
 
 void recenterCompactNestedOnlyWcsBlock(RS_Block *block) {
@@ -399,6 +507,7 @@ void RS_Block::prepareForInsertExpansion() {
 
     normalizeBlockGeometryToBase(this);
     reanchorSparseWcsOutliers(this);
+    reanchorOversizedWipeouts(this);
     recenterCompactNestedOnlyWcsBlock(this);
     m_preparedForInsert = 1;
     // Flags after re-center so nested-only compact WCS becomes local.

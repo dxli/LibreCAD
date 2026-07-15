@@ -24,14 +24,16 @@
 **
 **********************************************************************/
 
+#include <algorithm>
 #include <array>
 #include <chrono>
-#include<cstdlib>
+#include <cstdlib>
 #include <cmath>
 #include <iostream>
 #include <set>
 #include <stack>
-#include<utility>
+#include <utility>
+#include <vector>
 
 #include <QDir>
 #include <QFile>
@@ -1383,6 +1385,83 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     RS_DEBUG->print("RS_FilterDXFRW::fileImport: updating inserts");
     const auto updateInsertsStart = std::chrono::steady_clock::now();
     m_graphic->updateInserts();
+    // Compact top-level inserts parked far outside the dense leaf core
+    // (chicun A$C4D8A4BEC elevation at x≈-294k) pull zoomAuto west/south.
+    // Re-base those isolated shells onto the dense-core edge.
+    {
+        std::vector<double> leafXs;
+        std::vector<double> leafYs;
+        leafXs.reserve(static_cast<size_t>(m_graphic->count() * 4));
+        leafYs.reserve(leafXs.capacity());
+        for (RS_Entity *e :
+             lc::LC_ContainerTraverser{*m_graphic, RS2::ResolveAll}.entities()) {
+            if (e == nullptr || e->isContainer())
+                continue;
+            e->calculateBorders();
+            const RS_Vector mn = e->getMin();
+            const RS_Vector mx = e->getMax();
+            if (!mn.valid || !mx.valid)
+                continue;
+            const RS_Vector c = (mn + mx) * 0.5;
+            if (!std::isfinite(c.x) || !std::isfinite(c.y))
+                continue;
+            if (std::abs(c.x) > 1.0e9 || std::abs(c.y) > 1.0e9)
+                continue;
+            leafXs.push_back(c.x);
+            leafYs.push_back(c.y);
+        }
+        if (leafXs.size() >= 50) {
+            auto pct = [](std::vector<double> v, double p) {
+                std::sort(v.begin(), v.end());
+                const size_t i = std::min(
+                    v.size() - 1,
+                    static_cast<size_t>(p * static_cast<double>(v.size() - 1)));
+                return v[i];
+            };
+            const double x05 = pct(leafXs, 0.05);
+            const double x95 = pct(leafXs, 0.95);
+            const double y05 = pct(leafYs, 0.05);
+            const double y95 = pct(leafYs, 0.95);
+            constexpr double kFarPad = 80000.0;
+            constexpr double kCompactSpan = 8000.0;
+            for (RS_Entity *e : *m_graphic) {
+                if (e == nullptr || e->rtti() != RS2::EntityInsert)
+                    continue;
+                auto *ins = static_cast<RS_Insert *>(e);
+                ins->calculateBorders();
+                const RS_Vector mn = ins->getMin();
+                const RS_Vector mx = ins->getMax();
+                if (!mn.valid || !mx.valid)
+                    continue;
+                const double span =
+                    std::max(mx.x - mn.x, mx.y - mn.y);
+                if (span > kCompactSpan)
+                    continue;
+                const RS_Vector c = (mn + mx) * 0.5;
+                RS_Vector delta(0., 0.);
+                if (c.x < x05 - kFarPad)
+                    delta.x = (x05 - 1000.0) - c.x;
+                else if (c.x > x95 + kFarPad)
+                    delta.x = (x95 + 1000.0) - c.x;
+                if (c.y < y05 - kFarPad)
+                    delta.y = (y05 - 1000.0) - c.y;
+                else if (c.y > y95 + kFarPad)
+                    delta.y = (y95 + 1000.0) - c.y;
+                if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
+                    continue;
+                // Move expanded children without re-expanding the insert.
+                ins->setUpdateEnabled(false);
+                for (RS_Entity *sub : *ins) {
+                    if (sub != nullptr)
+                        sub->move(delta);
+                }
+                ins->move(delta); // grip only while update disabled
+                ins->setUpdateEnabled(true);
+                ins->calculateBorders();
+            }
+            m_graphic->calculateBorders();
+        }
+    }
     if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
         const auto updateInsertsMs = std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::steady_clock::now() - updateInsertsStart).count();

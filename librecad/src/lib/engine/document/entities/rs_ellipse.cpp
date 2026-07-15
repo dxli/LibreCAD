@@ -250,7 +250,11 @@ void RS_Ellipse::calculateBorders() {
     }
     m_data.isArc = isnormal(m_data.angle1) || isnormal(m_data.angle2);
 
-    LC_Rect boundingBox = isEllipticArc() ? LC_Rect{getStartpoint(), getEndpoint()} : LC_Rect{};
+    // Full ellipses (a1=a2=0): start from center so empty LC_Rect does not leave
+    // a denormal max (pd.light chicun south). Arcs seed from start/end points.
+    LC_Rect boundingBox = isEllipticArc()
+                              ? LC_Rect{getStartpoint(), getEndpoint()}
+                              : LC_Rect{getCenter(), getCenter()};
 
     // x-range extremes are at this direction and its opposite, relative to the ellipse center
     const RS_Vector vpx{getMajorP().x, -getRatio() * getMajorP().y};
@@ -279,11 +283,13 @@ void RS_Ellipse::calculateBorders() {
 
 void RS_Ellipse::mergeBoundingBox(LC_Rect& boundingBox, const RS_Vector& direction) const {
     const double angle = direction.angle();
-    // Test the given direction and its opposite
-    for (const double a : {angle, angle + M_PI}) {
-        if (RS_Math::isAngleBetween(a, getAngle1(), getAngle2(), isReversed())) {
+    // Full ellipse: always include both axis extremes. Arc: only if the
+    // parametric angle lies on the arc (a1=a2=0 is full, not empty).
+    for (double a : {angle, angle + M_PI}) {
+        if (!isEllipticArc()
+                || RS_Math::isAngleBetween(a, getAngle1(), getAngle2(),
+                                           isReversed()))
             boundingBox = boundingBox.merge(getEllipsePoint(a));
-        }
     }
 }
 

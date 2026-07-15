@@ -3867,9 +3867,10 @@ void assertStray3OcsPositive(RS_Graphic &graphic) {
   CHECK(a4d8Ins->getData().extrusion.z < -0.5);
   CHECK(a4d8Ins->getScale().z < -0.4);
 
-  const double insX = -294193.370915374, insY = 48561.45784819595;
-  const double expX = insX + 0.5 * 77.14807952690171;
-  const double expY = insY + 0.5 * 219.9479471713712;
+  // Relative to the (possibly re-based) insert grip after dense-core re-base.
+  const RS_Vector ip = a4d8Ins->getInsertionPoint();
+  const double expX = ip.x + 0.5 * 77.14807952690171;
+  const double expY = ip.y + 0.5 * 219.9479471713712;
   int primaryCluster = 0;
   for (RS_Entity *e :
        lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
@@ -5379,10 +5380,10 @@ TEST_CASE("DWG 2带尺寸图库: entities near (-294315.21,48571.66)",
   CHECK(a4d8Ins->getData().extrusion.z < -0.5);
   CHECK(a4d8Ins->getScale().z < -0.4);
 
-  // Primary (+77,+220) cluster should remain near expected WCS after OCS fold.
-  const double insX = -294193.370915374, insY = 48561.45784819595;
-  const double expX = insX + 0.5 * 77.14807952690171;
-  const double expY = insY + 0.5 * 219.9479471713712;
+  // Primary (+77,+220) cluster relative to (possibly re-based) insert grip.
+  const RS_Vector ip = a4d8Ins->getInsertionPoint();
+  const double expX = ip.x + 0.5 * 77.14807952690171;
+  const double expY = ip.y + 0.5 * 219.9479471713712;
   int primaryCluster = 0;
   for (RS_Entity *e :
        lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
@@ -6707,24 +6708,23 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
         t.minGlobalDist);
   }
 
-  // Furniture + elevation catalog envelope after wipeout / nested-IP / mixed-
-  // block outlier / nested-only compact WCS re-center fixes
-  // (was ~963k×386k; now ~666k×126k; dense leaf core ~259k×50k).
-  CHECK(spanX < 7.0e5);
-  CHECK(spanY < 1.4e5);
+  // After W/N/S shrink: far elevation re-base, oversized wipeouts, ellipse
+  // full-border fix (was ~963k×386k; dense leaf core ~259k×50k).
+  CHECK(spanX < 4.0e5);
+  CHECK(spanY < 9.0e4);
   CHECK(bmax.x < 4.0e5);
-  CHECK(bmin.x > -3.5e5);
-  CHECK(bmax.y < 1.15e5);
-  CHECK(bmin.y > -2.5e4);
+  CHECK(bmin.x > -5.0e3);
+  CHECK(bmax.y < 8.0e4);
+  CHECK(bmin.y > -1.0e4);
   CHECK(std::fabs(bmax.y - 492101.0) > 1.0e5);
 
   // Draw-path envelope must obey the same limits (render-time border drivers).
-  CHECK(drawSpanX < 7.0e5);
-  CHECK(drawSpanY < 1.4e5);
+  CHECK(drawSpanX < 4.0e5);
+  CHECK(drawSpanY < 9.0e4);
   CHECK(drawEnv.max.x < 4.0e5);
-  CHECK(drawEnv.min.x > -3.5e5);
-  CHECK(drawEnv.max.y < 1.15e5);
-  CHECK(drawEnv.min.y > -2.5e4);
+  CHECK(drawEnv.min.x > -5.0e3);
+  CHECK(drawEnv.max.y < 8.0e4);
+  CHECK(drawEnv.min.y > -1.0e4);
   // Draw-path and container calculateBorders should agree closely (small
   // leaf vs insert-border differences allowed).
   CHECK(std::fabs(drawEnv.min.x - bmin.x) < 50.0);
