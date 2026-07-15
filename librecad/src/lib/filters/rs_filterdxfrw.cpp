@@ -1991,6 +1991,8 @@ void RS_FilterDXFRW::endBlock() {
     if (m_currentContainer->rtti() == RS2::EntityBlock) {
         auto bk = static_cast<RS_Block*>(m_currentContainer);
         normalizeBlockGeometryToBase(bk);
+        (void)bk->hasWcsEmbeddedGeometry();
+        (void)bk->hasWipeoutEntities();
         //remove unnamed blocks *D only if version != R12
         if (m_version != 1009) {
             if (bk->getName().startsWith("*D")) {

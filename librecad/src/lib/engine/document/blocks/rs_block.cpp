@@ -24,9 +24,10 @@
 **
 **********************************************************************/
 
-#include "rs_block.h"
+#include <cmath>
+#include <iostream>
 
-#include<iostream>
+#include "rs_block.h"
 
 #include "rs_blocklist.h"
 #include "rs_graphic.h"
@@ -205,11 +206,52 @@ QStringList RS_Block::findNestedInsert(const QString& bName) {
     return bnChain;
 }
 
+namespace {
+
+constexpr double kBlockAbsCoordSkip = 100000.0;
+
+bool blockEnvelopeHasWcsCoords(const RS_Vector &min, const RS_Vector &max) {
+    if (!min.valid || !max.valid)
+        return false;
+    const auto isAbsCoord = [](double v) {
+        return std::abs(v) > kBlockAbsCoordSkip;
+    };
+    return isAbsCoord(min.x) || isAbsCoord(min.y) || isAbsCoord(max.x)
+            || isAbsCoord(max.y);
+}
+
+} // namespace
+
+bool RS_Block::hasWcsEmbeddedGeometry() {
+    if (m_wcsEmbeddedGeometry >= 0)
+        return m_wcsEmbeddedGeometry != 0;
+
+    calculateBorders();
+    const bool wcs = blockEnvelopeHasWcsCoords(getMin(), getMax());
+    m_wcsEmbeddedGeometry = wcs ? 1 : 0;
+    return wcs;
+}
+
+bool RS_Block::hasWipeoutEntities() const {
+    if (m_hasWipeoutEntities >= 0)
+        return m_hasWipeoutEntities != 0;
+
+    bool found = false;
+    for (RS_Entity *e : *this) {
+        if (e != nullptr && e->rtti() == RS2::EntityWipeout) {
+            found = true;
+            break;
+        }
+    }
+    m_hasWipeoutEntities = found ? 1 : 0;
+    return found;
+}
+
 void RS_Block::addByBlockLine(const RS_Vector& start, const RS_Vector& end) {
     addByBlockEntity(new RS_Line(start, end));
 }
 
-void RS_Block::addByBlockEntity(const RS_Entity* entity) {
+void RS_Block::addByBlockEntity(RS_Entity* entity) {
     const RS_Pen byBlockPen(RS2::FlagByBlock, RS2::WidthByBlock, RS2::LineByBlock);
     entity->setPen(byBlockPen);
     addEntity(entity);

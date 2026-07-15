@@ -197,11 +197,22 @@ public:
     QStringList findNestedInsert(const QString& bName);
     void addByBlockLine(const RS_Vector& start, const RS_Vector& end);
 
-    void addByBlockEntity(const RS_Entity* entity);
+    void addByBlockEntity(RS_Entity* entity);
 
+
+    /**
+     * True when block geometry is stored at model-scale coordinates inside
+     * block space (envelope beyond +/-100k). Cached during DWG import.
+     */
+    bool hasWcsEmbeddedGeometry();
+
+    /** True when the block definition contains WIPEOUT entities. */
+    bool hasWipeoutEntities() const;
 
 protected:
     RS_BlockData m_data;
+    mutable signed char m_wcsEmbeddedGeometry = -1;
+    mutable signed char m_hasWipeoutEntities = -1;
 };
 
 #endif

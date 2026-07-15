@@ -48,24 +48,6 @@ namespace {
 constexpr double MIN_Scale_Factor = 1.0e-6;
 constexpr double kExtrusionPlaneTol = 1.0e-6;
 constexpr double kInsertAngleCompoundTol = 1.0e-9;
-// Match rs_filterdxfrw.cpp kBlockAbsCoordSkip — blocks whose envelope
-// reaches model-scale coordinates store WCS geometry inside block space.
-constexpr double kBlockAbsCoordSkip = 100000.0;
-
-bool blockHasWcsEmbeddedGeometry(RS_Block *block) {
-    if (block == nullptr || block->count() == 0)
-        return false;
-    block->calculateBorders();
-    const RS_Vector min = block->getMin();
-    const RS_Vector max = block->getMax();
-    if (!min.valid || !max.valid)
-        return false;
-    const auto isAbsCoord = [](double v) {
-        return std::abs(v) > kBlockAbsCoordSkip;
-    };
-    return isAbsCoord(min.x) || isAbsCoord(min.y) || isAbsCoord(max.x)
-            || isAbsCoord(max.y);
-}
 
 bool insertEntityReachesNegativeX(const RS_Entity *entity) {
     if (entity == nullptr)
@@ -260,6 +242,7 @@ void RS_Insert::update() {
                     m_data.cols, m_data.rows);
     RS_DEBUG->print("RS_Insert::update: block has %d entities",
                     blk->count());
+    const bool parentBlockWcs = blk->hasWcsEmbeddedGeometry();
         for(auto* e: *blk){
             for (int c=0; c<m_data.cols; ++c) {
 //            RS_DEBUG->print("RS_Insert::update: col %d", c);
@@ -282,19 +265,22 @@ void RS_Insert::update() {
                     if (e->rtti() == RS2::EntityInsert) {
                         const auto* childIns = static_cast<const RS_Insert*>(e);
                         RS_Block *childBlk = childIns->getBlockForInsert();
-                        const bool childWcs =
-                            blockHasWcsEmbeddedGeometry(childBlk);
+                        const bool childWcs = childBlk != nullptr
+                                && childBlk->hasWcsEmbeddedGeometry();
+                        const bool parentRotates =
+                            std::abs(m_data.angle) >= kInsertAngleCompoundTol;
+                        // WCS-in-block children with wipeouts (LNG-13) must expand
+                        // first so leaf geometry is not re-scaled in compound data.
+                        // Other WCS children at angle 0 keep the fast compound path.
+                        const bool needNestedExpand = parentRotates
+                                || (childWcs && childBlk != nullptr
+                                    && childBlk->hasWipeoutEntities());
+                        RS_Layer *childLayer = e->getLayer();
 
-                        // Parent without rotation: fold transform into child InsertData
-                        // then expand once (sofa/CUSH chain needs this path).
-                        // WCS-in-block children (LNG-13) must expand first so leaf
-                        // geometry is not re-scaled/rotated in compound InsertData.
-                        if (std::abs(m_data.angle) < kInsertAngleCompoundTol
-                                && !childWcs) {
+                        if (!needNestedExpand) {
                             auto* ne = new RS_Insert(this, childIns->getData());
                             ne->setOwner(true);
                             ne->setUpdateEnabled(false);
-                            RS_Layer *childLayer = e->getLayer();
                             if (childLayer != nullptr && childLayer->getName() == "0")
                                 ne->setLayer(getLayer());
                             ne->setVisible(getFlag(RS2::FlagVisible));
@@ -312,38 +298,21 @@ void RS_Insert::update() {
                             continue;
                         }
 
-                        // Parent rotates: expand child first, transform leaves.
-                        // Compounding fails when rotation and negative scale combine
-                        // (chicun 015/A$C446327FF bbox phantoms).
+                        // Parent rotates or WCS wipeout child: expand first,
+                        // then transform leaves. Compounding fails when rotation
+                        // and negative scale combine (chicun 015/A$C446327FF).
                         auto* childExpand = new RS_Insert(this, childIns->getData());
                         childExpand->setOwner(true);
                         childExpand->setUpdateEnabled(false);
-                        RS_Layer *childLayer = e->getLayer();
                         if (childLayer != nullptr && childLayer->getName() == "0")
                             childExpand->setLayer(getLayer());
                         childExpand->setVisible(getFlag(RS2::FlagVisible));
+                        childExpand->setSelected(isSelected());
+                        childExpand->setPen(updatePen(childExpand->getPen(false), getPen()));
                         childExpand->setUpdateEnabled(true);
                         childExpand->update();
 
-                        auto* childShell = new RS_Insert(this, childIns->getData());
-                        childShell->setOwner(true);
-                        childShell->setUpdateEnabled(false);
-                        if (childLayer != nullptr && childLayer->getName() == "0")
-                            childShell->setLayer(getLayer());
-                        childShell->setVisible(getFlag(RS2::FlagVisible));
-                        childShell->setSelected(isSelected());
-                        childShell->setPen(updatePen(childShell->getPen(false), getPen()));
-
-                        const QList<RS_Entity*> expanded = childExpand->getEntityList();
-                        for (RS_Entity* gc : expanded) {
-                            gc->setParent(childShell);
-                            childShell->appendEntity(gc);
-                        }
-                        childExpand->setOwner(false);
-                        childExpand->clear();
-                        delete childExpand;
-
-                        for (RS_Entity* gc : expanded) {
+                        for (RS_Entity* gc : *childExpand) {
                             if (gc->getLayer() != nullptr
                                     && gc->getLayer()->getName() == "0")
                                 gc->setLayer(getLayer());
@@ -358,8 +327,8 @@ void RS_Insert::update() {
                                 m_data.updateMode == RS2::PreviewUpdate,
                                 childWcs);
                         }
-                        childShell->calculateBorders();
-                        appendEntity(childShell);
+                        childExpand->calculateBorders();
+                        appendEntity(childExpand);
                         continue;
                     }
 
@@ -393,7 +362,7 @@ void RS_Insert::update() {
                     ne->setParent(this);
                     ne->setVisible(getFlag(RS2::FlagVisible));
 
-                    const bool wcsEmbedded = blockHasWcsEmbeddedGeometry(blk)
+                    const bool wcsEmbedded = parentBlockWcs
                             && ne->rtti() == RS2::EntityWipeout;
                     applyInsertTransformToEntity(
                         ne, arrayOffset, blk->getBasePoint(),
