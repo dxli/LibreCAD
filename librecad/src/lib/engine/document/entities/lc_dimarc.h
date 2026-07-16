@@ -93,13 +93,17 @@ public:
         return m_dimArcData.centre;
     }
 
+    void setCenter(const RS_Vector& v) {
+        m_dimArcData.centre = v;
+    }
+
     int getArcSymbol()  const { return m_dimArcData.arcSymbol; }
     bool getIsPartial() const { return m_dimArcData.isPartial; }
     bool getHasLeader() const { return m_dimArcData.hasLeader; }
     RS_Vector getLeaderPt1() const { return m_dimArcData.leaderPt1; }
     RS_Vector getLeaderPt2() const { return m_dimArcData.leaderPt2; }
 
-    QString getMeasuredLabel() override;
+    QString getMeasuredLabel()  override;
 
     void update() override;
 

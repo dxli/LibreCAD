@@ -95,4 +95,4 @@ private:
     std::uint32_t securityFlags;
 };
 
-#endif // DWGREADER18_H
+#endif

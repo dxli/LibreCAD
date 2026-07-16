@@ -14,6 +14,7 @@
 #ifndef LIBDXFRW_H
 #define LIBDXFRW_H
 
+#include <functional>
 #include <map>
 #include <memory>
 #include <string>

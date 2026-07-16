@@ -22,18 +22,40 @@
 **
 **********************************************************************/
 #include "lc_penpaletteoptions.h"
+
+#include <QApplication>
+#include <QPalette>
+
+#include "lc_iconcolorsoptions.h"
 #include "rs_settings.h"
 #include "rs_system.h"
+
+
+
+void LC_PenPaletteOptions::loadDefaults(bool isDark) {
+    QPalette palette = QApplication::palette();
+
+    if (isDark) {
+        activeItemBGColor = palette.color(QPalette::Mid);
+        matchedItemColor = QColor("blue");
+    }
+    else {
+        activeItemBGColor = palette.color(QPalette::Mid);
+        matchedItemColor = QColor("blue");
+    }
+}
+
 /**
  * Straightforwards storing options to settings
  */
-void LC_PenPaletteOptions:: loadFromSettings(){
+void LC_PenPaletteOptions::loadFromSettings(){
     LC_GROUP_GUARD("Widget.PenPalette");
     {
         LC_PenPaletteOptions defaults;
+        defaults.loadDefaults(LC_IconColorsOptions::isDarkColorScheme());
         activeItemBGColor = QColor(LC_GET_STR("activeItemBgColor", defaults.activeItemBGColor.name()));
         matchedItemColor = QColor(LC_GET_STR("matchedItemBgColor", defaults.matchedItemColor.name()));
-        itemsGridColor = QColor(LC_GET_STR("gridColor", defaults.itemsGridColor.name()));
+        showGrid = LC_GET_BOOL("showGrid", true);
 
         showToolTip = LC_GET_BOOL("showToolTip", defaults.showToolTip);
 
@@ -51,10 +73,10 @@ void LC_PenPaletteOptions:: loadFromSettings(){
         ignoreCaseOnMatch = LC_GET_BOOL("ignoreCaseOnMatch", defaults.ignoreCaseOnMatch);
         showNoSelectionMessage = LC_GET_BOOL("showNoSelectionMessage", defaults.showNoSelectionMessage);
 
-        colorNameDisplayMode = LC_GET_INT("colorDisplayMode", defaults.colorNameDisplayMode);
+        colorNameDisplayMode = static_cast<LC_PenInfoRegistry::ColorNameDisplayMode>(LC_GET_INT("colorDisplayMode", defaults.colorNameDisplayMode));
         doubleClickOnTableMode = LC_GET_INT("doubleClickOnTableMode", defaults.doubleClickOnTableMode);
 
-        QString settingsDir = LC_GET_ONE_STR("Paths", "OtherSettingsDir", RS_System::instance()->getAppDataDir()).trimmed();
+        const QString settingsDir = LC_GET_ONE_STR("Paths", "OtherSettingsDir", RS_System::instance()->getAppDataDir()).trimmed();
         pensFileName = settingsDir + "/penpalette.lcpp";
     }
 }
@@ -67,7 +89,7 @@ void LC_PenPaletteOptions::saveToSettings() const {
     {
         LC_SET("activeItemBgColor", activeItemBGColor.name());
         LC_SET("matchedItemBgColor", matchedItemColor.name());
-        LC_SET("gridColor", itemsGridColor.name());
+        LC_SET("showGrid", showGrid);
 
         LC_SET("showToolTip", showToolTip);
 

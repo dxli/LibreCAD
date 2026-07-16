@@ -128,6 +128,8 @@ public:
     /// Fixed character width of the back-patchable $HANDSEED value field.
     static constexpr int kHandseedFieldWidth = 8;
 
+    static int measurement(const int unit);
+
 protected:
     bool parseCode(int code, const std::unique_ptr<dxfReader>& reader);
     [[nodiscard]] bool parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer *hBbuf, std::uint8_t mv=0);
@@ -190,9 +192,7 @@ private:
     /// file.
     std::uint32_t handSeed {0};
 
-    int measurement(const int unit);
+
 };
 
 #endif
-
-// EOF

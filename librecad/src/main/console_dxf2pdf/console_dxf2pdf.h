@@ -27,4 +27,4 @@
 int console_dxf2pdf(int argc, char** argv);
 int console_dwg2pdf(int argc, char** argv);
 
-#endif // CONSOLE_DXF2PDF_H
+#endif

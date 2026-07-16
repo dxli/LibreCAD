@@ -24,25 +24,25 @@
 ** This copyright notice MUST APPEAR in all copies of the script!
 **
 **********************************************************************/
-#include<iostream>
+#include "qc_mdiwindow.h"
 
 #include <QCloseEvent>
 #include <QDir>
+#include <QMdiArea>
 #include <QPainter>
 #include <QPrintDialog>
 #include <QPrinter>
 #include <QMdiArea>
 #include <QVBoxLayout>
 #include <QWidget>
+#include<iostream>
 
 #include "lc_documentsstorage.h"
+#include "lc_fontfileviewer.h"
 #include "lc_graphicviewport.h"
 #include "lc_layouttabbar.h"
 #include "lc_printpreviewview.h"
 #include "qc_applicationwindow.h"
-#include "qc_mdiwindow.h"
-
-#include "lc_fontfileviewer.h"
 #include "qg_exitdialog.h"
 #include "rs_debug.h"
 #include "rs_settings.h"
@@ -53,17 +53,18 @@
  * @param doc Pointer to an existing document of NULL if a new
  *   document shall be created for this window.
  * @param parent An instance of QMdiArea.
+ * @param printPreview
+ * @param actionContext
  */
-QC_MDIWindow::QC_MDIWindow(RS_Document *doc, QWidget *parent, bool printPreview, LC_ActionContext* actionContext)
-    : QMdiSubWindow(parent, {Qt::WA_DeleteOnClose})
-    , m_owner{doc == nullptr}{
+QC_MDIWindow::QC_MDIWindow(RS_Document* doc, QWidget* parent, const bool printPreview, LC_ActionContext* actionContext)
+    : QMdiSubWindow(parent, {Qt::WA_DeleteOnClose}), m_owner{doc == nullptr} {
     setAttribute(Qt::WA_DeleteOnClose);
-    m_cadMdiArea=qobject_cast<QMdiArea*>(parent);
+    m_cadMdiArea = qobject_cast<QMdiArea*>(parent);
 
-    if (doc==nullptr) {
+    if (doc == nullptr) {
         RS_DEBUG->print("QC_MDIWindow constructor: creating new document");
         m_document = new RS_Graphic();
-        m_document->newDoc();
+        m_document->initForNewDocument();
 
         QString autosaveFilePrefix = LC_GET_ONE_STR("Path", "AutosaveFilePrefix", "#");
         QString autosaveFileName = QDir::tempPath() + "/" + autosaveFilePrefix + tr("Unnamed") + ".dxf";
@@ -80,9 +81,9 @@ QC_MDIWindow::QC_MDIWindow(RS_Document *doc, QWidget *parent, bool printPreview,
     setupGraphicView(parent, printPreview, actionContext);
 
     static unsigned idCounter = 0;
-    id = idCounter++;
+    m_id = idCounter++;
 
-    setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     addWidgetsListeners();
 }
 
@@ -91,7 +92,7 @@ QC_MDIWindow::QC_MDIWindow(RS_Document *doc, QWidget *parent, bool printPreview,
  *
  * Deletes the document associated with this window.
  */
-QC_MDIWindow::~QC_MDIWindow(){
+QC_MDIWindow::~QC_MDIWindow() {
     try {
         if (!(m_graphicView != nullptr && m_graphicView->isCleanUp())) {
             //do not clear layer/block lists, if application is being closed
@@ -101,27 +102,28 @@ QC_MDIWindow::~QC_MDIWindow(){
             }
             m_document = nullptr;
         }
-    } catch (...) {
+    }
+    catch (...) {
         LC_ERR << __func__ << "(): received exception";
     }
 }
 
-void QC_MDIWindow::setupGraphicView(QWidget *parent, bool printPreview, LC_ActionContext* actionContext){
-    if (printPreview){
+void QC_MDIWindow::setupGraphicView([[maybe_unused]]const QWidget* parent, const bool printPreview, LC_ActionContext* actionContext) {
+    if (printPreview) {
         m_graphicView = new LC_PrintPreviewView(this, m_document, actionContext);
         m_graphicView->initView();
     }
-    else{
+    else {
         m_graphicView = new QG_GraphicView(this, m_document, actionContext);
         m_graphicView->initView();
     }
     m_graphicView->setPrintPreview(printPreview);
     m_graphicView->setObjectName("graphicview");
 
-    auto receiver = dynamic_cast<QC_ApplicationWindow *>(parent->window());
-    if (receiver != nullptr) {
-        connect(m_graphicView, &RS_GraphicView::previous_zoom_state, receiver, &QC_ApplicationWindow::setPreviousZoomEnable);
-    }
+    // auto receiver = dynamic_cast<QC_ApplicationWindow *>(parent->window());
+    // if (receiver != nullptr) {
+    //     connect(m_graphicView, &RS_GraphicView::previous_zoom_state, receiver, &QC_ApplicationWindow::setPreviousZoomEnable);
+    // }
 
     if (printPreview) {
         // Print-preview windows don't show the layout tab bar — the
@@ -152,47 +154,40 @@ void QC_MDIWindow::setupGraphicView(QWidget *parent, bool printPreview, LC_Actio
     }
 }
 
-void QC_MDIWindow::addWidgetsListeners(){
+void QC_MDIWindow::addWidgetsListeners() {
     if (m_document != nullptr) {
-        RS_Graphic* graphic = m_document -> getGraphic();
-        if (graphic != nullptr) {
-            graphic->setModificationListener(this);
-        }
+       m_document->setModificationListener(this, true);
     }
 }
 
-void QC_MDIWindow::removeWidgetsListeners() const {
+void QC_MDIWindow::removeWidgetsListeners()  {
     if (m_document != nullptr) {
-        RS_Graphic* graphic = m_document -> getGraphic();
-        if (graphic != nullptr) {
-            graphic->setModificationListener(nullptr);
-        }
+        m_document->setModificationListener(this, false);
     }
 }
 
-
-QG_GraphicView* QC_MDIWindow::getGraphicView() const{
+QG_GraphicView* QC_MDIWindow::getGraphicView() const {
     return m_graphicView;
 }
 
-RS_Document* QC_MDIWindow::getDocument() const{
-	return m_document;
+RS_Document* QC_MDIWindow::getDocument() const {
+    return m_document;
 }
 
-unsigned QC_MDIWindow::getId() const{
-	return id;
+unsigned QC_MDIWindow::getId() const {
+    return m_id;
 }
 
 void QC_MDIWindow::setParentWindow(QC_MDIWindow* p) {
-	m_parentWindow = p;
+    m_parentWindow = p;
 }
 
 QC_MDIWindow* QC_MDIWindow::getParentWindow() const {
-	return m_parentWindow;
+    return m_parentWindow;
 }
 
 RS_Graphic* QC_MDIWindow::getGraphic() const {
-	return m_document->getGraphic();
+    return m_document->getGraphic();
 }
 
 /**
@@ -214,27 +209,27 @@ void QC_MDIWindow::addChildWindow(QC_MDIWindow* w) {
  * @see addChildWindow
  */
 void QC_MDIWindow::removeChildWindow(QC_MDIWindow* w) {
-  if(!m_childWindows.empty()){
-        if(m_childWindows.contains(w)){
+    if (!m_childWindows.empty()) {
+        if (m_childWindows.contains(w)) {
             m_childWindows.removeAll(w);
         }
     }
 }
 
-QList<QC_MDIWindow*>& QC_MDIWindow::getChildWindows(){
-	return m_childWindows;
+QList<QC_MDIWindow*>& QC_MDIWindow::getChildWindows() {
+    return m_childWindows;
 }
 
 /**
  * @return pointer to the print preview of this drawing or NULL.
  */
 QC_MDIWindow* QC_MDIWindow::getPrintPreview() {
-  for(auto* w: m_childWindows){
-    if(w != nullptr && w->getGraphicView()->isPrintPreview()){
-      return w;
+    for (auto* w : std::as_const(m_childWindows)) {
+        if (w != nullptr && w->getGraphicView()->isPrintPreview()) {
+            return w;
+        }
     }
-  }
-  return nullptr;
+    return nullptr;
 }
 
 /**
@@ -243,7 +238,7 @@ QC_MDIWindow* QC_MDIWindow::getPrintPreview() {
 // fixme - sand - files - fully delegate to main window ?
 void QC_MDIWindow::closeEvent(QCloseEvent* ce) {
     bool cancel = false;
-    bool hasParent = getParentWindow() != nullptr;
+    const bool hasParent = getParentWindow() != nullptr;
     const auto& appWin = QC_ApplicationWindow::getAppWindow();
 
     if (getDocument()->isModified() && !hasParent) {
@@ -271,19 +266,18 @@ void QC_MDIWindow::closeEvent(QCloseEvent* ce) {
                 break;
             case QG_ExitDialog::DontSave:
                 break;
-            case QG_ExitDialog::Cancel:
-            default:
+            case QG_ExitDialog::Cancel: default:
                 cancel = true;
                 break;
         }
     }
 
-
-    if (cancel){
+    if (cancel) {
         appWin->autoSaveCurrentDrawing();
         m_saveOnClosePolicy = CANCEL;
         ce->ignore();
-    } else {
+    }
+    else {
         appWin->doClose(this);
         appWin->doArrangeWindows(RS2::CurrentMode);
         ce->accept(); // handling delegated to QApplication
@@ -294,8 +288,8 @@ void QC_MDIWindow::closeEvent(QCloseEvent* ce) {
  * Called when the current pen (color, style, width) has changed.
  * Sets the active pen for the document in this MDI window.
  */
-void QC_MDIWindow::slotPenChanged(const RS_Pen& pen) {
-	if (m_document != nullptr) {
+void QC_MDIWindow::slotPenChanged(const RS_Pen& pen) const {
+    if (m_document != nullptr) {
         m_document->setActivePen(pen);
     }
 }
@@ -303,9 +297,9 @@ void QC_MDIWindow::slotPenChanged(const RS_Pen& pen) {
 /**
  * Creates a new empty document in this MDI window.
  */
-void QC_MDIWindow::slotFileNew() {
-	if (m_document != nullptr && m_graphicView != nullptr) {
-        m_document->newDoc();
+void QC_MDIWindow::slotFileNew() const {
+    if (m_document != nullptr && m_graphicView != nullptr) {
+        m_document->initForNewDocument();
         m_graphicView->redraw();
     }
 }
@@ -313,21 +307,20 @@ void QC_MDIWindow::slotFileNew() {
 /**
  * Creates a new document, loading template, in this MDI window.
  */
-bool QC_MDIWindow::loadDocumentFromTemplate(const QString& fileName, RS2::FormatType type) {
+bool QC_MDIWindow::loadDocumentFromTemplate(const QString& fileName, const RS2::FormatType type) const {
     return m_documentsStorage->loadDocumentFromTemplate(m_document, m_graphicView, fileName, type);
 }
 
 /**
  * Opens the given file in this MDI window.
  */
-bool QC_MDIWindow::loadDocument(const QString& fileName, RS2::FormatType type) {
+bool QC_MDIWindow::loadDocument(const QString& fileName, const RS2::FormatType type) {
     removeWidgetsListeners();
-    bool loaded = m_documentsStorage->loadDocument(m_document, fileName, type);
-    addWidgetsListeners();
+    const bool loaded = m_documentsStorage->loadDocument(m_document, fileName, type);
     if (loaded) {
-        RS_Graphic* graphic = m_document->getGraphic();
+        const RS_Graphic* graphic = m_document->getGraphic();
         if (graphic != nullptr) {
-            RS_GraphicView *gv = graphic->getGraphicView(); // fixme - eliminate this dependency!
+            const RS_GraphicView* gv = graphic->getGraphicView(); // fixme - eliminate this dependency!
             if (gv != nullptr) {
                 // fixme - sand - review and probably move initialization of UCS - as normal support of VIEWPORT will be available
                 // todo - not sure whether this is right place for setting up current wcs.
@@ -344,17 +337,22 @@ bool QC_MDIWindow::loadDocument(const QString& fileName, RS2::FormatType type) {
             // fixme - sand - move to upper layer
             drawChars();
             m_graphicView->zoomAuto(false);
-        } else
+        }
+        else {
             m_graphicView->redraw();
-    } else {
+        }
 
     }
+    else {
+    }
+    addWidgetsListeners();
     return loaded;
 }
 
 /**
  * Saves the current file.
  *
+ * @param cancelled
  * @param  isAutoSave true if this is an "autosave" operation.
  *                    false if this is "Save" operation requested
  *                    by the user.
@@ -362,14 +360,14 @@ bool QC_MDIWindow::loadDocument(const QString& fileName, RS2::FormatType type) {
  *         false if the file could not be saved or the document
  *         is invalid.
  */
-bool QC_MDIWindow::saveDocument(bool &cancelled, [[maybe_unused]]bool isAutoSave) {
-    bool result = m_documentsStorage->saveDocument(m_document, m_graphicView, cancelled);
+bool QC_MDIWindow::saveDocument(bool& cancelled, [[maybe_unused]] bool isAutoSave) {
+    const bool result = m_documentsStorage->saveDocument(m_document, m_graphicView, cancelled);
     setWindowModified(m_document->isModified());
     return result;
 }
 
-bool QC_MDIWindow::autoSaveDocument(QString& autosaveFileName){
-    bool result = m_documentsStorage->autoSaveDocument(m_document, m_graphicView, autosaveFileName);
+bool QC_MDIWindow::autoSaveDocument(QString& autosaveFileName) const {
+    const bool result = m_documentsStorage->autoSaveDocument(m_document, m_graphicView, autosaveFileName);
     return result;
 }
 
@@ -381,40 +379,40 @@ bool QC_MDIWindow::autoSaveDocument(QString& autosaveFileName){
  *         false if the file could not be saved or the document
  *         is invalid.
  */
-bool QC_MDIWindow::saveDocumentAs(bool &cancelled) {
-    bool result = m_documentsStorage->saveDocumentAs(m_document, m_graphicView, cancelled);
+bool QC_MDIWindow::saveDocumentAs(bool& cancelled) {
+    const bool result = m_documentsStorage->saveDocumentAs(m_document, m_graphicView, cancelled);
     setWindowModified(m_document->isModified());
     return result;
 }
 
-void QC_MDIWindow::zoomAuto() {
-	if(m_graphicView){
-        if(m_graphicView->isPrintPreview()){
+void QC_MDIWindow::zoomAuto() const {
+    if (m_graphicView != nullptr) {
+        if (m_graphicView->isPrintPreview()) {
             m_graphicView->getViewPort()->zoomPage();
-        }else{
+        }
+        else {
             m_graphicView->zoomAuto();
         }
     }
 }
 
-bool QC_MDIWindow::isModified(){
+bool QC_MDIWindow::isModified() const {
     return getDocument()->isModified();
 }
 
-void QC_MDIWindow::drawChars() {
-   LC_FontFileViewer viewer(m_document);
-   viewer.drawFontChars();
+void QC_MDIWindow::drawChars() const {
+    const LC_FontFileViewer viewer(m_document);
+    viewer.drawFontChars();
 }
 
 // fixme - sand - refactor printing in general!!!
 void QC_MDIWindow::slotFilePrint() {
-
     RS_DEBUG->print("QC_MDIWindow::slotFilePrint");
 
     //statusBar()->showMessage(tr("Printing..."));
     QPrinter printer;
     QPrintDialog dialog(&printer, this);
-    if (dialog.exec()) {
+    if (dialog.exec() != 0) {
         QPainter painter;
         painter.begin(&printer);
 
@@ -422,7 +420,7 @@ void QC_MDIWindow::slotFilePrint() {
         // TODO: Define printing by using the QPainter methods here
 
         painter.end();
-    };
+    }
 
     //statusBar()->showMessage(tr("Ready."));
 }
@@ -430,46 +428,46 @@ void QC_MDIWindow::slotFilePrint() {
 /**
  * Streams some info about an MDI window to stdout.
  */
-std::ostream& operator << (std::ostream& os, QC_MDIWindow& w) {
+std::ostream& operator <<(std::ostream& os, const QC_MDIWindow& w) {
     os << "QC_MDIWindow[" << w.getId() << "]:\n";
-	if (w.m_parentWindow) {
+    if (w.m_parentWindow != nullptr) {
         os << "  parentWindow: " << w.m_parentWindow->getId() << "\n";
-    } else {
+    }
+    else {
         os << "  parentWindow: nullptr\n";
     }
-    int i=0;
-    for(auto p: const_cast<const QList<QC_MDIWindow*>&>(w.m_childWindows)){
-		os << "  childWindow[" << i++ << "]: "
-		   << p->getId() << "\n";
-	}
+    int i = 0;
+    for (const auto p : const_cast<const QList<QC_MDIWindow*>&>(w.m_childWindows)) {
+        os << "  childWindow[" << i++ << "]: " << p->getId() << "\n";
+    }
     return os;
 }
 
 /**
  * Return true if this window has children (QC_MDIWindow).
  */
-bool QC_MDIWindow::has_children() const{
+bool QC_MDIWindow::hasChildren() const {
     return !m_childWindows.isEmpty();
 }
 
-void QC_MDIWindow::graphicModified([[maybe_unused]]const RS_Graphic* g, bool modified){
+void QC_MDIWindow::graphicModified([[maybe_unused]] const RS_Graphic* g, const bool modified) {
     setWindowModified(modified);
-    auto& appWin = QC_ApplicationWindow::getAppWindow();
-    if (appWin !=nullptr) {
+    const auto& appWin = QC_ApplicationWindow::getAppWindow();
+    if (appWin != nullptr) {
         appWin->setSaveEnable(modified);
     }
 }
 
-void QC_MDIWindow::undoStateChanged([[maybe_unused]]const RS_Graphic *g, bool undoAvailable, bool redoAvailable){
-    auto& appWin = QC_ApplicationWindow::getAppWindow();
-    if (appWin !=nullptr) {
+void QC_MDIWindow::undoStateChanged([[maybe_unused]] const RS_Document* g, const bool undoAvailable, const bool redoAvailable) {
+    const auto& appWin = QC_ApplicationWindow::getAppWindow();
+    if (appWin != nullptr) {
         appWin->setRedoEnable(redoAvailable);
         appWin->setUndoEnable(undoAvailable);
     }
 }
 
-QString QC_MDIWindow::getFileName() const{
-    RS_Graphic* graphic = m_document->getGraphic();
+QString QC_MDIWindow::getFileName() const {
+    const RS_Graphic* graphic = m_document->getGraphic();
     if (graphic == nullptr) {
         return "";
     }
