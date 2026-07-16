@@ -153,3 +153,75 @@ TEST_CASE("GUI import of makeall-plus.dwg counts entities", "[.dwg_makeall_gui]"
   std::cout << "entities in blocks: " << nBlockEnts << "\n";
   CHECK(nTop > 0);
 }
+
+TEST_CASE("GUI import of visualization_condominium.dwg counts entities", "[.dwg_condo]") {
+  const char *home = std::getenv("HOME");
+  if (!home) {
+    SUCCEED("HOME not set; skipping");
+    return;
+  }
+  const std::string path =
+      std::string(home) + "/doc/dwg/visualization_-_condominium_with_skylight.dwg";
+  if (!std::filesystem::is_regular_file(path)) {
+    SUCCEED("condo dwg not present; skipping");
+    return;
+  }
+
+  static int qargc = 1;
+  static char qarg0[] = "librecad_tests";
+  static char *qargv[] = {qarg0, nullptr};
+  static QApplication *qapp = [] {
+    auto *existing = qobject_cast<QApplication*>(QCoreApplication::instance());
+    return existing ? existing : new QApplication(qargc, qargv);
+  }();
+  static bool settingsReady = [] {
+    QApplication::setOrganizationName("LibreCAD");
+    QApplication::setApplicationName("LibreCAD-tests");
+    RS_Settings::init("LibreCAD", "LibreCAD-tests");
+    return true;
+  }();
+  (void)qapp;
+  (void)settingsReady;
+
+  RS_DEBUG->setLevel(RS_Debug::D_NOTHING);
+
+  RS_Graphic graphic;
+  RS_FilterDXFRW filter;
+  const bool imported =
+      filter.fileImport(graphic, QString::fromStdString(path), RS2::FormatDWG);
+  std::cout << "\n=== condo dwg GUI import ===\n";
+  std::cout << "imported: " << imported << "\n";
+  int nTop = 0, nBlocks = 0, nBlockEnts = 0;
+  for (auto *e : graphic) if (e) ++nTop;
+  nBlocks = graphic.countBlocks();
+  std::cout << "top-level: " << nTop << "\n";
+  std::cout << "blocks: " << nBlocks << "\n";
+  for (unsigned i = 0; i < nBlocks; ++i) {
+    auto* b = graphic.blockAt(i);
+    if (b) {
+      int cnt = 0;
+      for (auto *e : *b) if (e) ++cnt;
+      std::cout << "  Block '" << b->getName().toStdString() << "': " << cnt << " entities\n";
+      nBlockEnts += cnt;
+    }
+  }
+  std::cout << "entities in blocks: " << nBlockEnts << "\n";
+
+  std::cout << "\nlayers:\n";
+  for (unsigned i = 0; i < graphic.countLayers(); ++i) {
+    auto* l = graphic.layerAt(i);
+    if (l) {
+      std::cout << "  '" << l->getName().toStdString() << "' "
+                << (l->isFrozen() ? "FROZEN" : "visible") << "\n";
+    }
+  }
+
+  std::cout << "\ntop-level entity rtti types:\n";
+  std::map<int, int> topTypes;
+  for (auto *e : graphic) {
+    if (!e) continue;
+    topTypes[e->rtti()]++;
+  }
+  for (const auto& [t, c] : topTypes) std::cout << "  rtti=" << t << ": " << c << "\n";
+  REQUIRE(imported);
+}
