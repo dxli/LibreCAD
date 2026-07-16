@@ -1056,7 +1056,7 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_actiondrawlinesnake.cpp" line="577"></location>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຮອດຈຸດເລີ່ມຕົ້ນຂອງປະຫວັດແລ້ວ</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ຮອດຈຸດເລີ່ມຕົ້ນຂອງປະຫວັດແລ້ວ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_actiondrawlinesnake.cpp" line="614"></location>
@@ -1366,12 +1366,12 @@ or [%2]</source>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="265"></location>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="286"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຍັງບໍ່ມີການລະບຸອົງປະກອບພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ຍັງບໍ່ມີການລະບຸອົງປະກອບພຽງພໍ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="302"></location>
         <source>Cannot undo: Nothing could be redone.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ບໍ່ມີຫຍັງໃຫ້ເຮັດຄືນ.</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ບໍ່ມີຫຍັງໃຫ້ເຮັດຄືນ.</translation>
     </message>
 </context>
 <context>
@@ -2022,7 +2022,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="662"></location>
         <source>&amp;Undo</source>
-        <translation>&ຍົກເລີກ</translation>
+        <translation>&ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="663"></location>
@@ -3706,12 +3706,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayerscmd.cpp" line="53"></location>
         <source>activate</source>
-        <translation>ເປີດໃຊ້</translation>
+        <translation>activate</translation>
     </message>
     <message>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayerscmd.cpp" line="53"></location>
         <source>create</source>
-        <translation>ສ້າງ</translation>
+        <translation>create</translation>
     </message>
 </context>
 <context>
@@ -3720,13 +3720,13 @@ End Edge Point: (%9 , %10)</source>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayersexport.cpp" line="75"></location>
         <source>selected</source>
         <comment>Layers to export</comment>
-        <translation>ທີ່ເລືອກ</translation>
+        <translation>selected</translation>
     </message>
     <message>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayersexport.cpp" line="75"></location>
         <source>visible</source>
         <comment>Layers to export</comment>
-        <translation>ທີ່ເບິ່ງເຫັນ</translation>
+        <translation>visible</translation>
     </message>
 </context>
 <context>
@@ -4189,7 +4189,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="192"></location>
         <source> entities </source>
-        <translation>ອົງປະກອບ</translation>
+        <translation>entities</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="193"></location>
@@ -4414,7 +4414,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="86"></location>
         <source>group</source>
-        <translation>ກຸ່ມ</translation>
+        <translation>group</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="93"></location>
@@ -4424,7 +4424,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="100"></location>
         <source>name</source>
-        <translation>ຊື່</translation>
+        <translation>name</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="135"></location>
@@ -8419,7 +8419,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="199"></location>
         <source> ms</source>
-        <translation> ms</translation>
+        <translation>ms</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="218"></location>
@@ -8438,7 +8438,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="235"></location>
         <source> times</source>
-        <translation> ຄັ້ງ</translation>
+        <translation>times</translation>
     </message>
 </context>
 <context>
@@ -8758,12 +8758,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgwidgetcreator.cpp" line="424"></location>
         <source>menu</source>
-        <translation>ເມນູ</translation>
+        <translation>menu</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgwidgetcreator.cpp" line="427"></location>
         <source>toolbar</source>
-        <translation>ແຖບເຄື່ອງມື</translation>
+        <translation>toolbar</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgwidgetcreator.cpp" line="430"></location>
@@ -18026,7 +18026,7 @@ Please check its existence and permissions.</source>
         <location filename="../src/ui/qg_actionhandler.cpp" line="174"></location>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>ອອກ (Escape)</translation>
+        <translation>escape</translation>
     </message>
 </context>
 <context>
@@ -18213,7 +18213,7 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandedit.cpp" line="301"></location>
         <source>clear</source>
-        <translation>ລ້າງອອກ</translation>
+        <translation>clear</translation>
     </message>
 </context>
 <context>
@@ -18271,7 +18271,7 @@ Please check its existence and permissions.</source>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandwidget.cpp" line="258"></location>
         <source>escape</source>
         <comment>escape, go back from action steps</comment>
-        <translation>ອອກ (Escape)</translation>
+        <translation>escape</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandwidget.ui" line="54"></location>
@@ -20286,12 +20286,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="455"></location>
         <source>linear</source>
-        <translation>ເສັ້ນຊື່ (linear)</translation>
+        <translation>linear</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="551"></location>
         <source>angular</source>
-        <translation>ມຸມ (angular):</translation>
+        <translation>angular</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1272"></location>
@@ -20307,7 +20307,7 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1652"></location>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1700"></location>
         <source>units</source>
-        <translation>ຫົວໜ່ວຍ</translation>
+        <translation>units</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.cpp" line="1932"></location>
@@ -20574,7 +20574,7 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.cpp" line="1445"></location>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.cpp" line="1450"></location>
         <source>auto</source>
-        <translation>ອັດຕະໂນມັດ</translation>
+        <translation>auto</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="723"></location>
@@ -21547,7 +21547,7 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5619"></location>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5656"></location>
         <source> px</source>
-        <translation> px</translation>
+        <translation>px</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5538"></location>
@@ -22106,7 +22106,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1555"></location>
         <source>deg</source>
-        <translation>ອົງສາ</translation>
+        <translation>deg</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1668"></location>
@@ -22825,7 +22825,7 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2441"></location>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3850"></location>
         <source> pt</source>
-        <translation> pt</translation>
+        <translation>pt</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="504"></location>
@@ -23028,7 +23028,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4749"></location>
         <source> minutes</source>
-        <translation> ນາທີ</translation>
+        <translation>minutes</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4431"></location>
@@ -23587,7 +23587,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5475"></location>
         <source> degrees</source>
-        <translation> ອົງສາ</translation>
+        <translation>degrees</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5494"></location>
@@ -23884,7 +23884,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgoptionsvariables.ui" line="96"></location>
         <source>&amp;OK</source>
-        <translation>&amp;ຕົກລົງ</translation>
+        <translation>&ຕົກລົງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgoptionsvariables.ui" line="99"></location>
@@ -25211,7 +25211,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/file/export/image/qg_dlgimageoptions.ui" line="43"></location>
         <source>auto</source>
-        <translation>ອັດຕະໂນມັດ</translation>
+        <translation>auto</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/image/qg_dlgimageoptions.ui" line="258"></location>
@@ -25595,12 +25595,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="171"></location>
         <source>locked</source>
-        <translation>ລັອກແລ້ວ</translation>
+        <translation>locked</translation>
     </message>
     <message>
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="171"></location>
         <source>unlocked</source>
-        <translation>ປົດລັອກແລ້ວ</translation>
+        <translation>unlocked</translation>
     </message>
     <message>
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="176"></location>
@@ -26327,7 +26327,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="533"></location>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>polyline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="534"></location>
@@ -26339,7 +26339,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="486"></location>
         <source>free</source>
         <comment>draw freehand line</comment>
-        <translation>ອິດສະຫຼະ</translation>
+        <translation>free</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="488"></location>
@@ -26351,7 +26351,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="449"></location>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
+        <translation>spline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="451"></location>
@@ -26363,7 +26363,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="456"></location>
         <source>spline2</source>
         <comment>spline through points</comment>
-        <translation>ເສັ້ນໂຄ້ງຜ່ານຈຸດ (Spline2)</translation>
+        <translation>spline2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="458"></location>
@@ -26381,7 +26381,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="274"></location>
         <source>bisect</source>
         <comment>angle bisector</comment>
-        <translation>ແບ່ງເຄິ່ງມຸມ</translation>
+        <translation>bisect</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="273"></location>
@@ -26399,19 +26399,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="300"></location>
         <source>ortho</source>
         <comment>perpendicular line</comment>
-        <translation>ຕັ້ງສາກ</translation>
+        <translation>ortho</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="141"></location>
         <source>rect</source>
         <comment>draw rectangle</comment>
-        <translation>ສີ່ຫຼ່ຽມ</translation>
+        <translation>rect</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="332"></location>
         <source>polygon2v</source>
         <comment>polygon by 2 vertices</comment>
-        <translation>ຮູບຫຼາຍຫຼ່ຽມດ້ວຍ 2 ຈຸດ</translation>
+        <translation>polygon2v</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="334"></location>
@@ -26459,7 +26459,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="524"></location>
         <source>ellipseinscribed</source>
         <comment>inscribed ellipse</comment>
-        <translation>ວົງຮີໃນຮູບ</translation>
+        <translation>ellipseinscribed</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="525"></location>
@@ -26489,7 +26489,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="864"></location>
         <source>mtext</source>
         <comment>draw mtext</comment>
-        <translation>ຂໍ້ຄວາມຫຼາຍແຖວ (MText)</translation>
+        <translation>mtext</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="866"></location>
@@ -26513,13 +26513,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1024"></location>
         <source>regen</source>
         <comment>zoom - redraw</comment>
-        <translation>ສ້າງໃໝ່ (Regen)</translation>
+        <translation>regen</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1025"></location>
         <source>redraw</source>
         <comment>zoom - redraw</comment>
-        <translation>ແຕ້ມໃໝ່</translation>
+        <translation>redraw</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1026"></location>
@@ -26537,7 +26537,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1056"></location>
         <source>zoomwindow</source>
         <comment>zoom - window</comment>
-        <translation>ຂະຫຍາຍຕາມປ່ອງຢ້ຽມ</translation>
+        <translation>zoomwindow</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1057"></location>
@@ -26549,7 +26549,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1044"></location>
         <source>zoomauto</source>
         <comment>zoom - auto</comment>
-        <translation>ຂະຫຍາຍອັດຕະໂນມັດ</translation>
+        <translation>zoomauto</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1045"></location>
@@ -26561,7 +26561,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1062"></location>
         <source>zoompan</source>
         <comment>zoom - pan</comment>
-        <translation>ຂະຫຍາຍ ແລະ ເລື່ອນ</translation>
+        <translation>zoompan</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1063"></location>
@@ -26573,7 +26573,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1050"></location>
         <source>zoomprevious</source>
         <comment>zoom - previous</comment>
-        <translation>ຂະຫຍາຍກ່ອນໜ້າ</translation>
+        <translation>zoomprevious</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1051"></location>
@@ -26585,7 +26585,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="993"></location>
         <source>kill</source>
         <comment>kill all actions</comment>
-        <translation>ຢຸດການເຮັດວຽກທັງໝົດ</translation>
+        <translation>kill</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="995"></location>
@@ -26597,7 +26597,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1000"></location>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>ຍົກເລີກ</translation>
+        <translation>undo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1002"></location>
@@ -26610,7 +26610,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1007"></location>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>ເຮັດຄືນ</translation>
+        <translation>redo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1009"></location>
@@ -26622,13 +26622,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="629"></location>
         <source>dimaligned</source>
         <comment>dimension - aligned</comment>
-        <translation>ບອກຂະໜາດຕາມແນວ</translation>
+        <translation>dimaligned</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="652"></location>
         <source>dimhorizontal</source>
         <comment>dimension - horizontal</comment>
-        <translation>ບອກຂະໜາດແນວນອນ</translation>
+        <translation>dimhorizontal</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="653"></location>
@@ -26640,7 +26640,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="658"></location>
         <source>dimvertical</source>
         <comment>dimension - vertical</comment>
-        <translation>ບອກຂະໜາດແນວຕັ້ງ</translation>
+        <translation>dimvertical</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="659"></location>
@@ -26652,7 +26652,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="635"></location>
         <source>dimlinear</source>
         <comment>dimension - linear</comment>
-        <translation>ບອກຂະໜາດແນວເສັ້ນ</translation>
+        <translation>dimlinear</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="636"></location>
@@ -26664,7 +26664,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="678"></location>
         <source>dimangular</source>
         <comment>dimension - angular</comment>
-        <translation>ບອກຂະໜາດມຸມ</translation>
+        <translation>dimangular</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="680"></location>
@@ -26676,19 +26676,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="665"></location>
         <source>dimradial</source>
         <comment>dimension - radial</comment>
-        <translation>ບອກຂະໜາດລັດສະໝີ</translation>
+        <translation>dimradial</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="673"></location>
         <source>dimdiametric</source>
         <comment>dimension - diametric</comment>
-        <translation>ບອກຂະໜາດເສັ້ນຜ່ານສູນກາງ</translation>
+        <translation>dimdiametric</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="671"></location>
         <source>dimdiameter</source>
         <comment>dimension - diametric</comment>
-        <translation>ບອກຂະໜາດເສັ້ນຜ່ານສູນກາງ</translation>
+        <translation>dimdiameter</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="672"></location>
@@ -26700,7 +26700,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="685"></location>
         <source>dimleader</source>
         <comment>dimension - leader</comment>
-        <translation>ເສັ້ນຊີ້ນຳ (Leader)</translation>
+        <translation>dimleader</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="686"></location>
@@ -26712,13 +26712,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="691"></location>
         <source>dimregen</source>
         <comment>dimension - regenerate</comment>
-        <translation>ສ້າງມິຕິໃໝ່</translation>
+        <translation>dimregen</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="966"></location>
         <source>restrictnothing</source>
         <comment>restrict - nothing</comment>
-        <translation>ບໍ່ມີການຈຳກັດ</translation>
+        <translation>restrictnothing</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="967"></location>
@@ -26730,7 +26730,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="972"></location>
         <source>restrictorthogonal</source>
         <comment>restrict - orthogonal</comment>
-        <translation>ຈຳກັດແນວຕັ້ງສາກ</translation>
+        <translation>restrictorthogonal</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="973"></location>
@@ -26742,7 +26742,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="978"></location>
         <source>restricthorizontal</source>
         <comment>restrict - horizontal</comment>
-        <translation>ຈຳກັດແນວນອນ</translation>
+        <translation>restricthorizontal</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="979"></location>
@@ -26754,7 +26754,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="984"></location>
         <source>restrictvertical</source>
         <comment>restrict - vertical</comment>
-        <translation>ຈຳກັດແນວຕັ້ງ</translation>
+        <translation>restrictvertical</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="985"></location>
@@ -26772,7 +26772,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="771"></location>
         <source>bev</source>
         <comment>modify - bevel</comment>
-        <translation>ປາດມຸມ (Bevel)</translation>
+        <translation>bev</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="772"></location>
@@ -26784,43 +26784,43 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="778"></location>
         <source>fi</source>
         <comment>modify - fillet</comment>
-        <translation>ເຮັດມຸມໂຄ້ງ (Fillet)</translation>
+        <translation>fi</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="786"></location>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>ຕັດ</translation>
+        <translation>cut</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="787"></location>
         <source>div</source>
         <comment>modify - divide (cut)</comment>
-        <translation>ແບ່ງ</translation>
+        <translation>div</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="718"></location>
         <source>mi</source>
         <comment>modify -  mirror</comment>
-        <translation>ສະທ້ອນ (Mirror)</translation>
+        <translation>mi</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="737"></location>
         <source>rev</source>
         <comment>modify -  revert direction</comment>
-        <translation>ກັບທິດທາງ</translation>
+        <translation>rev</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="706"></location>
         <source>ro</source>
         <comment>modify - rotate</comment>
-        <translation>ໝຸນ (Rotate)</translation>
+        <translation>ro</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="712"></location>
         <source>sz</source>
         <comment>modify - scale</comment>
-        <translation>ມາດຕາສ່ວນ (Scale)</translation>
+        <translation>sz</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="743"></location>
@@ -26838,13 +26838,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="756"></location>
         <source>le</source>
         <comment>modify - lengthen</comment>
-        <translation>ເພີ່ມຄວາມຍາວ</translation>
+        <translation>le</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="794"></location>
         <source>ss</source>
         <comment>modify - stretch</comment>
-        <translation>ຢືດ (Stretch)</translation>
+        <translation>ss</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="826"></location>
@@ -26856,19 +26856,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="827"></location>
         <source>del</source>
         <comment>modify - delete (erase)</comment>
-        <translation>ລົບ</translation>
+        <translation>del</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="820"></location>
         <source>xp</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>ແຍກອົງປະກອບ (Explode)</translation>
+        <translation>xp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="899"></location>
         <source>snapfree</source>
         <comment>snap - free</comment>
-        <translation>ຈັບແບບອິດສະຫຼະ</translation>
+        <translation>snapfree</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="901"></location>
@@ -26880,7 +26880,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="906"></location>
         <source>snapcenter</source>
         <comment>snap - center</comment>
-        <translation>ຈັບຈຸດສູນກາງ</translation>
+        <translation>snapcenter</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="907"></location>
@@ -26892,7 +26892,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="912"></location>
         <source>snapdist</source>
         <comment>snap - distance to endpoints</comment>
-        <translation>ຈັບຕາມໄລຍະຫ່າງຈາກຈຸດປາຍ</translation>
+        <translation>snapdist</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="913"></location>
@@ -26904,7 +26904,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="918"></location>
         <source>snapend</source>
         <comment>snap - end points</comment>
-        <translation>ຈັບຈຸດປາຍ</translation>
+        <translation>snapend</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="919"></location>
@@ -26916,7 +26916,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="924"></location>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>ຈັບຕາມຕາຕະລາງ</translation>
+        <translation>snapgrid</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="925"></location>
@@ -26928,7 +26928,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="930"></location>
         <source>snapintersection</source>
         <comment>snap - intersection</comment>
-        <translation>ຈັບຈຸດຕັດ</translation>
+        <translation>snapintersection</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="931"></location>
@@ -26940,7 +26940,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="936"></location>
         <source>snapmiddle</source>
         <comment>snap - middle points</comment>
-        <translation>ຈັບຈຸດເຄິ່ງກາງ</translation>
+        <translation>snapmiddle</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="937"></location>
@@ -26952,7 +26952,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="942"></location>
         <source>snaponentity</source>
         <comment>snap - on entity</comment>
-        <translation>ຈັບເທິງອົງປະກອບ</translation>
+        <translation>snaponentity</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="943"></location>
@@ -26970,7 +26970,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="960"></location>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>ຕັ້ງຈຸດສູນສຳພັນ</translation>
+        <translation>setrelativezero</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="961"></location>
@@ -26982,7 +26982,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="607"></location>
         <source>selectall</source>
         <comment>Select all entities</comment>
-        <translation>ເລືອກທັງໝົດ</translation>
+        <translation>selectall</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="608"></location>
@@ -26994,7 +26994,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="613"></location>
         <source>deselectall</source>
         <comment>deselect all entities</comment>
-        <translation>ຍົກເລີກການເລືອກທັງໝົດ</translation>
+        <translation>deselectall</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="615"></location>
@@ -27006,7 +27006,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="807"></location>
         <source>attr</source>
         <comment>modify attribute</comment>
-        <translation>ຄຸນລັກສະນະ</translation>
+        <translation>attr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="808"></location>
@@ -27018,12 +27018,12 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="800"></location>
         <source>prop</source>
         <comment>modify properties</comment>
-        <translation>ຄຸນສົມບັດ</translation>
+        <translation>prop</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="80"></location>
         <source>cnlayer</source>
-        <translation>ເລເຢີຊ່ວຍສ້າງ</translation>
+        <translation>cnlayer</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="81"></location>
@@ -27033,7 +27033,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="85"></location>
         <source>cslayer</source>
-        <translation>ເລເຢີ</translation>
+        <translation>cslayer</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="86"></location>
@@ -27044,13 +27044,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="209"></location>
         <source>circlebyarc</source>
         <comment>draw circle by arc</comment>
-        <translation>ວົງມົນຈາກເສັ້ນໂຄ້ງ</translation>
+        <translation>circlebyarc</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="836"></location>
         <source>dist</source>
         <comment>distance point to point</comment>
-        <translation>ໄລຍະຫ່າງ</translation>
+        <translation>dist</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="837"></location>
@@ -27062,13 +27062,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="851"></location>
         <source>ang</source>
         <comment>measure angle</comment>
-        <translation>ມຸມ</translation>
+        <translation>ang</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1070"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1165"></location>
         <source>angle</source>
-        <translation>ມຸມ</translation>
+        <translation>angle</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1073"></location>
@@ -27079,67 +27079,67 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1074"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1179"></location>
         <source>close</source>
-        <translation>ປິດ</translation>
+        <translation>close</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1076"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1182"></location>
         <source>columns</source>
-        <translation>ຖັນ (Columns)</translation>
+        <translation>columns</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1077"></location>
         <source>columnspacing</source>
-        <translation>ໄລຍະຫ່າງຖັນ</translation>
+        <translation>columnspacing</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1079"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1190"></location>
         <source>factor</source>
-        <translation>ຕົວຄູນ</translation>
+        <translation>factor</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1080"></location>
         <source>length</source>
-        <translation>ຄວາມຍາວ</translation>
+        <translation>length</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1083"></location>
         <source>number</source>
-        <translation>ຕົວເລກ</translation>
+        <translation>number</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1084"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1217"></location>
         <source>radius</source>
-        <translation>ລັດສະໝີ</translation>
+        <translation>radius</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1085"></location>
         <source>rows</source>
-        <translation>ແຖວ (Rows)</translation>
+        <translation>rows</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1086"></location>
         <source>rowspacing</source>
-        <translation>ໄລຍະຫ່າງແຖວ</translation>
+        <translation>rowspacing</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1087"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1232"></location>
         <source>through</source>
-        <translation>ຜ່ານ</translation>
+        <translation>through</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1088"></location>
         <source>trim</source>
-        <translation>ຕັດຂອບ</translation>
+        <translation>trim</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1168"></location>
         <source>ang</source>
         <comment>angle</comment>
-        <translation>ມຸມ</translation>
+        <translation>ang</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1169"></location>
@@ -27150,7 +27150,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1171"></location>
         <source>center</source>
-        <translation>ໃຈກາງ</translation>
+        <translation>center</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1172"></location>
@@ -27186,7 +27186,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1186"></location>
         <source>columnspacing</source>
         <comment>columnspacing for inserts</comment>
-        <translation>ໄລຍະຫ່າງຖັນ</translation>
+        <translation>columnspacing</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1187"></location>
@@ -27215,7 +27215,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1198"></location>
         <source>help</source>
-        <translation>ຊ່ວຍເຫຼືອ</translation>
+        <translation>help</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1199"></location>
@@ -27227,7 +27227,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1201"></location>
         <source>length</source>
         <comment>length</comment>
-        <translation>ຄວາມຍາວ</translation>
+        <translation>length</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1202"></location>
@@ -27245,7 +27245,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1205"></location>
         <source>length1</source>
         <comment>length1</comment>
-        <translation>ຄວາມຍາວ1</translation>
+        <translation>length1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1206"></location>
@@ -27263,7 +27263,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1209"></location>
         <source>length2</source>
         <comment>length2</comment>
-        <translation>ຄວາມຍາວ2</translation>
+        <translation>length2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1210"></location>
@@ -27281,7 +27281,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1213"></location>
         <source>number</source>
         <comment>number</comment>
-        <translation>ຕົວເລກ</translation>
+        <translation>number</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1214"></location>
@@ -27305,7 +27305,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1220"></location>
         <source>reversed</source>
         <comment>reversed</comment>
-        <translation>ກັບຄືນ</translation>
+        <translation>reversed</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1221"></location>
@@ -27318,13 +27318,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1224"></location>
         <source>row</source>
         <comment>row</comment>
-        <translation>ແຖວ</translation>
+        <translation>row</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1226"></location>
         <source>rowspacing</source>
         <comment>rowspacing for inserts</comment>
-        <translation>ໄລຍະຫ່າງແຖວ</translation>
+        <translation>rowspacing</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1227"></location>
@@ -27352,17 +27352,17 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1235"></location>
         <source>undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>undo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1238"></location>
         <source>redo</source>
-        <translation>ເຮັດຄືນ</translation>
+        <translation>redo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1241"></location>
         <source>back</source>
-        <translation>ກັບຄືນ</translation>
+        <translation>back</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1242"></location>
@@ -27373,12 +27373,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1247"></location>
         <source>paperoffset</source>
-        <translation>ໄລຍະຫ່າງເຈ້ຍ</translation>
+        <translation>paperoffset</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1248"></location>
         <source>graphoffset</source>
-        <translation>ໄລຍະຫ່າງກຣາຟ</translation>
+        <translation>graphoffset</translation>
     </message>
     <message>
         <location filename="../src/cmd/rs_commands.cpp" line="261"></location>
@@ -27434,12 +27434,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1245"></location>
         <source>blackwhite</source>
-        <translation>ດຳຂາວ</translation>
+        <translation>blackwhite</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1246"></location>
         <source>color</source>
-        <translation>ສີ</translation>
+        <translation>color</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="788"></location>
@@ -27498,13 +27498,13 @@ Do you want to replace it?</source>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandedit.cpp" line="271"></location>
         <source>cal </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>cal </translation>
+        <translation>cal</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandedit.cpp" line="272"></location>
         <source>calculate </source>
         <comment>command to trigger cli calculator</comment>
-        <translation>ຄິດເລກ </translation>
+        <translation>calculate</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandedit.cpp" line="308"></location>
@@ -27535,37 +27535,37 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="92"></location>
         <source>line2p</source>
         <comment>draw line</comment>
-        <translation>ເສັ້ນ 2 ຈຸດ</translation>
+        <translation>line2p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="100"></location>
         <source>sline</source>
         <comment>draw snake line</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>sline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="101"></location>
         <source>sli</source>
         <comment>draw snake line</comment>
-        <translation>ສີ</translation>
+        <translation>sli</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="102"></location>
         <source>sl</source>
         <comment>draw snake line</comment>
-        <translation>ແບບ si</translation>
+        <translation>sl</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="107"></location>
         <source>slinex</source>
         <comment>draw snake line (X)</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>slinex</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="108"></location>
         <source>slix</source>
         <comment>draw snake line (X)</comment>
-        <translation>ເບຼີ</translation>
+        <translation>slix</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="109"></location>
@@ -27577,13 +27577,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="114"></location>
         <source>sliney</source>
         <comment>draw snake line (Y)</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>sliney</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="115"></location>
         <source>sliy</source>
         <comment>draw snake line (Y)</comment>
-        <translation>ຂາວ</translation>
+        <translation>sliy</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="116"></location>
@@ -27595,55 +27595,55 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="121"></location>
         <source>lineang</source>
         <comment>angled line</comment>
-        <translation>ສີເສັ້ນປະ</translation>
+        <translation>lineang</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="122"></location>
         <source>la</source>
         <comment>angled line</comment>
-        <translation>ລາ</translation>
+        <translation>la</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="127"></location>
         <source>linehor</source>
         <comment>horizontal line</comment>
-        <translation>ເສັ້ນນອນ</translation>
+        <translation>linehor</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="128"></location>
         <source>lh</source>
         <comment>horizontal line</comment>
-        <translation>ih</translation>
+        <translation>lh</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="133"></location>
         <source>linever</source>
         <comment>vertical line</comment>
-        <translation>ເສັ້ນຕັ້ງ</translation>
+        <translation>linever</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="134"></location>
         <source>lv</source>
         <comment>vertical line</comment>
-        <translation>ສີ</translation>
+        <translation>lv</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="139"></location>
         <source>linerec</source>
         <comment>draw rectangle</comment>
-        <translation>ຮູບສີ່ແຈສາກ</translation>
+        <translation>linerec</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="140"></location>
         <source>re</source>
         <comment>draw rectangle</comment>
-        <translation>ອີກຄັ້ງ</translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="146"></location>
         <source>rect1</source>
         <comment>draw rectangle (1 Point)</comment>
-        <translation>ສຳຮອງຂໍ້ມູນ 1</translation>
+        <translation>rect1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="147"></location>
@@ -27667,7 +27667,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="158"></location>
         <source>rect3</source>
         <comment>draw rectangle (3 Points)</comment>
-        <translation>ຟອມ 3</translation>
+        <translation>rect3</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="159"></location>
@@ -27679,43 +27679,43 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="164"></location>
         <source>slicel</source>
         <comment>slice/divide line</comment>
-        <translation>ແຜ່ນ</translation>
+        <translation>slicel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="165"></location>
         <source>sll</source>
         <comment>slice/divide line</comment>
-        <translation>ເຊວ</translation>
+        <translation>sll</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="170"></location>
         <source>slicec</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>ສ້ຽວ</translation>
+        <translation>slicec</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="171"></location>
         <source>slc</source>
         <comment>slice/divide circle/arc</comment>
-        <translation>ຄຼາດ</translation>
+        <translation>slc</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="176"></location>
         <source>star</source>
         <comment>draw star</comment>
-        <translation>ດາວ</translation>
+        <translation>star</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="177"></location>
         <source>st</source>
         <comment>draw star</comment>
-        <translation>ເຊນ</translation>
+        <translation>st</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="182"></location>
         <source>cross</source>
         <comment>draw cross for circle</comment>
-        <translation>ກາກບາດ</translation>
+        <translation>cross</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="183"></location>
@@ -27727,7 +27727,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="187"></location>
         <source>bbox</source>
         <comment>draw bound box</comment>
-        <translation>ກ່ອງ b</translation>
+        <translation>bbox</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="188"></location>
@@ -27739,37 +27739,37 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="192"></location>
         <source>midline</source>
         <comment>draw middle line</comment>
-        <translation>ເສັ້ນກາງ</translation>
+        <translation>midline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="193"></location>
         <source>ml</source>
         <comment>draw mid line</comment>
-        <translation>mi</translation>
+        <translation>ml</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="198"></location>
         <source>linepoints</source>
         <comment>draw line of points</comment>
-        <translation>ຈຸດເສັ້ນ</translation>
+        <translation>linepoints</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="199"></location>
         <source>lpoints</source>
         <comment>draw line of points</comment>
-        <translation>ຈຸດ</translation>
+        <translation>lpoints</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="203"></location>
         <source>midpoint</source>
         <comment>draw middle points</comment>
-        <translation>ຈຸດກຶ່ງກາງ</translation>
+        <translation>midpoint</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="204"></location>
         <source>mpoint</source>
         <comment>draw middle of points</comment>
-        <translation>ຈຸດ</translation>
+        <translation>mpoint</translation>
     </message>
     <message>
         <source>criclebyarc</source>
@@ -27786,31 +27786,31 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="215"></location>
         <source>duplicate</source>
         <comment>duplicate entity</comment>
-        <translation>ເຮັດຊ້ຳ</translation>
+        <translation>duplicate</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="216"></location>
         <source>dup</source>
         <comment>duplicate entity</comment>
-        <translation>ດັບ</translation>
+        <translation>dup</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="221"></location>
         <source>align</source>
         <comment>align entities</comment>
-        <translation>ຈັດວາງ</translation>
+        <translation>align</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="222"></location>
         <source>al</source>
         <comment>align entities</comment>
-        <translation>ອັນ</translation>
+        <translation>al</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="227"></location>
         <source>align1</source>
         <comment>align entities</comment>
-        <translation>ຈັດລຽງ 1</translation>
+        <translation>align1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="228"></location>
@@ -27822,31 +27822,31 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="232"></location>
         <source>alignref</source>
         <comment>align references</comment>
-        <translation>ຈັດໝວດ</translation>
+        <translation>alignref</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="233"></location>
         <source>alr</source>
         <comment>align references</comment>
-        <translation>ອອນ</translation>
+        <translation>alr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="238"></location>
         <source>linejoin</source>
         <comment>lines join</comment>
-        <translation>ເຊື່ອມຕໍ່ເສັ້ນ</translation>
+        <translation>linejoin</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="239"></location>
         <source>lj</source>
         <comment>lines join</comment>
-        <translation>ແອວເຈ</translation>
+        <translation>lj</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="244"></location>
         <source>breakdivide</source>
         <comment>break or divide entity</comment>
-        <translation>ແບ່ງສ່ວນ</translation>
+        <translation>breakdivide</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="245"></location>
@@ -27858,115 +27858,115 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="250"></location>
         <source>gapline</source>
         <comment>line gap</comment>
-        <translation>ຊ່ອງວ່າງ</translation>
+        <translation>gapline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="251"></location>
         <source>gl</source>
         <comment>line gap</comment>
-        <translation>ແບບ gi</translation>
+        <translation>gl</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="256"></location>
         <source>linepar</source>
         <comment>create parallel</comment>
-        <translation>ເສັ້ນຂະໜານ</translation>
+        <translation>linepar</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="257"></location>
         <source>parallel</source>
         <comment>create parallel</comment>
-        <translation>ຂະໜານ</translation>
+        <translation>parallel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="258"></location>
         <source>lineoff</source>
         <comment>create parallel</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>lineoff</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="259"></location>
         <source>pa</source>
         <comment>create parallel</comment>
-        <translation>ພໍ່</translation>
+        <translation>pa</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="260"></location>
         <source>ll</source>
         <comment>create parallel</comment>
-        <translation>ຊື່ເຕັມ</translation>
+        <translation>ll</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="265"></location>
         <source>lineparthro</source>
         <comment>parallel through point</comment>
-        <translation>ເສັ້ນກົງ</translation>
+        <translation>lineparthro</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="266"></location>
         <source>lp</source>
         <comment>parallel through point</comment>
-        <translation>ip</translation>
+        <translation>lp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="272"></location>
         <source>linebisect</source>
         <comment>angle bisector</comment>
-        <translation>ເສັ້ນແບ່ງເຄິ່ງມຸມ</translation>
+        <translation>linebisect</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="279"></location>
         <source>linetancp</source>
         <comment>tangent point and circle</comment>
-        <translation>ເສັ້ນກົງ</translation>
+        <translation>linetancp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="280"></location>
         <source>lt</source>
         <comment>tangent point and circle</comment>
-        <translation>ມັນ</translation>
+        <translation>lt</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="286"></location>
         <source>linetan2c</source>
         <comment>tangent two circles</comment>
-        <translation>ເສັ້ນສຳຜັດວົງມົນ</translation>
+        <translation>linetan2c</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="287"></location>
         <source>lc</source>
         <comment>tangent two circles</comment>
-        <translation>ຂະໜາດ lc</translation>
+        <translation>lc</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="292"></location>
         <source>linetancper</source>
         <comment>tangent line and circle</comment>
-        <translation>ເສັ້ນກົງ</translation>
+        <translation>linetancper</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="293"></location>
         <source>or</source>
         <comment>tangent line and circle</comment>
-        <translation>ຫຼື</translation>
+        <translation>or</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="298"></location>
         <source>lineperp</source>
         <comment>perpendicular line</comment>
-        <translation>ເສັ້ນຕັ້ງສາກ</translation>
+        <translation>lineperp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="299"></location>
         <source>lo</source>
         <comment>perpendicular line</comment>
-        <translation>ແມ່ນ</translation>
+        <translation>lo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="305"></location>
         <source>linerelang</source>
         <comment>relative line</comment>
-        <translation>ເສັ້ນທຽບຄຽງ</translation>
+        <translation>linerelang</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="306"></location>
@@ -27978,55 +27978,55 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="311"></location>
         <source>polygoncencor</source>
         <comment>polygon centre point</comment>
-        <translation>ຮູບຫຼາຍແຈ</translation>
+        <translation>polygoncencor</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="312"></location>
         <source>pp</source>
         <comment>polygon centre point</comment>
-        <translation>ໜ້າ</translation>
+        <translation>pp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="313"></location>
         <source>polycp</source>
         <comment>polygon centre point</comment>
-        <translation>ໂພລີ ຄປ</translation>
+        <translation>polycp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="314"></location>
         <source>pcp</source>
         <comment>polygon centre point</comment>
-        <translation>ພ.ສ</translation>
+        <translation>pcp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="319"></location>
         <source>polygoncentan</source>
         <comment>polygon centre vertex</comment>
-        <translation>ຮູບຫຼາຍແຈ</translation>
+        <translation>polygoncentan</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="320"></location>
         <source>pv</source>
         <comment>polygon centre vertex</comment>
-        <translation>ຂະໜາດ pv</translation>
+        <translation>pv</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="321"></location>
         <source>polyct</source>
         <comment>polygon centre vertex</comment>
-        <translation>ໂພລີເຊັດ</translation>
+        <translation>polyct</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="326"></location>
         <source>polygonvv</source>
         <comment>polygon vertex vertex</comment>
-        <translation>ຮູບຫຼາຍແຈ</translation>
+        <translation>polygonvv</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="327"></location>
         <source>pvv</source>
         <comment>polygon vertex vertex</comment>
-        <translation>ຂະໜາດ pvv</translation>
+        <translation>pvv</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="333"></location>
@@ -28044,7 +28044,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="348"></location>
         <source>circle2p</source>
         <comment>circle 2 points</comment>
-        <translation>ວົງມົນ 2p</translation>
+        <translation>circle2p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="350"></location>
@@ -28056,7 +28056,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="355"></location>
         <source>circle2pr</source>
         <comment>circle 2 points radius</comment>
-        <translation>ວົງມົນ 2pr</translation>
+        <translation>circle2pr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="356"></location>
@@ -28068,7 +28068,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="361"></location>
         <source>circle3p</source>
         <comment>circle 3 points</comment>
-        <translation>ວົງມົນ 3p</translation>
+        <translation>circle3p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="363"></location>
@@ -28080,7 +28080,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="368"></location>
         <source>circlecr</source>
         <comment>circle point radius</comment>
-        <translation>ວົງມົນ</translation>
+        <translation>circlecr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="369"></location>
@@ -28092,25 +28092,25 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="370"></location>
         <source>ccr</source>
         <comment>circle point radius</comment>
-        <translation>ຂະໜາດ ccr</translation>
+        <translation>ccr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="376"></location>
         <source>circletan2cp</source>
         <comment>circle 2 tangent point</comment>
-        <translation>ວົງມົນ 2cp</translation>
+        <translation>circletan2cp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="377"></location>
         <source>tr</source>
         <comment>circle 2 tangent point</comment>
-        <translation>ຄ່າ</translation>
+        <translation>tr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="382"></location>
         <source>circletan2p</source>
         <comment>circle tangent 2 points</comment>
-        <translation>ວົງມົນ 2p</translation>
+        <translation>circletan2p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="383"></location>
@@ -28122,7 +28122,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="388"></location>
         <source>circletan2cr</source>
         <comment>circle 2 tangent radius</comment>
-        <translation>ວົງມົນ</translation>
+        <translation>circletan2cr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="389"></location>
@@ -28134,7 +28134,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="395"></location>
         <source>circletan3</source>
         <comment>circle tangent to 3</comment>
-        <translation>ວົງມົນ 3</translation>
+        <translation>circletan3</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="396"></location>
@@ -28152,7 +28152,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="406"></location>
         <source>ar</source>
         <comment>arc point radius</comment>
-        <translation>ອາຣ</translation>
+        <translation>ar</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="407"></location>
@@ -28164,55 +28164,55 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="412"></location>
         <source>arc3p</source>
         <comment>draw 3pt arc</comment>
-        <translation>ສ່ວນໂຄ້ງ 3p</translation>
+        <translation>arc3p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="413"></location>
         <source>a3</source>
         <comment>draw 3pt arc</comment>
-        <translation>ຂະໜາດ a3</translation>
+        <translation>a3</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="418"></location>
         <source>arctan</source>
         <comment>arc tangent</comment>
-        <translation>ສ່ວນໂຄ້ງ</translation>
+        <translation>arctan</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="419"></location>
         <source>at</source>
         <comment>arc tangent</comment>
-        <translation>ທີ່</translation>
+        <translation>at</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="424"></location>
         <source>arc2p3</source>
         <comment>draw 2pt arc radius</comment>
-        <translation>ສ່ວນໂຄ້ງ 2p3</translation>
+        <translation>arc2p3</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="425"></location>
         <source>a2r</source>
         <comment>draw 2pt arc radius</comment>
-        <translation>ຂະໜາດ a2r</translation>
+        <translation>a2r</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="430"></location>
         <source>arc2pl</source>
         <comment>draw 2pt arc length</comment>
-        <translation>ສ່ວນໂຄ້ງ 2 ຖາດ</translation>
+        <translation>arc2pl</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="431"></location>
         <source>a2l</source>
         <comment>draw 2pt arc length</comment>
-        <translation>ຂະໜາດ a2i</translation>
+        <translation>a2l</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="436"></location>
         <source>arc2ph</source>
         <comment>draw 2pt arc height</comment>
-        <translation>ອາຣ໌ຄ 2f</translation>
+        <translation>arc2ph</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="437"></location>
@@ -28224,7 +28224,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="442"></location>
         <source>arc2pa</source>
         <comment>draw 2pt arc angle</comment>
-        <translation>ອາຣ໌ຄ 2 ປາ</translation>
+        <translation>arc2pa</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="443"></location>
@@ -28236,19 +28236,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="450"></location>
         <source>sf</source>
         <comment>draw spline</comment>
-        <translation>ວິນາທີ</translation>
+        <translation>sf</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="457"></location>
         <source>sp</source>
         <comment>spline through points</comment>
-        <translation>ວິນາທີ</translation>
+        <translation>sp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="463"></location>
         <source>arcellc2ax</source>
         <comment>arc ellipse</comment>
-        <translation>arcelc2ax</translation>
+        <translation>arcellc2ax</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="464"></location>
@@ -28272,25 +28272,25 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="474"></location>
         <source>parabola4p</source>
         <comment>Parabola 4 points</comment>
-        <translation>ພາຣາໂບລາ 4p</translation>
+        <translation>parabola4p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="475"></location>
         <source>pl4</source>
         <comment>Parabola 4 points</comment>
-        <translation>ໂໝດ:</translation>
+        <translation>pl4</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="480"></location>
         <source>parabolafd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>ພາຣາໂບລາ</translation>
+        <translation>parabolafd</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="481"></location>
         <source>plfd</source>
         <comment>Parabola focus directrix</comment>
-        <translation>ອັນຟາ</translation>
+        <translation>plfd</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="487"></location>
@@ -28302,19 +28302,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="495"></location>
         <source>ellipsec2p</source>
         <comment>ellipse axis</comment>
-        <translation>ວົງຮີ</translation>
+        <translation>ellipsec2p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="496"></location>
         <source>ea</source>
         <comment>ellipse axis</comment>
-        <translation>ອີເມວ</translation>
+        <translation>ea</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="500"></location>
         <source>ellipsec1p</source>
         <comment>ellipse 1 point</comment>
-        <translation>ວົງຮີ 1p</translation>
+        <translation>ellipsec1p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="501"></location>
@@ -28326,7 +28326,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="506"></location>
         <source>ellipse3p</source>
         <comment>ellipse foci</comment>
-        <translation>ວົງຮີ 3p</translation>
+        <translation>ellipse3p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="507"></location>
@@ -28338,7 +28338,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="512"></location>
         <source>ellipse4p</source>
         <comment>ellipse 4 point</comment>
-        <translation>ວົງຮີ 4p</translation>
+        <translation>ellipse4p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="513"></location>
@@ -28350,7 +28350,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="518"></location>
         <source>ellipsec3p</source>
         <comment>ellipse center 3 point</comment>
-        <translation>ວົງຮີ 3p</translation>
+        <translation>ellipsec3p</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="519"></location>
@@ -28362,31 +28362,31 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="539"></location>
         <source>angleline</source>
         <comment>draw angle from line</comment>
-        <translation>ມຸມ:</translation>
+        <translation>angleline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="540"></location>
         <source>aline</source>
         <comment>draw angle from line</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>aline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="545"></location>
         <source>rortoline</source>
         <comment>draw orthogonal</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>rortoline</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="546"></location>
         <source>rort</source>
         <comment>draw orthogonal</comment>
-        <translation>ໝູນ &amp; 90</translation>
+        <translation>rort</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="551"></location>
         <source>point2line</source>
         <comment>draw line from point to line</comment>
-        <translation>ຈຸດ2ບັນທັດ</translation>
+        <translation>point2line</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="552"></location>
@@ -28398,19 +28398,19 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="558"></location>
         <source>plineadd</source>
         <comment>pl add node</comment>
-        <translation>ເພີ່ມຊ່ອງສີ</translation>
+        <translation>plineadd</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="559"></location>
         <source>pi</source>
         <comment>pl add node</comment>
-        <translation>ໄພ</translation>
+        <translation>pi</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="564"></location>
         <source>plineapp</source>
         <comment>pl append node</comment>
-        <translation>ພ.ສ</translation>
+        <translation>plineapp</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="565"></location>
@@ -28422,31 +28422,31 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="570"></location>
         <source>plinedel</source>
         <comment>pl delete node</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>plinedel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="571"></location>
         <source>pd</source>
         <comment>pl delete node</comment>
-        <translation>ຂະໜາດ pd</translation>
+        <translation>pd</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="576"></location>
         <source>plinedeltwn</source>
         <comment>pl del between nodes</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>plinedeltwn</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="577"></location>
         <source>pr</source>
         <comment>pl del between nodes</comment>
-        <translation>ຂະໜາດ pr</translation>
+        <translation>pr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="582"></location>
         <source>plinetrm</source>
         <comment>pl trim segments</comment>
-        <translation>ແຖບກຳກັບລວດລາຍstencils</translation>
+        <translation>plinetrm</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="583"></location>
@@ -28458,31 +28458,31 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="588"></location>
         <source>plinepar</source>
         <comment>pl equidistant</comment>
-        <translation>ເສັ້ນຄົດໂຄ້ງ</translation>
+        <translation>plinepar</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="589"></location>
         <source>pe</source>
         <comment>pl equidistant</comment>
-        <translation>ເພ</translation>
+        <translation>pe</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="594"></location>
         <source>plinejoin</source>
         <comment>pl join</comment>
-        <translation>ເຂົ້າຮ່ວມບັນທັດ</translation>
+        <translation>plinejoin</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="595"></location>
         <source>pj</source>
         <comment>pl join</comment>
-        <translation>ຂະໜາດ pj</translation>
+        <translation>pj</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="600"></location>
         <source>dual</source>
         <comment>create dual geometries</comment>
-        <translation>ຄູ່</translation>
+        <translation>dual</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="601"></location>
@@ -28500,13 +28500,13 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="620"></location>
         <source>invertselect</source>
         <comment>invert select</comment>
-        <translation>ກັບຄືນການເລືອກ</translation>
+        <translation>invertselect</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="621"></location>
         <source>is</source>
         <comment>invert select</comment>
-        <translation>ແມ່ນ</translation>
+        <translation>is</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="630"></location>
@@ -28518,43 +28518,43 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="641"></location>
         <source>dimord</source>
         <comment>dimension - ordinate</comment>
-        <translation>ຫຼຸດສຽງ</translation>
+        <translation>dimord</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="642"></location>
         <source>do</source>
         <comment>dimension - ordinate</comment>
-        <translation>ເຮັດ</translation>
+        <translation>do</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="646"></location>
         <source>dimordrebase</source>
         <comment>dimension - ordinate</comment>
-        <translation>ລະດັບຄວາມມົວແສງ</translation>
+        <translation>dimordrebase</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="647"></location>
         <source>dor</source>
         <comment>dimension - ordinate</comment>
-        <translation>ໄດເຣັກທໍຣີ</translation>
+        <translation>dor</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="664"></location>
         <source>dimradius</source>
         <comment>dimension - radial</comment>
-        <translation>ໝ່ອມເຈົ້າ</translation>
+        <translation>dimradius</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="666"></location>
         <source>dr</source>
         <comment>dimension - radial</comment>
-        <translation>ດຣ</translation>
+        <translation>dr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="679"></location>
         <source>da</source>
         <comment>dimension - angular</comment>
-        <translation>ດາ</translation>
+        <translation>da</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="692"></location>
@@ -28566,43 +28566,43 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="699"></location>
         <source>modmove</source>
         <comment>modify - move (copy)</comment>
-        <translation>ຖິ້ມລົງຖັງຂີ້ເຫຍື້ອ</translation>
+        <translation>modmove</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="705"></location>
         <source>modrotate</source>
         <comment>modify - rotate</comment>
-        <translation>ໂມໂດຕາຕ</translation>
+        <translation>modrotate</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="711"></location>
         <source>modscale</source>
         <comment>modify - scale</comment>
-        <translation>ຂະໜາດແຟ້ມ</translation>
+        <translation>modscale</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="717"></location>
         <source>modmirror</source>
         <comment>modify -  mirror</comment>
-        <translation>ໂມເດເມຍ</translation>
+        <translation>modmirror</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="723"></location>
         <source>modmovrot</source>
         <comment>modify - move rotate</comment>
-        <translation>ໂມດໂມຟຣອດ</translation>
+        <translation>modmovrot</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="724"></location>
         <source>mr</source>
         <comment>modify - move rotate</comment>
-        <translation>ທ່ານ</translation>
+        <translation>mr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="729"></location>
         <source>mod2rot</source>
         <comment>modify - rotate2</comment>
-        <translation>ໂມດ2ຣອດ</translation>
+        <translation>mod2rot</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="730"></location>
@@ -28614,109 +28614,109 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="735"></location>
         <source>modrevert</source>
         <comment>modify -  revert direction</comment>
-        <translation>ປຸ່ມພິມລັດ</translation>
+        <translation>modrevert</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="736"></location>
         <source>md</source>
         <comment>modify -  revert direction</comment>
-        <translation>ແບບ md</translation>
+        <translation>md</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="742"></location>
         <source>modtrim</source>
         <comment>modify - trim (extend)</comment>
-        <translation>ປະສົມ</translation>
+        <translation>modtrim</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="748"></location>
         <source>modtrim2</source>
         <comment>modify - multi trim (extend)</comment>
-        <translation>ມຸມ:</translation>
+        <translation>modtrim2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="755"></location>
         <source>modlengthen</source>
         <comment>modify - lengthen</comment>
-        <translation>ບໍ່ໃຊ້ເອັບເຟັກ</translation>
+        <translation>modlengthen</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="761"></location>
         <source>modoffset</source>
         <comment>modify - offset</comment>
-        <translation>ປຸ່ມພິມລັດ</translation>
+        <translation>modoffset</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="762"></location>
         <source>offset</source>
         <comment>modify - offset</comment>
-        <translation>ອອບເຊັດ</translation>
+        <translation>offset</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="764"></location>
         <source>mo</source>
         <comment>modify - offset</comment>
-        <translation>ໂມ</translation>
+        <translation>mo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="765"></location>
         <source>moff</source>
         <comment>modify - offset</comment>
-        <translation>ຮູບແບບ moff</translation>
+        <translation>moff</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="770"></location>
         <source>modbevel</source>
         <comment>modify - bevel</comment>
-        <translation>ໂມດເບເວວ</translation>
+        <translation>modbevel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="777"></location>
         <source>modfillet</source>
         <comment>modify - fillet</comment>
-        <translation>ເຕີມເຕັມດ້ວຍໂມດ</translation>
+        <translation>modfillet</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="779"></location>
         <source>fillet</source>
         <comment>modify - fillet</comment>
-        <translation>ເລເຢີ</translation>
+        <translation>fillet</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="780"></location>
         <source>bevel</source>
         <comment>modify - fillet</comment>
-        <translation>ເບລ</translation>
+        <translation>bevel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="785"></location>
         <source>moddivide</source>
         <comment>modify - divide (cut)</comment>
-        <translation>ໂມເດວີດີ</translation>
+        <translation>moddivide</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="793"></location>
         <source>modstretch</source>
         <comment>modify - stretch</comment>
-        <translation>ໝູນ &amp; 90</translation>
+        <translation>modstretch</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="799"></location>
         <source>modproperties</source>
         <comment>modify properties</comment>
-        <translation>ຄວາມທຶບແສງ</translation>
+        <translation>modproperties</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="806"></location>
         <source>modattr</source>
         <comment>modify attribute</comment>
-        <translation>ເປີດ/ ປິດສຽງ</translation>
+        <translation>modattr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="813"></location>
         <source>modexpltext</source>
         <comment>explode text strings</comment>
-        <translation>ການສະຫຼັບຮູບແບບ</translation>
+        <translation>modexpltext</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="814"></location>
@@ -28728,61 +28728,61 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="819"></location>
         <source>modexplode</source>
         <comment>explode block/polyline into entities</comment>
-        <translation>ໂໝດ:</translation>
+        <translation>modexplode</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="825"></location>
         <source>moddelete</source>
         <comment>modify - delete (erase)</comment>
-        <translation>ໂມເດເລດ</translation>
+        <translation>moddelete</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="834"></location>
         <source>infodistance</source>
         <comment>distance point to point</comment>
-        <translation>ຂອບເຂດຂໍ້ມູນ</translation>
+        <translation>infodistance</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="835"></location>
         <source>id</source>
         <comment>distance point to point</comment>
-        <translation>ໝາຍເລກ</translation>
+        <translation>id</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="842"></location>
         <source>infodistep</source>
         <comment>distance entity to point</comment>
-        <translation>ຂັ້ນຕອນຂອງຂໍ້ມູນ</translation>
+        <translation>infodistep</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="843"></location>
         <source>ii</source>
         <comment>distance entity to point</comment>
-        <translation>ໄອ</translation>
+        <translation>ii</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="844"></location>
         <source>dep</source>
         <comment>distance entity to point</comment>
-        <translation>ເດບ</translation>
+        <translation>dep</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="849"></location>
         <source>infoangle</source>
         <comment>measure angle</comment>
-        <translation>ສີ່ຫຼ່ຽມ</translation>
+        <translation>infoangle</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="850"></location>
         <source>ia</source>
         <comment>measure angle</comment>
-        <translation>ໄອໂອ</translation>
+        <translation>ia</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="856"></location>
         <source>infoarea</source>
         <comment>measure area</comment>
-        <translation>ຂໍ້ມູນ</translation>
+        <translation>infoarea</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="857"></location>
@@ -28800,43 +28800,43 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="872"></location>
         <source>tx</source>
         <comment>draw text</comment>
-        <translation>ຂະໜາດ tx</translation>
+        <translation>tx</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="900"></location>
         <source>so</source>
         <comment>snap - free</comment>
-        <translation>ດັ່ງນັ້ນ</translation>
+        <translation>so</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="951"></location>
         <source>snapmiddlemanual</source>
         <comment>snap middle manual</comment>
-        <translation>ແປງທາສີ</translation>
+        <translation>snapmiddlemanual</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="952"></location>
         <source>snapmanual</source>
         <comment>snap middle manual</comment>
-        <translation>ໝາກນັດ</translation>
+        <translation>snapmanual</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="953"></location>
         <source>smm</source>
         <comment>snap middle manual</comment>
-        <translation>ວິນາທີ</translation>
+        <translation>smm</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="994"></location>
         <source>ki</source>
         <comment>kill all actions</comment>
-        <translation>ກິໂລໄບຕ໌</translation>
+        <translation>ki</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1001"></location>
         <source>un</source>
         <comment>undo cycle</comment>
-        <translation>ບໍ່ໄດ້</translation>
+        <translation>un</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1008"></location>
@@ -28848,7 +28848,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1016"></location>
         <source>drawpref</source>
         <comment>drawing preferences</comment>
-        <translation>ແຕ້ມກ່ອນ</translation>
+        <translation>drawpref</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1017"></location>
@@ -28860,61 +28860,61 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1032"></location>
         <source>zoomin</source>
         <comment>zoom - in</comment>
-        <translation>ແວ່ນຂະຫຍາຍ</translation>
+        <translation>zoomin</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1033"></location>
         <source>zi</source>
         <comment>zoom - in</comment>
-        <translation>ຊີ</translation>
+        <translation>zi</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1038"></location>
         <source>zoomout</source>
         <comment>zoom - out</comment>
-        <translation>ຍໍ້/ ຂະຫຍາຍ</translation>
+        <translation>zoomout</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1039"></location>
         <source>zo</source>
         <comment>zoom - out</comment>
-        <translation>ໂຊ</translation>
+        <translation>zo</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1071"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1166"></location>
         <source>angle1</source>
-        <translation>ມຸມ 1</translation>
+        <translation>angle1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1072"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1167"></location>
         <source>angle2</source>
-        <translation>ມຸມ 2</translation>
+        <translation>angle2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1075"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1175"></location>
         <source>chordlen</source>
-        <translation>ຄອດລາຍ</translation>
+        <translation>chordlen</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1078"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1194"></location>
         <source>equation</source>
-        <translation>ສົມຜົນ</translation>
+        <translation>equation</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1081"></location>
         <source>length1</source>
         <comment>bevel/fillet length1</comment>
-        <translation>ຄວາມຍາວ 1</translation>
+        <translation>length1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1082"></location>
         <source>length2</source>
         <comment>bevel/fillet length2</comment>
-        <translation>ຄວາມຍາວ 2</translation>
+        <translation>length2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1091"></location>
@@ -28934,68 +28934,68 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1094"></location>
         <source>anglerel</source>
-        <translation>ມຸມ:</translation>
+        <translation>anglerel</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1095"></location>
         <source>start</source>
-        <translation>ເລີ່ມ</translation>
+        <translation>start</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1098"></location>
         <source>offset</source>
-        <translation>ອອບເຊັດ</translation>
+        <translation>offset</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1099"></location>
         <source>linesnap</source>
-        <translation>ຂອບເຂດ</translation>
+        <translation>linesnap</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1100"></location>
         <source>ticksnap</source>
-        <translation>ເຄັດລັບການຈັບພາບname</translation>
+        <translation>ticksnap</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1103"></location>
         <source>width</source>
-        <translation>ຄວາມກວ້າງ</translation>
+        <translation>width</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1104"></location>
         <source>height</source>
-        <translation>ສູງ</translation>
+        <translation>height</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1105"></location>
         <source>pos</source>
-        <translation>ໂພສ</translation>
+        <translation>pos</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1106"></location>
         <source>size</source>
-        <translation>ຂະໜາດ</translation>
+        <translation>size</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1107"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1113"></location>
         <source>bevels</source>
-        <translation>ລະຄັງ</translation>
+        <translation>bevels</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1108"></location>
         <source>nopoly</source>
-        <translation>ເປົ່າ ເລີຍ</translation>
+        <translation>nopoly</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1109"></location>
         <source>usepoly</source>
-        <translation>ລື່ນໄຫຼ</translation>
+        <translation>usepoly</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1110"></location>
         <source>corners</source>
-        <translation>ມຸມ</translation>
+        <translation>corners</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1111"></location>
@@ -29005,97 +29005,97 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1112"></location>
         <source>round</source>
-        <translation>ຮອບ</translation>
+        <translation>round</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1114"></location>
         <source>snap1</source>
-        <translation>ຈັບພາບ 1</translation>
+        <translation>snap1</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1115"></location>
         <source>topl</source>
-        <translation>ສິ່ງທີ່ຈະທຳ</translation>
+        <translation>topl</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1116"></location>
         <source>top</source>
-        <translation>ເທິງ</translation>
+        <translation>top</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1117"></location>
         <source>topr</source>
-        <translation>ດ້ານເທິງ</translation>
+        <translation>topr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1118"></location>
         <source>left</source>
-        <translation>ຊ້າຍ</translation>
+        <translation>left</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1119"></location>
         <source>middle</source>
-        <translation>ຈຸດກາງ</translation>
+        <translation>middle</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1120"></location>
         <source>right</source>
-        <translation>ຂວາ</translation>
+        <translation>right</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1121"></location>
         <source>bottoml</source>
-        <translation>ທ້າຍສຸດ</translation>
+        <translation>bottoml</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1122"></location>
         <source>bottom</source>
-        <translation>ລຸ່ມ</translation>
+        <translation>bottom</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1123"></location>
         <source>bottomr</source>
-        <translation>ດ້ານລຸ່ມ</translation>
+        <translation>bottomr</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1124"></location>
         <source>snapcorner</source>
-        <translation>ຜຸດໜ້າຕ່າງຜຸດ</translation>
+        <translation>snapcorner</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1125"></location>
         <source>snapshift</source>
-        <translation>ຈັບພາບຊົ່ວຄາວ</translation>
+        <translation>snapshift</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1126"></location>
         <source>sizein</source>
-        <translation>ຂະໜາດ</translation>
+        <translation>sizein</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1127"></location>
         <source>sizeout</source>
-        <translation>ຂະໜາດເຕັມ</translation>
+        <translation>sizeout</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1128"></location>
         <source>hor</source>
-        <translation>ໂຮຣ໌</translation>
+        <translation>hor</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1129"></location>
         <source>vert</source>
-        <translation>ສີແດງ</translation>
+        <translation>vert</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1132"></location>
         <source>snap2</source>
-        <translation>ຈັບພາບ</translation>
+        <translation>snap2</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1133"></location>
         <source>corner</source>
-        <translation>ມຸມ</translation>
+        <translation>corner</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1134"></location>
@@ -29110,22 +29110,22 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1137"></location>
         <source>quad</source>
-        <translation>ມຸມ:</translation>
+        <translation>quad</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1138"></location>
         <source>noquad</source>
-        <translation>ບໍ່ໃຊ້ຈຸດພາກ</translation>
+        <translation>noquad</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1139"></location>
         <source>angle_inner</source>
-        <translation>ມຸມ ພາຍໃນ</translation>
+        <translation>angle_inner</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1142"></location>
         <source>edges</source>
-        <translation>ຂອບ</translation>
+        <translation>edges</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1143"></location>
@@ -29150,70 +29150,70 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1147"></location>
         <source>end</source>
-        <translation>ຈົບ</translation>
+        <translation>end</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1148"></location>
         <source>both</source>
-        <translation>ທັງຄູ່</translation>
+        <translation>both</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1149"></location>
         <source>none</source>
-        <translation>ບໍ່ມີ</translation>
+        <translation>none</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1150"></location>
         <source>fit</source>
-        <translation>ພໍດີ</translation>
+        <translation>fit</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1151"></location>
         <source>nofit</source>
-        <translation>ບໍ່ໃຊ້</translation>
+        <translation>nofit</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1152"></location>
         <source>dist_fixed</source>
-        <translation>ແກ້ໄຂ</translation>
+        <translation>dist_fixed</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1153"></location>
         <source>dist_flex</source>
-        <translation>ລ້າງຂໍ້ມູນ</translation>
+        <translation>dist_flex</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1154"></location>
         <source>distance</source>
-        <translation>ໄລຍະຫ່າງ</translation>
+        <translation>distance</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1158"></location>
         <source>sym</source>
-        <translation>ລິ້ງຄ໌</translation>
+        <translation>sym</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1159"></location>
         <source>nosym</source>
-        <translation>ພ.ສ</translation>
+        <translation>nosym</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1177"></location>
         <source>cl</source>
         <comment>chordlen</comment>
-        <translation>ci</translation>
+        <translation>cl</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1195"></location>
         <source>eqn</source>
         <comment>equation</comment>
-        <translation>ເພີ່ມຂໍ້ມູນ..</translation>
+        <translation>eqn</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1196"></location>
         <source>eq</source>
         <comment>equation</comment>
-        <translation>ແບບ exif</translation>
+        <translation>eq</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1239"></location>
@@ -29370,7 +29370,7 @@ Do you want to replace it?</source>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="118"></location>
         <source>noname</source>
         <comment>default layer name</comment>
-        <translation>ບໍ່ມີຊື່</translation>
+        <translation>noname</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/rs_actiondimension.cpp" line="34"></location>
@@ -29667,13 +29667,13 @@ Do you want to replace it?</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="988"></location>
         <source>custom</source>
         <comment>Paper format</comment>
-        <translation>ປັບແຕ່ງເອງ</translation>
+        <translation>custom</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="991"></location>
         <source>a0</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ a0</translation>
+        <translation>a0</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="993"></location>
@@ -29691,31 +29691,31 @@ Do you want to replace it?</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="997"></location>
         <source>a3</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ a3</translation>
+        <translation>a3</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="999"></location>
         <source>a4</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ a4</translation>
+        <translation>a4</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1004"></location>
         <source>letter</source>
         <comment>Paper format</comment>
-        <translation>ຈົດໝາຍ</translation>
+        <translation>letter</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1006"></location>
         <source>legal</source>
         <comment>Paper format</comment>
-        <translation>ກົດໝາຍ</translation>
+        <translation>legal</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1008"></location>
         <source>tabloid</source>
         <comment>Paper format</comment>
-        <translation>ແທັບລອຍດ໌</translation>
+        <translation>tabloid</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1015"></location>
@@ -29872,7 +29872,7 @@ Do you want to replace it?</source>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="203"></location>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານຄຼາດ DXF/DWG</translation>
+        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານຄລາສ DXF/DWG</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="205"></location>
@@ -29933,24 +29933,31 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="285"></location>
         <source>entity</source>
-        <translation>ອົງປະກອບ</translation>
+        <translation>entity</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="286"></location>
         <source>entities</source>
-        <translation>ອົງປະກອບ</translation>
+        <translation>entities</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="310"></location>
         <source>, and %n more class(es)</source>
         <translation>
- <numerusform>, ແລະ ອີກ %n ຄຼາດ</numerusform>
+ <numerusform>, ແລະ ອີກ %n ຄລາສ</numerusform>
  </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1318"/>
+        <source>, and %n more object type(s)</source>
+        <translation>
+            <numerusform>, ແລະ ອີກ %n ປະເພດອົງປະກອບ</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="313"></location>
         <source>DWG load: %1 vendor-extension entities not rendered (%2). These are typically AutoCAD Mechanical or other vertical-product custom classes that libdxfrw cannot decode.</source>
-        <translation>ການໂຫຼດ DWG: %1 ພາກສ່ວນເສີມບໍ່ໄດ້ຖືກສະແດງຜົນ (%2). ສ່ວນຫຼາຍແມ່ນຄຼາດຈາກ AutoCAD Mechanical ທີ່ libdxfrw ບໍ່ສາມາດຖອດລະຫັດໄດ້.</translation>
+        <translation>ການໂຫຼດ DWG: %1 ພາກສ່ວນເສີມບໍ່ໄດ້ຖືກສະແດງຜົນ (%2). ສ່ວນຫຼາຍແມ່ນຄລາສຈາກ AutoCAD Mechanical ທີ່ libdxfrw ບໍ່ສາມາດຖອດລະຫັດໄດ້.</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="401"></location>
@@ -30005,7 +30012,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="7157"></location>
         <source>error reading classes in dwg file</source>
-        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານຄຼາດໃນແຟ້ມ dwg</translation>
+        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານຄລາສໃນແຟ້ມ dwg</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="7161"></location>
@@ -30465,7 +30472,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="565"></location>
         <source> entities </source>
-        <translation>ອົງປະກອບ</translation>
+        <translation>entities</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="566"></location>
@@ -31271,7 +31278,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawline.cpp" line="371"></location>
         <source>Cannot undo: Begin of history reached</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຮອດຈຸດເລີ່ມຕົ້ນຂອງປະຫວັດແລ້ວ</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ຮອດຈຸດເລີ່ມຕົ້ນຂອງປະຫວັດແລ້ວ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawline.cpp" line="405"></location>
@@ -31626,7 +31633,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actiondrawpolyline.cpp" line="802"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຍັງມີອົງປະກອບບໍ່ພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ຍັງມີອົງປະກອບບໍ່ພຽງພໍ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actiondrawpolyline.cpp" line="349"></location>
@@ -31691,7 +31698,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/rs_actiondrawspline.cpp" line="283"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຍັງມີອົງປະກອບບໍ່ພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳໄດ້: ຍັງມີອົງປະກອບບໍ່ພຽງພໍ.</translation>
     </message>
 </context>
 <context>
@@ -31789,7 +31796,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/edit/rs_actioneditundo.cpp" line="55"></location>
         <source>Nothing to undo!</source>
-        <translation>ບໍ່ມີຫຍັງໃຫ້ຍົກເລີກ!</translation>
+        <translation>ບໍ່ມີຫຍັງໃຫ້ເລີກທຳ!</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/edit/rs_actioneditundo.cpp" line="58"></location>
@@ -33133,7 +33140,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineappend.cpp" line="319"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກ: ຍັງບໍ່ມີອົງປະກອບພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດເລີກທຳ: ຍັງບໍ່ມີອົງປະກອບພຽງພໍ.</translation>
     </message>
 </context>
 <context>
@@ -33454,7 +33461,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="117"></location>
         <source> entities </source>
-        <translation>ອົງປະກອບ</translation>
+        <translation>entities</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="118"></location>
@@ -34249,12 +34256,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="72"></location>
         <source>Undo the last line drawing</source>
-        <translation>ຍົກເລີກການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
+        <translation>ເລີກທຳການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="75"></location>
         <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="82"></location>
@@ -34338,12 +34345,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="257"></location>
         <source>Undo the last line drawing</source>
-        <translation>ຍົກເລີກການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
+        <translation>ເລີກທຳການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="260"></location>
         <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="267"></location>
@@ -34770,12 +34777,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="63"></location>
         <source>Undo for previous vertex</source>
-        <translation>ຍົກເລີກສຳລັບຈຸດມຸມກ່ອນໜ້າ</translation>
+        <translation>ເລີກທຳສຳລັບຈຸດມຸມກ່ອນໜ້າ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="66"></location>
         <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="73"></location>
@@ -34909,7 +34916,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/print_preview/qg_printpreviewoptions.ui" line="152"></location>
         <source>fixed</source>
-        <translation>ຄົງທີ່</translation>
+        <translation>fixed</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/print_preview/qg_printpreviewoptions.ui" line="201"></location>
@@ -35086,12 +35093,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="110"></location>
         <source>Undo previous point</source>
-        <translation>ຍົກເລີກຈຸດກ່ອນໜ້າ</translation>
+        <translation>ເລີກທຳຈຸດກ່ອນໜ້າ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="113"></location>
         <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
 </context>
 <context>

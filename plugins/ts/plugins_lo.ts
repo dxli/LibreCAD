@@ -217,7 +217,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
         <location filename="../list/list.cpp" line="105"/>
         <location filename="../list/list.cpp" line="129"/>
         <source>length</source>
-        <translation>ຄວາມຍາວ</translation>
+        <translation>length</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="110"/>
@@ -246,7 +246,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
         <location filename="../list/list.cpp" line="137"/>
         <location filename="../list/list.cpp" line="224"/>
         <source>radius</source>
-        <translation>ລັດສະໝີ</translation>
+        <translation>radius</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="124"/>
@@ -266,12 +266,12 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="138"/>
         <source>circumference</source>
-        <translation>ເສັ້ນຮອບວົງ</translation>
+        <translation>circumference</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="139"/>
         <source>area</source>
-        <translation>ເນື້ອທີ່</translation>
+        <translation>area</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="142"/>
@@ -750,7 +750,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
         <location filename="../divide/divide.cpp" line="484"/>
         <location filename="../divide/divide.cpp" line="511"/>
         <source>length</source>
-        <translation>ຄວາມຍາວ</translation>
+        <translation>length</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="489"/>
@@ -778,7 +778,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
         <location filename="../divide/divide.cpp" line="520"/>
         <location filename="../divide/divide.cpp" line="542"/>
         <source>radius</source>
-        <translation>ລັດສະໝີ</translation>
+        <translation>radius</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="504"/>
@@ -798,12 +798,12 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="521"/>
         <source>circumference</source>
-        <translation>ເສັ້ນຮອບວົງ</translation>
+        <translation>circumference</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="523"/>
         <source>area</source>
-        <translation>ເນື້ອທີ່</translation>
+        <translation>area</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="527"/>
@@ -876,7 +876,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/dividedlg.cpp" line="114"/>
         <source>places</source>
-        <translation>ຕຳແໜ່ງ</translation>
+        <translation>places</translation>
     </message>
     <message>
         <location filename="../divide/dividedlg.cpp" line="125"/>
