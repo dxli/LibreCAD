@@ -925,7 +925,8 @@ RS_Pen RS_Entity::getPenResolved() const {
         const RS_Layer* l = getLayerResolved();
         // check byLayer attributes:
         if (l != nullptr) {
-            const RS_Pen& layerPen = l->getPen();
+            // Copy by value — avoids holding a reference into layer storage.
+            const RS_Pen layerPen = l->getPen();
             if (colorByLayer) {
                 p.setColorFromPen(layerPen);
             }

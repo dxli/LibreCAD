@@ -325,7 +325,15 @@ void RS_Insert::update() {
         RS_DEBUG->print("RS_Insert::update: Block is nullptr");
         return;
     }
-    blk->prepareForInsertExpansion();
+    // Font letter INSERTs (blockSource = font letterList) must never mutate
+    // the shared letter geometry. prepareForInsertExpansion re-centers WCS
+    // document blocks; applying it to font chars corrupts the global font
+    // cache and has crashed DWG import in RS_Text::update → letter expand
+    // (SIGSEGV in layer pen QString while resolving getPen()).
+    const bool fontLetterInsert = (m_data.blockSource != nullptr)
+            || (blk->rtti() == RS2::EntityFontChar);
+    if (!fontLetterInsert)
+        blk->prepareForInsertExpansion();
 
     if (isUndone()) {
         RS_DEBUG->print("RS_Insert::update: Insert is in undo list");
@@ -341,7 +349,19 @@ void RS_Insert::update() {
                     m_data.cols, m_data.rows);
     RS_DEBUG->print("RS_Insert::update: block has %d entities",
                     blk->count());
-    const bool parentBlockWcs = blk->hasWcsEmbeddedGeometry();
+    // Pen used when expanding block members. Document inserts resolve ByLayer
+    // via getPen(). Font letter inserts intentionally have null layer +
+    // invalid pen (RS_Text::update); resolving ByLayer walks the text parent
+    // and can crash if layer state is mid-import. Keep unresolved pens.
+    RS_Pen expansionPen = getPen(false);
+    if (fontLetterInsert) {
+        if (!expansionPen.isValid() && parent != nullptr)
+            expansionPen = parent->getPen(false);
+    } else {
+        expansionPen = getPen(true);
+    }
+    const bool parentBlockWcs =
+        fontLetterInsert ? false : blk->hasWcsEmbeddedGeometry();
     RS_Vector parentLeafMin(false);
     RS_Vector parentLeafMax(false);
     const bool haveParentLeaves =
@@ -411,7 +431,7 @@ void RS_Insert::update() {
                             ne->scale(m_data.insertionPoint, m_data.scaleFactor);
                             ne->rotate(m_data.insertionPoint, m_data.angle);
                             ne->setSelected(isSelected());
-                            ne->setPen(updatePen(ne->getPen(false), getPen()));
+                            ne->setPen(updatePen(ne->getPen(false), expansionPen));
                             ne->setUpdateEnabled(true);
                             if (m_data.updateMode != RS2::PreviewUpdate) {
                                 ne->update();
@@ -430,7 +450,7 @@ void RS_Insert::update() {
                             childExpand->setLayer(getLayer());
                         childExpand->setVisible(getFlag(RS2::FlagVisible));
                         childExpand->setSelected(isSelected());
-                        childExpand->setPen(updatePen(childExpand->getPen(false), getPen()));
+                        childExpand->setPen(updatePen(childExpand->getPen(false), expansionPen));
                         childExpand->setUpdateEnabled(true);
                         childExpand->update();
 
@@ -440,7 +460,7 @@ void RS_Insert::update() {
                                 gc->setLayer(getLayer());
                             gc->setVisible(getFlag(RS2::FlagVisible));
                             gc->setSelected(isSelected());
-                            gc->setPen(updatePen(gc->getPen(false), getPen()));
+                            gc->setPen(updatePen(gc->getPen(false), expansionPen));
 
                             if (childWcs && !parentBlockWcs) {
                                 RS_Vector nestedTarget =
@@ -507,7 +527,7 @@ void RS_Insert::update() {
                     ne->setSelected(isSelected());
 
                 // individual entities can be on indiv. layers
-                    RS_Pen tmpPen = updatePen(ne->getPen(false), getPen());
+                    RS_Pen tmpPen = updatePen(ne->getPen(false), expansionPen);
                 // now that we've evaluated all flags, let's strip them:
                 // TODO: strip all flags (width, line type)
                 //tmpPen.setColor(tmpPen.getColor().stripFlags());
