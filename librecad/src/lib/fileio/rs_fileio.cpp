@@ -77,21 +77,6 @@ bool RS_FileIO::fileImport(RS_Graphic& graphic, const QString& file,
         if (filter) {
 #ifdef DWGSUPPORT
             const bool isDwg{file.endsWith(".dwg", Qt::CaseInsensitive)};
-            if (isDwg) {
-                QApplication::restoreOverrideCursor(); // disable WaitCursor for massagebox
-
-                // use QStringList to avoid "\n" in translation strings
-                const QStringList info{
-                    QObject::tr("DWG support is not complete!"),
-                    "",
-                    QObject::tr("If this file fails to open try an older DWG format"),
-                    QObject::tr("or try to find a converter to make it a DXF file.")
-                };
-
-                QMessageBox::information(qApp->activeWindow(), QObject::tr("Information"), info.join("\n"), QMessageBox::Ok,
-                                         QMessageBox::NoButton);
-                QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-            }
 #endif
             const bool bImported{filter->fileImport(graphic, file, t)};
             if (!bImported) {
