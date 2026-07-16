@@ -423,8 +423,15 @@ void RS_Insert::update() {
                             auto* ne = new RS_Insert(this, childData);
                             ne->setOwner(true);
                             ne->setUpdateEnabled(false);
-                            if (childLayer != nullptr && childLayer->getName() == "0")
+                            // validatedLayer: block members can hold dangling
+                            // layer pointers after DWG import (crash in getName).
+                            if (layerNameEquals(childLayer, QStringLiteral("0")))
                                 ne->setLayer(getLayer());
+                            else if (validatedLayer(childLayer) == nullptr
+                                     && childLayer != nullptr)
+                                ne->setLayer(nullptr);
+                            else
+                                ne->setLayer(childLayer);
                             ne->setVisible(getFlag(RS2::FlagVisible));
                             ne->move(arrayOffset);
                             ne->move(blk->getBasePoint() * (-1.0));
@@ -446,8 +453,13 @@ void RS_Insert::update() {
                         auto* childExpand = new RS_Insert(this, childData);
                         childExpand->setOwner(true);
                         childExpand->setUpdateEnabled(false);
-                        if (childLayer != nullptr && childLayer->getName() == "0")
+                        if (layerNameEquals(childLayer, QStringLiteral("0")))
                             childExpand->setLayer(getLayer());
+                        else if (validatedLayer(childLayer) == nullptr
+                                 && childLayer != nullptr)
+                            childExpand->setLayer(nullptr);
+                        else
+                            childExpand->setLayer(childLayer);
                         childExpand->setVisible(getFlag(RS2::FlagVisible));
                         childExpand->setSelected(isSelected());
                         childExpand->setPen(updatePen(childExpand->getPen(false), expansionPen));
@@ -455,9 +467,12 @@ void RS_Insert::update() {
                         childExpand->update();
 
                         for (RS_Entity* gc : *childExpand) {
-                            if (gc->getLayer() != nullptr
-                                    && gc->getLayer()->getName() == "0")
+                            if (layerNameEquals(gc->getLayer(),
+                                                QStringLiteral("0")))
                                 gc->setLayer(getLayer());
+                            else if (validatedLayer(gc->getLayer()) == nullptr
+                                     && gc->getLayer() != nullptr)
+                                gc->setLayer(nullptr);
                             gc->setVisible(getFlag(RS2::FlagVisible));
                             gc->setSelected(isSelected());
                             gc->setPen(updatePen(gc->getPen(false), expansionPen));
@@ -493,13 +508,13 @@ void RS_Insert::update() {
                             {a->getCenter(), {a->getRadius(), 0.},
                                     1, a->getAngle1(), a->getAngle2(),
                                     a->isReversed()}};
-                            ne->setLayer(e->getLayer());
+                            ne->setLayer(validatedLayer(e->getLayer()));
                             ne->setPen(e->getPen(false));
                         } else if (e->rtti()== RS2::EntityCircle) {
                             auto a= static_cast<RS_Circle*>(e);
                             ne = new RS_Ellipse{this,
                             { a->getCenter(), {a->getRadius(), 0.}, 1, 0., 2.*M_PI, false}};
-                            ne->setLayer(e->getLayer());
+                            ne->setLayer(validatedLayer(e->getLayer()));
                             ne->setPen(e->getPen(false));
                         } else {
                             ne = e->clone();
@@ -509,9 +524,12 @@ void RS_Insert::update() {
                     }
                     ne->setUpdateEnabled(false);
                 // if entity layer are 0 set to insert layer to allow "1 layer control" bug ID #3602152
-                    RS_Layer *l= ne->getLayer();//special fontchar block don't have
-                    if (l != nullptr  && ne->getLayer()->getName() == "0")
-                    ne->setLayer(getLayer());
+                    // special fontchar block don't have a document layer
+                    RS_Layer *l = ne->getLayer();
+                    if (layerNameEquals(l, QStringLiteral("0")))
+                        ne->setLayer(getLayer());
+                    else if (validatedLayer(l) == nullptr && l != nullptr)
+                        ne->setLayer(nullptr);
                     ne->setParent(this);
                     ne->setVisible(getFlag(RS2::FlagVisible));
 

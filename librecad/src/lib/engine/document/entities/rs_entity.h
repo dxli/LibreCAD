@@ -136,6 +136,14 @@ public:
     void setPenAndLayerToActive();
     RS_Layer* getLayer(bool resolve = true) const;
     RS_Layer* getLayerResolved() const;
+    /**
+     * Returns \a layer only if it is still registered in this entity's
+     * document layer list. Block clones can retain dangling layer pointers
+     * after import; never call getName()/getPen() without this check.
+     */
+    RS_Layer *validatedLayer(RS_Layer *layer) const;
+    /** True if validated layer name equals \a name (typically "0"). */
+    bool layerNameEquals(RS_Layer *layer, const QString &name) const;
 
     /**
      * Sets the explicit pen for this entity or a pen with special

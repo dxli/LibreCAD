@@ -46,6 +46,7 @@
 #include "rs_information.h"
 #include "rs_insert.h"
 #include "rs_layer.h"
+#include "rs_layerlist.h"
 #include "rs_line.h"
 #include "rs_math.h"
 #include "rs_mtext.h"
@@ -797,6 +798,24 @@ RS_Layer* RS_Entity::getLayerResolved() const {
     return m_layer;
 }
 
+RS_Layer *RS_Entity::validatedLayer(RS_Layer *layer) const {
+    if (layer == nullptr)
+        return nullptr;
+    RS_Graphic *g = getGraphic();
+    if (g == nullptr)
+        return nullptr;
+    RS_LayerList *list = g->getLayerList();
+    // getIndex only compares pointers — safe even if layer is dangling.
+    if (list == nullptr || list->getIndex(layer) < 0)
+        return nullptr;
+    return layer;
+}
+
+bool RS_Entity::layerNameEquals(RS_Layer *layer, const QString &name) const {
+    RS_Layer *valid = validatedLayer(layer);
+    return valid != nullptr && valid->getName() == name;
+}
+
 /**
  * Returns a pointer to the layer this entity is on or nullptr.
  *
@@ -922,7 +941,9 @@ RS_Pen RS_Entity::getPenResolved() const {
     const bool widthByLayer = p.isWidthByLayer();
     const bool lineByLayer = p.isLineTypeByLayer();
     if (colorByLayer || widthByLayer || lineByLayer) {
-        const RS_Layer* l = getLayerResolved();
+        // Drop dangling layer pointers left on block members after import
+        // (updateInserts crash: getName/getPen on freed RS_Layer).
+        RS_Layer *l = validatedLayer(getLayerResolved());
         // check byLayer attributes:
         if (l != nullptr) {
             // Copy by value — avoids holding a reference into layer storage.
