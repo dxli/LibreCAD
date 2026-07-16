@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lo">
+<TS version="2.1" language="lo_LA">
 <context>
     <name>ColorWizard</name>
     <message>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../src/ui/not_used/LC_DlgParabola.ui" line="62"></location>
         <source>Layer:</source>
-        <translation>ຊັ້ນວາງ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/LC_DlgParabola.ui" line="95"></location>
@@ -120,7 +120,7 @@
         <location filename="../src/ui/not_used/LC_DlgParabola.ui" line="110"></location>
         <location filename="../src/ui/not_used/LC_DlgParabola.ui" line="113"></location>
         <source>Points on Spline</source>
-        <translation>ຈຸດເທິງເສັ້ນສະພລາຍ</translation>
+        <translation>ຈຸດເທິງເສັ້ນສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/LC_DlgParabola.ui" line="142"></location>
@@ -133,12 +133,12 @@
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="26"></location>
         <source>SplinePoints</source>
-        <translation>ຈຸດສະພລາຍ</translation>
+        <translation>ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="62"></location>
         <source>Layer:</source>
-        <translation>ຊັ້ນວາງ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="95"></location>
@@ -153,12 +153,12 @@
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="110"></location>
         <source>If selected, spline points are used</source>
-        <translation>ຖ້າເລືອກ, ຈະໃຊ້ຈຸດສະພລາຍ</translation>
+        <translation>ຖ້າເລືອກ, ຈະໃຊ້ຈຸດສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="113"></location>
         <source>Spline Points</source>
-        <translation>ຈຸດສະພລາຍ</translation>
+        <translation>ຈຸດສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="123"></location>
@@ -174,7 +174,7 @@
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="141"></location>
         <location filename="../src/ui/not_used/lc_dlgsplinepoints.ui" line="144"></location>
         <source>Points on Spline</source>
-        <translation>ຈຸດເທິງເສັ້ນສະພລາຍ</translation>
+        <translation>ຈຸດເທິງເສັ້ນສະປຼາຍ</translation>
     </message>
 </context>
 <context>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actioncircledimbase.cpp" line="222"></location>
         <source>Enter dimension text:</source>
-        <translation>ປ້ອນຂໍ້ຄວາມຂະໜາດ:</translation>
+        <translation>ປ້ອນຂໍ້ຄວາມມິຕິ:</translation>
     </message>
 </context>
 <context>
@@ -349,7 +349,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondimlinearbase.cpp" line="321"></location>
         <source>Enter dimension text:</source>
-        <translation>ປ້ອນຂໍ້ຄວາມຂະໜາດ:</translation>
+        <translation>ປ້ອນຂໍ້ຄວາມມິຕິ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondimlinearbase.cpp" line="324"></location>
@@ -579,7 +579,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_actiondrawboundingbox.cpp" line="46"></location>
         <source>Select entities for bounding box (Enter to complete)</source>
-        <translation>ເລືອກອອບເຈັກສໍາລັບກອບຂອບເຂດ (ກົດ Enter ເພື່ອສໍາເລັດ)</translation>
+        <translation>ເລືອກອົງປະກອບສໍາລັບກອບຂອບເຂດ (ກົດ Enter ເພື່ອສໍາເລັດ)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_actiondrawboundingbox.cpp" line="46"></location>
@@ -678,7 +678,7 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp" line="427"></location>
         <source>Enter dimension text:</source>
-        <translation>ປ້ອນຂໍ້ຄວາມຂະໜາດ:</translation>
+        <translation>ປ້ອນຂໍ້ຄວາມມິຕິ:</translation>
     </message>
 </context>
 <context>
@@ -696,17 +696,17 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="97"></location>
         <source>No entities selected. Dual creation cancelled.</source>
-        <translation>ບໍ່ໄດ້ເລືອກອອບເຈັກ. ການສ້າງຄູ່ຖືກຍົກເລີກ.</translation>
+        <translation>ບໍ່ໄດ້ເລືອກອົງປະກອບ. ການສ້າງຄູ່ຖືກຍົກເລີກ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="131"></location>
         <source>No supported entities could be dualized.</source>
-        <translation>ບໍ່ມີອອບເຈັກທີ່ຮອງຮັບໃນການເຮັດເປັນຄູ່.</translation>
+        <translation>ບໍ່ມີອົງປະກອບທີ່ຮອງຮັບໃນການເຮັດເປັນຄູ່.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="146"></location>
         <source>Dual created around center (%1 entities)</source>
-        <translation>ສ້າງຄູ່ຮອບສູນກາງແລ້ວ (%1 ອອບເຈັກ)</translation>
+        <translation>ສ້າງຄູ່ຮອບສູນກາງແລ້ວ (%1 ອົງປະກອບ)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="159"></location>
@@ -1025,7 +1025,7 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_actiondrawlinesnake.cpp" line="121"></location>
         <source>Angle</source>
-        <translation>ມູມ</translation>
+        <translation>ມຸມ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_actiondrawlinesnake.cpp" line="128"></location>
@@ -1074,12 +1074,12 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_actiondrawmidline.cpp" line="282"></location>
         <source>Select first entity</source>
-        <translation>ເລືອກອອບເຈັກທໍາອິດ</translation>
+        <translation>ເລືອກອົງປະກອບທໍາອິດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_actiondrawmidline.cpp" line="286"></location>
         <source>Select second entity</source>
-        <translation>ເລືອກອອບເຈັກທີສອງ</translation>
+        <translation>ເລືອກອົງປະກອບທີສອງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_actiondrawmidline.cpp" line="286"></location>
@@ -1366,7 +1366,7 @@ or [%2]</source>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="265"></location>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="286"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຍັງບໍ່ມີການລະບຸອອບເຈັກພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດຍົກເລີກໄດ້: ຍັງບໍ່ມີການລະບຸອົງປະກອບພຽງພໍ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actiondrawsplinepoints.cpp" line="302"></location>
@@ -1445,7 +1445,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="239"></location>
         <source>Select Entity</source>
-        <translation>ເລືອກອອບເຈັກ</translation>
+        <translation>ເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="240"></location>
@@ -1465,17 +1465,17 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="243"></location>
         <source>Select Intersected Entities</source>
-        <translation>ເລືອກອອບເຈັກທີ່ຕັດກັນ</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຕັດກັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="244"></location>
         <source>Deselect Intersected Entities</source>
-        <translation>ຍົກເລີກການເລືອກອອບເຈັກທີ່ຕັດກັນ</translation>
+        <translation>ຍົກເລີກການເລືອກອົງປະກອບທີ່ຕັດກັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="245"></location>
         <source>(De-)Select Layer</source>
-        <translation>(ຍົກເລີກ) ເລືອກຊັ້ນວາງ</translation>
+        <translation>(ຍົກເລີກ) ເລືອກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="228"></location>
@@ -1702,12 +1702,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="289"></location>
         <source>&amp;Append spline point</source>
-        <translation>ເພີ່ມຈຸດສະພລາຍ (&amp;A)</translation>
+        <translation>ເພີ່ມຈຸດສະປຼາຍ (&amp;A)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="291"></location>
         <source>&amp;Insert spline points</source>
-        <translation>ແຊກຈຸດສະພລາຍ (&amp;I)</translation>
+        <translation>ແຊກຈຸດສະປຼາຍ (&amp;I)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="302"></location>
@@ -1742,17 +1742,17 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="287"></location>
         <source>&amp;Spline</source>
-        <translation>ເສັ້ນສະພລາຍ (&amp;S)</translation>
+        <translation>&ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="288"></location>
         <source>&amp;Spline through points</source>
-        <translation>ເສັ້ນສະພລາຍຜ່ານຈຸດ (&amp;S)</translation>
+        <translation>ເສັ້ນສະປຼາຍຜ່ານຈຸດ (&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="313"></location>
         <source>&amp;Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (&amp;P)</translation>
+        <translation>&ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="314"></location>
@@ -1802,7 +1802,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="331"></location>
         <source>&amp;Hatch</source>
-        <translation>ລາຍຕາໜ່າງ (&amp;H)</translation>
+        <translation>&ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="332"></location>
@@ -1867,7 +1867,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="423"></location>
         <source>Caught Entity</source>
-        <translation>ອອບເຈັກທີ່ຈັບໄດ້</translation>
+        <translation>ອົງປະກອບທີ່ຈັບໄດ້</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="489"></location>
@@ -1877,12 +1877,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="490"></location>
         <source>Lower After Entity</source>
-        <translation>ຍ້າຍລົງຫຼັງອອບເຈັກ</translation>
+        <translation>ຍ້າຍລົງຫຼັງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="491"></location>
         <source>Raise Over Entity</source>
-        <translation>ຍ້າຍຂຶ້ນໜ້າອອບເຈັກ</translation>
+        <translation>ຍ້າຍຂຶ້ນໜ້າອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="492"></location>
@@ -2022,12 +2022,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="662"></location>
         <source>&amp;Undo</source>
-        <translation>&amp;ກັບຄືນ</translation>
+        <translation>&ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="663"></location>
         <source>&amp;Redo</source>
-        <translation>&amp;ເຮັດຄືນ</translation>
+        <translation>&ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="670"></location>
@@ -2202,7 +2202,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="392"></location>
         <source>Align</source>
-        <translation>ຈັດລຽງ</translation>
+        <translation>ຈັດວາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="393"></location>
@@ -2217,22 +2217,22 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="400"></location>
         <source>Update Current Pen by Active Layer' Pen</source>
-        <translation>ອັບເດດປາກກາປັດຈຸບັນຕາມປາກກາຊັ້ນວຽກ</translation>
+        <translation>ອັບເດດປາກກາປັດຈຸບັນຕາມປາກກາເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="406"></location>
         <source>&amp;Pick Pen From Entity</source>
-        <translation>&amp;ເລືອກປາກກາຈາກວັດຖຸ</translation>
+        <translation>&amp;ເລືອກປາກກາຈາກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="407"></location>
         <source>&amp;Pick Pen From Entity (Resolved)</source>
-        <translation>&amp;ເລືອກປາກກາຈາກວັດຖຸ (ແກ້ໄຂແລ້ວ)</translation>
+        <translation>&amp;ເລືອກປາກກາຈາກອົງປະກອບ (ແກ້ໄຂແລ້ວ)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="408"></location>
         <source>Apply Pen to Entity</source>
-        <translation>ນຳໃຊ້ປາກກາໃສ່ວັດຖຸ</translation>
+        <translation>ນຳໃຊ້ປາກກາໃສ່ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="409"></location>
@@ -2242,7 +2242,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="415"></location>
         <source>Show Entity Description</source>
-        <translation>ສະແດງລາຍລະອຽດວັດຖຸ</translation>
+        <translation>ສະແດງລາຍລະອຽດອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="418"></location>
@@ -2333,7 +2333,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="60"></location>
         <source>Dimension</source>
-        <translation>ຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="60"></location>
@@ -2353,17 +2353,17 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="62"></location>
         <source>Layer</source>
-        <translation>ຊັ້ນວຽກ</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="62"></location>
         <source>Layers operations</source>
-        <translation>ການຈັດການຊັ້ນວຽກ</translation>
+        <translation>ການຈັດການເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="63"></location>
         <source>Line</source>
-        <translation>ເສັ້ນຊື່</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="63"></location>
@@ -2424,7 +2424,7 @@ or [%2]</source>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="69"></location>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="69"></location>
         <source>Relative Zero</source>
-        <translation>ສູນສຳພັດ</translation>
+        <translation>ສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="70"></location>
@@ -2464,7 +2464,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="73"></location>
         <source>Entity selection operations</source>
-        <translation>ການຈັດການເລືອກວັດຖຸ</translation>
+        <translation>ການຈັດການເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="74"></location>
@@ -2544,12 +2544,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="82"></location>
         <source>Entity Layer</source>
-        <translation>ຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="82"></location>
         <source>Entity's Layer</source>
-        <translation>ຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="83"></location>
@@ -2564,32 +2564,32 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="104"></location>
         <source>Activate Entity's Layer</source>
-        <translation>ເປີດໃຊ້ຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ເປີດໃຊ້ເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="105"></location>
         <source>Hide Entity's Layer</source>
-        <translation>ເຊື່ອງຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ເຊື່ອງເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="106"></location>
         <source>Hide Other Layers than Entity's</source>
-        <translation>ເຊື່ອງຊັ້ນວຽກອື່ນທີ່ບໍ່ແມ່ນຂອງວັດຖຸ</translation>
+        <translation>ເຊື່ອງເລເຢີອື່ນທີ່ບໍ່ແມ່ນຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="107"></location>
         <source>Lock Entity's Layer</source>
-        <translation>ລັອກຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ລັອກເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="108"></location>
         <source>Toggle Entity's Layer Construction</source>
-        <translation>ສະຫຼັບຊັ້ນວຽກໂຄງສ້າງຂອງວັດຖຸ</translation>
+        <translation>ສະຫຼັບເລເຢີໂຄງສ້າງຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="109"></location>
         <source>Toggle Entity's Layer Printing</source>
-        <translation>ສະຫຼັບການພິມຊັ້ນວຽກຂອງວັດຖຸ</translation>
+        <translation>ສະຫຼັບການພິມເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="219"></location>
@@ -2604,17 +2604,17 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="259"></location>
         <source>Tangential 2 Entities, Radius</source>
-        <translation>ສຳຜັດ 2 ວັດຖຸ, ລັດສະໝີ</translation>
+        <translation>ສຳຜັດ 2 ອົງປະກອບ, ລັດສະໝີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="260"></location>
         <source>Tangential 2 Entities, 1 Point</source>
-        <translation>ສຳຜັດ 2 ວັດຖຸ, 1 ຈຸດ</translation>
+        <translation>ສຳຜັດ 2 ອົງປະກອບ, 1 ຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="261"></location>
         <source>Tangential &amp;3 Entities</source>
-        <translation>ສຳຜັດ &amp;3 ວັດຖຸ</translation>
+        <translation>ສຳຜັດ &amp;3 ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="278"></location>
@@ -2659,7 +2659,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="421"></location>
         <source>Relative</source>
-        <translation>ສຳພັດ</translation>
+        <translation>ສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="422"></location>
@@ -2684,7 +2684,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="432"></location>
         <source>Snap on Entity</source>
-        <translation>ເກາະຈັບທີ່ວັດຖຸ</translation>
+        <translation>ເກາະຈັບທີ່ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="433"></location>
@@ -2759,12 +2759,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="471"></location>
         <source>Set relative zero position</source>
-        <translation>ຕັ້ງຕຳແໜ່ງສູນສຳພັດ</translation>
+        <translation>ຕັ້ງຕຳແໜ່ງສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="474"></location>
         <source>Lock relative zero position</source>
-        <translation>ລັອກຕຳແໜ່ງສູນສຳພັດ</translation>
+        <translation>ລັອກຕຳແໜ່ງສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="482"></location>
@@ -2784,22 +2784,22 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="501"></location>
         <source>Distance &amp;Entity to Point</source>
-        <translation>ໄລຍະຫ່າງຈາກ&amp;ວັດຖຸຫາຈຸດ</translation>
+        <translation>ໄລຍະຫ່າງຈາກ&amp;ອົງປະກອບຫາຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="502"></location>
         <source>Distance &amp;Point to Entity</source>
-        <translation>ໄລຍະຫ່າງຈາກ&amp;ຈຸດຫາວັດຖຸ</translation>
+        <translation>ໄລຍະຫ່າງຈາກ&amp;ຈຸດຫາອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="504"></location>
         <source>Total &amp;length of selected entities</source>
-        <translation>&amp;ຄວາມຍາວທັງໝົດຂອງວັດຖຸທີ່ເລືອກ</translation>
+        <translation>&amp;ຄວາມຍາວທັງໝົດຂອງອົງປະກອບທີ່ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="506"></location>
         <source>Entity Pro&amp;perties</source>
-        <translation>ຄຸນ&amp;ລັກສະນະວັດຖຸ</translation>
+        <translation>ຄຸນ&amp;ລັກສະນະອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="507"></location>
@@ -2844,37 +2844,37 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="536"></location>
         <source>&amp;Add Layer</source>
-        <translation>&amp;ເພີ່ມຊັ້ນວຽກ</translation>
+        <translation>&amp;ເພີ່ມເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="537"></location>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;ລົບຊັ້ນວຽກ</translation>
+        <translation>&amp;ລົບເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="538"></location>
         <source>&amp;Edit Layer</source>
-        <translation>&amp;ແກ້ໄຂຊັ້ນວຽກ</translation>
+        <translation>&amp;ແກ້ໄຂເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="539"></location>
         <source>Toggle Layer Loc&amp;k</source>
-        <translation>ສະຫຼັບການລັອ&amp;ກຊັ້ນວຽກ</translation>
+        <translation>ສະຫຼັບການລັອ&amp;ກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="540"></location>
         <source>&amp;Toggle Layer Visibility</source>
-        <translation>&amp;ສະຫຼັບການເບິ່ງເຫັນຊັ້ນວຽກ</translation>
+        <translation>&amp;ສະຫຼັບການເບິ່ງເຫັນເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="541"></location>
         <source>Toggle Layer &amp;Print</source>
-        <translation>ສະຫຼັບການ&amp;ພິມຊັ້ນວຽກ</translation>
+        <translation>ສະຫຼັບການ&amp;ພິມເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="542"></location>
         <source>Toggle &amp;Construction Layer</source>
-        <translation>ສະຫຼັບຊັ້ນວຽກ&amp;ໂຄງສ້າງ</translation>
+        <translation>ສະຫຼັບເລເຢີ&amp;ໂຄງສ້າງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="552"></location>
@@ -3029,7 +3029,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="592"></location>
         <source>&amp;Block</source>
-        <translation>&amp;ບລັອກ</translation>
+        <translation>&ບລັອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="517"></location>
@@ -3039,7 +3039,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="518"></location>
         <source>&amp;Grid</source>
-        <translation>&amp;ຕາໜ່າງ</translation>
+        <translation>&ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="773"></location>
@@ -3167,12 +3167,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="532"></location>
         <source>&amp;Show all layers</source>
-        <translation>&amp;ສະແດງທຸກຊັ້ນວຽກ</translation>
+        <translation>&amp;ສະແດງທຸກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="533"></location>
         <source>&amp;Hide all layers</source>
-        <translation>&amp;ເຊື່ອງທຸກຊັ້ນວຽກ</translation>
+        <translation>&amp;ເຊື່ອງທຸກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="534"></location>
@@ -3187,12 +3187,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="543"></location>
         <source>&amp;Export Selected Layer(s)</source>
-        <translation>&amp;ສົ່ງອອກຊັ້ນວຽກທີ່ເລືອກ</translation>
+        <translation>&amp;ສົ່ງອອກເລເຢີທີ່ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="544"></location>
         <source>Export &amp;Visible Layer(s)</source>
-        <translation>ສົ່ງອອກຊັ້ນວຽກທີ່&amp;ເບິ່ງເຫັນ</translation>
+        <translation>ສົ່ງອອກເລເຢີທີ່&amp;ເບິ່ງເຫັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="550"></location>
@@ -3365,7 +3365,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="42"></location>
         <source>Relative: (%1)</source>
-        <translation>ສຳພັດ: (%1)</translation>
+        <translation>ສຳພັນ: (%1)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="43"></location>
@@ -3375,7 +3375,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="44"></location>
         <source>Polar Relative: (%1)</source>
-        <translation>ພິກັດມຸມສຳພັດ: (%1)</translation>
+        <translation>ພິກັດມຸມສຳພັນ: (%1)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="46"></location>
@@ -3400,17 +3400,17 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="73"></location>
         <source>Relative:</source>
-        <translation>ສຳພັດ:</translation>
+        <translation>ສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="74"></location>
         <source>Relative Polar:</source>
-        <translation>ພິກັດມຸມສຳພັດ:</translation>
+        <translation>ພິກັດມຸມສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="75"></location>
         <source>Relative Zero:</source>
-        <translation>ສູນສຳພັດ:</translation>
+        <translation>ສູນສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfopoint.cpp" line="123"></location>
@@ -3423,12 +3423,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfoproperties.cpp" line="171"></location>
         <source>Select entity</source>
-        <translation>ເລືອກວັດຖຸ</translation>
+        <translation>ເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/lc_actioninfoproperties.cpp" line="171"></location>
         <source>Select child entities</source>
-        <translation>ເລືອກວັດຖຸຍ່ອຍ</translation>
+        <translation>ເລືອກອົງປະກອບຍ່ອຍ</translation>
     </message>
 </context>
 <context>
@@ -3595,12 +3595,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickdistance.cpp" line="171"></location>
         <source>Relative:</source>
-        <translation>ສຳພັດ:</translation>
+        <translation>ສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickdistance.cpp" line="172"></location>
         <source>Relative Polar:</source>
-        <translation>ພິກັດມຸມສຳພັດ:</translation>
+        <translation>ພິກັດມຸມສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickdistance.cpp" line="181"></location>
@@ -3635,7 +3635,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickdistance.cpp" line="285"></location>
         <source>Entity geometry length</source>
-        <translation>ຄວາມຍາວທາງເລຂາຄະນິດຂອງວັດຖຸ</translation>
+        <translation>ຄວາມຍາວທາງເລຂາຄະນິດຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickdistance.cpp" line="285"></location>
@@ -3668,17 +3668,17 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="78"></location>
         <source>Relative:</source>
-        <translation>ສຳພັດ:</translation>
+        <translation>ສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="79"></location>
         <source>Relative Polar:</source>
-        <translation>ພິກັດມຸມສຳພັດ:</translation>
+        <translation>ພິກັດມຸມສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="80"></location>
         <source>Relative Zero:</source>
-        <translation>ສູນສຳພັດ:</translation>
+        <translation>ສູນສຳພັນ:</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="148"></location>
@@ -3688,12 +3688,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="149"></location>
         <source>Pick relative zero coordinates</source>
-        <translation>ເລືອກພິກັດສູນສຳພັດ</translation>
+        <translation>ເລືອກພິກັດສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pick/lc_actioninteractivepickposition.cpp" line="149"></location>
         <source>Pick relative coordinates</source>
-        <translation>ເລືອກພິກັດສຳພັດ</translation>
+        <translation>ເລືອກພິກັດສຳພັນ</translation>
     </message>
 </context>
 <context>
@@ -3701,7 +3701,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayerscmd.cpp" line="53"></location>
         <source>Enter layer name to %1</source>
-        <translation>ປ້ອນຊື່ຊັ້ນວຽກເພື່ອ %1</translation>
+        <translation>ປ້ອນຊື່ເລເຢີເພື່ອ %1</translation>
     </message>
     <message>
         <location filename="../src/actions/dock_widgets/layer/lc_actionlayerscmd.cpp" line="53"></location>
@@ -3744,7 +3744,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="139"></location>
         <source>Entity</source>
-        <translation>ວັດຖຸ</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="143"></location>
@@ -3774,12 +3774,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="247"></location>
         <source>Select base alignment entity</source>
-        <translation>ເລືອກວັດຖຸພື້ນຖານສຳລັບການຈັດລຽງ</translation>
+        <translation>ເລືອກອົງປະກອບພື້ນຖານສຳລັບການຈັດລຽງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="247"></location>
         <source>Select child entities of containers</source>
-        <translation>ເລືອກວັດຖຸຍ່ອຍໃນກຸ່ມ</translation>
+        <translation>ເລືອກອົງປະກອບຍ່ອຍໃນກຸ່ມ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="250"></location>
@@ -3794,7 +3794,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="261"></location>
         <source>Select entities to align (Enter to complete)</source>
-        <translation>ເລືອກວັດຖຸທີ່ຈະຈັດລຽງ (Enter ເພື່ອສຳເລັດ)</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຈະຈັດລຽງ (Enter ເພື່ອສຳເລັດ)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalign.cpp" line="261"></location>
@@ -3885,7 +3885,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="184"></location>
         <source>Entity</source>
-        <translation>ວັດຖຸ</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="188"></location>
@@ -3905,7 +3905,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="250"></location>
         <source>Select base alignment entity</source>
-        <translation>ເລືອກວັດຖຸພື້ນຖານສຳລັບການຈັດລຽງ</translation>
+        <translation>ເລືອກອົງປະກອບພື້ນຖານສຳລັບການຈັດລຽງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="253"></location>
@@ -3915,7 +3915,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="265"></location>
         <source>Select entity to align</source>
-        <translation>ເລືອກວັດຖຸທີ່ຈະຈັດລຽງ</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຈະຈັດລຽງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyalignsingle.cpp" line="265"></location>
@@ -3933,7 +3933,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifybreakdivide.cpp" line="141"></location>
         <source>Invalid entity selected - no segments between intersections to break/divide.</source>
-        <translation>ວັດຖຸທີ່ເລືອກບໍ່ຖືກຕ້ອງ - ບໍ່ມີສ່ວນເສັ້ນລະຫວ່າງຈຸດຕັດທີ່ຈະແຍກ ຫຼື ແບ່ງ.</translation>
+        <translation>ອົງປະກອບທີ່ເລືອກບໍ່ຖືກຕ້ອງ - ບໍ່ມີສ່ວນເສັ້ນລະຫວ່າງຈຸດຕັດທີ່ຈະແຍກ ຫຼື ແບ່ງ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifybreakdivide.cpp" line="240"></location>
@@ -3998,7 +3998,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyduplicate.cpp" line="265"></location>
         <source>Select entity to duplicate</source>
-        <translation>ເລືອກວັດຖຸທີ່ຈະສຳເນົາຊ້ຳ</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຈະສຳເນົາຊ້ຳ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyduplicate.cpp" line="265"></location>
@@ -4101,7 +4101,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/modify/lc_actionmodifyselectionbase.cpp" line="44"></location>
         <source>No entity selected!</source>
-        <translation>ບໍ່ມີວັດຖຸທີ່ຖືກເລືອກ!</translation>
+        <translation>ບໍ່ມີອົງປະກອບທີ່ຖືກເລືອກ!</translation>
     </message>
 </context>
 <context>
@@ -4122,12 +4122,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pen/lc_actionpenapply.cpp" line="168"></location>
         <source>Specify entity to pick the pen</source>
-        <translation>ລະບຸວັດຖຸເພື່ອເລືອກປາກກາ</translation>
+        <translation>ລະບຸອົງປະກອບເພື່ອເລືອກປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pen/lc_actionpenapply.cpp" line="171"></location>
         <source>Specify entity to apply pen</source>
-        <translation>ລະບຸວັດຖຸເພື່ອໃຊ້ປາກກາ</translation>
+        <translation>ລະບຸອົງປະກອບເພື່ອໃຊ້ປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/pen/lc_actionpenapply.cpp" line="171"></location>
@@ -4140,7 +4140,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/pen/lc_actionpenpick.cpp" line="88"></location>
         <source>Specify entity to pick the pen</source>
-        <translation>ລະບຸວັດຖຸເພື່ອເລືອກປາກກາ</translation>
+        <translation>ລະບຸອົງປະກອບເພື່ອເລືອກປາກກາ</translation>
     </message>
 </context>
 <context>
@@ -4189,7 +4189,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="192"></location>
         <source> entities </source>
-        <translation> ວັດຖຸ </translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="193"></location>
@@ -4209,7 +4209,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="217"></location>
         <source>Select/Deselect entities</source>
-        <translation>ເລືອກ/ຍົກເລີກການເລືອກ ວັດຖຸ</translation>
+        <translation>ເລືອກ/ຍົກເລີກການເລືອກ ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="217"></location>
@@ -4219,7 +4219,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="254"></location>
         <source>No valid entities selected, select them first</source>
-        <translation>ບໍ່ມີວັດຖຸທີ່ຖືກຕ້ອງຖືກເລືອກ, ກະລຸນາເລືອກກ່ອນ</translation>
+        <translation>ບໍ່ມີອົງປະກອບທີ່ຖືກຕ້ອງຖືກເລືອກ, ກະລຸນາເລືອກກ່ອນ</translation>
     </message>
 </context>
 <context>
@@ -4227,12 +4227,12 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionremovesplinepoints.cpp" line="201"></location>
         <source>Select spline or spline points entity</source>
-        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ວັດຖຸຈຸດເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ອົງປະກອບຈຸດເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionremovesplinepoints.cpp" line="205"></location>
         <source>Select control point of entity</source>
-        <translation>ເລືອກຈຸດຄວບຄຸມຂອງວັດຖຸ</translation>
+        <translation>ເລືອກຈຸດຄວບຄຸມຂອງອົງປະກອບ</translation>
     </message>
 </context>
 <context>
@@ -4266,7 +4266,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineaddpoint.cpp" line="205"></location>
         <source>Select spline or spline points entity</source>
-        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ວັດຖຸຈຸດເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ອົງປະກອບຈຸດເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineaddpoint.cpp" line="209"></location>
@@ -4289,7 +4289,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineappendpoint.cpp" line="251"></location>
         <source>Select spline or spline points entity</source>
-        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ວັດຖຸຈຸດເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ອົງປະກອບຈຸດເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineappendpoint.cpp" line="255"></location>
@@ -4307,7 +4307,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineexplode.cpp" line="203"></location>
         <source>Select spline or spline points entity</source>
-        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ວັດຖຸຈຸດເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ອົງປະກອບຈຸດເສັ້ນໂຄ້ງ</translation>
     </message>
 </context>
 <context>
@@ -4328,7 +4328,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineremovebetween.cpp" line="228"></location>
         <source>Select spline or spline points entity</source>
-        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ວັດຖຸຈຸດເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລືອກເສັ້ນໂຄ້ງ (spline) ຫຼື ອົງປະກອບຈຸດເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/spline/lc_actionsplineremovebetween.cpp" line="232"></location>
@@ -5441,7 +5441,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/not_used/lc_dlgdimordinate.ui" line="54"></location>
         <source>Layer of dimension</source>
-        <translation>ເລເຢີຂອງຂະໜາດ</translation>
+        <translation>ເລເຢີຂອງມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/lc_dlgdimordinate.ui" line="69"></location>
@@ -5788,22 +5788,22 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="640"></location>
         <source>Places arc length symbols before the dimension text. (DIMARCSYM system variable)</source>
-        <translation>ວາງສັນຍາລັກຄວາມຍາວສ່ວນໂຄ້ງໄວ້ກ່ອນຂໍ້ຄວາມຂະໜາດ (ຕົວປ່ຽນລະບົບ DIMARCSYM)</translation>
+        <translation>ວາງສັນຍາລັກຄວາມຍາວສ່ວນໂຄ້ງໄວ້ກ່ອນຂໍ້ຄວາມມິຕິ (ຕົວປ່ຽນລະບົບ DIMARCSYM)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="643"></location>
         <source>Preceding dimension text</source>
-        <translation>ໄວ້ກ່ອນຂໍ້ຄວາມຂະໜາດ</translation>
+        <translation>ໄວ້ກ່ອນຂໍ້ຄວາມມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="650"></location>
         <source>Places arc length symbols above the dimension text. (DIMARCSYM system variable)</source>
-        <translation>ວາງສັນຍາລັກຄວາມຍາວສ່ວນໂຄ້ງໄວ້ເໜືອຂໍ້ຄວາມຂະໜາດ (ຕົວປ່ຽນລະບົບ DIMARCSYM)</translation>
+        <translation>ວາງສັນຍາລັກຄວາມຍາວສ່ວນໂຄ້ງໄວ້ເໜືອຂໍ້ຄວາມມິຕິ (ຕົວປ່ຽນລະບົບ DIMARCSYM)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="653"></location>
         <source>Above dimension text</source>
-        <translation>ໄວ້ເໜືອຂໍ້ຄວາມຂະໜາດ</translation>
+        <translation>ໄວ້ເໜືອຂໍ້ຄວາມມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="663"></location>
@@ -5889,7 +5889,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="809"></location>
         <source>Sets the scale of fractions relative to dimension text. (DIMTFAC system variable)</source>
-        <translation>ຕັ້ງຄ່າຂະໜາດຂອງເສດສ່ວນທຽບກັບຂໍ້ຄວາມຂະໜາດ (ຕົວປ່ຽນລະບົບ DIMTFAC)</translation>
+        <translation>ຕັ້ງຄ່າຂະໜາດຂອງເສດສ່ວນທຽບກັບຂໍ້ຄວາມມິຕິ (ຕົວປ່ຽນລະບົບ DIMTFAC)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="822"></location>
@@ -5899,12 +5899,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="829"></location>
         <source>Sets the height of the current dimension text style. (DIMTXT system variable)</source>
-        <translation>ຕັ້ງຄ່າຄວາມສູງຂອງຮູບແບບຂໍ້ຄວາມຂະໜາດປັດຈຸບັນ (ຕົວປ່ຽນລະບົບ DIMTXT)</translation>
+        <translation>ຕັ້ງຄ່າຄວາມສູງຂອງຮູບແບບຂໍ້ຄວາມມິຕິປັດຈຸບັນ (ຕົວປ່ຽນລະບົບ DIMTXT)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="842"></location>
         <source>Sets the color for the dimension text (DIMCLRT system variable)</source>
-        <translation>ຕັ້ງຄ່າສີສຳລັບຂໍ້ຄວາມຂະໜາດ (ຕົວປ່ຽນລະບົບ DIMCLRT)</translation>
+        <translation>ຕັ້ງຄ່າສີສຳລັບຂໍ້ຄວາມມິຕິ (ຕົວປ່ຽນລະບົບ DIMCLRT)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="849"></location>
@@ -5919,7 +5919,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="859"></location>
         <source>Displays a rectangular frame around the dimension text. This option changes the value stored in the DIMGAP system variable to a negative value.</source>
-        <translation>ສະແດງກອບສີ່ແຈອ້ອມຂໍ້ຄວາມຂະໜາດ. ຕົວເລືອກນີ້ຈະປ່ຽນຄ່າໃນຕົວປ່ຽນລະບົບ DIMGAP ໃຫ້ເປັນຄ່າລົບ.</translation>
+        <translation>ສະແດງກອບສີ່ແຈອ້ອມຂໍ້ຄວາມມິຕິ. ຕົວເລືອກນີ້ຈະປ່ຽນຄ່າໃນຕົວປ່ຽນລະບົບ DIMGAP ໃຫ້ເປັນຄ່າລົບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="862"></location>
@@ -5962,7 +5962,7 @@ Are you sure you are going to discard changes?</source>
         <source>Sets the spacing between the dimension lines of a baseline dimension. Enter a distance. For information about baseline dimensions, see DIMBASELINE. (DIMDLI system variable)
 
 </source>
-        <translation>ກຳນົດໄລຍະຫ່າງລະຫວ່າງເສັ້ນບອກຂະໜາດຂອງການບອກຂະໜາດແບບອ້າງອີງເສັ້ນຫຼັກ. ປ້ອນໄລຍະຫ່າງ. ສຳລັບຂໍ້ມູນກ່ຽວກັບການບອກຂະໜາດແບບອ້າງອີງເສັ້ນຫຼັກ, ໃຫ້ເບິ່ງ DIMBASELINE. (ຕົວປ່ຽນລະບົບ DIMDLI)
+        <translation>ກຳນົດໄລຍະຫ່າງລະຫວ່າງເສັ້ນມິຕິຂອງການບອກຂະໜາດແບບອ້າງອີງເສັ້ນຫຼັກ. ປ້ອນໄລຍະຫ່າງ. ສຳລັບຂໍ້ມູນກ່ຽວກັບການບອກຂະໜາດແບບອ້າງອີງເສັ້ນຫຼັກ, ໃຫ້ເບິ່ງ DIMBASELINE. (ຕົວປ່ຽນລະບົບ DIMDLI)
 </translation>
     </message>
     <message>
@@ -6661,7 +6661,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="2100"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="2105"></location>
@@ -6781,12 +6781,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="14"></location>
         <source>Dimension</source>
-        <translation>ມິຕິ/ຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="209"></location>
         <source>Layer</source>
-        <translation>ເລເຢີ (Layer)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="236"></location>
@@ -6806,7 +6806,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="301"></location>
         <source>Override entity's style</source>
-        <translation>ຂຽນທັບຮູບແບບຂອງວັດຖຸ</translation>
+        <translation>ຂຽນທັບຮູບແບບຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="318"></location>
@@ -6868,7 +6868,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="457"></location>
         <source>Indicates whether style is overriden for specific entity (and so is unique for it).</source>
-        <translation>ລະບຸວ່າຮູບແບບຖືກຂຽນທັບສຳລັບວັດຖຸສະເພາະຫຼືບໍ່.</translation>
+        <translation>ລະບຸວ່າຮູບແບບຖືກຂຽນທັບສຳລັບອົງປະກອບສະເພາະຫຼືບໍ່.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="499"></location>
@@ -6898,7 +6898,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="415"></location>
         <source>Name of style for this dimension entity</source>
-        <translation>ຊື່ຂອງຮູບແບບສຳລັບວັດຖຸມິຕິນີ້</translation>
+        <translation>ຊື່ຂອງຮູບແບບສຳລັບອົງປະກອບມິຕິນີ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgdimension.ui" line="470"></location>
@@ -7085,12 +7085,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.ui" line="29"></location>
         <source>Object ID: 121</source>
-        <translation>ID ວັດຖຸ: 121</translation>
+        <translation>ID ອົງປະກອບ: 121</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.ui" line="64"></location>
         <source>Layer</source>
-        <translation>ເລເຢີ (Layer)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.ui" line="76"></location>
@@ -7100,7 +7100,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.ui" line="98"></location>
         <source>Layer of entity</source>
-        <translation>ເລເຢີຂອງວັດຖຸ</translation>
+        <translation>ເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.cpp" line="146"></location>
@@ -7150,12 +7150,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.cpp" line="222"></location>
         <source>Spline Properties</source>
-        <translation>ຄຸນສົມບັດຂອງເສັ້ນສະປາຍ (Spline)</translation>
+        <translation>ຄຸນສົມບັດຂອງເສັ້ນສະປຼາຍ (Spline)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.cpp" line="228"></location>
         <source>Spline Points Properties</source>
-        <translation>ຄຸນສົມບັດຈຸດຂອງເສັ້ນສະປາຍ</translation>
+        <translation>ຄຸນສົມບັດຈຸດຂອງເສັ້ນສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.cpp" line="234"></location>
@@ -7180,7 +7180,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgentityproperties.cpp" line="258"></location>
         <source>Hatch Properties</source>
-        <translation>ຄຸນສົມບັດລວດລາຍ (Hatch)</translation>
+        <translation>ຄຸນສົມບັດລວດລາຍ</translation>
     </message>
     <message>
         <source>Properties?</source>
@@ -7348,7 +7348,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_widget/lc_dlgiconssetup.ui" line="970"></location>
         <source>Main Color    |  Accent Color   |  Back Color</source>
-        <translation>ສີຫຼັກ    |  ສີເນັ້ນ   |  ສີພື້ນຫຼັງ</translation>
+        <translation>ສີຫຼັກ  | ສີເນັ້ນ  | ສີພື້ນຫຼັງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_widget/lc_dlgiconssetup.ui" line="977"></location>
@@ -7406,7 +7406,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="163"></location>
         <source>Entity Context</source>
-        <translation>ບໍລິບົດຂອງວັດຖຸ</translation>
+        <translation>ບໍລິບົດຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="169"></location>
@@ -7416,7 +7416,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="176"></location>
         <source>Defines the context for menu and whether click on specific entity will trigger menu invocation. </source>
-        <translation>ກຳນົດບໍລິບົດສຳລັບເມນູ ແລະ ກຳນົດວ່າການຄລິກໃສ່ວັດຖຸໃດໜຶ່ງຈະເປັນການເອີ້ນໃຊ້ເມນູຫຼືບໍ່. </translation>
+        <translation>ກຳນົດບໍລິບົດສຳລັບເມນູ ແລະ ກຳນົດວ່າການຄລິກໃສ່ອົງປະກອບໃດໜຶ່ງຈະເປັນການເອີ້ນໃຊ້ເມນູຫຼືບໍ່. </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="186"></location>
@@ -7481,7 +7481,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="92"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.ui" line="99"></location>
@@ -7511,17 +7511,17 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="106"></location>
         <source>Either Absent or Any Entity</source>
-        <translation>ບໍ່ມີວັດຖຸ ຫຼື ວັດຖຸໃດໆກໍຕາມ</translation>
+        <translation>ບໍ່ມີອົງປະກອບ ຫຼື ອົງປະກອບໃດໆກໍຕາມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="107"></location>
         <source>Absent Entity</source>
-        <translation>ບໍ່ມີວັດຖຸ</translation>
+        <translation>ບໍ່ມີອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="108"></location>
         <source>Any Entity</source>
-        <translation>ວັດຖຸໃດໆກໍຕາມ</translation>
+        <translation>ອົງປະກອບໃດໆກໍຕາມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="109"></location>
@@ -7536,27 +7536,27 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="111"></location>
         <source>Arc</source>
-        <translation>ສ່ວນໂຄ້ງ</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="112"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="113"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນສະປາຍ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="114"></location>
         <source>Spline By Points</source>
-        <translation>ເສັ້ນສະປາຍຕາມຈຸດ</translation>
+        <translation>ເສັ້ນສະປຼາຍຕາມຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="115"></location>
         <source>Ellipse</source>
-        <translation>ວົງຮີ</translation>
+        <translation>ວົງລີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="116"></location>
@@ -7576,12 +7576,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="119"></location>
         <source>Hatch</source>
-        <translation>ລວດລາຍ (Hatch)</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="120"></location>
         <source>Insert</source>
-        <translation>ແຊກ (Insert)</translation>
+        <translation>ແຊກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="121"></location>
@@ -7621,12 +7621,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="230"></location>
         <source>NOTE: Menu assignment will be ignored. It is reserved for 'Entity Properties'.</source>
-        <translation>ໝາຍເຫດ: ການກຳນົດເມນູຈະຖືກລະເວັ້ນ ເພາະມັນຖືກສະຫງວນໄວ້ສຳລັບ 'ຄຸນສົມບັດວັດຖຸ'.</translation>
+        <translation>ໝາຍເຫດ: ການກຳນົດເມນູຈະຖືກລະເວັ້ນ ເພາະມັນຖືກສະຫງວນໄວ້ສຳລັບ 'ຄຸນສົມບັດອົງປະກອບ'.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="233"></location>
         <source>NOTE: Menu assignment will be ignored. It is reserved for 'Entity Select'.</source>
-        <translation>ໝາຍເຫດ: ການກຳນົດເມນູຈະຖືກລະເວັ້ນ ເພາະມັນຖືກສະຫງວນໄວ້ສຳລັບ 'ການເລືອກວັດຖຸ'.</translation>
+        <translation>ໝາຍເຫດ: ການກຳນົດເມນູຈະຖືກລະເວັ້ນ ເພາະມັນຖືກສະຫງວນໄວ້ສຳລັບ 'ການເລືອກອົງປະກອບ'.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/creators/lc_dlgmenuassigner.cpp" line="236"></location>
@@ -8160,7 +8160,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgtolerance.ui" line="26"></location>
         <source>Layer of dimension</source>
-        <translation>ເລເຍີຂອງຂະໜາດ</translation>
+        <translation>ເລເຢີຂອງມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgtolerance.ui" line="45"></location>
@@ -8170,7 +8170,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgtolerance.ui" line="58"></location>
         <source>Layer:</source>
-        <translation>ເລເຍີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlgtolerance.ui" line="91"></location>
@@ -8252,7 +8252,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="59"></location>
         <source>Grid Type column</source>
-        <translation>ຖັນປະເພດເສັ້ນຕາຕະລາງ</translation>
+        <translation>ຖັນປະເພດຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="79"></location>
@@ -8281,7 +8281,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="56"></location>
         <source>If checked, the column with type of grid for UCS will be shown.</source>
-        <translation>ຖ້າໝາຍເອົາ, ຈະສະແດງຖັນທີ່ບອກປະເພດເສັ້ນຕາຕະລາງຂອງ UCS.</translation>
+        <translation>ຖ້າໝາຍເອົາ, ຈະສະແດງຖັນທີ່ບອກປະເພດຕາຕະລາງຂອງ UCS.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="85"></location>
@@ -8481,7 +8481,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucsproperties.ui" line="88"></location>
         <source>Grid Type:</source>
-        <translation>ປະເພດເສັ້ນຕາຕະລາງ:</translation>
+        <translation>ປະເພດຕາຕະລາງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucsproperties.ui" line="141"></location>
@@ -8829,7 +8829,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/action_options/misc/lc_drawboundingboxoptions.ui" line="65"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
 </context>
 <context>
@@ -8877,7 +8877,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_duplicateoptions.ui" line="164"></location>
         <source>Layer:</source>
-        <translation>ເລເຍີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_duplicateoptions.ui" line="69"></location>
@@ -8905,7 +8905,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_duplicateoptions.ui" line="45"></location>
         <source>Layer to which duplicate should be placed</source>
-        <translation>ເລເຍີທີ່ຈະວາງອັນທີ່ສຳເນົາໄວ້</translation>
+        <translation>ເລເຢີທີ່ຈະວາງອັນທີ່ສຳເນົາໄວ້</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_duplicateoptions.ui" line="49"></location>
@@ -9162,12 +9162,12 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dialogs/file/export/layers/lc_exportlayersdialogservice.cpp" line="138"></location>
         <location filename="../src/ui/dialogs/file/export/layers/lc_exportlayersdialogservice.cpp" line="179"></location>
         <source>Export Layers</source>
-        <translation>ສົ່ງອອກເລເຍີ</translation>
+        <translation>ສົ່ງອອກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_exportlayersdialogservice.cpp" line="152"></location>
         <source>Exported Layers</source>
-        <translation>ເລເຍີທີ່ສົ່ງອອກແລ້ວ</translation>
+        <translation>ເລເຢີທີ່ສົ່ງອອກແລ້ວ</translation>
     </message>
 </context>
 <context>
@@ -9680,7 +9680,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/action_options/info/lc_infodist2options.ui" line="35"></location>
         <source>Snap On Entity</source>
-        <translation>ສະແນັບ (Snap) ໃສ່ສິ່ງຂອງ</translation>
+        <translation>ເກາະຈັບທີ່ອົງປະກອບ</translation>
     </message>
 </context>
 <context>
@@ -9834,27 +9834,27 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="20"></location>
         <source>Layer Settings</source>
-        <translation>ຕັ້ງຄ່າເລເຍີ</translation>
+        <translation>ຕັ້ງຄ່າເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="48"></location>
         <source>Name of new layer. In order to create hierarchical layers, include name of virtual layer and layer name separator.</source>
-        <translation>ຊື່ຂອງເລເຍີໃໝ່. ເພື່ອສ້າງເລເຍີແບບຈັດລຳດັບຊັ້ນ, ໃຫ້ລວມເອົາຊື່ຂອງເລເຍີສະເໝືອນ ແລະ ຕົວແຍກຊື່ເລເຍີ.</translation>
+        <translation>ຊື່ຂອງເລເຢີໃໝ່. ເພື່ອສ້າງເລເຢີແບບຈັດລຳດັບຊັ້ນ, ໃຫ້ລວມເອົາຊື່ຂອງເລເຢີສະເໝືອນ ແລະ ຕົວແຍກຊື່ເລເຢີ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="64"></location>
         <source>Parent Layers Path:</source>
-        <translation>ທີ່ຢູ່ເລເຍີແມ່:</translation>
+        <translation>ທີ່ຢູ່ເລເຢີແມ່:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="81"></location>
         <source>Layer Type</source>
-        <translation>ປະເພດເລເຍີ</translation>
+        <translation>ປະເພດເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="93"></location>
         <source>Layer for various infromational elements, notes, drafts etc.</source>
-        <translation>ເລເຍີສຳລັບຂໍ້ມູນຕ່າງໆ, ບັນທຶກ, ຮ່າງ ແລະ ອື່ນໆ.</translation>
+        <translation>ເລເຢີສຳລັບຂໍ້ມູນຕ່າງໆ, ບັນທຶກ, ຮ່າງ ແລະ ອື່ນໆ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="96"></location>
@@ -9864,7 +9864,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="106"></location>
         <source>Normal layer with drawing eleements</source>
-        <translation>ເລເຍີປົກກະຕິພ້ອມກັບອົງປະກອບການແຕ້ມ</translation>
+        <translation>ເລເຢີປົກກະຕິພ້ອມກັບອົງປະກອບການແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="109"></location>
@@ -9874,17 +9874,17 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="119"></location>
         <source>Layer that holds dimensions</source>
-        <translation>ເລເຍີທີ່ໃຊ້ເກັບຂະໜາດ</translation>
+        <translation>ເລເຢີທີ່ໃຊ້ເກັບຂະໜາດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="122"></location>
         <source>Dimensions</source>
-        <translation>ຂະໜາດ (Dimensions)</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="132"></location>
         <source>Layer with alternate position of entities located on normal layers</source>
-        <translation>ເລເຍີທີ່ມີຕຳແໜ່ງສຳຮອງຂອງສິ່ງຕ່າງໆທີ່ຢູ່ໃນເລເຍີປົກກະຕິ</translation>
+        <translation>ເລເຢີທີ່ມີຕຳແໜ່ງສຳຮອງຂອງອົງປະກອບທີ່ຢູ່ໃນເລເຢີປົກກະຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="135"></location>
@@ -9895,44 +9895,44 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="148"></location>
         <source>A Construction Layer has entities of infinite straight lines intended to be used for geometric construction.
        The contents of a Construction Layer should not appear in printout.</source>
-        <translation>ເລເຍີການກໍ່ສ້າງມີເສັ້ນຊື່ທີ່ຍາວບໍ່ມີທີ່ສິ້ນສຸດ ເພື່ອໃຊ້ໃນການວາງແນວທາງເລຂາຄະນິດ. 
-ສິ່ງທີ່ຢູ່ໃນເລເຍີນີ້ຈະບໍ່ປະກົດອອກໃນເວລາສັ່ງພິມ.</translation>
+        <translation>ເລເຢີການກໍ່ສ້າງມີເສັ້ນຊື່ທີ່ຍາວບໍ່ມີທີ່ສິ້ນສຸດ ເພື່ອໃຊ້ໃນການວາງແນວທາງເລຂາຄະນິດ. 
+ສິ່ງທີ່ຢູ່ໃນເລເຢີນີ້ຈະບໍ່ປະກົດອອກໃນເວລາສັ່ງພິມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="152"></location>
         <source>Construction Layer</source>
-        <translation>ເລເຍີການກໍ່ສ້າງ</translation>
+        <translation>ເລເຢີການກໍ່ສ້າງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="181"></location>
         <source>Path for parent layer</source>
-        <translation>ທີ່ຢູ່ສຳລັບເລເຍີແມ່</translation>
+        <translation>ທີ່ຢູ່ສຳລັບເລເຢີແມ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.ui" line="197"></location>
         <source>Layer Name:</source>
-        <translation>ຊື່ເລເຍີ:</translation>
+        <translation>ຊື່ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="61"></location>
         <source>Rename Virtual Layer</source>
-        <translation>ປ່ຽນຊື່ເລເຍີສະເໝືອນ</translation>
+        <translation>ປ່ຽນຊື່ເລເຢີສະເໝືອນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="65"></location>
         <source>Add Secondary Layer</source>
-        <translation>ເພີ່ມເລເຍີສຳຮອງ</translation>
+        <translation>ເພີ່ມເລເຢີສຳຮອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="71"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="78"></location>
         <source>Add Layer</source>
-        <translation>ເພີ່ມເລເຍີ</translation>
+        <translation>ເພີ່ມເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="84"></location>
         <source>Edit Layer</source>
-        <translation>ແກ້ໄຂເລເຍີ</translation>
+        <translation>ແກ້ໄຂເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="176"></location>
@@ -9943,7 +9943,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="193"></location>
         <source>Rename Layer</source>
-        <translation>ປ່ຽນຊື່ເລເຍີ</translation>
+        <translation>ປ່ຽນຊື່ເລເຢີ</translation>
     </message>
 </context>
 <context>
@@ -9956,7 +9956,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="57"></location>
         <source>Layers Export Options</source>
-        <translation>ຕົວເລືອກການສົ່ງອອກເລເຍີ</translation>
+        <translation>ຕົວເລືອກການສົ່ງອອກເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="63"></location>
@@ -9971,22 +9971,22 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="73"></location>
         <source>If checked, each original exported layer will be stored in separate drawing. Otherwise, all layers will be in exported to one combined drawing.</source>
-        <translation>ຖ້າໝາຍເອົາ, ແຕ່ລະເລເຍີທີ່ສົ່ງອອກຈະຖືກແຍກເປັນໄຟລ໌ຮູບແຕ້ມຕ່າງຫາກ. ຖ້າບໍ່ດັ່ງນັ້ນ, ທຸກເລເຍີຈະຖືກລວມຢູ່ໃນຮູບແຕ້ມດຽວ.</translation>
+        <translation>ຖ້າໝາຍເອົາ, ແຕ່ລະເລເຢີທີ່ສົ່ງອອກຈະຖືກແຍກເປັນໄຟລ໌ຮູບແຕ້ມຕ່າງຫາກ. ຖ້າບໍ່ດັ່ງນັ້ນ, ທຸກເລເຢີຈະຖືກລວມຢູ່ໃນຮູບແຕ້ມດຽວ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="76"></location>
         <source>Export each layer to own drawing file</source>
-        <translation>ສົ່ງອອກແຕ່ລະເລເຍີເປັນໄຟລ໌ຮູບແຕ້ມຂອງໃຜລາວ</translation>
+        <translation>ສົ່ງອອກແຕ່ລະເລເຢີເປັນໄຟລ໌ຮູບແຕ້ມຂອງໃຜລາວ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="83"></location>
         <source>If checked, entities will be stored in original layer. Otherwise, they are placed to layer "0".</source>
-        <translation>ຖ້າໝາຍເອົາ, ສິ່ງຕ່າງໆຈະຖືກເກັບໄວ້ໃນເລເຍີເດີມ. ຖ້າບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຍ້າຍໄປຢູ່ເລເຍີ "0".</translation>
+        <translation>ຖ້າໝາຍເອົາ, ອົງປະກອບຈະຖືກເກັບໄວ້ໃນເລເຢີເດີມ. ຖ້າບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຍ້າຍໄປຢູ່ເລເຢີ "0".</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="89"></location>
         <source>Retain original layer for entities</source>
-        <translation>ຮັກສາເລເຍີເດີມສຳລັບສິ່ງຕ່າງໆ</translation>
+        <translation>ຮັກສາເລເຢີເດີມສຳລັບອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/layers/lc_layerexportoptions.ui" line="96"></location>
@@ -10004,7 +10004,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="20"></location>
         <source>Layers Tree Options</source>
-        <translation>ຕົວເລືອກໂໂຄງສ້າງເລເຍີ</translation>
+        <translation>ຕົວເລືອກໂໂຄງສ້າງເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="36"></location>
@@ -10258,7 +10258,7 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="103"></location>
         <source>grid</source>
-        <translation>ເສັ້ນຕາໜ່າງ</translation>
+        <translation>ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="111"></location>
@@ -10418,7 +10418,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="658"></location>
         <source>&amp;Select Entities (Sub-Tree)</source>
-        <translation>&amp;ເລືອກວັດຖຸ (ໂຄງສ້າງຍ່ອຍ)</translation>
+        <translation>&amp;ເລືອກອົງປະກອບ (ໂຄງສ້າງຍ່ອຍ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="663"></location>
@@ -10476,7 +10476,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="718"></location>
         <source>&amp;Select Layer's Entities</source>
-        <translation>&amp;ເລືອກວັດຖຸຂອງຊັ້ນ</translation>
+        <translation>&amp;ເລືອກອົງປະກອບຂອງເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="721"></location>
@@ -10604,7 +10604,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="122"></location>
         <source>If checked, original entity will be divided by intersection point.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຖືກແຍກອອກດ້ວຍຈຸດຕັດ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຖືກແຍກອອກດ້ວຍຈຸດຕັດ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="125"></location>
@@ -10662,7 +10662,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="146"></location>
         <source>If checked, angle is relative to angle of selected entity</source>
-        <translation>ຫາກໝາຍເລືອກ, ມຸມຈະທຽບກັບມຸມຂອງວັດຖຸທີ່ຖືກເລືອກ</translation>
+        <translation>ຫາກໝາຍເລືອກ, ມຸມຈະທຽບກັບມຸມຂອງອົງປະກອບທີ່ຖືກເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="149"></location>
@@ -10677,7 +10677,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="57"></location>
         <source>Snap point for position of intersection point between created line and source entity (within original line)</source>
-        <translation>ຈຸດຈັບສຳລັບຕຳແໜ່ງຂອງຈຸດຕັດລະຫວ່າງເສັ້ນທີ່ສ້າງຂຶ້ນ ແລະ ວັດຖຸຕົ້ນສະບັບ (ພາຍໃນເສັ້ນດັ້ງເດີມ)</translation>
+        <translation>ຈຸດຈັບສຳລັບຕຳແໜ່ງຂອງຈຸດຕັດລະຫວ່າງເສັ້ນທີ່ສ້າງຂຶ້ນ ແລະ ອົງປະກອບຕົ້ນສະບັບ (ພາຍໃນເສັ້ນດັ້ງເດີມ)</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="61"></location>
@@ -10867,7 +10867,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_linejoinoptions.ui" line="160"></location>
         <source>Defines how pen should be applied to created entities</source>
-        <translation>ກຳນົດວິທີການໃຊ້ປາກກາກັບວັດຖຸທີ່ສ້າງຂຶ້ນ</translation>
+        <translation>ກຳນົດວິທີການໃຊ້ປາກກາກັບອົງປະກອບທີ່ສ້າງຂຶ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_linejoinoptions.ui" line="164"></location>
@@ -10902,7 +10902,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_linejoinoptions.ui" line="210"></location>
         <source>Remove originals</source>
-        <translation>ລຶບວັດຖຸດັ້ງເດີມອອກ</translation>
+        <translation>ລຶບອົງປະກອບດັ້ງເດີມອອກ</translation>
     </message>
 </context>
 <context>
@@ -11277,7 +11277,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="231"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="265"></location>
         <source>Splin&amp;e</source>
-        <translation>ເສັ້ນ&amp;ສະປາຍ</translation>
+        <translation>ເສັ້ນ&amp;ສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="210"></location>
@@ -11289,7 +11289,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="233"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="269"></location>
         <source>&amp;Polyline</source>
-        <translation>ເສັ້ນ&amp;ຕໍ່ເນື່ອງ</translation>
+        <translation>&ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="218"></location>
@@ -11328,7 +11328,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="246"></location>
         <source>&amp;Dimensions</source>
-        <translation>&amp;ຂະໜາດ</translation>
+        <translation>&ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="250"></location>
@@ -11461,7 +11461,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="940"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1018"></location>
         <source>Modify</source>
-        <translation>ແກ້ໄຂ</translation>
+        <translation>ປັບປ່ຽນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="957"></location>
@@ -11506,12 +11506,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="999"></location>
         <source>Polyline/Spline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ/ເສັ້ນສະປາຍ</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ/ເສັ້ນສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1010"></location>
         <source>Ellipse</source>
-        <translation>ວົງຣີ</translation>
+        <translation>ວົງລີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1014"></location>
@@ -11542,7 +11542,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1065"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1805"></location>
         <source>Layers</source>
-        <translation>ຊັ້ນ (Layers)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1070"></location>
@@ -11624,12 +11624,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1527"></location>
         <source>Modify Spline</source>
-        <translation>ແກ້ໄຂເສັ້ນສະປາຍ</translation>
+        <translation>ແກ້ໄຂເສັ້ນສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1543"></location>
         <source>Modify Spline Points</source>
-        <translation>ແກ້ໄຂຈຸດເສັ້ນສະປາຍ</translation>
+        <translation>ແກ້ໄຂຈຸດເສັ້ນສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1566"></location>
@@ -11780,7 +11780,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="93"></location>
         <source>Center entities horizontally</source>
-        <translation>ຈັດລຽງວັດຖຸໄວ້ກາງໃນແນວນອນ</translation>
+        <translation>ຈັດລຽງອົງປະກອບໄວ້ກາງໃນແນວນອນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="113"></location>
@@ -11800,12 +11800,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="150"></location>
         <source>Defines the way of selected entities alignment.</source>
-        <translation>ກຳນົດວິທີການຈັດລຽງວັດຖຸທີ່ຖືກເລືອກ.</translation>
+        <translation>ກຳນົດວິທີການຈັດລຽງອົງປະກອບທີ່ຖືກເລືອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="154"></location>
         <source>Entity</source>
-        <translation>ວັດຖຸ</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="159"></location>
@@ -11820,7 +11820,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="172"></location>
         <source>If selected, relative positions of entities within selection will be unchanged. Otherwise, each entity will be positioned individually.</source>
-        <translation>ຫາກເລືອກ, ຕຳແໜ່ງສຳພັນຂອງວັດຖຸພາຍໃນສ່ວນທີ່ເລືອກຈະບໍ່ປ່ຽນແປງ. ບໍ່ດັ່ງນັ້ນ, ແຕ່ລະວັດຖຸຈະຖືກຈັດວາງຕຳແໜ່ງແຍກກັນ.</translation>
+        <translation>ຫາກເລືອກ, ຕຳແໜ່ງສຳພັນຂອງອົງປະກອບພາຍໃນສ່ວນທີ່ເລືອກຈະບໍ່ປ່ຽນແປງ. ບໍ່ດັ່ງນັ້ນ, ແຕ່ລະອົງປະກອບຈະຖືກຈັດວາງຕຳແໜ່ງແຍກກັນ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="175"></location>
@@ -11840,7 +11840,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="230"></location>
         <source>Center entities vertically</source>
-        <translation>ຈັດລຽງວັດຖຸໄວ້ກາງໃນແນວຕັ້ງ</translation>
+        <translation>ຈັດລຽງອົງປະກອບໄວ້ກາງໃນແນວຕັ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignoptions.ui" line="250"></location>
@@ -11863,7 +11863,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="46"></location>
         <source>If checked, current attributes will be used for mirrored entities, otherwise - original ones. </source>
-        <translation>ຫາກໝາຍເລືອກ, ຈະໃຊ້ຄຸນລັກສະນະປັດຈຸບັນສຳລັບວັດຖຸທີ່ສະທ້ອນເງົາ, ບໍ່ດັ່ງນັ້ນ - ຈະໃຊ້ຄຸນລັກສະນະດັ້ງເດີມ. </translation>
+        <translation>ຫາກໝາຍເລືອກ, ຈະໃຊ້ຄຸນລັກສະນະປັດຈຸບັນສຳລັບອົງປະກອບທີ່ສະທ້ອນເງົາ, ບໍ່ດັ່ງນັ້ນ - ຈະໃຊ້ຄຸນລັກສະນະດັ້ງເດີມ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="49"></location>
@@ -11873,32 +11873,32 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="56"></location>
         <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation>ຫາກບໍ່ໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຖືກລຶບອອກ, ບໍ່ດັ່ງນັ້ນວັດຖຸເຫຼົ່ານັ້ນຈະຍັງຄົງຢູ່.</translation>
+        <translation>ຫາກບໍ່ໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຖືກລຶບອອກ, ບໍ່ດັ່ງນັ້ນອົງປະກອບເຫຼົ່ານັ້ນຈະຍັງຄົງຢູ່.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="59"></location>
         <source>Keep Originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="66"></location>
         <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸທີ່ສະທ້ອນເງົາຈະຖືກວາງໄວ້ໃນຊັ້ນປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບທີ່ສະທ້ອນເງົາຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="69"></location>
         <source>User Current Layer</source>
-        <translation>ໃຊ້ຊັ້ນປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="76"></location>
         <source>If checked, entities will be scaled if necessary. Otherwise, they will be just positioned and rotated.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸຈະຖືກປັບຂະໜາດຫາກຈຳເປັນ. ບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຈັດວາງຕຳແໜ່ງ ແລະ ໝຸນເທົ່ານັ້ນ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບຈະຖືກປັບຂະໜາດຫາກຈຳເປັນ. ບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຈັດວາງຕຳແໜ່ງ ແລະ ໝຸນເທົ່ານັ້ນ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyalignrefoptions.ui" line="79"></location>
         <source>Scale</source>
-        <translation>ປັບຂະໜາດ</translation>
+        <translation>ມາດຕາສ່ວນ</translation>
     </message>
 </context>
 <context>
@@ -11911,7 +11911,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifybreakdivideoptions.ui" line="45"></location>
         <source>If checked, segements between intersection points will be removed. If unchecked - the entitiy will be divided in intersection points. </source>
-        <translation>ຫາກໝາຍເລືອກ, ສ່ວນເສັ້ນລະຫວ່າງຈຸດຕັດຈະຖືກລຶບອອກ. ຫາກບໍ່ໝາຍເລືອກ - ວັດຖຸຈະຖືກແຍກອອກທີ່ຈຸດຕັດ. </translation>
+        <translation>ຫາກໝາຍເລືອກ, ສ່ວນເສັ້ນລະຫວ່າງຈຸດຕັດຈະຖືກລຶບອອກ. ຫາກບໍ່ໝາຍເລືອກ - ອົງປະກອບຈະຖືກແຍກອອກທີ່ຈຸດຕັດ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifybreakdivideoptions.ui" line="48"></location>
@@ -12049,7 +12049,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="32"></location>
         <source>If checked, mirror will be performed by selected line entity.</source>
-        <translation>ຫາກໝາຍເລືອກ, ການສະທ້ອນເງົາຈະເຮັດໂດຍໃຊ້ວັດຖຸເສັ້ນທີ່ຖືກເລືອກ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ການສະທ້ອນເງົາຈະເຮັດໂດຍໃຊ້ອົງປະກອບເສັ້ນທີ່ຖືກເລືອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="35"></location>
@@ -12059,12 +12059,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="42"></location>
         <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation>ຫາກບໍ່ໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຖືກລຶບອອກ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຍັງຄົງຢູ່.</translation>
+        <translation>ຫາກບໍ່ໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຖືກລຶບອອກ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຍັງຄົງຢູ່.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="45"></location>
         <source>Keep Originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="59"></location>
@@ -12079,12 +12079,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="82"></location>
         <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸທີ່ສະທ້ອນເງົາຈະຖືກວາງໄວ້ໃນຊັ້ນປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບທີ່ສະທ້ອນເງົາຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifymirroroptions.ui" line="85"></location>
         <source>User Current Layer</source>
-        <translation>ໃຊ້ຊັ້ນປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
 </context>
 <context>
@@ -12108,27 +12108,27 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="187"></location>
         <source>If checked, new enties will be placed on current layer, otherwise they will be in original layers.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸໃໝ່ຈະຖືກວາງໄວ້ໃນຊັ້ນປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຢູ່ໃນຊັ້ນດັ້ງເດີມ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບໃໝ່ຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຢູ່ໃນຊັ້ນດັ້ງເດີມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="190"></location>
         <source>Use Current Layer</source>
-        <translation>ໃຊ້ຊັ້ນປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="177"></location>
         <source>If absolute, reference point will be rotated but entity will be rotated by second angle only, otherwise angles will summ up</source>
-        <translation>ຫາກເລືອກແບບສົມບູນ, ຈຸດອ້າງອີງຈະຖືກໝຸນ ແຕ່ວັດຖຸຈະໝຸນຕາມມຸມທີສອງເທົ່ານັ້ນ, ບໍ່ດັ່ງນັ້ນມຸມທັງໝົດຈະຖືກລວມເຂົ້າກັນ</translation>
+        <translation>ຫາກເລືອກແບບສົມບູນ, ຈຸດອ້າງອີງຈະຖືກໝຸນ ແຕ່ອົງປະກອບຈະໝຸນຕາມມຸມທີສອງເທົ່ານັ້ນ, ບໍ່ດັ່ງນັ້ນມຸມທັງໝົດຈະຖືກລວມເຂົ້າກັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="180"></location>
         <source>Absolute</source>
-        <translation>ສົມບູນ</translation>
+        <translation>ແທ້ຈິງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="229"></location>
         <source>Angle to rotate entity around rotation center point</source>
-        <translation>ມຸມທີ່ຈະໝຸນວັດຖຸອ້ອມຈຸດສູນກາງການໝຸນ</translation>
+        <translation>ມຸມທີ່ຈະໝຸນອົງປະກອບອ້ອມຈຸດສູນກາງການໝຸນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="207"></location>
@@ -12163,12 +12163,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="140"></location>
         <source>If checked, original entities will be survive, otherwise they will be removed.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="143"></location>
         <source>Keep Originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyrotateoptions.ui" line="150"></location>
@@ -12241,12 +12241,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="73"></location>
         <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="76"></location>
         <source>Keep Originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="50"></location>
@@ -12276,12 +12276,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="83"></location>
         <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed to original layers. </source>
-        <translation>ຖ້າເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກຈັດວາງໄວ້ໃນເລເຍີປັດຈຸບັນ. ຖ້າບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຈັດວາງໄວ້ໃນເລເຍີເດີມ. </translation>
+        <translation>ຖ້າເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກຈັດວາງໄວ້ໃນເລເຢີປັດຈຸບັນ. ຖ້າບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກຈັດວາງໄວ້ໃນເລເຢີເດີມ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="86"></location>
         <source>Use Current Layer</source>
-        <translation>ໃຊ້ຊັ້ນປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifyscaleoptions.ui" line="209"></location>
@@ -12309,12 +12309,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifystretchoptions.ui" line="32"></location>
         <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_modifystretchoptions.ui" line="35"></location>
         <source>Keep originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
 </context>
 <context>
@@ -12327,12 +12327,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="45"></location>
         <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed into original layers. </source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນຊັ້ນປັດຈຸບັນ. ບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ. </translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ. ບໍ່ດັ່ງນັ້ນ, ພວກມັນຈະຖືກວາງໄວ້ໃນຊັ້ນດັ້ງເດີມ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="48"></location>
         <source>Use Current Layer</source>
-        <translation>ໃຊ້ຊັ້ນປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="55"></location>
@@ -12352,12 +12352,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="78"></location>
         <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation>ຫາກໝາຍເລືອກ, ວັດຖຸດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
+        <translation>ຫາກໝາຍເລືອກ, ອົງປະກອບດັ້ງເດີມຈະຍັງຄົງຢູ່, ບໍ່ດັ່ງນັ້ນພວກມັນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="81"></location>
         <source>Keep Originals</source>
-        <translation>ຮັກສາວັດຖຸດັ້ງເດີມ</translation>
+        <translation>ຮັກສາອົງປະກອບດັ້ງເດີມ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_moveoptions.ui" line="95"></location>
@@ -12629,7 +12629,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewsmodel.cpp" line="410"></location>
         <source>Grid View: </source>
-        <translation>ມຸມມອງເສັ້ນຕາຕະລາງ: </translation>
+        <translation>ມຸມມອງຕາຕະລາງ: </translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewsmodel.cpp" line="411"></location>
@@ -12746,12 +12746,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/action_options/point/lc_pastetopointsoptions.ui" line="113"></location>
         <source>Scale factor for pasted entities</source>
-        <translation>ອັດຕາສ່ວນຂະຫຍາຍສຳລັບສິ່ງທີ່ວາງ</translation>
+        <translation>ອັດຕາສ່ວນຂະຫຍາຍສຳລັບອົງປະກອບທີ່ວາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/point/lc_pastetopointsoptions.ui" line="50"></location>
         <source>Rotation angle for pasted entities</source>
-        <translation>ມຸມໝຸນສຳລັບສິ່ງທີ່ວາງ</translation>
+        <translation>ມຸມໝຸນສຳລັບອົງປະກອບທີ່ວາງ</translation>
     </message>
 </context>
 <context>
@@ -12764,7 +12764,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/action_options/edit/lc_pastetransformoptions.ui" line="50"></location>
         <source>Rotation angle for pasted entities</source>
-        <translation>ມຸມໝຸນສຳລັບສິ່ງທີ່ວາງ</translation>
+        <translation>ມຸມໝຸນສຳລັບອົງປະກອບທີ່ວາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/edit/lc_pastetransformoptions.ui" line="85"></location>
@@ -12849,7 +12849,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/action_options/edit/lc_pastetransformoptions.ui" line="193"></location>
         <source>Scale factor for pasted entities</source>
-        <translation>ອັດຕາສ່ວນຂະຫຍາຍສຳລັບສິ່ງທີ່ວາງ</translation>
+        <translation>ອັດຕາສ່ວນຂະຫຍາຍສຳລັບອົງປະກອບທີ່ວາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/edit/lc_pastetransformoptions.ui" line="260"></location>
@@ -13095,22 +13095,22 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="325"></location>
         <source>Center</source>
-        <translation>ເສັ້ນໃຈກາງ</translation>
+        <translation>ໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="326"></location>
         <source>Center (tiny)</source>
-        <translation>ເສັ້ນໃຈກາງ (ນ້ອຍທີ່ສຸດ)</translation>
+        <translation>ໃຈກາງ (ນ້ອຍທີ່ສຸດ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="327"></location>
         <source>Center (small)</source>
-        <translation>ເສັ້ນໃຈກາງ (ນ້ອຍ)</translation>
+        <translation>ໃຈກາງ (ນ້ອຍ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="328"></location>
         <source>Center (large)</source>
-        <translation>ເສັ້ນໃຈກາງ (ໃຫຍ່)</translation>
+        <translation>ໃຈກາງ (ໃຫຍ່)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="329"></location>
@@ -13292,7 +13292,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="55"></location>
         <source>Color of grid for pens list</source>
-        <translation>ສີຂອງເສັ້ນຕາຕະລາງສຳລັບລາຍການປາກກາ</translation>
+        <translation>ສີຂອງຕາຕະລາງສຳລັບລາຍການປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="65"></location>
@@ -13319,7 +13319,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="110"></location>
         <source>Grid Color:</source>
-        <translation>ສີເສັ້ນຕາຕະລາງ:</translation>
+        <translation>ສີຕາຕະລາງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="117"></location>
@@ -13403,7 +13403,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="301"></location>
         <source>Show info message if no entities may be selected by pen</source>
-        <translation>ສະແດງຂໍ້ຄວາມແຈ້ງເຕືອນຖ້າບໍ່ມີວັດຖຸໃດຖືກເລືອກໂດຍປາກກາ</translation>
+        <translation>ສະແດງຂໍ້ຄວາມແຈ້ງເຕືອນຖ້າບໍ່ມີອົງປະກອບໃດຖືກເລືອກໂດຍປາກກາ</translation>
     </message>
     <message>
         <source>On double click on table item</source>
@@ -13422,12 +13422,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.cpp" line="52"></location>
         <source>Select entities by attributes pen</source>
-        <translation>ເລືອກວັດຖຸຕາມຄຸນລັກສະນະປາກກາ</translation>
+        <translation>ເລືອກອົງປະກອບຕາມຄຸນລັກສະນະປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.cpp" line="53"></location>
         <source>Select entities by drawing pen</source>
-        <translation>ເລືອກວັດຖຸຕາມປາກກາທີ່ແຕ້ມ</translation>
+        <translation>ເລືອກອົງປະກອບຕາມປາກກາທີ່ແຕ້ມ</translation>
     </message>
 </context>
 <context>
@@ -13440,22 +13440,22 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="46"></location>
         <source>Fill Pen Editor by Entity Drawing Pen</source>
-        <translation>ດຶງຂໍ້ມູນປາກກາຈາກວັດຖຸທີ່ແຕ້ມ</translation>
+        <translation>ດຶງຂໍ້ມູນປາກກາຈາກອົງປະກອບທີ່ແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="63"></location>
         <source>Fill Pen Editor by Entity Attributes</source>
-        <translation>ດຶງຂໍ້ມູນປາກກາຈາກຄຸນລັກສະນະວັດຖຸ</translation>
+        <translation>ດຶງຂໍ້ມູນປາກກາຈາກຄຸນລັກສະນະອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="80"></location>
         <source>Select Entities By Drawing Pen</source>
-        <translation>ເລືອກວັດຖຸດ້ວຍປາກກາທີ່ແຕ້ມ</translation>
+        <translation>ເລືອກອົງປະກອບດ້ວຍປາກກາທີ່ແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="97"></location>
         <source>Select Entities By Pen Attributes</source>
-        <translation>ເລືອກວັດຖຸດ້ວຍຄຸນລັກສະນະປາກກາ</translation>
+        <translation>ເລືອກອົງປະກອບດ້ວຍຄຸນລັກສະນະປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="117"></location>
@@ -13466,7 +13466,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="134"></location>
         <source>Apply Pen To Selection</source>
-        <translation>ໃຊ້ປາກກາກັບວັດຖຸທີ່ເລືອກ</translation>
+        <translation>ໃຊ້ປາກກາກັບອົງປະກອບທີ່ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.ui" line="151"></location>
@@ -13581,7 +13581,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="278"></location>
         <source>&amp;Apply Pen To Selection</source>
-        <translation>&amp;ໃຊ້ປາກກາກັບວັດຖຸທີ່ເລືອກ</translation>
+        <translation>&amp;ໃຊ້ປາກກາກັບອົງປະກອບທີ່ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="279"></location>
@@ -13596,12 +13596,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="281"></location>
         <source>&amp;Select Entities With Attributes Pen</source>
-        <translation>&amp;ເລືອກວັດຖຸດ້ວຍຄຸນລັກສະນະປາກກາ</translation>
+        <translation>&amp;ເລືອກອົງປະກອບດ້ວຍຄຸນລັກສະນະປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="282"></location>
         <source>&amp;Select Entities With Drawing Pen</source>
-        <translation>&amp;ເລືອກວັດຖຸດ້ວຍປາກກາທີ່ແຕ້ມ</translation>
+        <translation>&amp;ເລືອກອົງປະກອບດ້ວຍປາກກາທີ່ແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="285"></location>
@@ -13783,7 +13783,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="528"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="546"></location>
         <source>LINE</source>
-        <translation>ເສັ້ນຊື່</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="573"></location>
@@ -13807,7 +13807,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="709"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="715"></location>
         <source>ELLIPSE</source>
-        <translation>ວົງຮີ</translation>
+        <translation>ວົງລີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="761"></location>
@@ -13819,7 +13819,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="773"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="786"></location>
         <source>POLYLINE</source>
-        <translation>ເສັ້ນ POLYLINE</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="636"></location>
@@ -13861,7 +13861,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="846"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="867"></location>
         <source>INSERT</source>
-        <translation>INSERT</translation>
+        <translation>ແຊກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="882"></location>
@@ -13900,12 +13900,12 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="985"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1003"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="411"></location>
         <source>Set Relative Zero</source>
-        <translation>ຕັ້ງຄ່າສູນສຳພັດ</translation>
+        <translation>ຕັ້ງຄ່າສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="421"></location>
@@ -14031,7 +14031,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="627"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="661"></location>
         <source>Diameter</source>
-        <translation>ເສັ້ນຜ່ານໃຈກາງ</translation>
+        <translation>ເສັ້ນຜ່ານສູນກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="583"></location>
@@ -14463,7 +14463,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1165"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1181"></location>
         <source>SPLINE</source>
-        <translation>ເສັ້ນ SPLINE</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1167"></location>
@@ -14481,7 +14481,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1196"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1218"></location>
         <source>SPLINEPOINTS</source>
-        <translation>ຈຸດ SPLINE</translation>
+        <translation>ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1198"></location>
@@ -14544,7 +14544,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1268"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1284"></location>
         <source>HATCH</source>
-        <translation>ລວດລາຍແຮັດຊ໌ (HATCH)</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1269"></location>
@@ -14564,7 +14564,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1271"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1294"></location>
         <source>Scale</source>
-        <translation>ອັດຕາສ່ວນ</translation>
+        <translation>ມາດຕາສ່ວນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1203"></location>
@@ -14610,7 +14610,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1372"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1379"></location>
         <source>DIMDIAMETRIC</source>
-        <translation>ບອກຂະໜາດເສັ້ນຜ່ານໃຈກາງ</translation>
+        <translation>ບອກຂະໜາດເສັ້ນຜ່ານສູນກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1374"></location>
@@ -14719,7 +14719,7 @@ Layer: </source>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp" line="227"></location>
         <source>Relative Zero</source>
-        <translation>ສູນສຳພັດ</translation>
+        <translation>ສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp" line="232"></location>
@@ -14730,7 +14730,7 @@ Layer: </source>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp" line="234"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp" line="251"></location>
         <source>Set Relative Zero</source>
-        <translation>ຕັ້ງຄ່າສູນສຳພັດ</translation>
+        <translation>ຕັ້ງຄ່າສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfopointsdata.cpp" line="236"></location>
@@ -14759,7 +14759,7 @@ Layer: </source>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="58"></location>
         <source>Select entity for properties</source>
-        <translation>ເລືອກວັດຖຸເພື່ອເບິ່ງຄຸນສົມບັດ</translation>
+        <translation>ເລືອກອົງປະກອບເພື່ອເບິ່ງຄຸນສົມບັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="61"></location>
@@ -14775,7 +14775,7 @@ Layer: </source>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="72"></location>
         <source>Select current entity in drawing</source>
-        <translation>ເລືອກວັດຖຸປັດຈຸບັນໃນຮູບແຕ້ມ</translation>
+        <translation>ເລືອກອົງປະກອບປັດຈຸບັນໃນຮູບແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="86"></location>
@@ -14810,12 +14810,12 @@ Layer: </source>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="171"></location>
         <source>Absolute</source>
-        <translation>ສຳບູນ (Absolute)</translation>
+        <translation>ແທ້ຈິງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="176"></location>
         <source>Relative</source>
-        <translation>ສຳພັດ (Relative)</translation>
+        <translation>ສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.ui" line="181"></location>
@@ -14861,7 +14861,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="367"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="381"></location>
         <source>&amp;Set Relative Zero</source>
-        <translation>&amp;ຕັ້ງຄ່າສູນສຳພັດ</translation>
+        <translation>&amp;ຕັ້ງຄ່າສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="370"></location>
@@ -14881,7 +14881,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="394"></location>
         <source>&amp;Select Entity</source>
-        <translation>&amp;ເລືອກວັດຖຸ</translation>
+        <translation>&amp;ເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="397"></location>
@@ -14901,7 +14901,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidget.cpp" line="789"></location>
         <source>No data - select entity of coordinates first...</source>
-        <translation>ບໍ່ມີຂໍ້ມູນ - ກະລຸນາເລືອກວັດຖຸ ຫຼື ພິກັດກ່ອນ...</translation>
+        <translation>ບໍ່ມີຂໍ້ມູນ - ກະລຸນາເລືອກອົງປະກອບ ຫຼື ພິກັດກ່ອນ...</translation>
     </message>
 </context>
 <context>
@@ -14939,7 +14939,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="75"></location>
         <source>Entity Info</source>
-        <translation>ຂໍ້ມູນວັດຖຸ</translation>
+        <translation>ຂໍ້ມູນອົງປະກອບ</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be show in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -14948,7 +14948,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="81"></location>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be shown in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ຖ້າເລືອກ, ຂໍ້ມູນລະອຽດເພີ່ມເຕີມກ່ຽວກັບເສັ້ນຊື່ ແລະ ເສັ້ນໂຄ້ງ ທີ່ເປັນສ່ວນໜຶ່ງຂອງເສັ້ນຕໍ່ເນື່ອງ ຈະຖືກສະແດງໃນວິດເຈັດ ຂໍ້ມູນວັດຖຸ.&lt;br/&gt;ຖ້າບໍ່ດັ່ງນັ້ນ, ຈະສະແດງພຽງແຕ່ຂໍ້ມູນກ່ຽວກັບ ຈຸດຈອມ/ສ່ວນໂຄ້ງ ເທົ່ານັ້ນ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ຖ້າເລືອກ, ຂໍ້ມູນລະອຽດເພີ່ມເຕີມກ່ຽວກັບເສັ້ນຊື່ ແລະ ເສັ້ນໂຄ້ງ ທີ່ເປັນສ່ວນໜຶ່ງຂອງເສັ້ນຕໍ່ເນື່ອງ ຈະຖືກສະແດງໃນວິດເຈັດ ຂໍ້ມູນອົງປະກອບ.&lt;br/&gt;ຖ້າບໍ່ດັ່ງນັ້ນ, ຈະສະແດງພຽງແຕ່ຂໍ້ມູນກ່ຽວກັບ ຈຸດຈອມ/ສ່ວນໂຄ້ງ ເທົ່ານັ້ນ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="84"></location>
@@ -14958,37 +14958,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="91"></location>
         <source>If selected, coordinates of boundary box area for the entity will be also shown</source>
-        <translation>ຖ້າເລືອກ, ຈະສະແດງພິກັດຂອບເຂດ (Boundary box) ຂອງວັດຖຸພ້ອມ</translation>
+        <translation>ຖ້າເລືອກ, ຈະສະແດງພິກັດຂອບເຂດ (Boundary box) ຂອງອົງປະກອບພ້ອມ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="94"></location>
         <source>Display entity boundaries (Min, Max) coordinates</source>
-        <translation>ສະແດງພິກັດຂອບເຂດວັດຖຸ (ຄ່ານ້ອຍສຸດ, ຄ່າຫຼາຍສຸດ)</translation>
+        <translation>ສະແດງພິກັດຂອບເຂດອົງປະກອບ (ຄ່ານ້ອຍສຸດ, ຄ່າຫຼາຍສຸດ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="104"></location>
         <source>Entity Selection</source>
-        <translation>ການເລືອກວັດຖຸ</translation>
+        <translation>ການເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="116"></location>
         <source>Entity under cursor will be examined only if CTRL is pressed and no active action</source>
-        <translation>ວັດຖຸທີ່ຢູ່ກ້ອງເຄີເຊີຈະຖືກກວດສອບກໍຕໍ່ເມື່ອກົດ CTRL ຄ້າງໄວ້ ແລະ ບໍ່ມີການກະທຳອື່ນທີ່ໃຊ້ງານຢູ່</translation>
+        <translation>ອົງປະກອບທີ່ຢູ່ກ້ອງເຄີເຊີຈະຖືກກວດສອບກໍຕໍ່ເມື່ອກົດ CTRL ຄ້າງໄວ້ ແລະ ບໍ່ມີການກະທຳອື່ນທີ່ໃຊ້ງານຢູ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="119"></location>
         <source>Select entity under cursor if not active action and CTRL is pressed</source>
-        <translation>ເລືອກວັດຖຸທີ່ຢູ່ກ້ອງເຄີເຊີຖ້າບໍ່ມີການກະທຳອື່ນ ແລະ ກົດ CTRL</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຢູ່ກ້ອງເຄີເຊີຖ້າບໍ່ມີການກະທຳອື່ນ ແລະ ກົດ CTRL</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="126"></location>
         <source>If selected, entities under mouse cursor will be examined for theif settings, if there is no active action</source>
-        <translation>ຖ້າເລືອກ, ວັດຖຸທີ່ຢູ່ກ້ອງເຄີເຊີຈະຖືກກວດສອບຫາຄ່າຕັ້ງຄ່າຕ່າງໆ ຖ້າບໍ່ມີການກະທຳອື່ນ</translation>
+        <translation>ຖ້າເລືອກ, ອົງປະກອບທີ່ຢູ່ກ້ອງເຄີເຊີຈະຖືກກວດສອບຫາຄ່າຕັ້ງຄ່າຕ່າງໆ ຖ້າບໍ່ມີການກະທຳອື່ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="129"></location>
         <source>Always select entity under cursor if no active action</source>
-        <translation>ເລືອກວັດຖຸທີ່ຢູ່ກ້ອງເຄີເຊີສະເໝີຖ້າບໍ່ມີການກະທຳອື່ນ</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຢູ່ກ້ອງເຄີເຊີສະເໝີຖ້າບໍ່ມີການກະທຳອື່ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.cpp" line="43"></location>
@@ -15101,7 +15101,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="49"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="419"></location>
@@ -15166,7 +15166,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="106"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="111"></location>
@@ -15298,7 +15298,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="51"></location>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="216"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="105"></location>
@@ -15423,7 +15423,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="62"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="340"></location>
@@ -15531,7 +15531,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle3pointsoptions.ui" line="35"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle3pointsoptions.ui" line="128"></location>
@@ -15614,12 +15614,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/components/status_bar/lc_relzerocoordinateswidget.ui" line="35"></location>
         <source>Relative Zero (Cartesian)</source>
-        <translation>ຈຸດສູນສຳພັດ (Cartesian)</translation>
+        <translation>ຈຸດສູນສຳພັນ (Cartesian)</translation>
     </message>
     <message>
         <location filename="../src/ui/components/status_bar/lc_relzerocoordinateswidget.ui" line="45"></location>
         <source>Relative Zero (Polar)</source>
-        <translation>ຈຸດສູນສຳພັດ (Polar)</translation>
+        <translation>ຈຸດສູນສຳພັນ (Polar)</translation>
     </message>
 </context>
 <context>
@@ -15645,17 +15645,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/modify/lc_rotate2options.ui" line="208"></location>
         <source>Specifies whetether copies will be inserted to current or original layer</source>
-        <translation>ກຳນົດວ່າຈະແຊກສຳເນົາລົງໃນເລເຍີປັດຈຸບັນ ຫຼື ເລເຍີຕົ້ນສະບັບ</translation>
+        <translation>ກຳນົດວ່າຈະແຊກສຳເນົາລົງໃນເລເຢີປັດຈຸບັນ ຫຼື ເລເຢີຕົ້ນສະບັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_rotate2options.ui" line="211"></location>
         <source>Use Current Layer</source>
-        <translation>ໃຊ້ເລເຍີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_rotate2options.ui" line="50"></location>
         <source>Adjust secondary angle so the sum of angles (relative rotation angle) is 0. With such setting entity will be moved but not rotated.</source>
-        <translation>ປັບມຸມສຳຮອງເພື່ອໃຫ້ຜົນລວມຂອງມຸມ (ມຸມໝູນສຳພັດ) ເປັນ 0. ດ້ວຍການຕັ້ງຄ່ານີ້ ອົງປະກອບຈະຖືກຍ້າຍແຕ່ບໍ່ຖືກໝູນ.</translation>
+        <translation>ປັບມຸມສຳຮອງເພື່ອໃຫ້ຜົນລວມຂອງມຸມ (ມຸມໝູນສຳພັນ) ເປັນ 0. ດ້ວຍການຕັ້ງຄ່ານີ້ ອົງປະກອບຈະຖືກຍ້າຍແຕ່ບໍ່ຖືກໝູນ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/lc_rotate2options.ui" line="53"></location>
@@ -15753,7 +15753,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="39"></location>
         <source>Dimension</source>
-        <translation>ເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="46"></location>
@@ -15763,7 +15763,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="53"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນໂຄ້ງ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="60"></location>
@@ -15778,7 +15778,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="74"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="81"></location>
@@ -15803,7 +15803,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="109"></location>
         <source>Hatch</source>
-        <translation>ລາຍຕັດ (Hatch)</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="116"></location>
@@ -15813,7 +15813,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="123"></location>
         <source>Arc</source>
-        <translation>ເສັ້ນໂຄ້ງ (Arc)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/selection/lc_selectwindowoptions.ui" line="130"></location>
@@ -16029,7 +16029,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="315"></location>
         <source>Rel</source>
-        <translation>ສຳພັດ (Rel)</translation>
+        <translation>ສຳພັນ (Rel)</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="298"></location>
@@ -16050,7 +16050,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="259"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="161"></location>
@@ -16142,12 +16142,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/spline/lc_splineexplodeoptions.ui" line="73"></location>
         <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation>ຖ້າໝາຍເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນເລເຍີປັດຈຸບັນ, ຖ້າບໍ່ດັ່ງນັ້ນຈະວາງໄວ້ໃນເລເຍີຕົ້ນສະບັບ.</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ, ຖ້າບໍ່ດັ່ງນັ້ນຈະວາງໄວ້ໃນເລເຢີຕົ້ນສະບັບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/lc_splineexplodeoptions.ui" line="76"></location>
         <source>Use Current Layer</source>
-        <translation>ໃຊ້ເລເຍີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/lc_splineexplodeoptions.ui" line="83"></location>
@@ -16180,12 +16180,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/spline/lc_splinefrompolylineoptions.ui" line="32"></location>
         <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation>ຖ້າໝາຍເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນເລເຍີປັດຈຸບັນ, ຖ້າບໍ່ດັ່ງນັ້ນຈະວາງໄວ້ໃນເລເຍີຕົ້ນສະບັບ.</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ອົງປະກອບທີ່ສ້າງຂຶ້ນຈະຖືກວາງໄວ້ໃນເລເຢີປັດຈຸບັນ, ຖ້າບໍ່ດັ່ງນັ້ນຈະວາງໄວ້ໃນເລເຢີຕົ້ນສະບັບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/lc_splinefrompolylineoptions.ui" line="35"></location>
         <source>User Current Layer</source>
-        <translation>ໃຊ້ເລເຍີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/lc_splinefrompolylineoptions.ui" line="42"></location>
@@ -16504,7 +16504,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/polygon/lc_staroptions.ui" line="85"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polygon/lc_staroptions.ui" line="150"></location>
@@ -16587,7 +16587,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dialogs/entity/lc_textpropertieseditingwidget.ui" line="89"></location>
         <source>Relative width factor (1.0 = nominal)</source>
-        <translation>ຕົວຄູນຄວາມກວ້າງສຳພັດ (1.0 = ປົກກະຕິ)</translation>
+        <translation>ຕົວຄູນຄວາມກວ້າງສຳພັນ (1.0 = ປົກກະຕິ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_textpropertieseditingwidget.ui" line="90"></location>
@@ -16692,7 +16692,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dialogs/entity/lc_textpropertieseditingwidget.cpp" line="60"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
 </context>
 <context>
@@ -16751,7 +16751,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="162"></location>
         <source>Entity's Layer</source>
-        <translation>ເລເຍີຂອງອົງປະກອບ</translation>
+        <translation>ເລເຢີຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="196"></location>
@@ -16786,12 +16786,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="272"></location>
         <source>Arc</source>
-        <translation>ເສັ້ນໂຄ້ງ (Arc)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="273"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນໂຄ້ງ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="274"></location>
@@ -16801,7 +16801,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="275"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="276"></location>
@@ -16812,7 +16812,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="277"></location>
         <source>Dimension</source>
-        <translation>ເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="278"></location>
@@ -16824,7 +16824,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="279"></location>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="312"></location>
         <source>Modify</source>
-        <translation>ປັບແກ້</translation>
+        <translation>ປັບປ່ຽນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="280"></location>
@@ -16879,7 +16879,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="310"></location>
         <source>Dimensions</source>
-        <translation>ເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="313"></location>
@@ -16894,7 +16894,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="336"></location>
         <source>UCS</source>
-        <translation>ລະບົບພິກັດ (UCS)</translation>
+        <translation>UCS</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="357"></location>
@@ -17245,12 +17245,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="101"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="103"></location>
         <source>Dimension</source>
-        <translation>ເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="104"></location>
@@ -17286,12 +17286,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="98"></location>
         <source>Arc</source>
-        <translation>ເສັ້ນໂຄ້ງ (Arc)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="99"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນໂຄ້ງ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="139"></location>
@@ -17307,7 +17307,7 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="152"></location>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="152"></location>
         <source>Layers</source>
-        <translation>ເລເຍີ (Layers)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="165"></location>
@@ -17328,13 +17328,13 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="200"></location>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="200"></location>
         <source>Layers Tree</source>
-        <translation>ລາຍການເລເຍີ</translation>
+        <translation>ລາຍການເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="225"></location>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="225"></location>
         <source>Blocks</source>
-        <translation>ບລັອກ (Blocks)</translation>
+        <translation>ບລັອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="239"></location>
@@ -17388,7 +17388,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="509"></location>
         <source>Relative Zero</source>
-        <translation>ຈຸດສູນສຳພັດ</translation>
+        <translation>ຈຸດສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="510"></location>
@@ -17403,7 +17403,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="512"></location>
         <source>Active Layer</source>
-        <translation>ເລເຍີທີ່ໃຊ້ງານຢູ່</translation>
+        <translation>ເລເຢີທີ່ໃຊ້ງານຢູ່</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="514"></location>
@@ -17423,7 +17423,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/main/init/lc_widgetfactory.cpp" line="105"></location>
         <source>Modify</source>
-        <translation>ປັບແກ້</translation>
+        <translation>ປັບປ່ຽນ</translation>
     </message>
 </context>
 <context>
@@ -17678,7 +17678,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_widget/lc_widgetoptionsdialog.cpp" line="403"></location>
         <source>Preferences</source>
-        <translation>ການຕັ້ງຄ່າປັບແຕ່ງ</translation>
+        <translation>ການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_widget/lc_widgetoptionsdialog.cpp" line="404"></location>
@@ -17794,7 +17794,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/plugins/intern/qc_actiongetent.cpp" line="38"></location>
         <source>Select object:</source>
-        <translation>ເລືອກວັດຖຸ:</translation>
+        <translation>ເລືອກອົງປະກອບ:</translation>
     </message>
     <message>
         <location filename="../src/plugins/intern/qc_actiongetent.cpp" line="44"></location>
@@ -17816,7 +17816,7 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="39"></location>
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="45"></location>
         <source>Select objects:</source>
-        <translation>ເລືອກວັດຖຸ:</translation>
+        <translation>ເລືອກອົງປະກອບ:</translation>
     </message>
     <message>
         <location filename="../src/plugins/intern/qc_actiongetselect.cpp" line="54"></location>
@@ -18004,8 +18004,8 @@ Please check its existence and permissions.</source>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="1084"></location>
         <source>Loaded %1 — modelspace is empty; %n block(s) in the Blocks dock contain geometry.</source>
         <translation>
-            <numerusform>ໂຫຼດ %1 — ພື້ນທີ່ໂມເດວຫວ່າງເປົ່າ; ມີ %n ບລັອກ ທີ່ມີຂໍ້ມູນເລຂາຄະນິດ.</numerusform>
-        </translation>
+      <numerusform>ໂຫຼດ %1 — ພື້ນທີ່ໂມເດວຫວ່າງເປົ່າ; ມີ %n ບລັອກ ທີ່ມີຂໍ້ມູນເລຂາຄະນິດ.</numerusform>
+    </translation>
     </message>
     <message>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="1145"></location>
@@ -18039,12 +18039,12 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/components/status_bar/qg_activelayername.ui" line="105"></location>
         <source>Name of Current Active Layer</source>
-        <translation>ຊື່ຂອງເລຢີທີ່ໃຊ້ງານຢູ່</translation>
+        <translation>ຊື່ຂອງເລເຢີທີ່ໃຊ້ງານຢູ່</translation>
     </message>
     <message>
         <location filename="../src/ui/components/status_bar/qg_activelayername.ui" line="80"></location>
         <source>Current Layer</source>
-        <translation>ເລຢີປັດຈຸບັນ</translation>
+        <translation>ເລເຢີປັດຈຸບັນ</translation>
     </message>
 </context>
 <context>
@@ -18094,7 +18094,7 @@ Please check its existence and permissions.</source>
         <location filename="../src/ui/components/comboboxes/qg_colorbox.cpp" line="100"></location>
         <location filename="../src/ui/components/comboboxes/qg_colorbox.cpp" line="279"></location>
         <source>By Layer</source>
-        <translation>ຕາມເລຢີ</translation>
+        <translation>ຕາມເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_colorbox.cpp" line="101"></location>
@@ -18319,12 +18319,12 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/components/status_bar/qg_coordinatewidget.ui" line="70"></location>
         <source>Absolute Coordinates (Cartesian)</source>
-        <translation>ພິກັດສົມບູນ (ຄາທີຊຽນ)</translation>
+        <translation>ພິກັດແທ້ຈິງ (ຄາທີຊຽນ)</translation>
     </message>
     <message>
         <location filename="../src/ui/components/status_bar/qg_coordinatewidget.ui" line="89"></location>
         <source>Absolute Cordinates (Polar)</source>
-        <translation>ພິກັດສົມບູນ (ໂພລາ)</translation>
+        <translation>ພິກັດແທ້ຈິງ (ໂພລາ)</translation>
     </message>
     <message>
         <location filename="../src/ui/components/status_bar/qg_coordinatewidget.ui" line="137"></location>
@@ -18366,7 +18366,7 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dimensionlabeleditor.ui" line="94"></location>
         <source>Symbol before dimensional text</source>
-        <translation>ສັນຍະລັກກ່ອນຂໍ້ຄວາມຂະໜາດ</translation>
+        <translation>ສັນຍະລັກກ່ອນຂໍ້ຄວາມມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dimensionlabeleditor.ui" line="62"></location>
@@ -18391,7 +18391,7 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dimensionlabeleditor.ui" line="187"></location>
         <source>Format of the dimension text, &lt;&gt; can be used as a placeholder for the dimension measurement value</source>
-        <translation>ຮູບແບບຂໍ້ຄວາມຂະໜາດ, ສາມາດໃຊ້ &lt;&gt; ເພື່ອແທນຄ່າທີ່ວັດແທກໄດ້</translation>
+        <translation>ຮູບແບບຂໍ້ຄວາມມິຕິ, ສາມາດໃຊ້ &lt;&gt; ເພື່ອແທນຄ່າທີ່ວັດແທກໄດ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dimensionlabeleditor.ui" line="200"></location>
@@ -18452,17 +18452,17 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgarc.ui" line="26"></location>
         <source>Arc</source>
-        <translation>ເສັ້ນໂຄ້ງ (Arc)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgarc.ui" line="63"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgarc.ui" line="73"></location>
         <source>Layer of arc</source>
-        <translation>ເລຢີຂອງເສັ້ນໂຄ້ງ</translation>
+        <translation>ເລເຢີຂອງເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgarc.ui" line="88"></location>
@@ -18550,12 +18550,12 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgattributes.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgattributes.ui" line="54"></location>
         <source>Layer to apply</source>
-        <translation>ເລຢີທີ່ຈະນຳໃຊ້</translation>
+        <translation>ເລເຢີທີ່ຈະນຳໃຊ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgattributes.ui" line="69"></location>
@@ -18566,8 +18566,8 @@ Please check its existence and permissions.</source>
         <location filename="../src/ui/dialogs/entity/qg_dlgattributes.ui" line="76"></location>
         <source>Apply attributes also to all sub-entities of selected INSERT.
 This recursively modifies all entities of the Block itself.</source>
-        <translation>ນຳໃຊ້ຄຸນລັກສະນະກັບວັດຖຸຍ່ອຍທັງໝົດທີ່ເລືອກໄວ້.
-ສິ່ງນີ້ຈະປ່ຽນແປງວັດຖຸທັງໝົດພາຍໃນບລັອກນຳ.</translation>
+        <translation>ນຳໃຊ້ຄຸນລັກສະນະກັບອົງປະກອບຍ່ອຍທັງໝົດທີ່ເລືອກໄວ້.
+ສິ່ງນີ້ຈະປ່ຽນແປງອົງປະກອບທັງໝົດພາຍໃນບລັອກນຳ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgattributes.ui" line="80"></location>
@@ -18590,7 +18590,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgcircle.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgcircle.ui" line="71"></location>
@@ -18643,12 +18643,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimlinear.ui" line="47"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimlinear.ui" line="57"></location>
         <source>Layer of dimension</source>
-        <translation>ເລຢີຂອງຂະໜາດ</translation>
+        <translation>ເລເຢີຂອງມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimlinear.ui" line="72"></location>
@@ -18681,17 +18681,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimension.ui" line="20"></location>
         <source>Dimension</source>
-        <translation>ຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimension.ui" line="47"></location>
         <source>Layer of dimension</source>
-        <translation>ເລຢີຂອງຂະໜາດ</translation>
+        <translation>ເລເຢີຂອງມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimension.ui" line="50"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgdimension.ui" line="71"></location>
@@ -18714,12 +18714,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgellipse.ui" line="41"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgellipse.ui" line="63"></location>
         <source>Layer of ellipse</source>
-        <translation>ເລຢີຂອງວົງລີ</translation>
+        <translation>ເລເຢີຂອງວົງລີ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgellipse.ui" line="109"></location>
@@ -18824,7 +18824,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlghatch.ui" line="14"></location>
         <source>Choose Hatch Attributes</source>
-        <translation>ເລືອກຄຸນລັກສະນະການລະບາຍລວດລາຍ (Hatch)</translation>
+        <translation>ເລືອກຄຸນລັກສະນະການລະບາຍລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlghatch.ui" line="22"></location>
@@ -18902,12 +18902,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgimage.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgimage.ui" line="54"></location>
         <source>Layer of image</source>
-        <translation>ເລຢີຂອງຮູບພາບ</translation>
+        <translation>ເລເຢີຂອງຮູບພາບ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgimage.ui" line="84"></location>
@@ -19048,17 +19048,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlginsert.ui" line="26"></location>
         <source>Insert</source>
-        <translation>ແຊກ (Insert)</translation>
+        <translation>ແຊກ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlginsert.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlginsert.ui" line="54"></location>
         <source>Layer of insert</source>
-        <translation>ເລຢີຂອງສິ່ງທີ່ແຊກ</translation>
+        <translation>ເລເຢີຂອງສິ່ງທີ່ແຊກ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlginsert.ui" line="75"></location>
@@ -19176,12 +19176,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgline.ui" line="54"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgline.ui" line="64"></location>
         <source>Layer of line</source>
-        <translation>ເລຢີຂອງເສັ້ນ</translation>
+        <translation>ເລເຢີຂອງເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgline.ui" line="91"></location>
@@ -19244,7 +19244,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgmtext.ui" line="51"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgmtext.ui" line="241"></location>
@@ -19314,7 +19314,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgmtext.ui" line="70"></location>
         <source>Layer of MText</source>
-        <translation>ເລຢີຂອງ MText</translation>
+        <translation>ເລເຢີຂອງ MText</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgmtext.ui" line="144"></location>
@@ -20489,7 +20489,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1717"></location>
         <source>Dimension line gap:</source>
-        <translation>ໄລຍະຫ່າງເສັ້ນບອກຂະໜາດ:</translation>
+        <translation>ໄລຍະຫ່າງເສັ້ນມິຕິ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="14"></location>
@@ -20544,17 +20544,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1049"></location>
         <source>&amp;Dimensions</source>
-        <translation>ການ&amp;ບອກຂະໜາດ</translation>
+        <translation>&ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="735"></location>
         <source>Grid Settings</source>
-        <translation>ການຕັ້ງຄ່າເສັ້ນຕາຕະລາງ (Grid)</translation>
+        <translation>ການຕັ້ງຄ່າຕາຕະລາງ (Grid)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="807"></location>
         <source>Show Grid</source>
-        <translation>ສະແດງເສັ້ນຕາຕະລາງ</translation>
+        <translation>ສະແດງຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="929"></location>
@@ -20579,7 +20579,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="723"></location>
         <source>&amp;Grid</source>
-        <translation>&amp;ເສັ້ນຕາຕະລາງ</translation>
+        <translation>&ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="2007"></location>
@@ -20617,12 +20617,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="791"></location>
         <source>Use orthogonal grid</source>
-        <translation>ໃຊ້ເສັ້ນຕາຕະລາງແບບຕັ້ງສາກ</translation>
+        <translation>ໃຊ້ຕາຕະລາງແບບຕັ້ງສາກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="794"></location>
         <source>Orthogonal Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງແບບຕັ້ງສາກ</translation>
+        <translation>ຕາຕະລາງແບບຕັ້ງສາກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1220"></location>
@@ -20742,7 +20742,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="753"></location>
         <source>Right isometric grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ດ້ານຂວາ</translation>
+        <translation>ຕາຕະລາງ Isometric ດ້ານຂວາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="756"></location>
@@ -20752,7 +20752,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="775"></location>
         <source>Left isometric grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ດ້ານຊ້າຍ</translation>
+        <translation>ຕາຕະລາງ Isometric ດ້ານຊ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="778"></location>
@@ -20762,12 +20762,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="804"></location>
         <source>If checked, grid will be shown for this drawing</source>
-        <translation>ຖ້າໝາຍເລືອກ, ຈະສະແດງເສັ້ນຕາຕະລາງສຳລັບການແຕ້ມນີ້</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ຈະສະແດງຕາຕະລາງສຳລັບການແຕ້ມນີ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="826"></location>
         <source>Top isometric grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ດ້ານເທິງ</translation>
+        <translation>ຕາຕະລາງ Isometric ດ້ານເທິງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="829"></location>
@@ -20782,12 +20782,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="858"></location>
         <source>Draw Grid:</source>
-        <translation>ແຕ້ມເສັ້ນຕາຕະລາງ:</translation>
+        <translation>ແຕ້ມຕາຕະລາງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="865"></location>
         <source>Unitless Grid:</source>
-        <translation>ເສັ້ນຕາຕະລາງແບບບໍ່ມີຫົວໜ່ວຍ:</translation>
+        <translation>ຕາຕະລາງແບບບໍ່ມີຫົວໜ່ວຍ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="872"></location>
@@ -20801,7 +20801,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="879"></location>
         <source>Automatically Scale Grid:</source>
-        <translation>ປັບຂະໜາດເສັ້ນຕາຕະລາງອັດຕະໂນມັດ:</translation>
+        <translation>ປັບຂະໜາດຕາຕະລາງອັດຕະໂນມັດ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="886"></location>
@@ -20811,22 +20811,22 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="917"></location>
         <source>Grid Spacing</source>
-        <translation>ໄລຍະຫ່າງເສັ້ນຕາຕະລາງ</translation>
+        <translation>ໄລຍະຫ່າງຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="955"></location>
         <source>Select or enter grid spacing value by X axis</source>
-        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າໄລຍະຫ່າງເສັ້ນຕາຕະລາງຕາມແກນ X</translation>
+        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າໄລຍະຫ່າງຕາຕະລາງຕາມແກນ X</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="990"></location>
         <source>Select or input grid spacing value by Y axis</source>
-        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າໄລຍະຫ່າງເສັ້ນຕາຕະລາງຕາມແກນ Y</translation>
+        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າໄລຍະຫ່າງຕາຕະລາງຕາມແກນ Y</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1038"></location>
         <source>Select or enter values for grid spacing (they will affect Grid drawing and Snap to Grid):</source>
-        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າສຳລັບໄລຍະຫ່າງເສັ້ນຕາຕະລາງ (ຈະມີຜົນຕໍ່ການແຕ້ມ ແລະ ການຈັບເສັ້ນຕາຕະລາງ):</translation>
+        <translation>ເລືອກ ຫຼື ປ້ອນຄ່າສຳລັບໄລຍະຫ່າງຕາຕະລາງ (ຈະມີຜົນຕໍ່ການແຕ້ມ ແລະ ການຈັບຕາຕະລາງ):</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1066"></location>
@@ -20888,7 +20888,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1444"></location>
         <source>Length to enlarge over dimension line</source>
-        <translation>ຄວາມຍາວທີ່ຍື່ນອອກຈາກເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ຄວາມຍາວທີ່ຍື່ນອອກຈາກເສັ້ນມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1469"></location>
@@ -20904,7 +20904,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1543"></location>
         <source>Dimension lines, arrows &amp; ticks</source>
-        <translation>ເສັ້ນບອກຂະໜາດ, ລູກສອນ ແລະ ຂີດໝາຍ</translation>
+        <translation>ເສັ້ນມິຕິ, ລູກສອນ ແລະ ຂີດໝາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1550"></location>
@@ -20934,7 +20934,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1619"></location>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Text alignment &lt;a name="result_box"/&gt;relative to the dimension line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ການຈັດວາງຂໍ້ຄວາມທຽບກັບເສັ້ນບອກຂະໜາດ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ການຈັດວາງຂໍ້ຄວາມທຽບກັບເສັ້ນມິຕິ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1629"></location>
@@ -20964,7 +20964,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1798"></location>
         <source>Dimensions</source>
-        <translation>ການບອກຂະໜາດ</translation>
+        <translation>ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1810"></location>
@@ -21465,12 +21465,12 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1173"></location>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1495"></location>
         <source>G&amp;rid Color:</source>
-        <translation>ສີ&amp;ເສັ້ນຕາຕະລາງ:</translation>
+        <translation>ສີ&amp;ຕາຕະລາງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="957"></location>
         <source>A&amp;utomatically scale grid</source>
-        <translation>ປັບຂະໜາດເສັ້ນຕາຕະລາງ&amp;ອັດຕະໂນມັດ</translation>
+        <translation>ປັບຂະໜາດຕາຕະລາງ&amp;ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.cpp" line="942"></location>
@@ -21562,22 +21562,22 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4581"></location>
         <source>Left  Isometric Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ຊ້າຍ</translation>
+        <translation>ຕາຕະລາງ Isometric ຊ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4571"></location>
         <source>RIght Isometric Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ຂວາ</translation>
+        <translation>ຕາຕະລາງ Isometric ຂວາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4509"></location>
         <source>Orthogonal Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງແບບຕັ້ງສາກ</translation>
+        <translation>ຕາຕະລາງແບບຕັ້ງສາກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4591"></location>
         <source>Top Isometric Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ Isometric ເທິງ</translation>
+        <translation>ຕາຕະລາງ Isometric ເທິງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1227"></location>
@@ -21610,27 +21610,27 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="937"></location>
         <source>Draw grid</source>
-        <translation>ແຕ້ມເສັ້ນຕາຕະລາງ</translation>
+        <translation>ແຕ້ມຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1019"></location>
         <source>Simple grid rendering</source>
-        <translation>ການສະແດງຜົນເສັ້ນຕາຕະລາງແບບງ່າຍ</translation>
+        <translation>ການສະແດງຜົນຕາຕະລາງແບບງ່າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3715"></location>
         <source>Active preview's explanatory entity's Color:</source>
-        <translation>ສີຂອງວັດຖຸອະທິບາຍໃນການເບິ່ງຕົວຢ່າງທີ່ໃຊ້ງານຢູ່:</translation>
+        <translation>ສີຂອງອົງປະກອບອະທິບາຍໃນການເບິ່ງຕົວຢ່າງທີ່ໃຊ້ງານຢູ່:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3768"></location>
         <source>Preview's explanatory entity's Color:</source>
-        <translation>ສີຂອງວັດຖຸອະທິບາຍໃນການເບິ່ງຕົວຢ່າງ:</translation>
+        <translation>ສີຂອງອົງປະກອບອະທິບາຍໃນການເບິ່ງຕົວຢ່າງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2611"></location>
         <source>&amp;Highlighted entity Color:</source>
-        <translation>ສີຂອງວັດຖຸທີ່&amp;ເນັ້ນ:</translation>
+        <translation>ສີຂອງອົງປະກອບທີ່&amp;ເນັ້ນ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2665"></location>
@@ -21670,12 +21670,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4367"></location>
         <source>If enabled, internal ID of entity will be shown in properties dialog and Entity Info widget.</source>
-        <translation>ຖ້າເປີດໃຊ້, ລະຫັດ ID ພາຍໃນຂອງວັດຖຸຈະສະແດງໃນກ່ອງຄຸນສົມບັດ ແລະ ວິດເຈັດຂໍ້ມູນວັດຖຸ.</translation>
+        <translation>ຖ້າເປີດໃຊ້, ລະຫັດ ID ພາຍໃນຂອງອົງປະກອບຈະສະແດງໃນກ່ອງຄຸນສົມບັດ ແລະ ວິດເຈັດຂໍ້ມູນອົງປະກອບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4370"></location>
         <source>Show internal IDs of entities</source>
-        <translation>ສະແດງ ID ພາຍໃນຂອງວັດຖຸ</translation>
+        <translation>ສະແດງ ID ພາຍໃນຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4254"></location>
@@ -21685,7 +21685,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4257"></location>
         <source>Keep modified entities selected</source>
-        <translation>ໃຫ້ວັດຖຸທີ່ຖືກແກ້ໄຂຍັງຄົງຖືກເລືອກຢູ່</translation>
+        <translation>ໃຫ້ອົງປະກອບທີ່ຖືກແກ້ໄຂຍັງຄົງຖືກເລືອກຢູ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4926"></location>
@@ -21700,12 +21700,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4680"></location>
         <source>If checked, new drawing will be created with grid disabled</source>
-        <translation>ຖ້າໝາຍເລືອກ, ການແຕ້ມໃໝ່ຈະຖືກສ້າງໂດຍປິດເສັ້ນຕາຕະລາງໄວ້</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ການແຕ້ມໃໝ່ຈະຖືກສ້າງໂດຍປິດຕາຕະລາງໄວ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4683"></location>
         <source>Grid is Off </source>
-        <translation>ປິດເສັ້ນຕາຕະລາງ </translation>
+        <translation>ປິດຕາຕະລາງ </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4965"></location>
@@ -21867,7 +21867,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4237"></location>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When enabled, activating a layer would modify all selected entities to that new layer. To change layer of multiple entities: first select needed entities; activate a layer in the layer widget. This makes all selected entities modified to belong to the new layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ເມື່ອເປີດໃຊ້, ການເລືອກເລເຢີຈະປ່ຽນວັດຖຸທີ່ຖືກເລືອກທັງໝົດໄປຍັງເລເຢີນັ້ນ. ວິທີປ່ຽນເລເຢີຂອງຫຼາຍວັດຖຸ: ທຳອິດໃຫ້ເລືອກວັດຖຸທີ່ຕ້ອງການ; ຈາກນັ້ນເລືອກເລເຢີໃນວິດເຈັດເລເຢີ. ອັນນີ້ຈະເຮັດໃຫ້ວັດຖຸທີ່ເລືອກທັງໝົດຍ້າຍໄປຢູ່ເລເຢີໃໝ່.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ເມື່ອເປີດໃຊ້, ການເລືອກເລເຢີຈະປ່ຽນອົງປະກອບທີ່ຖືກເລືອກທັງໝົດໄປຍັງເລເຢີນັ້ນ. ວິທີປ່ຽນເລເຢີຂອງຫຼາຍອົງປະກອບ: ທຳອິດໃຫ້ເລືອກອົງປະກອບທີ່ຕ້ອງການ; ຈາກນັ້ນເລືອກເລເຢີໃນວິດເຈັດເລເຢີ. ອັນນີ້ຈະເຮັດໃຫ້ອົງປະກອບທີ່ເລືອກທັງໝົດຍ້າຍໄປຢູ່ເລເຢີໃໝ່.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5165"></location>
@@ -21877,12 +21877,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1036"></location>
         <source>Minimal Grid Spacing (p&amp;x):</source>
-        <translation>ໄລຍະຫ່າງເສັ້ນຕາຕະລາງຕ່ຳສຸດ (p&amp;x):</translation>
+        <translation>ໄລຍະຫ່າງຕາຕະລາງຕ່ຳສຸດ (p&amp;x):</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3639"></location>
         <source>N&amp;umber of preview entities:</source>
-        <translation>ຈຳ&amp;ນວນວັດຖຸໃນການເບິ່ງຕົວຢ່າງ:</translation>
+        <translation>ຈຳ&amp;ນວນອົງປະກອບໃນການເບິ່ງຕົວຢ່າງ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4441"></location>
@@ -21922,7 +21922,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1543"></location>
         <source>Snap</source>
-        <translation>ການຈັບວັດຖຸ (Snap)</translation>
+        <translation>ເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1758"></location>
@@ -22126,27 +22126,27 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="717"></location>
         <source>Entity Handle</source>
-        <translation>ຈຸດຈັບວັດຖຸ (Entity Handle)</translation>
+        <translation>ຈຸດຈັບອົງປະກອບ (Entity Handle)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="860"></location>
         <source>Size of square that is highlights entities reference points (endpoints etc.)</source>
-        <translation>ຂະໜາດຂອງສີ່ຫຼ່ຽມທີ່ເນັ້ນຈຸດອ້າງອີງຂອງວັດຖຸ (ຈຸດປາຍ ແລະ ອື່ນໆ)</translation>
+        <translation>ຂະໜາດຂອງສີ່ຫຼ່ຽມທີ່ເນັ້ນຈຸດອ້າງອີງຂອງອົງປະກອບ (ຈຸດປາຍ ແລະ ອື່ນໆ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="781"></location>
         <source>Color of end handle for entity</source>
-        <translation>ສີຂອງຈຸດຈັບປາຍສຳລັບວັດຖຸ</translation>
+        <translation>ສີຂອງຈຸດຈັບປາຍສຳລັບອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="743"></location>
         <source>Color for start handle of entity</source>
-        <translation>ສີສຳລັບຈຸດຈັບເລີ່ມຕົ້ນຂອງວັດຖຸ</translation>
+        <translation>ສີສຳລັບຈຸດຈັບເລີ່ມຕົ້ນຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="826"></location>
         <source>Color of non-endpoint handle of entity</source>
-        <translation>ສີຂອງຈຸດຈັບທີ່ບໍ່ແມ່ນຈຸດປາຍຂອງວັດຖຸ</translation>
+        <translation>ສີຂອງຈຸດຈັບທີ່ບໍ່ແມ່ນຈຸດປາຍຂອງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="819"></location>
@@ -22156,12 +22156,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="905"></location>
         <source>If enabled, entity handles are highlighted on hover (requires "highlight entities on hover" to be enabled)</source>
-        <translation>ຖ້າເປີດໃຊ້, ຈຸດຈັບວັດຖຸຈະຖືກເນັ້ນເມື່ອເອົາເມົາສ໌ໄປຈໍ່ (ຕ້ອງເປີດໃຊ້ "ເນັ້ນວັດຖຸເມື່ອເອົາເມົາສ໌ໄປຈໍ່" ນຳ)</translation>
+        <translation>ຖ້າເປີດໃຊ້, ຈຸດຈັບອົງປະກອບຈະຖືກເນັ້ນເມື່ອເອົາເມົາສ໌ໄປຈໍ່ (ຕ້ອງເປີດໃຊ້ "ເນັ້ນອົງປະກອບເມື່ອເອົາເມົາສ໌ໄປຈໍ່" ນຳ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="911"></location>
         <source>Show entity handles on mouse hover</source>
-        <translation>ສະແດງຈຸດຈັບວັດຖຸເມື່ອເອົາເມົາສ໌ໄປຈໍ່</translation>
+        <translation>ສະແດງຈຸດຈັບອົງປະກອບເມື່ອເອົາເມົາສ໌ໄປຈໍ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="192"></location>
@@ -22232,7 +22232,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="551"></location>
         <source>If checked,  objects will be painted smoother due to anti-aliasing</source>
-        <translation>ຖ້າໝາຍເລືອກ, ວັດຖຸຈະຖືກສະແດງຜົນໃຫ້ລຽບນຽນຂຶ້ນຍ້ອນການລົບຮອຍຢັກ (Anti-aliasing)</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ອົງປະກອບຈະຖືກສະແດງຜົນໃຫ້ລຽບນຽນຂຶ້ນຍ້ອນການລົບຮອຍຢັກ (Anti-aliasing)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="663"></location>
@@ -22277,7 +22277,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="130"></location>
         <source>S&amp;elected Entity Color:</source>
-        <translation>ສີຂອງວັດຖຸທີ່&amp;ຖືກເລືອກ:</translation>
+        <translation>ສີຂອງອົງປະກອບທີ່&amp;ຖືກເລືອກ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="535"></location>
@@ -22287,7 +22287,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="112"></location>
         <source>Color for selected entities</source>
-        <translation>ສີສຳລັບວັດຖຸທີ່ຖືກເລືອກ</translation>
+        <translation>ສີສຳລັບອົງປະກອບທີ່ຖືກເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="707"></location>
@@ -22319,12 +22319,12 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1167"></location>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1428"></location>
         <source>Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ</translation>
+        <translation>ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1148"></location>
         <source>Points Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງແບບຈຸດ</translation>
+        <translation>ຕາຕະລາງແບບຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1206"></location>
@@ -22334,12 +22334,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1233"></location>
         <source>Type of Meta Grid line if grid is drawn as points</source>
-        <translation>ປະເພດຂອງເສັ້ນ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
+        <translation>ປະເພດຂອງເສັ້ນ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1240"></location>
         <source>Width of Meta Grid line if grid is drawn by points</source>
-        <translation>ຄວາມກວ້າງຂອງເສັ້ນ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
+        <translation>ຄວາມກວ້າງຂອງເສັ້ນ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1256"></location>
@@ -22357,7 +22357,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1270"></location>
         <source>Color for Meta Grid lines if grid drawn by points</source>
-        <translation>ສີສຳລັບເສັ້ນ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
+        <translation>ສີສຳລັບເສັ້ນ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1288"></location>
@@ -22368,37 +22368,37 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1325"></location>
         <source>Lines Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງແບບເສັ້ນ</translation>
+        <translation>ຕາຕະລາງແບບເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1434"></location>
         <source>Width of grid lines</source>
-        <translation>ຄວາມກວ້າງຂອງເສັ້ນຕາຕະລາງ</translation>
+        <translation>ຄວາມກວ້າງຂອງຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1450"></location>
         <source>Line type for grid lines</source>
-        <translation>ປະເພດເສັ້ນສຳລັບເສັ້ນຕາຕະລາງ</translation>
+        <translation>ປະເພດເສັ້ນສຳລັບຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1457"></location>
         <source>Color for grid lines</source>
-        <translation>ສີສຳລັບເສັ້ນຕາຕະລາງ</translation>
+        <translation>ສີສຳລັບຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1337"></location>
         <source>Type of Meta Grid lines if grid is drawn by lines</source>
-        <translation>ປະເພດຂອງເສັ້ນ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
+        <translation>ປະເພດຂອງເສັ້ນ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1344"></location>
         <source>Width of Meta Grid lines if grid is drawn by lines</source>
-        <translation>ຄວາມກວ້າງຂອງເສັ້ນ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
+        <translation>ຄວາມກວ້າງຂອງເສັ້ນ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1374"></location>
         <source>Color of Meta Grid if grid drawn by lines</source>
-        <translation>ສີຂອງ Meta Grid ຖ້າເສັ້ນຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
+        <translation>ສີຂອງ Meta Grid ຖ້າຕາຕະລາງຖືກແຕ້ມເປັນເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2158"></location>
@@ -22492,17 +22492,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2546"></location>
         <source>Color of relative zero marker</source>
-        <translation>ສີຂອງເຄື່ອງໝາຍສູນສຳພັດ (Relative zero marker)</translation>
+        <translation>ສີຂອງເຄື່ອງໝາຍສູນສຳພັນ (Relative zero marker)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2569"></location>
         <source>If checked, relative zero marker will not be drawn</source>
-        <translation>ຖ້າໝາຍເລືອກ, ຈະບໍ່ແຕ້ມເຄື່ອງໝາຍສູນສຳພັດ</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ຈະບໍ່ແຕ້ມເຄື່ອງໝາຍສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2500"></location>
         <source>Radius of relative zero marker</source>
-        <translation>ລັດສະໝີຂອງເຄື່ອງໝາຍສູນສຳພັດ</translation>
+        <translation>ລັດສະໝີຂອງເຄື່ອງໝາຍສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="928"></location>
@@ -22621,17 +22621,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3652"></location>
         <source>If more entities in preview than specified, rect will be drawn instead of entities.</source>
-        <translation>ຖ້າມີເອນຕິຕີ (entities) ໃນການເບິ່ງຕົວຢ່າງຫຼາຍກວ່າທີ່ກຳນົດ, ຈະມີການແຕ້ມຮູບສີ່ແຈສາກແທນທີ່ເອນຕິຕີ.</translation>
+        <translation>ຖ້າມີອົງປະກອບ (entities) ໃນການເບິ່ງຕົວຢ່າງຫຼາຍກວ່າທີ່ກຳນົດ, ຈະມີການແຕ້ມຮູບສີ່ແຈສາກແທນທີ່ອົງປະກອບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3692"></location>
         <source>Color for selected preview reference entiites</source>
-        <translation>ສີສຳລັບເອນຕິຕີອ້າງອີງໃນການເບິ່ງຕົວຢ່າງທີ່ຖືກເລືອກ</translation>
+        <translation>ສີສຳລັບອົງປະກອບອ້າງອີງໃນການເບິ່ງຕົວຢ່າງທີ່ຖືກເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3745"></location>
         <source>Color for preview reference entities</source>
-        <translation>ສີສຳລັບເອນຕິຕີອ້າງອີງໃນການເບິ່ງຕົວຢ່າງ</translation>
+        <translation>ສີສຳລັບອົງປະກອບອ້າງອີງໃນການເບິ່ງຕົວຢ່າງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2605"></location>
@@ -22641,22 +22641,22 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2672"></location>
         <source>Visualize the entity under the mouse cursor</source>
-        <translation>ສະແດງໃຫ້ເຫັນເອນຕິຕີທີ່ຢູ່ໃຕ້ເຄີເຊີເມົາສ໌</translation>
+        <translation>ສະແດງໃຫ້ເຫັນອົງປະກອບທີ່ຢູ່ໃຕ້ເຄີເຊີເມົາສ໌</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2675"></location>
         <source>Highlight entities on mouse hover</source>
-        <translation>ເນັ້ນເອນຕິຕີເມື່ອເມົາສ໌ຊີໃສ່</translation>
+        <translation>ເນັ້ນອົງປະກອບເມື່ອເມົາສ໌ຊີໃສ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2644"></location>
         <source>Color for highlighted entities</source>
-        <translation>ສີສຳລັບເອນຕິຕີທີ່ຖືກເນັ້ນ</translation>
+        <translation>ສີສຳລັບອົງປະກອບທີ່ຖືກເນັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2662"></location>
         <source>If selected, entity will be highlighted in "Draft" mode using entity's linewidth instead of 1px</source>
-        <translation>ຖ້າເລືອກ, ເອນຕິຕີຈະຖືກເນັ້ນໃນໂໝດ "ຮ່າງ" (Draft) ໂດຍໃຊ້ຄວາມໜາເສັ້ນຂອງເອນຕິຕີນັ້ນເອງ ແທນທີ່ຈະເປັນ 1px</translation>
+        <translation>ຖ້າເລືອກ, ອົງປະກອບຈະຖືກເນັ້ນໃນໂໝດ "ຮ່າງ" (Draft) ໂດຍໃຊ້ຄວາມໜາເສັ້ນຂອງອົງປະກອບນັ້ນເອງ ແທນທີ່ຈະເປັນ 1px</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2767"></location>
@@ -22671,7 +22671,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3612"></location>
         <source>Show operation's preview explanatory entities </source>
-        <translation>ສະແດງເອນຕິຕີອະທິບາຍໃນການເບິ່ງຕົວຢ່າງການປະຕິບັດງານ </translation>
+        <translation>ສະແດງອົງປະກອບອະທິບາຍໃນການເບິ່ງຕົວຢ່າງການປະຕິບັດງານ </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2713"></location>
@@ -22872,12 +22872,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3918"></location>
         <source>Show properties for entity that will be created</source>
-        <translation>ສະແດງຄຸນສົມບັດສຳລັບເອນຕິຕີທີ່ຈະຖືກສ້າງຂຶ້ນ</translation>
+        <translation>ສະແດງຄຸນສົມບັດສຳລັບອົງປະກອບທີ່ຈະຖືກສ້າງຂຶ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3925"></location>
         <source>Show properties for entity that is edited by handles</source>
-        <translation>ສະແດງຄຸນສົມບັດສຳລັບເອນຕິຕີທີ່ກຳລັງຖືກແກ້ໄຂດ້ວຍຈຸດຈັບ (handles)</translation>
+        <translation>ສະແດງຄຸນສົມບັດສຳລັບອົງປະກອບທີ່ກຳລັງຖືກແກ້ໄຂດ້ວຍຈຸດຈັບ (handles)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="3935"></location>
@@ -22972,12 +22972,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4198"></location>
         <source>Show properties of catched entity</source>
-        <translation>ສະແດງຄຸນສົມບັດຂອງເອນຕິຕີທີ່ຖືກຈັບ</translation>
+        <translation>ສະແດງຄຸນສົມບັດຂອງອົງປະກອບທີ່ຖືກຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4240"></location>
         <source>Modify layer of selected entities, at layer activation</source>
-        <translation>ແກ້ໄຂເລຢີຂອງເອນຕິຕີທີ່ເລືອກ ເມື່ອມີການເປີດໃຊ້ເລຢີ</translation>
+        <translation>ແກ້ໄຂເລເຢີຂອງອົງປະກອບທີ່ເລືອກ ເມື່ອມີການເປີດໃຊ້ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4397"></location>
@@ -23254,12 +23254,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1944"></location>
         <source>Snap on Entity "Free snap" distance switch:</source>
-        <translation>ສະວິດໄລຍະຫ່າງ "Free snap" ເມື່ອດຶງເຂົ້າຫາເອນຕິຕີ:</translation>
+        <translation>ສະວິດໄລຍະຫ່າງ "Free snap" ເມື່ອດຶງເຂົ້າຫາອົງປະກອບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1951"></location>
         <source>Snap on entity will be invoked if it is enabled and the distance between mouse and snapped point is larger than specified value.</source>
-        <translation>ການດຶງເຂົ້າຫາເອນຕິຕີຈະຖືກໃຊ້ງານ ຖ້າມັນຖືກເປີດໃຊ້ ແລະ ໄລຍະຫ່າງລະຫວ່າງເມົາສ໌ກັບຈຸດທີ່ຈະດຶງເຂົ້າຫານັ້ນ ໃຫຍ່ກວ່າຄ່າທີ່ກຳນົດ.</translation>
+        <translation>ການດຶງເຂົ້າຫາອົງປະກອບຈະຖືກໃຊ້ງານ ຖ້າມັນຖືກເປີດໃຊ້ ແລະ ໄລຍະຫ່າງລະຫວ່າງເມົາສ໌ກັບຈຸດທີ່ຈະດຶງເຂົ້າຫານັ້ນ ໃຫຍ່ກວ່າຄ່າທີ່ກຳນົດ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1954"></location>
@@ -23269,7 +23269,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1983"></location>
         <source>Distance in screen coordinates that is used for catching entities </source>
-        <translation>ໄລຍະຫ່າງໃນພິກັດໜ້າຈໍທີ່ໃຊ້ສຳລັບການຈັບເອນຕິຕີ </translation>
+        <translation>ໄລຍະຫ່າງໃນພິກັດໜ້າຈໍທີ່ໃຊ້ສຳລັບການຈັບອົງປະກອບ </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1996"></location>
@@ -23279,12 +23279,12 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2003"></location>
         <source>Snap distance (in pixels) for catching entities.</source>
-        <translation>ໄລຍະຫ່າງການດຶງເຂົ້າຫາ (ເປັນພິກເຊລ) ສຳລັບການຈັບເອນຕິຕີ.</translation>
+        <translation>ໄລຍະຫ່າງການດຶງເຂົ້າຫາ (ເປັນພິກເຊລ) ສຳລັບການຈັບອົງປະກອບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2006"></location>
         <source>Catch entities Snap Distance:</source>
-        <translation>ໄລຍະຫ່າງການດຶງເຂົ້າຫາເພື່ອຈັບເອນຕິຕີ:</translation>
+        <translation>ໄລຍະຫ່າງການດຶງເຂົ້າຫາເພື່ອຈັບອົງປະກອບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="2013"></location>
@@ -23340,7 +23340,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4313"></location>
         <source>If enabled, it is possible to do with keys - zooming via +/-, scrolling via arrow keys, moving selected entities position via arrow keys and SHIFT/CTRL modifiers.</source>
-        <translation>ຖ້າເປີດໃຊ້, ຈະສາມາດໃຊ້ຄີບອດເພື່ອ - ຊູມຜ່ານ +/-, ເລື່ອນຜ່ານປຸ່ມລູກສອນ, ຍ້າຍຕຳແໜ່ງເອນຕິຕີທີ່ເລືອກຜ່ານປຸ່ມລູກສອນ ແລະ ການໃຊ້ປຸ່ມ SHIFT/CTRL ຮ່ວມນຳ.</translation>
+        <translation>ຖ້າເປີດໃຊ້, ຈະສາມາດໃຊ້ຄີບອດເພື່ອ - ຊູມຜ່ານ +/-, ເລື່ອນຜ່ານປຸ່ມລູກສອນ, ຍ້າຍຕຳແໜ່ງອົງປະກອບທີ່ເລືອກຜ່ານປຸ່ມລູກສອນ ແລະ ການໃຊ້ປຸ່ມ SHIFT/CTRL ຮ່ວມນຳ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4316"></location>
@@ -23360,7 +23360,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4360"></location>
         <source>Separate menu per entity</source>
-        <translation>ແຍກເມນູຕາມເອນຕິຕີ</translation>
+        <translation>ແຍກເມນູຕາມອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4706"></location>
@@ -23537,7 +23537,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5391"></location>
         <source>If enabled, during pan operation TEXT and MTEXT objects will be drawn schematically</source>
-        <translation>ຖ້າເປີດໃຊ້, ໃນຂະນະທີ່ເລື່ອນມຸມເບິ່ງ (pan) ວັດຖຸ TEXT ແລະ MTEXT ຈະຖືກແຕ້ມເປັນແບບໂຄງຮ່າງ</translation>
+        <translation>ຖ້າເປີດໃຊ້, ໃນຂະນະທີ່ເລື່ອນມຸມເບິ່ງ (pan) ອົງປະກອບ TEXT ແລະ MTEXT ຈະຖືກແຕ້ມເປັນແບບໂຄງຮ່າງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="5417"></location>
@@ -23725,17 +23725,17 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/file/export/makercam/qg_dlgoptionsmakercam.ui" line="44"></location>
         <source>Layers</source>
-        <translation>ເລຢີ (ຊັ້ນວຽກ)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/makercam/qg_dlgoptionsmakercam.ui" line="85"></location>
         <source>Export invisible layers</source>
-        <translation>ສົ່ງອອກເລຢີທີ່ຖືກເຊື່ອງໄວ້</translation>
+        <translation>ສົ່ງອອກເລເຢີທີ່ຖືກເຊື່ອງໄວ້</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/makercam/qg_dlgoptionsmakercam.ui" line="92"></location>
         <source>Export visible construction layers</source>
-        <translation>ສົ່ງອອກເລຢີເສັ້ນຮ່າງ (construction) ທີ່ເບິ່ງເຫັນ</translation>
+        <translation>ສົ່ງອອກເລເຢີເສັ້ນຮ່າງ (construction) ທີ່ເບິ່ງເຫັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/file/export/makercam/qg_dlgoptionsmakercam.ui" line="104"></location>
@@ -23912,12 +23912,12 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpoint.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpoint.ui" line="54"></location>
         <source>Layer of point</source>
-        <translation>ເລຢີຂອງຈຸດ</translation>
+        <translation>ເລເຢີຂອງຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpoint.ui" line="75"></location>
@@ -23955,17 +23955,17 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpolyline.ui" line="26"></location>
         <source>Polyline</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpolyline.ui" line="44"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpolyline.ui" line="54"></location>
         <source>Layer of polyline</source>
-        <translation>ເລຢີຂອງເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>ເລເຢີຂອງເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgpolyline.ui" line="81"></location>
@@ -24028,7 +24028,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate.ui" line="186"></location>
         <source>Use current &amp;layer</source>
-        <translation>ໃຊ້&amp;ເລຢີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້&amp;ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate.ui" line="119"></location>
@@ -24081,7 +24081,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate2.ui" line="190"></location>
         <source>Use current &amp;layer</source>
-        <translation>ໃຊ້&amp;ເລຢີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້&amp;ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate2.ui" line="126"></location>
@@ -24109,7 +24109,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgscale.ui" line="56"></location>
         <source>Use current &amp;layer</source>
-        <translation>ໃຊ້&amp;ເລຢີປັດຈຸບັນ</translation>
+        <translation>ໃຊ້&amp;ເລເຢີປັດຈຸບັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgscale.ui" line="109"></location>
@@ -24162,17 +24162,17 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="26"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນໂຄ້ງສະປາຍ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="51"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="61"></location>
         <source>Layer of spline</source>
-        <translation>ເລຢີຂອງເສັ້ນໂຄ້ງສະປາຍ</translation>
+        <translation>ເລເຢີຂອງເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="88"></location>
@@ -24187,7 +24187,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="136"></location>
         <source>Defines whether spline defines closed contour</source>
-        <translation>ກຳນົດວ່າເສັ້ນໂຄ້ງສະປາຍເປັນເສັ້ນຮອບຮູບແບບປິດຫຼືບໍ່</translation>
+        <translation>ກຳນົດວ່າເສັ້ນໂຄ້ງສະປຼາຍເປັນເສັ້ນຮອບຮູບແບບປິດຫຼືບໍ່</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="139"></location>
@@ -24197,7 +24197,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.ui" line="152"></location>
         <source>Degree used to approximate spline</source>
-        <translation>ດີກຣີທີ່ໃຊ້ເພື່ອປະມານຄ່າເສັ້ນໂຄ້ງສະປາຍ</translation>
+        <translation>ດີກຣີທີ່ໃຊ້ເພື່ອປະມານຄ່າເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgspline.cpp" line="66"></location>
@@ -24399,7 +24399,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="197"></location>
         <source>Layer of text</source>
-        <translation>ເລຢີຂອງຂໍ້ຄວາມ</translation>
+        <translation>ເລເຢີຂອງຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Obligue of text</source>
@@ -24428,7 +24428,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="630"></location>
         <source>Middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="934"></location>
@@ -24998,7 +24998,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="178"></location>
         <source>Layer:</source>
-        <translation>ເລຢີ:</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="240"></location>
@@ -25414,7 +25414,7 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_linetypebox.cpp" line="102"></location>
         <source>Center</source>
-        <translation>ສູນກາງ</translation>
+        <translation>ໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_linetypebox.cpp" line="104"></location>
@@ -25590,7 +25590,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="171"></location>
         <source>Relative zero position is %1</source>
-        <translation>ຕຳແໜ່ງສູນສຳພັດແມ່ນ %1</translation>
+        <translation>ຕຳແໜ່ງສູນສຳພັນແມ່ນ %1</translation>
     </message>
     <message>
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="171"></location>
@@ -25620,7 +25620,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="26"></location>
         <source>Snap</source>
-        <translation>ຈັບ (Snap)</translation>
+        <translation>ເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="47"></location>
@@ -25660,7 +25660,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="166"></location>
         <source>Snap to grid</source>
-        <translation>ຈັບຕາມເສັ້ນຕາຕະລາງ</translation>
+        <translation>ຈັບຕາມຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="183"></location>
@@ -25675,12 +25675,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="217"></location>
         <source>Move relative Zero</source>
-        <translation>ຍ້າຍຈຸດສູນສຳພັດ</translation>
+        <translation>ຍ້າຍຈຸດສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_snaptoolbar.ui" line="234"></location>
         <source>Lock relative Zero</source>
-        <translation>ລັອກຈຸດສູນສຳພັດ</translation>
+        <translation>ລັອກຈຸດສູນສຳພັນ</translation>
     </message>
 </context>
 <context>
@@ -25798,8 +25798,8 @@ This action can NOT be undone.</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1776"></location>
         <source>Remove %n layer(s)</source>
         <translation>
-            <numerusform>ລົບ %n ເລເຢີ</numerusform>
-        </translation>
+      <numerusform>ລົບ %n ເລເຢີ</numerusform>
+    </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="278"></location>
@@ -25828,8 +25828,8 @@ This action can NOT be undone.</source>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="514"></location>
         <source>Remove %n block(s)</source>
         <translation>
-            <numerusform>ລົບ %n ບລັອກ</numerusform>
-        </translation>
+      <numerusform>ລົບ %n ບລັອກ</numerusform>
+    </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="516"></location>
@@ -26327,7 +26327,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="533"></location>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="534"></location>
@@ -26351,7 +26351,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="449"></location>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>ເສັ້ນໂຄ້ງ (Spline)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="451"></location>
@@ -26477,7 +26477,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="878"></location>
         <source>hatch</source>
         <comment>draw hatch</comment>
-        <translation>ເສັ້ນແຮງເງົາ (Hatch)</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="879"></location>
@@ -26597,7 +26597,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1000"></location>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>ຍົກເລີກການເຮັດ (Undo)</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1002"></location>
@@ -26610,7 +26610,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1007"></location>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>ເຮັດຄືນໃໝ່ (Redo)</translation>
+        <translation>ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1009"></location>
@@ -26916,7 +26916,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="924"></location>
         <source>snapgrid</source>
         <comment>snap - grid</comment>
-        <translation>ຈັບຕາມເສັ້ນຕາຕະລາງ</translation>
+        <translation>ຈັບຕາມຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="925"></location>
@@ -26970,7 +26970,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="960"></location>
         <source>setrelativezero</source>
         <comment>set relative zero position</comment>
-        <translation>ຕັ້ງຈຸດສູນສຳພັດ</translation>
+        <translation>ຕັ້ງຈຸດສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="961"></location>
@@ -27133,7 +27133,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1088"></location>
         <source>trim</source>
-        <translation>ຕັດອອກ (Trim)</translation>
+        <translation>ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1168"></location>
@@ -27150,7 +27150,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1171"></location>
         <source>center</source>
-        <translation>ສູນກາງ</translation>
+        <translation>ໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1172"></location>
@@ -27352,12 +27352,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1235"></location>
         <source>undo</source>
-        <translation>ຍົກເລີກການເຮັດ (Undo)</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1238"></location>
         <source>redo</source>
-        <translation>ເຮັດຄືນໃໝ່ (Redo)</translation>
+        <translation>ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1241"></location>
@@ -27467,12 +27467,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="969"></location>
         <source>Invalid objects removed:</source>
-        <translation>ລົບວັດຖຸທີ່ບໍ່ຖືກຕ້ອງອອກ:</translation>
+        <translation>ລົບອົງປະກອບທີ່ບໍ່ຖືກຕ້ອງອອກ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_wizard/colorwizard.cpp" line="52"></location>
         <source>Select objects</source>
-        <translation>ເລືອກວັດຖຸ</translation>
+        <translation>ເລືອກອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_wizard/colorwizard.cpp" line="56"></location>
@@ -27798,7 +27798,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="221"></location>
         <source>align</source>
         <comment>align entities</comment>
-        <translation>ຈັດລຳດັບ</translation>
+        <translation>ຈັດວາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="222"></location>
@@ -29035,7 +29035,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1119"></location>
         <source>middle</source>
-        <translation>ກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1120"></location>
@@ -29185,7 +29185,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1154"></location>
         <source>distance</source>
-        <translation>ໄລຍະທາງ</translation>
+        <translation>ໄລຍະຫ່າງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1158"></location>
@@ -29418,7 +29418,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/engine/document/container/rs_entitycontainer.cpp" line="1687"></location>
         <source>Hatch failed due to a gap=%1 between (%2, %3) and (%4, %5)</source>
-        <translation>ການໃສ່ລວດລາຍ (Hatch) ລົ້ມເຫຼວ ເນື່ອງຈາກຊ່ອງວ່າງ =%1 ລະຫວ່າງ (%2,%3) ແລະ (%4,%5)</translation>
+        <translation>ການໃສ່ລວດລາຍ ລົ້ມເຫຼວ ເນື່ອງຈາກຊ່ອງວ່າງ =%1 ລະຫວ່າງ (%2,%3) ແລະ (%4,%5)</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/document/patterns/rs_patternlist.cpp" line="66"></location>
@@ -29866,7 +29866,7 @@ Do you want to replace it?</source>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="201"></location>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານແຜນຜັງວັດຖຸ DXF/DWG</translation>
+        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານແຜນຜັງອົງປະກອບ DXF/DWG</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="203"></location>
@@ -29896,7 +29896,7 @@ Do you want to replace it?</source>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="211"></location>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
-        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານວັດຖຸ DXF/DWG</translation>
+        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານອົງປະກອບ DXF/DWG</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="213"></location>
@@ -29933,19 +29933,19 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="285"></location>
         <source>entity</source>
-        <translation>ພາກສ່ວນ</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="286"></location>
         <source>entities</source>
-        <translation>ພາກສ່ວນຕ່າງໆ</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="310"></location>
         <source>, and %n more class(es)</source>
         <translation>
-            <numerusform>, ແລະ ອີກ %n ຄຼາດ</numerusform>
-        </translation>
+      <numerusform>, ແລະ ອີກ %n ຄຼາດ</numerusform>
+    </translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="313"></location>
@@ -30030,7 +30030,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="7177"></location>
         <source>error reading objects in dwg file</source>
-        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານວັດຖຸໃນໄຟລ໌ dwg</translation>
+        <translation>ເກີດຂໍ້ຜິດພາດໃນການອ່ານອົງປະກອບໃນໄຟລ໌ dwg</translation>
     </message>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_widthbox.cpp" line="41"></location>
@@ -30236,7 +30236,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="476"></location>
         <source>Line</source>
-        <translation>ເສັ້ນຊື່</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="480"></location>
@@ -30256,7 +30256,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="492"></location>
         <source>Spline</source>
-        <translation>ເສັ້ນສະປລາຍ</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="496"></location>
@@ -30286,7 +30286,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="516"></location>
         <source>Hatch</source>
-        <translation>ລາຍຕັດ</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="520"></location>
@@ -30301,7 +30301,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="528"></location>
         <source>Dim. Aligned</source>
-        <translation>ເສັ້ນບອກຂະໜາດແບບຂະໜານວັດຖຸ</translation>
+        <translation>ເສັ້ນບອກຂະໜາດແບບຂະໜານອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/components/creators/lc_menuactivator.cpp" line="532"></location>
@@ -30465,7 +30465,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="565"></location>
         <source> entities </source>
-        <translation> ອົງປະກອບ </translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="566"></location>
@@ -30480,7 +30480,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="609"></location>
         <source>Line</source>
-        <translation>ເສັ້ນຊື່</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="610"></location>
@@ -30500,7 +30500,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="491"></location>
         <source>Offset</source>
-        <translation>ອັອບເຊັດ</translation>
+        <translation>ອອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="494"></location>
@@ -30682,7 +30682,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/rs_actiondimlinear.cpp" line="221"></location>
         <source>Specify dimension line location</source>
-        <translation>ກຳນົດຕຳແໜ່ງເສັ້ນບອກຂະໜາດ</translation>
+        <translation>ກຳນົດຕຳແໜ່ງເສັ້ນມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/rs_actiondimlinear.cpp" line="221"></location>
@@ -31825,7 +31825,7 @@ Intersection :@(%7, %8)</source>
 ມຸມປະກອບສອງສາກ: %3
 ມຸມທາງເລືອກ: %4
 ຈຸດຕັດ: (%5 , %6)
-ຈຸດຕັດ ສຳພັດ: @(%7, %8)</translation>
+ຈຸດຕັດ ສຳພັນ: @(%7, %8)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfoangle.cpp" line="147"></location>
@@ -32007,7 +32007,7 @@ End: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfodist.cpp" line="160"></location>
         <source>Don't move relative zero</source>
-        <translation>ບໍ່ຍ້າຍຈຸດສູນສຳພັດ</translation>
+        <translation>ບໍ່ຍ້າຍຈຸດສູນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfodist.cpp" line="160"></location>
@@ -32043,7 +32043,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfodist2.cpp" line="279"></location>
         <source>Relative point is on entity</source>
-        <translation>ຈຸດສຳພັດຢູ່ເທິງອົງປະກອບ</translation>
+        <translation>ຈຸດສຳພັນຢູ່ເທິງອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfodist2.cpp" line="279"></location>
@@ -32421,7 +32421,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymirror.cpp" line="119"></location>
         <source>Mirror</source>
-        <translation>ກັບດ້ານ (Mirror)</translation>
+        <translation>ສະທ້ອນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymirror.cpp" line="120"></location>
@@ -32594,7 +32594,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="83"></location>
         <source>Offset</source>
-        <translation>ໄລຍະຫ່າງ (Offset)</translation>
+        <translation>ອອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="84"></location>
@@ -32794,7 +32794,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate2.cpp" line="179"></location>
         <source>Specify relative reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງສຳພັດ</translation>
+        <translation>ກໍານົດຈຸດອ້າງອີງສຳພັນ</translation>
     </message>
 </context>
 <context>
@@ -32841,7 +32841,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="169"></location>
         <source>Scale</source>
-        <translation>ປັບຂະໜາດ (Scale)</translation>
+        <translation>ມາດຕາສ່ວນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="170"></location>
@@ -32975,7 +32975,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifytrim.cpp" line="112"></location>
         <source>Trim</source>
-        <translation>ຕັດ (Trim)</translation>
+        <translation>ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifytrim.cpp" line="112"></location>
@@ -33133,7 +33133,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineappend.cpp" line="319"></location>
         <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation>ບໍ່ສາມາດເລີກເຮັດ: ຍັງບໍ່ມີອົງປະກອບພຽງພໍ.</translation>
+        <translation>ບໍ່ສາມາດຍົກເລີກ: ຍັງບໍ່ມີອົງປະກອບພຽງພໍ.</translation>
     </message>
 </context>
 <context>
@@ -33361,7 +33361,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/print_preview/rs_actionprintpreview.cpp" line="197"></location>
         <source>Printout offset ignores relative zero. Ignoring '@'</source>
-        <translation>ອັອບເຊັດການພິມອອກບໍ່ສົນໃຈສູນສຳພັດ. ກໍາລັງຂ້າມ '@'</translation>
+        <translation>ອັອບເຊັດການພິມອອກບໍ່ສົນໃຈສູນສຳພັນ. ກໍາລັງຂ້າມ '@'</translation>
     </message>
     <message>
         <location filename="../src/actions/print_preview/rs_actionprintpreview.cpp" line="177"></location>
@@ -33423,7 +33423,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectlayer.cpp" line="69"></location>
         <source>Specify entity with desired layer</source>
-        <translation>ກໍານົດອົງປະກອບທີ່ມີເລເຢີ (Layer) ທີ່ຕ້ອງການ</translation>
+        <translation>ກໍານົດອົງປະກອບທີ່ມີເລເຢີ ທີ່ຕ້ອງການ</translation>
     </message>
 </context>
 <context>
@@ -33454,7 +33454,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="117"></location>
         <source> entities </source>
-        <translation> ອົງປະກອບ </translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="118"></location>
@@ -33502,7 +33502,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/rel_zero/rs_actionsetrelativezero.cpp" line="72"></location>
         <source>Set relative Zero</source>
-        <translation>ກໍານົດສູນສຳພັດ (Relative Zero)</translation>
+        <translation>ກໍານົດສູນສຳພັນ (Relative Zero)</translation>
     </message>
 </context>
 <context>
@@ -33577,7 +33577,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="993"></location>
         <source>Grid</source>
-        <translation>ເສັ້ນຕາຕະລາງ (Grid)</translation>
+        <translation>ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="995"></location>
@@ -33597,7 +33597,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1001"></location>
         <source>Middle</source>
-        <translation>ເຄິ່ງກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1003"></location>
@@ -33607,7 +33607,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1005"></location>
         <source>Center</source>
-        <translation>ຈຸດໃຈກາງ</translation>
+        <translation>ໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1007"></location>
@@ -33617,7 +33617,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1009"></location>
         <source>Angle Relative</source>
-        <translation>ມຸມສຳພັດ</translation>
+        <translation>ມຸມສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/rs_snapper.cpp" line="1011"></location>
@@ -33676,17 +33676,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="26"></location>
         <source>Tangential Arc Options</source>
-        <translation>ຕົວເລືອກເສັ້ນໂຄ້ງສຳພັດ</translation>
+        <translation>ຕົວເລືອກເສັ້ນໂຄ້ງສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="87"></location>
         <source>If selected, tangental arc with specified radius will be created</source>
-        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນໂຄ້ງສຳພັດຕາມລັດສະໝີທີ່ກຳນົດ</translation>
+        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນໂຄ້ງສຳພັນຕາມລັດສະໝີທີ່ກຳນົດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="47"></location>
         <source>Radius of the tangential arc</source>
-        <translation>ລັດສະໝີຂອງເສັ້ນໂຄ້ງສຳພັດ</translation>
+        <translation>ລັດສະໝີຂອງເສັ້ນໂຄ້ງສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="112"></location>
@@ -33696,7 +33696,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="60"></location>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>ມຸມລວມຂອງເສັ້ນໂຄ້ງສຳພັດ</translation>
+        <translation>ມຸມລວມຂອງເສັ້ນໂຄ້ງສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="67"></location>
@@ -33736,7 +33736,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/modify/qg_beveloptions.ui" line="62"></location>
         <source>Trim</source>
-        <translation>ຕັດ (Trim)</translation>
+        <translation>ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/qg_beveloptions.ui" line="85"></location>
@@ -33797,12 +33797,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="32"></location>
         <source>Circle Tangential2 Options</source>
-        <translation>ຕົວເລືອກວົງມົນສຳພັດ 2 ຈຸດ</translation>
+        <translation>ຕົວເລືອກວົງມົນສຳພັນ 2 ຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="56"></location>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ລັດສະໝີຂອງວົງມົນສຳພັດທີ່ຈະແຕ້ມ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ລັດສະໝີຂອງວົງມົນສຳພັນທີ່ຈະແຕ້ມ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="59"></location>
@@ -33812,7 +33812,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="75"></location>
         <source>Radius of tangential circle</source>
-        <translation>ລັດສະໝີຂອງວົງມົນສຳພັດ</translation>
+        <translation>ລັດສະໝີຂອງວົງມົນສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="82"></location>
@@ -34173,7 +34173,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineangleoptions.ui" line="219"></location>
         <source>Middle</source>
-        <translation>ເຄິ່ງກາງ</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineangleoptions.ui" line="224"></location>
@@ -34249,12 +34249,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="72"></location>
         <source>Undo the last line drawing</source>
-        <translation>ເລີກເຮັດການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
+        <translation>ຍົກເລີກການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="75"></location>
         <source>Undo</source>
-        <translation>ເລີກເຮັດ</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_lineoptions.ui" line="82"></location>
@@ -34328,22 +34328,22 @@ Point: (%8 , %9)</source>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="311"></location>
         <source>If checked, angle is relative to previous segment</source>
         <extracomment>Angle is relative to previous segment</extracomment>
-        <translation>ຖ້າເລືອກ, ມຸມຈະສຳພັດກັບສ່ວນກ່ອນໜ້າ</translation>
+        <translation>ຖ້າເລືອກ, ມຸມຈະສຳພັນກັບສ່ວນກ່ອນໜ້າ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="314"></location>
         <source>Rel</source>
-        <translation>ສຳພັດ (Rel)</translation>
+        <translation>ສຳພັນ (Rel)</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="257"></location>
         <source>Undo the last line drawing</source>
-        <translation>ເລີກເຮັດການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
+        <translation>ຍົກເລີກການແຕ້ມເສັ້ນສຸດທ້າຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="260"></location>
         <source>Undo</source>
-        <translation>ເລີກເຮັດ</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineoptions.ui" line="267"></location>
@@ -34523,7 +34523,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/line/qg_linerelangleoptions.ui" line="32"></location>
         <source>Line Relative Angle Options</source>
-        <translation>ຕົວເລືອກມຸມສຳພັດຂອງເສັ້ນ</translation>
+        <translation>ຕົວເລືອກມຸມສຳພັນຂອງເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/qg_linerelangleoptions.ui" line="56"></location>
@@ -34770,12 +34770,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="63"></location>
         <source>Undo for previous vertex</source>
-        <translation>ເລີກເຮັດສຳລັບຈຸດມຸມກ່ອນໜ້າ</translation>
+        <translation>ຍົກເລີກສຳລັບຈຸດມຸມກ່ອນໜ້າ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="66"></location>
         <source>Undo</source>
-        <translation>ເລີກເຮັດ</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="73"></location>
@@ -34796,17 +34796,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="101"></location>
         <source>Tangential</source>
-        <translation>ສຳພັດ (Tangential)</translation>
+        <translation>ສຳພັນ (Tangential)</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="106"></location>
         <source>Tan Radius</source>
-        <translation>ລັດສະໝີສຳພັດ</translation>
+        <translation>ລັດສະໝີສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="111"></location>
         <source>Tan Angle</source>
-        <translation>ມຸມສຳພັດ</translation>
+        <translation>ມຸມສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="116"></location>
@@ -34816,17 +34816,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="144"></location>
         <source>Tangential arc</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັດ</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳພັນ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="164"></location>
         <source>Tangental arc with fixed radius</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັດທີ່ມີລັດສະໝີຄົງທີ່</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳພັນທີ່ມີລັດສະໝີຄົງທີ່</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="184"></location>
         <source>Tangental arc with fixed angle</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັດທີ່ມີມຸມຄົງທີ່</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳພັນທີ່ມີມຸມຄົງທີ່</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="204"></location>
@@ -34997,7 +34997,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/modify/qg_roundoptions.ui" line="62"></location>
         <source>Trim</source>
-        <translation>ຕັດ (Trim)</translation>
+        <translation>ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/qg_roundoptions.ui" line="85"></location>
@@ -35061,7 +35061,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="32"></location>
         <source>Spline Options</source>
-        <translation>ຕົວເລືອກເສັ້ນສະປາຍ (Spline)</translation>
+        <translation>ຕົວເລືອກເສັ້ນສະປຼາຍ (Spline)</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="56"></location>
@@ -35071,12 +35071,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="72"></location>
         <source>Spline's degree used for approximation between points</source>
-        <translation>ລະດັບຂອງເສັ້ນສະປາຍທີ່ໃຊ້ສຳລັບການຄຳນວນລະຫວ່າງຈຸດ</translation>
+        <translation>ລະດັບຂອງເສັ້ນສະປຼາຍທີ່ໃຊ້ສຳລັບການຄຳນວນລະຫວ່າງຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="94"></location>
         <source>If selected, closed spline is created</source>
-        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນສະປາຍແບບປິດ</translation>
+        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນສະປຼາຍແບບປິດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="97"></location>
@@ -35086,12 +35086,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="110"></location>
         <source>Undo previous point</source>
-        <translation>ເລີກເຮັດຈຸດກ່ອນໜ້າ</translation>
+        <translation>ຍົກເລີກຈຸດກ່ອນໜ້າ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/spline/qg_splineoptions.ui" line="113"></location>
         <source>Undo</source>
-        <translation>ເລີກເຮັດ</translation>
+        <translation>ຍົກເລີກ</translation>
     </message>
 </context>
 <context>

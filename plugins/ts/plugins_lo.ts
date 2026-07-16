@@ -52,7 +52,7 @@
     <message>
         <location filename="../align/align.cpp" line="47"/>
         <source>Keep original objects</source>
-        <translation>ຮັກສາວັດຖຸເດີມໄວ້</translation>
+        <translation>ຮັກສາອົງປະກອບເດີມໄວ້</translation>
     </message>
     <message>
         <location filename="../align/align.cpp" line="48"/>
@@ -79,8 +79,8 @@ Align will copy rather than move the selected objects.
 If &apos;Specify base points first&apos; is checked,
 Align will prompt for the alignment points in the order
 first base, second base, first target, second target.</source>
-        <translation>ຖ້າເລືອກ &apos;ຮັກສາວັດຖຸເດີມໄວ້&apos;,
-ການຈັດວາງຈະເປັນການກັອບປີ້ ແທນທີ່ຈະເປັນການຍ້າຍວັດຖຸທີ່ເລືອກ.
+        <translation>ຖ້າເລືອກ &apos;ຮັກສາອົງປະກອບເດີມໄວ້&apos;,
+ການຈັດວາງຈະເປັນການກັອບປີ້ ແທນທີ່ຈະເປັນການຍ້າຍອົງປະກອບທີ່ເລືອກ.
 
 ຖ້າເລືອກ &apos;ກຳນົດຈຸດພື້ນຖານກ່ອນ&apos;,
 ການຈັດວາງຈະຖາມຫາຈຸດຈັດວາງຕາມລຳດັບຄື:
@@ -149,7 +149,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="58"/>
         <source>Empty Entity</source>
-        <translation>ອົງປະກອບຫວ່າງເປົ່າ</translation>
+        <translation>ອົງປະກອບຫວ່າງ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="65"/>
@@ -164,7 +164,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="75"/>
         <source>Layer</source>
-        <translation>ຊັ້ນງານ (Layer)</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="77"/>
@@ -189,7 +189,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="86"/>
         <source>POINT</source>
-        <translation>ຈຸດ (POINT)</translation>
+        <translation>ຈຸດ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="87"/>
@@ -201,7 +201,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="92"/>
         <source>LINE</source>
-        <translation>ເສັ້ນຊື່ (LINE)</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="97"/>
@@ -232,7 +232,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="116"/>
         <source>ARC</source>
-        <translation>ເສັ້ນໂຄ້ງ (ARC)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="117"/>
@@ -261,7 +261,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="132"/>
         <source>CIRCLE</source>
-        <translation>ວົງມົນ (CIRCLE)</translation>
+        <translation>ວົງມົນ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="138"/>
@@ -276,7 +276,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="142"/>
         <source>ELLIPSE</source>
-        <translation>ວົງຮີ (ELLIPSE)</translation>
+        <translation>ວົງລີ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="146"/>
@@ -296,7 +296,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="170"/>
         <source>SOLID</source>
-        <translation>ວັດຖຸທຶບ (SOLID)</translation>
+        <translation>ອົງປະກອບທຶບ (SOLID)</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="174"/>
@@ -306,7 +306,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="177"/>
         <source>TEXT</source>
-        <translation>ຂໍ້ຄວາມ (TEXT)</translation>
+        <translation>ຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="181"/>
@@ -316,7 +316,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="184"/>
         <source>INSERT</source>
-        <translation>ແຊກ (INSERT)</translation>
+        <translation>ແຊກ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="187"/>
@@ -351,7 +351,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="212"/>
         <source>POLYLINE</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (POLYLINE)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="213"/>
@@ -381,17 +381,17 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="232"/>
         <source>SPLINE</source>
-        <translation>ເສັ້ນໂຄ້ງສະປາຍ (SPLINE)</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="235"/>
         <source>SPLINEPOINTS</source>
-        <translation>ຈຸດເສັ້ນສະປາຍ (SPLINEPOINTS)</translation>
+        <translation>ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="238"/>
         <source>HATCH</source>
-        <translation>ລວດລາຍ (HATCH)</translation>
+        <translation>ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="241"/>
@@ -416,7 +416,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="253"/>
         <source>DIMDIAMETRIC</source>
-        <translation>ບອກຂະໜາດເສັ້ນຜ່ານໃຈກາງ (DIMDIAMETRIC)</translation>
+        <translation>ບອກຂະໜາດເສັ້ນຜ່ານສູນກາງ (DIMDIAMETRIC)</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="256"/>
@@ -600,17 +600,17 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="306"/>
         <source>Point 2D layer is empty</source>
-        <translation>ຊັ້ນງານຈຸດ 2D ຫວ່າງເປົ່າ</translation>
+        <translation>ເລເຢີຈຸດ 2D ຫວ່າງເປົ່າ</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="309"/>
         <source>Point 3D layer is empty</source>
-        <translation>ຊັ້ນງານຈຸດ 3D ຫວ່າງເປົ່າ</translation>
+        <translation>ເລເຢີຈຸດ 3D ຫວ່າງເປົ່າ</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="312"/>
         <source>Point elevation layer is empty</source>
-        <translation>ຊັ້ນງານລະດັບຄວາມສູງຈຸດ ຫວ່າງເປົ່າ</translation>
+        <translation>ເລເຢີລະດັບຄວາມສູງຈຸດ ຫວ່າງເປົ່າ</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="313"/>
@@ -625,7 +625,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="317"/>
         <source>Point number layer is empty</source>
-        <translation>ຊັ້ນງານເລກລຳດັບຈຸດ ຫວ່າງເປົ່າ</translation>
+        <translation>ເລເຢີເລກລຳດັບຈຸດ ຫວ່າງເປົ່າ</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="318"/>
@@ -640,7 +640,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="322"/>
         <source>Point code layer is empty</source>
-        <translation>ຊັ້ນງານລະຫັດຈຸດ ຫວ່າງເປົ່າ</translation>
+        <translation>ເລເຢີລະຫັດຈຸດ ຫວ່າງເປົ່າ</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="323"/>
@@ -694,7 +694,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="441"/>
         <source>Empty Entity</source>
-        <translation>ອົງປະກອບຫວ່າງເປົ່າ</translation>
+        <translation>ອົງປະກອບຫວ່າງ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="449"/>
@@ -709,7 +709,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="457"/>
         <source>Layer</source>
-        <translation>ຊັ້ນງານ</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="459"/>
@@ -734,7 +734,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="471"/>
         <source>LINE</source>
-        <translation>ເສັ້ນຊື່ (LINE)</translation>
+        <translation>ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="476"/>
@@ -765,7 +765,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="496"/>
         <source>ARC</source>
-        <translation>ເສັ້ນໂຄ້ງ (ARC)</translation>
+        <translation>ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="497"/>
@@ -793,7 +793,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="515"/>
         <source>CIRCLE</source>
-        <translation>ວົງມົນ (CIRCLE)</translation>
+        <translation>ວົງມົນ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="521"/>
@@ -808,7 +808,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="527"/>
         <source>POLYLINE</source>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (POLYLINE)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="528"/>
@@ -846,12 +846,12 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/dividedlg.cpp" line="47"/>
         <source>Divide - </source>
-        <translation>ແບ່ງ - </translation>
+        <translation>ແບ່ງ -</translation>
     </message>
     <message>
         <location filename="../divide/dividedlg.cpp" line="68"/>
         <source>Layers</source>
-        <translation>ຊັ້ນງານ</translation>
+        <translation>ເລເຢີ</translation>
     </message>
     <message>
         <location filename="../divide/dividedlg.cpp" line="74"/>
@@ -909,7 +909,7 @@ anti-clockwise.</source>
     <message>
         <location filename="../divide/dividedlg.cpp" line="245"/>
         <source>&lt;i&gt;&quot;New&quot;&lt;/i&gt;&lt;br&gt;Enter name&lt;br&gt;for a new layer&lt;br&gt;(if required?) to&lt;br&gt;draw ticks on.</source>
-        <translation>&lt;i&gt;&quot;ໃໝ່&quot;&lt;/i&gt;&lt;br&gt;ປ້ອນຊື່&lt;br&gt;ສຳລັບຊັ້ນງານໃໝ່&lt;br&gt;(ຖ້າຕ້ອງການ) ເພື່ອ&lt;br&gt;ແຕ້ມຂີດໝາຍໃສ່.</translation>
+        <translation>&lt;i&gt;&quot;ໃໝ່&quot;&lt;/i&gt;&lt;br&gt;ປ້ອນຊື່&lt;br&gt;ສຳລັບເລເຢີໃໝ່&lt;br&gt;(ຖ້າຕ້ອງການ) ເພື່ອ&lt;br&gt;ແຕ້ມຂີດໝາຍໃສ່.</translation>
     </message>
     <message>
         <location filename="../divide/dividedlg.cpp" line="251"/>
@@ -1010,7 +1010,7 @@ anti-clockwise.</source>
     <message>
         <location filename="../gear/gear.cpp" line="123"/>
         <source>Use layers?</source>
-        <translation>ໃຊ້ຊັ້ນງານບໍ່?</translation>
+        <translation>ໃຊ້ເລເຢີບໍ່?</translation>
     </message>
     <message>
         <location filename="../gear/gear.cpp" line="124"/>
@@ -1179,7 +1179,7 @@ anti-clockwise.</source>
     <message>
         <location filename="../picfile/picfile.cpp" line="144"/>
         <source>%1 objects imported</source>
-        <translation>ນຳເຂົ້າວັດຖຸແລ້ວ %1 ຢ່າງ</translation>
+        <translation>ນຳເຂົ້າອົງປະກອບແລ້ວ %1 ຢ່າງ</translation>
     </message>
     <message>
         <location filename="../picfile/picfile.cpp" line="166"/>
@@ -1229,8 +1229,7 @@ Use t or x in your equation as a variable/parameter.
         <translation>ປລັກອິນນີ້ຊ່ວຍໃຫ້ທ່ານສ້າງເສັ້ນສະແດງຈາກສົມຜົນຄະນິດສາດ.
 ຖ້າທ່ານບໍ່ຕ້ອງການໃຊ້ຮູບແບບພາຣາມີເຕີ, ໃຫ້ປະຊ່ອງ &quot;Equation2&quot; ໄວ້ຫວ່າງ.
 ທ່ານສາມາດໃຊ້ pi ເມື່ອຕ້ອງການຄ່າຂອງ pi (ຕົວຢ່າງ: (3*pi)).
-ໃຊ້ t ຫຼື x ໃນສົມຜົນຂອງທ່ານເປັນຕົວປ່ຽນ/ພາຣາມີເຕີ.
-</translation>
+ໃຊ້ t ຫຼື x ໃນສົມຜົນຂອງທ່ານເປັນຕົວປ່ຽນ/ພາຣາມີເຕີ.</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="22"/>
@@ -1277,13 +1276,13 @@ Use t or x in your equation as a variable/parameter.
         <location filename="../plotequation/plotdialog.cpp" line="60"/>
         <source>Polyline</source>
         <comment>Plot Equation to generate RS_Polyline</comment>
-        <translation>ເສັ້ນຕໍ່ເນື່ອງ (Polyline)</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../plotequation/plotdialog.cpp" line="61"/>
         <source>SplinePoints</source>
         <comment>Plot Equation to generate 2nd spline by LC_SplinePoints</comment>
-        <translation>ຈຸດເສັ້ນສະປາຍ (SplinePoints)</translation>
+        <translation>ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
 </context>
 <context>
@@ -1291,7 +1290,7 @@ Use t or x in your equation as a variable/parameter.
     <message>
         <location filename="../asciifile/asciifile.cpp" line="176"/>
         <source>Layer:</source>
-        <translation>ຊັ້ນງານ (Layer):</translation>
+        <translation>ເລເຢີ:</translation>
     </message>
 </context>
 <context>
