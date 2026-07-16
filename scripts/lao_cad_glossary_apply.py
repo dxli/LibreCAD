@@ -120,7 +120,7 @@ EXACT_SOURCE: dict[str, str] = {
     "SPLINEPOINTS": "ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ",
     "HATCH": "ລວດລາຍ",
     "Empty Entity": "ອົງປະກອບຫວ່າງ",
-    "Nothing to undo!": "ບໍ່ມີຫຍັງໃຫ້ຍົກເລີກ!",
+    "Nothing to undo!": "ບໍ່ມີຫຍັງໃຫ້ເລີກທຳ!",
     "Nothing to redo!": "ບໍ່ມີຫຍັງໃຫ້ເຮັດຄືນ!",
     "Show absolute coordinate": "ສະແດງພິກັດແທ້ຈິງ",
     "Show relative coordinate": "ສະແດງພິກັດສຳພັນ",
@@ -135,6 +135,33 @@ EXACT_SOURCE: dict[str, str] = {
     "Dimension Styles Import": "ນຳເຂົ້າຮູບແບບມິຕິ",
     "Dimension Styles Export Error": "ຂໍ້ຜິດພາດໃນການສົ່ງອອກຮູບແບບມິຕິ",
     "Dimension Styles Import Error": "ຂໍ້ຜິດພາດໃນການນຳເຂົ້າຮູບແບບມິຕິ",
+    # Score-pass: delete / centerline / snap UI / paper command aliases
+    "OK": "ຕົກລົງ",
+    "&OK": "&ຕົກລົງ",
+    "Remove": "ລຶບ",
+    "Centerline": "ເສັ້ນໃຈກາງ",
+    "Free Snap": "ເກາະຈັບອິດສະຫຼະ",
+    "Snap:": "ເກາະຈັບ:",
+    "Start Snap:": "ເກາະຈັບເລີ່ມຕົ້ນ:",
+    "End Snap:": "ເກາະຈັບສິ້ນສຸດ:",
+    "Snap shift": "ເລື່ອນເກາະຈັບ",
+    "Tick snap:": "ເກາະຈັບຂີດໝາຍ:",
+    "Snap Selection": "ການເລືອກເກາະຈັບ",
+    "Snap to Adjacent Dim": "ເກາະຈັບໃສ່ມິຕິຂ້າງຄຽງ",
+    # Keep paper-size command tokens in English (do not invent)
+    "arch a": "arch a",
+    "arch b": "arch b",
+    "arch c": "arch c",
+    "arch d": "arch d",
+    "arch e": "arch e",
+    "Legal": "Legal",
+    "legal": "legal",
+    # Plugin metric labels
+    "length": "ຄວາມຍາວ",
+    "radius": "ລັດສະໝີ",
+    "circumference": "ເສັ້ນຮອບວົງ",
+    "area": "ເນື້ອທີ່",
+    "places": "ຕຳແໜ່ງ",  # divide plugin: division count, not decimal places
 }
 
 EXACT_SOURCE_CI: dict[str, str] = {k.lower(): v for k, v in EXACT_SOURCE.items()}
@@ -200,14 +227,18 @@ PHRASE_REPLACEMENTS: list[tuple[str, str]] = [
     ("ສະພລາຍ", "ສະປຼາຍ"),
     ("ສະປາຍ", "ສະປຼາຍ"),
     ("ເສັ້ນໂຄ້ງສະປຼາຍສະປຼາຍ", "ເສັ້ນໂຄ້ງສະປຼາຍ"),
-    # Center line misuse
-    ("ເສັ້ນໃຈກາງ", "ໃຈກາງ"),
+    # Do NOT globally strip ເສັ້ນໃຈກາງ → ໃຈກາງ (breaks Centerline labels).
+    # Snap "Center" is handled via EXACT_SOURCE / Center (large|small) rules.
     ("ພິກັດສົມບູນ", "ພິກັດແທ້ຈິງ"),
     # Snap synonym → glossary term
     ("ການດຶງເຂົ້າຫາ (snap)", "ເກາະຈັບ"),
     ("ການດຶງເຂົ້າຫາ", "ເກາະຈັບ"),
     ("ຈຸດດຶງເຂົ້າຫາ", "ຈຸດເກາະຈັບ"),
     ("ພິກັດການດຶງເຂົ້າຫາ", "ພິກັດເກາະຈັບ"),
+    ("ສະແນັບ", "ເກາະຈັບ"),
+    # Orthography
+    ("ກໍານົດ", "ກຳນົດ"),
+    ("ໂຫລດ", "ໂຫຼດ"),
     # Hatch / grid
     ("ລວດລາຍ (Hatch)", "ລວດລາຍ"),
     ("ລວດລາຍ (HATCH)", "ລວດລາຍ"),
@@ -335,10 +366,27 @@ def transform_translation(source: str, translation: str) -> str:
         tr = apply_list(tr, LAYER_PHRASES)
 
     if re.search(r"\bundo\b", src, re.I):
-        tr = tr.replace("ຍ້ອນກັບ", "ຍົກເລີກ")
-        tr = tr.replace("ເລີກເຮັດ", "ຍົກເລີກ")
-        if tr.strip() in ("ກັບຄືນ",):
-            tr = "ຍົກເລີກ"
+        # Verb/menu Undo = ເລີກທຳ; reserve ຍົກເລີກ for Cancel/dialog dismiss.
+        tr = tr.replace("ຍ້ອນກັບ", "ເລີກທຳ")
+        tr = tr.replace("ເລີກເຮັດ", "ເລີກທຳ")
+        if re.fullmatch(r"&?Undo", src):
+            tr = "&ເລີກທຳ" if src.startswith("&") else "ເລີກທຳ"
+        elif tr.strip() in ("ກັບຄືນ", "ຍົກເລີກ"):
+            tr = "ເລີກທຳ"
+        # Common undo messages that still used Cancel term
+        if "Nothing to undo" in src or "nothing to undo" in src.lower():
+            tr = tr.replace("ຍົກເລີກ", "ເລີກທຳ")
+        if re.search(r"cannot undo|to undo|undone", src, re.I):
+            # Keep Cancel wording only when source says cancel; undo capability → ເລີກທຳ
+            if "cancel" not in src.lower():
+                tr = tr.replace("ຍົກເລີກ", "ເລີກທຳ")
+
+    if re.search(r"\bredo\b", src, re.I):
+        tr = tr.replace("ເຮັດຊ້ຳ", "ເຮັດຄືນ")
+
+    # Delete / remove: glossary spelling ລຶບ (not ລົບ). Keep ລົບ for minus/negative/antialias.
+    if re.search(r"delet|remov|eras", src, re.I):
+        tr = tr.replace("ລົບ", "ລຶບ")
 
     # Tangential / tangental (CAD) → ສຳຜັດ  (never ສຳພັນ "relative")
     if re.search(r"tangent|tangental", src, re.I):
@@ -361,12 +409,19 @@ def transform_translation(source: str, translation: str) -> str:
         tr = "ເສັ້ນໃຈກາງ (ໃຫຍ່)"
     elif re.fullmatch(r"Center \(small\)", src):
         tr = "ເສັ້ນໃຈກາງ (ນ້ອຍ)"
+    elif re.fullmatch(r"[Cc]enterline", src):
+        tr = "ເສັ້ນໃຈກາງ"
     elif re.fullmatch(r"[Cc]enter", src):
         tr = "ໃຈກາງ"
+    elif re.search(r"centerline|center line", src, re.I):
+        tr = tr.replace("ເສັ້ນແກນກາງ", "ເສັ້ນໃຈກາງ")
 
     if re.search(r"\bsnap\b", src, re.I):
         tr = tr.replace("ການດຶງເຂົ້າຫາ", "ເກາະຈັບ")
         tr = tr.replace("ດຶງເຂົ້າຫາ", "ເກາະຈັບ")
+        tr = tr.replace("ສະແນັບ", "ເກາະຈັບ")
+        if re.search(r"adjacent.*dim|dim.*adjacent", src, re.I):
+            tr = tr.replace("ຂະໜາດ", "ມິຕິ")
 
     if re.search(r"\bentit", src, re.I):
         tr = tr.replace("ອອບເຈັກ", "ອົງປະກອບ")

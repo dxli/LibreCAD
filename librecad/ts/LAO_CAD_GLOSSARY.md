@@ -68,24 +68,50 @@ Do **not** use ເລີກເຮັດ for Undo. Do **not** use ຍົກເລ
 | Draw | ແຕ້ມ |
 | Modify | ປັບປ່ຽນ |
 | Save | ບັນທຶກ |
-| Delete | ລຶບ |
+| Delete / Remove | **ລຶບ** (never **ລົບ** for delete) |
 | Line | ເສັ້ນ |
 | Circle | ວົງມົນ |
 | Arc | ເສັ້ນໂຄ້ງ |
 | Point | ຈຸດ |
 | Text | ຂໍ້ຄວາມ |
+| Centerline | ເສັ້ນໃຈກາງ |
+| length / radius / area / circumference | ຄວາມຍາວ / ລັດສະໝີ / ເນື້ອທີ່ / ເສັ້ນຮອບວົງ |
+
+### Spelling that must **not** be “fixed” as delete
+
+| English sense | Lao | Notes |
+|---------------|-----|--------|
+| negative value | ຄ່າລົບ | minus sign sense |
+| Plus / Minus (±) | ບວກ / ລົບ | arithmetic |
+| anti-aliasing | ການລົບຮອຍຢັກ | “remove jagged edges” |
+
+### Paper sizes / command tokens
+
+Keep **Arch A–E**, **ANSI**, **Legal**, **letter**, and command aliases `arch a`…`arch e` in English (or `ຂະໜາດ Arch E`).  
+Do **not** translate `arch e` → ລົບ or `Legal` → ກົດໝາຍ.
+
+### Orthography
+
+| Prefer | Avoid |
+|--------|--------|
+| ກຳນົດ | ກໍານົດ |
+| ໂຫຼດ | ໂຫລດ |
+| ເກາະຈັບ | ສະແນັບ (snap UI) |
+| ເຮັດຄືນ | ເຮັດຊ້ຳ when source is **Redo** (keep ເຮັດຊ້ຳ for *Duplicate*) |
 
 ## Policy
 
 1. Prefer **one Lao term per CAD concept** across menus, tooltips, and errors.
 2. Keep Qt placeholders (`%1`, `%n`) and accelerators (`&`) intact.
 3. English in parentheses only when introducing a loanword the first time is unnecessary if the glossary term is locked.
-4. After `lupdate`, re-run `scripts/lao_cad_glossary_apply.py` and spot-check Dimension / Layer / Undo / Absolute / Relative / Center.
-5. Deep-review compound rules (source-keyword): Absolute*, Dimension*, Layer*, Undo*, Tangent* are applied in the script — re-check counts:
+4. After `lupdate`, re-run `scripts/lao_cad_glossary_apply.py` and spot-check Dimension / Layer / Undo / Absolute / Relative / Center / Delete / Snap.
+5. Deep-review compound rules (source-keyword): Absolute*, Dimension*, Layer*, Undo*, Tangent*, Delete*, Snap* — re-check counts:
    - `absolute` + ສຳບູນ → 0  
    - `dimension` + ເສັ້ນຂະໜາດ / ຮູບແບບຂະໜາດ → 0  
    - `layer` without ເລເຢີ still using bare ຊັ້ນ → 0  
    - `undo` + ຍ້ອນກັບ → 0; Undo verb = ເລີກທຳ (not Cancel’s ຍົກເລີກ)  
    - `tangent|tangental` + ສຳພັນ (wrong) → 0; should use ສຳຜັດ  
-   - `Center (large|small)` → ເສັ້ນໃຈກາງ (…)  
+   - `Center (large|small)` / `Centerline` → ເສັ້ນໃຈກາງ (…)  
+   - `delete|remove` + ລົບ → 0 (use ລຶບ); residual ລົບ only for minus/negative/antialias  
+   - `snap` + ສະແນັບ → 0 (use ເກາະຈັບ)  
    - Numerus: 5 messages, 1 form each; no `ຄຼາດ` (use ຄລາສ for DXF class)
