@@ -35,7 +35,7 @@
     <message>
         <location filename="../src/ui/components/comboboxes/comboboxoption.ui" line="41"></location>
         <source>Set</source>
-        <translation>ກໍານົດ</translation>
+        <translation>ກຳນົດ</translation>
     </message>
 </context>
 <context>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_abstractactiondrawline.cpp" line="41"></location>
         <source>Start point may set in distance or point state only</source>
-        <translation>ຈຸດເລີ່ມຕົ້ນອາດຈະກໍານົດໃນໄລຍະຫ່າງ ຫຼື ສະຖານະຈຸດເທົ່ານັ້ນ</translation>
+        <translation>ຈຸດເລີ່ມຕົ້ນອາດຈະກຳນົດໃນໄລຍະຫ່າງ ຫຼື ສະຖານະຈຸດເທົ່ານັ້ນ</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondimlinearbase.cpp" line="306"></location>
         <source>Snap to Adjacent Dim</source>
-        <translation>ສະແນັບໃສ່ຂະໜາດຂ້າງຄຽງ</translation>
+        <translation>ເກາະຈັບໃສ່ມິຕິຂ້າງຄຽງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondimlinearbase.cpp" line="321"></location>
@@ -380,7 +380,7 @@
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondimordinaterebase.cpp" line="41"></location>
         <source>Select and rebase</source>
-        <translation>ເລືອກ ແລະ ກໍານົດຖານໃໝ່</translation>
+        <translation>ເລືອກ ແລະ ກຳນົດຖານໃໝ່</translation>
     </message>
 </context>
 <context>
@@ -673,7 +673,7 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp" line="424"></location>
         <source>Snap to Adjacent Dim</source>
-        <translation>ສະແນັບໃສ່ຂະໜາດຂ້າງຄຽງ</translation>
+        <translation>ເກາະຈັບໃສ່ມິຕິຂ້າງຄຽງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp" line="427"></location>
@@ -734,12 +734,12 @@ distance between points=%2 is larger than diameter=%3</source>
     <message>
         <location filename="../src/actions/drawing/draw/ellipse/lc_actiondrawellipse1point.cpp" line="277"></location>
         <source>Set start angle of arc</source>
-        <translation>ກໍານົດມູມເລີ່ມຕົ້ນຂອງເສັ້ນໂຄ້ງ</translation>
+        <translation>ກຳນົດມູມເລີ່ມຕົ້ນຂອງເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/ellipse/lc_actiondrawellipse1point.cpp" line="281"></location>
         <source>Set end angle of arc</source>
-        <translation>ກໍານົດມູມສິ້ນສຸດຂອງເສັ້ນໂຄ້ງ</translation>
+        <translation>ກຳນົດມູມສິ້ນສຸດຂອງເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/ellipse/lc_actiondrawellipse1point.cpp" line="317"></location>
@@ -1130,7 +1130,7 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawparabolaFD.cpp" line="278"></location>
         <source>Select line that is parallel to directrix of parabola or set vertex point</source>
-        <translation>ເລືອກເສັ້ນທີ່ຂະໜານກັບໄດເຣັກທຣິກຊ໌ຂອງພາຣາໂບລາ ຫຼື ກໍານົດຈຸດຍອດ</translation>
+        <translation>ເລືອກເສັ້ນທີ່ຂະໜານກັບໄດເຣັກທຣິກຊ໌ຂອງພາຣາໂບລາ ຫຼື ກຳນົດຈຸດຍອດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawparabolaFD.cpp" line="282"></location>
@@ -1227,7 +1227,7 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/rect/lc_actiondrawrectangle1point.cpp" line="380"></location>
         <source>Specify point that defines base angle for rectangle</source>
-        <translation>ລະບຸຈຸດທີ່ກໍານົດມູມຖານສໍາລັບຮູບສີ່ແຈສາກ</translation>
+        <translation>ລະບຸຈຸດທີ່ກຳນົດມູມຖານສໍາລັບຮູບສີ່ແຈສາກ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/rect/lc_actiondrawrectangle1point.cpp" line="380"></location>
@@ -1250,12 +1250,12 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/rect/lc_actiondrawrectangle2points.cpp" line="283"></location>
         <source>Specify point 1 snap [corner|mid-vert|mid-hor|middle]</source>
-        <translation>ລະບຸການສະແນັບຈຸດ 1 [corner|mid-vert|mid-hor|middle]</translation>
+        <translation>ລະບຸການເກາະຈັບຈຸດ 1 [corner|mid-vert|mid-hor|middle]</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/rect/lc_actiondrawrectangle2points.cpp" line="286"></location>
         <source>Specify point 2 snap [corner|mid-vert|mid-hor|middle]</source>
-        <translation>ລະບຸການສະແນັບຈຸດ 2 [corner|mid-vert|mid-hor|middle]</translation>
+        <translation>ລະບຸການເກາະຈັບຈຸດ 2 [corner|mid-vert|mid-hor|middle]</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/rect/lc_actiondrawrectangle2points.cpp" line="289"></location>
@@ -1389,27 +1389,27 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_actiondrawstar.cpp" line="616"></location>
         <source>Set center point</source>
-        <translation>ກໍານົດຈຸດສູນກາງ</translation>
+        <translation>ກຳນົດຈຸດສູນກາງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_actiondrawstar.cpp" line="619"></location>
         <source>Set outer point</source>
-        <translation>ກໍານົດຈຸດດ້ານນອກ</translation>
+        <translation>ກຳນົດຈຸດດ້ານນອກ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_actiondrawstar.cpp" line="622"></location>
         <source>Set inner point</source>
-        <translation>ກໍານົດຈຸດດ້ານໃນ</translation>
+        <translation>ກຳນົດຈຸດດ້ານໃນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_actiondrawstar.cpp" line="625"></location>
         <source>Set rounding radiuses (outer, inner)</source>
-        <translation>ກໍານົດລັດສະໝີມູມມົນ (ນອກ, ໃນ)</translation>
+        <translation>ກຳນົດລັດສະໝີມູມມົນ (ນອກ, ໃນ)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_actiondrawstar.cpp" line="628"></location>
         <source>Set rays number</source>
-        <translation>ກໍານົດຈໍານວນແສງ</translation>
+        <translation>ກຳນົດຈໍານວນແສງ</translation>
     </message>
 </context>
 <context>
@@ -1422,7 +1422,7 @@ or [%2]</source>
     <message>
         <location filename="../src/actions/drawing/edit/lc_actioneditpastetransform.cpp" line="129"></location>
         <source>Set paste reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງການວາງ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງການວາງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/edit/lc_actioneditpastetransform.cpp" line="129"></location>
@@ -1767,12 +1767,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="316"></location>
         <source>&amp;Delete node</source>
-        <translation>ລົບໂນດ (&amp;D)</translation>
+        <translation>ລຶບໂນດ (&amp;D)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="317"></location>
         <source>Delete &amp;between two nodes</source>
-        <translation>ລົບລະຫວ່າງສອງໂນດ (&amp;b)</translation>
+        <translation>ລຶບລະຫວ່າງສອງໂນດ (&amp;b)</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="318"></location>
@@ -2127,7 +2127,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="290"></location>
         <source>&amp;Remove spline points</source>
-        <translation>&amp;ລົບຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
+        <translation>&amp;ລຶບຈຸດເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="292"></location>
@@ -2142,7 +2142,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="294"></location>
         <source>&amp;Remove between two points</source>
-        <translation>&amp;ລົບລະຫວ່າງສອງຈຸດ</translation>
+        <translation>&amp;ລຶບລະຫວ່າງສອງຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="300"></location>
@@ -2594,7 +2594,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="219"></location>
         <source>Centerline</source>
-        <translation>ເສັ້ນແກນກາງ</translation>
+        <translation>ເສັ້ນໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="220"></location>
@@ -2749,7 +2749,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="464"></location>
         <source>Remove Workspace</source>
-        <translation>ລົບພື້ນທີ່ເຮັດວຽກ</translation>
+        <translation>ລຶບພື້ນທີ່ເຮັດວຽກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="465"></location>
@@ -2849,7 +2849,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="537"></location>
         <source>&amp;Remove Layer</source>
-        <translation>&amp;ລົບເລເຢີ</translation>
+        <translation>&amp;ລຶບເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="538"></location>
@@ -2884,7 +2884,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="553"></location>
         <source>&amp;Remove Block</source>
-        <translation>&amp;ລົບບລັອກ</translation>
+        <translation>&amp;ລຶບບລັອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="554"></location>
@@ -3141,7 +3141,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="664"></location>
         <source>&amp;Delete Selected</source>
-        <translation>&amp;ລົບສິ່ງທີ່ເລືອກ</translation>
+        <translation>&amp;ລຶບສິ່ງທີ່ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="665"></location>
@@ -4189,7 +4189,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="192"></location>
         <source> entities </source>
-        <translation>entities</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/lc_actionpreselectionawarebase.cpp" line="193"></location>
@@ -4439,7 +4439,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="150"></location>
         <source>Loads shortcuts mapping from external file.</source>
-        <translation>ໂຫລດການກຳນົດປຸ່ມລັດຈາກໄຟລ໌ພາຍນອກ.</translation>
+        <translation>ໂຫຼດການກຳນົດປຸ່ມລັດຈາກໄຟລ໌ພາຍນອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.ui" line="153"></location>
@@ -4504,7 +4504,7 @@ End Edge Point: (%9 , %10)</source>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="198"></location>
         <source>Shortcuts mappings were loaded successfully.</source>
-        <translation>ໂຫລດການກຳນົດປຸ່ມລັດສຳເລັດແລ້ວ.</translation>
+        <translation>ໂຫຼດການກຳນົດປຸ່ມລັດສຳເລັດແລ້ວ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="202"></location>
@@ -4630,7 +4630,7 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/main/support/lc_appwindowdialogsinvoker.cpp" line="89"></location>
         <source>The following files could not be loaded:
 </source>
-        <translation>ບໍ່ສາມາດໂຫລດໄຟລ໌ຕໍ່ໄປນີ້ໄດ້:
+        <translation>ບໍ່ສາມາດໂຫຼດໄຟລ໌ຕໍ່ໄປນີ້ໄດ້:
 </translation>
     </message>
     <message>
@@ -8261,7 +8261,7 @@ Are you sure you are going to discard changes?</source>
     </message>
     <message>
         <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently. </source>
-        <translation type="vanished">ຖ້າເລືອກ, ຈະມີປ່ອງຢືນຢັນກ່ອນການລົບມຸມມອງ. ຖ້າບໍ່ດັ່ງນັ້ນ, ມຸມມອງຈະຖືກລົບອອກທັນທີ. </translation>
+        <translation type="vanished">ຖ້າເລືອກ, ຈະມີປ່ອງຢືນຢັນກ່ອນການລຶບມຸມມອງ. ຖ້າບໍ່ດັ່ງນັ້ນ, ມຸມມອງຈະຖືກລຶບອອກທັນທີ. </translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="29"></location>
@@ -8286,12 +8286,12 @@ Are you sure you are going to discard changes?</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="85"></location>
         <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently.</source>
-        <translation>ຖ້າເລືອກ, ຈະມີປ່ອງຢືນຢັນກ່ອນການລົບມຸມມອງ. ຖ້າບໍ່ດັ່ງນັ້ນ, ມຸມມອງຈະຖືກລົບອອກທັນທີ.</translation>
+        <translation>ຖ້າເລືອກ, ຈະມີປ່ອງຢືນຢັນກ່ອນການລຶບມຸມມອງ. ຖ້າບໍ່ດັ່ງນັ້ນ, ມຸມມອງຈະຖືກລຶບອອກທັນທີ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="88"></location>
         <source>Ask for confirmation before UCS removal</source>
-        <translation>ຖາມການຢືນຢັນກ່ອນລົບ UCS</translation>
+        <translation>ຖາມການຢືນຢັນກ່ອນລຶບ UCS</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="95"></location>
@@ -10647,7 +10647,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="226"></location>
         <source>Tick Snap:</source>
-        <translation>ຈັບຈຸດຂີດໝາຍ:</translation>
+        <translation>ເກາະຈັບຂີດໝາຍ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_lineanglereloptions.ui" line="156"></location>
@@ -10766,7 +10766,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/action_options/line/lc_linefrompointtolineoptions.ui" line="142"></location>
         <source>Snap:</source>
-        <translation>ຈັບຈຸດ:</translation>
+        <translation>ເກາະຈັບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_linefrompointtolineoptions.ui" line="203"></location>
@@ -12433,7 +12433,7 @@ Please specify a different value.</source>
         <source>Are you sure to delete ALL views?
  Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຈະລຶບມຸມມອງທັງໝົດ?
- ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.cpp" line="272"></location>
@@ -12442,7 +12442,7 @@ Please specify a different value.</source>
  Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຈະລຶບມຸມມອງ
  "%1"?
- ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.cpp" line="302"></location>
@@ -12454,7 +12454,7 @@ Please specify a different value.</source>
         <source>Are you sure to delete views %1?
 Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈບໍ່ວ່າຈະລຶບມຸມມອງ %1?
-ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.cpp" line="332"></location>
@@ -14051,7 +14051,7 @@ Please note that if you'll save pen via editor without restart, current pens fro
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="751"></location>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="1274"></location>
         <source>Area</source>
-        <translation>ພື້ນທີ່</translation>
+        <translation>ເນື້ອທີ່</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="629"></location>
@@ -15011,12 +15011,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="388"></location>
         <source>If checked, specifies that snap point should be shifted by radius of corners.</source>
-        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດສະແນັບ (Snap) ເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດເກາະຈັບ (Snap) ເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="391"></location>
         <source>Snap shift</source>
-        <translation>ເລື່ອນສະແນັບ</translation>
+        <translation>ເລື່ອນເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="229"></location>
@@ -15106,7 +15106,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="419"></location>
         <source>Snap:</source>
-        <translation>ສະແນັບ:</translation>
+        <translation>ເກາະຈັບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle1pointoptions.ui" line="412"></location>
@@ -15338,7 +15338,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="91"></location>
         <source>Start Snap:</source>
-        <translation>ສະແນັບເລີ່ມຕົ້ນ:</translation>
+        <translation>ເກາະຈັບເລີ່ມຕົ້ນ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="190"></location>
@@ -15348,12 +15348,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="318"></location>
         <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດສະແນັບເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດເກາະຈັບເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="321"></location>
         <source>Snap shift</source>
-        <translation>ເລື່ອນສະແນັບ</translation>
+        <translation>ເລື່ອນເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="304"></location>
@@ -15383,7 +15383,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="347"></location>
         <source>End Snap:</source>
-        <translation>ສະແນັບສິ້ນສຸດ:</translation>
+        <translation>ເກາະຈັບສິ້ນສຸດ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle2pointsoptions.ui" line="69"></location>
@@ -15496,12 +15496,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle3pointsoptions.ui" line="248"></location>
         <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດສະແນັບເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
+        <translation>ຖ້າໝາຍເລືອກ, ຈະກຳນົດໃຫ້ຈຸດເກາະຈັບເລື່ອນໄປຕາມລັດສະໝີຂອງມຸມ.</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle3pointsoptions.ui" line="251"></location>
         <source>Snap shift</source>
-        <translation>ເລື່ອນສະແນັບ</translation>
+        <translation>ເລື່ອນເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle3pointsoptions.ui" line="258"></location>
@@ -15954,7 +15954,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="284"></location>
         <source>Offset of tick snap point to intersection point. </source>
-        <translation>ໄລຍະຫ່າງຂອງຈຸດສະແນັບຂີດໝາຍໄປຫາຈຸດຕັດ. </translation>
+        <translation>ໄລຍະຫ່າງຂອງຈຸດເກາະຈັບຂີດໝາຍໄປຫາຈຸດຕັດ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="196"></location>
@@ -16004,7 +16004,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="291"></location>
         <source>Tick snap:</source>
-        <translation>ສະແນັບຂີດໝາຍ:</translation>
+        <translation>ເກາະຈັບຂີດໝາຍ:</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/line/lc_slicedivideoptions.ui" line="322"></location>
@@ -16710,7 +16710,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="73"></location>
         <source>Snap Selection</source>
-        <translation>ການເລືອກສະແນັບ</translation>
+        <translation>ການເລືອກເກາະຈັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_toolbarfactory.cpp" line="84"></location>
@@ -17049,7 +17049,7 @@ p, li { white-space: pre-wrap; }
         <source>Are you sure to delete ALL UCS?
  Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈຫຼືບໍ່ທີ່ຈະລຶບ UCS ທັງໝົດ?
- ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="343"></location>
@@ -17063,7 +17063,7 @@ p, li { white-space: pre-wrap; }
  Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈຫຼືບໍ່ທີ່ຈະລຶບ UCS
  "%1"?
- ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="377"></location>
@@ -17075,7 +17075,7 @@ p, li { white-space: pre-wrap; }
         <source>Are you sure to delete UCS %1?
 Warning: this action can NOT be undone!</source>
         <translation>ທ່ານແນ່ໃຈຫຼືບໍ່ທີ່ຈະລຶບ UCS %1?
-ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+ຄຳເຕືອນ: ການກະທຳນີ້ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="430"></location>
@@ -17108,7 +17108,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="495"></location>
         <source>R&amp;emove Selected UCSs</source>
-        <translation>ລຶບ UCS ທີ່ເລືອກ</translation>
+        <translation>ລຶບ UCS ທີ່ເລືອກ (&e)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="508"></location>
@@ -17128,13 +17128,13 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="513"></location>
         <source>R&amp;emove UCS</source>
-        <translation>ລຶບ UCS</translation>
+        <translation>ລຶບ UCS (&e)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="518"></location>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="534"></location>
         <source>Remove A&amp;ll UCSs</source>
-        <translation>ລຶບ UCS ທັງໝົດ</translation>
+        <translation>ລຶບ UCS ທັງໝົ&ດ</translation>
     </message>
 </context>
 <context>
@@ -21780,7 +21780,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1671"></location>
         <source>Hide cursor when snapping</source>
-        <translation>ຊ່ອນເຄີເຊີເມື່ອທຳການສະແນັບ (Snapping)</translation>
+        <translation>ຊ່ອນເຄີເຊີເມື່ອທຳການເກາະຈັບ (Snapping)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="4859"></location>
@@ -24003,7 +24003,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate.ui" line="50"></location>
         <source>&amp;Delete Original</source>
-        <translation>&amp;ລົບຕົ້ນສະບັບ</translation>
+        <translation>&amp;ລຶບຕົ້ນສະບັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate.ui" line="69"></location>
@@ -24051,7 +24051,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate2.ui" line="57"></location>
         <source>&amp;Delete Original</source>
-        <translation>&amp;ລົບຕົ້ນສະບັບ</translation>
+        <translation>&amp;ລຶບຕົ້ນສະບັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgrotate2.ui" line="76"></location>
@@ -24119,7 +24119,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgscale.ui" line="160"></location>
         <source>&amp;Delete Original</source>
-        <translation>&amp;ລົບຕົ້ນສະບັບ</translation>
+        <translation>&amp;ລຶບຕົ້ນສະບັບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/modify/qg_dlgscale.ui" line="179"></location>
@@ -25746,12 +25746,12 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="263"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1728"></location>
         <source>Remove Layer</source>
-        <translation>ລົບເລເຢີ</translation>
+        <translation>ລຶບເລເຢີ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="203"></location>
         <source>Layer "%1" can never be removed.</source>
-        <translation>ເລເຢີ "%1" ບໍ່ສາມາດລົບອອກໄດ້.</translation>
+        <translation>ເລເຢີ "%1" ບໍ່ສາມາດລຶບອອກໄດ້.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="343"></location>
@@ -25761,12 +25761,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="455"></location>
         <source>Remove Block</source>
-        <translation>ລົບບລັອກ</translation>
+        <translation>ລຶບບລັອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="456"></location>
         <source>Block "%1" and all its entities will be removed.</source>
-        <translation>ບລັອກ "%1" ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລົບອອກ.</translation>
+        <translation>ບລັອກ "%1" ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/actions/qg_layerdialog.cpp" line="83"></location>
@@ -25784,62 +25784,62 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="191"></location>
         <source>Layer "%1" and all entities on it will be removed.
 This action can NOT be undone.</source>
-        <translation>ເລເຢີ "%1" ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລົບອອກ.
-ການດຳເນີນການນີ້ ບໍ່ສາມາດຍົກເລີກໄດ້.</translation>
+        <translation>ເລເຢີ "%1" ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລຶບອອກ.
+ການດຳເນີນການນີ້ ບໍ່ສາມາດເລີກທຳໄດ້.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="264"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1728"></location>
         <source>Layer "0" can never be removed.</source>
-        <translation>ເລເຢີ "0" ບໍ່ສາມາດລົບອອກໄດ້.</translation>
+        <translation>ເລເຢີ "0" ບໍ່ສາມາດລຶບອອກໄດ້.</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="274"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1776"></location>
         <source>Remove %n layer(s)</source>
         <translation>
- <numerusform>ລົບ %n ເລເຢີ</numerusform>
+ <numerusform>ລຶບ %n ເລເຢີ</numerusform>
  </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="278"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1777"></location>
         <source>Listed layers and all entities on them will be removed.</source>
-        <translation>ເລເຢີທີ່ລະບຸ ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລົບອອກ.</translation>
+        <translation>ເລເຢີທີ່ລະບຸ ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="280"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1778"></location>
         <source>Warning: this action can NOT be undone!</source>
-        <translation>ຄຳເຕືອນ: ການດຳເນີນການນີ້ ບໍ່ສາມາດຍົກເລີກໄດ້!</translation>
+        <translation>ຄຳເຕືອນ: ການດຳເນີນການນີ້ ບໍ່ສາມາດເລີກທຳໄດ້!</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="285"></location>
         <source>Warning: layer "0" can never be removed.</source>
-        <translation>ຄຳເຕືອນ: ເລເຢີ "0" ບໍ່ສາມາດລົບອອກໄດ້.</translation>
+        <translation>ຄຳເຕືອນ: ເລເຢີ "0" ບໍ່ສາມາດລຶບອອກໄດ້.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="289"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1779"></location>
         <source>Layers for removal:</source>
-        <translation>ເລເຢີທີ່ຈະລົບ:</translation>
+        <translation>ເລເຢີທີ່ຈະລຶບ:</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="514"></location>
         <source>Remove %n block(s)</source>
         <translation>
- <numerusform>ລົບ %n ບລັອກ</numerusform>
+ <numerusform>ລຶບ %n ບລັອກ</numerusform>
  </translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="516"></location>
         <source>Listed blocks and all their entities will be removed.</source>
-        <translation>ບລັອກທີ່ລະບຸ ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລົບອອກ.</translation>
+        <translation>ບລັອກທີ່ລະບຸ ແລະ ອົງປະກອບທັງໝົດໃນນັ້ນຈະຖືກລຶບອອກ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/qg_dialogfactory.cpp" line="519"></location>
         <source>Blocks for removal:</source>
-        <translation>ບລັອກທີ່ຈະລົບ:</translation>
+        <translation>ບລັອກທີ່ຈະລຶບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layerdialog_ex.cpp" line="223"></location>
@@ -25872,7 +25872,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="957"></location>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="967"></location>
         <source>Remove empty layers</source>
-        <translation>ລົບເລເຢີທີ່ວ່າງເປົ່າ</translation>
+        <translation>ລຶບເລເຢີທີ່ວ່າງເປົ່າ</translation>
     </message>
     <message>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
@@ -25891,7 +25891,7 @@ Clear filtering mask and repeat.</source>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="968"></location>
         <source>No layers without entities found, nothing to remove.</source>
-        <translation>ບໍ່ພົບເລເຢີທີ່ວ່າງເປົ່າ, ບໍ່ມີຫຍັງໃຫ້ລົບ.</translation>
+        <translation>ບໍ່ພົບເລເຢີທີ່ວ່າງເປົ່າ, ບໍ່ມີຫຍັງໃຫ້ລຶບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1111"></location>
@@ -25972,12 +25972,12 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1334"></location>
         <source>Remove pen</source>
-        <translation>ລົບປາກກາ</translation>
+        <translation>ລຶບປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1335"></location>
         <source>Pen will be removed from palette, drawing entities will not be affected.</source>
-        <translation>ປາກກາຈະຖືກລົບອອກຈາກຈານສີ, ອົງປະກອບໃນແບບແຕ້ມຈະບໍ່ໄດ້ຮັບຜົນກະທົບ.</translation>
+        <translation>ປາກກາຈະຖືກລຶບອອກຈາກຈານສີ, ອົງປະກອບໃນແບບແຕ້ມຈະບໍ່ໄດ້ຮັບຜົນກະທົບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1336"></location>
@@ -25988,22 +25988,22 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1337"></location>
         <source>Pen for removal:</source>
-        <translation>ປາກກາທີ່ຈະລົບ:</translation>
+        <translation>ປາກກາທີ່ຈະລຶບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1353"></location>
         <source>Remove pens</source>
-        <translation>ລົບປາກກາ</translation>
+        <translation>ລຶບປາກກາ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1354"></location>
         <source>Pens will be removed from palette, drawing entities will not be affected.</source>
-        <translation>ປາກກາຈະຖືກລົບອອກຈາກຈານສີ, ອົງປະກອບໃນແບບແຕ້ມຈະບໍ່ໄດ້ຮັບຜົນກະທົບ.</translation>
+        <translation>ປາກກາຈະຖືກລຶບອອກຈາກຈານສີ, ອົງປະກອບໃນແບບແຕ້ມຈະບໍ່ໄດ້ຮັບຜົນກະທົບ.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1356"></location>
         <source>Pens for removal:</source>
-        <translation>ປາກກາທີ່ຈະລົບ:</translation>
+        <translation>ປາກກາທີ່ຈະລຶບ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpalettewidget.cpp" line="1377"></location>
@@ -26327,7 +26327,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="533"></location>
         <source>polyline</source>
         <comment>draw polyline</comment>
-        <translation>polyline</translation>
+        <translation>ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="534"></location>
@@ -26351,7 +26351,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="449"></location>
         <source>spline</source>
         <comment>draw spline</comment>
-        <translation>spline</translation>
+        <translation>ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="451"></location>
@@ -26597,7 +26597,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1000"></location>
         <source>undo</source>
         <comment>undo cycle</comment>
-        <translation>undo</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1002"></location>
@@ -26610,7 +26610,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1007"></location>
         <source>redo</source>
         <comment>redo cycle</comment>
-        <translation>redo</translation>
+        <translation>ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1009"></location>
@@ -26790,7 +26790,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="786"></location>
         <source>cut</source>
         <comment>modify - divide (cut)</comment>
-        <translation>cut</translation>
+        <translation>ຕັດ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="787"></location>
@@ -27068,7 +27068,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1070"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1165"></location>
         <source>angle</source>
-        <translation>angle</translation>
+        <translation>ມຸມ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1073"></location>
@@ -27079,7 +27079,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1074"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1179"></location>
         <source>close</source>
-        <translation>close</translation>
+        <translation>ປິດ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1076"></location>
@@ -27101,7 +27101,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1080"></location>
         <source>length</source>
-        <translation>length</translation>
+        <translation>ຄວາມຍາວ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1083"></location>
@@ -27112,7 +27112,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1084"></location>
         <location filename="../src/cmd/lc_commandItems.h" line="1217"></location>
         <source>radius</source>
-        <translation>radius</translation>
+        <translation>ລັດສະໝີ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1085"></location>
@@ -27133,7 +27133,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1088"></location>
         <source>trim</source>
-        <translation>trim</translation>
+        <translation>ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1168"></location>
@@ -27150,7 +27150,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1171"></location>
         <source>center</source>
-        <translation>center</translation>
+        <translation>ໃຈກາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1172"></location>
@@ -27215,7 +27215,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1198"></location>
         <source>help</source>
-        <translation>help</translation>
+        <translation>ຊ່ວຍເຫຼືອ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1199"></location>
@@ -27227,7 +27227,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="1201"></location>
         <source>length</source>
         <comment>length</comment>
-        <translation>length</translation>
+        <translation>ຄວາມຍາວ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1202"></location>
@@ -27352,12 +27352,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1235"></location>
         <source>undo</source>
-        <translation>undo</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1238"></location>
         <source>redo</source>
-        <translation>redo</translation>
+        <translation>ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1241"></location>
@@ -27467,7 +27467,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="969"></location>
         <source>Invalid objects removed:</source>
-        <translation>ລົບອົງປະກອບທີ່ບໍ່ຖືກຕ້ອງອອກ:</translation>
+        <translation>ລຶບອົງປະກອບທີ່ບໍ່ຖືກຕ້ອງອອກ:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_wizard/colorwizard.cpp" line="52"></location>
@@ -27482,7 +27482,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_wizard/colorwizard.cpp" line="60"></location>
         <source>Remove</source>
-        <translation>ລົບອອກ</translation>
+        <translation>ລຶບ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandedit.cpp" line="61"></location>
@@ -27798,7 +27798,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="221"></location>
         <source>align</source>
         <comment>align entities</comment>
-        <translation>align</translation>
+        <translation>ຈັດວາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="222"></location>
@@ -28650,7 +28650,7 @@ Do you want to replace it?</source>
         <location filename="../src/cmd/lc_commandItems.h" line="762"></location>
         <source>offset</source>
         <comment>modify - offset</comment>
-        <translation>offset</translation>
+        <translation>ອອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="764"></location>
@@ -28944,7 +28944,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1098"></location>
         <source>offset</source>
-        <translation>offset</translation>
+        <translation>ອອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1099"></location>
@@ -29035,7 +29035,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1119"></location>
         <source>middle</source>
-        <translation>middle</translation>
+        <translation>ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1120"></location>
@@ -29185,7 +29185,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1154"></location>
         <source>distance</source>
-        <translation>distance</translation>
+        <translation>ໄລຍະຫ່າງ</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="1158"></location>
@@ -29386,7 +29386,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/actions/lc_modifiersinfo.h" line="30"></location>
         <source>Free Snap</source>
-        <translation>ສະແນັບວ່າງ</translation>
+        <translation>ເກາະຈັບອິດສະຫຼະ</translation>
     </message>
     <message>
         <location filename="../src/lib/actions/lc_modifiersinfo.h" line="31"></location>
@@ -29601,19 +29601,19 @@ Do you want to replace it?</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="956"></location>
         <source>Letter / ANSI A</source>
         <comment>Paper format</comment>
-        <translation>ຈົດໝາຍ / ANSI A</translation>
+        <translation>Letter / ANSI A</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="957"></location>
         <source>Legal</source>
         <comment>Paper format</comment>
-        <translation>ກົດໝາຍ</translation>
+        <translation>Legal</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="958"></location>
         <source>Tabloid / ANSI B</source>
         <comment>Paper format</comment>
-        <translation>ແທັບລອຍດ໌ / ANSI B</translation>
+        <translation>Tabloid / ANSI B</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="962"></location>
@@ -29637,31 +29637,31 @@ Do you want to replace it?</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="966"></location>
         <source>Arch A</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ Arch A</translation>
+        <translation>arch a</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="967"></location>
         <source>Arch B</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ Arch B</translation>
+        <translation>arch b</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="968"></location>
         <source>Arch C</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ Arch C</translation>
+        <translation>arch c</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="969"></location>
         <source>Arch D</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ Arch D</translation>
+        <translation>arch d</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="970"></location>
         <source>Arch E</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ Arch E</translation>
+        <translation>arch e</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="988"></location>
@@ -29739,31 +29739,31 @@ Do you want to replace it?</source>
         <location filename="../src/lib/engine/rs_units.cpp" line="1022"></location>
         <source>arch a</source>
         <comment>Paper format</comment>
-        <translation>ໂຄ້ງ</translation>
+        <translation>arch a</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1024"></location>
         <source>arch b</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ b</translation>
+        <translation>arch b</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1026"></location>
         <source>arch c</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດ c</translation>
+        <translation>arch c</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1028"></location>
         <source>arch d</source>
         <comment>Paper format</comment>
-        <translation>ຂະໜາດໂຄ້ງ d</translation>
+        <translation>arch d</translation>
     </message>
     <message>
         <location filename="../src/lib/engine/rs_units.cpp" line="1030"></location>
         <source>arch e</source>
         <comment>Paper format</comment>
-        <translation>ລົບ</translation>
+        <translation>arch e</translation>
     </message>
     <message>
         <source>DWG support is not complete!</source>
@@ -29933,12 +29933,12 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="285"></location>
         <source>entity</source>
-        <translation>entity</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="286"></location>
         <source>entities</source>
-        <translation>entities</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="310"></location>
@@ -29951,8 +29951,8 @@ Do you want to replace it?</source>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1318"/>
         <source>, and %n more object type(s)</source>
         <translation>
-            <numerusform>, ແລະ ອີກ %n ປະເພດອົງປະກອບ</numerusform>
-        </translation>
+ <numerusform>, ແລະ ອີກ %n ປະເພດອົງປະກອບ</numerusform>
+ </translation>
     </message>
     <message>
         <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="313"></location>
@@ -30472,7 +30472,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="565"></location>
         <source> entities </source>
-        <translation>entities</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/rs_actiondefault.cpp" line="566"></location>
@@ -30694,7 +30694,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/rs_actiondimlinear.cpp" line="221"></location>
         <source>Snap to Adjacent Dim</source>
-        <translation>ເກາະຈັບຂະໜາດທີ່ຢູ່ຕິດກັນ</translation>
+        <translation>ເກາະຈັບໃສ່ມິຕິຂ້າງຄຽງ</translation>
     </message>
 </context>
 <context>
@@ -31283,7 +31283,7 @@ This block cannot be inserted.</source>
     <message>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawline.cpp" line="405"></location>
         <source>Cannot redo: End of history reached</source>
-        <translation>ບໍ່ສາມາດເຮັດຊ້ຳໄດ້: ຮອດຈຸດສິ້ນສຸດຂອງປະຫວັດແລ້ວ</translation>
+        <translation>ບໍ່ສາມາດເຮັດຄືນໄດ້: ຮອດຈຸດສິ້ນສຸດຂອງປະຫວັດແລ້ວ</translation>
     </message>
 </context>
 <context>
@@ -32328,12 +32328,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifydelete.cpp" line="44"></location>
         <source>Select to delete (Enter to complete)</source>
-        <translation>ເລືອກເພື່ອລົບ (ກົດ Enter ເພື່ອສຳເລັດ)</translation>
+        <translation>ເລືອກເພື່ອລຶບ (ກົດ Enter ເພື່ອສຳເລັດ)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifydelete.cpp" line="45"></location>
         <source>Delete immediately after selection</source>
-        <translation>ລົບທັນທີຫຼັງການເລືອກ</translation>
+        <translation>ລຶບທັນທີຫຼັງການເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifydelete.cpp" line="45"></location>
@@ -32399,7 +32399,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/not_used/rs_actionmodifydeletequick.cpp" line="74"></location>
         <source>Pick entity to delete</source>
-        <translation>ເລືອກອົງປະກອບທີ່ຈະລົບ</translation>
+        <translation>ເລືອກອົງປະກອບທີ່ຈະລຶບ</translation>
     </message>
 </context>
 <context>
@@ -32526,7 +32526,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymove.cpp" line="187"></location>
         <source>Specify target point</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍ</translation>
     </message>
 </context>
 <context>
@@ -32539,7 +32539,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymoverotate.cpp" line="322"></location>
         <source>Specify reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymoverotate.cpp" line="341"></location>
@@ -32559,7 +32559,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymoverotate.cpp" line="325"></location>
         <source>Specify target point</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifymoverotate.cpp" line="79"></location>
@@ -32612,12 +32612,12 @@ Point: (%8 , %9)</source>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="171"></location>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="178"></location>
         <source>Specify direction of offset</source>
-        <translation>ກໍານົດທິດທາງຂອງການອັອບເຊັດ</translation>
+        <translation>ກຳນົດທິດທາງຂອງການອັອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="174"></location>
         <source>Specify reference point for direction of offset</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງສໍາລັບທິດທາງຂອງການອັອບເຊັດ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງສໍາລັບທິດທາງຂອງການອັອບເຊັດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyoffset.cpp" line="187"></location>
@@ -32662,7 +32662,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate.cpp" line="588"></location>
         <source>Specify reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate.cpp" line="582"></location>
@@ -32738,17 +32738,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate.cpp" line="591"></location>
         <source>Specify rotation center</source>
-        <translation>ກໍານົດຈຸດໃຈກາງການໝູນ</translation>
+        <translation>ກຳນົດຈຸດໃຈກາງການໝູນ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate.cpp" line="594"></location>
         <source>Specify target point to rotate to</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍທີ່ຈະໝູນໄປ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍທີ່ຈະໝູນໄປ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate.cpp" line="597"></location>
         <source>Specify target point for rotation around reference point</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍສໍາລັບການໝູນຮອບຈຸດອ້າງອີງ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍສໍາລັບການໝູນຮອບຈຸດອ້າງອີງ</translation>
     </message>
 </context>
 <context>
@@ -32796,12 +32796,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate2.cpp" line="176"></location>
         <source>Specify absolute reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງແທ້ຈິງ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງແທ້ຈິງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyrotate2.cpp" line="179"></location>
         <source>Specify relative reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງສຳພັນ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງສຳພັນ</translation>
     </message>
 </context>
 <context>
@@ -32830,7 +32830,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyround.cpp" line="424"></location>
         <source>Specify second entity</source>
-        <translation>ກໍານົດອົງປະກອບທີສອງ</translation>
+        <translation>ກຳນົດອົງປະກອບທີສອງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyround.cpp" line="427"></location>
@@ -32840,7 +32840,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyround.cpp" line="421"></location>
         <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation>ກໍານົດອົງປະກອບທໍາອິດ ຫຼື ປ້ອນລັດສະໝີ &lt;%1&gt;</translation>
+        <translation>ກຳນົດອົງປະກອບທໍາອິດ ຫຼື ປ້ອນລັດສະໝີ &lt;%1&gt;</translation>
     </message>
 </context>
 <context>
@@ -32883,7 +32883,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="362"></location>
         <source>Specify scale center</source>
-        <translation>ກໍານົດຈຸດໃຈກາງການປັບຂະໜາດ</translation>
+        <translation>ກຳນົດຈຸດໃຈກາງການປັບຂະໜາດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="362"></location>
@@ -32893,17 +32893,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="366"></location>
         <source>Specify source point</source>
-        <translation>ກໍານົດຈຸດຕົ້ນທາງ</translation>
+        <translation>ກຳນົດຈຸດຕົ້ນທາງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="369"></location>
         <source>Specify target point</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="369"></location>
         <source>Free snap</source>
-        <translation>ຈັບຈຸດແບບອິດສະຫຼະ</translation>
+        <translation>ເກາະຈັບອິດສະຫຼະ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifyscale.cpp" line="378"></location>
@@ -32959,22 +32959,22 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifystretch.cpp" line="196"></location>
         <source>Specify first corner</source>
-        <translation>ກໍານົດມຸມທໍາອິດ</translation>
+        <translation>ກຳນົດມຸມທໍາອິດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifystretch.cpp" line="199"></location>
         <source>Specify second corner</source>
-        <translation>ກໍານົດມຸມທີສອງ</translation>
+        <translation>ກຳນົດມຸມທີສອງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifystretch.cpp" line="202"></location>
         <source>Specify reference point</source>
-        <translation>ກໍານົດຈຸດອ້າງອີງ</translation>
+        <translation>ກຳນົດຈຸດອ້າງອີງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/rs_actionmodifystretch.cpp" line="205"></location>
         <source>Specify target point</source>
-        <translation>ກໍານົດຈຸດເປົ້າໝາຍ</translation>
+        <translation>ກຳນົດຈຸດເປົ້າໝາຍ</translation>
     </message>
 </context>
 <context>
@@ -33097,12 +33097,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineadd.cpp" line="168"></location>
         <source>Specify polyline to add nodes</source>
-        <translation>ກໍານົດເສັ້ນຕໍ່ເນື່ອງເພື່ອເພີ່ມໂນດ</translation>
+        <translation>ກຳນົດເສັ້ນຕໍ່ເນື່ອງເພື່ອເພີ່ມໂນດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineadd.cpp" line="171"></location>
         <source>Specify adding node's point</source>
-        <translation>ກໍານົດຈຸດຂອງໂນດທີ່ຈະເພີ່ມ</translation>
+        <translation>ກຳນົດຈຸດຂອງໂນດທີ່ຈະເພີ່ມ</translation>
     </message>
 </context>
 <context>
@@ -33130,7 +33130,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineappend.cpp" line="299"></location>
         <source>Specify the polyline somewhere near the beginning or end point</source>
-        <translation>ກໍານົດເສັ້ນຕໍ່ເນື່ອງໃກ້ກັບຈຸດເລີ່ມຕົ້ນ ຫຼື ຈຸດສິ້ນສຸດ</translation>
+        <translation>ກຳນົດເສັ້ນຕໍ່ເນື່ອງໃກ້ກັບຈຸດເລີ່ມຕົ້ນ ຫຼື ຈຸດສິ້ນສຸດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylineappend.cpp" line="125"></location>
@@ -33159,22 +33159,22 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedel.cpp" line="142"></location>
         <source>Specify polyline to delete node</source>
-        <translation>ກໍານົດເສັ້ນຕໍ່ເນື່ອງເພື່ອລົບໂນດ</translation>
+        <translation>ກຳນົດເສັ້ນຕໍ່ເນື່ອງເພື່ອລຶບໂນດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedel.cpp" line="145"></location>
         <source>Specify deleting node's point</source>
-        <translation>ກໍານົດຈຸດຂອງໂນດທີ່ຈະລົບ</translation>
+        <translation>ກຳນົດຈຸດຂອງໂນດທີ່ຈະລຶບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedel.cpp" line="128"></location>
         <source>Deleting point is invalid.</source>
-        <translation>ຈຸດທີ່ຈະລົບບໍ່ຖືກຕ້ອງ.</translation>
+        <translation>ຈຸດທີ່ຈະລຶບບໍ່ຖືກຕ້ອງ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedel.cpp" line="119"></location>
         <source>Deleting point is not on entity.</source>
-        <translation>ຈຸດທີ່ຈະລົບບໍ່ໄດ້ຢູ່ເທິງອົງປະກອບ.</translation>
+        <translation>ຈຸດທີ່ຈະລຶບບໍ່ໄດ້ຢູ່ເທິງອົງປະກອບ.</translation>
     </message>
 </context>
 <context>
@@ -33194,7 +33194,7 @@ Point: (%8 , %9)</source>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="143"></location>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="166"></location>
         <source>Deleting point is not on entity.</source>
-        <translation>ຈຸດທີ່ຈະລົບບໍ່ໄດ້ຢູ່ເທິງອົງປະກອບ.</translation>
+        <translation>ຈຸດທີ່ຈະລຶບບໍ່ໄດ້ຢູ່ເທິງອົງປະກອບ.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="158"></location>
@@ -33209,23 +33209,23 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="195"></location>
         <source>Specify polyline to delete between two nodes</source>
-        <translation>ກໍານົດເສັ້ນຕໍ່ເນື່ອງເພື່ອລົບລະຫວ່າງສອງໂນດ</translation>
+        <translation>ກຳນົດເສັ້ນຕໍ່ເນື່ອງເພື່ອລຶບລະຫວ່າງສອງໂນດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="198"></location>
         <source>Specify first node</source>
-        <translation>ກໍານົດໂນດທໍາອິດ</translation>
+        <translation>ກຳນົດໂນດທໍາອິດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="201"></location>
         <source>Specify second node</source>
-        <translation>ກໍານົດໂນດທີສອງ</translation>
+        <translation>ກຳນົດໂນດທີສອງ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="151"></location>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinedelbetween.cpp" line="182"></location>
         <source>Deleting point is invalid.</source>
-        <translation>ຈຸດທີ່ຈະລົບບໍ່ຖືກຕ້ອງ.</translation>
+        <translation>ຈຸດທີ່ຈະລຶບບໍ່ຖືກຕ້ອງ.</translation>
     </message>
 </context>
 <context>
@@ -33295,17 +33295,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinetrim.cpp" line="183"></location>
         <source>Specify polyline to trim</source>
-        <translation>ກໍານົດເສັ້ນຕໍ່ເນື່ອງທີ່ຈະຕັດ</translation>
+        <translation>ກຳນົດເສັ້ນຕໍ່ເນື່ອງທີ່ຈະຕັດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinetrim.cpp" line="186"></location>
         <source>Specify first segment</source>
-        <translation>ກໍານົດສ່ວນທໍາອິດ</translation>
+        <translation>ກຳນົດສ່ວນທໍາອິດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/polyline/rs_actionpolylinetrim.cpp" line="189"></location>
         <source>Specify second segment</source>
-        <translation>ກໍານົດສ່ວນທີສອງ</translation>
+        <translation>ກຳນົດສ່ວນທີສອງ</translation>
     </message>
 </context>
 <context>
@@ -33399,7 +33399,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectcontour.cpp" line="82"></location>
         <source>Specify entity to select</source>
-        <translation>ກໍານົດອົງປະກອບທີ່ຈະເລືອກ</translation>
+        <translation>ກຳນົດອົງປະກອບທີ່ຈະເລືອກ</translation>
     </message>
 </context>
 <context>
@@ -33430,7 +33430,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectlayer.cpp" line="69"></location>
         <source>Specify entity with desired layer</source>
-        <translation>ກໍານົດອົງປະກອບທີ່ມີເລເຢີ ທີ່ຕ້ອງການ</translation>
+        <translation>ກຳນົດອົງປະກອບທີ່ມີເລເຢີ ທີ່ຕ້ອງການ</translation>
     </message>
 </context>
 <context>
@@ -33438,7 +33438,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectsingle.cpp" line="114"></location>
         <source>Specify entity to select</source>
-        <translation>ກໍານົດອົງປະກອບທີ່ຈະເລືອກ</translation>
+        <translation>ກຳນົດອົງປະກອບທີ່ຈະເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectsingle.cpp" line="114"></location>
@@ -33461,7 +33461,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="117"></location>
         <source> entities </source>
-        <translation>entities</translation>
+        <translation>ອົງປະກອບ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/selection/rs_actionselectwindow.cpp" line="118"></location>
@@ -33509,7 +33509,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/rel_zero/rs_actionsetrelativezero.cpp" line="72"></location>
         <source>Set relative Zero</source>
-        <translation>ກໍານົດສູນສຳພັນ (Relative Zero)</translation>
+        <translation>ກຳນົດສູນສຳພັນ (Relative Zero)</translation>
     </message>
 </context>
 <context>
@@ -33556,12 +33556,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/actions/drawing/zoom/rs_actionzoomwindow.cpp" line="140"></location>
         <source>Specify first edge</source>
-        <translation>ກໍານົດຂອບທໍາອິດ</translation>
+        <translation>ກຳນົດຂອບທໍາອິດ</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/zoom/rs_actionzoomwindow.cpp" line="143"></location>
         <source>Specify second edge</source>
-        <translation>ກໍານົດຂອບທີສອງ</translation>
+        <translation>ກຳນົດຂອບທີສອງ</translation>
     </message>
 </context>
 <context>
@@ -34626,7 +34626,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/modify/qg_modifyoffsetoptions.ui" line="136"></location>
         <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation>ຖ້າເລືອກ, ອົງປະກອບຕົ້ນສະບັບຈະຍັງຄົງຢູ່. ຖ້າບໍ່ດັ່ງນັ້ນ ຈະຖືກລົບອອກ. </translation>
+        <translation>ຖ້າເລືອກ, ອົງປະກອບຕົ້ນສະບັບຈະຍັງຄົງຢູ່. ຖ້າບໍ່ດັ່ງນັ້ນ ຈະຖືກລຶບອອກ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/qg_modifyoffsetoptions.ui" line="139"></location>
@@ -34749,7 +34749,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/modify/qg_moverotateoptions.ui" line="80"></location>
         <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation>ຖ້າເລືອກ, ອົງປະກອບຕົ້ນສະບັບຈະຍັງຄົງຢູ່. ຖ້າບໍ່ດັ່ງນັ້ນ ຈະຖືກລົບອອກ. </translation>
+        <translation>ຖ້າເລືອກ, ອົງປະກອບຕົ້ນສະບັບຈະຍັງຄົງຢູ່. ຖ້າບໍ່ດັ່ງນັ້ນ ຈະຖືກລຶບອອກ. </translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/modify/qg_moverotateoptions.ui" line="83"></location>
