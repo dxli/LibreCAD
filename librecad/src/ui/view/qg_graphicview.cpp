@@ -1150,9 +1150,20 @@ void QG_GraphicView::adjustOffsetControls() {
     }
     LC_LOG << __func__ << "(): begin";
 
-    getDocument()->forcedCalculateBorders();
-    RS_Vector vpMin = getDocument()->getMin();
-    RS_Vector vpMax = getDocument()->getMax();
+    // Same border source as LC_GraphicViewport::zoomAuto / MDI tile zoom —
+    // not forcedCalculateBorders, which used to pin empty INSERT/text to (0,0)
+    // and inflate the scroll range after graphic-view resize.
+    auto *viewport = getViewPort();
+    RS_Vector vpMin;
+    RS_Vector vpMax;
+    if (viewport != nullptr
+            && viewport->getViewBorders(vpMin, vpMax)) {
+        // view framing envelope (dense core for sheet-scale drawings)
+    } else if (getDocument() != nullptr) {
+        getDocument()->calculateBorders();
+        vpMin = getDocument()->getMin();
+        vpMax = getDocument()->getMax();
+    }
 
     // no drawing yet - still allow to scroll
     if (!isRectValid(vpMin, vpMax)) {

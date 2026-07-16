@@ -73,6 +73,7 @@
 #include "rs_debug.h"
 #include "rs_filterdxfrw.h"
 #include "rs_graphic.h"
+#include "lc_graphicviewport.h"
 #include "rs_hatch.h"
 #include "rs_insert.h"
 #include "rs_layer.h"
@@ -6708,9 +6709,7 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
         t.minGlobalDist);
   }
 
-  // After W/N/S shrink pass 2: adaptive far re-base (hms, A$C759, A$C121B),
-  // wholly-outside model islands (W-Frame), empty-insert origin unpin.
-  // Dense leaf core ~259k×50k; remaining N furniture ~64k, S QBLOCK ~-285.
+  // Container raw borders after placement fixes.
   CHECK(spanX < 3.5e5);
   CHECK(spanY < 6.6e4);
   CHECK(bmax.x < 4.0e5);
@@ -6726,6 +6725,31 @@ TEST_CASE("DWG 2带尺寸图库: resolved bbox excludes phantom extrema",
   CHECK(drawEnv.min.x > 2.0e4);
   CHECK(drawEnv.max.y < 6.5e4);
   CHECK(drawEnv.min.y > -1.0e3);
+
+  // MDI graphic-view path: LC_GraphicViewport::zoomAuto / resize scroll
+  // framing (getViewBorders). Must hug the dense leaf core, not sparse W/N/S
+  // outliers or origin-pinned empty inserts.
+  LC_GraphicViewport viewPort;
+  viewPort.setContainer(&graphic);
+  viewPort.setSize(1200, 800);
+  RS_Vector viewMin;
+  RS_Vector viewMax;
+  REQUIRE(viewPort.getViewBorders(viewMin, viewMax));
+  const double viewSpanX = viewMax.x - viewMin.x;
+  const double viewSpanY = viewMax.y - viewMin.y;
+  std::cout << "=== chicun MDI view borders (zoomAuto/resize) ===\n";
+  std::cout << "view-min=(" << viewMin.x << "," << viewMin.y << ") view-max=("
+            << viewMax.x << "," << viewMax.y << ")\n";
+  std::cout << "view-span=(" << viewSpanX << "," << viewSpanY << ")\n";
+  // Dense framing: should be near p02–p98 (~core), not the full 343k×64k.
+  CHECK(viewSpanX < 3.0e5);
+  CHECK(viewSpanY < 5.5e4);
+  CHECK(viewMin.x > 5.0e4);
+  CHECK(viewMin.y > 0.0);
+  CHECK(viewMax.y < 6.3e4);
+  // Resize path forcedCalculateBorders must not pin west to world origin.
+  graphic.forcedCalculateBorders();
+  CHECK(graphic.getMin().x > 2.0e4);
   // Draw-path and container calculateBorders should agree closely (small
   // leaf vs insert-border differences allowed).
   CHECK(std::fabs(drawEnv.min.x - bmin.x) < 50.0);
@@ -10327,54 +10351,109 @@ TEST_CASE("DWG pre-R13: R10 LAYER/LTYPE/STYLE table records + header") {
   }
 }
 
+// MDI graphic-view resize path (QG_GraphicView::resizeEvent →
+// adjustOffsetControls → forcedCalculateBorders) vs zoomAuto
+// (LC_GraphicViewport::zoomAuto → calculateBorders).
 TEST_CASE("DWG chicun WNS2 drivers", "[.dwg_chicun_wns2]") {
   if (chicun::fixturePath().empty()) { SUCCEED("skip"); return; }
   chicun::ensureTestApp();
   RS_Graphic graphic;
   REQUIRE(chicun::importFixture(graphic));
   graphic.onLoadingCompleted();
+
+  // Path A: zoomAuto (visible-only calculateBorders)
   graphic.calculateBorders();
-  const RS_Vector bmin=graphic.getMin(), bmax=graphic.getMax();
-  std::cout << std::setprecision(10)
-            << "bbox min=("<<bmin.x<<","<<bmin.y<<") max=("<<bmax.x<<","
-            <<bmax.y<<") span=("<<(bmax.x-bmin.x)<<","<<(bmax.y-bmin.y)<<")\n";
+  const RS_Vector zmin = graphic.getMin(), zmax = graphic.getMax();
+  std::cout << std::setprecision(12)
+            << "zoomAuto-path calculateBorders min=(" << zmin.x << "," << zmin.y
+            << ") max=(" << zmax.x << "," << zmax.y << ") span=("
+            << (zmax.x - zmin.x) << "," << (zmax.y - zmin.y) << ")\n";
 
-  std::vector<double> xs, ys;
-  for (RS_Entity *e : lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
-    if (!e || e->isContainer()) continue;
+  // Path B: MDI graphic-view resize → adjustOffsetControls → forcedCalculateBorders
+  graphic.forcedCalculateBorders();
+  const RS_Vector fmin = graphic.getMin(), fmax = graphic.getMax();
+  std::cout << "resize-path forcedCalculateBorders min=(" << fmin.x << ","
+            << fmin.y << ") max=(" << fmax.x << "," << fmax.y << ") span=("
+            << (fmax.x - fmin.x) << "," << (fmax.y - fmin.y) << ")\n";
+
+  // Path C: LC_GraphicViewport::zoomAuto exactly (as QC_MDIWindow::zoomAuto)
+  LC_GraphicViewport vp;
+  vp.setContainer(&graphic);
+  vp.setSize(1200, 800);
+  vp.zoomAuto(false, true);
+  const RS_Vector vmin = graphic.getMin(), vmax = graphic.getMax();
+  std::cout << "after LC_GraphicViewport::zoomAuto min=(" << vmin.x << ","
+            << vmin.y << ") max=(" << vmax.x << "," << vmax.y << ") span=("
+            << (vmax.x - vmin.x) << "," << (vmax.y - vmin.y) << ")\n";
+  std::cout << "viewport factor=(" << vp.getFactor().x << "," << vp.getFactor().y
+            << ") offset=(" << vp.getOffsetX() << "," << vp.getOffsetY() << ")\n";
+
+  // Re-force for driver dump (zoomAuto rewrote borders to visible-only)
+  graphic.forcedCalculateBorders();
+  const RS_Vector bmin = graphic.getMin(), bmax = graphic.getMax();
+  const double tol = 50;
+  std::cout << "=== forced side drivers (resize-path) ===\n";
+  int counts[4] = {0, 0, 0, 0};
+  for (RS_Entity *e :
+       lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
+    if (!e || e->isContainer())
+      continue;
     e->calculateBorders();
-    auto c=(e->getMin()+e->getMax())*0.5;
-    if (!c.valid || !std::isfinite(c.x)) continue;
-    xs.push_back(c.x); ys.push_back(c.y);
+    const RS_Vector mn = e->getMin(), mx = e->getMax();
+    if (!mn.valid || !mx.valid)
+      continue;
+    char side = 0;
+    int si = -1;
+    if (std::fabs(mn.x - bmin.x) < tol) {
+      side = 'W';
+      si = 0;
+    } else if (std::fabs(mx.x - bmax.x) < tol) {
+      side = 'E';
+      si = 1;
+    } else if (std::fabs(mn.y - bmin.y) < tol) {
+      side = 'S';
+      si = 2;
+    } else if (std::fabs(mx.y - bmax.y) < tol) {
+      side = 'N';
+      si = 3;
+    } else
+      continue;
+    if (counts[si]++ >= 5)
+      continue;
+    RS_Layer *ly = e->getLayer();
+    std::cout << "  " << side << " " << rttiName(e->rtti())
+              << " vis=" << e->isVisible()
+              << " chain=" << chicun::insertChain(e).toStdString()
+              << " layer=" << (ly ? ly->getName().toStdString() : "?")
+              << " box=(" << mn.x << "," << mn.y << ")-(" << mx.x << ","
+              << mx.y << ")\n";
   }
-  auto pct=[](std::vector<double> v,double p){
-    std::sort(v.begin(),v.end());
-    return v[std::min(v.size()-1,size_t(p*(v.size()-1)))];
-  };
-  std::cout << "n="<<xs.size()
-            <<" x p01="<<pct(xs,0.01)<<" p05="<<pct(xs,0.05)
-            <<" p95="<<pct(xs,0.95)<<" p99="<<pct(xs,0.99)
-            <<" y p01="<<pct(ys,0.01)<<" p05="<<pct(ys,0.05)
-            <<" p95="<<pct(ys,0.95)<<" p99="<<pct(ys,0.99)<<"\n";
 
-  const double tol=50;
-  std::cout << "=== side drivers ===\n";
-  int counts[3]={0,0,0};
-  for (RS_Entity *e : lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
-    if (!e || e->isContainer()) continue;
-    e->calculateBorders();
-    const RS_Vector mn=e->getMin(), mx=e->getMax();
-    int si=-1; char side=0;
-    if (std::fabs(mn.x-bmin.x)<tol) {side='W';si=0;}
-    else if (std::fabs(mx.y-bmax.y)<tol) {side='N';si=1;}
-    else if (std::fabs(mn.y-bmin.y)<tol) {side='S';si=2;}
-    else continue;
-    if (counts[si]++ >= 6) continue;
-    RS_Layer *ly=e->getLayer();
-    std::cout << "  "<<side<<" "<<rttiName(e->rtti())
-              <<" chain="<<chicun::insertChain(e).toStdString()
-              <<" layer="<<(ly?ly->getName().toStdString():"?")
-              <<" box=("<<mn.x<<","<<mn.y<<")-("<<mx.x<<","<<mx.y<<")\n";
+  std::cout << "=== top-level forced extremes ===\n";
+  for (RS_Entity *e : graphic) {
+    if (!e)
+      continue;
+    if (e->isContainer())
+      static_cast<RS_EntityContainer *>(e)->forcedCalculateBorders();
+    else
+      e->calculateBorders();
+    const RS_Vector mn = e->getMin(), mx = e->getMax();
+    if (!mn.valid || !mx.valid)
+      continue;
+    if (!(std::fabs(mn.x - bmin.x) < tol || std::fabs(mx.x - bmax.x) < tol
+          || std::fabs(mn.y - bmin.y) < tol
+          || std::fabs(mx.y - bmax.y) < tol))
+      continue;
+    QString name;
+    if (e->rtti() == RS2::EntityInsert)
+      name = static_cast<RS_Insert *>(e)->getName();
+    std::cout << "  top " << rttiName(e->rtti()) << " " << name.toStdString()
+              << " vis=" << e->isVisible() << " count="
+              << (e->isContainer()
+                      ? static_cast<RS_EntityContainer *>(e)->count()
+                      : 0)
+              << " box=(" << mn.x << "," << mn.y << ")-(" << mx.x << ","
+              << mx.y << ")\n";
   }
 }
 

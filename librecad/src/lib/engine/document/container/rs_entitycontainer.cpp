@@ -505,8 +505,21 @@ void RS_EntityContainer::adjustBorders(const RS_Entity* entity) {
         // make sure a container is not empty (otherwise the border
         //   would get extended to 0/0):
         if (!entity->isContainer() || entity->count() > 0) {
-            m_minV = RS_Vector::minimum(entity->getMin(), m_minV);
-            m_maxV = RS_Vector::maximum(entity->getMax(), m_maxV);
+            const RS_Vector emin = entity->getMin();
+            const RS_Vector emax = entity->getMax();
+            if (!emin.valid || !emax.valid)
+                return;
+            // Degenerate point at the world origin is almost always a corrupt
+            // empty expand (empty INSERT / empty text), not real geometry.
+            // Including it pins MDI resize forcedCalculateBorders to (0,0).
+            if (std::abs(emin.x) < 1.0e-9 && std::abs(emax.x) < 1.0e-9
+                    && std::abs(emin.y) < 1.0e-9 && std::abs(emax.y) < 1.0e-9
+                    && std::abs(emax.x - emin.x) < 1.0e-9
+                    && std::abs(emax.y - emin.y) < 1.0e-9) {
+                return;
+            }
+            m_minV = RS_Vector::minimum(emin, m_minV);
+            m_maxV = RS_Vector::maximum(emax, m_maxV);
         }
 
         // Notify parents. The border for the parent might
@@ -554,11 +567,17 @@ void RS_EntityContainer::calculateBorders() {
 void RS_EntityContainer::forcedCalculateBorders() {
     resetBorders();
     for (RS_Entity* e : *this) {
-        if (e->isContainer()) {
+        if (e == nullptr)
+            continue;
+        // INSERT overrides calculateBorders (origin-pin / empty expand). Prefer
+        // that path over a blind recursive force that collapses empty children
+        // back to (0,0) and inflates MDI resize scroll ranges.
+        if (e->rtti() == RS2::EntityInsert) {
+            e->calculateBorders();
+        } else if (e->isContainer()) {
             const auto container = static_cast<RS_EntityContainer*>(e);
             container->forcedCalculateBorders();
-        }
-        else {
+        } else {
             e->calculateBorders();
         }
         adjustBorders(e);

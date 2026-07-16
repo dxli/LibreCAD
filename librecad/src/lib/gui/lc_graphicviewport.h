@@ -83,6 +83,13 @@ public:
     void zoomOut(double f = 1.5, const RS_Vector &center = RS_Vector(false));
     void zoomAuto(bool axis = true, bool keepAspectRatio = true);
     void zoomAutoEnsurePointsIncluded(const RS_Vector &wcsP1, const RS_Vector &wcsP2, const RS_Vector &wcsP3);
+    /**
+     * Borders used by zoomAuto and MDI graphic-view resize scroll framing.
+     * For sheet-scale drawings, trims sparse leaf outliers so a few misplaced
+     * inserts do not dominate the view (chicun W/N/S).
+     * @return false if container is empty / borders invalid.
+     */
+    bool getViewBorders(RS_Vector &min, RS_Vector &max);
     void zoomPrevious();
     void zoomPan(int dx, int dy);
     void zoomScroll(RS2::Direction direction);

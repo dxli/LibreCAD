@@ -21,8 +21,13 @@
  ******************************************************************************/
 #include "lc_graphicviewport.h"
 
+#include <algorithm>
+#include <cmath>
+#include <vector>
+
 #include <QDateTime>
 
+#include "lc_containertraverser.h"
 #include "lc_defaults.h"
 #include "lc_graphicviewportlistener.h"
 #include "lc_linemath.h"
@@ -37,6 +42,76 @@
 #include "rs_line.h"
 #include "rs_settings.h"
 #include "rs_units.h"
+
+namespace {
+
+// Percentile of sorted samples in [0,1].
+double leafPercentile(std::vector<double> v, double p) {
+    if (v.empty())
+        return 0.0;
+    std::sort(v.begin(), v.end());
+    const size_t i = std::min(
+        v.size() - 1,
+        static_cast<size_t>(p * static_cast<double>(v.size() - 1)));
+    return v[i];
+}
+
+// Tight view envelope from visible leaves (p02/p98 of leaf edge coords).
+// Returns false when the sample is too small to trust.
+bool denseLeafEnvelope(RS_EntityContainer &container, RS_Vector &outMin,
+                       RS_Vector &outMax) {
+    std::vector<double> minXs;
+    std::vector<double> maxXs;
+    std::vector<double> minYs;
+    std::vector<double> maxYs;
+    minXs.reserve(4096);
+    maxXs.reserve(4096);
+    minYs.reserve(4096);
+    maxYs.reserve(4096);
+
+    for (RS_Entity *e :
+         lc::LC_ContainerTraverser{container, RS2::ResolveAll}.entities()) {
+        if (e == nullptr || e->isContainer() || !e->isVisible())
+            continue;
+        e->calculateBorders();
+        const RS_Vector mn = e->getMin();
+        const RS_Vector mx = e->getMax();
+        if (!mn.valid || !mx.valid)
+            continue;
+        if (!std::isfinite(mn.x) || !std::isfinite(mn.y) || !std::isfinite(mx.x)
+            || !std::isfinite(mx.y))
+            continue;
+        if (std::abs(mn.x) > 1.0e9 || std::abs(mn.y) > 1.0e9
+            || std::abs(mx.x) > 1.0e9 || std::abs(mx.y) > 1.0e9)
+            continue;
+        // Skip degenerate origin pins.
+        if (std::abs(mn.x) < 1.0e-9 && std::abs(mx.x) < 1.0e-9
+            && std::abs(mn.y) < 1.0e-9 && std::abs(mx.y) < 1.0e-9)
+            continue;
+        minXs.push_back(mn.x);
+        maxXs.push_back(mx.x);
+        minYs.push_back(mn.y);
+        maxYs.push_back(mx.y);
+    }
+    if (minXs.size() < 50)
+        return false;
+
+    outMin = RS_Vector(leafPercentile(minXs, 0.02), leafPercentile(minYs, 0.02));
+    outMax = RS_Vector(leafPercentile(maxXs, 0.98), leafPercentile(maxYs, 0.98));
+    if (outMax.x <= outMin.x || outMax.y <= outMin.y)
+        return false;
+
+    // Small pad so dense-edge symbols are not flush with the window border.
+    const double padX = 0.02 * (outMax.x - outMin.x);
+    const double padY = 0.02 * (outMax.y - outMin.y);
+    outMin.x -= padX;
+    outMin.y -= padY;
+    outMax.x += padX;
+    outMax.y += padY;
+    return true;
+}
+
+} // namespace
 
 LC_GraphicViewport::LC_GraphicViewport():
     m_grid{std::make_unique<RS_Grid>(this)},
@@ -572,13 +647,48 @@ void LC_GraphicViewport::zoomAutoEnsurePointsIncluded(const RS_Vector &wcsP1, co
  * @param keepAspectRatio true: keep aspect ratio 1:1
  *                        false: factors in x and y are stretched to the max
  */
+bool LC_GraphicViewport::getViewBorders(RS_Vector &min, RS_Vector &max) {
+    if (m_document == nullptr)
+        return false;
+
+    m_document->calculateBorders();
+    min = m_document->getMin();
+    max = m_document->getMax();
+    if (!min.valid || !max.valid)
+        return false;
+    if (max.x < min.x || max.y < min.y)
+        return false;
+
+    // Sheet-scale drawings: a few compact outliers on W/N/S (chicun hms,
+    // A$C759, W-Frame, furniture tails) dominate raw container min/max and
+    // make MDI zoomAuto / resize framing look "not fixed". Prefer the dense
+    // visible-leaf envelope when it is meaningfully tighter.
+    RS_Vector denseMin;
+    RS_Vector denseMax;
+    if (denseLeafEnvelope(*m_document, denseMin, denseMax)) {
+        const double fullX = std::max(0.0, max.x - min.x);
+        const double fullY = std::max(0.0, max.y - min.y);
+        const double denseX = denseMax.x - denseMin.x;
+        const double denseY = denseMax.y - denseMin.y;
+        const bool largeSheet = std::max(fullX, fullY) > 10000.0;
+        const bool meaningfullyTighter =
+            (fullX > 1.0 && denseX < fullX * 0.90)
+            || (fullY > 1.0 && denseY < fullY * 0.90);
+        if (largeSheet && meaningfullyTighter) {
+            min = denseMin;
+            max = denseMax;
+        }
+    }
+    return true;
+}
+
 void LC_GraphicViewport::zoomAuto(const bool axis, const bool keepAspectRatio) {
     RS_DEBUG->print("RS_GraphicView::zoomAuto");
     if (m_document != nullptr) {
-        m_document->calculateBorders();
-        const RS_Vector min = m_document->getMin();
-        const RS_Vector max = m_document->getMax();
-        doZoomAuto(min,max, axis, keepAspectRatio);
+        RS_Vector min;
+        RS_Vector max;
+        if (getViewBorders(min, max))
+            doZoomAuto(min, max, axis, keepAspectRatio);
     }
     RS_DEBUG->print("RS_GraphicView::zoomAuto OK");
 }
