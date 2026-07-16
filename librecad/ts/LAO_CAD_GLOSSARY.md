@@ -21,14 +21,16 @@ Locale: **`lo_LA`**. Apply via `scripts/lao_cad_glossary_apply.py` when refreshi
 | Viewport | ວິວພອດ | |
 | UCS | UCS | Keep English acronym |
 
-## Edit history
+## Edit history / dialogs
 
-| English | Lao |
-|---------|-----|
-| Undo | ຍົກເລີກ |
-| Redo | ເຮັດຄືນ |
+| English | Lao | Notes |
+|---------|-----|--------|
+| Undo | ເລີກທຳ | Distinct from Cancel (Thai-style เลิกทำ) |
+| Redo | ເຮັດຄືນ | |
+| Cancel | ຍົກເລີກ | Dialog dismiss only |
+| OK | ຕົກລົງ | |
 
-Do **not** use ເລີກເຮັດ for Undo.
+Do **not** use ເລີກເຮັດ for Undo. Do **not** use ຍົກເລີກ for Undo (reserved for Cancel).
 
 ## Coordinates & snaps
 
@@ -83,6 +85,7 @@ Do **not** use ເລີກເຮັດ for Undo.
    - `absolute` + ສຳບູນ → 0  
    - `dimension` + ເສັ້ນຂະໜາດ / ຮູບແບບຂະໜາດ → 0  
    - `layer` without ເລເຢີ still using bare ຊັ້ນ → 0  
-   - `undo` + ຍ້ອນກັບ → 0  
+   - `undo` + ຍ້ອນກັບ → 0; Undo verb = ເລີກທຳ (not Cancel’s ຍົກເລີກ)  
    - `tangent|tangental` + ສຳພັນ (wrong) → 0; should use ສຳຜັດ  
-   - `Center (large|small)` → ເສັ້ນໃຈກາງ (…)
+   - `Center (large|small)` → ເສັ້ນໃຈກາງ (…)  
+   - Numerus: 5 messages, 1 form each; no `ຄຼາດ` (use ຄລາສ for DXF class)
