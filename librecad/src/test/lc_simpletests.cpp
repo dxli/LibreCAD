@@ -152,7 +152,7 @@ void LC_SimpleTests::slotTestDumpEntities(RS_EntityContainer* d){
 			dumpFile
 					<< "<td>Layer: " << lay.toLatin1().data() << "</td>"
 					<< "<td>Width: " << (int)e->getPen(false).getWidth() << "</td>"
-					<< "<td>Parent: " << e->getParent()->getId() << "</td>"
+					<< "<td>Parent: " << (e->getParent() ? e->getParent()->getId() : -1) << "</td>"
 					<< "</tr></table>";
 
 			dumpFile

@@ -77,8 +77,12 @@ bool LC_UndoSection::undoableExecute(const RS_Document::FunUndoable& doUndoable,
     if (success) {
         if (!ctx.entitiesToDelete.isEmpty()) {
             for (const auto e: std::as_const(ctx.entitiesToDelete)) {
+                if (e == nullptr) {
+                    continue;
+                }
                 const auto layer = e->getLayer(true);
-                if (!layer->isLocked()) {
+                // Null layer: treat as unlocked (e.g. mid-import / no graphic).
+                if (layer == nullptr || !layer->isLocked()) {
                       m_document->undoableDelete(e);
                 }
             }
@@ -93,15 +97,18 @@ bool LC_UndoSection::undoableExecute(const RS_Document::FunUndoable& doUndoable,
 }
 
 void LC_UndoSection::setupAndUndoableAdd(const QList<RS_Entity*>& entitiesToInsert, const bool setActiveLayer, const bool setActivePen) const {
-    const auto graphic = m_document->getGraphic();
-    RS_Layer *activeLayer = setActiveLayer ? graphic->getActiveLayer() : nullptr;
-    const RS_Pen activePen      = setActivePen ? graphic->getActivePen() : RS_Pen();
+    const auto graphic = m_document != nullptr ? m_document->getGraphic() : nullptr;
+    RS_Layer *activeLayer = (setActiveLayer && graphic != nullptr) ? graphic->getActiveLayer() : nullptr;
+    const RS_Pen activePen = (setActivePen && graphic != nullptr) ? graphic->getActivePen() : RS_Pen();
     for (const auto ent: entitiesToInsert) {
+        if (ent == nullptr) {
+            continue;
+        }
         undoableAdd(ent);
-        if (setActiveLayer) {
+        if (setActiveLayer && graphic != nullptr) {
             ent->setLayer(activeLayer);
         }
-        if (setActivePen){
+        if (setActivePen && graphic != nullptr){
             ent->setPen(activePen);
         }
         const auto rtti = ent->rtti();

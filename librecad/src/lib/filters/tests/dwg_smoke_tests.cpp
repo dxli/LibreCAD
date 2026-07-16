@@ -4358,7 +4358,7 @@ TEST_CASE("DWG 2带尺寸图库: entities near (120,35220)",
   std::vector<std::pair<double, QString>> yAt120;
   for (RS_Entity *e :
        lc::LC_ContainerTraverser{graphic, RS2::ResolveAll}.entities()) {
-    if (!e || e->rtti() != RS2::EntityLine)
+    if (!e || e->rtti() != RS2::EntityLine || !e->getLayer())
       continue;
     auto *l = static_cast<RS_Line *>(e);
     for (const RS_Vector &p : {l->getStartpoint(), l->getEndpoint()}) {

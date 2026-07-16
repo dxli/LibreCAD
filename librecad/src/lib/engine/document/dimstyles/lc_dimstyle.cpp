@@ -76,6 +76,9 @@ void LC_DimStyle::fillByDefaults() const {
 }
 
 void LC_DimStyle::merge(const LC_DimStyle* src) const {
+    if (src == nullptr) {
+        return;
+    }
     m_angularUnitFormattingStyle->merge(src->angularFormat());
     m_arrowheadStyle->merge(src->arrowhead());
     m_arcStyle->merge(src->arc());
@@ -94,6 +97,9 @@ void LC_DimStyle::merge(const LC_DimStyle* src) const {
 }
 
 void LC_DimStyle::mergeWith(const LC_DimStyle* src, const ModificationAware::CheckFlagMode mergeMode, const ModificationAware::CheckFlagMode nextMode) const {
+    if (src == nullptr) {
+        return;
+    }
     setModifyCheckMode(mergeMode);
     merge(src);
     setModifyCheckMode(nextMode);

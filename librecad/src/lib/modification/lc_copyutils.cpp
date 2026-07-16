@@ -87,6 +87,10 @@ void LC_CopyUtils::copy(const RS_Vector& ref, QList<RS_Entity*>& entities, const
     clipboard->clear();
 
     RS_Graphic* clipboardGraphic = clipboard->getGraphic();
+    if (clipboardGraphic == nullptr) {
+        RS_DEBUG->print(RS_Debug::D_ERROR, "LC_CopyUtils::copy: clipboard has no graphic");
+        return;
+    }
     if (graphic != nullptr) {
         clipboardGraphic->setUnit(graphic->getUnit());
     }
@@ -359,7 +363,12 @@ bool LC_CopyUtils::pasteContainer(RS_Entity* entity, RS_EntityContainer* contain
     containerToPaste->addEntity(insertClone);
 
     // set the same layer in clone as in source
-    const QString layerName = entity->getLayer()->getName();
+    const RS_Layer* entityLayer = entity->getLayer();
+    if (entityLayer == nullptr || destination == nullptr || destination->getLayerList() == nullptr) {
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::pasteInsert: entity/destination has no layer");
+        return false;
+    }
+    const QString layerName = entityLayer->getName();
     RS_Layer* layer = destination->getLayerList()->find(layerName);
     if (layer == nullptr) {
         RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::pasteInsert: unable to select layer to paste in: %s",
@@ -420,7 +429,12 @@ bool LC_CopyUtils::pasteEntity(const RS_Entity* entity, RS_EntityContainer* cont
     }
 
     // set the same layer in clone as in source
-    const QString ln = entity->getLayer()->getName();
+    const RS_Layer* entityLayer = entity->getLayer();
+    if (entityLayer == nullptr || graphic == nullptr || graphic->getLayerList() == nullptr) {
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::pasteEntity: entity/graphic has no layer");
+        return false;
+    }
+    const QString ln = entityLayer->getName();
     RS_Layer* layer = graphic->getLayerList()->find(ln); // fixme - perf- layer search is not needed if copy paste within the same document
     if (layer == nullptr) {
         RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Modification::pasteInsert: unable to select layer to paste in: %s", ln.toLatin1().data());

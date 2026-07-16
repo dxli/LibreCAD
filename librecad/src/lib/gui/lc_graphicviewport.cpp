@@ -821,7 +821,7 @@ void LC_GraphicViewport::zoomPrevious() {
 void LC_GraphicViewport::saveView() {
     if (m_graphic != nullptr) {
         if (m_modifyOnZoom) {
-            getGraphic()->setModified(true);
+            m_graphic->setModified(true);
         }
     }
     const QDateTime noUpdateWindow = QDateTime::currentDateTime().addMSecs(-500);
@@ -1057,7 +1057,10 @@ LC_UCS *LC_GraphicViewport::createUCSEntity(const RS_Vector &origin, const doubl
 }
 
 void LC_GraphicViewport::applyUCSAfterLoad(){
-    LC_UCS* ucsCurrent = getGraphic()->getCurrentUCS();
+    if (m_graphic == nullptr) {
+        return;
+    }
+    LC_UCS* ucsCurrent = m_graphic->getCurrentUCS();
     if (ucsCurrent != nullptr) {
         const RS_Vector originToSet = ucsCurrent->getOrigin();
         const double angleToSet = ucsCurrent->getXAxisDirection();
@@ -1314,12 +1317,15 @@ void LC_GraphicViewport::zoomPageEx() {
     }
 
     const RS_Graphic *graphic = m_document->getGraphic();
-    if (graphic == nullptr) {
+    if (graphic == nullptr || m_graphic == nullptr) {
         return;
     }
 
     const RS2::Unit dest = graphic->getUnit();
     const LC_PlotSettings* ps = m_graphic->getPlotSettings();
+    if (ps == nullptr) {
+        return;
+    }
     const double marginsWidth = RS_Units::convert(ps->getMarginLeftMm() + ps->getMarginRightMm(), RS2::Millimeter, dest);
     const double marginsHeight = RS_Units::convert(ps->getMarginTopMm() + ps->getMarginBottomMm(), RS2::Millimeter, dest);
 

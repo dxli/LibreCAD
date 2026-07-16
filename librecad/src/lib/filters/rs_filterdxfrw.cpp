@@ -2125,16 +2125,21 @@ void RS_FilterDXFRW::setBlock(const int handle) {
     else {
         m_currentContainer = m_graphic;
     }
+    // Never leave a null container: subsequent addEntity would SIGSEGV.
+    // Fall back to the import sink used for paper-space / name collisions.
+    if (m_currentContainer == nullptr) {
+        m_currentContainer = m_dummyContainer != nullptr ? m_dummyContainer : m_graphic;
+    }
 }
 
 /**
  * Implementation of the method which closes blocks.
  */
 void RS_FilterDXFRW::endBlock() {
-    if (m_currentContainer->rtti() == RS2::EntityBlock) {
+    if (m_currentContainer != nullptr && m_currentContainer->rtti() == RS2::EntityBlock) {
         auto bk = static_cast<RS_Block*>(m_currentContainer);
         //remove unnamed blocks *D only if version != R12
-        if (m_version != 1009) {
+        if (m_version != 1009 && m_graphic != nullptr) {
             if (bk->getName().startsWith("*D")) {
                 m_graphic->removeBlock(bk);
             }
@@ -4790,6 +4795,9 @@ LC_DimStyle* RS_FilterDXFRW::parseDimStyleOverride(LC_ExtEntityData* extEntityDa
  */
 void RS_FilterDXFRW::addDimAlign(const DRW_DimAligned* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimAligned");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const RS_DimensionData dimensionData = convDimensionData(data);
 
@@ -4810,6 +4818,9 @@ void RS_FilterDXFRW::addDimAlign(const DRW_DimAligned* data) {
  */
 void RS_FilterDXFRW::addDimLinear(const DRW_DimLinear* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimLinear");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const RS_DimensionData dimensionData = convDimensionData(data);
 
@@ -4830,6 +4841,9 @@ void RS_FilterDXFRW::addDimLinear(const DRW_DimLinear* data) {
  */
 void RS_FilterDXFRW::addDimRadial(const DRW_DimRadial* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimRadial");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const RS_DimensionData dimensionData = convDimensionData(data);
     const RS_Vector dp(data->getDiameterPoint().x, data->getDiameterPoint().y);
@@ -4848,6 +4862,9 @@ void RS_FilterDXFRW::addDimRadial(const DRW_DimRadial* data) {
  */
 void RS_FilterDXFRW::addDimDiametric(const DRW_DimDiametric* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimDiametric");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const RS_DimensionData dimensionData = convDimensionData(data);
     const RS_Vector dp(data->getDiameter1Point().x, data->getDiameter1Point().y);
@@ -4866,6 +4883,9 @@ void RS_FilterDXFRW::addDimDiametric(const DRW_DimDiametric* data) {
  */
 void RS_FilterDXFRW::addDimAngular(const DRW_DimAngular* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimAngular");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const RS_DimensionData dimensionData = convDimensionData(data);
     const RS_Vector dp1(data->getFirstLine1().x, data->getFirstLine1().y);
@@ -4888,6 +4908,9 @@ void RS_FilterDXFRW::addDimAngular(const DRW_DimAngular* data) {
  */
 void RS_FilterDXFRW::addDimAngular3P(const DRW_DimAngular3p* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimAngular3P");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
 
     const auto& vertexPoint = data->getVertexPoint();
 
@@ -4909,6 +4932,9 @@ void RS_FilterDXFRW::addDimAngular3P(const DRW_DimAngular3p* data) {
 
 void RS_FilterDXFRW::addDimArc(const DRW_DimArc* data) {
     RS_DEBUG->print("RS_FilterDXFRW::addDimArc");
+    if (data == nullptr || m_currentContainer == nullptr) {
+        return;
+    }
     RS_DimensionData dd = convDimensionData(data);
     RS_Vector centre(data->getArcCenter().x, data->getArcCenter().y);
     double radius = dd.definitionPoint.distanceTo(centre);

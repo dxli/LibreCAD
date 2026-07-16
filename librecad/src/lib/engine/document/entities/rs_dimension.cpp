@@ -1223,23 +1223,25 @@ LC_DimStyle* RS_Dimension::getGlobalDimStyle() const {
 }
 
 LC_DimStyle* RS_Dimension::getEffectiveDimStyle() const {
-    const auto dimStyleName = getStyle();
-    const auto graphic = getGraphic();
-    if (graphic != nullptr) {
-        const auto styleOverride = getDimStyleOverride();
-        LC_DimStyle* result = graphic->getEffectiveDimStyle(dimStyleName, rtti(), styleOverride);
-        return result;
+    // During import, dimensions may be parented under a temporary container
+    // (e.g. RS_FilterDXFRW::m_dummyContainer) with no path to an RS_Graphic.
+    // Never call into RS_Graphic with a null this — that is a hard SIGSEGV.
+    RS_Graphic* graphic = getGraphic();
+    if (graphic == nullptr) {
+        return nullptr;
     }
-    return nullptr;
+    return graphic->getEffectiveDimStyle(getStyle(), rtti(), getDimStyleOverride());
 }
 
 // note:: copy should be deleted!
 LC_DimStyle* RS_Dimension::getEffectiveCachedDimStyle() {
     if (m_dimStyleTransient == nullptr) {
-        const auto dimStyleName = getStyle();
-        const auto styleOverride = getDimStyleOverride();
-        const auto graphic = getGraphic();
-        m_dimStyleTransient = graphic->getEffectiveDimStyleForEdit(dimStyleName, rtti(), styleOverride);
+        RS_Graphic* graphic = getGraphic();
+        if (graphic == nullptr) {
+            return nullptr;
+        }
+        m_dimStyleTransient = graphic->getEffectiveDimStyleForEdit(
+            getStyle(), rtti(), getDimStyleOverride());
         // fixme - delete copy!
     }
     return m_dimStyleTransient;
@@ -1247,10 +1249,14 @@ LC_DimStyle* RS_Dimension::getEffectiveCachedDimStyle() {
 
 // fixme - review how copies of dimstyle are created and removed
 LC_DimStyle* RS_Dimension::getEffectiveDimStyleOverride() {
+    RS_Graphic* graphic = getGraphic();
+    if (graphic == nullptr) {
+        return getDimStyleOverride();
+    }
     const auto dimStyleName = getStyle();
     auto styleOverride = getDimStyleOverride();
     const bool hasStyleOverride = styleOverride != nullptr;
-    const auto style = getGraphic()->getEffectiveDimStyle(dimStyleName, rtti(), styleOverride);
+    const auto style = graphic->getEffectiveDimStyle(dimStyleName, rtti(), styleOverride);
     setDimStyleOverride(style);
     if (hasStyleOverride) {
         delete style; // delete a copy of style that was created for override, as another copy is created and set in setDimStyleOverride

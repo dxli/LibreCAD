@@ -235,7 +235,8 @@ void Plugin_Entity::getData(QHash<int, QVariant>* data) {
     }
     RS2::EntityType et = entity->rtti();
     data->insert(DPI::EID, entity->getId());
-    data->insert(DPI::LAYER, entity->getLayer()->getName());
+    const RS_Layer* layer = entity->getLayer();
+    data->insert(DPI::LAYER, layer ? layer->getName() : QString());
     auto pen = entity->getPen(false);
     data->insert(DPI::LTYPE, Converter.lt2str(pen.getLineType()));
     data->insert(DPI::LWIDTH, Converter.lw2str(pen.getWidth()));
