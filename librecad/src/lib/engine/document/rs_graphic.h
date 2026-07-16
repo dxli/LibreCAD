@@ -272,6 +272,19 @@ public:
     void setModified(bool m) override;
     void markSaved(const QDateTime &lastSaveTime);
 
+    /**
+     * Import-time geometry repair (prepare / far re-base) mutates coordinates.
+     * Set during fileImport when a repair switch is on and a mutation ran;
+     * load path should mark the document modified after markSaved so Save
+     * does not silently rewrite the user's file without notice.
+     */
+    void setImportGeometryMutated(bool mutated) { m_importGeometryMutated = mutated; }
+    bool takeImportGeometryMutated() {
+        const bool v = m_importGeometryMutated;
+        m_importGeometryMutated = false;
+        return v;
+    }
+
     QDateTime getLastSaveTime(){return m_lastSaveTime;}
     void setLastSaveTime(const QDateTime &time) { m_lastSaveTime = time;}
 
@@ -365,6 +378,9 @@ private:
     QString m_autosaveFilename;
 
     bool m_anglesCounterClockWize;
+
+    /** True when import repairs rewrote block defs and/or model placement. */
+    bool m_importGeometryMutated = false;
 
     std::unique_ptr<LC_PlotSettings> m_plotSettings;
 };

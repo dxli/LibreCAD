@@ -6374,7 +6374,7 @@ const std::vector<FilterDwgRoundTripCase>& filterDwgRoundTripCases() {
 }
 
 void populateFilterRoundTripGraphic(RS_Graphic& graphic) {
-    graphic.newDoc();
+    graphic.initForNewDocument();
     graphic.addLayer(new RS_Layer(QStringLiteral("P1_FRAME")));
 
     auto addLine = [&](const RS_Vector& start, const RS_Vector& end) {

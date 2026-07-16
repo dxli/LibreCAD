@@ -79,15 +79,17 @@ LC_ExtDataTag::~LC_ExtDataTag() {
     clear();
 }
 
-void LC_ExtDataTag::clear() const {
-    if (m_type == VAR) {
-        delete m_var;
-    }
-    else {
-        for (auto* tag : m_list) {
-            delete tag;
-        }
+void LC_ExtDataTag::clear() {
+    // VAR / REF / LAYERREF / BIN all hold an owned RS_Variable* in m_var
+    // (BIN constructs one for the group code). LIST owns nested tags only.
+    // Do not both loop-delete and qDeleteAll — that double-frees children
+    // and crashes DWG import on dimension EED (e.g. chicun).
+    if (m_type == LIST) {
         qDeleteAll(m_list);
+        m_list.clear();
+    } else {
+        delete m_var;
+        m_var = nullptr;
     }
 }
 

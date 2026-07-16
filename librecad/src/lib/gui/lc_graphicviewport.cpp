@@ -23,6 +23,8 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdlib>
+#include <iostream>
 #include <vector>
 
 #include <QDateTime>
@@ -30,6 +32,7 @@
 #include "lc_containertraverser.h"
 #include "lc_defaults.h"
 #include "lc_graphicviewportlistener.h"
+#include "lc_import_repair_flags.h"
 #include "lc_linemath.h"
 #include "lc_overlayentitiescontainer.h"
 #include "lc_refpoint.h"
@@ -625,9 +628,15 @@ void LC_GraphicViewport::zoomAutoY(const bool axis) {
 
 void LC_GraphicViewport::zoomAutoEnsurePointsIncluded(const RS_Vector &wcsP1, const RS_Vector &wcsP2, const RS_Vector &wcsP3) {
     if (m_document != nullptr) {
-        m_document->calculateBorders();
-        RS_Vector min = m_document->getMin();
-        RS_Vector max = m_document->getMax();
+        // Match zoomAuto: start from view borders (dense framing when active),
+        // then expand to include the extra WCS points (e.g. UCS axis).
+        RS_Vector min;
+        RS_Vector max;
+        if (!getViewBorders(min, max)) {
+            m_document->calculateBorders();
+            min = m_document->getMin();
+            max = m_document->getMax();
+        }
 
         min = RS_Vector::minimum(min, wcsP1);
         min = RS_Vector::minimum(min, wcsP2);
@@ -636,7 +645,7 @@ void LC_GraphicViewport::zoomAutoEnsurePointsIncluded(const RS_Vector &wcsP1, co
         max = RS_Vector::maximum(max, wcsP1);
         max = RS_Vector::maximum(max, wcsP2);
         max = RS_Vector::maximum(max, wcsP3);
-        doZoomAuto(min,max, true, true);
+        doZoomAuto(min, max, true, true);
     }
 }
 
@@ -663,20 +672,32 @@ bool LC_GraphicViewport::getViewBorders(RS_Vector &min, RS_Vector &max) {
     // A$C759, W-Frame, furniture tails) dominate raw container min/max and
     // make MDI zoomAuto / resize framing look "not fixed". Prefer the dense
     // visible-leaf envelope when it is meaningfully tighter.
-    RS_Vector denseMin;
-    RS_Vector denseMax;
-    if (denseLeafEnvelope(*m_document, denseMin, denseMax)) {
-        const double fullX = std::max(0.0, max.x - min.x);
-        const double fullY = std::max(0.0, max.y - min.y);
-        const double denseX = denseMax.x - denseMin.x;
-        const double denseY = denseMax.y - denseMin.y;
-        const bool largeSheet = std::max(fullX, fullY) > 10000.0;
-        const bool meaningfullyTighter =
-            (fullX > 1.0 && denseX < fullX * 0.90)
-            || (fullY > 1.0 && denseY < fullY * 0.90);
-        if (largeSheet && meaningfullyTighter) {
-            min = denseMin;
-            max = denseMax;
+    // Gated by LC_DENSE_VIEW_FRAMING (default on).
+    if (LC_ImportRepairFlags::denseViewFraming()) {
+        RS_Vector denseMin;
+        RS_Vector denseMax;
+        if (denseLeafEnvelope(*m_document, denseMin, denseMax)) {
+            const double fullX = std::max(0.0, max.x - min.x);
+            const double fullY = std::max(0.0, max.y - min.y);
+            const double denseX = denseMax.x - denseMin.x;
+            const double denseY = denseMax.y - denseMin.y;
+            const bool largeSheet = std::max(fullX, fullY) > 10000.0;
+            const bool meaningfullyTighter =
+                (fullX > 1.0 && denseX < fullX * 0.90)
+                || (fullY > 1.0 && denseY < fullY * 0.90);
+            if (largeSheet && meaningfullyTighter) {
+                min = denseMin;
+                max = denseMax;
+                if (std::getenv("LC_VIEW_BOUNDS_LOG") != nullptr) {
+                    std::cerr << "[view-bounds] full=(" << fullX << "x" << fullY
+                              << ") dense=(" << denseX << "x" << denseY
+                              << ") applied=yes\n";
+                }
+            } else if (std::getenv("LC_VIEW_BOUNDS_LOG") != nullptr) {
+                std::cerr << "[view-bounds] full=(" << fullX << "x" << fullY
+                          << ") dense=(" << denseX << "x" << denseY
+                          << ") applied=no\n";
+            }
         }
     }
     return true;

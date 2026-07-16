@@ -103,13 +103,13 @@ TEST_CASE("RS_Ellipse::getNearestEndpoint") {
     RS_Ellipse ellipse(nullptr, {RS_Vector(0,0), RS_Vector(5,0), 0.5, 0, M_PI, false});  // Half ellipse from 0 to 180 deg
 
     RS_Vector queryPoint(10.0, 0.0);  // Near positive x endpoint
-    double dist;
-    RS_Vector nearest = ellipse.getNearestEndpoint(queryPoint, &dist);
+    double dist = 0.0;
+    RS_Vector nearest = ellipse.getNearestEndpoint(queryPoint, nullptr, &dist);
     REQUIRE(nearest == RS_Vector(5.0, 0.0));  // Endpoint1
     REQUIRE(std::abs(dist - 5.0) < EPS);
 
     queryPoint = RS_Vector(-10.0, 0.0);  // Near negative x endpoint
-    nearest = ellipse.getNearestEndpoint(queryPoint, &dist);
+    nearest = ellipse.getNearestEndpoint(queryPoint, nullptr, &dist);
     REQUIRE(nearest.distanceTo(RS_Vector(-5.0, 0.0)) < EPS);  // Endpoint2 (for half ellipse)
     REQUIRE(std::abs(dist - 5.0) < EPS);
 }

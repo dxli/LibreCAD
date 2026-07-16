@@ -32,6 +32,7 @@
 
 #include "rs_block.h"
 
+#include "lc_import_repair_flags.h"
 #include "rs_blocklist.h"
 #include "rs_graphic.h"
 #include "rs_insert.h"
@@ -505,6 +506,12 @@ void RS_Block::prepareForInsertExpansion() {
     if (m_preparedForInsert >= 0)
         return;
 
+    // Fidelity path: skip mutators; still mark "touched" so we do not re-check.
+    if (!LC_ImportRepairFlags::repairBlockDefs()) {
+        m_preparedForInsert = 0;
+        return;
+    }
+
     normalizeBlockGeometryToBase(this);
     reanchorSparseWcsOutliers(this);
     reanchorOversizedWipeouts(this);
@@ -514,6 +521,10 @@ void RS_Block::prepareForInsertExpansion() {
     m_wcsEmbeddedGeometry = -1;
     (void)hasWcsEmbeddedGeometry();
     (void)hasWipeoutEntities();
+
+    // Import/open: flag host graphic so load path can mark dirty after markSaved.
+    if (RS_Graphic *g = getGraphic())
+        g->setImportGeometryMutated(true);
 }
 
 bool RS_Block::hasWcsEmbeddedGeometry() {

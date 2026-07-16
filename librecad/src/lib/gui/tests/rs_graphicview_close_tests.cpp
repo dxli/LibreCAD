@@ -59,7 +59,8 @@ public:
 
     int getWidth() const override { return 640; }
     int getHeight() const override { return 480; }
-    void redraw([[maybe_unused]] RS2::RedrawMethod method = RS2::RedrawAll) override {}
+    void redraw([[maybe_unused]] RS2::RedrawMethod method = RS2::RedrawAll,
+                [[maybe_unused]] bool immediately = false) override {}
     void adjustOffsetControls() override {}
     void adjustZoomControls() override {}
     void setMouseCursor([[maybe_unused]] RS2::CursorType cursor) override {}
@@ -88,8 +89,9 @@ public:
         ++m_state.initCount;
     }
 
-    void finish([[maybe_unused]] bool updateToolbar = true) override {
+    void finish() override {
         ++m_state.finishCount;
+        RS_ActionInterface::finish();
     }
 
 private:
@@ -103,10 +105,10 @@ TEST_CASE("closing a graphic view permanently quiesces its event handler",
     (void)application();
 
     RS_Graphic graphic;
-    graphic.newDoc();
+    graphic.initForNewDocument();
 
     TestGraphicView view;
-    view.setContainer(&graphic);
+    view.setDocument(&graphic);
 
     LC_ActionContext context;
     context.setDocumentAndView(&graphic, &view);
@@ -159,10 +161,10 @@ TEST_CASE("killAllActions is safe after beginClose quiesced the handler",
     (void)application();
 
     RS_Graphic graphic;
-    graphic.newDoc();
+    graphic.initForNewDocument();
 
     TestGraphicView view;
-    view.setContainer(&graphic);
+    view.setDocument(&graphic);
 
     LC_ActionContext context;
     context.setDocumentAndView(&graphic, &view);
@@ -179,4 +181,41 @@ TEST_CASE("killAllActions is safe after beginClose quiesced the handler",
     CHECK_NOTHROW(eventHandler->killAllActions());
     CHECK(defaultActionState.finishCount == 1);
     CHECK(eventHandler->getDefaultAction() == nullptr);
+}
+
+TEST_CASE("close during mouse move then killAllActions is safe",
+          "[gui][close]") {
+    (void)application();
+
+    RS_Graphic graphic;
+    graphic.initForNewDocument();
+
+    TestGraphicView view;
+    view.setDocument(&graphic);
+
+    LC_ActionContext context;
+    context.setDocumentAndView(&graphic, &view);
+
+    LC_EventHandler* eventHandler = view.eventHandler();
+    REQUIRE(eventHandler != nullptr);
+
+    ActionState defaultActionState;
+    eventHandler->setDefaultAction(new TrackingDefaultAction(&context, defaultActionState));
+
+    QMouseEvent move(QEvent::MouseMove, QPointF{10, 10}, QPointF{10, 10},
+                     Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+    eventHandler->mouseMoveEvent(&move);
+
+    view.beginClose();
+    CHECK(view.isClosing());
+    CHECK(eventHandler->getDefaultAction() == nullptr);
+
+    QMouseEvent lateMove(QEvent::MouseMove, QPointF{20, 20}, QPointF{20, 20},
+                         Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+    eventHandler->mouseMoveEvent(&lateMove);
+    CHECK(lateMove.isAccepted());
+
+    CHECK_NOTHROW(eventHandler->killAllActions());
+    view.beginClose(); // double-close
+    CHECK(defaultActionState.finishCount == 1);
 }

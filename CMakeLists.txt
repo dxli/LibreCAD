@@ -995,6 +995,8 @@ set (SHARED_SOURCES
      librecad/src/lib/engine/document/views/lc_viewslist.cpp
      librecad/src/lib/engine/document/views/lc_viewslist.h
      librecad/src/lib/engine/lc_defaults.h
+     librecad/src/lib/engine/lc_import_repair_flags.cpp
+     librecad/src/lib/engine/lc_import_repair_flags.h
      librecad/src/lib/engine/lc_drawable.h
      librecad/src/lib/engine/overlays/angles_base/lc_overlayanglesbasemark.cpp
      librecad/src/lib/engine/overlays/angles_base/lc_overlayanglesbasemark.h

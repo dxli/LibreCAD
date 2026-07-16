@@ -170,7 +170,12 @@ bool LC_DocumentsStorage::loadGraphic(RS_Graphic* graphic,  const QString &filen
         const auto autosaveFileName = createAutoSaveFileName(finfo);
         graphic->setAutosaveFileName(autosaveFileName);
         graphic->setFilename(filename);
+        // markSaved clears modified; re-dirty when import repairs rewrote coords
+        // so Save does not silently rewrite the user's file without notice.
+        const bool importMutated = graphic->takeImportGeometryMutated();
         graphic->markSaved(finfo.lastModified());
+        if (importMutated)
+            graphic->setModified(true);
     }
     return ret;
 }

@@ -325,13 +325,12 @@ void RS_Insert::update() {
         RS_DEBUG->print("RS_Insert::update: Block is nullptr");
         return;
     }
-    // Font letter INSERTs (blockSource = font letterList) must never mutate
-    // the shared letter geometry. prepareForInsertExpansion re-centers WCS
-    // document blocks; applying it to font chars corrupts the global font
-    // cache and has crashed DWG import in RS_Text::update → letter expand
-    // (SIGSEGV in layer pen QString while resolving getPen()).
-    const bool fontLetterInsert = (m_data.blockSource != nullptr)
-            || (blk->rtti() == RS2::EntityFontChar);
+    // Font letter INSERTs must never mutate the shared letter geometry.
+    // Prefer EntityFontChar; blockSource is only set for font letter expands
+    // today (RS_Text/RS_MText) and remains a secondary guard.
+    const bool fontLetterInsert = (blk->rtti() == RS2::EntityFontChar)
+            || (m_data.blockSource != nullptr);
+    // prepareForInsertExpansion is gated by LC_REPAIR_BLOCK_DEFS inside.
     if (!fontLetterInsert)
         blk->prepareForInsertExpansion();
 
@@ -437,7 +436,9 @@ void RS_Insert::update() {
                             ne->move(blk->getBasePoint() * (-1.0));
                             ne->scale(m_data.insertionPoint, m_data.scaleFactor);
                             ne->rotate(m_data.insertionPoint, m_data.angle);
-                            ne->setSelectionFlag(isSelected());
+                            // Selection policy A: expand buffer is never selected;
+                            // only the parent INSERT participates in the selection set.
+                            ne->setSelectionFlag(false);
                             ne->setPen(updatePen(ne->getPen(false), expansionPen));
                             ne->setUpdateEnabled(true);
                             if (m_data.updateMode != RS2::PreviewUpdate) {
@@ -461,7 +462,7 @@ void RS_Insert::update() {
                         else
                             childExpand->setLayer(childLayer);
                         childExpand->setVisible(getFlag(RS2::FlagVisible));
-                        childExpand->setSelectionFlag(isSelected());
+                        childExpand->setSelectionFlag(false);
                         childExpand->setPen(updatePen(childExpand->getPen(false), expansionPen));
                         childExpand->setUpdateEnabled(true);
                         childExpand->update();
@@ -474,7 +475,7 @@ void RS_Insert::update() {
                                      && gc->getLayer() != nullptr)
                                 gc->setLayer(nullptr);
                             gc->setVisible(getFlag(RS2::FlagVisible));
-                            gc->setSelectionFlag(isSelected());
+                            gc->setSelectionFlag(false);
                             gc->setPen(updatePen(gc->getPen(false), expansionPen));
 
                             if (childWcs && !parentBlockWcs) {
@@ -541,8 +542,8 @@ void RS_Insert::update() {
                         m_data.extrusion, /*wcsEmbedded=*/false);
 
                    // RS_DEBUG->print(RS_Debug::D_ERROR, "ne: angle: %lg\n", data.angle);
-                // Select:
-                    ne->setSelectionFlag(isSelected());
+                // Selection policy A: only parent INSERT is selected.
+                    ne->setSelectionFlag(false);
 
                 // individual entities can be on indiv. layers
                     RS_Pen tmpPen = updatePen(ne->getPen(false), expansionPen);

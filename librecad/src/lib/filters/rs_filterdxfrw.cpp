@@ -49,6 +49,7 @@
 #include "dxf_format.h"
 #include "lc_containertraverser.h"
 #include "lc_defaults.h"
+#include "lc_import_repair_flags.h"
 #include "lc_dimarc.h"
 #include "lc_dimarrowregistry.h"
 #include "lc_dimordinate.h"
@@ -1390,7 +1391,9 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     // A$C4D8A4BEC elevation at x≈-294k, hms west elevation (~77k west of
     // core), A$C759636E5 north section (~14k above core), W-Frame title
     // block south of the sheet. Re-base those shells onto the dense-core edge.
-    {
+    // Gated by LC_REPAIR_MODEL_PLACEMENT (default off; dense view framing is separate).
+    if (LC_ImportRepairFlags::repairModelPlacement()) {
+        bool modelPlacementMutated = false;
         std::vector<double> leafXs;
         std::vector<double> leafYs;
         leafXs.reserve(static_cast<size_t>(m_graphic->count() * 4));
@@ -1474,6 +1477,7 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
                 ins->move(delta); // grip only while update disabled
                 ins->setUpdateEnabled(true);
                 ins->calculateBorders();
+                modelPlacementMutated = true;
             }
             // Isolated model-space entities (title frames, freehand frames).
             // Sheet-scale only: on small parts drawings (ACEB10 ~40u) the p05
@@ -1510,6 +1514,7 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
                     if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
                         continue;
                     e->move(delta);
+                    modelPlacementMutated = true;
                 }
             }
             // Empty inserts at the world origin pin zoomAuto via the
@@ -1539,10 +1544,13 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
                     ins->setUpdateEnabled(false);
                     ins->move(delta);
                     ins->setUpdateEnabled(true);
+                    modelPlacementMutated = true;
                 }
             }
             m_graphic->calculateBorders();
         }
+        if (modelPlacementMutated)
+            m_graphic->setImportGeometryMutated(true);
     }
     if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
         const auto updateInsertsMs = std::chrono::duration_cast<std::chrono::milliseconds>(

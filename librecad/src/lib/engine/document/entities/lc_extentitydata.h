@@ -60,7 +60,7 @@ public:
   const QByteArray &bytes() const { return m_bytes; }
   std::vector<LC_ExtDataTag *> *list();
 private:
-    void clear() const;
+    void clear();
     RS_Variable* m_var{nullptr};
     std::vector<LC_ExtDataTag*> m_list;
     QByteArray m_bytes;

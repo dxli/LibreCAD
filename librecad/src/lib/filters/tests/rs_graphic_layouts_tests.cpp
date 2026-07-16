@@ -238,7 +238,7 @@ TEST_CASE("RS_Graphic::activeLayoutMargins falls back to legacy when handle is 0
     // No layouts loaded (DXF or fresh document) — activeLayoutHandle() is
     // 0 by construction; activeLayoutMargins() must return the document
     // singleton so the existing plot dialog read path is byte-identical.
-    graphic.setMargins(7.0, 8.0, 9.0, 10.0);
+    graphic.setActiveLayoutMargins(7.0, 8.0, 9.0, 10.0);
     const auto margins = graphic.activeLayoutMargins();
     REQUIRE(margins[0] == 7.0);
     REQUIRE(margins[1] == 8.0);
@@ -251,7 +251,7 @@ TEST_CASE("RS_Graphic::activeLayoutMargins prefers active LayoutRecord when set"
           "[rs_graphic][layouts]") {
     ensureQtContext();
     RS_Graphic graphic;
-    graphic.setMargins(1.0, 2.0, 3.0, 4.0);
+    graphic.setActiveLayoutMargins(1.0, 2.0, 3.0, 4.0);
     auto& metadata = graphic.dwgAdvancedMetadata();
     metadata.addLayout(makeLayout(0x20, "Layout1", 11.0, 22.0, 33.0, 44.0));
     graphic.setActiveLayoutHandle(0x20);
@@ -271,7 +271,7 @@ TEST_CASE("RS_Graphic::activeLayoutMargins falls back when handle has no match",
     // margins so the plot dialog still has something to display.
     ensureQtContext();
     RS_Graphic graphic;
-    graphic.setMargins(5.0, 6.0, 7.0, 8.0);
+    graphic.setActiveLayoutMargins(5.0, 6.0, 7.0, 8.0);
     graphic.setActiveLayoutHandle(0x99);  // no matching record
 
     const auto margins = graphic.activeLayoutMargins();
@@ -299,27 +299,26 @@ TEST_CASE("RS_Graphic::setActiveLayoutMargins writes through to LayoutRecord",
     REQUIRE(margins[3] == 40.0);
     REQUIRE(graphic.isModified());
 
-    // Legacy singletons must remain untouched — they're independent
-    // storage for the DXF / no-layout fallback path.
-    REQUIRE(graphic.getMarginLeft() == 0.0);
-    REQUIRE(graphic.getMarginTop() == 0.0);
+    // With an active layout record, margins live on that record;
+    // activeLayoutMargins returns the layout values (already checked above).
+    REQUIRE(graphic.activeLayoutHandle() == 0x20);
 }
 
 // NOLINTNEXTLINE(readability-identifier-naming)
 TEST_CASE("RS_Graphic::setActiveLayoutMargins falls back to setMargins for DXF",
           "[rs_graphic][layouts]") {
     // DXF or no-layout drawings have activeLayoutHandle()==0; the setter
-    // must transparently write to the legacy singletons so the existing
-    // plot pipeline observes the user's edit.
+    // must transparently write to plot settings so the existing plot
+    // pipeline observes the user's edit.
     ensureQtContext();
     RS_Graphic graphic;
     graphic.setActiveLayoutMargins(11.0, 22.0, 33.0, 44.0);
 
-    REQUIRE(graphic.getMarginLeft() == 11.0);
-    REQUIRE(graphic.getMarginTop() == 22.0);
-    REQUIRE(graphic.getMarginRight() == 33.0);
-    REQUIRE(graphic.getMarginBottom() == 44.0);
-    REQUIRE(graphic.activeLayoutMargins()[0] == 11.0);
+    const auto margins = graphic.activeLayoutMargins();
+    REQUIRE(margins[0] == 11.0);
+    REQUIRE(margins[1] == 22.0);
+    REQUIRE(margins[2] == 33.0);
+    REQUIRE(margins[3] == 44.0);
 }
 
 // NOLINTNEXTLINE(readability-identifier-naming)
