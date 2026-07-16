@@ -789,13 +789,19 @@ RS2::Unit RS_Entity::getGraphicUnit() const {
 RS_Layer* RS_Entity::getLayerResolved() const {
     // we have no layer but a parent that might have one.
     // return parent's layer instead:
+    RS_Layer *l = nullptr;
     if (m_layer == nullptr /*|| layer->getName()=="ByBlock"*/) {
         if (m_parent != nullptr) {
             return m_parent->getLayerResolved();
         }
         return nullptr;
     }
-    return m_layer;
+    l = m_layer;
+    // When the entity is in a document, never hand out dangling layer
+    // pointers (block expand / hover quick-info crashed on getName()).
+    if (getGraphic() != nullptr)
+        return validatedLayer(l);
+    return l;
 }
 
 RS_Layer *RS_Entity::validatedLayer(RS_Layer *layer) const {
@@ -826,7 +832,8 @@ bool RS_Entity::layerNameEquals(RS_Layer *layer, const QString &name) const {
  * @return pointer to the layer this entity is on. If the layer
  * is set to nullptr the layer of the next parent that is not on
  * layer nullptr is returned. If all parents are on layer nullptr, nullptr
- * is returned.
+ * is returned. When resolve is true and the entity belongs to a graphic,
+ * unregistered (dangling) layer pointers are treated as nullptr.
  */
 RS_Layer* RS_Entity::getLayer(const bool resolve) const {
     if (resolve) {
@@ -838,9 +845,12 @@ RS_Layer* RS_Entity::getLayer(const bool resolve) const {
             }
             return nullptr;
         }
+        if (getGraphic() != nullptr)
+            return validatedLayer(m_layer);
+        return m_layer;
     }
 
-    // return our layer. might still be nullptr:
+    // return our layer. might still be nullptr (unresolved / raw pointer):
     return m_layer;
 }
 
