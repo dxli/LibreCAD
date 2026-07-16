@@ -1490,7 +1490,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="201"></location>
         <source>&amp;Angle</source>
-        <translation>&ມຸມ</translation>
+        <translation>&amp;ມຸມ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="202"></location>
@@ -1742,7 +1742,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="287"></location>
         <source>&amp;Spline</source>
-        <translation>&ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
+        <translation>&amp;ເສັ້ນໂຄ້ງສະປຼາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="288"></location>
@@ -1752,7 +1752,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="313"></location>
         <source>&amp;Polyline</source>
-        <translation>&ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>&amp;ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="314"></location>
@@ -1797,12 +1797,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="330"></location>
         <source>&amp;Text</source>
-        <translation>&ຂໍ້ຄວາມ</translation>
+        <translation>&amp;ຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="331"></location>
         <source>&amp;Hatch</source>
-        <translation>&ລວດລາຍ</translation>
+        <translation>&amp;ລວດລາຍ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="332"></location>
@@ -1847,12 +1847,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="368"></location>
         <source>&amp;Attributes</source>
-        <translation>&ຄຸນລັກສະນະ</translation>
+        <translation>&amp;ຄຸນລັກສະນະ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="369"></location>
         <source>&amp;Delete</source>
-        <translation>&ລຶບ</translation>
+        <translation>&amp;ລຶບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="370"></location>
@@ -1947,17 +1947,17 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="372"></location>
         <source>&amp;Rotate</source>
-        <translation>&ໝຸນ</translation>
+        <translation>&amp;ໝຸນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="373"></location>
         <source>&amp;Scale</source>
-        <translation>&ມາດຕາສ່ວນ</translation>
+        <translation>&amp;ມາດຕາສ່ວນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="374"></location>
         <source>&amp;Mirror</source>
-        <translation>&ສະທ້ອນ</translation>
+        <translation>&amp;ສະທ້ອນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="376"></location>
@@ -1967,12 +1967,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="377"></location>
         <source>&amp;Properties</source>
-        <translation>&ຄຸນສົມບັດ</translation>
+        <translation>&amp;ຄຸນສົມບັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="378"></location>
         <source>&amp;Trim</source>
-        <translation>&ຕັດຂອບ</translation>
+        <translation>&amp;ຕັດຂອບ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="380"></location>
@@ -2022,12 +2022,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="662"></location>
         <source>&amp;Undo</source>
-        <translation>&ເລີກທຳ</translation>
+        <translation>&amp;ເລີກທຳ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="663"></location>
         <source>&amp;Redo</source>
-        <translation>&ເຮັດຄືນ</translation>
+        <translation>&amp;ເຮັດຄືນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="670"></location>
@@ -2037,7 +2037,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="673"></location>
         <source>&amp;Dimension Styles</source>
-        <translation>&ຮູບແບບມິຕິ</translation>
+        <translation>&amp;ຮູບແບບມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="683"></location>
@@ -2062,12 +2062,12 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="693"></location>
         <source>&amp;Copy</source>
-        <translation>&ຄັດລອກ</translation>
+        <translation>&amp;ຄັດລອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="695"></location>
         <source>&amp;Paste</source>
-        <translation>&ວາງ</translation>
+        <translation>&amp;ວາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="190"></location>
@@ -2964,7 +2964,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="633"></location>
         <source>&amp;Auto Zoom</source>
-        <translation>&ຊູມອັດຕະໂນມັດ</translation>
+        <translation>&amp;ຊູມອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="634"></location>
@@ -2994,7 +2994,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="596"></location>
         <source>&amp;Save</source>
-        <translation>&ບັນທຶກ</translation>
+        <translation>&amp;ບັນທຶກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="597"></location>
@@ -3009,7 +3009,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="585"></location>
         <source>&amp;Close</source>
-        <translation>&ປິດ</translation>
+        <translation>&amp;ປິດ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="599"></location>
@@ -3029,7 +3029,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="592"></location>
         <source>&amp;Block</source>
-        <translation>&ບລັອກ</translation>
+        <translation>&amp;ບລັອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="517"></location>
@@ -3039,7 +3039,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="518"></location>
         <source>&amp;Grid</source>
-        <translation>&ຕາຕະລາງ</translation>
+        <translation>&amp;ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="773"></location>
@@ -3162,7 +3162,7 @@ or [%2]</source>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="346"></location>
         <source>&amp;Arc</source>
-        <translation>&ເສັ້ນໂຄ້ງ</translation>
+        <translation>&amp;ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="532"></location>
@@ -11169,7 +11169,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="142"></location>
         <source>&amp;Help</source>
-        <translation>&ຊ່ວຍເຫຼືອ</translation>
+        <translation>&amp;ຊ່ວຍເຫຼືອ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="144"></location>
@@ -11242,7 +11242,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="224"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="257"></location>
         <source>&amp;Line</source>
-        <translation>&ເສັ້ນ</translation>
+        <translation>&amp;ເສັ້ນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="190"></location>
@@ -11256,14 +11256,14 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="226"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="259"></location>
         <source>&amp;Circle</source>
-        <translation>&ວົງມົນ</translation>
+        <translation>&amp;ວົງມົນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="198"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="227"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="261"></location>
         <source>&amp;Arc</source>
-        <translation>&ເສັ້ນໂຄ້ງ</translation>
+        <translation>&amp;ເສັ້ນໂຄ້ງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="202"></location>
@@ -11289,7 +11289,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="233"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="269"></location>
         <source>&amp;Polyline</source>
-        <translation>&ເສັ້ນຕໍ່ເນື່ອງ</translation>
+        <translation>&amp;ເສັ້ນຕໍ່ເນື່ອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="218"></location>
@@ -11299,13 +11299,13 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="223"></location>
         <source>&amp;Draw</source>
-        <translation>&ແຕ້ມ</translation>
+        <translation>&amp;ແຕ້ມ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="232"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="267"></location>
         <source>&amp;Ellipse</source>
-        <translation>&ວົງລີ</translation>
+        <translation>&amp;ວົງລີ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="235"></location>
@@ -11317,7 +11317,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="240"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="277"></location>
         <source>&amp;Modify</source>
-        <translation>&ປັບປ່ຽນ</translation>
+        <translation>&amp;ປັບປ່ຽນ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="242"></location>
@@ -11328,7 +11328,7 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="246"></location>
         <source>&amp;Dimensions</source>
-        <translation>&ມິຕິ</translation>
+        <translation>&amp;ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="250"></location>
@@ -11339,14 +11339,14 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="256"></location>
         <source>&amp;Tools</source>
-        <translation>&ເຄື່ອງມື</translation>
+        <translation>&amp;ເຄື່ອງມື</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="97"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="115"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="271"></location>
         <source>&amp;Select</source>
-        <translation>&ເລືອກ</translation>
+        <translation>&amp;ເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="273"></location>
@@ -11357,7 +11357,7 @@ Please specify a different value.</source>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="286"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1145"></location>
         <source>&amp;File</source>
-        <translation>&ໄຟລ໌</translation>
+        <translation>&amp;ໄຟລ໌</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="292"></location>
@@ -11379,18 +11379,18 @@ Please specify a different value.</source>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="330"></location>
         <source>&amp;Options</source>
-        <translation>&ຕົວເລືອກ</translation>
+        <translation>&amp;ຕົວເລືອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="344"></location>
         <source>&amp;Edit</source>
-        <translation>&ແກ້ໄຂ</translation>
+        <translation>&amp;ແກ້ໄຂ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="365"></location>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="1184"></location>
         <source>&amp;View</source>
-        <translation>&ມຸມມອງ</translation>
+        <translation>&amp;ມຸມມອງ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory.cpp" line="394"></location>
@@ -17108,7 +17108,7 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="495"></location>
         <source>R&amp;emove Selected UCSs</source>
-        <translation>ລຶບ UCS ທີ່ເລືອກ (&e)</translation>
+        <translation>ລຶບ UCS ທີ່ເລືອກ (&amp;e)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="508"></location>
@@ -17128,13 +17128,13 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="513"></location>
         <source>R&amp;emove UCS</source>
-        <translation>ລຶບ UCS (&e)</translation>
+        <translation>ລຶບ UCS (&amp;e)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="518"></location>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="534"></location>
         <source>Remove A&amp;ll UCSs</source>
-        <translation>ລຶບ UCS ທັງໝົ&ດ</translation>
+        <translation>ລຶບ UCS ທັງໝົ&amp;ດ</translation>
     </message>
 </context>
 <context>
@@ -17983,7 +17983,7 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="361"></location>
         <source>&amp;Save</source>
-        <translation>&ບັນທຶກ</translation>
+        <translation>&amp;ບັນທຶກ</translation>
     </message>
     <message>
         <location filename="../src/ui/main/qc_applicationwindow.cpp" line="362"></location>
@@ -18221,7 +18221,7 @@ Please check its existence and permissions.</source>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandhistory.cpp" line="32"></location>
         <source>&amp;Copy</source>
-        <translation>&ຄັດລອກ</translation>
+        <translation>&amp;ຄັດລອກ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandhistory.cpp" line="39"></location>
@@ -20544,7 +20544,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="1049"></location>
         <source>&amp;Dimensions</source>
-        <translation>&ມິຕິ</translation>
+        <translation>&amp;ມິຕິ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="735"></location>
@@ -20579,7 +20579,7 @@ This recursively modifies all entities of the Block itself.</source>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="723"></location>
         <source>&amp;Grid</source>
-        <translation>&ຕາຕະລາງ</translation>
+        <translation>&amp;ຕາຕະລາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/options_drawing/qg_dlgoptionsdrawing.ui" line="2007"></location>
@@ -23884,7 +23884,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/not_used/qg_dlgoptionsvariables.ui" line="96"></location>
         <source>&amp;OK</source>
-        <translation>&ຕົກລົງ</translation>
+        <translation>&amp;ຕົກລົງ</translation>
     </message>
     <message>
         <location filename="../src/ui/not_used/qg_dlgoptionsvariables.ui" line="99"></location>
@@ -25065,7 +25065,7 @@ so default step value required for baking</source>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.ui" line="633"></location>
         <source>&amp;Middle</source>
-        <translation>&ຈຸດກາງ</translation>
+        <translation>&amp;ຈຸດກາງ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlgtext.cpp" line="210"></location>
