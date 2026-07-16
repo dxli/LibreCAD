@@ -2,7 +2,8 @@
 """Apply authoritative Lao CAD glossary to LibreCAD .ts translation files.
 
 Edits <translation> text only; preserves XML structure, locations, and
-placeholders. Run from repo root:
+placeholders. Implements deep-review fixes (Absolute family, Dimension
+compounds, Layer hierarchy, Undo errors, Relative typos, Snap synonyms).
 
   python3 scripts/lao_cad_glossary_apply.py librecad/ts/librecad_lo.ts
   python3 scripts/lao_cad_glossary_apply.py plugins/ts/plugins_lo.ts
@@ -16,7 +17,6 @@ from pathlib import Path
 
 # Exact English source → preferred Lao (menu labels, snap names, core nouns).
 EXACT_SOURCE: dict[str, str] = {
-    # Core CAD nouns
     "Layer": "ເລເຢີ",
     "Layers": "ເລເຢີ",
     "layer": "ເລເຢີ",
@@ -40,14 +40,15 @@ EXACT_SOURCE: dict[str, str] = {
     "Grid": "ຕາຕະລາງ",
     "Viewport": "ວິວພອດ",
     "UCS": "UCS",
-    # Edit history
     "Undo": "ຍົກເລີກ",
     "Redo": "ເຮັດຄືນ",
     "&Undo": "&ຍົກເລີກ",
     "&Redo": "&ເຮັດຄືນ",
-    # Coordinate / snap semantics
     "Absolute": "ແທ້ຈິງ",
     "Relative": "ສຳພັນ",
+    "Absolute:": "ແທ້ຈິງ:",
+    "Relative:": "ສຳພັນ:",
+    "Absolute Pos": "ຕຳແໜ່ງແທ້ຈິງ",
     "Center": "ໃຈກາງ",
     "Endpoint": "ຈຸດປາຍ",
     "Middle": "ຈຸດກາງ",
@@ -56,9 +57,10 @@ EXACT_SOURCE: dict[str, str] = {
     "Perpendicular": "ຕັ້ງສາກ",
     "Tangent": "ສຳຜັດ",
     "Node": "ໂຫນດ",
-    "On Entity": "ບນອົງປະກອບ",
-    "On entity": "ບນອົງປະກອບ",
-    # Common UI
+    "On Entity": "ທີ່ອົງປະກອບ",
+    "On entity": "ທີ່ອົງປະກອບ",
+    "Snap On Entity": "ເກາະຈັບທີ່ອົງປະກອບ",
+    "Snap on Entity": "ເກາະຈັບທີ່ອົງປະກອບ",
     "File": "ໄຟລ໌",
     "Edit": "ແກ້ໄຂ",
     "View": "ມຸມມອງ",
@@ -107,90 +109,162 @@ EXACT_SOURCE: dict[str, str] = {
     "Library": "ຄັງສະໝຸດ",
     "Attributes": "ຄຸນລັກສະນະ",
     "Properties": "ຄຸນສົມບັດ",
-    "Layers": "ເລເຢີ",
-    "Blocks": "ບລັອກ",
-    # plugins
     "Align": "ຈັດວາງ",
-    "Layer": "ເລເຢີ",
     "POLYLINE": "ເສັ້ນຕໍ່ເນື່ອງ",
     "SPLINE": "ເສັ້ນໂຄ້ງສະປຼາຍ",
     "SPLINEPOINTS": "ຈຸດເສັ້ນໂຄ້ງສະປຼາຍ",
     "HATCH": "ລວດລາຍ",
     "Empty Entity": "ອົງປະກອບຫວ່າງ",
+    "Nothing to undo!": "ບໍ່ມີຫຍັງໃຫ້ຍົກເລີກ!",
+    "Nothing to redo!": "ບໍ່ມີຫຍັງໃຫ້ເຮັດຄືນ!",
+    "Show absolute coordinate": "ສະແດງພິກັດແທ້ຈິງ",
+    "Show relative coordinate": "ສະແດງພິກັດສຳພັນ",
+    "Absolute Coordinates (Cartesian)": "ພິກັດແທ້ຈິງ (ຄາທີຊຽນ)",
+    "Absolute Cordinates (Polar)": "ພິກັດແທ້ຈິງ (ໂພລາ)",
+    "Relative Coordinates (Cartesian)": "ພິກັດສຳພັນ (ຄາທີຊຽນ)",
+    "Relative Coordinates (Polar)": "ພິກັດສຳພັນ (ໂພລາ)",
+    "Relative angle": "ມຸມສຳພັນ",
+    "Regenerate Dimensions": "ສ້າງມິຕິໃໝ່ຄືນ",
+    "&Dimension Styles": "&ຮູບແບບມິຕິ",
+    "Dimension Styles Export": "ສົ່ງອອກຮູບແບບມິຕິ",
+    "Dimension Styles Import": "ນຳເຂົ້າຮູບແບບມິຕິ",
+    "Dimension Styles Export Error": "ຂໍ້ຜິດພາດໃນການສົ່ງອອກຮູບແບບມິຕິ",
+    "Dimension Styles Import Error": "ຂໍ້ຜິດພາດໃນການນຳເຂົ້າຮູບແບບມິຕິ",
 }
 
-# Source-prefix / contains rules applied when exact miss (source, preferred).
-# Only used when source equals key case-insensitively after strip.
 EXACT_SOURCE_CI: dict[str, str] = {k.lower(): v for k, v in EXACT_SOURCE.items()}
 
-# Ordered phrase replacements inside existing Lao translations (longest first).
-# Applied after exact-source overrides.
+# Global phrase replacements (longest first). Safe across contexts.
 PHRASE_REPLACEMENTS: list[tuple[str, str]] = [
-    # Undo family → ຍົກເລີກ
+    # Undo family
+    ("ບໍ່ສາມາດຍ້ອນກັບໄດ້", "ບໍ່ສາມາດຍົກເລີກໄດ້"),
+    ("ບໍ່ມີຫຍັງໃຫ້ຍ້ອນກັບ", "ບໍ່ມີຫຍັງໃຫ້ຍົກເລີກ"),
+    ("ຍ້ອນກັບໄດ້", "ຍົກເລີກໄດ້"),
+    ("ໃຫ້ຍ້ອນກັບ", "ໃຫ້ຍົກເລີກ"),
     ("ເລີກເຮັດການແຕ້ມ", "ຍົກເລີກການແຕ້ມ"),
     ("ເລີກເຮັດສຳລັບ", "ຍົກເລີກສຳລັບ"),
     ("ເລີກເຮັດຈຸດ", "ຍົກເລີກຈຸດ"),
     ("ເລີກເຮັດ", "ຍົກເລີກ"),
     ("ບໍ່ສາມາດເລີກເຮັດ", "ບໍ່ສາມາດຍົກເລີກ"),
-    # Layer variants → ເລເຢີ
+    # Absolute coordinate family (not "fully complete")
+    ("ສຳມະບູນ", "ແທ້ຈິງ"),
+    ("ຕຳແໜ່ງສຳບູນ", "ຕຳແໜ່ງແທ້ຈິງ"),
+    ("ພິກັດສຳບູນ", "ພິກັດແທ້ຈິງ"),
+    ("ຈຸດອ້າງອີງສຳບູນ", "ຈຸດອ້າງອີງແທ້ຈິງ"),
+    ("ຈຸດສູນສຳບູນ", "ຈຸດສູນແທ້ຈິງ"),
+    ("ແບບສຳບູນ", "ແບບແທ້ຈິງ"),
+    ("WCS ສຳບູນ", "WCS ແທ້ຈິງ"),
+    ("ສຳບູນ:", "ແທ້ຈິງ:"),
+    ("ສຳບູນ: (", "ແທ້ຈິງ: ("),
+    # Relative typos
+    ("ສໍາພັດ", "ສຳພັນ"),
+    ("ສຳພັດ", "ສຳພັນ"),
+    ("ມູມສຳພັນ", "ມຸມສຳພັນ"),
+    ("ມູມສໍາພັນ", "ມຸມສຳພັນ"),
+    # Dimension compounds (size → dimensioning)
+    ("ເສັ້ນບອກຂະໜາດ", "ເສັ້ນມິຕິ"),
+    ("ເສັ້ນໂຄ້ງຂະໜາດ", "ເສັ້ນໂຄ້ງມິຕິ"),
+    ("ເສັ້ນຂະໜາດ", "ເສັ້ນມິຕິ"),
+    ("ຂໍ້ຄວາມຂະໜາດ", "ຂໍ້ຄວາມມິຕິ"),
+    ("ຮູບແບບຂະໜາດ", "ຮູບແບບມິຕິ"),
+    ("ສ້າງຂະໜາດໃໝ່", "ສ້າງມິຕິໃໝ່"),
+    ("ອົງປະກອບຂະໜາດ", "ອົງປະກອບມິຕິ"),
+    ("ຂະໜາດ (Dimensions)", "ມິຕິ"),
+    # Layer variants
     ("ຊັ້ນວຽກຂອງວັດຖຸ", "ເລເຢີຂອງອົງປະກອບ"),
+    ("ຊັ້ນດັ້ງເດີມ", "ເລເຢີດັ້ງເດີມ"),
+    ("ຊັ້ນຕົ້ນສະບັບ", "ເລເຢີຕົ້ນສະບັບ"),
     ("ຊັ້ນວຽກ", "ເລເຢີ"),
     ("ຊັ້ນວາງ", "ເລເຢີ"),
     ("ຊັ້ນງານ", "ເລເຢີ"),
+    ("ລາຍການຊັ້ນ", "ລາຍການເລເຢີ"),
+    ("ລຳດັບຊັ້ນ", "ລຳດັບເລເຢີ"),
+    ("ລະດັບຊັ້ນ", "ລະດັບເລເຢີ"),
+    ("ຊື່ຊັ້ນ", "ຊື່ເລເຢີ"),
+    ("ຊັ້ນສຳຮອງ", "ເລເຢີສຳຮອງ"),
+    ("ຂອງຊັ້ນ", "ຂອງເລເຢີ"),
     ("ເລຢີ", "ເລເຢີ"),
     ("ເລເຍີ", "ເລເຢີ"),
     ("ເລເຢີ (Layer)", "ເລເຢີ"),
     ("ຊັ້ນ (Layers)", "ເລເຢີ"),
     ("ບລັອກ (Blocks)", "ບລັອກ"),
-    ("ຂະໜາດ (Dimensions)", "ມິຕິ"),
-    # Entity / object loanwords
+    # Entity loanwords
     ("ອອບເຈັກ", "ອົງປະກອບ"),
+    ("ເອນຕິຕີ", "ອົງປະກອບ"),
     ("ວັດຖຸ", "ອົງປະກອບ"),
-    # Dimension menu sense: bare ຂະໜາດ for Dimension tools often wrong;
-    # only replace common dimension-line phrases carefully via exact sources.
-    # Spline transliteration unify
+    # Spline
     ("ສະພລາຍ", "ສະປຼາຍ"),
     ("ສະປາຍ", "ສະປຼາຍ"),
-    ("ເສັ້ນໂຄ້ງສະປຼາຍສະປຼາຍ", "ເສັ້ນໂຄ້ງສະປຼາຍ"),  # accidental double
-    # Relative typo
-    ("ສຳພັດ", "ສຳພັນ"),
-    # Center line misused for center point
+    ("ເສັ້ນໂຄ້ງສະປຼາຍສະປຼາຍ", "ເສັ້ນໂຄ້ງສະປຼາຍ"),
+    # Center line misuse
     ("ເສັ້ນໃຈກາງ", "ໃຈກາງ"),
-    # Absolute was "complete"
-    # only via exact Absolute source; also fix common wrong phrase:
     ("ພິກັດສົມບູນ", "ພິກັດແທ້ຈິງ"),
-    # Hatch parenthetical noise
+    # Snap synonym → glossary term
+    ("ການດຶງເຂົ້າຫາ (snap)", "ເກາະຈັບ"),
+    ("ການດຶງເຂົ້າຫາ", "ເກາະຈັບ"),
+    ("ຈຸດດຶງເຂົ້າຫາ", "ຈຸດເກາະຈັບ"),
+    ("ພິກັດການດຶງເຂົ້າຫາ", "ພິກັດເກາະຈັບ"),
+    # Hatch / grid
     ("ລວດລາຍ (Hatch)", "ລວດລາຍ"),
     ("ລວດລາຍ (HATCH)", "ລວດລາຍ"),
-    # Grid was "line grid"
     ("ເສັ້ນຕາຕະລາງ", "ຕາຕະລາງ"),
-    # Diameter consistency
     ("ເສັ້ນຜ່ານໃຈກາງ", "ເສັ້ນຜ່ານສູນກາງ"),
-    # Soft cleanup of double spaces
     ("  ", " "),
 ]
 
-# When source is exactly these, force Absolute/Relative even if prior phrase pass missed.
-SOURCE_FORCE: dict[str, str] = {
-    "Absolute": "ແທ້ຈິງ",
-    "Relative": "ສຳພັນ",
-    "Center": "ໃຈກາງ",
-    "Dimension": "ມິຕິ",
-    "Dimensions": "ມິຕິ",
-    "Undo": "ຍົກເລີກ",
-    "Redo": "ເຮັດຄືນ",
-    "Layer": "ເລເຢີ",
-    "Layers": "ເລເຢີ",
-    "Entity": "ອົງປະກອບ",
-    "Entities": "ອົງປະກອບ",
-    "Spline": "ເສັ້ນໂຄ້ງສະປຼາຍ",
-    "Polyline": "ເສັ້ນຕໍ່ເນື່ອງ",
-    "Hatch": "ລວດລາຍ",
-    "Grid": "ຕາຕະລາງ",
-    "Snap": "ເກາະຈັບ",
-    "Block": "ບລັອກ",
-    "Blocks": "ບລັອກ",
-}
+# Dimension-specific replacements only when EN source mentions dimension.
+DIM_PHRASES: list[tuple[str, str]] = [
+    ("ເສັ້ນບອກຂະໜາດ", "ເສັ້ນມິຕິ"),
+    ("ເສັ້ນໂຄ້ງຂະໜາດ", "ເສັ້ນໂຄ້ງມິຕິ"),
+    ("ເສັ້ນຂະໜາດ", "ເສັ້ນມິຕິ"),
+    ("ຂໍ້ຄວາມຂະໜາດ", "ຂໍ້ຄວາມມິຕິ"),
+    ("ຮູບແບບຂະໜາດ", "ຮູບແບບມິຕິ"),
+    ("ສ້າງຂະໜາດໃໝ່", "ສ້າງມິຕິໃໝ່"),
+    ("ອົງປະກອບຂະໜາດ", "ອົງປະກອບມິຕິ"),
+    ("ກ່ຽວກັບຂະໜາດ", "ກ່ຽວກັບມິຕິ"),
+    ("ລະບຸຂະໜາດ", "ລະບຸມິຕິ"),
+    ("ເລືອກຂະໜາດ", "ເລືອກມິຕິ"),
+    ("ຂະໜາດເສັ້ນ", "ມິຕິເສັ້ນ"),
+    ("ຂະໜາດແນວ", "ມິຕິແນວ"),
+]
+
+# Absolute-specific (EN has absolute) — avoid breaking "fully complete" ສົມບູນ
+ABS_PHRASES: list[tuple[str, str]] = [
+    ("ສຳມະບູນ", "ແທ້ຈິງ"),
+    ("ຕຳແໜ່ງສຳບູນ", "ຕຳແໜ່ງແທ້ຈິງ"),
+    ("ພິກັດສຳບູນ", "ພິກັດແທ້ຈິງ"),
+    ("ຈຸດອ້າງອີງສຳບູນ", "ຈຸດອ້າງອີງແທ້ຈິງ"),
+    ("ແບບສຳບູນ", "ແບບແທ້ຈິງ"),
+    ("WCS ສຳບູນ", "WCS ແທ້ຈິງ"),
+    ("ສຳບູນ:", "ແທ້ຈິງ:"),
+    ("ສຳບູນ", "ແທ້ຈິງ"),  # after longer phrases
+]
+
+# Layer-specific residual ຊັ້ນ when EN mentions layer
+LAYER_PHRASES: list[tuple[str, str]] = [
+    ("ລາຍການຊັ້ນ", "ລາຍການເລເຢີ"),
+    ("ລຳດັບຊັ້ນ", "ລຳດັບເລເຢີ"),
+    ("ລະດັບຊັ້ນ", "ລະດັບເລເຢີ"),
+    ("ຊື່ຊັ້ນ", "ຊື່ເລເຢີ"),
+    ("ຊັ້ນສຳຮອງ", "ເລເຢີສຳຮອງ"),
+    ("ຊັ້ນດັ້ງເດີມ", "ເລເຢີດັ້ງເດີມ"),
+    ("ຂອງຊັ້ນ", "ຂອງເລເຢີ"),
+    ("ໃນຊັ້ນ", "ໃນເລເຢີ"),
+    ("ແມ່ນຊັ້ນ", "ແມ່ນເລເຢີ"),
+    ("ວ່າຊັ້ນ", "ວ່າເລເຢີ"),
+    ("ສຳລັບຊັ້ນ", "ສຳລັບເລເຢີ"),
+    ("ເປັນຊັ້ນ", "ເປັນເລເຢີ"),
+    ("ມີຊັ້ນ", "ມີເລເຢີ"),
+    ("ຊັ້ນໂດຍ", "ເລເຢີໂດຍ"),
+    ("ຊັ້ນແບບ", "ເລເຢີແບບ"),
+    ("ຊັ້ນໃຫ້", "ເລເຢີໃຫ້"),
+    ("ຊັ້ນນັ້ນ", "ເລເຢີນັ້ນ"),
+    ("ຊັ້ນ ", "ເລເຢີ "),
+    (" ຊັ້ນ", " ເລເຢີ"),
+]
+
+# Plugin test-tip cleanup: source ends with "test tip..."
+TEST_TIP_TR = "ຄຳແນະນຳ (ສຳລັບການທົດສອບ)"
 
 
 def unescape_src(s: str) -> str:
@@ -203,8 +277,8 @@ def unescape_src(s: str) -> str:
     )
 
 
-def apply_phrases(tr: str) -> str:
-    for old, new in PHRASE_REPLACEMENTS:
+def apply_list(tr: str, pairs: list[tuple[str, str]]) -> str:
+    for old, new in pairs:
         if old in tr:
             tr = tr.replace(old, new)
     return tr
@@ -212,55 +286,85 @@ def apply_phrases(tr: str) -> str:
 
 def transform_translation(source: str, translation: str) -> str:
     src = unescape_src(source).strip()
-    # Empty / vanished placeholders: leave
     if not translation.strip():
         return translation
 
-    # Exact glossary win
-    if src in SOURCE_FORCE:
-        return SOURCE_FORCE[src]
+    # Exact glossary
     if src in EXACT_SOURCE:
         return EXACT_SOURCE[src]
-    if src.lower() in EXACT_SOURCE_CI and len(src) < 40:
-        # Only for short labels to avoid clobbering sentences
+    if src.startswith("&") and src[1:] in EXACT_SOURCE:
+        return "&" + EXACT_SOURCE[src[1:]]
+    if len(src) < 40 and src.lower() in EXACT_SOURCE_CI:
         return EXACT_SOURCE_CI[src.lower()]
 
-    # Menu accelerators like &Layer
-    if src.startswith("&") and src[1:] in SOURCE_FORCE:
-        return "&" + SOURCE_FORCE[src[1:]]
+    # Plugin / stub test tips
+    if re.search(r"test tip\.\.\.$", src, re.I):
+        return TEST_TIP_TR
 
-    tr = apply_phrases(translation)
+    tr = translation
+    tr = apply_list(tr, PHRASE_REPLACEMENTS)
 
-    # Source-aware sentence fixes
-    if re.search(r"\b[Dd]imension", src):
-        # Prefer ມິຕິ over bare size for dimensioning UI
+    # --- Source-keyword compound rules (deep review D1–D5) ---
+    if re.search(r"\babsolute\b", src, re.I):
+        tr = apply_list(tr, ABS_PHRASES)
+        # bare leftovers after colon forms
+        if tr.strip() in ("ສຳບູນ", "ສົມບູນ", "ສຳເລັດ") and re.fullmatch(
+            r"absolute[:\s].*|absolute", src, re.I
+        ):
+            tr = "ແທ້ຈິງ" + (":" if src.rstrip().endswith(":") else "")
+        if re.search(r"absolute\s*:", src, re.I) and tr.strip().startswith("ສຳບູນ"):
+            tr = tr.replace("ສຳບູນ", "ແທ້ຈິງ", 1)
+
+    if re.search(r"\bdimensions?\b", src, re.I):
+        tr = apply_list(tr, DIM_PHRASES)
         if tr.strip() == "ຂະໜາດ":
             tr = "ມິຕິ"
-        tr = tr.replace("ເສັ້ນບອກຂະໜາດ", "ເສັ້ນມິຕິ")
-        tr = tr.replace("ຂໍ້ຄວາມຂະໜາດ", "ຂໍ້ຄວາມມິຕິ")
-    if re.search(r"\b[Uu]ndo\b", src):
+        # remaining bare size word in short dim UI
+        if len(src) < 80 and "ຂະໜາດ" in tr and "ທຽບ" not in tr:
+            # avoid "size relative to screen"
+            if not re.search(r"\bsize\b", src, re.I) or re.search(
+                r"dimension", src, re.I
+            ):
+                tr = tr.replace("ຂະໜາດ", "ມິຕິ")
+
+    if re.search(r"\blayers?\b", src, re.I):
+        tr = apply_list(tr, LAYER_PHRASES)
+
+    if re.search(r"\bundo\b", src, re.I):
+        tr = tr.replace("ຍ້ອນກັບ", "ຍົກເລີກ")
         tr = tr.replace("ເລີກເຮັດ", "ຍົກເລີກ")
-        if tr.strip() in ("ເລີກເຮັດ", "ກັບຄືນ"):
+        if tr.strip() in ("ກັບຄືນ",):
             tr = "ຍົກເລີກ"
-    if re.search(r"\b[Aa]bsolute\b", src):
-        if tr.strip() in ("ສົມບູນ", "ສຳເລັດ"):
-            tr = "ແທ້ຈິງ"
-    if re.search(r"\b[Rr]elative\b", src):
+
+    if re.search(r"\brelative\b", src, re.I):
+        tr = tr.replace("ສໍາພັດ", "ສຳພັນ").replace("ສຳພັດ", "ສຳພັນ")
         if tr.strip() in ("ສຳພັດ", "ຄວາມສຳພັນ"):
             tr = "ສຳພັນ"
+
     if re.fullmatch(r"[Cc]enter", src):
         tr = "ໃຈກາງ"
-    if re.search(r"\b[Ee]ntit", src):
+
+    if re.search(r"\bsnap\b", src, re.I):
+        tr = tr.replace("ການດຶງເຂົ້າຫາ", "ເກາະຈັບ")
+        tr = tr.replace("ດຶງເຂົ້າຫາ", "ເກາະຈັບ")
+
+    if re.search(r"\bentit", src, re.I):
         tr = tr.replace("ອອບເຈັກ", "ອົງປະກອບ")
+        tr = tr.replace("ເອນຕິຕີ", "ອົງປະກອບ")
         tr = tr.replace("ວັດຖຸ", "ອົງປະກອບ")
 
+    if re.search(r"\bspline", src, re.I):
+        tr = tr.replace("ສະພລາຍ", "ສະປຼາຍ").replace("ສະປາຍ", "ສະປຼາຍ")
+        tr = re.sub(r"\bSpline\b", "ເສັ້ນໂຄ້ງສະປຼາຍ", tr)
+        tr = re.sub(r"\(spline\)", "", tr)
+        tr = re.sub(r"  +", " ", tr).strip()
+
+    # collapse spaces again
+    tr = re.sub(r"  +", " ", tr)
     return tr
 
 
-MESSAGE_RE = re.compile(
-    r"(<message(?:\s[^>]*)?>)(.*?)(</message>)",
-    re.S,
-)
+MESSAGE_RE = re.compile(r"(<message(?:\s[^>]*)?>)(.*?)(</message>)", re.S)
 SOURCE_RE = re.compile(r"<source>(.*?)</source>", re.S)
 TRANS_RE = re.compile(
     r"(<translation)(\s+type=\"[^\"]*\")?(\s*>)(.*?)(</translation>)"
@@ -274,12 +378,11 @@ def process_message(body: str) -> tuple[str, bool]:
     if not sm:
         return body, False
     source = sm.group(1)
-
     changed = False
 
     def repl_trans(m: re.Match) -> str:
         nonlocal changed
-        if m.group(6):  # self-closing
+        if m.group(6):
             return m.group(0)
         open_tag, typ, mid, content, close = (
             m.group(1),
@@ -288,7 +391,6 @@ def process_message(body: str) -> tuple[str, bool]:
             m.group(4),
             m.group(5),
         )
-        # Do not rewrite vanished/obsolete content heavily — still phrase-fix finished
         if 'type="vanished"' in typ or 'type="obsolete"' in typ:
             return m.group(0)
         new_content = transform_translation(source, content)
@@ -296,27 +398,18 @@ def process_message(body: str) -> tuple[str, bool]:
             changed = True
         return f"{open_tag}{typ}{mid}{new_content}{close}"
 
-    new_body, n = TRANS_RE.subn(repl_trans, body)
+    new_body, _ = TRANS_RE.subn(repl_trans, body)
     return new_body, changed
 
 
 def process_file(path: Path) -> int:
     text = path.read_text(encoding="utf-8")
-    # Normalize language tag for main app
-    if path.name == "librecad_lo.ts":
-        text2 = re.sub(
-            r'<TS version="2\.1" language="lo(?:_LA)?">',
-            '<TS version="2.1" language="lo_LA">',
-            text,
-            count=1,
-        )
-    else:
-        text2 = re.sub(
-            r'<TS version="2\.1" language="lo(?:_LA)?">',
-            '<TS version="2.1" language="lo_LA">',
-            text,
-            count=1,
-        )
+    text2 = re.sub(
+        r'<TS version="2\.1" language="lo(?:_LA)?">',
+        '<TS version="2.1" language="lo_LA">',
+        text,
+        count=1,
+    )
     changes = 0 if text2 == text else 1
     text = text2
 
@@ -331,8 +424,7 @@ def process_file(path: Path) -> int:
         out_parts.append(open_m + new_body + close_m)
         pos = m.end()
     out_parts.append(text[pos:])
-    new_text = "".join(out_parts)
-    path.write_text(new_text, encoding="utf-8")
+    path.write_text("".join(out_parts), encoding="utf-8")
     return changes
 
 

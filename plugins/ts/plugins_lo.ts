@@ -11,7 +11,7 @@
     <message>
         <location filename="../asciifile/asciifile.cpp" line="36"/>
         <source>Read ASCII test tip...</source>
-        <translation>ອ່ານຄຳແນະນຳການທົດສອບ ASCII...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../asciifile/asciifile.cpp" line="42"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../pointstocsv/pointstocsv.cpp" line="41"/>
         <source>Export to csv test tip...</source>
-        <translation>ສົ່ງອອກໄປເປັນ csv ຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../align/align.cpp" line="32"/>
         <source>Align test tip...</source>
-        <translation>ຈັດວາງຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../align/align.cpp" line="47"/>
@@ -139,7 +139,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../list/list.cpp" line="30"/>
         <source>List test tip...</source>
-        <translation>ລາຍການຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../list/list.cpp" line="44"/>
@@ -440,7 +440,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../sameprop/sameprop.cpp" line="29"/>
         <source>Same properties test tip...</source>
-        <translation>ຄຸນສົມບັດດຽວກັນ ຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../sameprop/sameprop.cpp" line="40"/>
@@ -464,7 +464,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../sample/sample.cpp" line="34"/>
         <source>Sample test tip...</source>
-        <translation>ຕົວຢ່າງຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
 </context>
 <context>
@@ -477,7 +477,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../picfile/picfile.cpp" line="37"/>
         <source>PIC test tip...</source>
-        <translation>PIC ຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../picfile/picfile.cpp" line="43"/>
@@ -674,7 +674,7 @@ Then fill in the fields and press &apos;Accept&apos; button.</source>
     <message>
         <location filename="../divide/divide.cpp" line="42"/>
         <source>Divide test tip...</source>
-        <translation>ແບ່ງຄຳແນະນຳການທົດສອບ...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
     <message>
         <location filename="../divide/divide.cpp" line="53"/>
@@ -1209,7 +1209,7 @@ anti-clockwise.</source>
     <message>
         <location filename="../plotequation/plot.cpp" line="38"/>
         <source>Plot test tip...</source>
-        <translation>ຄຳແນະນຳການທົດສອບ Plot...</translation>
+        <translation>ຄຳແນະນຳ (ສຳລັບການທົດສອບ)</translation>
     </message>
 </context>
 <context>

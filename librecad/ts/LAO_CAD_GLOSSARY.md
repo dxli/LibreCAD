@@ -9,7 +9,9 @@ Locale: **`lo_LA`**. Apply via `scripts/lao_cad_glossary_apply.py` when refreshi
 | Layer / Layers | ເລເຢີ | CAD loanword; do not mix ຊັ້ນວຽກ / ເລຢີ / ເລເຍີ |
 | Entity / Entities | ອົງປະກອບ | Not ວັດຖຸ / ອອບເຈັກ / ເອນຕິຕີ |
 | Block / Blocks | ບລັອກ | |
-| Dimension / Dimensions | ມິຕິ | Dimensioning tool/menu — not ຂະໜາດ (“size”) |
+| Dimension / Dimensions | ມິຕິ | Dimensioning tool/menu |
+| dimension line / styles / regenerate | ເສັ້ນມິຕິ / ຮູບແບບມິຕິ / ສ້າງມິຕິໃໝ່ | Not ເສັ້ນຂະໜາດ |
+| size / tick size / arrow size | ຂະໜາດ… | Keep ຂະໜາດ only for true *size* |
 | Polyline | ເສັ້ນຕໍ່ເນື່ອງ | |
 | Spline | ເສັ້ນໂຄ້ງສະປຼາຍ | One transliteration only (ສະປຼາຍ) |
 | Hatch | ລວດລາຍ | |
@@ -33,8 +35,11 @@ Do **not** use ເລີກເຮັດ for Undo.
 | English | Lao |
 |---------|-----|
 | Absolute | ແທ້ຈິງ |
+| Absolute: / Absolute Pos / absolute coordinates | ແທ້ຈິງ: / ຕຳແໜ່ງແທ້ຈິງ / ພິກັດແທ້ຈິງ |
 | Relative | ສຳພັນ |
-| Center | ໃຈກາງ |
+| Relative Zero | ສູນສຳພັນ |
+| Center (snap label) | ໃຈກາງ |
+| Geometric center (circles, etc.) | ຈຸດສູນກາງ / ສູນກາງ (allowed in compounds) |
 | Endpoint | ຈຸດປາຍ |
 | Middle | ຈຸດກາງ |
 | Intersection | ຈຸດຕັດ |
@@ -45,6 +50,9 @@ Do **not** use ເລີກເຮັດ for Undo.
 | Radius | ລັດສະໝີ |
 | Diameter | ເສັ້ນຜ່ານສູນກາງ |
 | Angle | ມຸມ |
+
+**Do not** use ສຳບູນ / ສຳມະບູນ for Absolute coordinates.  
+ສົມບູນ remains valid only for “fully / complete” (*not fully supported*).
 
 ## Common UI (stable)
 
@@ -69,3 +77,8 @@ Do **not** use ເລີກເຮັດ for Undo.
 2. Keep Qt placeholders (`%1`, `%n`) and accelerators (`&`) intact.
 3. English in parentheses only when introducing a loanword the first time is unnecessary if the glossary term is locked.
 4. After `lupdate`, re-run `scripts/lao_cad_glossary_apply.py` and spot-check Dimension / Layer / Undo / Absolute / Relative / Center.
+5. Deep-review compound rules (source-keyword): Absolute*, Dimension*, Layer*, Undo* are applied in the script — re-check counts:
+   - `absolute` + ສຳບູນ → 0  
+   - `dimension` + ເສັ້ນຂະໜາດ / ຮູບແບບຂະໜາດ → 0  
+   - `layer` without ເລເຢີ still using bare ຊັ້ນ → 0  
+   - `undo` + ຍ້ອນກັບ → 0
