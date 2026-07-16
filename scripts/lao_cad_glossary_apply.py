@@ -50,6 +50,11 @@ EXACT_SOURCE: dict[str, str] = {
     "Relative:": "ສຳພັນ:",
     "Absolute Pos": "ຕຳແໜ່ງແທ້ຈິງ",
     "Center": "ໃຈກາງ",
+    "Center (large)": "ເສັ້ນໃຈກາງ (ໃຫຍ່)",
+    "Center (small)": "ເສັ້ນໃຈກາງ (ນ້ອຍ)",
+    "Tangential": "ສຳຜັດ",
+    "Tangental": "ສຳຜັດ",  # EN typo in sources
+    "Tangential arc": "ເສັ້ນໂຄ້ງສຳຜັດ",
     "Endpoint": "ຈຸດປາຍ",
     "Middle": "ຈຸດກາງ",
     "Intersection": "ຈຸດຕັດ",
@@ -156,9 +161,8 @@ PHRASE_REPLACEMENTS: list[tuple[str, str]] = [
     ("WCS ສຳບູນ", "WCS ແທ້ຈິງ"),
     ("ສຳບູນ:", "ແທ້ຈິງ:"),
     ("ສຳບູນ: (", "ແທ້ຈິງ: ("),
-    # Relative typos
-    ("ສໍາພັດ", "ສຳພັນ"),
-    ("ສຳພັດ", "ສຳພັນ"),
+    # Relative typos (NOT for tangent — see transform_translation)
+    # Do not globally map ສຳພັດ → ສຳພັນ (collides with tangent ສຳຜັດ).
     ("ມູມສຳພັນ", "ມຸມສຳພັນ"),
     ("ມູມສໍາພັນ", "ມຸມສຳພັນ"),
     # Dimension compounds (size → dimensioning)
@@ -336,12 +340,28 @@ def transform_translation(source: str, translation: str) -> str:
         if tr.strip() in ("ກັບຄືນ",):
             tr = "ຍົກເລີກ"
 
+    # Tangential / tangental (CAD) → ສຳຜັດ  (never ສຳພັນ "relative")
+    if re.search(r"tangent|tangental", src, re.I):
+        tr = tr.replace("ເສັ້ນໂຄ້ງສຳພັນ", "ເສັ້ນໂຄ້ງສຳຜັດ")
+        tr = tr.replace("ວົງມົນສຳພັນ", "ວົງມົນສຳຜັດ")
+        tr = tr.replace("ສຳພັດ", "ສຳຜັດ")  # common misspelling of tangent
+        if re.fullmatch(r"[Tt]angential|[Tt]angental", src):
+            tr = "ສຳຜັດ"
+        elif "ສຳພັນ" in tr and "ສຳຜັດ" not in tr:
+            tr = tr.replace("ສຳພັນ", "ສຳຜັດ")
+        return re.sub(r"  +", " ", tr)
+
     if re.search(r"\brelative\b", src, re.I):
-        tr = tr.replace("ສໍາພັດ", "ສຳພັນ").replace("ສຳພັດ", "ສຳພັນ")
+        # only fix relative-typo forms; do not touch ສຳຜັດ
+        tr = tr.replace("ສໍາພັດ", "ສຳພັນ")
         if tr.strip() in ("ສຳພັດ", "ຄວາມສຳພັນ"):
             tr = "ສຳພັນ"
 
-    if re.fullmatch(r"[Cc]enter", src):
+    if re.fullmatch(r"Center \(large\)", src):
+        tr = "ເສັ້ນໃຈກາງ (ໃຫຍ່)"
+    elif re.fullmatch(r"Center \(small\)", src):
+        tr = "ເສັ້ນໃຈກາງ (ນ້ອຍ)"
+    elif re.fullmatch(r"[Cc]enter", src):
         tr = "ໃຈກາງ"
 
     if re.search(r"\bsnap\b", src, re.I):

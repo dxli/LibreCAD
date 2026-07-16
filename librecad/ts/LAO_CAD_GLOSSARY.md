@@ -39,7 +39,9 @@ Do **not** use ເລີກເຮັດ for Undo.
 | Relative | ສຳພັນ |
 | Relative Zero | ສູນສຳພັນ |
 | Center (snap label) | ໃຈກາງ |
+| Center (large/small) linetype | ເສັ້ນໃຈກາງ (ໃຫຍ່/ນ້ອຍ) | centerline pattern, not snap |
 | Geometric center (circles, etc.) | ຈຸດສູນກາງ / ສູນກາງ (allowed in compounds) |
+| Tangential / tangental | ສຳຜັດ | Never ສຳພັນ (that is Relative) |
 | Endpoint | ຈຸດປາຍ |
 | Middle | ຈຸດກາງ |
 | Intersection | ຈຸດຕັດ |
@@ -77,8 +79,10 @@ Do **not** use ເລີກເຮັດ for Undo.
 2. Keep Qt placeholders (`%1`, `%n`) and accelerators (`&`) intact.
 3. English in parentheses only when introducing a loanword the first time is unnecessary if the glossary term is locked.
 4. After `lupdate`, re-run `scripts/lao_cad_glossary_apply.py` and spot-check Dimension / Layer / Undo / Absolute / Relative / Center.
-5. Deep-review compound rules (source-keyword): Absolute*, Dimension*, Layer*, Undo* are applied in the script — re-check counts:
+5. Deep-review compound rules (source-keyword): Absolute*, Dimension*, Layer*, Undo*, Tangent* are applied in the script — re-check counts:
    - `absolute` + ສຳບູນ → 0  
    - `dimension` + ເສັ້ນຂະໜາດ / ຮູບແບບຂະໜາດ → 0  
    - `layer` without ເລເຢີ still using bare ຊັ້ນ → 0  
-   - `undo` + ຍ້ອນກັບ → 0
+   - `undo` + ຍ້ອນກັບ → 0  
+   - `tangent|tangental` + ສຳພັນ (wrong) → 0; should use ສຳຜັດ  
+   - `Center (large|small)` → ເສັ້ນໃຈກາງ (…)

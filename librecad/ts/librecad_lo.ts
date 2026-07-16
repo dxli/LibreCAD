@@ -13105,12 +13105,12 @@ Warning: this action can NOT be undone!</source>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="327"></location>
         <source>Center (small)</source>
-        <translation>ໃຈກາງ (ນ້ອຍ)</translation>
+        <translation>ເສັ້ນໃຈກາງ (ນ້ອຍ)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="328"></location>
         <source>Center (large)</source>
-        <translation>ໃຈກາງ (ໃຫຍ່)</translation>
+        <translation>ເສັ້ນໃຈກາງ (ໃຫຍ່)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_peninforegistry.cpp" line="329"></location>
@@ -25419,12 +25419,12 @@ The contents of a Construction Layer should not appear in printout.</source>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_linetypebox.cpp" line="104"></location>
         <source>Center (small)</source>
-        <translation>ສູນກາງ (ນ້ອຍ)</translation>
+        <translation>ເສັ້ນໃຈກາງ (ນ້ອຍ)</translation>
     </message>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_linetypebox.cpp" line="105"></location>
         <source>Center (large)</source>
-        <translation>ສູນກາງ (ໃຫຍ່)</translation>
+        <translation>ເສັ້ນໃຈກາງ (ໃຫຍ່)</translation>
     </message>
     <message>
         <location filename="../src/ui/components/comboboxes/qg_linetypebox.cpp" line="106"></location>
@@ -33676,17 +33676,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="26"></location>
         <source>Tangential Arc Options</source>
-        <translation>ຕົວເລືອກເສັ້ນໂຄ້ງສຳພັນ</translation>
+        <translation>ຕົວເລືອກເສັ້ນໂຄ້ງສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="87"></location>
         <source>If selected, tangental arc with specified radius will be created</source>
-        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນໂຄ້ງສຳພັນຕາມລັດສະໝີທີ່ກຳນົດ</translation>
+        <translation>ຖ້າເລືອກ, ຈະສ້າງເສັ້ນໂຄ້ງສຳຜັດຕາມລັດສະໝີທີ່ກຳນົດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="47"></location>
         <source>Radius of the tangential arc</source>
-        <translation>ລັດສະໝີຂອງເສັ້ນໂຄ້ງສຳພັນ</translation>
+        <translation>ລັດສະໝີຂອງເສັ້ນໂຄ້ງສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="112"></location>
@@ -33696,7 +33696,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="60"></location>
         <source>Total subtending angle of the tangential arc</source>
-        <translation>ມຸມລວມຂອງເສັ້ນໂຄ້ງສຳພັນ</translation>
+        <translation>ມຸມລວມຂອງເສັ້ນໂຄ້ງສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/curve/qg_arctangentialoptions.ui" line="67"></location>
@@ -33797,12 +33797,12 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="32"></location>
         <source>Circle Tangential2 Options</source>
-        <translation>ຕົວເລືອກວົງມົນສຳພັນ 2 ຈຸດ</translation>
+        <translation>ຕົວເລືອກວົງມົນສຳຜັດ 2 ຈຸດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="56"></location>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ລັດສະໝີຂອງວົງມົນສຳພັນທີ່ຈະແຕ້ມ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ລັດສະໝີຂອງວົງມົນສຳຜັດທີ່ຈະແຕ້ມ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="59"></location>
@@ -33812,7 +33812,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="75"></location>
         <source>Radius of tangential circle</source>
-        <translation>ລັດສະໝີຂອງວົງມົນສຳພັນ</translation>
+        <translation>ລັດສະໝີຂອງວົງມົນສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/circle/qg_circletan2options.ui" line="82"></location>
@@ -34796,7 +34796,7 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="101"></location>
         <source>Tangential</source>
-        <translation>ສຳພັນ (Tangential)</translation>
+        <translation>ສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="106"></location>
@@ -34816,17 +34816,17 @@ Point: (%8 , %9)</source>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="144"></location>
         <source>Tangential arc</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັນ</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳຜັດ</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="164"></location>
         <source>Tangental arc with fixed radius</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັນທີ່ມີລັດສະໝີຄົງທີ່</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳຜັດທີ່ມີລັດສະໝີຄົງທີ່</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="184"></location>
         <source>Tangental arc with fixed angle</source>
-        <translation>ເສັ້ນໂຄ້ງສຳພັນທີ່ມີມຸມຄົງທີ່</translation>
+        <translation>ເສັ້ນໂຄ້ງສຳຜັດທີ່ມີມຸມຄົງທີ່</translation>
     </message>
     <message>
         <location filename="../src/ui/action_options/polyline/qg_polylineoptions.ui" line="204"></location>
