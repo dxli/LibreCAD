@@ -1718,6 +1718,7 @@ set(TS_FILES
     librecad/ts/librecad_ja.ts
     librecad/ts/librecad_ka.ts
     librecad/ts/librecad_ko.ts
+    librecad/ts/librecad_lo.ts
     librecad/ts/librecad_lv.ts
     librecad/ts/librecad_mk.ts
     librecad/ts/librecad_nl.ts
