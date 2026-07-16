@@ -32,7 +32,6 @@
 #include "lc_containertraverser.h"
 #include "lc_defaults.h"
 #include "lc_graphicviewportlistener.h"
-#include "lc_import_repair_flags.h"
 #include "lc_linemath.h"
 #include "lc_overlayentitiescontainer.h"
 #include "lc_refpoint.h"
@@ -668,38 +667,6 @@ bool LC_GraphicViewport::getViewBorders(RS_Vector &min, RS_Vector &max) {
     if (max.x < min.x || max.y < min.y)
         return false;
 
-    // Sheet-scale drawings: a few compact outliers on W/N/S (chicun hms,
-    // A$C759, W-Frame, furniture tails) dominate raw container min/max and
-    // make MDI zoomAuto / resize framing look "not fixed". Prefer the dense
-    // visible-leaf envelope when it is meaningfully tighter.
-    // Gated by LC_DENSE_VIEW_FRAMING (default on).
-    if (LC_ImportRepairFlags::denseViewFraming()) {
-        RS_Vector denseMin;
-        RS_Vector denseMax;
-        if (denseLeafEnvelope(*m_document, denseMin, denseMax)) {
-            const double fullX = std::max(0.0, max.x - min.x);
-            const double fullY = std::max(0.0, max.y - min.y);
-            const double denseX = denseMax.x - denseMin.x;
-            const double denseY = denseMax.y - denseMin.y;
-            const bool largeSheet = std::max(fullX, fullY) > 10000.0;
-            const bool meaningfullyTighter =
-                (fullX > 1.0 && denseX < fullX * 0.90)
-                || (fullY > 1.0 && denseY < fullY * 0.90);
-            if (largeSheet && meaningfullyTighter) {
-                min = denseMin;
-                max = denseMax;
-                if (std::getenv("LC_VIEW_BOUNDS_LOG") != nullptr) {
-                    std::cerr << "[view-bounds] full=(" << fullX << "x" << fullY
-                              << ") dense=(" << denseX << "x" << denseY
-                              << ") applied=yes\n";
-                }
-            } else if (std::getenv("LC_VIEW_BOUNDS_LOG") != nullptr) {
-                std::cerr << "[view-bounds] full=(" << fullX << "x" << fullY
-                          << ") dense=(" << denseX << "x" << denseY
-                          << ") applied=no\n";
-            }
-        }
-    }
     return true;
 }
 

@@ -49,7 +49,6 @@
 #include "dxf_format.h"
 #include "lc_containertraverser.h"
 #include "lc_defaults.h"
-#include "lc_import_repair_flags.h"
 #include "lc_dimarc.h"
 #include "lc_dimarrowregistry.h"
 #include "lc_dimordinate.h"
@@ -1386,172 +1385,6 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     RS_DEBUG->print("RS_FilterDXFRW::fileImport: updating inserts");
     const auto updateInsertsStart = std::chrono::steady_clock::now();
     m_graphic->updateInserts();
-    // Compact top-level inserts (and isolated model-space islands) parked far
-    // outside the dense leaf core pull zoomAuto. Examples: chicun
-    // A$C4D8A4BEC elevation at x≈-294k, hms west elevation (~77k west of
-    // core), A$C759636E5 north section (~14k above core), W-Frame title
-    // block south of the sheet. Re-base those shells onto the dense-core edge.
-    // Gated by LC_REPAIR_MODEL_PLACEMENT (default off; dense view framing is separate).
-    if (LC_ImportRepairFlags::repairModelPlacement()) {
-        bool modelPlacementMutated = false;
-        std::vector<double> leafXs;
-        std::vector<double> leafYs;
-        leafXs.reserve(static_cast<size_t>(m_graphic->count() * 4));
-        leafYs.reserve(leafXs.capacity());
-        for (RS_Entity *e :
-             lc::LC_ContainerTraverser{*m_graphic, RS2::ResolveAll}.entities()) {
-            if (e == nullptr || e->isContainer())
-                continue;
-            e->calculateBorders();
-            const RS_Vector mn = e->getMin();
-            const RS_Vector mx = e->getMax();
-            if (!mn.valid || !mx.valid)
-                continue;
-            const RS_Vector c = (mn + mx) * 0.5;
-            if (!std::isfinite(c.x) || !std::isfinite(c.y))
-                continue;
-            if (std::abs(c.x) > 1.0e9 || std::abs(c.y) > 1.0e9)
-                continue;
-            leafXs.push_back(c.x);
-            leafYs.push_back(c.y);
-        }
-        if (leafXs.size() >= 50) {
-            auto pct = [](std::vector<double> v, double p) {
-                std::sort(v.begin(), v.end());
-                const size_t i = std::min(
-                    v.size() - 1,
-                    static_cast<size_t>(p * static_cast<double>(v.size() - 1)));
-                return v[i];
-            };
-            const double x05 = pct(leafXs, 0.05);
-            const double x95 = pct(leafXs, 0.95);
-            const double y05 = pct(leafYs, 0.05);
-            const double y95 = pct(leafYs, 0.95);
-            // Axis-adaptive pad: catch adjacent misplaced elevations /
-            // title frames (~12–80k outside core) without yanking content
-            // that sits just outside the p05/p95 band.
-            const double coreSpanX = std::max(1.0, x95 - x05);
-            const double coreSpanY = std::max(1.0, y95 - y05);
-            const double kFarPadX = std::max(12000.0, 0.04 * coreSpanX);
-            const double kFarPadY = std::max(10000.0, 0.15 * coreSpanY);
-            // Allow mid-size assemblies (chicun A$C121B7857 ~49k west pillow
-            // cluster) while still skipping sheet-scale inserts like QBLOCK.
-            constexpr double kCompactSpanInsert = 55000.0;
-            constexpr double kCompactSpanModel = 25000.0;
-            // Only W / N / S. East (chicun art-6 and similar sheet-edge
-            // symbols) is left alone: re-basing it desynced expanded leaves
-            // from the insert grip and made draw-path vs container disagree.
-            auto farDelta = [&](const RS_Vector &c) {
-                RS_Vector delta(0., 0.);
-                if (c.x < x05 - kFarPadX)
-                    delta.x = (x05 - 1000.0) - c.x;
-                if (c.y < y05 - kFarPadY)
-                    delta.y = (y05 - 1000.0) - c.y;
-                else if (c.y > y95 + kFarPadY)
-                    delta.y = (y95 + 1000.0) - c.y;
-                return delta;
-            };
-            for (RS_Entity *e : *m_graphic) {
-                if (e == nullptr || e->rtti() != RS2::EntityInsert)
-                    continue;
-                auto *ins = static_cast<RS_Insert *>(e);
-                ins->calculateBorders();
-                const RS_Vector mn = ins->getMin();
-                const RS_Vector mx = ins->getMax();
-                if (!mn.valid || !mx.valid)
-                    continue;
-                const double span =
-                    std::max(mx.x - mn.x, mx.y - mn.y);
-                if (span > kCompactSpanInsert)
-                    continue;
-                const RS_Vector c = (mn + mx) * 0.5;
-                const RS_Vector delta = farDelta(c);
-                if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
-                    continue;
-                // Move expanded children without re-expanding the insert.
-                ins->setUpdateEnabled(false);
-                for (RS_Entity *sub : *ins) {
-                    if (sub != nullptr)
-                        sub->move(delta);
-                }
-                ins->move(delta); // grip only while update disabled
-                ins->setUpdateEnabled(true);
-                ins->calculateBorders();
-                modelPlacementMutated = true;
-            }
-            // Isolated model-space entities (title frames, freehand frames).
-            // Sheet-scale only: on small parts drawings (ACEB10 ~40u) the p05
-            // edge sits inside legitimate content, and docking with a fixed
-            // 1000u margin flings edge entities to ≈−1000.
-            const double coreSpan = std::max(coreSpanX, coreSpanY);
-            const bool sheetScale = coreSpan > 10000.0;
-            if (sheetScale) {
-                const double islandGap =
-                    std::max(1500.0, 0.015 * coreSpan);
-                const double dockMargin =
-                    std::min(1000.0, std::max(50.0, 0.02 * coreSpan));
-                for (RS_Entity *e : *m_graphic) {
-                    if (e == nullptr || e->rtti() == RS2::EntityInsert)
-                        continue;
-                    e->calculateBorders();
-                    const RS_Vector mn = e->getMin();
-                    const RS_Vector mx = e->getMax();
-                    if (!mn.valid || !mx.valid)
-                        continue;
-                    const double span =
-                        std::max(mx.x - mn.x, mx.y - mn.y);
-                    if (span > kCompactSpanModel)
-                        continue;
-                    const RS_Vector c = (mn + mx) * 0.5;
-                    RS_Vector delta(0., 0.);
-                    // Entirely outside core by islandGap on W/N/S.
-                    if (mx.x < x05 - islandGap)
-                        delta.x = (x05 - dockMargin) - c.x;
-                    if (mx.y < y05 - islandGap)
-                        delta.y = (y05 - dockMargin) - c.y;
-                    else if (mn.y > y95 + islandGap)
-                        delta.y = (y95 + dockMargin) - c.y;
-                    if (std::abs(delta.x) < 1.0 && std::abs(delta.y) < 1.0)
-                        continue;
-                    e->move(delta);
-                    modelPlacementMutated = true;
-                }
-            }
-            // Empty inserts at the world origin pin zoomAuto via the
-            // container (0,0) fallback. Only nudge origin grips on
-            // sheet-scale drawings where that pin is meaningful.
-            if (sheetScale) {
-                for (RS_Entity *e : *m_graphic) {
-                    if (e == nullptr || e->rtti() != RS2::EntityInsert)
-                        continue;
-                    auto *ins = static_cast<RS_Insert *>(e);
-                    const RS_Vector ip = ins->getInsertionPoint();
-                    if (std::abs(ip.x) > 1.0 || std::abs(ip.y) > 1.0)
-                        continue;
-                    if (ins->count() > 0) {
-                        ins->calculateBorders();
-                        const RS_Vector mn = ins->getMin();
-                        const RS_Vector mx = ins->getMax();
-                        const bool originPin =
-                            mn.valid && mx.valid
-                            && std::abs(mn.x) < 1.0 && std::abs(mx.x) < 1.0
-                            && std::abs(mn.y) < 1.0 && std::abs(mx.y) < 1.0;
-                        if (!originPin)
-                            continue;
-                    }
-                    const RS_Vector delta((x05 + 1000.0) - ip.x,
-                                          (y05 + 1000.0) - ip.y);
-                    ins->setUpdateEnabled(false);
-                    ins->move(delta);
-                    ins->setUpdateEnabled(true);
-                    modelPlacementMutated = true;
-                }
-            }
-            m_graphic->calculateBorders();
-        }
-        if (modelPlacementMutated)
-            m_graphic->setImportGeometryMutated(true);
-    }
     if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
         const auto updateInsertsMs = std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::steady_clock::now() - updateInsertsStart).count();
@@ -5358,11 +5191,11 @@ void RS_FilterDXFRW::addImage(const DRW_Image* data) {
  * the IMAGE's frame parameters (basePoint, secPoint=uVector, vVector,
  * sizeu/sizev) are meaningful — there's no raster file behind it.
  *
- * AutoCAD stores the polygon vertices in normalized image-pixel coordinates,
- * with a half-pixel origin offset.  The WCS transform is:
- *     P_wcs = basePoint + (px + 0.5) * sizeu * uVector
- *                       + (py + 0.5) * sizev * vVector
- * (cf. ODA Open Design Specification §20.4.96; verify on samples — see plan.)
+ * Group 11/12 are single-pixel U/V vectors.  With the half-pixel origin
+ * offset, the WCS transform is:
+ *     P_wcs = basePoint + (px + 0.5) * uVector + (py + 0.5) * vVector.
+ * The clip coordinates already express the image size; sizeu/sizev must not
+ * multiply the vectors again.
  */
 void RS_FilterDXFRW::addWipeout(const DRW_Wipeout *data) {
   RS_DEBUG->print("RS_FilterDXFRW::addWipeout");
@@ -5372,22 +5205,29 @@ void RS_FilterDXFRW::addWipeout(const DRW_Wipeout *data) {
     return;
   }
 
-  const RS_Vector base(data->basePoint.x, data->basePoint.y);
-  const RS_Vector u(data->secPoint.x, data->secPoint.y);
-  const RS_Vector v(data->vVector.x, data->vVector.y);
-  const double sizeU = data->sizeu;
-  const double sizeV = data->sizev;
+  LC_WipeoutData wipeoutData;
+  wipeoutData.hasNativeFrame = true;
+  wipeoutData.insertionPoint =
+      RS_Vector(data->basePoint.x, data->basePoint.y, data->basePoint.z);
+  wipeoutData.uPixel =
+      RS_Vector(data->secPoint.x, data->secPoint.y, data->secPoint.z);
+  wipeoutData.vPixel =
+      RS_Vector(data->vVector.x, data->vVector.y, data->vVector.z);
+  wipeoutData.sizeU = data->sizeu;
+  wipeoutData.sizeV = data->sizev;
+  wipeoutData.displayProps = data->m_displayProps;
+  wipeoutData.clip = data->clip;
+  wipeoutData.brightness = data->brightness;
+  wipeoutData.contrast = data->contrast;
+  wipeoutData.fade = data->fade;
+  wipeoutData.clipBoundaryType = data->m_clipBoundaryType;
+  wipeoutData.clipMode = data->clipMode;
+  wipeoutData.clipPath.reserve(data->clipPath.size());
+  for (const DRW_Coord &clipPoint : data->clipPath)
+    wipeoutData.clipPath.emplace_back(clipPoint.x, clipPoint.y, clipPoint.z);
 
-  std::vector<RS_Vector> wcsVerts;
-  wcsVerts.reserve(data->clipPath.size());
-  for (const DRW_Coord &c : data->clipPath) {
-    const double fx = c.x + 0.5;
-    const double fy = c.y + 0.5;
-    wcsVerts.push_back(base + u * (fx * sizeU) + v * (fy * sizeV));
-  }
-
-  auto w = std::make_unique<LC_Wipeout>(
-      m_currentContainer, LC_WipeoutData(std::move(wcsVerts)));
+  auto w = std::make_unique<LC_Wipeout>(m_currentContainer,
+                                         std::move(wipeoutData));
   setEntityAttributes(w.get(), data);
   m_currentContainer->appendEntity(w.release());
 }
@@ -6048,6 +5888,7 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, const RS2::F
     RS_DEBUG->print("RS_FilterDXFDW::fileExport: file type '%d'", type);
 
     this->m_graphic = &g;
+    m_writeFailed = false;
 
     // check if we can write to that directory:
 #ifndef Q_OS_WIN
@@ -6109,7 +5950,7 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, const RS2::F
             reserveAll(md.fieldLists());
             reserveAll(md.fields());
         }
-        bool success = m_dwgW->write(this, dwgVer, false);
+        bool success = m_dwgW->write(this, dwgVer, false) && !m_writeFailed;
         m_lastDwgWriteSkipCounters = m_dwgW->getWriteSkipCounters();
         delete m_dwgW;
         m_dwgW = nullptr;
@@ -6519,7 +6360,8 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, const RS2::F
     }
 
     //    bool success = m_dxfW->write(this, exportVersion, false); //ascii
-    const bool success = m_dxfW->write(this, exportVersion, binary); //binary
+    const bool success = m_dxfW->write(this, exportVersion, binary)
+                         && !m_writeFailed; //binary
     delete m_dxfW;
 
     if (!success) {
@@ -11557,36 +11399,68 @@ void RS_FilterDXFRW::writeImage(const RS_Image * i) {
 }
 
 void RS_FilterDXFRW::writeWipeout(LC_Wipeout *w) {
-  if (m_dwgW) return;
   if (w == nullptr) {
     return;
   }
-  // LC_Wipeout stores the polygon already resolved to WCS, not as
-  // image-pixel coords + basis.  On write we pick a trivial basis
-  //     basePoint=(0,0), u=(1,0), v=(0,1), sizeU=sizeV=1
-  // so that the inverse transform px = v.x - 0.5 / py = v.y - 0.5
-  // (chosen so that the reader's `(p + 0.5) * size * axis + base` round-trips
-  // back to v) yields exactly the original WCS vertices.  This trades
-  // byte-identical round-trip of the original IMAGE-frame fields for a
-  // simpler entity model in LibreCAD; the rendered geometry is preserved.
   DRW_Wipeout img;
   getEntityAttributes(&img, w);
-  img.basePoint = DRW_Coord(0.0, 0.0, 0.0);
-  img.secPoint = DRW_Coord(1.0, 0.0, 0.0);
-  img.vVector = DRW_Coord(0.0, 1.0, 0.0);
-  img.sizeu = 1.0;
-  img.sizev = 1.0;
-  img.clip = 1;
-  img.brightness = 50;
-  img.contrast = 50;
-  img.fade = 0;
-  img.clipMode = false; // 0 = mask outside the polygon (typical WIPEOUT)
-  img.clipPath.clear();
-  img.clipPath.reserve(w->getVertices().size());
-  for (const RS_Vector &v : w->getVertices()) {
-    img.clipPath.emplace_back(v.x - 0.5, v.y - 0.5);
+  const LC_WipeoutData &data = w->getData();
+  if (data.hasNativeFrame) {
+    img.basePoint = DRW_Coord(data.insertionPoint.x, data.insertionPoint.y,
+                              data.insertionPoint.z);
+    img.secPoint = DRW_Coord(data.uPixel.x, data.uPixel.y, data.uPixel.z);
+    img.vVector = DRW_Coord(data.vPixel.x, data.vPixel.y, data.vPixel.z);
+    img.sizeu = data.sizeU;
+    img.sizev = data.sizeV;
+    img.m_displayProps = data.displayProps;
+    img.clip = data.clip;
+    img.brightness = data.brightness;
+    img.contrast = data.contrast;
+    img.fade = data.fade;
+    img.m_clipBoundaryType = data.clipBoundaryType;
+    img.clipMode = data.clipMode;
+    img.clipPath.reserve(data.clipPath.size());
+    for (const RS_Vector &clipPoint : data.clipPath)
+      img.clipPath.emplace_back(clipPoint.x, clipPoint.y, clipPoint.z);
+  } else {
+    // User-created WIPEOUTs have no source frame.  Emit a documented canonical
+    // pixel basis whose inverse maps the world polygon without approximation.
+    img.basePoint = DRW_Coord(0.0, 0.0, 0.0);
+    img.secPoint = DRW_Coord(1.0, 0.0, 0.0);
+    img.vVector = DRW_Coord(0.0, 1.0, 0.0);
+    img.sizeu = 1.0;
+    img.sizev = 1.0;
+    img.clip = 1;
+    img.brightness = 50;
+    img.contrast = 50;
+    img.fade = 0;
+    img.m_clipBoundaryType = 2;
+    img.clipMode = false;
+    img.clipPath.reserve(w->getVertices().size());
+    for (const RS_Vector &vertex : w->getVertices())
+      img.clipPath.emplace_back(vertex.x - 0.5, vertex.y - 0.5, vertex.z);
   }
-  m_dxfW->writeWipeout(&img);
+
+  constexpr std::size_t kMaxDwgWipeoutClipVertices = 100000u;
+  if (img.clipPath.size() > kMaxDwgWipeoutClipVertices) {
+    m_writeFailed = true;
+    RS_DEBUG->print(RS_Debug::D_ERROR,
+                    "RS_FilterDXFRW::writeWipeout: clip path exceeds DWG limit");
+    return;
+  }
+  bool written = false;
+#ifdef DWGSUPPORT
+  if (m_dwgW != nullptr)
+    written = m_dwgW->writeWipeout(&img);
+  else
+#endif
+  if (m_dxfW != nullptr)
+    written = m_dxfW->writeWipeout(&img);
+  if (!written) {
+    m_writeFailed = true;
+    RS_DEBUG->print(RS_Debug::D_ERROR,
+                    "RS_FilterDXFRW::writeWipeout: writer rejected entity");
+  }
 }
 
 /**

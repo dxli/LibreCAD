@@ -995,8 +995,6 @@ set (SHARED_SOURCES
      librecad/src/lib/engine/document/views/lc_viewslist.cpp
      librecad/src/lib/engine/document/views/lc_viewslist.h
      librecad/src/lib/engine/lc_defaults.h
-     librecad/src/lib/engine/lc_import_repair_flags.cpp
-     librecad/src/lib/engine/lc_import_repair_flags.h
      librecad/src/lib/engine/lc_drawable.h
      librecad/src/lib/engine/overlays/angles_base/lc_overlayanglesbasemark.cpp
      librecad/src/lib/engine/overlays/angles_base/lc_overlayanglesbasemark.h
@@ -2411,6 +2409,7 @@ if (BUILD_TESTS)
         librecad/src/lib/filters/tests/underlay_tests.cpp
         librecad/src/lib/filters/tests/dxf_string_codec_tests.cpp
         librecad/src/lib/filters/tests/dxf_attribute_tests.cpp
+        librecad/src/lib/filters/tests/block_insert_wipeout_tests.cpp
         librecad/src/lib/filters/tests/dxf_object_tests.cpp
         librecad/src/lib/filters/tests/mpolygon_tests.cpp
         librecad/src/lib/filters/tests/mpolygon_dwg_tests.cpp
@@ -2463,6 +2462,13 @@ if (BUILD_TESTS)
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
         ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
     )
+    add_test(NAME phase_c_required_tags
+        COMMAND ${CMAKE_COMMAND}
+            -DTEST_EXECUTABLE=$<TARGET_FILE:librecad_tests>
+            -P ${CMAKE_CURRENT_SOURCE_DIR}/librecad/src/lib/filters/tests/verify_phase_c_tags.cmake)
+    set_tests_properties(phase_c_required_tags PROPERTIES
+        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+        ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
 endif ()
 
 qt_add_executable(dwg_tarch_test

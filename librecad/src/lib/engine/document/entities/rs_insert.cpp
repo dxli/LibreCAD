@@ -26,7 +26,12 @@
 
 #include "rs_insert.h"
 
-#include<iostream>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <limits>
+#include <memory>
+#include <vector>
 
 #include "rs_arc.h"
 #include "rs_block.h"
@@ -39,170 +44,164 @@
 #include "rs_math.h"
 #include "rs_pen.h"
 
-class RS_Circle;
-class RS_Arc;
-
 namespace {
 
-// Minimum scaling factor allowed
-constexpr double MIN_Scale_Factor = 1.0e-6;
-constexpr double kExtrusionPlaneTol = 1.0e-6;
-constexpr double kInsertAngleCompoundTol = 1.0e-9;
-constexpr double kBlockAbsCoordSkip = 100000.0;
+// A 2D affine map used solely while expanding INSERTs.  The source fields are
+// the BLOCK base point, INSERT insertion/scale/rotation, MINSERT spacing, and
+// the only two OCS normals representable by LibreCAD's 2D entity model (+Z/-Z).
+// General affine shear and non-planar OCS are rejected before an expansion is
+// committed; approximating either would silently change drawing geometry.
+struct LC_InsertTransform {
+    double a = 1.0;
+    double b = 0.0;
+    double c = 0.0;
+    double d = 1.0;
+    double tx = 0.0;
+    double ty = 0.0;
 
-bool vectorHasWcsCoords(const RS_Vector &v) {
-    return std::abs(v.x) > kBlockAbsCoordSkip || std::abs(v.y) > kBlockAbsCoordSkip;
+    RS_Vector mapPoint(const RS_Vector& point) const {
+        return RS_Vector(a * point.x + c * point.y + tx,
+                         b * point.x + d * point.y + ty, point.z);
+    }
+
+    static LC_InsertTransform compose(const LC_InsertTransform& parent,
+                                      const LC_InsertTransform& child) {
+        LC_InsertTransform result;
+        result.a = parent.a * child.a + parent.c * child.b;
+        result.b = parent.b * child.a + parent.d * child.b;
+        result.c = parent.a * child.c + parent.c * child.d;
+        result.d = parent.b * child.c + parent.d * child.d;
+        result.tx = parent.a * child.tx + parent.c * child.ty + parent.tx;
+        result.ty = parent.b * child.tx + parent.d * child.ty + parent.ty;
+        return result;
+    }
+
+    static bool fromInsert(const RS_InsertData& data, const RS_Vector& base,
+                           int column, int row, LC_InsertTransform& result) {
+        const double sx = data.scaleFactor.x;
+        const double sy = data.scaleFactor.y;
+        if (!std::isfinite(sx) || !std::isfinite(sy) || sx == 0.0 || sy == 0.0
+            || !std::isfinite(data.angle) || !data.insertionPoint.valid
+            || !base.valid) {
+            return false;
+        }
+        // DXF INSERT is OCS.  A 2D document can faithfully represent only the
+        // two axial normals.  The -Z arbitrary-axis basis maps local X to -X.
+        if (!std::isfinite(data.extrusion.x) || !std::isfinite(data.extrusion.y)
+            || !std::isfinite(data.extrusion.z) || data.extrusion.x != 0.0
+            || data.extrusion.y != 0.0 || data.extrusion.z == 0.0) {
+            return false;
+        }
+        const double cosAngle = std::cos(data.angle);
+        const double sinAngle = std::sin(data.angle);
+        result.a = cosAngle * sx;
+        result.b = sinAngle * sx;
+        result.c = -sinAngle * sy;
+        result.d = cosAngle * sy;
+        if (data.extrusion.z < 0.0) {
+            result.a = -result.a;
+            result.b = -result.b;
+        }
+        const RS_Vector arrayOffset(data.spacing.x * column,
+                                    data.spacing.y * row);
+        result.tx = data.insertionPoint.x + cosAngle * arrayOffset.x
+                    - sinAngle * arrayOffset.y - result.a * base.x
+                    - result.c * base.y;
+        result.ty = data.insertionPoint.y + sinAngle * arrayOffset.x
+                    + cosAngle * arrayOffset.y - result.b * base.x
+                    - result.d * base.y;
+        return std::isfinite(result.tx) && std::isfinite(result.ty);
+    }
+
+    // This decomposition is the capability boundary.  Native LibreCAD entity
+    // transforms support translation, rotation, scaling and reflection, but
+    // not a general affine shear.  The epsilon only compares computed values;
+    // it never selects geometry based on drawing-unit magnitude.
+    bool decompose(double& sx, double& sy, double& angle) const {
+        const double col0 = std::hypot(a, b);
+        const double col1 = std::hypot(c, d);
+        const double dot = a * c + b * d;
+        const double tolerance = std::numeric_limits<double>::epsilon()
+                                 * 64.0 * std::max(1.0, col0 * col1);
+        if (!std::isfinite(col0) || !std::isfinite(col1) || col0 == 0.0
+            || col1 == 0.0 || std::abs(dot) > tolerance) {
+            return false;
+        }
+        sx = col0;
+        sy = (a * d - b * c) / col0;
+        angle = std::atan2(b, a);
+        return std::isfinite(sy) && sy != 0.0 && std::isfinite(angle);
+    }
+};
+
+enum class InsertTransformCapability {
+    NativeOrthogonal,
+    CircleToEllipse,
+    ArcToEllipse,
+    NestedInsert
+};
+
+InsertTransformCapability transformCapability(const RS_Entity& entity) {
+    switch (entity.rtti()) {
+    case RS2::EntityCircle:
+        return InsertTransformCapability::CircleToEllipse;
+    case RS2::EntityArc:
+        return InsertTransformCapability::ArcToEllipse;
+    case RS2::EntityInsert:
+        return InsertTransformCapability::NestedInsert;
+    default:
+        // Lines, polylines, splines, ellipses, hatches, text/attributes,
+        // dimensions, images and WIPEOUTs implement the native orthogonal
+        // transform API.  A sheared map is rejected by decompose() above.
+        return InsertTransformCapability::NativeOrthogonal;
+    }
 }
 
-// Nested INSERT ips that lie far outside the parent block's own leaf envelope
-// are almost always absolute WCS grips (chicun sofa/chair assemblies). Treating
-// them as parent-local offsets flings small symbols across model space.
-constexpr double kNestedIpOutsideMargin = 10000.0;
+bool isUniformScale(double sx, double sy) {
+    const double tolerance = std::numeric_limits<double>::epsilon() * 64.0
+                             * std::max({1.0, std::abs(sx), std::abs(sy)});
+    return std::abs(std::abs(sx) - std::abs(sy)) <= tolerance;
+}
 
-bool computeParentLeafEnvelope(RS_Block *blk, RS_Vector &outMin,
-                               RS_Vector &outMax) {
-    if (blk == nullptr)
-        return false;
-    bool any = false;
-    RS_Vector mn(false);
-    RS_Vector mx(false);
-    for (RS_Entity *e : *blk) {
-        if (e == nullptr || e->isContainer())
-            continue;
-        e->calculateBorders();
-        const RS_Vector emin = e->getMin();
-        const RS_Vector emax = e->getMax();
-        if (!emin.valid || !emax.valid)
-            continue;
-        if (!any) {
-            mn = emin;
-            mx = emax;
-            any = true;
-        } else {
-            mn = RS_Vector::minimum(mn, emin);
-            mx = RS_Vector::maximum(mx, emax);
+std::unique_ptr<RS_Entity> cloneForTransform(const RS_Entity& source,
+                                              double sx, double sy) {
+    switch (transformCapability(source)) {
+    case InsertTransformCapability::CircleToEllipse:
+        if (!isUniformScale(sx, sy)) {
+            const auto& circle = static_cast<const RS_Circle&>(source);
+            return std::make_unique<RS_Ellipse>(nullptr,
+                RS_EllipseData{circle.getCenter(), RS_Vector(circle.getRadius(), 0.0),
+                               1.0, 0.0, 2.0 * M_PI, false});
         }
+        break;
+    case InsertTransformCapability::ArcToEllipse:
+        if (!isUniformScale(sx, sy)) {
+            const auto& arc = static_cast<const RS_Arc&>(source);
+            return std::make_unique<RS_Ellipse>(nullptr,
+                RS_EllipseData{arc.getCenter(), RS_Vector(arc.getRadius(), 0.0),
+                               1.0, arc.getAngle1(), arc.getAngle2(), arc.isReversed()});
+        }
+        break;
+    case InsertTransformCapability::NestedInsert:
+        return nullptr;
+    case InsertTransformCapability::NativeOrthogonal:
+        break;
     }
-    if (!any)
+    return std::unique_ptr<RS_Entity>(source.clone());
+}
+
+bool applyTransform(RS_Entity& entity, const LC_InsertTransform& transform) {
+    double sx = 0.0;
+    double sy = 0.0;
+    double angle = 0.0;
+    if (!transform.decompose(sx, sy, angle))
         return false;
-    outMin = mn;
-    outMax = mx;
+    entity.setUpdateEnabled(false);
+    entity.scale(RS_Vector(0.0, 0.0), RS_Vector(sx, sy));
+    entity.rotate(RS_Vector(0.0, 0.0), angle);
+    entity.move(RS_Vector(transform.tx, transform.ty));
+    entity.setUpdateEnabled(true);
     return true;
-}
-
-RS_Vector sanitizeNestedInsertIp(const RS_Vector &ip, const RS_Vector &leafMin,
-                                 const RS_Vector &leafMax, bool haveLeaves) {
-    if (!ip.valid)
-        return ip;
-    RS_Vector r = ip;
-    if (haveLeaves) {
-        if (ip.x < leafMin.x - kNestedIpOutsideMargin
-                || ip.x > leafMax.x + kNestedIpOutsideMargin)
-            r.x = 0.0;
-        if (ip.y < leafMin.y - kNestedIpOutsideMargin
-                || ip.y > leafMax.y + kNestedIpOutsideMargin)
-            r.y = 0.0;
-        return r;
-    }
-    // Parent is insert-only (no direct leaves): still drop huge absolute
-    // components that cannot be parent-local for a compact assembly.
-    constexpr double kAbsNestedIp = 20000.0;
-    if (std::abs(ip.x) > kAbsNestedIp)
-        r.x = 0.0;
-    if (std::abs(ip.y) > kAbsNestedIp)
-        r.y = 0.0;
-    return r;
-}
-
-bool insertEntityReachesNegativeX(const RS_Entity *entity) {
-    if (entity == nullptr)
-        return false;
-    const RS_Vector minPt = entity->getMin();
-    return minPt.valid && minPt.x < -kExtrusionPlaneTol;
-}
-
-// Apply INSERT OCS mirroring before the block->WCS insert chain.
-void applyInsertOcsMirror(RS_Entity *entity, const RS_Vector &extrusion,
-                          const RS_Vector &scale) {
-    if (entity == nullptr)
-        return;
-    const bool negExtrusion = extrusion.z < -kExtrusionPlaneTol;
-    const bool negZScale = scale.z < -kExtrusionPlaneTol;
-    if (negExtrusion && negZScale) {
-        // Extrusion (0,0,-1) with negative z-scale folds any geometry that
-        // reaches block -X onto +X (large-radius arcs centered on +X included).
-        if (insertEntityReachesNegativeX(entity)) {
-            entity->mirror(RS_Vector(0.0, 0.0), RS_Vector(0.0, 1.0));
-        }
-        return;
-    }
-    if (negExtrusion) {
-        entity->mirror(RS_Vector(0.0, 0.0), RS_Vector(1.0, 0.0));
-    }
-    if (negZScale) {
-        entity->mirror(RS_Vector(0.0, 0.0), RS_Vector(0.0, 1.0));
-    }
-}
-
-// Apply one INSERT's block->parent transform to leaf geometry only.
-// RS_Insert::move/scale/rotate must not be used on pre-expanded nested
-// shells — they call update() and destroy transferred children.
-void applyInsertTransformToEntity(RS_Entity *entity, const RS_Vector &arrayOffset,
-                                  const RS_Vector &blockBase,
-                                  const RS_Vector &insertionPoint,
-                                  const RS_Vector &scaleFactor, double angle,
-                                  const RS_Vector &extrusion, bool wcsEmbedded) {
-    if (entity == nullptr)
-        return;
-    applyInsertOcsMirror(entity, extrusion, scaleFactor);
-    entity->move(arrayOffset);
-    if (!wcsEmbedded) {
-        entity->move(blockBase * (-1.0));
-        entity->scale(insertionPoint, scaleFactor);
-        entity->rotate(insertionPoint, angle);
-    }
-}
-
-void reanchorNestedWcsEntity(RS_Entity *entity,
-                             const RS_Vector &nestedInsertIp) {
-    if (entity == nullptr)
-        return;
-    entity->calculateBorders();
-    const RS_Vector center = (entity->getMin() + entity->getMax()) * 0.5;
-    if (!center.valid)
-        return;
-    entity->move(nestedInsertIp - center);
-}
-
-void applyParentInsertTransform(RS_Entity *entity, const RS_Vector &arrayOffset,
-                                const RS_Vector &blockBase,
-                                const RS_Vector &insertionPoint,
-                                const RS_Vector &scaleFactor, double angle,
-                                const RS_Vector &extrusion, bool previewUpdate,
-                                bool wcsEmbeddedChild, bool parentBlockWcs) {
-    if (entity == nullptr)
-        return;
-    if (entity->rtti() == RS2::EntityInsert) {
-        auto *ins = static_cast<RS_Insert *>(entity);
-        for (RS_Entity *sub : *ins) {
-            applyParentInsertTransform(sub, arrayOffset, blockBase, insertionPoint,
-                                       scaleFactor, angle, extrusion, previewUpdate,
-                                       wcsEmbeddedChild, parentBlockWcs);
-        }
-        ins->calculateBorders();
-        return;
-    }
-    entity->setUpdateEnabled(false);
-    // Apply full INSERT transform to all leaves, including WCS wipeouts.
-    // Skipping scale/rotate for wipeouts left chicun "hanging light 1" /
-    // pd.light wipeouts at entity+ip while siblings used scale around ip.
-    applyInsertTransformToEntity(entity, arrayOffset, blockBase, insertionPoint,
-                                 scaleFactor, angle, extrusion,
-                                 /*wcsEmbedded=*/false);
-    entity->setUpdateEnabled(true);
-    if (!previewUpdate) {
-        entity->update();
-    }
 }
 
 // update the entity pen according to the blockPen
@@ -268,7 +267,7 @@ std::ostream& operator <<(std::ostream& os,
  */
 RS_Insert::RS_Insert(RS_EntityContainer* parent,
                      const RS_InsertData& d)
-    : RS_EntityContainer(m_parent)
+    : RS_EntityContainer(parent)
       , m_data(d) {
     if (m_data.updateMode != RS2::NoUpdate) {
         RS_Insert::update();
@@ -289,287 +288,132 @@ RS_Entity* RS_Insert::clone() const{
  */
 void RS_Insert::calculateBorders() {
     RS_EntityContainer::calculateBorders();
-    // Empty inserts (or expands that collapse to a point at the world origin)
-    // used to inherit EntityContainer's corrupt-data fallback of (0,0), which
-    // pinned zoomAuto to the origin even when the insertion grip was re-based
-    // (chicun fdfd/ddegh/ghnah). Prefer the insertion point, or leave borders
-    // invalid for a truly empty insert so adjustBorders skips it.
-    const bool originPin =
-        std::abs(m_minV.x) < 1.0e-9 && std::abs(m_maxV.x) < 1.0e-9
-        && std::abs(m_minV.y) < 1.0e-9 && std::abs(m_maxV.y) < 1.0e-9;
     if (count() == 0) {
-        resetBorders();
-        return;
-    }
-    if (originPin && m_data.insertionPoint.valid) {
-        m_minV = m_data.insertionPoint;
-        m_maxV = m_data.insertionPoint;
+        m_minV = RS_Vector(false);
+        m_maxV = RS_Vector(false);
     }
 }
 
 void RS_Insert::update() {
-
     RS_DEBUG->print("RS_Insert::update");
     RS_DEBUG->print("RS_Insert::update: name: %s", m_data.name.toLatin1().data());
-    //        RS_DEBUG->print("RS_Insert::update: insertionPoint: %f/%f",
-    //                data.insertionPoint.x, data.insertionPoint.y);
-
-    if (m_updateEnabled==false) {
+    if (!m_updateEnabled) {
         return;
     }
-
-    clear();
-
     RS_Block* blk = getBlockForInsert();
     if (blk == nullptr) {
         RS_DEBUG->print("RS_Insert::update: Block is nullptr");
+        clear();
         return;
     }
-    // Font letter INSERTs must never mutate the shared letter geometry.
-    // Prefer EntityFontChar; blockSource is only set for font letter expands
-    // today (RS_Text/RS_MText) and remains a secondary guard.
-    const bool fontLetterInsert = (blk->rtti() == RS2::EntityFontChar)
-            || (m_data.blockSource != nullptr);
-    // prepareForInsertExpansion is gated by LC_REPAIR_BLOCK_DEFS inside.
-    if (!fontLetterInsert)
-        blk->prepareForInsertExpansion();
-
     if (isDeleted()) {
         RS_DEBUG->print("RS_Insert::update: Insert is in undo list");
+        clear();
         return;
     }
+    const bool fontLetterInsert = blk->rtti() == RS2::EntityFontChar
+                                  || m_data.blockSource != nullptr;
+    RS_Pen expansionPen = fontLetterInsert ? getPen(false) : getPen(true);
+    if (fontLetterInsert && !expansionPen.isValid() && m_parent != nullptr)
+        expansionPen = m_parent->getPen(false);
 
-    if (std::abs(m_data.scaleFactor.x)<MIN_Scale_Factor || std::abs(m_data.scaleFactor.y)<MIN_Scale_Factor) {
-        RS_DEBUG->print("RS_Insert::update: scale factor is 0");
-        return;
-    }
+    std::vector<std::unique_ptr<RS_Entity>> expanded;
+    std::vector<const RS_Block*> activeBlocks;
+    const auto appendLeaf = [&](const RS_Entity& source,
+                                const LC_InsertTransform& transform) -> bool {
+        double sx = 0.0;
+        double sy = 0.0;
+        double angle = 0.0;
+        if (!transform.decompose(sx, sy, angle))
+            return false;
+        auto clone = cloneForTransform(source, sx, sy);
+        if (!clone || !applyTransform(*clone, transform))
+            return false;
+        RS_Layer* layer = clone->getLayer();
+        if (layerNameEquals(layer, QStringLiteral("0")))
+            clone->setLayer(getLayer());
+        else if (layer != nullptr && validatedLayer(layer) == nullptr)
+            clone->setLayer(nullptr);
+        clone->setParent(this);
+        clone->setVisible(getFlag(RS2::FlagVisible));
+        clone->setSelectionFlag(false);
+        clone->setPen(updatePen(clone->getPen(false), expansionPen));
+        if (m_data.updateMode != RS2::PreviewUpdate)
+            clone->update();
+        expanded.push_back(std::move(clone));
+        return true;
+    };
 
-    RS_DEBUG->print("RS_Insert::update: cols: %d, rows: %d",
-                    m_data.cols, m_data.rows);
-    RS_DEBUG->print("RS_Insert::update: block has %d entities",
-                    blk->count());
-    // Pen used when expanding block members. Document inserts resolve ByLayer
-    // via getPen(). Font letter inserts intentionally have null layer +
-    // invalid pen (RS_Text::update); resolving ByLayer walks the text parent
-    // and can crash if layer state is mid-import. Keep unresolved pens.
-    RS_Pen expansionPen = getPen(false);
-    if (fontLetterInsert) {
-        if (!expansionPen.isValid() && m_parent != nullptr)
-            expansionPen = m_parent->getPen(false);
-    } else {
-        expansionPen = getPen(true);
-    }
-    const bool parentBlockWcs =
-        fontLetterInsert ? false : blk->hasWcsEmbeddedGeometry();
-    RS_Vector parentLeafMin(false);
-    RS_Vector parentLeafMax(false);
-    const bool haveParentLeaves =
-        computeParentLeafEnvelope(blk, parentLeafMin, parentLeafMax);
-        for(auto* e: *blk){
-            for (int c=0; c<m_data.cols; ++c) {
-//            RS_DEBUG->print("RS_Insert::update: col %d", c);
-                for (int r=0; r<m_data.rows; ++r) {
-//                i_en_counts++;
-//                RS_DEBUG->print("RS_Insert::update: row %d", r);
-                    // fixme - sand - this is quick fix for #2177 - yet it's necessary to check why undone entity is in block?
-                    if (e->isDeleted()) {
-                        continue;
-                    }
-//                                RS_DEBUG->print("RS_Insert::update: cloning entity");
-
-                    RS_Vector arrayOffset = m_data.insertionPoint;
-                    if (std::abs(m_data.scaleFactor.x)>MIN_Scale_Factor &&
-                            std::abs(m_data.scaleFactor.y)>MIN_Scale_Factor) {
-                        arrayOffset += RS_Vector(m_data.spacing.x/m_data.scaleFactor.x*c,
-                                                 m_data.spacing.y/m_data.scaleFactor.y*r);
-                    }
-
-                    if (e->rtti() == RS2::EntityInsert) {
-                        const auto* childIns = static_cast<const RS_Insert*>(e);
-                        RS_Block *childBlk = childIns->getBlockForInsert();
-                        const bool childWcs = childBlk != nullptr
-                                && childBlk->hasWcsEmbeddedGeometry();
-                        const bool parentRotates =
-                            std::abs(m_data.angle) >= kInsertAngleCompoundTol;
-                        // Zero nested IP components that sit far outside the
-                        // parent leaf envelope (WCS grips mis-tagged as local).
-                        RS_InsertData childData = childIns->getData();
-                        const RS_Vector rawNestedIp = childData.insertionPoint;
-                        childData.insertionPoint = sanitizeNestedInsertIp(
-                            childData.insertionPoint, parentLeafMin, parentLeafMax,
-                            haveParentLeaves);
-                        const bool nestedIpSanitized =
-                            childData.insertionPoint.x != rawNestedIp.x
-                            || childData.insertionPoint.y != rawNestedIp.y;
-
-                        // WCS-in-block children nested inside a local parent (CUSH,
-                        // FLOOWER1, LNG-13, ch00a) must expand first: compound
-                        // INSERT data carries WCS absolute grips that misplace
-                        // arcs/wipeouts. WCS-in-WCS wipeout children still need
-                        // expand when the parent rotates or hosts wipeouts.
-                        // Also expand when the nested IP was sanitized from abs
-                        // grips (ch00a/cush1 under local assemblies).
-                        const bool needNestedExpand = parentRotates
-                                || (childWcs && childBlk != nullptr
-                                    && !parentBlockWcs)
-                                || (childWcs && childBlk != nullptr
-                                    && parentBlockWcs
-                                    && childBlk->hasWipeoutEntities())
-                                || (nestedIpSanitized && childWcs);
-                        RS_Layer *childLayer = e->getLayer();
-
-                        if (!needNestedExpand) {
-                            auto* ne = new RS_Insert(this, childData);
-                            ne->setOwner(true);
-                            ne->setUpdateEnabled(false);
-                            // validatedLayer: block members can hold dangling
-                            // layer pointers after DWG import (crash in getName).
-                            if (layerNameEquals(childLayer, QStringLiteral("0")))
-                                ne->setLayer(getLayer());
-                            else if (validatedLayer(childLayer) == nullptr
-                                     && childLayer != nullptr)
-                                ne->setLayer(nullptr);
-                            else
-                                ne->setLayer(childLayer);
-                            ne->setVisible(getFlag(RS2::FlagVisible));
-                            ne->move(arrayOffset);
-                            ne->move(blk->getBasePoint() * (-1.0));
-                            ne->scale(m_data.insertionPoint, m_data.scaleFactor);
-                            ne->rotate(m_data.insertionPoint, m_data.angle);
-                            // Selection policy A: expand buffer is never selected;
-                            // only the parent INSERT participates in the selection set.
-                            ne->setSelectionFlag(false);
-                            ne->setPen(updatePen(ne->getPen(false), expansionPen));
-                            ne->setUpdateEnabled(true);
-                            if (m_data.updateMode != RS2::PreviewUpdate) {
-                                ne->update();
-                            }
-                            appendEntity(ne);
-                            continue;
-                        }
-
-                        // Parent rotates or WCS wipeout child: expand first,
-                        // then transform leaves. Compounding fails when rotation
-                        // and negative scale combine (chicun 015/A$C446327FF).
-                        auto* childExpand = new RS_Insert(this, childData);
-                        childExpand->setOwner(true);
-                        childExpand->setUpdateEnabled(false);
-                        if (layerNameEquals(childLayer, QStringLiteral("0")))
-                            childExpand->setLayer(getLayer());
-                        else if (validatedLayer(childLayer) == nullptr
-                                 && childLayer != nullptr)
-                            childExpand->setLayer(nullptr);
-                        else
-                            childExpand->setLayer(childLayer);
-                        childExpand->setVisible(getFlag(RS2::FlagVisible));
-                        childExpand->setSelectionFlag(false);
-                        childExpand->setPen(updatePen(childExpand->getPen(false), expansionPen));
-                        childExpand->setUpdateEnabled(true);
-                        childExpand->update();
-
-                        for (RS_Entity* gc : *childExpand) {
-                            if (layerNameEquals(gc->getLayer(),
-                                                QStringLiteral("0")))
-                                gc->setLayer(getLayer());
-                            else if (validatedLayer(gc->getLayer()) == nullptr
-                                     && gc->getLayer() != nullptr)
-                                gc->setLayer(nullptr);
-                            gc->setVisible(getFlag(RS2::FlagVisible));
-                            gc->setSelectionFlag(false);
-                            gc->setPen(updatePen(gc->getPen(false), expansionPen));
-
-                            if (childWcs && !parentBlockWcs) {
-                                RS_Vector nestedTarget =
-                                    childData.insertionPoint;
-                                // FLOOWER1/CUSH/chicun: WCS child INSERT grips stored
-                                // as absolute coords inside a local parent block.
-                                if (vectorHasWcsCoords(nestedTarget)
-                                        || nestedIpSanitized)
-                                    nestedTarget = RS_Vector(0., 0.);
-                                reanchorNestedWcsEntity(gc, nestedTarget);
-                            }
-
-                            applyParentInsertTransform(
-                                gc, arrayOffset, blk->getBasePoint(),
-                                m_data.insertionPoint, m_data.scaleFactor,
-                                m_data.angle, m_data.extrusion,
-                                m_data.updateMode == RS2::PreviewUpdate,
-                                childWcs, parentBlockWcs);
-                        }
-                        childExpand->calculateBorders();
-                        appendEntity(childExpand);
-                        continue;
-                    }
-
-                    RS_Entity* ne = nullptr;
-                    if ( (m_data.scaleFactor.x - m_data.scaleFactor.y)>MIN_Scale_Factor) {
-                        if (e->rtti()== RS2::EntityArc) {
-                            auto a= static_cast<RS_Arc*>(e);
-                            ne = new RS_Ellipse{this,
-                            {a->getCenter(), {a->getRadius(), 0.},
-                                    1, a->getAngle1(), a->getAngle2(),
-                                    a->isReversed()}};
-                            ne->setLayer(validatedLayer(e->getLayer()));
-                            ne->setPen(e->getPen(false));
-                        } else if (e->rtti()== RS2::EntityCircle) {
-                            auto a= static_cast<RS_Circle*>(e);
-                            ne = new RS_Ellipse{this,
-                            { a->getCenter(), {a->getRadius(), 0.}, 1, 0., 2.*M_PI, false}};
-                            ne->setLayer(validatedLayer(e->getLayer()));
-                            ne->setPen(e->getPen(false));
-                        } else {
-                            ne = e->clone();
-                        }
-                    } else {
-                        ne = e->clone();
-                    }
-                    ne->setUpdateEnabled(false);
-                // if entity layer are 0 set to insert layer to allow "1 layer control" bug ID #3602152
-                    // special fontchar block don't have a document layer
-                    RS_Layer *l = ne->getLayer();
-                    if (layerNameEquals(l, QStringLiteral("0")))
-                        ne->setLayer(getLayer());
-                    else if (validatedLayer(l) == nullptr && l != nullptr)
-                        ne->setLayer(nullptr);
-                    ne->setParent(this);
-                    ne->setVisible(getFlag(RS2::FlagVisible));
-
-                    // Full transform for every leaf (including wipeouts in WCS
-                    // blocks). See applyParentInsertTransform above.
-                    applyInsertTransformToEntity(
-                        ne, arrayOffset, blk->getBasePoint(),
-                        m_data.insertionPoint, m_data.scaleFactor, m_data.angle,
-                        m_data.extrusion, /*wcsEmbedded=*/false);
-
-                   // RS_DEBUG->print(RS_Debug::D_ERROR, "ne: angle: %lg\n", data.angle);
-                // Selection policy A: only parent INSERT is selected.
-                    ne->setSelectionFlag(false);
-
-                // individual entities can be on indiv. layers
-                    RS_Pen tmpPen = updatePen(ne->getPen(false), expansionPen);
-                // now that we've evaluated all flags, let's strip them:
-                // TODO: strip all flags (width, line type)
-                //tmpPen.setColor(tmpPen.getColor().stripFlags());
-                    ne->setPen(tmpPen);
-
-                    ne->setUpdateEnabled(true);
-
-                // insert must be updated even in preview mode
-                    if (m_data.updateMode != RS2::PreviewUpdate
-                            || ne->rtti() == RS2::EntityInsert) {
-                        //RS_DEBUG->print("RS_Insert::update: updating new entity");
-                        ne->update();
-                    }
-
-//                                RS_DEBUG->print("RS_Insert::update: adding new entity");
-                    appendEntity(ne);
-//                std::cout<<"done # of entity: "<<i_en_counts<<std::endl;
+    const auto expandBlock = [&](auto&& self, const RS_Block& sourceBlock,
+                                 const LC_InsertTransform& transform) -> bool {
+        if (std::find(activeBlocks.cbegin(), activeBlocks.cend(), &sourceBlock)
+            != activeBlocks.cend()) {
+            RS_DEBUG->print(RS_Debug::D_ERROR,
+                            "RS_Insert::update: recursive block reference rejected");
+            return false;
+        }
+        activeBlocks.push_back(&sourceBlock);
+        for (const RS_Entity* source : sourceBlock) {
+            if (source == nullptr || source->isDeleted())
+                continue;
+            if (source->rtti() == RS2::EntityInsert) {
+                const auto& nested = static_cast<const RS_Insert&>(*source);
+                RS_Block* nestedBlock = nested.getBlockForInsert();
+                if (nestedBlock == nullptr) {
+                    activeBlocks.pop_back();
+                    return false;
                 }
+                const RS_InsertData nestedData = nested.getData();
+                for (int column = 0; column < nestedData.cols; ++column) {
+                    for (int row = 0; row < nestedData.rows; ++row) {
+                        LC_InsertTransform child;
+                        if (!LC_InsertTransform::fromInsert(nestedData,
+                                                            nestedBlock->getBasePoint(),
+                                                            column, row, child)
+                            || !self(self, *nestedBlock,
+                                     LC_InsertTransform::compose(transform, child))) {
+                            activeBlocks.pop_back();
+                            return false;
+                        }
+                    }
+                }
+                continue;
+            }
+            if (!appendLeaf(*source, transform)) {
+                activeBlocks.pop_back();
+                return false;
             }
         }
-        calculateBorders();
+        activeBlocks.pop_back();
+        return true;
+    };
 
-        RS_DEBUG->print("RS_Insert::update: OK");
+    bool success = true;
+    for (int column = 0; success && column < m_data.cols; ++column) {
+        for (int row = 0; success && row < m_data.rows; ++row) {
+            LC_InsertTransform transform;
+            success = LC_InsertTransform::fromInsert(m_data, blk->getBasePoint(),
+                                                      column, row, transform)
+                      && expandBlock(expandBlock, *blk, transform);
+        }
+    }
+
+    // Commit only a fully expanded tree.  Failed cycles, unsupported non-planar
+    // OCS, and nonrepresentable shear leave this INSERT empty, never partial.
+    clear();
+    if (!success) {
+        RS_DEBUG->print(RS_Debug::D_ERROR,
+                        "RS_Insert::update: expansion rejected without partial children");
+        calculateBorders();
+        return;
+    }
+    const bool oldAutoUpdateBorders = getAutoUpdateBorders();
+    setAutoUpdateBorders(false);
+    for (auto& entity : expanded)
+        appendEntity(entity.release());
+    setAutoUpdateBorders(oldAutoUpdateBorders);
+    calculateBorders();
+    RS_DEBUG->print("RS_Insert::update: OK");
 }
 
 /**

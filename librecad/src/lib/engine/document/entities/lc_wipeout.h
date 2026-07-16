@@ -36,7 +36,26 @@ struct LC_WipeoutData {
   explicit LC_WipeoutData(std::vector<RS_Vector> verts)
       : vertices(std::move(verts)) {}
 
+  // Imported WIPEOUTs retain their raster-image frame verbatim.  `vertices`
+  // is always derived from this frame for drawing/hit testing; it is never an
+  // alternate source of truth while hasNativeFrame is true.
+  bool hasNativeFrame = false;
+  RS_Vector insertionPoint;
+  RS_Vector uPixel;
+  RS_Vector vPixel;
+  double sizeU = 0.0;
+  double sizeV = 0.0;
+  int displayProps = 0;
+  int clip = 0;
+  int brightness = 50;
+  int contrast = 50;
+  int fade = 0;
+  int clipBoundaryType = 2;
+  bool clipMode = false;
+  std::vector<RS_Vector> clipPath;
   std::vector<RS_Vector> vertices;
+
+  void rebuildWorldVertices();
 };
 
 class LC_Wipeout : public RS_AtomicEntity {
@@ -60,7 +79,7 @@ public:
   void scale(const RS_Vector &center, const RS_Vector &factor) override;
   void mirror(const RS_Vector &axisPoint1,
               const RS_Vector &axisPoint2) override;
-  RS_Entity &shear([[maybe_unused]] double k) override { return *this; }
+  RS_Entity &shear(double k) override;
 
 protected:
   LC_WipeoutData m_data;

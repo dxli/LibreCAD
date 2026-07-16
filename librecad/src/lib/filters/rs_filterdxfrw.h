@@ -517,6 +517,9 @@ private:
     dwgRW *m_dwgW {nullptr};
     dwgRW::WriteSkipCounters m_lastDwgWriteSkipCounters;
 #endif
+    // DRW_Interface write callbacks are void. Preserve callback failures until
+    // fileExport can return them to the caller instead of reporting success.
+    bool m_writeFailed {false};
     /** If saved version are 2004 or above can save color in RGB value. */
     bool m_exactColor = false;
     /** hash of block containers and handleBlock numbers to read dwg files */

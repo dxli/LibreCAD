@@ -200,26 +200,8 @@ public:
     void addByBlockEntity(RS_Entity* entity);
 
 
-    /**
-     * True when block geometry is stored at model-scale coordinates inside
-     * block space (envelope beyond +/-100k). Cached during DWG import.
-     */
-    bool hasWcsEmbeddedGeometry();
-
-    /** True when the block definition contains WIPEOUT entities. */
-    bool hasWipeoutEntities() const;
-
-    /**
-     * Normalize parametric block geometry onto basePoint and prime cached
-     * import flags. Called lazily when a block is first expanded by INSERT.
-     */
-    void prepareForInsertExpansion();
-
 protected:
     RS_BlockData m_data;
-    mutable signed char m_wcsEmbeddedGeometry = -1;
-    mutable signed char m_hasWipeoutEntities = -1;
-    signed char m_preparedForInsert = -1;
 };
 
 #endif

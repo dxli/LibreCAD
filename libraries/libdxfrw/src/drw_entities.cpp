@@ -7475,6 +7475,11 @@ bool DRW_Image::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs)
 bool DRW_Image::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t bs,
                           dwgBufferW *strBuf, dwgBufferW *handleBuf) {
     (void)bs; (void)strBuf;
+    constexpr std::size_t kMaxClipVerts = 100000u;
+    if (clipPath.size() > kMaxClipVerts) {
+        DRW_DBG("IMAGE clip vertices exceed DWG limit\n");
+        return false;
+    }
     oType = 101;  // IMAGE class id — see dwgreader.cpp case 101
     if (!encodeDwgCommon(version, buf)) return false;
 
@@ -7498,19 +7503,8 @@ bool DRW_Image::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t b
         // Always emit polygon type 2 — reader expands a stored rect (type 1)
         // into a 4-vertex polygon, so re-emit it as a polygon, never type 1.
         buf->putBitShort(2);
-        // Clamp to the count parseDwg accepts (it rejects clipType==2 with
-        // numVerts > 100000, dropping the entity on re-read). The DXF parseCode
-        // path (code 91) has no such bound, so a DXF-sourced clip can exceed it;
-        // cap on encode and emit exactly that many vertices. Compute the min on
-        // size_t (NOT a pre-cast int32) so an enormous size cannot wrap negative.
-        constexpr std::size_t kMaxClipVerts = 100000u;
-        const std::size_t emitVerts = std::min(clipPath.size(), kMaxClipVerts);
-        if (clipPath.size() > kMaxClipVerts) {
-            DRW_DBG("IMAGE clip vertices truncated to 100000 (was ");
-            DRW_DBG(static_cast<int>(clipPath.size())); DRW_DBG(")\n");
-        }
-        buf->putBitLong(static_cast<std::int32_t>(emitVerts));
-        for (std::size_t i = 0; i < emitVerts; ++i)
+        buf->putBitLong(static_cast<std::int32_t>(clipPath.size()));
+        for (std::size_t i = 0; i < clipPath.size(); ++i)
             buf->put2RawDouble(clipPath[i]);
     }
 
@@ -7543,6 +7537,11 @@ bool DRW_Wipeout::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t b
 bool DRW_Wipeout::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t bs,
                              dwgBufferW *strBuf, dwgBufferW *handleBuf) {
     (void)bs; (void)strBuf;
+    constexpr std::size_t kMaxClipVerts = 100000u;
+    if (clipPath.size() > kMaxClipVerts) {
+        DRW_DBG("WIPEOUT clip vertices exceed DWG limit\n");
+        return false;
+    }
     oType = 1109;
     if (!encodeDwgCommon(version, buf)) return false;
 
@@ -7564,14 +7563,8 @@ bool DRW_Wipeout::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t
         buf->putBitShort(0);
     } else {
         buf->putBitShort(2);
-        constexpr std::size_t kMaxClipVerts = 100000u;
-        const std::size_t emitVerts = std::min(clipPath.size(), kMaxClipVerts);
-        if (clipPath.size() > kMaxClipVerts) {
-            DRW_DBG("WIPEOUT clip vertices truncated to 100000 (was ");
-            DRW_DBG(static_cast<int>(clipPath.size())); DRW_DBG(")\n");
-        }
-        buf->putBitLong(static_cast<std::int32_t>(emitVerts));
-        for (std::size_t i = 0; i < emitVerts; ++i)
+        buf->putBitLong(static_cast<std::int32_t>(clipPath.size()));
+        for (std::size_t i = 0; i < clipPath.size(); ++i)
             buf->put2RawDouble(clipPath[i]);
     }
 

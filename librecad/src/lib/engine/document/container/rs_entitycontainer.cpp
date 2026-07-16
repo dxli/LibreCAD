@@ -545,15 +545,6 @@ void RS_EntityContainer::adjustBorders(const RS_Entity* entity) {
             const RS_Vector emax = entity->getMax();
             if (!emin.valid || !emax.valid)
                 return;
-            // Degenerate point at the world origin is almost always a corrupt
-            // empty expand (empty INSERT / empty text), not real geometry.
-            // Including it pins MDI resize forcedCalculateBorders to (0,0).
-            if (std::abs(emin.x) < 1.0e-9 && std::abs(emax.x) < 1.0e-9
-                    && std::abs(emin.y) < 1.0e-9 && std::abs(emax.y) < 1.0e-9
-                    && std::abs(emax.x - emin.x) < 1.0e-9
-                    && std::abs(emax.y - emin.y) < 1.0e-9) {
-                return;
-            }
             m_minV = RS_Vector::minimum(emin, m_minV);
             m_maxV = RS_Vector::maximum(emax, m_maxV);
         }
@@ -583,14 +574,12 @@ void RS_EntityContainer::calculateBorders() {
 
     RS_DEBUG->print("RS_EntityContainer::calculateBorders: size 1: %f,%f", getSize().x, getSize().y);
 
-    // needed for correcting corrupt data (PLANS.dxf)
-    if (m_minV.x > m_maxV.x || m_minV.x > RS_MAXDOUBLE || m_maxV.x > RS_MAXDOUBLE || m_minV.x < RS_MINDOUBLE || m_maxV.x < RS_MINDOUBLE) {
-        m_minV.x = 0.0;
-        m_maxV.x = 0.0;
-    }
-    if (m_minV.y > m_maxV.y || m_minV.y > RS_MAXDOUBLE || m_maxV.y > RS_MAXDOUBLE || m_minV.y < RS_MINDOUBLE || m_maxV.y < RS_MINDOUBLE) {
-        m_minV.y = 0.0;
-        m_maxV.y = 0.0;
+    if (!m_minV.valid || !m_maxV.valid || m_minV.x > m_maxV.x
+            || m_minV.y > m_maxV.y || !std::isfinite(m_minV.x)
+            || !std::isfinite(m_minV.y) || !std::isfinite(m_maxV.x)
+            || !std::isfinite(m_maxV.y)) {
+        m_minV = RS_Vector(false);
+        m_maxV = RS_Vector(false);
     }
 
     RS_DEBUG->print("RS_EntityContainer::calculateBorders: size: %f,%f", getSize().x, getSize().y);
@@ -619,14 +608,12 @@ void RS_EntityContainer::forcedCalculateBorders() {
         adjustBorders(e);
     }
 
-    // needed for correcting corrupt data (PLANS.dxf)
-    if (m_minV.x > m_maxV.x || m_minV.x > RS_MAXDOUBLE || m_maxV.x > RS_MAXDOUBLE || m_minV.x < RS_MINDOUBLE || m_maxV.x < RS_MINDOUBLE) {
-        m_minV.x = 0.0;
-        m_maxV.x = 0.0;
-    }
-    if (m_minV.y > m_maxV.y || m_minV.y > RS_MAXDOUBLE || m_maxV.y > RS_MAXDOUBLE || m_minV.y < RS_MINDOUBLE || m_maxV.y < RS_MINDOUBLE) {
-        m_minV.y = 0.0;
-        m_maxV.y = 0.0;
+    if (!m_minV.valid || !m_maxV.valid || m_minV.x > m_maxV.x
+            || m_minV.y > m_maxV.y || !std::isfinite(m_minV.x)
+            || !std::isfinite(m_minV.y) || !std::isfinite(m_maxV.x)
+            || !std::isfinite(m_maxV.y)) {
+        m_minV = RS_Vector(false);
+        m_maxV = RS_Vector(false);
     }
 }
 
