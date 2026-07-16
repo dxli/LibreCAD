@@ -179,11 +179,10 @@ public:
     bool isVisible() const override;
 
     RS_VectorSolutions getRefPoints() const override;
-    RS_Vector getMiddlePoint(void) const  override{
+
+    RS_Vector getMiddlePoint() const override {
         return {};
     }
-    RS_Vector getNearestRef(const RS_Vector& coord,
-                            double* dist = nullptr) const override;
 
     void move(const RS_Vector& offset) override;
     void rotate(const RS_Vector& center, double angle) override;
@@ -191,11 +190,13 @@ public:
     void scale(const RS_Vector& center, const RS_Vector& factor) override;
     void mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) override;
 
-    friend std::ostream& operator << (std::ostream& os, const RS_Insert& i);
+    friend std::ostream& operator <<(std::ostream& os, const RS_Insert& i);
 
 protected:
-    RS_InsertData m_data{};
+    RS_InsertData m_data;
     mutable RS_Block* m_block = nullptr;
+
+    RS_Vector doGetNearestRef(const RS_Vector& coord, double* dist = nullptr) const override;
 };
 
 

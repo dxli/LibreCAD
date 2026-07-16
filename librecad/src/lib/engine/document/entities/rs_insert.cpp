@@ -268,7 +268,7 @@ std::ostream& operator <<(std::ostream& os,
  */
 RS_Insert::RS_Insert(RS_EntityContainer* parent,
                      const RS_InsertData& d)
-    : RS_EntityContainer(parent)
+    : RS_EntityContainer(m_parent)
       , m_data(d) {
     if (m_data.updateMode != RS2::NoUpdate) {
         RS_Insert::update();
@@ -295,15 +295,15 @@ void RS_Insert::calculateBorders() {
     // (chicun fdfd/ddegh/ghnah). Prefer the insertion point, or leave borders
     // invalid for a truly empty insert so adjustBorders skips it.
     const bool originPin =
-        std::abs(minV.x) < 1.0e-9 && std::abs(maxV.x) < 1.0e-9
-        && std::abs(minV.y) < 1.0e-9 && std::abs(maxV.y) < 1.0e-9;
+        std::abs(m_minV.x) < 1.0e-9 && std::abs(m_maxV.x) < 1.0e-9
+        && std::abs(m_minV.y) < 1.0e-9 && std::abs(m_maxV.y) < 1.0e-9;
     if (count() == 0) {
         resetBorders();
         return;
     }
     if (originPin && m_data.insertionPoint.valid) {
-        minV = m_data.insertionPoint;
-        maxV = m_data.insertionPoint;
+        m_minV = m_data.insertionPoint;
+        m_maxV = m_data.insertionPoint;
     }
 }
 
@@ -314,7 +314,7 @@ void RS_Insert::update() {
     //        RS_DEBUG->print("RS_Insert::update: insertionPoint: %f/%f",
     //                data.insertionPoint.x, data.insertionPoint.y);
 
-    if (updateEnabled==false) {
+    if (m_updateEnabled==false) {
         return;
     }
 
@@ -335,7 +335,7 @@ void RS_Insert::update() {
     if (!fontLetterInsert)
         blk->prepareForInsertExpansion();
 
-    if (isUndone()) {
+    if (isDeleted()) {
         RS_DEBUG->print("RS_Insert::update: Insert is in undo list");
         return;
     }
@@ -355,8 +355,8 @@ void RS_Insert::update() {
     // and can crash if layer state is mid-import. Keep unresolved pens.
     RS_Pen expansionPen = getPen(false);
     if (fontLetterInsert) {
-        if (!expansionPen.isValid() && parent != nullptr)
-            expansionPen = parent->getPen(false);
+        if (!expansionPen.isValid() && m_parent != nullptr)
+            expansionPen = m_parent->getPen(false);
     } else {
         expansionPen = getPen(true);
     }
@@ -373,7 +373,7 @@ void RS_Insert::update() {
 //                i_en_counts++;
 //                RS_DEBUG->print("RS_Insert::update: row %d", r);
                     // fixme - sand - this is quick fix for #2177 - yet it's necessary to check why undone entity is in block?
-                    if (e->isUndone()) {
+                    if (e->isDeleted()) {
                         continue;
                     }
 //                                RS_DEBUG->print("RS_Insert::update: cloning entity");
@@ -437,7 +437,7 @@ void RS_Insert::update() {
                             ne->move(blk->getBasePoint() * (-1.0));
                             ne->scale(m_data.insertionPoint, m_data.scaleFactor);
                             ne->rotate(m_data.insertionPoint, m_data.angle);
-                            ne->setSelected(isSelected());
+                            ne->setSelectionFlag(isSelected());
                             ne->setPen(updatePen(ne->getPen(false), expansionPen));
                             ne->setUpdateEnabled(true);
                             if (m_data.updateMode != RS2::PreviewUpdate) {
@@ -461,7 +461,7 @@ void RS_Insert::update() {
                         else
                             childExpand->setLayer(childLayer);
                         childExpand->setVisible(getFlag(RS2::FlagVisible));
-                        childExpand->setSelected(isSelected());
+                        childExpand->setSelectionFlag(isSelected());
                         childExpand->setPen(updatePen(childExpand->getPen(false), expansionPen));
                         childExpand->setUpdateEnabled(true);
                         childExpand->update();
@@ -474,7 +474,7 @@ void RS_Insert::update() {
                                      && gc->getLayer() != nullptr)
                                 gc->setLayer(nullptr);
                             gc->setVisible(getFlag(RS2::FlagVisible));
-                            gc->setSelected(isSelected());
+                            gc->setSelectionFlag(isSelected());
                             gc->setPen(updatePen(gc->getPen(false), expansionPen));
 
                             if (childWcs && !parentBlockWcs) {
@@ -542,7 +542,7 @@ void RS_Insert::update() {
 
                    // RS_DEBUG->print(RS_Debug::D_ERROR, "ne: angle: %lg\n", data.angle);
                 // Select:
-                    ne->setSelected(isSelected());
+                    ne->setSelectionFlag(isSelected());
 
                 // individual entities can be on indiv. layers
                     RS_Pen tmpPen = updatePen(ne->getPen(false), expansionPen);
@@ -627,9 +627,8 @@ RS_VectorSolutions RS_Insert::getRefPoints() const{
     return RS_VectorSolutions{m_data.insertionPoint};
 }
 
-RS_Vector RS_Insert::getNearestRef(const RS_Vector& coord,
-									 double* dist) const{
-        return getRefPoints().getClosest(coord, dist);
+RS_Vector RS_Insert::doGetNearestRef(const RS_Vector& coord, double* dist) const {
+    return getRefPoints().getClosest(coord, dist);
 }
 
 void RS_Insert::move(const RS_Vector& offset) {
