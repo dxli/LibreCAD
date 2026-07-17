@@ -2047,8 +2047,10 @@ bool DRW_Header::parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer *hBbuf
     // double `julianDay + msec/86_400_000.0`, so combine them with that ratio
     // (NOT the historic "divide by 10 until <1" loop, which produced lossy
     // and non-deterministic noise for any wall-clock time).
-    constexpr double kMsecPerDay = 86400000.0;
+    // Keep kMsecPerDay inside the lambda: MSVC rejects uncaptured constexpr
+    // locals in C++17 lambdas (error C3493).
     auto readJulianDate = [buf]() {
+        constexpr double kMsecPerDay = 86400000.0;
         const std::int32_t day = buf->getBitLong();
         const std::int32_t msec = buf->getBitLong();
         return static_cast<double>(day) + static_cast<double>(msec) / kMsecPerDay;
