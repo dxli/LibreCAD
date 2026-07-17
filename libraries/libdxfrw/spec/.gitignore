@@ -1,0 +1,9 @@
+# ODA "Open Design Specification for .dwg files" (Copyright (c) 1998-2018 Open
+# Design Alliance, All rights reserved, RESTRICTED RIGHTS). No redistribution
+# grant. This directory holds developer-local, sha256-pinned copies of the
+# spec text and its source PDF; they must NEVER be committed to this GPL repo.
+# The canonical hash pins live in scripts/conformance/SOURCES.json.
+# See ~/.claude/plans/libdxfrw-spec-conformance-2026-07-17-round3.md Appendix R.1.
+dwg_spec.txt
+dwg.pdf
+*.pdf

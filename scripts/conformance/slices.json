@@ -1,0 +1,71 @@
+[
+  {
+    "id": "00-T-antiloss",
+    "kind": "T",
+    "phase": "P0",
+    "phase_ord": 0,
+    "key": "antiloss",
+    "title": "Anti-loss protocol: branch + directory structure + spec substrate + seed artifacts",
+    "sp_ref": "SP1.8",
+    "plan_anchor": "subplans#SP1.8",
+    "acceptance": [
+      "branch conformance/spec-review-2026-07 created and pushed",
+      "libraries/libdxfrw/spec/.gitignore present, blocks dwg_spec.txt + dwg.pdf",
+      "SOURCES.json records sha256 of spec text (14992 lines) and PDF",
+      "sed -n '10471p' spec startswith '20.4.75 HATCH'",
+      "BRIEF.md, BASELINE.md, BASELINE.failures, findings.json:[], errata.json seeded present"
+    ],
+    "deps": [],
+    "ledger_units": [],
+    "findings_shard": null,
+    "coverage_boundary": null,
+    "branch": "conformance/spec-review-2026-07",
+    "gate": { "cmd": "check_antiloss.py", "tier": "cheap" }
+  },
+  {
+    "id": "00-T-extract-spec",
+    "kind": "T",
+    "phase": "P0",
+    "phase_ord": 0,
+    "key": "extract-spec",
+    "title": "extract_spec.py → spec_fields.json (104 units, 1466 rows)",
+    "sp_ref": "SP1.1",
+    "plan_anchor": "subplans#SP1.1",
+    "acceptance": [
+      "104 units, 1466 data rows extracted",
+      "SPLINE 20+3struct, VPORT 58, HATCH 68, MTEXT 35+3struct",
+      "descText non-empty >=95% of field rows",
+      "exit 2 on wrong 31865-line file",
+      "descText committed only as hash, not verbatim prose (round-3 B1)"
+    ],
+    "deps": ["00-T-antiloss"],
+    "ledger_units": [],
+    "findings_shard": null,
+    "coverage_boundary": null,
+    "branch": "conformance/spec-review-2026-07",
+    "gate": { "cmd": "extract_spec.py --selfcheck", "tier": "cheap" }
+  },
+  {
+    "id": "00-T-bounds",
+    "kind": "T",
+    "phase": "P0",
+    "phase_ord": 0,
+    "key": "bounds",
+    "title": "bounds.py → brace-matched Class::method ranges",
+    "sp_ref": "SP1.2",
+    "plan_anchor": "subplans#SP1.2",
+    "acceptance": [
+      "brace-matching: string-aware, comment-aware, multiline params, trailing const",
+      "AppId 2646-2682 (anti-naive exemplar, round-3 kept)",
+      "Dimstyle close < 25 lines (S4 stub-detector fires) — round-3 R.3: assert PROPERTIES, not a hardcoded close-line table",
+      "DRW_Hatch::encodeDwgBoundaryData resolves (regression for trailing-const bug)",
+      "--include=*.cpp --include=*.h only (8 .orig shadows)"
+    ],
+    "deps": ["00-T-antiloss"],
+    "ledger_units": [],
+    "findings_shard": null,
+    "coverage_boundary": null,
+    "branch": "conformance/spec-review-2026-07",
+    "gate": { "cmd": "bounds.py --selfcheck", "tier": "cheap" }
+  }
+]

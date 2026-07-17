@@ -1,0 +1,40 @@
+{
+  "slice_id": "00-T-antiloss",
+  "passed": true,
+  "ts": "2026-07-18",
+  "checks": {
+    "branch_created": "conformance/spec-review-2026-07",
+    "spec_gitignored": {
+      "gitignore_path": "libraries/libdxfrw/spec/.gitignore",
+      "verified_by": "git check-ignore -v libraries/libdxfrw/spec/dwg_spec.txt",
+      "result": "MATCH .gitignore:7:dwg_spec.txt"
+    },
+    "spec_regenerated_from_pdf": {
+      "cmd": "pdftotext -layout /Users/dli/doc/dwg/dwg.pdf libraries/libdxfrw/spec/dwg_spec.txt",
+      "line_count": 14992,
+      "identity_line": 10471,
+      "identity_prefix_observed": "20.4.75 HATCH (varies)",
+      "identity_prefix_expected": "20.4.75 HATCH",
+      "match": true
+    },
+    "sha256_pinned": {
+      "spec_text": "f2b23bb7b0e7191a1a18f9f32c643c5635a90c65ee692e6913988820e032953a",
+      "pdf": "1ed2e02722862188120da606e4b6a816fa4014c96de68da2f84a2ecda09461e7",
+      "sources_json": "scripts/conformance/SOURCES.json"
+    },
+    "seed_artifacts_present": {
+      "BRIEF.md": true,
+      "BASELINE.md": true,
+      "BASELINE.failures": true,
+      "findings.json": "[]",
+      "errata.json": "MTEXT-4, VPORT-V6, SPLINE-BD-vs-RD (round-3 M2)",
+      "slices.json": "3 slices seeded (00-T-antiloss, 00-T-extract-spec, 00-T-bounds)",
+      "README.md": true
+    }
+  },
+  "round3_blockers_resolved": {
+    "B1_licensing": ".gitignore blocks spec text and PDF from being committed to public LibreCAD repo",
+    "B2_substrate": "spec regenerated from /Users/dli/doc/dwg/dwg.pdf via pdftotext -layout; identity verified 14992 lines + HATCH@10471"
+  },
+  "note": "Bootstrap slice — validate_slice.sh does not exist yet (it is 00-T-validate-slice), so this shard is written manually and will be regeneration-checked by the future gate."
+}
