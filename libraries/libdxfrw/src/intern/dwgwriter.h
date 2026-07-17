@@ -103,6 +103,9 @@ public:
                           "AcDbDgnReference", "DGNUNDERLAY", false, 0x1F2});
         registerDwgClass({525, 0x401, "ObjectDBX Classes",
                           "AcDbDwfReference", "DWFUNDERLAY", false, 0x1F2});
+        // WIPEOUT entity custom class (DRW_Wipeout::kDwgClassNum == 526)
+        registerDwgClass({526, 0x401, "WipeOut",
+                          "AcDbWipeout", "WIPEOUT", false, 0x1F2});
     }
 
     virtual ~dwgWriter() = default;
@@ -282,6 +285,19 @@ public:
                                                  handle}).second) {
             definition.m_instanceCount = 1;
         }
+        return registerDwgClass(definition);
+    }
+
+    /// Register WIPEOUT entity custom class (AcDbWipeout).
+    /// Matches DRW_Wipeout::kDwgClassNum in drw_entities.h (file-local 526).
+    bool registerWipeoutEntityClass() {
+        DwgClassDefinition definition;
+        definition.m_classNum = 526;  // DRW_Wipeout::kDwgClassNum
+        definition.m_proxyFlag = 0x401;
+        definition.m_appName = "WipeOut";
+        definition.m_className = "AcDbWipeout";
+        definition.m_recordName = "WIPEOUT";
+        definition.m_entityFlagRaw = 0x1F2;  // entity class (ODA item_class_id)
         return registerDwgClass(definition);
     }
 
