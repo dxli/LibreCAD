@@ -15,11 +15,13 @@
 
 #include <cstring>
 
+#include "drw_datastorage.h"
 #include "drw_entities.h"
 #include "drw_objects.h"
 #include "drw_header.h"
 
 class DRW_Class;
+class DRW_Attdef;
 
 /**
  * Abstract class (interface) for communicate dxfReader with the application.
@@ -94,11 +96,13 @@ public:
     virtual void addUnsupportedObject(const DRW_UnsupportedObject& data) { (void) data; }
     /** Called for unsupported DWG data sections kept as raw bytes. */
     virtual void addRawDwgSection(const DRW_RawDwgSection& data) { (void) data; }
+    /** Called for typed AcDb:AcDsPrototype_1b (DataStorage) index (PR-2a). */
+    virtual void addDataStorage(const DRW_DataStorageSection& data) { (void) data; }
     //! Lossless DXF passthrough (slice A1): an OBJECTS-section object libdxfrw does
     //! not model is delivered verbatim so it can be re-emitted unchanged.
     virtual void addRawDxfObject(const DRW_RawDxfObject& data) { (void) data; }
     //! Lossless DXF passthrough (slice A4): an ENTITIES/BLOCKS entity libdxfrw does
-    //! not model (incl. standalone ATTDEF) delivered verbatim for unchanged re-emit.
+    //! not model is delivered verbatim for unchanged re-emit.
     virtual void addRawDxfEntity(const DRW_RawDxfObject& data) { (void) data; }
     //! Parsed DXF CLASSES-section entry. Default no-op keeps older consumers
     //! source-compatible while filters that preserve raw custom data can retain
@@ -220,6 +224,10 @@ public:
 
     /** Called for every Text entity. */
     virtual void addText(const DRW_Text& data) = 0;
+
+    /** Called for every attribute definition in a BLOCK. The default preserves
+     * source compatibility for consumers that do not model attribute metadata. */
+    virtual void addAttDef(const DRW_Attdef& data) { (void) data; }
 
     /**
      * Called for every aligned dimension entity.

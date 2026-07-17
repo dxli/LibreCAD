@@ -262,6 +262,8 @@ public:
     /// as reactors, filters, TABLECONTENT, dynamic-block graphs, etc.
     std::unordered_map<std::string, size_t> m_skippedUnsupportedObjects;
     std::vector<DRW_RawDwgSection> m_rawDwgSections;
+    //! Typed AcDb:AcDsPrototype_1b index (PR-2a). Parallel to raw section store.
+    std::vector<DRW_DataStorageSection> m_dataStorageSections;
     std::unordered_map<std::uint32_t, DRW_AppId*> appIdmap;
     std::unordered_map<std::uint32_t, DRW_View*> viewmap;
     std::unordered_map<std::uint32_t, DRW_UCS*> ucsmap;

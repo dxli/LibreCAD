@@ -841,6 +841,14 @@ bool dwgReader18::captureRawDwgDataSections() {
         section.m_data.assign(sectionData.get(), sectionData.get() + si.size);
     }
 
+    // PR-2a: typed DataStorage index (handles + payload ranges). Raw bytes
+    // remain available for replay consumers via m_rawDwgSections.
+    DRW_DataStorageSection typed = DRW_parseDataStorage(
+        section.m_data, version);
+    typed.m_name = section.m_name;
+    typed.m_version = version;
+    m_dataStorageSections.push_back(std::move(typed));
+
     m_rawDwgSections.push_back(std::move(section));
     return true;
 }

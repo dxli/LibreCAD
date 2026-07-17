@@ -337,6 +337,7 @@ double tableRowHeight(const DRW_TableContent& content, size_t index,
 DRW_UnsupportedObject rawObjectFromMetadata(
     const LC_DwgAdvancedMetadata::RawObjectRecord& record) {
     DRW_UnsupportedObject object;
+    object.m_version = record.version;
     object.m_objectType = record.objectType;
     object.m_handle = record.handle;
     object.m_bodyBitSize = record.bodyBitSize;
@@ -3110,7 +3111,7 @@ void RS_FilterDXFRW::addHelix(const DRW_Helix* data) {
 void RS_FilterDXFRW::addInsert(const DRW_Insert& data) {
     RS_DEBUG->print("RS_FilterDXF::addInsert");
 
-    RS_Vector ip(data.basePoint.x, data.basePoint.y);
+    RS_Vector ip(data.basePoint.x, data.basePoint.y, data.basePoint.z);
     RS_Vector sc(data.xscale, data.yscale, data.zscale);
     RS_Vector sp(data.colspace, data.rowspace);
 
@@ -3528,6 +3529,13 @@ void RS_FilterDXFRW::addText(const DRW_Text& data) {
     setEntityAttributes(entity, &data);
     entity->update();
     m_currentContainer->addEntity(entity);
+}
+
+void RS_FilterDXFRW::addAttDef(const DRW_Attdef& data) {
+    // LibreCAD has no standalone attribute-definition model. Preserve the
+    // visible BLOCK definition as text instead of silently dropping it; the
+    // original DXF/DWG attribute fields remain available to libdxfrw callers.
+    addText(data);
 }
 
 /**
@@ -5216,6 +5224,8 @@ void RS_FilterDXFRW::addWipeout(const DRW_Wipeout *data) {
   wipeoutData.sizeU = data->sizeu;
   wipeoutData.sizeV = data->sizev;
   wipeoutData.displayProps = data->m_displayProps;
+  wipeoutData.imageDefHandle = data->ref;
+  wipeoutData.imageDefReactorHandle = data->m_imageDefReactorHandle;
   wipeoutData.clip = data->clip;
   wipeoutData.brightness = data->brightness;
   wipeoutData.contrast = data->contrast;
@@ -5490,6 +5500,14 @@ void RS_FilterDXFRW::addDxfClass(const DRW_Class &data) {
 void RS_FilterDXFRW::addUnsupportedObject(const DRW_UnsupportedObject &data) {
   if (m_graphic != nullptr) {
     m_graphic->dwgAdvancedMetadata().addUnsupportedObject(data);
+    // Cross-read P1: Navisworks (and related) stay metadata-only until typed
+    // DRW models land; classify by CLASSES record name so they are not silent.
+    const std::string &rn = data.m_recordName;
+    if (rn.find("NAVISWORKS") != std::string::npos) {
+      m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+          rn.empty() ? "NAVISWORKSMODEL" : rn, data.m_handle, 0,
+          "metadata-only unsupported shell");
+    }
   }
   m_unsupportedDwgObjects.push_back(data);
   RS_DEBUG->print("RS_FilterDXFRW::addUnsupportedObject: %s handle %d (%d bytes)",
@@ -5504,6 +5522,14 @@ void RS_FilterDXFRW::addRawDwgSection(const DRW_RawDwgSection &data) {
   }
   RS_DEBUG->print("RS_FilterDXFRW::addRawDwgSection: %s (%d bytes)",
                   data.m_name.c_str(), static_cast<int>(data.m_data.size()));
+}
+
+void RS_FilterDXFRW::addDataStorage(const DRW_DataStorageSection &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().addDataStorage(data);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addDataStorage: %s records=%d",
+                  data.m_name.c_str(), static_cast<int>(data.records.size()));
 }
 
 void RS_FilterDXFRW::addAcDbPlaceholder(const DRW_AcDbPlaceholder &data) {
@@ -5521,6 +5547,106 @@ void RS_FilterDXFRW::addSun(const DRW_Sun &data) {
   RS_DEBUG->print("RS_FilterDXFRW::addSun: handle %d on=%d",
                   static_cast<int>(data.handle),
                   data.m_isOn ? 1 : 0);
+}
+
+// ── Cross-read parity: metadata-only family exposure (no RS document geometry) ──
+void RS_FilterDXFRW::addPointCloud(const DRW_PointCloud *data) {
+  if (m_graphic != nullptr && data != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "POINTCLOUD", data->handle, data->parentHandle, data->savedFilename);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addPointCloud: metadata-only handle %d",
+                  data ? static_cast<int>(data->handle) : 0);
+}
+
+void RS_FilterDXFRW::addPointCloudEx(const DRW_PointCloudEx *data) {
+  if (m_graphic != nullptr && data != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "POINTCLOUDEX", data->handle, data->parentHandle, data->name);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addPointCloudEx: metadata-only handle %d",
+                  data ? static_cast<int>(data->handle) : 0);
+}
+
+void RS_FilterDXFRW::addPointCloudDef(const DRW_PointCloudDef &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "POINTCLOUDDEF", data.handle, data.parentHandle, data.m_sourceFilename);
+  }
+  RS_DEBUG->print("RS_FilterDXFRW::addPointCloudDef: kind metadata handle %d",
+                  static_cast<int>(data.handle));
+}
+
+void RS_FilterDXFRW::addBackground(const DRW_Background &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "BACKGROUND", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addMaterial(const DRW_Material &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "MATERIAL", data.handle, data.parentHandle, data.m_name);
+  }
+}
+
+void RS_FilterDXFRW::addRenderSettings(const DRW_RenderSettings &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "RENDERSETTINGS", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addSunStudy(const DRW_SunStudy &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "SUNSTUDY", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addDbColor(const DRW_DbColor &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "DBCOLOR", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addDimensionAssociation(const DRW_DimensionAssociation &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "DIMASSOC", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addEvaluationGraph(const DRW_EvaluationGraph &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "EVALUATION_GRAPH", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addSection(const DRW_Section &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "SECTION", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addSectionObject(const DRW_SectionObject &data) {
+  if (m_graphic != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "SECTIONOBJECT", data.handle, data.parentHandle);
+  }
+}
+
+void RS_FilterDXFRW::addMPolygon(const DRW_MPolygon *data) {
+  // Prefer hatch rendering path for geometry, but also record metadata exposure.
+  if (m_graphic != nullptr && data != nullptr) {
+    m_graphic->dwgAdvancedMetadata().noteFamilyExposure(
+        "MPOLYGON", data->handle, data->parentHandle);
+  }
+  addHatch(data);
 }
 
 void RS_FilterDXFRW::addDictionary(const DRW_Dictionary &data) {
@@ -6627,6 +6753,23 @@ void RS_FilterDXFRW::writeDwgClasses() {
     std::set<std::uint32_t> nativeFieldListHandles;
     std::set<std::uint32_t> nativeFieldHandles;
     std::set<std::uint32_t> nativeUnderlayDefinitionHandles;
+
+    // Entity classes must be counted before dwgRW seals the CLASSES section.
+    // Traverse model/paper space and block definitions separately, matching
+    // the later entity write path without resolving INSERT references.
+    const auto registerWipeoutClasses = [this](const RS_EntityContainer& container) {
+        for (RS_Entity* entity : lc::LC_ContainerTraverser{container, RS2::ResolveNone}.entities()) {
+            if (entity != nullptr && entity->rtti() == RS2::EntityWipeout)
+                m_dwgW->registerWipeoutEntityClass();
+        }
+    };
+    registerWipeoutClasses(*m_graphic);
+    for (unsigned int index = 0; index < m_graphic->countBlocks(); ++index) {
+        const RS_Block* block = m_graphic->blockAt(index);
+        if (block != nullptr)
+            registerWipeoutClasses(*block);
+    }
+
     if (canWriteModernObjects) {
         for (const auto& record : metadata.suns()) {
             if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
@@ -6812,17 +6955,10 @@ void RS_FilterDXFRW::writeDwgClasses() {
     }
 
     for (const auto& record : metadata.rawObjects()) {
-        // Version guard: never register a CLASSES entry for a raw object whose
-        // captured bytes cannot be replayed into the file being written. Raw
-        // OBJECT bytes are valid within the same object-encoding family (see
-        // sameRawObjectEncodingFamily), not only at the exact source version,
-        // so this allows in-family upgrades (e.g. R2000->R2004). Without the
-        // guard, registerRawDwgObjectClass below would add an orphan CLASSES
-        // entry for an object the emit loop then drops — a CLASSES/OBJECT
-        // mismatch AutoCAD rejects. Must mirror the emit-loop guard exactly.
-        if (metadata.sourceDwgVersion() != DRW::UNKNOWNV
-            && !sameRawObjectEncodingFamily(metadata.sourceDwgVersion(),
-                                            m_dwgW->getVersion())) {
+        // Never register a CLASSES entry for raw bytes that cannot be replayed
+        // into this exact target version. This mirrors the emit-loop guard so
+        // a rejected carrier cannot leave an orphan CLASSES entry behind.
+        if (!sameRawObjectEncodingFamily(record.version, m_dwgW->getVersion())) {
             continue;
         }
         if (record.replayState != LC_DwgAdvancedMetadata::ReplayState::ReplayAllowed
@@ -8086,16 +8222,9 @@ void RS_FilterDXFRW::writeObjects() {
                 ++blockedReplaced;
                 continue;
             }
-            // Version guard: raw OBJECT bytes are byte-for-byte valid within the
-            // same object-encoding family (sameRawObjectEncodingFamily), not
-            // only at the exact source version — so an in-family upgrade (e.g.
-            // R2000->R2004, R2010->R2018) can replay them, while a cross-family
-            // target (esp. any R2007 source, its own family) is dropped so no
-            // malformed bytes are written. The matching guard in writeDwgClasses
-            // skips CLASSES registration so no orphan entry is left behind.
-            if (metadata.sourceDwgVersion() != DRW::UNKNOWNV
-                && !sameRawObjectEncodingFamily(metadata.sourceDwgVersion(),
-                                                m_dwgW->getVersion())) {
+            // Raw object bytes must remain in their exact source DWG version.
+            // The matching writeDwgClasses guard prevents orphan CLASSES data.
+            if (!sameRawObjectEncodingFamily(record.version, m_dwgW->getVersion())) {
                 hasBlockedReplay = true;
                 ++blockedVersionMismatch;
                 continue;
@@ -9153,8 +9282,8 @@ void RS_FilterDXFRW::writeEntities(){
   }
 
   //Slice A2 (entities): re-emit ENTITIES captured verbatim on read (A4) so a
-  //LibreCAD DXF round-trip preserves unmodeled entities (incl. standalone ATTDEF)
-  //rather than dropping them. DXF-only: the DWG writer has its own object/entity
+  //LibreCAD DXF round-trip preserves unmodeled entities rather than dropping
+  //them. DXF-only: the DWG writer has its own object/entity
   //path. Records live on the graphic, shared across read/write filter instances.
   if (!m_dwgW && m_graphic != nullptr) {
     for (const DRW_RawDxfObject &rawEntity :
@@ -10707,6 +10836,8 @@ void RS_FilterDXFRW::writeInsert(const RS_Insert* i) {
     in.rowcount = i->getRows();
     in.colspace = i->getSpacing().x;
     in.rowspace =i->getSpacing().y;
+    const RS_Vector extrusion = i->getData().extrusion;
+    in.extPoint = DRW_Coord(extrusion.x, extrusion.y, extrusion.z);
     if (m_dwgW) { m_dwgW->writeInsert(&in); return; }
     m_dxfW->writeInsert(&in);
 }
@@ -11413,6 +11544,8 @@ void RS_FilterDXFRW::writeWipeout(LC_Wipeout *w) {
     img.sizeu = data.sizeU;
     img.sizev = data.sizeV;
     img.m_displayProps = data.displayProps;
+    img.ref = data.imageDefHandle;
+    img.m_imageDefReactorHandle = data.imageDefReactorHandle;
     img.clip = data.clip;
     img.brightness = data.brightness;
     img.contrast = data.contrast;

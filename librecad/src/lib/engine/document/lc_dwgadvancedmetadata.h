@@ -18,11 +18,13 @@
 #include <cstddef>
 #include <cstdint>
 #include <fstream>
+#include <map>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include "drw_classes.h"
+#include "drw_datastorage.h"
 #include "drw_entities.h"
 #include "drw_objects.h"
 
@@ -258,6 +260,7 @@ public:
     };
 
     struct RawObjectRecord {
+        DRW::Version version = DRW::UNKNOWNV;
         int objectType = 0;
         std::uint32_t handle = 0;
         std::uint32_t parentHandle = 0;
@@ -278,6 +281,24 @@ public:
         DRW::Version version = DRW::UNKNOWNV;
         std::vector<std::uint8_t> data;
         ReplayState replayState = ReplayState::ReplayAllowed;
+    };
+
+    struct DataStorageRecord {
+        std::string name;
+        DRW::Version version = DRW::UNKNOWNV;
+        std::uint32_t segmentIndexEntryCount = 0;
+        std::int32_t dataIndexSegmentIndex = -1;
+        std::uint32_t fileSize = 0;
+        std::size_t sectionByteLength = 0;
+        size_t segmentCount = 0;
+        size_t dataIndexEntryCount = 0;
+        size_t recordCount = 0;
+        size_t diagnosticCount = 0;
+        bool payloadsRetained = false;
+        bool parseFailed = false;
+        //! Stable handle list for tests/oracles (not full payload).
+        std::vector<std::uint64_t> recordHandles;
+        DRW_DataStorageSection full;
     };
 
     struct RawObjectFamilyCounts {
@@ -2092,10 +2113,14 @@ public:
         m_dataTables.clear();
         m_dynamicBlockObjects.clear();
         m_fields.clear();
+        m_dataStorages.clear();
+        m_familyExposures.clear();
+        m_familyExposureCounts.clear();
     }
 
     void addUnsupportedObject(const DRW_UnsupportedObject& object) {
         RawObjectRecord record;
+        record.version = object.m_version;
         record.objectType = object.m_objectType;
         record.handle = object.m_handle;
         record.bodyBitSize = object.m_bodyBitSize;
@@ -2116,6 +2141,27 @@ public:
         record.version = section.m_version;
         record.data = section.m_data;
         m_rawDwgSections.push_back(std::move(record));
+    }
+
+    void addDataStorage(const DRW_DataStorageSection& storage) {
+        DataStorageRecord record;
+        record.name = storage.m_name;
+        record.version = storage.m_version;
+        record.segmentIndexEntryCount = storage.segmentIndexEntryCount;
+        record.dataIndexSegmentIndex = storage.dataIndexSegmentIndex;
+        record.fileSize = storage.fileSize;
+        record.sectionByteLength = storage.sectionByteLength;
+        record.segmentCount = storage.segments.size();
+        record.dataIndexEntryCount = storage.dataIndexEntries.size();
+        record.recordCount = storage.records.size();
+        record.diagnosticCount = storage.diagnostics.size();
+        record.payloadsRetained = storage.payloadsRetained;
+        record.parseFailed = storage.parseFailed;
+        record.recordHandles.reserve(storage.records.size());
+        for (const DRW_DataStorageRecord& r : storage.records)
+            record.recordHandles.push_back(r.handle);
+        record.full = storage;
+        m_dataStorages.push_back(std::move(record));
     }
 
     //Slice A2: lossless DXF passthrough store (group-text records captured by the
@@ -2287,6 +2333,39 @@ public:
                 view.sunResolved = true;
         }
         refreshDocumentMappingUnresolvedReferenceCounts();
+    }
+
+    // ── Cross-read parity: metadata-only family exposure (PR-4a/4c/5) ─────
+    // Lightweight sidecar for families that must not silently drop on import.
+    // No document geometry (point cloud / Navisworks stay metadata-only).
+    struct FamilyExposureRecord {
+        std::string family;
+        std::uint32_t handle = 0;
+        std::uint32_t parentHandle = 0;
+        std::string detail;
+    };
+
+    void noteFamilyExposure(const std::string& family, std::uint32_t handle,
+                            std::uint32_t parentHandle = 0,
+                            const std::string& detail = {}) {
+        FamilyExposureRecord rec;
+        rec.family = family;
+        rec.handle = handle;
+        rec.parentHandle = parentHandle;
+        rec.detail = detail;
+        m_familyExposures.push_back(rec);
+        m_familyExposureCounts[family] += 1;
+    }
+
+    const std::vector<FamilyExposureRecord>& familyExposures() const {
+        return m_familyExposures;
+    }
+    int familyExposureCount(const std::string& family) const {
+        auto it = m_familyExposureCounts.find(family);
+        return it == m_familyExposureCounts.end() ? 0 : it->second;
+    }
+    const std::map<std::string, int>& familyExposureCounts() const {
+        return m_familyExposureCounts;
     }
 
     void addModelerGeometry(const DRW_ModelerGeometry& geometry) {
@@ -3317,6 +3396,9 @@ public:
     const std::vector<RawObjectRecord>& rawObjects() const { return m_rawObjects; }
     const std::vector<RawDwgSectionRecord>& rawDwgSections() const {
         return m_rawDwgSections;
+    }
+    const std::vector<DataStorageRecord>& dataStorages() const {
+        return m_dataStorages;
     }
     const std::vector<DRW_RawDxfObject>& rawDxfObjects() const { return m_rawDxfObjects; }
     const std::vector<DRW_RawDxfObject>& rawDxfEntities() const { return m_rawDxfEntities; }
@@ -7747,6 +7829,9 @@ private:
     std::vector<DataTableRecord> m_dataTables;
     std::vector<DynamicBlockRecord> m_dynamicBlockObjects;
     std::vector<FieldRecord> m_fields;
+    std::vector<DataStorageRecord> m_dataStorages;
+    std::vector<FamilyExposureRecord> m_familyExposures;
+    std::map<std::string, int> m_familyExposureCounts;
 };
 
 #endif

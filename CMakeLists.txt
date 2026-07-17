@@ -2393,6 +2393,7 @@ if (BUILD_TESTS)
         librecad/src/lib/filters/tests/dwg_write_smoke_tests.cpp
         librecad/src/lib/filters/tests/eed_tests.cpp
         librecad/src/lib/filters/tests/dbcolor_tests.cpp
+        librecad/src/lib/filters/tests/family_exposure_tests.cpp
         librecad/src/lib/filters/tests/entity_metadata_tests.cpp
         librecad/src/lib/filters/tests/acsh_tests.cpp
         librecad/src/lib/filters/tests/acsh_shapes_tests.cpp
@@ -2430,6 +2431,7 @@ if (BUILD_TESTS)
         librecad/src/lib/filters/tests/i18n_caret_nfc_tests.cpp
         librecad/src/lib/filters/tests/dwg_decompress18_tests.cpp
         librecad/src/lib/filters/tests/dwg_tarch_tests.cpp
+        librecad/src/lib/filters/tests/datastorage_tests.cpp
         librecad/src/lib/engine/settings/tests/rs_settings_migration_tests.cpp
         librecad/src/lib/gui/tests/rs_graphicview_close_tests.cpp
         librecad/src/main/tests/console_command_utils_tests.cpp

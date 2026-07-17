@@ -1332,6 +1332,7 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
     buff.resetPosition();
     auto makeRawEntity = [&](int rawType, const DRW_Class *cls = nullptr) {
         DRW_UnsupportedObject raw;
+        raw.m_version = version;
         raw.m_objectType = rawType;
         raw.m_handle = obj.handle;
         raw.m_bodyBitSize = bs;
@@ -1396,17 +1397,10 @@ bool dwgReader::readDwgEntity(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
             entryParse(*a, buff, bs, localRet);
             if (localRet) {
                 a->style = findTableName(DRW::STYLE, a->styleH.ref);
-                const std::uint32_t ownerH = a->parentHandle;
-                auto pendIt = m_pendingInserts.find(ownerH);
-                if (pendIt != m_pendingInserts.end()) {
-                    pendIt->second.attlist.push_back(a);
-                    if (pendIt->second.attlist.size() >= pendIt->second.attribHandles.size()) {
-                        intfa.addInsert(pendIt->second);
-                        m_pendingInserts.erase(pendIt);
-                    }
-                } else {
-                    m_orphanAttribs[ownerH].push_back(a);
-                }
+                // ATTDEF belongs to its BLOCK definition, not to an INSERT's
+                // trailing ATTRIB sequence. Routing it through the latter
+                // turns valid block text into an orphan and drops it at EOF.
+                intfa.addAttDef(*a);
             } else {
                 DRW_DBG("[attdef parse failed, handle "); DRW_DBG(obj.handle); DRW_DBG("]\n");
             }
@@ -2068,6 +2062,7 @@ bool dwgReader::readDwgObject(dwgBuffer *dbuf, objHandle& obj, DRW_Interface& in
         std::int16_t oType = obj.type;
         auto makeRawObject = [&](int rawType, const DRW_Class *cls = nullptr) {
             DRW_UnsupportedObject raw;
+            raw.m_version = version;
             raw.m_objectType = rawType;
             raw.m_handle = obj.handle;
             raw.m_bodyBitSize = bs;

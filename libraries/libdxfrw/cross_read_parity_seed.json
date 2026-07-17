@@ -1,0 +1,14 @@
+{
+  "addPointCloud": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4a filter override + noteFamilyExposure"},
+  "addPointCloudEx": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4a filter override + noteFamilyExposure"},
+  "addPointCloudDef": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4a filter override + noteFamilyExposure"},
+  "addBackground": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addMaterial": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addRenderSettings": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addSunStudy": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addDbColor": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addDimensionAssociation": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addEvaluationGraph": {"S": "T", "L": "metadata-sidecar", "priority": "P1", "direction": "→librecad", "notes": "PR-4c filter override + noteFamilyExposure"},
+  "addSectionObject": {"S": "T", "L": "metadata-sidecar", "priority": "P2", "direction": "→librecad", "notes": "filter override + noteFamilyExposure"},
+  "addDataStorage": {"S": "T", "L": "metadata-sidecar", "priority": "P0", "direction": "→librecad", "notes": "PR-2a typed index + filter store"}
+}

@@ -805,6 +805,13 @@ bool dwgRW::registerWipeoutVariablesObjectClass(DRW_WipeoutVariables *object) {
                              writer->registerWipeoutVariablesObjectClass(object->handle));
 }
 
+bool dwgRW::registerWipeoutEntityClass() {
+    if (writer == nullptr)
+        return recordWriteResult(WriteSkipKind::ClassRegistration, false);
+    return recordWriteResult(WriteSkipKind::ClassRegistration,
+                             writer->registerWipeoutEntityClass());
+}
+
 bool dwgRW::writeWipeoutVariables(DRW_WipeoutVariables *object) {
     if (object == nullptr)
         return recordWriteResult(WriteSkipKind::Object, false);
@@ -1042,10 +1049,10 @@ bool dwgRW::writeUnderlayDefinition(DRW_UnderlayDefinition *object) {
 bool dwgRW::registerRawDwgObjectClass(const DRW_UnsupportedObject *object) {
     if (object == nullptr || writer == nullptr)
         return recordWriteResult(WriteSkipKind::ClassRegistration, false);
-    if (object->m_handle != 0)
+    const bool registered = writer->registerRawObjectClass(*object);
+    if (registered && object->m_handle != 0)
         writer->reserveHandle(object->m_handle);
-    return recordWriteResult(WriteSkipKind::ClassRegistration,
-                             writer->registerRawObjectClass(*object));
+    return recordWriteResult(WriteSkipKind::ClassRegistration, registered);
 }
 
 bool dwgRW::writeRawDwgObject(DRW_UnsupportedObject *object) {
@@ -1273,6 +1280,8 @@ bool dwgRW::processDwg() {
     if (ret) {
         for (const DRW_RawDwgSection& section : reader->m_rawDwgSections)
             iface->addRawDwgSection(section);
+        for (const DRW_DataStorageSection& storage : reader->m_dataStorageSections)
+            iface->addDataStorage(storage);
     }
 
     return ret;

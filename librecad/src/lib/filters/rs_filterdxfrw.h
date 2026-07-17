@@ -71,6 +71,9 @@ struct DRW_AcisBrep;
 // the header-var regression suite access to the private m_graphic/
 // m_currentContainer so it can exercise addHeader against a real RS_Graphic.
 class RsFilterDxfRwHeaderTestAccess;
+// test-only friend; defined in tests/family_exposure_tests.cpp. Grants access
+// to m_graphic for cross-read filter exposure / Navisworks metadata tests.
+class RsFilterDxfRwExposureTestAccess;
 
 /**
  * This format filter class can import and export DXF files.
@@ -80,6 +83,7 @@ class RsFilterDxfRwHeaderTestAccess;
  */
 class RS_FilterDXFRW : public RS_FilterInterface, DRW_Interface {
     friend class RsFilterDxfRwHeaderTestAccess;
+    friend class RsFilterDxfRwExposureTestAccess;
 public:
     RS_FilterDXFRW();
     ~RS_FilterDXFRW() override;
@@ -150,6 +154,7 @@ public:
     void addShape(const DRW_Shape &data) override;
     void addOle2Frame(const DRW_Ole2Frame &data) override;
     void addText(const DRW_Text& data) override;
+    void addAttDef(const DRW_Attdef& data) override;
     void addPolyline(const DRW_Polyline& data) override;
     void addSpline(const DRW_Spline* data) override;
     void addHelix(const DRW_Helix* data) override;
@@ -216,11 +221,26 @@ public:
     void addCellStyleMap(const DRW_CellStyleMap &data) override;
     void addUnsupportedObject(const DRW_UnsupportedObject &data) override;
     void addRawDwgSection(const DRW_RawDwgSection &data) override;
+    void addDataStorage(const DRW_DataStorageSection &data) override;
     void addRawDxfObject(const DRW_RawDxfObject &data) override;
     void addRawDxfEntity(const DRW_RawDxfObject &data) override;
     void addDxfClass(const DRW_Class &data) override;
     void addAcDbPlaceholder(const DRW_AcDbPlaceholder &data) override;
     void addSun(const DRW_Sun &data) override;
+    // Cross-read parity: metadata-only exposure (PR-4a/4c) — no document geometry
+    void addPointCloud(const DRW_PointCloud *data) override;
+    void addPointCloudEx(const DRW_PointCloudEx *data) override;
+    void addPointCloudDef(const DRW_PointCloudDef &data) override;
+    void addBackground(const DRW_Background &data) override;
+    void addMaterial(const DRW_Material &data) override;
+    void addRenderSettings(const DRW_RenderSettings &data) override;
+    void addSunStudy(const DRW_SunStudy &data) override;
+    void addDbColor(const DRW_DbColor &data) override;
+    void addDimensionAssociation(const DRW_DimensionAssociation &data) override;
+    void addEvaluationGraph(const DRW_EvaluationGraph &data) override;
+    void addSection(const DRW_Section &data) override;
+    void addSectionObject(const DRW_SectionObject &data) override;
+    void addMPolygon(const DRW_MPolygon *data) override;
     void addDictionary(const DRW_Dictionary &data) override;
     void addXRecord(const DRW_XRecord &data) override;
     void addLayout(const DRW_Layout &data) override;
