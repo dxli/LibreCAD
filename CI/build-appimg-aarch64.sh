@@ -36,6 +36,13 @@ mkdir -p appdir/usr/share/doc/librecad
 mkdir -p appdir/usr/share/icons/hicolor/256x256/apps
 mkdir -p appdir/usr/share/icons/hicolor/scalable/apps
 mkdir -p appdir/usr/share/librecad
+mkdir -p appdir/usr/lib/aarch64-linux-gnu/qt6
+echo "copying Qt6 plugins"
+export QPA_PLUGIN_FOLDER="$(find /usr/lib/aarch64-linux-gnu/qt6/ -type d -name plugins -print)"
+rsync -Par ${QPA_PLUGIN_FOLDER} appdir/usr/lib/aarch64-linux-gnu/qt6/
+rsync -Par ${QPA_PLUGIN_FOLDER}/platforms appdir/usr/bin/
+echo "copying xcb-cursor library"
+find /usr/lib -name "libxcb-cursor.so*" -exec cp -L {} appdir/usr/lib/ \;
 
 # strip binaries
 strip unix/librecad

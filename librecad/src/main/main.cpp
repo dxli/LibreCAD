@@ -321,6 +321,14 @@ int main(int argc, char** argv) {
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
 #endif
 
+#ifdef Q_OS_LINUX
+    const QByteArray xcursorPathEnv = qgetenv("XCURSOR_PATH");
+    if (xcursorPathEnv.isEmpty()) {
+        const QByteArray defaultPaths = "/usr/share/icons:/usr/local/share/icons:/usr/share/pixmaps";
+        qputenv("XCURSOR_PATH", defaultPaths);
+    }
+#endif
+
 
     const auto versionStr = XSTR(LC_VERSION);
 
