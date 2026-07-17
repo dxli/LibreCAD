@@ -584,6 +584,7 @@ public:
   void addSolid(const DRW_Solid &e) override { trackT(e, "SOLID"); }
   void addMText(const DRW_MText &e) override { trackT(e, "MTEXT"); }
   void addText(const DRW_Text &e) override { trackT(e, "TEXT"); }
+  void addAttDef(const DRW_Attdef &e) override { trackT(e, "ATTDEF"); }
   void addDimAlign(const DRW_DimAligned *e) override {
     trackT(*e, "DIM_ALIGNED");
   }
@@ -2404,6 +2405,11 @@ TEST_CASE("DWG gear_pump_subassy: entity population", "[.dwg_gear_pump]") {
     if (oType >= 500)
       customLeak += count;
   CHECK(customLeak == 0);
+
+  // ATTDEFs belong to their owning BLOCK definitions and must be delivered
+  // through addAttDef(), not attached to an INSERT's attribute list.
+  REQUIRE(dr.iface.typeCounts.count("ATTDEF"));
+  CHECK(dr.iface.typeCounts.at("ATTDEF") == 17);
 
   // ATTRIBs ride attached to their owning INSERTs via DRW_Insert::attlist.
   // The file declares 17 visible-attribute instances; require at least 14

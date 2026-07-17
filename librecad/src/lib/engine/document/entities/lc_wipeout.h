@@ -27,6 +27,7 @@
 #ifndef LC_WIPEOUT_H
 #define LC_WIPEOUT_H
 
+#include <cstdint>
 #include <vector>
 
 #include "rs_atomicentity.h"
@@ -46,6 +47,8 @@ struct LC_WipeoutData {
   double sizeU = 0.0;
   double sizeV = 0.0;
   int displayProps = 0;
+  std::uint32_t imageDefHandle = 0;
+  std::uint32_t imageDefReactorHandle = 0;
   int clip = 0;
   int brightness = 50;
   int contrast = 50;

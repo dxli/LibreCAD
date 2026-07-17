@@ -34,9 +34,16 @@
 void LC_WipeoutData::rebuildWorldVertices() {
   if (!hasNativeFrame)
     return;
+  std::vector<RS_Vector> boundary = clipPath;
+  if (clipBoundaryType == 1 && clipPath.size() == 2) {
+    const RS_Vector& lowerLeft = clipPath.front();
+    const RS_Vector& upperRight = clipPath.back();
+    boundary = {lowerLeft, RS_Vector(upperRight.x, lowerLeft.y),
+                upperRight, RS_Vector(lowerLeft.x, upperRight.y)};
+  }
   vertices.clear();
-  vertices.reserve(clipPath.size());
-  for (const RS_Vector &clipPoint : clipPath) {
+  vertices.reserve(boundary.size());
+  for (const RS_Vector &clipPoint : boundary) {
     // IMAGE/WIPEOUT group 11/12 are single-pixel vectors.  Group 14/24 clip
     // coordinates already span the image dimensions, so sizeU/sizeV do not
     // participate in this mapping.

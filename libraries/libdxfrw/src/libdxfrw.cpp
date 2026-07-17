@@ -2265,10 +2265,14 @@ bool dxfRW::writeDimension(DRW_Dimension *ent) {
 
 bool dxfRW::writeInsert(DRW_Insert *ent){
     const bool hasAttribs = !ent->attlist.empty();
+    const bool isMInsert = ent->isMInsert();
+    // DXF represents a multiple insert as an INSERT record with the
+    // AcDbMInsertBlock subclass and grid groups.  MINSERT is the distinct DWG
+    // object type, not the standard DXF group-0 entity name.
     writer->writeString(0, "INSERT");
     writeEntity(ent);
     if (version > DRW::AC1009) {
-        writer->writeString(100, "AcDbBlockReference");
+        writer->writeString(100, isMInsert ? "AcDbMInsertBlock" : "AcDbBlockReference");
         if (hasAttribs)
             writer->writeInt16(66, 1); //attributes-follow flag
         writer->writeUtf8String(2, ent->name);
@@ -3224,12 +3228,15 @@ bool dxfRW::writeMultiLeader(DRW_MLeader *ent){
     return true;
 }
 
-bool dxfRW::writeWipeout(DRW_Wipeout *ent){
+bool dxfRW::writeWipeout(DRW_Wipeout *ent) {
     // WIPEOUT inherits AcDbRasterImage's group codes plus an AcDbWipeout
     // subclass marker carrying the polygon (91 + 14/24) and frame flag (290).
     // No AcDbRasterImageDef is written: WIPEOUT carries no actual raster.
     if (version <= DRW::AC1009) {
         return false; // not in ACAD R12 / earlier
+    }
+    if (ent == nullptr || !ent->hasValidBoundary()) {
+        return false;
     }
     writer->writeString(0, "WIPEOUT");
     writeEntity(ent);
@@ -3245,15 +3252,16 @@ bool dxfRW::writeWipeout(DRW_Wipeout *ent){
     writer->writeDouble(32, ent->vVector.z);
     writer->writeDouble(13, ent->sizeu);
     writer->writeDouble(23, ent->sizev);
-    writer->writeInt16(70, 1);             // image-display flags
+    writer->writeInt16(70, ent->m_displayProps);
+    writer->writeString(340, toHexStr(static_cast<int>(ent->ref)));
+    writer->writeString(360, toHexStr(static_cast<int>(ent->m_imageDefReactorHandle)));
     writer->writeInt16(280, ent->clip);    // 1 = clipping enabled
     writer->writeInt16(281, ent->brightness);
     writer->writeInt16(282, ent->contrast);
     writer->writeInt16(283, ent->fade);
     writer->writeString(100, "AcDbWipeout");
     writer->writeInt32(90, 0);             // class version
-    // Clip boundary type: honour stored value; WIPEOUT defaults to 2 (polygon).
-    writer->writeInt16(71, ent->m_clipBoundaryType != 0 ? ent->m_clipBoundaryType : 2);
+    writer->writeInt16(71, ent->m_clipBoundaryType);
     writer->writeInt32(91, static_cast<std::int32_t>(ent->clipPath.size()));
     for (const DRW_Coord& v : ent->clipPath) {
         writer->writeDouble(14, v.x);
@@ -3262,7 +3270,8 @@ bool dxfRW::writeWipeout(DRW_Wipeout *ent){
     // Group 290 is the R2010+ Clip mode (0 = mask outside, 1 = mask inside);
     // this is shared with IMAGE and is NOT a frame-display flag.  WIPEOUTFRAME
     // (whether the polygon outline is drawn) is global, in WIPEOUTVARIABLES.
-    writer->writeBool(290, ent->clipMode);
+    if (version > DRW::AC1021)
+        writer->writeBool(290, ent->clipMode);
     if (!ent->extData.empty())
         writeExtData(ent->extData);
     return true;
@@ -4716,7 +4725,7 @@ bool dxfRW::processEntities(bool isblock) {
             processed = processTrace();
         } else if (nextentity == "SOLID") {
             processed = processSolid();
-        } else if (nextentity == "INSERT") {
+        } else if (nextentity == "INSERT" || nextentity == "MINSERT") {
             processed = processInsert();
         } else if (nextentity == "ACAD_TABLE") {
             processed = processTable();
@@ -4726,6 +4735,8 @@ bool dxfRW::processEntities(bool isblock) {
             processed = processPolyline();
         } else if (nextentity == "TEXT") {
             processed = processText();
+        } else if (nextentity == "ATTDEF") {
+            processed = processAttdef();
         } else if (nextentity == "MTEXT") {
             processed = processMText();
         } else if (nextentity == "RTEXT") {
@@ -4789,8 +4800,7 @@ bool dxfRW::processEntities(bool isblock) {
         } else if (nextentity == "TOLERANCE") {
             processed = processTolerance();
         } else {
-            //Slice A4: capture an unmodeled entity verbatim rather than dropping
-            //it (also preserves block ATTDEFs, which have no typed DXF dispatch).
+            // Slice A4: capture an unmodeled entity verbatim rather than dropping it.
             processed = processRawEntity();
         }
     } while (processed);
@@ -5183,6 +5193,26 @@ bool dxfRW::processAttrib(DRW_Insert *insert) {
     return setError(DRW::BAD_READ_ENTITIES);
 }
 
+bool dxfRW::processAttdef() {
+    DRW_DBG("dxfRW::processAttdef");
+    int code;
+    DRW_Attdef attdef;
+    while (reader->readRec(&code)) {
+        DRW_DBG(code); DRW_DBG("\n");
+        if (code == 0) {
+            nextentity = reader->getString();
+            DRW_DBG(nextentity); DRW_DBG("\n");
+            if (applyExt)
+                attdef.applyExtrusion();
+            iface->addAttDef(attdef);
+            return true;
+        }
+        if (!attdef.parseCode(code, reader))
+            return setError(DRW::BAD_CODE_PARSED);
+    }
+    return setError(DRW::BAD_READ_ENTITIES);
+}
+
 bool dxfRW::processLWPolyline() {
     DRW_DBG("dxfRW::processLWPolyline");
     int code;
@@ -5495,6 +5525,9 @@ bool dxfRW::processWipeout() {
         if (0 == code) {
             nextentity = reader->getString();
             DRW_DBG(nextentity); DRW_DBG("\n");
+            if (!wipeout.hasValidBoundary()) {
+                return setError(DRW::BAD_CODE_PARSED);
+            }
             iface->addWipeout(&wipeout);
             return true;
         }
@@ -6945,7 +6978,7 @@ bool dxfRW::processRawObject() {
 }
 
 //Slice A4: lossless passthrough for an unmodeled entity in the ENTITIES section
-//or inside a BLOCK (including standalone ATTDEF). Same verbatim capture as
+//or inside a BLOCK. Same verbatim capture as
 //processRawObject but reports via addRawDxfEntity / the entities error code.
 bool dxfRW::processRawEntity() {
     DRW_DBG("dxfRW::processRawEntity");

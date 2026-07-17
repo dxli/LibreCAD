@@ -228,6 +228,10 @@ public:
     ++texts;
     trackEntity(e, "TEXT");
   }
+  void addAttDef(const DRW_Attdef &e) override {
+    ++attdefs;
+    trackEntity(e, "ATTDEF");
+  }
   void addDimAlign(const DRW_DimAligned *e) override {
     ++dimAligned;
     ++dimensions;

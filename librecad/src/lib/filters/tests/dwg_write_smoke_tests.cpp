@@ -1312,6 +1312,7 @@ DRW_UnsupportedObject makeRawReplayObject(DRW::Version version) {
     body.putObjType(version, rawClassNumber);
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = rawClassNumber;
     object.m_handle = 0x700;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1400,6 +1401,7 @@ DRW_UnsupportedObject makeRawBreakDataObject(DRW::Version version) {
     body.putHandle(rawObjectHandle(4, 0x923u));
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = classNumber;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1420,6 +1422,7 @@ DRW_UnsupportedObject makeRawBreakPointRefObject(DRW::Version version) {
     putRawCommonObjectHandles(body, 0x910u);
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = classNumber;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1441,6 +1444,7 @@ DRW_UnsupportedObject makeRawDbColorObject(DRW::Version version) {
     putRawCommonObjectHandles(body, 0x902u);
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = classNumber;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1471,6 +1475,7 @@ DRW_UnsupportedObject makeRawImageDefObject(DRW::Version version) {
     body.putHandle(rawObjectHandle(0, 0));      // xref
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = objectType;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1522,6 +1527,7 @@ DRW_UnsupportedObject makeRawPlotSettingsObject(DRW::Version version) {
     putRawCommonObjectHandles(body, 0x902u);
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = classNumber;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1543,6 +1549,7 @@ DRW_UnsupportedObject makeRawModelerGeometryEntity(
     putRawCommonEntityHandles(body, 0x12u);
 
     DRW_UnsupportedObject object;
+    object.m_version = version;
     object.m_objectType = objectType;
     object.m_handle = handle;
     object.m_bodyBitSize = version > DRW::AC1021 ? body.bitCount() : 0;
@@ -1555,23 +1562,34 @@ DRW_UnsupportedObject makeRawModelerGeometryEntity(
 
 class RawObjectReplayIface : public EmptyIface {
 public:
-    explicit RawObjectReplayIface(DRW::Version version)
-        : m_rawObject(makeRawReplayObject(version))
+    explicit RawObjectReplayIface(DRW::Version sourceVersion,
+                                  bool expectReplay = true)
+        : m_rawObject(makeRawReplayObject(sourceVersion))
+        , m_expectReplay(expectReplay)
     {}
 
     dwgRW *m_writer {nullptr};
     DRW_UnsupportedObject m_rawObject;
     std::vector<DRW_UnsupportedObject> m_unsupportedObjects;
     std::uint32_t m_readHandseed {0};
+    bool m_expectReplay {true};
 
     void writeDwgClasses() override {
-        if (m_writer != nullptr)
-            m_writer->registerRawDwgObjectClass(&m_rawObject);
+        if (m_writer == nullptr)
+            return;
+        if (m_expectReplay)
+            REQUIRE(m_writer->registerRawDwgObjectClass(&m_rawObject));
+        else
+            REQUIRE_FALSE(m_writer->registerRawDwgObjectClass(&m_rawObject));
     }
 
     void writeObjects() override {
-        if (m_writer != nullptr)
+        if (m_writer == nullptr)
+            return;
+        if (m_expectReplay)
             REQUIRE(m_writer->writeRawDwgObject(&m_rawObject));
+        else
+            REQUIRE_FALSE(m_writer->writeRawDwgObject(&m_rawObject));
     }
 
     void addHeader(const DRW_Header *header) override {
@@ -1768,10 +1786,19 @@ public:
     dwgRW *m_writer {nullptr};
     DRW_RawDwgSection m_section;
     std::vector<DRW_RawDwgSection> m_sections;
+    bool m_expectRawSectionWriteSuccess {true};
+    bool m_rawSectionWriteAttempted {false};
+    bool m_rawSectionWriteResult {false};
 
     void writeObjects() override {
-        if (m_writer != nullptr)
-            REQUIRE(m_writer->writeRawDwgSection(&m_section));
+        if (m_writer == nullptr)
+            return;
+        m_rawSectionWriteAttempted = true;
+        m_rawSectionWriteResult = m_writer->writeRawDwgSection(&m_section);
+        if (m_expectRawSectionWriteSuccess)
+            REQUIRE(m_rawSectionWriteResult);
+        else
+            CHECK_FALSE(m_rawSectionWriteResult);
     }
 
     void addRawDwgSection(const DRW_RawDwgSection &section) override {
@@ -2380,6 +2407,42 @@ public:
 
     void addWipeoutVariables(const DRW_WipeoutVariables& wv) override {
         m_wipeoutVariablesObjects.push_back(wv);
+    }
+};
+
+class WipeoutRoundTripIface : public EmptyIface {
+public:
+    dwgRW *m_writer {nullptr};
+    std::vector<DRW_Wipeout> m_wipeouts;
+
+    void writeDwgClasses() override {
+        if (m_writer != nullptr)
+            REQUIRE(m_writer->registerWipeoutEntityClass());
+    }
+
+    void writeEntities() override {
+        if (m_writer == nullptr)
+            return;
+
+        DRW_Wipeout wipeout;
+        wipeout.basePoint = DRW_Coord{10.0, 20.0, 0.0};
+        wipeout.secPoint = DRW_Coord{1.0, 0.0, 0.0};
+        wipeout.vVector = DRW_Coord{0.0, 1.0, 0.0};
+        wipeout.sizeu = 5.0;
+        wipeout.sizev = 4.0;
+        wipeout.m_displayProps = 7;
+        wipeout.ref = 0x123u;
+        wipeout.m_imageDefReactorHandle = 0x456u;
+        wipeout.clip = 1;
+        wipeout.m_clipBoundaryType = 1;
+        wipeout.clipPath = {DRW_Coord{-0.5, -0.5, 0.0},
+                            DRW_Coord{4.5, 3.5, 0.0}};
+        REQUIRE(m_writer->writeWipeout(&wipeout));
+    }
+
+    void addWipeout(const DRW_Wipeout *wipeout) override {
+        if (wipeout != nullptr)
+            m_wipeouts.push_back(*wipeout);
     }
 };
 
@@ -3096,6 +3159,7 @@ TEST_CASE("dwgRW replays raw custom OBJECT payloads with class metadata",
         }
         REQUIRE(raw != nullptr);
         REQUIRE(raw->m_bodyBitSize == writeIface.m_rawObject.m_bodyBitSize);
+        REQUIRE(raw->m_version == version);
         REQUIRE(raw->m_isCustomClass);
         REQUIRE_FALSE(raw->m_isEntity);
         REQUIRE(raw->m_recordName == writeIface.m_rawObject.m_recordName);
@@ -3104,6 +3168,37 @@ TEST_CASE("dwgRW replays raw custom OBJECT payloads with class metadata",
 
         std::remove(path.c_str());
     }
+}
+
+TEST_CASE("dwgRW rejects raw object replay without an exact source version",
+          "[dwg-write][raw-replay][version]") {
+    const std::string path = tempPath("raw_replay_version_mismatch.dwg");
+    dwgRW::WriteSkipCounters writeSkips;
+
+    {
+        // The carrier was encoded for R2013, while this file is R2018. The
+        // facade and the writer must both reject it before reserving its handle
+        // or registering its custom class.
+        RawObjectReplayIface writeIface(DRW::AC1027, /*expectReplay=*/false);
+        dwgRW writer(path.c_str());
+        writeIface.m_writer = &writer;
+        REQUIRE(writer.write(&writeIface, DRW::AC1032, /*bin=*/false));
+        writeSkips = writer.getWriteSkipCounters();
+    }
+
+    CHECK(writeSkips.classRegistrations == 1);
+    CHECK(writeSkips.rawObjectWrites == 1);
+
+    RawObjectReplayIface readIface(DRW::AC1032);
+    {
+        dwgRW reader(path.c_str());
+        REQUIRE(reader.read(&readIface, /*ext=*/false));
+        REQUIRE(reader.getVersion() == DRW::AC1032);
+        REQUIRE(reader.getError() == DRW::BAD_NONE);
+    }
+    CHECK(readIface.m_unsupportedObjects.empty());
+
+    std::remove(path.c_str());
 }
 
 TEST_CASE("dwgRW dual-delivers IMAGEDEF raw payloads for same-format replay",
@@ -3408,7 +3503,7 @@ TEST_CASE("dwgWriter counts unique raw custom class instances",
     std::ofstream stream;
     InspectableDwgWriter15 writer(&stream, &header);
 
-    DRW_UnsupportedObject first = makeRawReplayObject(DRW::AC1024);
+    DRW_UnsupportedObject first = makeRawReplayObject(DRW::AC1015);
     DRW_UnsupportedObject second = first;
     second.m_handle = 0x701u;
 
@@ -3447,7 +3542,7 @@ TEST_CASE("dwgWriter registers a CLASSES entry for every Phase-2b rescued type",
 
     std::uint32_t handle = 0x900u;
     for (const auto& r : kRescued) {
-        DRW_UnsupportedObject obj = makeRawReplayObject(DRW::AC1024);
+        DRW_UnsupportedObject obj = makeRawReplayObject(DRW::AC1015);
         obj.m_objectType = r.classNum;
         obj.m_handle = handle++;
         obj.m_recordName = r.recName;
@@ -3471,12 +3566,12 @@ TEST_CASE("dwgWriter emits 0x1F3 item_class_id for object classes, 0x1F2 for ent
     InspectableDwgWriter15 writer(&stream, &header);
 
     // Raw OBJECT custom class → 0x1F3 (was 0).
-    DRW_UnsupportedObject obj = makeRawReplayObject(DRW::AC1024);
+    DRW_UnsupportedObject obj = makeRawReplayObject(DRW::AC1015);
     REQUIRE(writer.registerObjectClassForTest(obj));
     CHECK(writer.customClassItemClassId(obj.m_objectType) == 0x1F3);
 
     // Raw ENTITY custom class → 0x1F2.
-    DRW_UnsupportedObject ent = makeRawReplayObject(DRW::AC1024);
+    DRW_UnsupportedObject ent = makeRawReplayObject(DRW::AC1015);
     ent.m_objectType = 510;
     ent.m_isEntity = true;
     REQUIRE(writer.registerObjectClassForTest(ent));
@@ -4167,6 +4262,42 @@ TEST_CASE("dwgRW writes and reads WIPEOUTVARIABLES metadata",
         REQUIRE(found != nullptr);
         CHECK(found->m_displayFrame == 1);
         CHECK(static_cast<std::uint32_t>(found->parentHandle) == 0xCu);
+
+        std::remove(path.c_str());
+    }
+}
+
+TEST_CASE("dwgRW writes and reads a rectangular WIPEOUT native frame",
+          "[dwg-write][wipeout]") {
+    const DRW::Version versions[] = {DRW::AC1015, DRW::AC1018,
+                                     DRW::AC1024, DRW::AC1027, DRW::AC1032};
+
+    for (DRW::Version version : versions) {
+        const std::string path = tempPath("native_wipeout.dwg");
+        {
+            dwgRW writer(path.c_str());
+            WipeoutRoundTripIface iface;
+            iface.m_writer = &writer;
+            REQUIRE(writer.write(&iface, version, /*bin=*/false));
+        }
+
+        WipeoutRoundTripIface readIface;
+        {
+            dwgRW reader(path.c_str());
+            REQUIRE(reader.read(&readIface, /*ext=*/false));
+            REQUIRE(reader.getVersion() == version);
+            REQUIRE(reader.getError() == DRW::BAD_NONE);
+        }
+
+        REQUIRE(readIface.m_wipeouts.size() == 1);
+        const DRW_Wipeout& found = readIface.m_wipeouts.front();
+        CHECK(found.m_clipBoundaryType == 1);
+        REQUIRE(found.clipPath.size() == 2);
+        CHECK(found.clipPath.front().x == Catch::Approx(-0.5));
+        CHECK(found.clipPath.back().x == Catch::Approx(4.5));
+        CHECK(found.m_displayProps == 7);
+        CHECK(found.ref == 0x123u);
+        CHECK(found.m_imageDefReactorHandle == 0x456u);
 
         std::remove(path.c_str());
     }
@@ -6156,6 +6287,62 @@ TEST_CASE("dwgRW R2013 preserves AcDsPrototype raw data section",
     std::remove(path.c_str());
 }
 
+TEST_CASE("dwgRW rejects cross-version AcDsPrototype raw replay",
+          "[dwg-write][smoke][raw-section][version-policy]") {
+    const std::string path = tempPath("raw_prototype_cross_version.dwg");
+
+    RawDwgSectionReplayIface writeIface;
+    writeIface.m_expectRawSectionWriteSuccess = false;
+    {
+        dwgRW writer(path.c_str());
+        writeIface.m_writer = &writer;
+        REQUIRE(writer.write(&writeIface, DRW::AC1032, /*bin=*/false));
+    }
+    CHECK(writeIface.m_rawSectionWriteAttempted);
+    CHECK_FALSE(writeIface.m_rawSectionWriteResult);
+
+    RawDwgSectionReplayIface readIface;
+    {
+        dwgRW reader(path.c_str());
+        REQUIRE(reader.read(&readIface, /*ext=*/false));
+        REQUIRE(reader.getVersion() == DRW::AC1032);
+        REQUIRE(reader.getError() == DRW::BAD_NONE);
+    }
+    CHECK(readIface.m_sections.empty());
+
+    std::remove(path.c_str());
+}
+
+TEST_CASE("dwgRW R2013 splits an oversized raw DataStorage section",
+          "[dwg-write][smoke][r2013][raw-section][multipage]") {
+    constexpr std::size_t kR2004DataPageCapacity = 0x7400;
+    const std::string path = tempPath("raw_prototype_r2013_multipage.dwg");
+
+    RawDwgSectionReplayIface writeIface;
+    writeIface.m_section.m_data.resize(kR2004DataPageCapacity + 1);
+    for (std::size_t i = 0; i < writeIface.m_section.m_data.size(); ++i) {
+        writeIface.m_section.m_data[i] = static_cast<std::uint8_t>(i & 0xffu);
+    }
+    {
+        dwgRW writer(path.c_str());
+        writeIface.m_writer = &writer;
+        REQUIRE(writer.write(&writeIface, DRW::AC1027, /*bin=*/false));
+    }
+
+    RawDwgSectionReplayIface readIface;
+    {
+        dwgRW reader(path.c_str());
+        REQUIRE(reader.read(&readIface, /*ext=*/false));
+        REQUIRE(reader.getVersion() == DRW::AC1027);
+        REQUIRE(reader.getError() == DRW::BAD_NONE);
+    }
+
+    REQUIRE(readIface.m_sections.size() == 1u);
+    CHECK(readIface.m_sections.front().m_data == writeIface.m_section.m_data);
+
+    std::remove(path.c_str());
+}
+
 TEST_CASE("dwgRW R2013 writes POINT/LINE/CIRCLE/ARC and reader recovers them",
           "[dwg-write][smoke][r2013]") {
     const std::string path = tempPath("entities_r2013.dwg");
@@ -6559,6 +6746,37 @@ const char* framingFileFor(DRW::Version v) {
     }
 }
 
+struct R2004DataPage {
+    size_t offset {0};
+    std::uint32_t sectionId {0};
+    std::uint32_t compressedSize {0};
+    std::uint32_t uncompressedSize {0};
+};
+
+std::vector<R2004DataPage> findR2004DataPages(
+    const std::vector<std::uint8_t>& bytes) {
+    constexpr size_t kFirstPageOffset = 0x100;
+    constexpr size_t kPageHeaderSize = 0x20;
+    constexpr size_t kPageAlignment = 0x20;
+    constexpr std::uint32_t kDataPageMagic = 0x4163043b;
+
+    std::vector<R2004DataPage> pages;
+    for (size_t offset = kFirstPageOffset;
+         offset + kPageHeaderSize <= bytes.size(); offset += kPageAlignment) {
+        std::uint8_t header[kPageHeaderSize];
+        std::memcpy(header, bytes.data() + offset, kPageHeaderSize);
+        dwgCompressor::decrypt18Hdr(header, kPageHeaderSize, offset);
+        const std::vector<std::uint8_t> clearHeader(header,
+                                                    header + kPageHeaderSize);
+        if (readLE32(clearHeader, 0) != kDataPageMagic)
+            continue;
+
+        pages.push_back({offset, readLE32(clearHeader, 4),
+                         readLE32(clearHeader, 8), readLE32(clearHeader, 12)});
+    }
+    return pages;
+}
+
 }  // namespace
 
 // Hidden (leading-dot tag): not run by the default suite; invoked explicitly
@@ -6587,6 +6805,24 @@ TEST_CASE("DWG framing fixtures emit + self-consistency round-trip",
             REQUIRE(reader.read(&readIface, /*ext=*/false));
             REQUIRE(reader.getVersion() == v);
             REQUIRE(readIface.m_lines.size() >= 2u);
+        }
+        if (v >= DRW::AC1018) {
+            constexpr std::uint32_t kNormalPageCapacity = 0x7400;
+            constexpr std::uint32_t kAppInfoPageCapacity = 0x80;
+            const std::vector<R2004DataPage> pages =
+                findR2004DataPages(slurp(path));
+
+            // This fixture has the five normal structural sections and one
+            // compact AppInfo section. R2004 maps the physical page capacity,
+            // not the short logical byte count of each section.
+            REQUIRE(pages.size() == 6u);
+            for (const R2004DataPage& page : pages) {
+                CHECK(page.offset % 0x20 == 0u);
+                CHECK(page.compressedSize == page.uncompressedSize);
+                CHECK(page.uncompressedSize ==
+                      (page.sectionId == 5 ? kAppInfoPageCapacity
+                                           : kNormalPageCapacity));
+            }
         }
         // NOTE: the fixtures are intentionally LEFT on disk for
         // scripts/dwg-validate.sh to feed to the external dwgread.

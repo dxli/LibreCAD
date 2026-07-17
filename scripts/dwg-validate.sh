@@ -5,12 +5,11 @@
 # (the hidden Catch2 test [.dwg_emit_framing]) and re-reads each with
 # libreDWG's external `dwgread`, capturing its error mask. This is the
 # write-path EXIT GATE for every write phase (2a/2b/3/4/5/6/9): a write change
-# must not regress the external-read status of the AC1015/AC1018 fixtures.
+# must not regress the external-read status of every emitted fixture.
 #
 # IMPORTANT (the core finding): libdxfrw's own reader re-reading its own output
-# (in-repo self-consistency) is NECESSARY but NOT SUFFICIENT. The thin
-# AC1027/AC1032 writers can pass self-consistency yet fail external dwgread.
-# This script surfaces that divergence instead of hiding it.
+# (in-repo self-consistency) is NECESSARY but NOT SUFFICIENT. This script
+# checks the framing fixtures with an independent reader as well.
 #
 # Usage:
 #   scripts/dwg-validate.sh
@@ -20,23 +19,20 @@
 #   DWGREAD     path to libreDWG dwgread (default: ~/dev/libreDWG/programs/dwgread)
 #
 # Exit status:
-#   0  the GATE fixture (AC1015) reads via dwgread WITHOUT a fatal error mask.
-#   1  the AC1015 gate regressed (a fatal external error appeared).
+#   0  every framing fixture reads via dwgread WITHOUT a fatal error mask.
+#   1  an external framing gate regressed (a fatal external error appeared).
 #   2  setup error (no dwgread / build failure / fixtures not emitted).
 #
-# OBSERVED BASELINE (libreDWG dwgread 0.13.3, 2026-05-31 — the first honest
-# external read of libdxfrw output):
+# OBSERVED BASELINE (libreDWG dwgread 0.13.3, 2026-07-17):
 #   AC1015  PASS (with bit_read buffer-overflow warnings; dwgread ends SUCCESS)
-#   AC1018  FAIL ("Failed to decode ... 0x100" — Data Section Page Map)
-#   AC1024  FAIL (libreDWG assertion in decompress_R2004_section)
-#   AC1027  FAIL (same R2004 assertion)
-#   AC1032  FAIL ("Failed to decode ... 0x100")
-# i.e. ONLY AC1015 currently survives an external reader. AC1018 and up are
-# real interop gaps the in-repo self-consistency tests do not catch — this is
-# the core finding 1.7 was built to surface. AC1018+ are reported but do NOT
-# gate the exit status until their writers are hardened (Phase 9 / framing
-# work); the gate enforces AC1015 only so write phases have a real, passing
-# external check to not regress.
+#   AC1018  PASS (with bit_read buffer-overflow warnings; dwgread ends SUCCESS)
+#   AC1024  PASS (with warnings for the omitted optional Template section)
+#   AC1027  PASS (with warnings for the omitted optional Template section)
+#   AC1032  PASS (with warnings for the omitted optional Template section)
+# The R2004-container repair uses canonical capacity-sized, 0x20-aligned data
+# pages and fixed the former external 0x840 rejection. This is a structural
+# framing gate only; feature-specific writer promotion still needs its own
+# fixtures and ODA/AutoCAD validation where available.
 
 set -uo pipefail
 
@@ -48,11 +44,8 @@ FIXTURE_DIR="$ROOT/tmp/dwg-validate"
 
 die() { echo "error: $*" >&2; exit 2; }
 
-# The enforceable gate set vs the known-untrusted set. Only AC1015 currently
-# passes an external read, so it is the sole hard gate; AC1018+ are reported
-# as KNOWN-UNTRUSTED (real interop gaps, see header BASELINE) until hardened.
-GATE_VERSIONS=(AC1015)
-UNTRUSTED_VERSIONS=(AC1018 AC1024 AC1027 AC1032)
+# Every emitted version now passes the external structural framing gate.
+GATE_VERSIONS=(AC1015 AC1018 AC1024 AC1027 AC1032)
 
 [[ -x "$DWGREAD" ]] || die "dwgread not found/executable at $DWGREAD (set DWGREAD=...)"
 [[ -x "$TEST_BIN" ]] || die "librecad_tests not built at $TEST_BIN (run: scripts/dwg-iterate.sh build)"
@@ -104,20 +97,13 @@ for v in "${GATE_VERSIONS[@]}"; do
     run_one "$v" || gate_fail=1
 done
 
-echo "== KNOWN-UNTRUSTED (thin/unverified writers; do NOT gate the exit)"
-for v in "${UNTRUSTED_VERSIONS[@]}"; do
-    run_one "$v" || true
-done
-
 echo
 if [[ "$gate_fail" -ne 0 ]]; then
-    echo "GATE: FAIL — the AC1015 external read regressed."
-    echo "      (write-path phases 2a/2b/3/4/5/6/9 must keep AC1015 green)"
+    echo "GATE: FAIL — an external DWG framing read regressed."
+    echo "      (write-path phases must keep every emitted version green)"
     exit 1
 fi
-echo "GATE: PASS — the AC1015 fixture reads via external dwgread without a fatal mask."
-echo "NOTE: AC1018/AC1024/AC1027/AC1032 are KNOWN-UNTRUSTED — they currently FAIL"
-echo "      external dwgread (see script header BASELINE). Hardening those writers"
-echo "      is Phase 9 / framing work; the in-repo self-consistency loop alone does"
-echo "      NOT prove external readability."
+echo "GATE: PASS — every emitted fixture reads via external dwgread without a fatal mask."
+echo "NOTE: this validates container framing only; feature-specific writer support"
+echo "      remains subject to its own round-trip and external-oracle fixtures."
 exit 0

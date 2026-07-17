@@ -27,6 +27,8 @@
 #ifndef RS_BLOCKLIST_H
 #define RS_BLOCKLIST_H
 
+#include <cstddef>
+
 #include <QList>
 
 class QString;
@@ -74,6 +76,7 @@ public:
     bool rename(RS_Block* block, const QString& name);
     //virtual void editBlock(RS_Block* block, const RS_Block& source);
     RS_Block* find(const QString& name);
+    const RS_Block* find(const QString& name) const;
     RS_Block* findCaseInsensitive(const QString& name) const;
     QString newName(const QString& suggestion = "");
     void toggle(const QString& name);
@@ -102,6 +105,13 @@ public:
      */
     bool isModified() const;
 
+    /**
+     * Monotonically increases whenever name-to-block resolution can change.
+     */
+    [[nodiscard]] std::size_t generation() const noexcept {
+        return m_generation;
+    }
+
     friend std::ostream& operator <<(std::ostream& os, RS_BlockList& b);
 
 private:
@@ -115,6 +125,7 @@ private:
     RS_Block* m_activeBlock = nullptr;
     /** Flag set if the block list was modified and not yet saved. */
     bool m_modified = false;
+    std::size_t m_generation = 0U;
 };
 
 #endif

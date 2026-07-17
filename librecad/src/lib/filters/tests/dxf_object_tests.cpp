@@ -28,6 +28,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include <algorithm>
+#include <cmath>
 #include <cstdint>
 #include <cstdio>
 #include <filesystem>
@@ -111,6 +112,15 @@ public:
     if (m_callCount == 0)
       m_captured = d;
     ++m_callCount;
+  }
+};
+
+class InsertCapture : public StubInterface {
+public:
+  std::vector<DRW_Insert> m_captured;
+
+  void addInsert(const DRW_Insert &d) override {
+    m_captured.push_back(d);
   }
 };
 
@@ -224,8 +234,12 @@ public:
 class RawEntityCapture : public StubInterface {
 public:
   std::vector<DRW_RawDxfObject> m_entities;
+  std::vector<DRW_Attdef> m_attdefs;
   void addRawDxfEntity(const DRW_RawDxfObject &d) override {
     m_entities.push_back(d);
+  }
+  void addAttDef(const DRW_Attdef &d) override {
+    m_attdefs.push_back(d);
   }
 };
 
@@ -636,6 +650,10 @@ public:
     wipeout.vVector = DRW_Coord(0.0, 1.0, 0.0);
     wipeout.sizeu = 2.0;
     wipeout.sizev = 2.0;
+    wipeout.m_clipBoundaryType = 2;
+    wipeout.clipPath = {DRW_Coord{-0.5, -0.5, 0.0},
+                         DRW_Coord{1.5, -0.5, 0.0},
+                         DRW_Coord{0.5, 1.5, 0.0}};
     addXData(wipeout, "wipeout-xdata", 1070, 52);
     m_rw->writeWipeout(&wipeout);
 
@@ -996,8 +1014,8 @@ TEST_CASE("DXF BREAKDATA/BREAKPOINTREF are raw-captured, not dropped (write-revi
 
 TEST_CASE("DXF unmodeled ENTITY is captured verbatim, not dropped (slice A4)", "[dxf][rawentity]") {
   RawEntityCapture cap;
-  // An unknown entity and a standalone ATTDEF (no typed DXF dispatch) — both
-  // must be preserved rather than silently skipped.
+  // The unknown record remains raw, while ATTDEF has a typed route so BLOCK
+  // definitions can preserve their visible text and attribute fields.
   const char *dxf =
       "0\nSECTION\n2\nENTITIES\n"
       "0\nWEIRDENT\n8\n0\n5\n4A\n62\n3\n10\n1.0\n20\n2.0\n"
@@ -1006,14 +1024,16 @@ TEST_CASE("DXF unmodeled ENTITY is captured verbatim, not dropped (slice A4)", "
       "0\nENDSEC\n0\nEOF\n";
   readDxf(dxf, cap, "lc_rawentity.dxf");
 
-  // WEIRDENT + ATTDEF captured; LINE is typed (not raw).
-  REQUIRE(cap.m_entities.size() == 2);
+  // WEIRDENT is raw; ATTDEF and LINE are typed.
+  REQUIRE(cap.m_entities.size() == 1);
   CHECK(cap.m_entities[0].name == "WEIRDENT");
   CHECK(cap.m_entities[0].handle == 0x4Au);
-  CHECK(cap.m_entities[1].name == "ATTDEF");
-  CHECK(cap.m_entities[1].handle == 0x4Bu);
-  // ATTDEF groups preserved verbatim (8,5,10,20,40,1,2,3,70)
-  CHECK(cap.m_entities[1].groups.size() == 9);
+  REQUIRE(cap.m_attdefs.size() == 1);
+  CHECK(cap.m_attdefs[0].handle == 0x4Bu);
+  CHECK(cap.m_attdefs[0].text == "def");
+  CHECK(cap.m_attdefs[0].tag == "TAG");
+  CHECK(cap.m_attdefs[0].prompt == "Prompt?");
+  CHECK(cap.m_attdefs[0].attribFlags == 0);
 }
 
 TEST_CASE("DXF raw object round-trips through write+read (slice A2)",
@@ -1709,6 +1729,136 @@ TEST_CASE("DXF writeCircle/writeArc emit thickness + extrusion (P1)",
   CHECK_FALSE(entityVal("ARC", "39", v));
   REQUIRE(entityVal("ARC", "220", v));
   CHECK(close(v, 1.0));
+}
+
+TEST_CASE("DXF writeInsert distinguishes INSERT and MINSERT subtypes", "[dxf][insert]") {
+  class InsertEmitter : public StubInterface {
+  public:
+    dxfRW *m_rw = nullptr;
+    void writeEntities() override {
+      DRW_Insert insert;
+      insert.name = "PLAIN";
+      insert.basePoint = DRW_Coord(1.0, 2.0, 3.0);
+      insert.extPoint = DRW_Coord(0.0, 0.0, -1.0);
+      m_rw->writeInsert(&insert);
+
+      DRW_Insert minsert;
+      minsert.name = "GRID";
+      minsert.basePoint = DRW_Coord(4.0, 5.0, 6.0);
+      minsert.colcount = 2;
+      minsert.rowcount = 3;
+      minsert.colspace = 7.0;
+      minsert.rowspace = 8.0;
+      minsert.extPoint = DRW_Coord(0.0, 0.0, -1.0);
+      m_rw->writeInsert(&minsert);
+    }
+  };
+
+  const auto path = std::filesystem::temp_directory_path() / "lc_insert_subtypes.dxf";
+  std::filesystem::remove(path);
+  InsertEmitter em;
+  {
+    dxfRW w(path.string().c_str());
+    em.m_rw = &w;
+    REQUIRE(w.write(&em, DRW::AC1021, false));
+  }
+  const auto groups = readGroups(path);
+
+  auto recordValue = [&](const std::string &recordType,
+                         const std::string &recordName,
+                         const std::string &code, std::string &out) {
+    std::vector<std::pair<std::string, std::string>> record;
+    auto matches = [&]() {
+      const bool hasName = std::any_of(
+          record.begin(), record.end(), [&](const auto &group) {
+            return group.first == "2" && group.second == recordName;
+          });
+      if (!hasName)
+        return false;
+      const auto it = std::find_if(record.begin(), record.end(),
+                                   [&](const auto &group) {
+                                     return group.first == code;
+                                   });
+      if (it == record.end())
+        return false;
+      out = it->second;
+      return true;
+    };
+
+    bool inRecord = false;
+    for (const auto &group : groups) {
+      if (group.first == "0") {
+        if (inRecord && matches())
+          return true;
+        inRecord = group.second == recordType;
+        record.clear();
+      }
+      if (inRecord)
+        record.push_back(group);
+    }
+    return inRecord && matches();
+  };
+  auto numericValue = [&](const std::string &recordType,
+                          const std::string &recordName,
+                          const std::string &code, double expected) {
+    std::string value;
+    REQUIRE(recordValue(recordType, recordName, code, value));
+    CHECK(std::abs(std::stod(value) - expected) < 1e-9);
+  };
+  auto recordHasValue = [&](const std::string &recordType,
+                            const std::string &recordName,
+                            const std::string &code,
+                            const std::string &expected) {
+    bool inRecord = false;
+    bool hasName = false;
+    bool hasValue = false;
+    auto matches = [&]() { return hasName && hasValue; };
+    for (const auto &group : groups) {
+      if (group.first == "0") {
+        if (inRecord && matches())
+          return true;
+        inRecord = group.second == recordType;
+        hasName = false;
+        hasValue = false;
+      }
+      if (inRecord) {
+        hasName = hasName || (group.first == "2" && group.second == recordName);
+        hasValue = hasValue || (group.first == code && group.second == expected);
+      }
+    }
+    return inRecord && matches();
+  };
+
+  CHECK(recordHasValue("INSERT", "PLAIN", "100", "AcDbBlockReference"));
+  numericValue("INSERT", "PLAIN", "10", 1.0);
+  numericValue("INSERT", "PLAIN", "20", 2.0);
+  numericValue("INSERT", "PLAIN", "30", 3.0);
+  numericValue("INSERT", "PLAIN", "230", -1.0);
+
+  CHECK(recordHasValue("INSERT", "GRID", "100", "AcDbMInsertBlock"));
+  numericValue("INSERT", "GRID", "70", 2.0);
+  numericValue("INSERT", "GRID", "71", 3.0);
+  numericValue("INSERT", "GRID", "44", 7.0);
+  numericValue("INSERT", "GRID", "45", 8.0);
+  numericValue("INSERT", "GRID", "230", -1.0);
+
+  InsertCapture captured;
+  dxfRW reader(path.string().c_str());
+  REQUIRE(reader.read(&captured, false));
+  std::filesystem::remove(path);
+
+  REQUIRE(captured.m_captured.size() == 2);
+  CHECK(captured.m_captured[0].name == "PLAIN");
+  CHECK(captured.m_captured[0].basePoint.z == 3.0);
+  CHECK(captured.m_captured[0].extPoint.z == -1.0);
+  CHECK_FALSE(captured.m_captured[0].isMInsert());
+  CHECK(captured.m_captured[1].name == "GRID");
+  CHECK(captured.m_captured[1].isMInsert());
+  CHECK(captured.m_captured[1].colcount == 2);
+  CHECK(captured.m_captured[1].rowcount == 3);
+  CHECK(captured.m_captured[1].colspace == 7.0);
+  CHECK(captured.m_captured[1].rowspace == 8.0);
+  CHECK(captured.m_captured[1].extPoint.z == -1.0);
 }
 
 // Batch A (vertex subclass): a 3D POLYLINE's VERTEX must carry the type-specific
@@ -2837,7 +2987,7 @@ TEST_CASE("DXF IMAGEBACKGROUND is read into a DRW_Background",
       "0\nSECTION\n2\nOBJECTS\n"
       "0\nIMAGEBACKGROUND\n5\n2A1\n330\nC\n100\nAcDbImageBackground\n"
       "90\n1\n300\nsky.jpg\n290\n1\n291\n0\n292\n1\n"
-      "140\n2.0\n142\n1.5\n"
+      "140\n2.0\n141\n-3.0\n142\n1.5\n143\n0.75\n"
       "0\nENDSEC\n0\nEOF\n";
   readDxf(dxf, cap, "lc_imagebg_read.dxf");
   REQUIRE(cap.m_callCount == 1);
@@ -2848,9 +2998,9 @@ TEST_CASE("DXF IMAGEBACKGROUND is read into a DRW_Background",
   CHECK(b.m_maintainAspect == false);
   CHECK(b.m_useTiling == true);
   CHECK(b.m_offset.x == 2.0);
+  CHECK(b.m_offset.y == -3.0);
   CHECK(b.m_scale.x == 1.5);
-  // offset.y/scale.y (DXF 240/242) are unreadable by libdxfrw's dxfReader (the
-  // 240-269 code range is an unhandled gap) — preserved raw, not decoded here.
+  CHECK(b.m_scale.y == 0.75);
 }
 
 TEST_CASE("DXF SKYLIGHTBACKGROUND + SOLIDBACKGROUND read into DRW_Background",

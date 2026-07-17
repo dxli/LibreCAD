@@ -284,6 +284,40 @@ TEST_CASE("DRW_Header::encodeDwg round-trips coord vars and the CEPSNTYPE=3 bran
     REQUIRE(i32(dst, "INSUNITS")  == 4);
 }
 
+TEST_CASE("DRW_Header::encodeDwg round-trips TDCREATE/TDUPDATE/TDINDWG/TDUSRTIMER as canonical julian day.fraction",
+          "[dwg-write][header-encode][datetime]") {
+    DRW_Header src;
+
+    // Pick four distinct julian-day timestamps with sub-second resolution.
+    // Encoding must preserve them to a millisecond (1/86_400_000 of a day).
+    // These cover (a) noon (msec = 43_200_000), (b) midnight, (c) 1ms past
+    // midnight (smallest non-zero msec), (d) one second before next day.
+    constexpr double kMsecPerDay = 86400000.0;
+    constexpr double kEpsilon = 1.0 / kMsecPerDay + 1e-12;
+    const double tdcreate = 2451545.0 + 43200000.0 / kMsecPerDay;       // J2000 noon UT
+    const double tdupdate = 2460000.0;                                  // pure midnight
+    const double tdindwg  = 2459999.0 + 1.0 / kMsecPerDay;              // 1 ms past midnight
+    const double tdusr    = 2460001.0 + (kMsecPerDay - 1000.0) / kMsecPerDay; // 23:59:59.000
+
+    src.addDouble("TDCREATE",   tdcreate, 40);
+    src.addDouble("TDUPDATE",   tdupdate, 40);
+    src.addDouble("TDINDWG",    tdindwg,  40);
+    src.addDouble("TDUSRTIMER", tdusr,    40);
+
+    auto bytes = encodeWithSizePrefix(src);
+
+    dwgBuffer r(bytes.data(), bytes.size());
+    DRW_Header dst;
+    REQUIRE(DrwHeaderEncodeTestAccess::parse(dst, DRW::AC1015, &r, &r));
+
+    // The round-trip is millisecond-quantised (the on-wire format is two
+    // BLs = day+msec), so allow at most 1ms of slack.
+    REQUIRE(std::abs(dbl(dst, "TDCREATE")   - tdcreate) < kEpsilon);
+    REQUIRE(std::abs(dbl(dst, "TDUPDATE")   - tdupdate) < kEpsilon);
+    REQUIRE(std::abs(dbl(dst, "TDINDWG")    - tdindwg)  < kEpsilon);
+    REQUIRE(std::abs(dbl(dst, "TDUSRTIMER") - tdusr)    < kEpsilon);
+}
+
 namespace {
 
 /// Capturing iface for the fixture-replay test: copies the parsed

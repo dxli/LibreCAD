@@ -654,7 +654,7 @@ def render_family_table(rows: list[RefRow]) -> str:
 
 def availability_line(label: str, path: Path | None) -> str:
     if path is not None and path.exists():
-        return f"- {label}: `{path}`"
+        return f"- {label}: available"
     return f"- {label}: not found"
 
 
@@ -705,7 +705,7 @@ def generate_markdown(
         "",
         "## Inputs",
         "",
-        f"- LibreCAD root: `{repo}`",
+        "- LibreCAD root: repository checkout",
         availability_line("ACadSharp", acadsharp),
         availability_line("ezdxf", ezdxf),
         availability_line("LibreDWG", libredwg),
@@ -765,22 +765,33 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--oda-file-converter", default=None)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--check", action="store_true", help="fail if output is stale")
+    parser.add_argument(
+        "--allow-missing-inputs",
+        action="store_true",
+        help="skip a check when optional adjacent-reference repositories are absent",
+    )
     args = parser.parse_args(argv)
 
     repo = args.repo_root.resolve()
     acadsharp = (args.acadsharp_root or (repo.parent / "ACadSharp")).resolve()
     ezdxf = (args.ezdxf_root or (repo.parent / "ezdxf")).resolve()
     libredwg = (args.libredwg_root or (repo.parent / "libredwg")).resolve()
+    missing = []
     if not acadsharp.is_dir():
-        raise SystemExit(f"error: ACadSharp root not found: {acadsharp}")
+        missing.append(f"ACadSharp root not found: {acadsharp}")
     if not ezdxf.is_dir():
-        raise SystemExit(f"error: ezdxf root not found: {ezdxf}")
+        missing.append(f"ezdxf root not found: {ezdxf}")
     if not libredwg.is_dir():
         alt = repo.parent / "libreDWG"
         if alt.is_dir():
             libredwg = alt.resolve()
         else:
-            raise SystemExit(f"error: LibreDWG root not found: {libredwg}")
+            missing.append(f"LibreDWG root not found: {libredwg}")
+    if missing:
+        if args.check and args.allow_missing_inputs:
+            print(f"skip: adjacent reference inventory inputs unavailable: {'; '.join(missing)}")
+            return 0
+        raise SystemExit(f"error: {'; '.join(missing)}")
 
     rows = build_rows(repo, acadsharp, ezdxf, libredwg)
     text = generate_markdown(

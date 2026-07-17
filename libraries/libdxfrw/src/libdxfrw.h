@@ -296,6 +296,7 @@ private:
     bool processInsert();
     bool processTable();
     bool processAttrib(DRW_Insert* insert);
+    bool processAttdef();
     bool processLWPolyline();
     bool processPolyline();
     bool processVertex(DRW_Polyline* pl);

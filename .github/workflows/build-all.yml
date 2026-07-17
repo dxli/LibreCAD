@@ -47,6 +47,16 @@ jobs:
           cd unix
           ./librecad_tests
 
+      - name: Verify DWG/DXF readiness metadata
+        run: |
+          python3 scripts/validate_fixture_manifest.py
+          python3 scripts/hash_fixtures.py --check
+          python3 scripts/dwg_version_inventory.py --check
+          python3 scripts/dwgts_feature_parity_inventory.py --check
+          python3 scripts/dwg_reference_coverage_inventory.py --check --allow-missing-inputs
+          python3 scripts/writer_support_inventory.py --check
+          python3 scripts/generate_gap_report.py --check
+
       - name: Create AppImage
         run: |
           QT_FILE_DIR="${{github.workspace}}/../Qt" ./CI/build-appimg.sh

@@ -2042,40 +2042,26 @@ bool DRW_Header::parseDwg(DRW::Version version, dwgBuffer *buf, dwgBuffer *hBbuf
     if (version < DRW::AC1021) {//2004-
         vars["MENU"]=new DRW_Variant(1, buf->getCP8Text());
     }
-    double msec, day;
-    day = buf->getBitLong();
-    msec = buf->getBitLong();
-    while (msec >= 1)
-        msec /=10;
-    vars["TDCREATE"]=new DRW_Variant(40, day+msec);//RLZ: TODO convert to day.msec
-//    vars["TDCREATE"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
-//    vars["TDCREATE"]=new DRW_Variant(40, buf->getBitLong());
-    day = buf->getBitLong();
-    msec = buf->getBitLong();
-    while (msec >= 1)
-        msec /=10;
-    vars["TDUPDATE"]=new DRW_Variant(40, day+msec);//RLZ: TODO convert to day.msec
-//    vars["TDUPDATE"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
-//    vars["TDUPDATE"]=new DRW_Variant(40, buf->getBitLong());
+    // DWG header time variables are stored as two 32-bit ints: julian day +
+    // milliseconds since midnight UTC.  DXF/DXF-API convention is the canonical
+    // double `julianDay + msec/86_400_000.0`, so combine them with that ratio
+    // (NOT the historic "divide by 10 until <1" loop, which produced lossy
+    // and non-deterministic noise for any wall-clock time).
+    constexpr double kMsecPerDay = 86400000.0;
+    auto readJulianDate = [buf]() {
+        const std::int32_t day = buf->getBitLong();
+        const std::int32_t msec = buf->getBitLong();
+        return static_cast<double>(day) + static_cast<double>(msec) / kMsecPerDay;
+    };
+    vars["TDCREATE"] = new DRW_Variant(40, readJulianDate());
+    vars["TDUPDATE"] = new DRW_Variant(40, readJulianDate());
     if (version > DRW::AC1015) {//2004+
          DRW_DBG("\nUnknown long 4: "); DRW_DBG(buf->getBitLong());
          DRW_DBG("\nUnknown long 5: "); DRW_DBG(buf->getBitLong());
          DRW_DBG("\nUnknown long 6: "); DRW_DBG(buf->getBitLong());
     }
-    day = buf->getBitLong();
-    msec = buf->getBitLong();
-    while (msec >= 1)
-        msec /=10;
-    vars["TDINDWG"]=new DRW_Variant(40, day+msec);//RLZ: TODO convert to day.msec
-//    vars["TDINDWG"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
-//    vars["TDINDWG"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
-    day = buf->getBitLong();
-    msec = buf->getBitLong();
-    while (msec >= 1)
-        msec /=10;
-    vars["TDUSRTIMER"]=new DRW_Variant(40, day+msec);//RLZ: TODO convert to day.msec
-//    vars["TDUSRTIMER"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
-//    vars["TDUSRTIMER"]=new DRW_Variant(40, buf->getBitLong());//RLZ: TODO convert to day.msec
+    vars["TDINDWG"] = new DRW_Variant(40, readJulianDate());
+    vars["TDUSRTIMER"] = new DRW_Variant(40, readJulianDate());
     vars["CECOLOR"]=new DRW_Variant(62, buf->getCmColor(version));//RLZ: TODO read CMC or EMC color
     dwgHandle HANDSEED = buf->getHandle();//always present in data stream
     DRW_DBG("\nHANDSEED: "); DRW_DBGHL(HANDSEED.code, HANDSEED.size, HANDSEED.ref);
@@ -2685,30 +2671,24 @@ namespace {
         }
         return h;
     }
-    /// Decompose a stored double (TDCREATE-style "day.msec_fraction") back
-    /// into the two BLs parseDwg reads.  Inverse of:
+    /// Decompose a stored TDCREATE-style double `julianDay + msec/86_400_000`
+    /// back into the two BLs encodeDwg writes.  Inverse of:
     ///   day = getBitLong(); msec = getBitLong();
-    ///   while (msec >= 1) msec /= 10;
-    ///   stored = day + msec;
-    /// For an empty header (stored == 0.0) the result is (0, 0).  Real
-    /// fixture defaults still round-trip exactly because msec is always
-    /// represented as fractional part * 10^k for some k.
+    ///   stored = day + msec/86_400_000.0;
+    /// For an empty header (stored == 0.0) the result is (0, 0).  Round to the
+    /// nearest millisecond to absorb the FP error introduced by the division.
     void splitTimeVar(double stored, std::int32_t& day, std::int32_t& msecOut) {
-        day = static_cast<std::int32_t>(stored);
-        double frac = stored - static_cast<double>(day);
-        if (frac == 0.0) { msecOut = 0; return; }
-        // Reverse the divide-by-10 loop: multiply by 10 until the result
-        // is integer (the original msec value).  Cap at 10 iterations to
-        // avoid pathological FP cases.
-        for (int i = 0; i < 10; ++i) {
-            frac *= 10.0;
-            double rounded = std::round(frac);
-            if (std::abs(frac - rounded) < 1e-9 && rounded != 0.0) {
-                msecOut = static_cast<std::int32_t>(rounded);
-                return;
-            }
+        constexpr double kMsecPerDay = 86400000.0;
+        const double dayFloor = std::floor(stored);
+        day = static_cast<std::int32_t>(dayFloor);
+        const double frac = stored - dayFloor;
+        msecOut = static_cast<std::int32_t>(std::lround(frac * kMsecPerDay));
+        // A msec of exactly 86_400_000 occurs if `frac` is essentially 1 due
+        // to FP rounding; carry to the next day.
+        if (msecOut >= static_cast<std::int32_t>(kMsecPerDay)) {
+            day += 1;
+            msecOut = 0;
         }
-        msecOut = static_cast<std::int32_t>(std::round(frac));
     }
 } // namespace
 

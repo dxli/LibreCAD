@@ -3883,15 +3883,17 @@ bool DRW_Background::parseCode(int code, const std::unique_ptr<dxfReader>& reade
         if (m_kind == Gradient) m_horizon = reader->getDouble();
         else if (m_kind == Image) m_offset.x = reader->getDouble();
         break;
-    case 141: if (m_kind == Gradient) m_height = reader->getDouble(); break;
+    case 141:
+        if (m_kind == Gradient) m_height = reader->getDouble();
+        else if (m_kind == Image) m_offset.y = reader->getDouble();
+        break;
     case 142:
         if (m_kind == Gradient) m_rotation = reader->getDouble();
         else if (m_kind == Image) m_scale.x = reader->getDouble();
         break;
-    // NOTE: image-background offset.y/scale.y use DXF codes 240/242, which
-    // libdxfrw's dxfReader does not classify (the 240-269 range is an unhandled
-    // gap in dxfreader.cpp readRec) — those Y components are left to the raw-net
-    // until the reader's code-range table is extended.
+    case 143:
+        if (m_kind == Image) m_scale.y = reader->getDouble();
+        break;
     case 40:  if (m_kind == Ibl) m_rotation = reader->getDouble(); break;
     case 1:   if (m_kind == Ibl) m_iblName = reader->getUtf8String(); break;
     case 300: if (m_kind == Image) m_fileName = reader->getUtf8String(); break;

@@ -9,11 +9,11 @@ feature families, class names, and practical validation gaps.
 
 ## Inputs
 
-- LibreCAD root: `/Users/dli/dev/LibreCAD`
-- ACadSharp: `/Users/dli/dev/ACadSharp`
-- ezdxf: `/Users/dli/dev/ezdxf`
-- LibreDWG: `/Users/dli/dev/libredwg`
-- ODA File Converter: `/Applications/ODAFileConverter.app/Contents/MacOS/ODAFileConverter`
+- LibreCAD root: repository checkout
+- ACadSharp: available
+- ezdxf: available
+- LibreDWG: available
+- ODA File Converter: available
 
 ## Status Semantics
 
@@ -27,26 +27,26 @@ feature families, class names, and practical validation gaps.
 
 | Source | Area | libdxfrw status | Count |
 | --- | --- | --- | ---: |
-| ACadSharp | DWG custom class | dxf-classed-raw | 7 |
-| ACadSharp | DWG custom class | named-dwg-route | 4 |
-| ACadSharp | DWG custom class | not-named | 18 |
-| ACadSharp | DWG fixed entity | not-named | 1 |
-| ACadSharp | DWG fixed entity | typed-fixed-dispatch | 46 |
+| ACadSharp | DWG custom class | dxf-classed-raw | 9 |
+| ACadSharp | DWG custom class | named-dwg-route | 5 |
+| ACadSharp | DWG custom class | not-named | 15 |
+| ACadSharp | DWG fixed entity | not-named | 40 |
+| ACadSharp | DWG fixed entity | typed-fixed-dispatch | 7 |
 | ACadSharp | DWG fixed object | dxf-classed-raw | 1 |
-| ACadSharp | DWG fixed object | not-named | 11 |
-| ACadSharp | DWG fixed object | typed-fixed-dispatch | 20 |
-| LibreDWG | DWG custom class | dxf-classed-raw | 26 |
-| LibreDWG | DWG custom class | named-dwg-route | 9 |
-| LibreDWG | DWG custom class | not-named | 210 |
-| LibreDWG | DWG fixed entity | not-named | 1 |
-| LibreDWG | DWG fixed entity | typed-fixed-dispatch | 46 |
+| ACadSharp | DWG fixed object | not-named | 12 |
+| ACadSharp | DWG fixed object | typed-fixed-dispatch | 19 |
+| LibreDWG | DWG custom class | dxf-classed-raw | 24 |
+| LibreDWG | DWG custom class | named-dwg-route | 23 |
+| LibreDWG | DWG custom class | not-named | 198 |
+| LibreDWG | DWG fixed entity | not-named | 40 |
+| LibreDWG | DWG fixed entity | typed-fixed-dispatch | 7 |
 | LibreDWG | DWG fixed object | dxf-classed-raw | 1 |
-| LibreDWG | DWG fixed object | not-named | 11 |
-| LibreDWG | DWG fixed object | typed-fixed-dispatch | 20 |
+| LibreDWG | DWG fixed object | not-named | 12 |
+| LibreDWG | DWG fixed object | typed-fixed-dispatch | 19 |
 | ODA spec | DWG data section | raw-preserved | 1 |
-| ezdxf | DXF record | not-dispatched | 32 |
-| ezdxf | DXF record | raw-preserved-classed | 21 |
-| ezdxf | DXF record | typed-dispatch | 40 |
+| ezdxf | DXF record | not-dispatched | 21 |
+| ezdxf | DXF record | raw-preserved-classed | 19 |
+| ezdxf | DXF record | typed-dispatch | 53 |
 | ezdxf | DXF section | typed-dispatch | 1 |
 
 ## Refined Implementation Slices
@@ -54,20 +54,17 @@ feature families, class names, and practical validation gaps.
 | Priority | Family | Count | Primary slice |
 | --- | --- | ---: | --- |
 | P0 | data-storage/classes | 3 | P0: preserve AC1027 data-storage sections before typed conversion |
-| P1 | 3D/modeler | 3 | P1: typed DXF/DWG shell and callback/write-path parity |
-| P1 | annotation/context | 3 | P1: typed DXF/DWG shell and callback/write-path parity |
-| P1 | core-geometry | 2 | P1: typed DXF/DWG shell and callback/write-path parity |
-| P1 | point-cloud/model-reference | 9 | P1: raw/classed shells plus handle/owner preservation for external refs |
+| P1 | point-cloud/model-reference | 7 | P1: raw/classed shells plus handle/owner preservation for external refs |
 | P1 | render/material | 1 | P1: typed DXF/DWG shell and callback/write-path parity |
-| P2 | 3D/modeler | 49 | P2: ACIS/SAB raw shell first, typed geometry later |
-| P2 | annotation/context | 24 | P2: preserve annotation context and object-context data |
+| P2 | 3D/modeler | 44 | P2: ACIS/SAB raw shell first, typed geometry later |
+| P2 | annotation/context | 42 | P2: preserve annotation context and object-context data |
 | P2 | geospatial | 4 | P2: preserve geodata/object-context dependencies |
 | P2 | parametric/dynamic-block | 79 | P2: preserve assoc/eval/dynamic-block object graphs |
-| P2 | proxy/embedded | 11 | P2: preserve proxy/OLE payloads and owners |
+| P2 | proxy/embedded | 15 | P2: preserve proxy/OLE payloads and owners |
 | P2 | raster-underlay | 25 | P2: unify image/underlay definition-reference-reactor graphs |
 | P2 | render/material | 20 | P2: preserve render/material environment objects |
-| P3 | core-geometry | 88 | P3: classify, preserve raw, then decide typed support |
-| P3 | database/table | 20 | P3: classify, preserve raw, then decide typed support |
+| P3 | core-geometry | 131 | P3: classify, preserve raw, then decide typed support |
+| P3 | database/table | 22 | P3: classify, preserve raw, then decide typed support |
 
 ## Implementation-Ready Plan
 
@@ -93,24 +90,19 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | data-storage/classes | `500` | `ACDSRECORD` | not-named | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | data-storage/classes | `501` | `ACDSSCHEMA` | not-named | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ../libredwg/include/dwg.h |
 | ODA spec | DWG data section | data-storage/classes | `AcDb:AcDsPrototype_1b` | `ACDB:ACDSPROTOTYPE_1B` | raw-preserved | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ~/doc/dwg/dwg.pdf and local DWGTS_COVERAGE_STATUS.md |
-| ACadSharp | DWG custom class | 3D/modeler | `MESH` | `MESH` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ACadSharp/src/** case "..." |
-| LibreDWG | DWG custom class | 3D/modeler | `663` | `MESH` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | 3D/modeler | `MESH` | `MESH` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| LibreDWG | DWG custom class | annotation/context | `652` | `LARGE_RADIAL_DIMENSION` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | annotation/context | `ACAD_TABLE` | `ACAD_TABLE` | raw-preserved-classed | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | annotation/context | `LARGE_RADIAL_DIMENSION` | `LARGE_RADIAL_DIMENSION` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| LibreDWG | DWG custom class | core-geometry | `668` | `MPOLYGON` | dxf-classed-raw | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | core-geometry | `MPOLYGON` | `MPOLYGON` | raw-preserved-classed | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `672` | `NAVISWORKSMODEL` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `673` | `NAVISWORKSMODELDEF` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | point-cloud/model-reference | `684` | `POINTCLOUD` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `685` | `POINTCLOUDCOLORMAP` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `686` | `POINTCLOUDDEF` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `687` | `POINTCLOUDDEFEX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `688` | `POINTCLOUDDEF_REACTOR` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `689` | `POINTCLOUDDEF_REACTOR_EX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | point-cloud/model-reference | `690` | `POINTCLOUDEX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | ezdxf | DXF record | render/material | `LIGHT` | `LIGHT` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ACadSharp | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `39` | `BODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `37` | `REGION` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| LibreDWG | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `505` | `ACSH_BOOLEAN_CLASS` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `506` | `ACSH_BOX_CLASS` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `507` | `ACSH_BREP_CLASS` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
@@ -146,22 +138,21 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | 3D/modeler | `567` | `ASSOCSWEPTSURFACEACTIONBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `568` | `ASSOCTRIMSURFACEACTIONBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `593` | `BLOCKPARAMDEPENDENCYBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `633` | `EXTRUDEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `660` | `LOFTEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `675` | `NURBSSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `682` | `PLANESURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `702` | `REVOLVEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `720` | `SWEPTSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | 3D/modeler | `3DSOLID` | `3DSOLID` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `BODY` | `BODY` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `EXTRUDEDSURFACE` | `EXTRUDEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `LOFTEDSURFACE` | `LOFTEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `REGION` | `REGION` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `REVOLVEDSURFACE` | `REVOLVEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| LibreDWG | DWG fixed entity | 3D/modeler | `39` | `BODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `37` | `REGION` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | ezdxf | DXF record | 3D/modeler | `SURFACE` | `SURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `SWEPTSURFACE` | `SWEPTSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ACadSharp | DWG custom class | annotation/context | `ACDB_MLEADEROBJECTCONTEXTDATA_CLASS` | `ACDB_MLEADEROBJECTCONTEXTDATA_CLASS` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG custom class | annotation/context | `MLEADERSTYLE` | `MLEADERSTYLE` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG fixed entity | annotation/context | `44` | `MTEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `1` | `TEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | LibreDWG | DWG custom class | annotation/context | `521` | `ALDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `523` | `ANGDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `528` | `ASSOC3POINTANGULARDIMACTIONBODY` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
@@ -171,16 +162,25 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | annotation/context | `557` | `ASSOCORDINATEDIMACTIONBODY` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `566` | `ASSOCROTATEDDIMACTIONBODY` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `626` | `DIMASSOC` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `627` | `DMDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | annotation/context | `635` | `FIELD` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | annotation/context | `635` | `FIELD` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `636` | `FIELDLIST` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `664` | `MLEADEROBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `665` | `MLEADERSTYLE` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `44` | `MTEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `677` | `ORDDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `694` | `RADIMLGOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `695` | `RADIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `724` | `TABLESTYLE` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | annotation/context | `FIELD` | `FIELD` | not-dispatched | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| LibreDWG | DWG fixed entity | annotation/context | `1` | `TEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| ezdxf | DXF record | annotation/context | `FIELD` | `FIELD` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `FIELDLIST` | `FIELDLIST` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `MLEADERSTYLE` | `MLEADERSTYLE` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `TABLESTYLE` | `TABLESTYLE` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
@@ -271,34 +271,38 @@ feature families, class names, and practical validation gaps.
 | ACadSharp | DWG custom class | proxy/embedded | `ACAD_PROXY_ENTITY` | `ACAD_PROXY_ENTITY` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG fixed object | proxy/embedded | `499` | `ACAD_PROXY_OBJECT` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG custom class | proxy/embedded | `ACAD_PROXY_OBJECT` | `ACAD_PROXY_OBJECT` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | proxy/embedded | `43` | `OLEFRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | LibreDWG | DWG fixed entity | proxy/embedded | `498` | `ACAD_PROXY_ENTITY` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | proxy/embedded | `499` | `ACAD_PROXY_OBJECT` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | proxy/embedded | `630` | `DYNAMICBLOCKPROXYNODE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | proxy/embedded | `43` | `OLEFRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | ezdxf | DXF record | proxy/embedded | `ACAD_PROXY_ENTITY` | `ACAD_PROXY_ENTITY` | not-dispatched | P2 | P2: preserve proxy/OLE payloads and owners | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | proxy/embedded | `OLE2FRAME` | `OLE2FRAME` | not-dispatched | P2 | P2: preserve proxy/OLE payloads and owners | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ACadSharp | DWG custom class | raster-underlay | `IMAGE` | `IMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `IMAGEDEF` | `IMAGEDEF` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `IMAGEDEF_REACTOR` | `IMAGEDEF_REACTOR` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
-| ACadSharp | DWG custom class | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG custom class | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `RASTERVARIABLES` | `RASTERVARIABLES` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
-| LibreDWG | DWG custom class | raster-underlay | `622` | `DGNDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | raster-underlay | `628` | `DWFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `622` | `DGNDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `628` | `DWFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `640` | `GEOMAPIMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `647` | `IMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `648` | `IMAGEDEF` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `649` | `IMAGEDEF_REACTOR` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `650` | `IMAGE_BACKGROUND` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | raster-underlay | `679` | `PDFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `679` | `PDFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `697` | `RASTERVARIABLES` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `731` | `WIPEOUTVARIABLES` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
-| ezdxf | DXF record | raster-underlay | `DGNDEFINITION` | `DGNDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | raster-underlay | `DWFDEFINITION` | `DWFDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `DGNDEFINITION` | `DGNDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `DWFDEFINITION` | `DWFDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEBASE` | `IMAGEBASE` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEDEF` | `IMAGEDEF` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEDEF_REACTOR` | `IMAGEDEF_REACTOR` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `RASTERVARIABLES` | `RASTERVARIABLES` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `UNDERLAY` | `UNDERLAY` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `UNDERLAYDEFINITION` | `UNDERLAYDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
@@ -328,7 +332,7 @@ feature families, class names, and practical validation gaps.
 
 | Source | Area | Family | Key | Name | libdxfrw status | Priority | Implementation slice | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ACadSharp | DWG custom class | 3D/modeler | `MESH` | `MESH` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG custom class | 3D/modeler | `MESH` | `MESH` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | annotation/context | `ACAD_TABLE` | `ACAD_TABLE` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | core-geometry | `MULTILEADER` | `MULTILEADER` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | annotation/context | `ACDB_MLEADEROBJECTCONTEXTDATA_CLASS` | `ACDB_MLEADEROBJECTCONTEXTDATA_CLASS` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/** case "..." |
@@ -339,7 +343,7 @@ feature families, class names, and practical validation gaps.
 | ACadSharp | DWG custom class | raster-underlay | `IMAGE` | `IMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `IMAGEDEF` | `IMAGEDEF` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `IMAGEDEF_REACTOR` | `IMAGEDEF_REACTOR` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
-| ACadSharp | DWG custom class | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG custom class | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `PDFUNDERLAY` | `PDFUNDERLAY` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `RASTERVARIABLES` | `RASTERVARIABLES` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | raster-underlay | `WIPEOUT` | `WIPEOUT` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ACadSharp/src/** case "..." |
@@ -352,60 +356,61 @@ feature families, class names, and practical validation gaps.
 | ACadSharp | DWG custom class | core-geometry | `LWPOLYLINE` | `LWPOLYLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | core-geometry | `SCALE` | `SCALE` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | core-geometry | `SORTENTSTABLE` | `SORTENTSTABLE` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
-| ACadSharp | DWG custom class | core-geometry | `SPATIAL_FILTER` | `SPATIAL_FILTER` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG custom class | core-geometry | `SPATIAL_FILTER` | `SPATIAL_FILTER` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | database/table | `ACDBPLACEHOLDER` | `ACDBPLACEHOLDER` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | database/table | `GROUP` | `GROUP` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | database/table | `LAYOUT` | `LAYOUT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
 | ACadSharp | DWG custom class | database/table | `XRECORD` | `XRECORD` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/** case "..." |
+| ACadSharp | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `39` | `BODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | 3D/modeler | `37` | `REGION` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `44` | `MTEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | annotation/context | `1` | `TEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | proxy/embedded | `498` | `ACAD_PROXY_ENTITY` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | 3D/modeler | `39` | `BODY` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | 3D/modeler | `37` | `REGION` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `28` | `3DFACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `17` | `ARC` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `3` | `ATTDEF` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `2` | `ATTRIB` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `18` | `CIRCLE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `35` | `ELLIPSE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `78` | `HATCH` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `7` | `INSERT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `45` | `LEADER` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `19` | `LINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `77` | `LWPOLYLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `8` | `MINSERT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `47` | `MLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `27` | `POINT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `15` | `POLYLINE_2D` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `16` | `POLYLINE_3D` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `29` | `POLYLINE_PFACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `40` | `RAY` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `33` | `SHAPE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `31` | `SOLID` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `36` | `SPLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `32` | `TRACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `34` | `VIEWPORT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | core-geometry | `41` | `XLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed entity | database/table | `6` | `SEQEND` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | 3D/modeler | `12` | `VERTEX_MESH` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `44` | `MTEXT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | annotation/context | `1` | `TEXT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `28` | `3DFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `17` | `ARC` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `3` | `ATTDEF` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `2` | `ATTRIB` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `18` | `CIRCLE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `35` | `ELLIPSE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `78` | `HATCH` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `7` | `INSERT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `45` | `LEADER` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `19` | `LINE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `77` | `LWPOLYLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `8` | `MINSERT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `47` | `MLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `27` | `POINT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `15` | `POLYLINE_2D` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `16` | `POLYLINE_3D` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `29` | `POLYLINE_PFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `40` | `RAY` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `33` | `SHAPE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `31` | `SOLID` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `36` | `SPLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `32` | `TRACE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | core-geometry | `10` | `VERTEX_2D` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | core-geometry | `11` | `VERTEX_3D` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | core-geometry | `13` | `VERTEX_PFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | core-geometry | `14` | `VERTEX_PFACE_FACE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `34` | `VIEWPORT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | core-geometry | `41` | `XLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | database/table | `4` | `BLOCK` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed entity | database/table | `5` | `ENDBLK` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | database/table | `6` | `SEQEND` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | parametric/dynamic-block | `76` | `LONG_TRANSACTION` | not-named | P2 | P2: preserve assoc/eval/dynamic-block object graphs | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | proxy/embedded | `499` | `ACAD_PROXY_OBJECT` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
+| ACadSharp | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | proxy/embedded | `43` | `OLEFRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | core-geometry | `75` | `DUMMY` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | core-geometry | `73` | `MLINESTYLE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
@@ -435,24 +440,23 @@ feature families, class names, and practical validation gaps.
 | ACadSharp | DWG fixed object | database/table | `65` | `VPORT` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | database/table | `64` | `VPORT_CONTROL` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | ACadSharp | DWG fixed object | database/table | `70` | `VX_CONTROL` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
-| ACadSharp | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | typed-fixed-dispatch | covered | no immediate plan item | ../ACadSharp/src/ACadSharp/Types/ObjectType.cs |
 | LibreDWG | DWG custom class | data-storage/classes | `500` | `ACDSRECORD` | not-named | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | data-storage/classes | `501` | `ACDSSCHEMA` | not-named | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `663` | `MESH` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `663` | `MESH` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `721` | `ACAD_TABLE` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `526` | `ARC_DIMENSION` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | annotation/context | `652` | `LARGE_RADIAL_DIMENSION` | not-named | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | core-geometry | `668` | `MPOLYGON` | dxf-classed-raw | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | annotation/context | `652` | `LARGE_RADIAL_DIMENSION` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | core-geometry | `668` | `MPOLYGON` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `671` | `MULTILEADER` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `672` | `NAVISWORKSMODEL` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `673` | `NAVISWORKSMODELDEF` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | point-cloud/model-reference | `684` | `POINTCLOUD` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | point-cloud/model-reference | `684` | `POINTCLOUD` | named-dwg-route | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `685` | `POINTCLOUDCOLORMAP` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `686` | `POINTCLOUDDEF` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `687` | `POINTCLOUDDEFEX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `688` | `POINTCLOUDDEF_REACTOR` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | point-cloud/model-reference | `689` | `POINTCLOUDDEF_REACTOR_EX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | point-cloud/model-reference | `690` | `POINTCLOUDEX` | not-named | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | point-cloud/model-reference | `690` | `POINTCLOUDEX` | named-dwg-route | P1 | P1: raw/classed shells plus handle/owner preservation for external refs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | render/material | `657` | `LIGHT` | named-dwg-route | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `505` | `ACSH_BOOLEAN_CLASS` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `506` | `ACSH_BOX_CLASS` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
@@ -489,12 +493,12 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | 3D/modeler | `567` | `ASSOCSWEPTSURFACEACTIONBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `568` | `ASSOCTRIMSURFACEACTIONBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | 3D/modeler | `593` | `BLOCKPARAMDEPENDENCYBODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `633` | `EXTRUDEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `660` | `LOFTEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `675` | `NURBSSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `682` | `PLANESURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `702` | `REVOLVEDSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | 3D/modeler | `720` | `SWEPTSURFACE` | dxf-classed-raw | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `633` | `EXTRUDEDSURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `660` | `LOFTEDSURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `675` | `NURBSSURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `682` | `PLANESURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `702` | `REVOLVEDSURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | 3D/modeler | `720` | `SWEPTSURFACE` | named-dwg-route | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `521` | `ALDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `523` | `ANGDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `528` | `ASSOC3POINTANGULARDIMACTIONBODY` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
@@ -505,7 +509,7 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | annotation/context | `566` | `ASSOCROTATEDDIMACTIONBODY` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `626` | `DIMASSOC` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `627` | `DMDIMOBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | annotation/context | `635` | `FIELD` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | annotation/context | `635` | `FIELD` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `636` | `FIELDLIST` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `664` | `MLEADEROBJECTCONTEXTDATA` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | annotation/context | `665` | `MLEADERSTYLE` | dxf-classed-raw | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
@@ -593,16 +597,16 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | parametric/dynamic-block | `739` | `XYGRIPENTITY` | not-named | P2 | P2: preserve assoc/eval/dynamic-block object graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | parametric/dynamic-block | `733` | `XYPARAMETERENTITY` | not-named | P2 | P2: preserve assoc/eval/dynamic-block object graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | proxy/embedded | `630` | `DYNAMICBLOCKPROXYNODE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | raster-underlay | `622` | `DGNDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `622` | `DGNDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `623` | `DGNUNDERLAY` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | raster-underlay | `628` | `DWFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `628` | `DWFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `629` | `DWFUNDERLAY` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `640` | `GEOMAPIMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `647` | `IMAGE` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `648` | `IMAGEDEF` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `649` | `IMAGEDEF_REACTOR` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `650` | `IMAGE_BACKGROUND` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | raster-underlay | `679` | `PDFDEFINITION` | not-named | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | raster-underlay | `679` | `PDFDEFINITION` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `680` | `PDFUNDERLAY` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `697` | `RASTERVARIABLES` | dxf-classed-raw | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | raster-underlay | `730` | `WIPEOUT` | named-dwg-route | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../libredwg/include/dwg.h |
@@ -629,7 +633,7 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | core-geometry | `503` | `ACMESCOPE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `504` | `ACMESTATEMGR` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `524` | `ANNOTSCALEOBJECTCONTEXTDATA` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | core-geometry | `525` | `ARCALIGNEDTEXT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | core-geometry | `525` | `ARCALIGNEDTEXT` | named-dwg-route | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `573` | `BLKREFOBJECTCONTEXTDATA` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `598` | `BLOCKPROPERTIESTABLE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `601` | `BLOCKREPRESENTATION` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
@@ -667,69 +671,70 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG custom class | core-geometry | `683` | `PLOTSETTINGS` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `692` | `POINTPATH` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `741` | `REPEAT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | core-geometry | `705` | `RTEXT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | core-geometry | `705` | `RTEXT` | named-dwg-route | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `706` | `SCALE` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | core-geometry | `708` | `SECTIONOBJECT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | core-geometry | `708` | `SECTIONOBJECT` | named-dwg-route | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `709` | `SECTIONVIEWSTYLE` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `710` | `SECTION_MANAGER` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `711` | `SECTION_SETTINGS` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `714` | `SORTENTSTABLE` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
-| LibreDWG | DWG custom class | core-geometry | `715` | `SPATIAL_FILTER` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG custom class | core-geometry | `715` | `SPATIAL_FILTER` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `716` | `SPATIAL_INDEX` | dxf-classed-raw | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `722` | `TABLECONTENT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `723` | `TABLEGEOMETRY` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `725` | `TEXTOBJECTCONTEXTDATA` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `726` | `TVDEVICEPROPERTIES` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG custom class | core-geometry | `732` | `XREFPANELOBJECT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `39` | `BODY` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | 3D/modeler | `37` | `REGION` | not-named | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `44` | `MTEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | annotation/context | `1` | `TEXT` | not-named | P2 | P2: preserve annotation context and object-context data | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | proxy/embedded | `498` | `ACAD_PROXY_ENTITY` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | 3D/modeler | `38` | `3DSOLID` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | 3D/modeler | `39` | `BODY` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | 3D/modeler | `30` | `POLYLINE_MESH` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | 3D/modeler | `37` | `REGION` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `28` | `3DFACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `17` | `ARC` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `3` | `ATTDEF` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `2` | `ATTRIB` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `18` | `CIRCLE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `35` | `ELLIPSE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `78` | `HATCH` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `7` | `INSERT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `45` | `LEADER` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `19` | `LINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `77` | `LWPOLYLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `8` | `MINSERT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `47` | `MLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `27` | `POINT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `15` | `POLYLINE_2D` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `16` | `POLYLINE_3D` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `29` | `POLYLINE_PFACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `40` | `RAY` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `33` | `SHAPE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `31` | `SOLID` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `36` | `SPLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `32` | `TRACE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `34` | `VIEWPORT` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | core-geometry | `41` | `XLINE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed entity | database/table | `6` | `SEQEND` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | 3D/modeler | `12` | `VERTEX_MESH` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `22` | `DIMENSION_ALIGNED` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `24` | `DIMENSION_ANG2LN` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `23` | `DIMENSION_ANG3PT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `26` | `DIMENSION_DIAMETER` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `21` | `DIMENSION_LINEAR` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `20` | `DIMENSION_ORDINATE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `25` | `DIMENSION_RADIUS` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `44` | `MTEXT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | annotation/context | `1` | `TEXT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `28` | `3DFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `17` | `ARC` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `3` | `ATTDEF` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `2` | `ATTRIB` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `18` | `CIRCLE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `35` | `ELLIPSE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `78` | `HATCH` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `7` | `INSERT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `45` | `LEADER` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `19` | `LINE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `77` | `LWPOLYLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `8` | `MINSERT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `47` | `MLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `27` | `POINT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `15` | `POLYLINE_2D` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `16` | `POLYLINE_3D` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `29` | `POLYLINE_PFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `40` | `RAY` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `33` | `SHAPE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `31` | `SOLID` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `36` | `SPLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `32` | `TRACE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | core-geometry | `10` | `VERTEX_2D` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | core-geometry | `11` | `VERTEX_3D` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | core-geometry | `13` | `VERTEX_PFACE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | core-geometry | `14` | `VERTEX_PFACE_FACE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `34` | `VIEWPORT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | core-geometry | `41` | `XLINE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | database/table | `4` | `BLOCK` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed entity | database/table | `5` | `ENDBLK` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | database/table | `6` | `SEQEND` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed entity | proxy/embedded | `46` | `TOLERANCE` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | parametric/dynamic-block | `76` | `LONG_TRANSACTION` | not-named | P2 | P2: preserve assoc/eval/dynamic-block object graphs | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | proxy/embedded | `499` | `ACAD_PROXY_OBJECT` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
+| LibreDWG | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | proxy/embedded | `43` | `OLEFRAME` | not-named | P2 | P2: preserve proxy/OLE payloads and owners | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | core-geometry | `75` | `DUMMY` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | core-geometry | `73` | `MLINESTYLE` | not-named | P3 | P3: classify, preserve raw, then decide typed support | ../libredwg/include/dwg.h |
@@ -759,34 +764,22 @@ feature families, class names, and practical validation gaps.
 | LibreDWG | DWG fixed object | database/table | `65` | `VPORT` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | database/table | `64` | `VPORT_CONTROL` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | LibreDWG | DWG fixed object | database/table | `70` | `VX_CONTROL` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
-| LibreDWG | DWG fixed object | proxy/embedded | `74` | `OLE2FRAME` | typed-fixed-dispatch | covered | no immediate plan item | ../libredwg/include/dwg.h |
 | ODA spec | DWG data section | data-storage/classes | `AcDb:AcDsPrototype_1b` | `ACDB:ACDSPROTOTYPE_1B` | raw-preserved | P0 | P0: preserve AC1027 data-storage sections before typed conversion | ~/doc/dwg/dwg.pdf and local DWGTS_COVERAGE_STATUS.md |
-| ezdxf | DXF record | 3D/modeler | `MESH` | `MESH` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | annotation/context | `ACAD_TABLE` | `ACAD_TABLE` | raw-preserved-classed | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | annotation/context | `LARGE_RADIAL_DIMENSION` | `LARGE_RADIAL_DIMENSION` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | core-geometry | `MPOLYGON` | `MPOLYGON` | raw-preserved-classed | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | render/material | `LIGHT` | `LIGHT` | not-dispatched | P1 | P1: typed DXF/DWG shell and callback/write-path parity | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `3DSOLID` | `3DSOLID` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `BODY` | `BODY` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `EXTRUDEDSURFACE` | `EXTRUDEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `LOFTEDSURFACE` | `LOFTEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `REGION` | `REGION` | not-dispatched | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `REVOLVEDSURFACE` | `REVOLVEDSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | 3D/modeler | `SURFACE` | `SURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | 3D/modeler | `SWEPTSURFACE` | `SWEPTSURFACE` | raw-preserved-classed | P2 | P2: ACIS/SAB raw shell first, typed geometry later | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | annotation/context | `FIELD` | `FIELD` | not-dispatched | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | annotation/context | `FIELD` | `FIELD` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `FIELDLIST` | `FIELDLIST` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `MLEADERSTYLE` | `MLEADERSTYLE` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `TABLESTYLE` | `TABLESTYLE` | raw-preserved-classed | P2 | P2: preserve annotation context and object-context data | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | geospatial | `GEODATA` | `GEODATA` | raw-preserved-classed | P2 | P2: preserve geodata/object-context dependencies | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | proxy/embedded | `ACAD_PROXY_ENTITY` | `ACAD_PROXY_ENTITY` | not-dispatched | P2 | P2: preserve proxy/OLE payloads and owners | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | proxy/embedded | `OLE2FRAME` | `OLE2FRAME` | not-dispatched | P2 | P2: preserve proxy/OLE payloads and owners | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | raster-underlay | `DGNDEFINITION` | `DGNDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | raster-underlay | `DWFDEFINITION` | `DWFDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `DGNDEFINITION` | `DGNDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `DWFDEFINITION` | `DWFDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEBASE` | `IMAGEBASE` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEDEF` | `IMAGEDEF` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `IMAGEDEF_REACTOR` | `IMAGEDEF_REACTOR` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | raster-underlay | `PDFDEFINITION` | `PDFDEFINITION` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `RASTERVARIABLES` | `RASTERVARIABLES` | raw-preserved-classed | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `UNDERLAY` | `UNDERLAY` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | raster-underlay | `UNDERLAYDEFINITION` | `UNDERLAYDEFINITION` | not-dispatched | P2 | P2: unify image/underlay definition-reference-reactor graphs | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
@@ -795,17 +788,15 @@ feature families, class names, and practical validation gaps.
 | ezdxf | DXF record | render/material | `SUN` | `SUN` | raw-preserved-classed | P2 | P2: preserve render/material environment objects | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | render/material | `VISUALSTYLE` | `VISUALSTYLE` | raw-preserved-classed | P2 | P2: preserve render/material environment objects | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `ACDBDICTIONARYWDFLT` | `ACDBDICTIONARYWDFLT` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | core-geometry | `ATTDEF` | `ATTDEF` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `ATTRIB` | `ATTRIB` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `DICTIONARYVAR` | `DICTIONARYVAR` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | core-geometry | `HELIX` | `HELIX` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `IDBUFFER` | `IDBUFFER` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `LAYER_FILTER` | `LAYER_FILTER` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `MLINESTYLE` | `MLINESTYLE` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `PLOTSETTINGS` | `PLOTSETTINGS` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `SHAPE` | `SHAPE` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `SORTENTSTABLE` | `SORTENTSTABLE` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
-| ezdxf | DXF record | core-geometry | `SPATIAL_FILTER` | `SPATIAL_FILTER` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | core-geometry | `SPATIAL_FILTER` | `SPATIAL_FILTER` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `VBA_PROJECT` | `VBA_PROJECT` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `VERTEX` | `VERTEX` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | database/table | `ACDBPLACEHOLDER` | `ACDBPLACEHOLDER` | raw-preserved-classed | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
@@ -814,21 +805,34 @@ feature families, class names, and practical validation gaps.
 | ezdxf | DXF record | database/table | `LAYOUT` | `LAYOUT` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | database/table | `SEQEND` | `SEQEND` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | database/table | `XRECORD` | `XRECORD` | not-dispatched | P3 | P3: classify, preserve raw, then decide typed support | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `3DSOLID` | `3DSOLID` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `BODY` | `BODY` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `EXTRUDEDSURFACE` | `EXTRUDEDSURFACE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `LOFTEDSURFACE` | `LOFTEDSURFACE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `MESH` | `MESH` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `REGION` | `REGION` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `REVOLVEDSURFACE` | `REVOLVEDSURFACE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | 3D/modeler | `SWEPTSURFACE` | `SWEPTSURFACE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | annotation/context | `ACAD_TABLE` | `ACAD_TABLE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `ARC_DIMENSION` | `ARC_DIMENSION` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `DIMENSION` | `DIMENSION` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `DIMSTYLE` | `DIMSTYLE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | annotation/context | `LARGE_RADIAL_DIMENSION` | `LARGE_RADIAL_DIMENSION` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `MTEXT` | `MTEXT` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | annotation/context | `TEXT` | `TEXT` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `3DFACE` | `3DFACE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `ARC` | `ARC` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | core-geometry | `ATTDEF` | `ATTDEF` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `CIRCLE` | `CIRCLE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `ELLIPSE` | `ELLIPSE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `HATCH` | `HATCH` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | core-geometry | `HELIX` | `HELIX` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `INSERT` | `INSERT` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `LEADER` | `LEADER` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `LINE` | `LINE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `LWPOLYLINE` | `LWPOLYLINE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `MLINE` | `MLINE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
+| ezdxf | DXF record | core-geometry | `MPOLYGON` | `MPOLYGON` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `MULTILEADER` | `MULTILEADER` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `POINT` | `POINT` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |
 | ezdxf | DXF record | core-geometry | `POLYLINE` | `POLYLINE` | typed-dispatch | covered | no immediate plan item | ../ezdxf/src/ezdxf/entities/**/*.py DXFTYPE |

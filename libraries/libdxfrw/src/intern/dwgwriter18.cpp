@@ -11,6 +11,7 @@
 **  along with this program.  If not, see <http://www.gnu.org/licenses/>.    **
 ******************************************************************************/
 
+#include <algorithm>
 #include <cmath>
 #include <cstring>
 #include "dwgwriter18.h"
@@ -71,10 +72,34 @@ static void patchRL(std::vector<std::uint8_t>& v, size_t offset, std::uint32_t x
 
 struct DataSectionDesc {
     std::uint32_t sectionId = 0;
-    std::uint32_t pageNum = 0;
-    std::uint32_t dataSize = 0;
+    std::uint64_t dataSize = 0;
+    std::uint32_t maxPageSize = 0;
     std::string name;
+    struct Page {
+        std::uint32_t pageNum = 0;
+        std::uint32_t dataSize = 0;
+        std::uint64_t startOffset = 0;
+    };
+    std::vector<Page> pages;
 };
+
+constexpr std::uint32_t kR2004DefaultDataPageSize = 0x7400;
+constexpr std::uint32_t kR2004AppInfoPageSize = 0x80;
+constexpr std::uint64_t kR2004PageAlignment = 0x20;
+
+static std::uint32_t dataPageSizeFor(const std::string& name) {
+    // ODA's R2004 section table assigns AppInfo its compact 0x80-byte pages;
+    // the structural sections use the normal 0x7400-byte page capacity.
+    return name == "AcDb:AppInfo" ? kR2004AppInfoPageSize
+                                   : kR2004DefaultDataPageSize;
+}
+
+static void alignSectionPage(std::vector<std::uint8_t>& page) {
+    const std::uint64_t remainder = page.size() % kR2004PageAlignment;
+    if (remainder != 0) {
+        page.resize(page.size() + (kR2004PageAlignment - remainder), 0);
+    }
+}
 
 // --- R2004 page builders -----------------------------------------------------
 
@@ -157,7 +182,8 @@ static std::vector<std::uint8_t> buildSysPage(std::uint32_t pageType,
 static std::vector<std::uint8_t> buildDataPage(std::uint64_t pageAddr,
                                          std::uint32_t sectionNum,
                                          const std::uint8_t* data,
-                                         std::uint32_t dataSz) {
+                                         std::uint32_t dataSz,
+                                         std::uint32_t startOffset) {
     // Build decrypted 32-byte header.
     std::uint8_t hdr[32] = {};
     auto rl = [&](int off, std::uint32_t x) {
@@ -170,7 +196,7 @@ static std::vector<std::uint8_t> buildDataPage(std::uint64_t pageAddr,
     rl( 4, sectionNum);  // section number
     rl( 8, dataSz);      // compressed size (= dataSz, store mode)
     rl(12, dataSz);      // uncompressed size
-    rl(16, 0);           // start offset = 0 (single-page section)
+    rl(16, startOffset); // logical offset within the decompressed section
     rl(20, 0);           // unknown
     rl(24, 0);           // header checksum placeholder
     rl(28, 0);           // data checksum placeholder
@@ -212,25 +238,26 @@ static std::vector<std::uint8_t> buildSectionPageMapContent(
 // secId: 0-based section index.  pageNum: page ID in the Section Page Map.
 // dataSize: size of decompressed section content.
 static void appendSectionDesc(std::vector<std::uint8_t>& v,
-                               std::uint32_t secId, std::uint32_t pageNum,
-                               std::uint64_t dataSize, const std::string& name) {
-    putRLL(v, dataSize);         // size of section (uint64)
-    putRL (v, 1);                // pageCount = 1
-    putRL (v, static_cast<std::uint32_t>(dataSize));  // maxSize
+                              const DataSectionDesc& section) {
+    putRLL(v, section.dataSize);         // logical size of section (uint64)
+    putRL (v, static_cast<std::uint32_t>(section.pages.size()));
+    putRL (v, section.maxPageSize);
     putRL (v, 0);                // unknown
     putRL (v, 1);                // compressed = 1 (store)
-    putRL (v, secId);            // section Id
+    putRL (v, section.sectionId);
     putRL (v, 0);                // encrypted = 0
 
     // 64-byte null-padded name.
     std::uint8_t nameBuf[64] = {};
-    std::strncpy(reinterpret_cast<char*>(nameBuf), name.c_str(), 63);
+    std::strncpy(reinterpret_cast<char*>(nameBuf), section.name.c_str(), 63);
     v.insert(v.end(), nameBuf, nameBuf + 64);
 
-    // 1 page entry: page number (RL) + dataSize (RL) + startOffset (RLL=0).
-    putRL (v, pageNum);
-    putRL (v, static_cast<std::uint32_t>(dataSize));  // page dataSize
-    putRLL(v, 0);                               // startOffset = 0
+    for (const DataSectionDesc::Page& page : section.pages) {
+        // Page number (RL) + stored page payload size (RL) + logical offset (RLL).
+        putRL (v, page.pageNum);
+        putRL (v, page.dataSize);
+        putRLL(v, page.startOffset);
+    }
 }
 
 // Build the decompressed content of the Data Section Map.
@@ -245,10 +272,8 @@ static std::vector<std::uint8_t> buildDataSectionMapContent(
     putRL(v, 0x00);
     putRL(v, numDescriptions);
 
-    for (const DataSectionDesc& section : sections) {
-        appendSectionDesc(v, section.sectionId, section.pageNum,
-                          section.dataSize, section.name);
-    }
+    for (const DataSectionDesc& section : sections)
+        appendSectionDesc(v, section);
     return v;
 }
 
@@ -275,21 +300,16 @@ static double headerDoubleVar(const DRW_Header *header, const std::string& key) 
 }
 
 static void splitAuxDate(double stored, std::int32_t& day, std::int32_t& msec) {
-    day = static_cast<std::int32_t>(stored);
-    double frac = stored - static_cast<double>(day);
-    if (frac == 0.0) {
+    // Canonical DWG aux-header date encoding: `stored` is julianDay + msec/86_400_000.
+    constexpr double kMsecPerDay = 86400000.0;
+    const double dayFloor = std::floor(stored);
+    day = static_cast<std::int32_t>(dayFloor);
+    const double frac = stored - dayFloor;
+    msec = static_cast<std::int32_t>(std::lround(frac * kMsecPerDay));
+    if (msec >= static_cast<std::int32_t>(kMsecPerDay)) {
+        day += 1;
         msec = 0;
-        return;
     }
-    for (int i = 0; i < 10; ++i) {
-        frac *= 10.0;
-        const double rounded = std::round(frac);
-        if (std::abs(frac - rounded) < 1e-9 && rounded != 0.0) {
-            msec = static_cast<std::int32_t>(rounded);
-            return;
-        }
-    }
-    msec = static_cast<std::int32_t>(std::round(frac));
 }
 
 static void putAuxDate(std::vector<std::uint8_t>& v, double stored) {
@@ -457,7 +477,11 @@ std::uint32_t dwgWriter18::objectBaseOffset() const {
 }
 
 bool dwgWriter18::addRawDwgSection(const DRW_RawDwgSection& section) {
-    if (m_version < DRW::AC1027 || section.m_name != "AcDb:AcDsPrototype_1b")
+    // A data-section payload is encoded for its source DWG version.  There is
+    // no typed converter for AcDsPrototype yet, so accepting a mismatched (or
+    // unknown) source version would create an invalid cross-version replay.
+    if (m_version < DRW::AC1027 || section.m_version != m_version
+        || section.m_name != "AcDb:AcDsPrototype_1b")
         return false;
     if (section.m_data.size() > UINT32_MAX)
         return false;
@@ -576,24 +600,51 @@ bool dwgWriter18::finalize() {
     std::vector<DataSectionDesc> sectionDescs;
     std::vector<std::vector<std::uint8_t>> dataPages;
 
-    auto appendDataPage = [&](const std::string& name, const std::uint8_t* data,
-                              std::uint32_t dataSize) {
+    auto appendDataSection = [&](const std::string& name, const std::uint8_t* data,
+                                 std::uint32_t dataSize) {
         const std::uint32_t sectionId = nextSectionId++;
-        const std::uint32_t pageId = nextPageId++;
-        dataPages.push_back(buildDataPage(nextAddr, sectionId, data, dataSize));
-        sectionDescs.push_back({sectionId, pageId, dataSize, name});
-        nextAddr += static_cast<std::uint64_t>(dataPages.back().size());
+        const std::uint32_t maxPageSize = dataPageSizeFor(name);
+        DataSectionDesc section;
+        section.sectionId = sectionId;
+        section.dataSize = dataSize;
+        section.maxPageSize = maxPageSize;
+        section.name = name;
+
+        // R2004 maps physical pages by their canonical capacity.  The final
+        // page is zero-filled to that capacity, so every data page is aligned
+        // and readers can allocate/decompress using the map's maxPageSize.
+        const std::uint64_t pageCount =
+            std::max<std::uint64_t>(1, (static_cast<std::uint64_t>(dataSize)
+                                        + maxPageSize - 1) / maxPageSize);
+        for (std::uint64_t pageIndex = 0; pageIndex < pageCount; ++pageIndex) {
+            const std::uint64_t startOffset = pageIndex * maxPageSize;
+            const std::uint32_t sourceSize = static_cast<std::uint32_t>(
+                std::min<std::uint64_t>(maxPageSize,
+                    static_cast<std::uint64_t>(dataSize) - std::min<std::uint64_t>(
+                        startOffset, dataSize)));
+            std::vector<std::uint8_t> pageData(maxPageSize, 0);
+            if (sourceSize != 0)
+                std::memcpy(pageData.data(), data + startOffset, sourceSize);
+
+            const std::uint32_t pageId = nextPageId++;
+            dataPages.push_back(buildDataPage(nextAddr, sectionId,
+                                              pageData.data(), maxPageSize,
+                                              static_cast<std::uint32_t>(startOffset)));
+            section.pages.push_back({pageId, maxPageSize, startOffset});
+            nextAddr += static_cast<std::uint64_t>(dataPages.back().size());
+        }
+        sectionDescs.push_back(std::move(section));
     };
 
-    appendDataPage("AcDb:Header", rawPtr + hdrOff, hdrSz);
-    appendDataPage("AcDb:Classes", rawPtr + clsOff, clsSz);
-    appendDataPage("AcDb:AcDbObjects", rawPtr + objOff, objSz);
-    appendDataPage("AcDb:Handles", rawPtr + hdlOff, hdlSz);
+    appendDataSection("AcDb:Header", rawPtr + hdrOff, hdrSz);
+    appendDataSection("AcDb:Classes", rawPtr + clsOff, clsSz);
+    appendDataSection("AcDb:AcDbObjects", rawPtr + objOff, objSz);
+    appendDataSection("AcDb:Handles", rawPtr + hdlOff, hdlSz);
 
     for (const DRW_RawDwgSection& section : m_rawDwgSections) {
-        appendDataPage(section.m_name,
-                       section.m_data.empty() ? nullptr : section.m_data.data(),
-                       static_cast<std::uint32_t>(section.m_data.size()));
+        appendDataSection(section.m_name,
+                          section.m_data.empty() ? nullptr : section.m_data.data(),
+                          static_cast<std::uint32_t>(section.m_data.size()));
     }
 
     // AuxHeader is an R2004+ section (AC1018+); the builder + auxHeaderRawVersion
@@ -607,8 +658,8 @@ bool dwgWriter18::finalize() {
     const bool hasAuxHeader = !auxHeaderData.empty();
 
     if (hasAuxHeader) {
-        appendDataPage("AcDb:AuxHeader", auxHeaderData.data(),
-                       static_cast<std::uint32_t>(auxHeaderData.size()));
+        appendDataSection("AcDb:AuxHeader", auxHeaderData.data(),
+                          static_cast<std::uint32_t>(auxHeaderData.size()));
     }
 
     // AcDb:AppInfo — without it libreDWG logs "Failed to read AppInfo section"
@@ -618,14 +669,18 @@ bool dwgWriter18::finalize() {
         (m_version >= DRW::AC1018) ? buildAppInfoContent(m_version)
                                    : std::vector<std::uint8_t>();
     if (!appInfoData.empty()) {
-        appendDataPage("AcDb:AppInfo", appInfoData.data(),
-                       static_cast<std::uint32_t>(appInfoData.size()));
+        appendDataSection("AcDb:AppInfo", appInfoData.data(),
+                          static_cast<std::uint32_t>(appInfoData.size()));
     }
 
     // Build the Data Section Map sys page.
     auto dsmData = buildDataSectionMapContent(sectionDescs);
     auto dsmPage = buildSysPage(0x4163003b, dsmData.data(),
                                 static_cast<std::uint32_t>(dsmData.size()));
+    // The following System Map page must start on a 0x20 boundary.  The page
+    // map records the physical (including pad) size, while the system-page
+    // header retains its exact compressed payload size.
+    alignSectionPage(dsmPage);
 
     // Data Section Map sys page follows the last data page.
     const std::uint64_t addrDsm = nextAddr;

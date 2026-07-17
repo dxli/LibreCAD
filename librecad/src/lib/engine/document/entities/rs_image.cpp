@@ -27,8 +27,9 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QCoreApplication>
+#include <QApplication>
 #include<iostream>
-#include <QGuiApplication>
 
 #include "qc_applicationwindow.h"
 #include "rs_debug.h"
@@ -109,13 +110,12 @@ void RS_Image::update() {
 
     // fixme - sand - merge - this should be guarded by ifdef. Otherwise, it's not needed runtime overhead!
 
-    // Headless guard: constructing a QImage pulls in the GUI image plugins,
-    // which abort without a running GUI application (e.g. a QCoreApplication
-    // test harness round-tripping a drawing that contains an IMAGE/WIPEOUT).
-    // Geometry/borders are unaffected; skip only the raster load when no GUI
-    // app is present. Behaviour is unchanged once a real QApplication exists.
-    if (QGuiApplication::instance() == nullptr) {
-        RS_DEBUG->print("RS_Image::update: no GUI application, skipping raster load");
+    // Headless guard: resolving an image path reaches widget-owned document
+    // state. Geometry and borders are unaffected, so skip only the raster load
+    // unless the full widgets application exists (console/test tools often
+    // install only QCoreApplication or QGuiApplication).
+    if (qobject_cast<QApplication *>(QCoreApplication::instance()) == nullptr) {
+        RS_DEBUG->print("RS_Image::update: no widgets application, skipping raster load");
         return;
     }
 
@@ -336,8 +336,10 @@ void RS_Image::rotate(const RS_Vector& center, const RS_Vector& angleVector) {
 
 void RS_Image::scale(const RS_Vector& center, const RS_Vector& factor) {
     m_data.insertionPoint.scale(center, factor);
-    m_data.uVector.scale(factor.x);
-    m_data.vVector.scale(factor.y);
+    // U and V are WCS vectors, not independent scalar extents.  Apply the
+    // same linear map to both so a rotated image remains a coherent frame.
+    m_data.uVector.scale(factor);
+    m_data.vVector.scale(factor);
     calculateBorders();
 }
 

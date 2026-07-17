@@ -3650,8 +3650,8 @@ TEST_CASE("DXF round-trip: polyface vertex flags survive write+read",
 // Phase 2b.0 — source DWG version accessor + raw-replay version guard.
 namespace {
 // Mirrors the version guard added to RS_FilterDXFRW::writeObjects /
-// writeDwgClasses raw-replay loops: a same-version (or UNKNOWNV-source) object
-// is eligible; a cross-version object is dropped (replayed==0, blocked==1).
+// writeDwgClasses raw-replay loops: a raw carrier is eligible only when its
+// immutable source version matches the target exactly.
 struct RawReplayGuardResult {
   int replayed = 0;
   int blockedVersionMismatch = 0;
@@ -3661,8 +3661,7 @@ RawReplayGuardResult simulateRawReplay(const LC_DwgAdvancedMetadata& metadata,
                                        DRW::Version targetVersion) {
   RawReplayGuardResult result;
   for (const auto& record : metadata.rawObjects()) {
-    if (metadata.sourceDwgVersion() != DRW::UNKNOWNV
-        && metadata.sourceDwgVersion() != targetVersion) {
+    if (record.version != targetVersion) {
       ++result.blockedVersionMismatch;
       continue;
     }
@@ -3696,11 +3695,10 @@ TEST_CASE("DWG advanced metadata source version accessor round-trips",
         == "source/target version mismatch");
 }
 
-TEST_CASE("DWG raw-replay version guard drops cross-version custom objects",
+TEST_CASE("DWG raw-replay version guard requires exact object provenance",
           "[entity_metadata][dwg_metadata][replay_version]") {
-  LC_DwgAdvancedMetadata metadata;
-
   DRW_UnsupportedObject raw;
+  raw.m_version = DRW::AC1015;
   raw.m_objectType = 510;  // >=500 custom class.
   raw.m_handle = 0x123u;
   raw.m_bodyBitSize = 64u;
@@ -3708,31 +3706,37 @@ TEST_CASE("DWG raw-replay version guard drops cross-version custom objects",
   raw.m_recordName = "ACDBMATERIAL";
   raw.m_className = "AcDbMaterial";
   raw.m_rawBytes = {0x10u, 0x20u, 0x30u};
-  metadata.addUnsupportedObject(raw);
+  LC_DwgAdvancedMetadata sameVersionMetadata;
+  sameVersionMetadata.addUnsupportedObject(raw);
 
   // Same-version (AC1015 source -> AC1015 target): object is eligible.
-  metadata.setSourceDwgVersion(DRW::AC1015);
-  CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(metadata.rawObjects()[0])
+  CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(
+            sameVersionMetadata.rawObjects()[0])
         == LC_DwgAdvancedMetadata::ReplayBlocker::None);
   RawReplayGuardResult sameVersion =
-      simulateRawReplay(metadata, DRW::AC1015);
+      simulateRawReplay(sameVersionMetadata, DRW::AC1015);
   CHECK(sameVersion.replayed == 1);
   CHECK(sameVersion.blockedVersionMismatch == 0);
 
   // Cross-version (AC1032 source -> AC1015 target): object is dropped, no
   // malformed bytes emitted, counted as a version mismatch.
-  metadata.setSourceDwgVersion(DRW::AC1032);
+  raw.m_version = DRW::AC1032;
+  LC_DwgAdvancedMetadata crossVersionMetadata;
+  crossVersionMetadata.addUnsupportedObject(raw);
   RawReplayGuardResult crossVersion =
-      simulateRawReplay(metadata, DRW::AC1015);
+      simulateRawReplay(crossVersionMetadata, DRW::AC1015);
   CHECK(crossVersion.replayed == 0);
   CHECK(crossVersion.blockedVersionMismatch == 1);
 
-  // UNKNOWNV source (no version recorded): guard is a no-op, object eligible.
-  metadata.setSourceDwgVersion(DRW::UNKNOWNV);
+  // Unknown provenance is rejected: the bytes cannot safely be assigned to a
+  // target framing/version by guesswork.
+  raw.m_version = DRW::UNKNOWNV;
+  LC_DwgAdvancedMetadata unknownSourceMetadata;
+  unknownSourceMetadata.addUnsupportedObject(raw);
   RawReplayGuardResult unknownSource =
-      simulateRawReplay(metadata, DRW::AC1015);
-  CHECK(unknownSource.replayed == 1);
-  CHECK(unknownSource.blockedVersionMismatch == 0);
+      simulateRawReplay(unknownSourceMetadata, DRW::AC1015);
+  CHECK(unknownSource.replayed == 0);
+  CHECK(unknownSource.blockedVersionMismatch == 1);
 }
 
 // Phase 2b.1 — MATERIAL + VISUALSTYLE raw-replay rescue. The reader arms now
@@ -3923,4 +3927,40 @@ TEST_CASE("DWG raw-shelf: VIEWPORT (type 34) is a replayable fixed raw entity",
   CHECK_FALSE(LC_DwgAdvancedMetadata::isReplayableFixedModelerRawEntity(rec2));
   CHECK(LC_DwgAdvancedMetadata::rawReplayBlocker(rec2) ==
         LC_DwgAdvancedMetadata::ReplayBlocker::EntityReplayUnsupported);
+}
+
+TEST_CASE("DWG DataStorage metadata retains structural index data",
+          "[entity_metadata][dwg_metadata][datastorage]") {
+  LC_DwgAdvancedMetadata metadata;
+  DRW_DataStorageSection storage;
+  storage.m_version = DRW::AC1027;
+  storage.segmentIndexEntryCount = 2;
+  storage.dataIndexSegmentIndex = 4;
+  storage.fileSize = 512;
+  storage.sectionByteLength = 512;
+  storage.payloadsRetained = true;
+
+  DRW_DataStorageRecord record;
+  record.handle = 0x1A2B3C4Du;
+  record.segmentIndex = 4;
+  record.dataOffset = 128;
+  record.dataByteLength = 24;
+  record.payload = {0x01u, 0x02u, 0x03u};
+  storage.records.push_back(record);
+
+  metadata.addDataStorage(storage);
+
+  REQUIRE(metadata.dataStorages().size() == 1);
+  const auto &saved = metadata.dataStorages().front();
+  CHECK(saved.version == DRW::AC1027);
+  CHECK(saved.segmentIndexEntryCount == 2);
+  CHECK(saved.dataIndexSegmentIndex == 4);
+  CHECK(saved.fileSize == 512);
+  CHECK(saved.recordCount == 1);
+  REQUIRE(saved.recordHandles.size() == 1);
+  CHECK(saved.recordHandles.front() == 0x1A2B3C4Du);
+  CHECK(saved.full.records.front().payload == record.payload);
+
+  metadata.clear();
+  CHECK(metadata.dataStorages().empty());
 }

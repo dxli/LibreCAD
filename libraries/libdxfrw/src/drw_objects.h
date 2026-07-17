@@ -222,6 +222,10 @@ private:
 
 //! Raw carrier for a DWG object/entity class that libdxfrw does not model yet.
 struct DRW_UnsupportedObject {
+    // Raw object bytes are only valid for the DWG version that encoded them.
+    // Keep the provenance with the bytes so direct writer users cannot
+    // accidentally replay an otherwise unlabelled carrier into another format.
+    DRW::Version m_version = DRW::UNKNOWNV;
     int m_objectType = 0;
     std::uint32_t m_handle = 0;
     std::uint32_t m_bodyBitSize = 0;
@@ -1533,8 +1537,8 @@ public:
     bool m_fitToScreen = false;   /*!< code 290 */
     bool m_maintainAspect = false;/*!< code 291 */
     bool m_useTiling = false;     /*!< code 292 */
-    DRW_Coord m_offset;           /*!< code 140/240 */
-    DRW_Coord m_scale{1.0, 1.0, 0.0}; /*!< code 142/242 */
+    DRW_Coord m_offset;           /*!< image codes 140/141 */
+    DRW_Coord m_scale{1.0, 1.0, 0.0}; /*!< image codes 142/143 */
     /* ibl */
     UTF8STRING m_iblName;         /*!< ibl code 1 */
     bool m_enabled = false;       /*!< ibl code 290(#1) */

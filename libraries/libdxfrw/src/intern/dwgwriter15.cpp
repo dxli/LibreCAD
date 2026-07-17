@@ -171,21 +171,16 @@ double headerDoubleVar(const DRW_Header *header, const std::string& key) {
 }
 
 void splitAuxDate(double stored, std::int32_t& day, std::int32_t& msec) {
-    day = static_cast<std::int32_t>(stored);
-    double frac = stored - static_cast<double>(day);
-    if (frac == 0.0) {
+    // Canonical DWG aux-header date encoding: `stored` is julianDay + msec/86_400_000.
+    constexpr double kMsecPerDay = 86400000.0;
+    const double dayFloor = std::floor(stored);
+    day = static_cast<std::int32_t>(dayFloor);
+    const double frac = stored - dayFloor;
+    msec = static_cast<std::int32_t>(std::lround(frac * kMsecPerDay));
+    if (msec >= static_cast<std::int32_t>(kMsecPerDay)) {
+        day += 1;
         msec = 0;
-        return;
     }
-    for (int i = 0; i < 10; ++i) {
-        frac *= 10.0;
-        const double rounded = std::round(frac);
-        if (std::abs(frac - rounded) < 1e-9 && rounded != 0.0) {
-            msec = static_cast<std::int32_t>(rounded);
-            return;
-        }
-    }
-    msec = static_cast<std::int32_t>(std::round(frac));
 }
 
 void putAuxDate(std::vector<std::uint8_t>& v, double stored) {
@@ -1852,7 +1847,8 @@ bool dwgWriter15::writeDwgObjects() {
 }
 
 bool dwgWriter15::replayRawObject(const DRW_UnsupportedObject& object) {
-    if ((object.m_isEntity && !isReplayableFixedModelerRawEntity(object))
+    if (object.m_version != m_version
+        || (object.m_isEntity && !isReplayableFixedModelerRawEntity(object))
         || object.m_handle == 0 || object.m_rawBytes.empty()) {
         return false;
     }

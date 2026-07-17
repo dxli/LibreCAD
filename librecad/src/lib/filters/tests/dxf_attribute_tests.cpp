@@ -905,8 +905,7 @@ TEST_CASE("DXF IMAGE/WIPEOUT code 71 stored in m_clipBoundaryType (image-wipeout
   CHECK(cap2.m_lastWipeout.clipPath.size() == 3);
 
   // --- write+read: writeWipeout must emit code 71 ---
-  // Write a WIPEOUT with a 3-vertex clip path; default m_clipBoundaryType=0
-  // triggers the wipeout-default of type 2.  Reading back should store type 2.
+  // Write a valid polygonal WIPEOUT. Reading back should retain type 2.
   const auto path =
       std::filesystem::temp_directory_path() / "lc_wipeout_71_rt.dxf";
   std::filesystem::remove(path);
@@ -917,6 +916,7 @@ TEST_CASE("DXF IMAGE/WIPEOUT code 71 stored in m_clipBoundaryType (image-wipeout
   em.m_wipeout.vVector   = DRW_Coord(0.0, 0.01, 0.0);
   em.m_wipeout.sizeu = 100;
   em.m_wipeout.sizev = 100;
+  em.m_wipeout.m_clipBoundaryType = 2;
   em.m_wipeout.clipPath.push_back({0.0, 0.0, 0.0});
   em.m_wipeout.clipPath.push_back({50.0, 0.0, 0.0});
   em.m_wipeout.clipPath.push_back({25.0, 50.0, 0.0});
@@ -936,6 +936,69 @@ TEST_CASE("DXF IMAGE/WIPEOUT code 71 stored in m_clipBoundaryType (image-wipeout
   REQUIRE(cap3.m_wipeoutCount == 1);
   CHECK(cap3.m_lastWipeout.m_clipBoundaryType == 2);
   CHECK(cap3.m_lastWipeout.clipPath.size() == 3);
+
+  // Rectangle records retain their compact two-corner representation. The
+  // display flags and image/reactor handles must survive the same round trip.
+  const auto rectPath =
+      std::filesystem::temp_directory_path() / "lc_wipeout_rectangle_rt.dxf";
+  std::filesystem::remove(rectPath);
+  WipeoutEmitter rectEmitter;
+  rectEmitter.m_wipeout.basePoint = DRW_Coord(0.0, 0.0, 0.0);
+  rectEmitter.m_wipeout.secPoint = DRW_Coord(1.0, 0.0, 0.0);
+  rectEmitter.m_wipeout.vVector = DRW_Coord(0.0, 1.0, 0.0);
+  rectEmitter.m_wipeout.sizeu = 3.0;
+  rectEmitter.m_wipeout.sizev = 4.0;
+  rectEmitter.m_wipeout.m_displayProps = 7;
+  rectEmitter.m_wipeout.ref = 0x123u;
+  rectEmitter.m_wipeout.m_imageDefReactorHandle = 0x456u;
+  rectEmitter.m_wipeout.m_clipBoundaryType = 1;
+  rectEmitter.m_wipeout.clipPath = {{-0.5, -0.5, 0.0}, {2.5, 3.5, 0.0}};
+  {
+    dxfRW w(rectPath.string().c_str());
+    rectEmitter.m_rw = &w;
+    REQUIRE(w.write(&rectEmitter, DRW::AC1024, false));
+  }
+  ImageCapture rectCapture;
+  {
+    dxfRW r(rectPath.string().c_str());
+    REQUIRE(r.read(&rectCapture, /*ext=*/true));
+  }
+  std::filesystem::remove(rectPath);
+  REQUIRE(rectCapture.m_wipeoutCount == 1);
+  CHECK(rectCapture.m_lastWipeout.m_clipBoundaryType == 1);
+  CHECK(rectCapture.m_lastWipeout.clipPath.size() == 2);
+  CHECK(rectCapture.m_lastWipeout.m_displayProps == 7);
+  CHECK(rectCapture.m_lastWipeout.ref == 0x123u);
+  CHECK(rectCapture.m_lastWipeout.m_imageDefReactorHandle == 0x456u);
+}
+
+TEST_CASE("DXF WIPEOUT rejects a malformed clipping boundary", "[dxf][wipeout]") {
+  const std::string malformed =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\nWIPEOUT\n5\nB1\n330\n0\n"
+      "100\nAcDbEntity\n8\n0\n"
+      "100\nAcDbRasterImage\n"
+      "10\n0\n20\n0\n30\n0\n"
+      "11\n1\n21\n0\n31\n0\n"
+      "12\n0\n22\n1\n32\n0\n"
+      "13\n2\n23\n2\n"
+      "70\n1\n280\n1\n281\n50\n282\n50\n283\n0\n"
+      "100\nAcDbWipeout\n90\n0\n71\n2\n"
+      // Two vertices are declared but only one complete 14/24 pair follows.
+      "91\n2\n14\n0\n24\n0\n"
+      "0\nENDSEC\n0\nEOF\n";
+  const auto path = std::filesystem::temp_directory_path() / "lc_wipeout_malformed.dxf";
+  std::filesystem::remove(path);
+  {
+    std::ofstream out(path);
+    out << malformed;
+  }
+
+  ImageCapture capture;
+  dxfRW reader(path.string().c_str());
+  CHECK_FALSE(reader.read(&capture, /*ext=*/true));
+  CHECK(capture.m_wipeoutCount == 0);
+  std::filesystem::remove(path);
 }
 
 // hatch-97: DXF code 97 appears in two distinct contexts inside a HATCH

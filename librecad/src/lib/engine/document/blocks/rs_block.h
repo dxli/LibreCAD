@@ -27,6 +27,8 @@
 #ifndef RS_BLOCK_H
 #define RS_BLOCK_H
 
+#include <memory>
+
 #include "rs_document.h"
 
 /**
@@ -101,6 +103,7 @@ public:
 
     RS_LayerList* getLayerList() override;
     RS_BlockList* getBlockList() override;
+    const RS_BlockList* getBlockList() const;
     LC_DimStylesList* getDimStyleList() override;
     LC_TextStyleList* getTextStyleList() override;
 
@@ -194,9 +197,12 @@ public:
      *
      * @return block name chain to the block that contain searched insert
      */
-    QStringList findNestedInsert(const QString& bName);
+    QStringList findNestedInsert(const QString& bName) const;
     void addByBlockLine(const RS_Vector& start, const RS_Vector& end);
 
+    /// Takes ownership of a non-null entity and assigns the BYBLOCK pen.
+    void addByBlockEntity(std::unique_ptr<RS_Entity> entity);
+    /// Compatibility overload for legacy callers that transfer raw ownership.
     void addByBlockEntity(RS_Entity* entity);
 
 

@@ -910,6 +910,9 @@ public:
     int rowcount;            /*!< row count, code 71 */
     double colspace;         /*!< column space, code 44 */
     double rowspace;         /*!< row space, code 45 */
+    [[nodiscard]] bool isMInsert() const noexcept {
+        return colcount > 1 || rowcount > 1;
+    }
     /*!< Attached attribute entities, populated by DWG dispatcher when
          ATTRIB entities owned by this INSERT are read. */
     std::vector<std::shared_ptr<DRW_Attrib>> attlist;
@@ -2059,6 +2062,15 @@ public:
        the WIPEOUTVARIABLES OBJECTS-section object, not per-entity. */
     bool clipMode = false;
 
+    /// True only when the stored IMAGE/WIPEOUT clipping payload matches its
+    /// declared type. Type 1 is two opposite rectangle corners; type 2 is a
+    /// polygon with at least three vertices; type 0 carries no payload.
+    bool hasValidClipBoundary() const;
+
+protected:
+    std::int32_t m_declaredClipVertexCount {-1};
+    bool m_clipPathHasOpenVertex {false};
+
 };
 
 //! Class to handle WIPEOUT entity (AcDbWipeout)
@@ -2071,12 +2083,20 @@ public:
 class DRW_Wipeout : public DRW_Image {
     SETENTFRIENDS
 public:
+    // DWG custom-class ordinals are file-local. Keep WIPEOUT adjacent to the
+    // writer's other typed custom entities rather than copying an ordinal
+    // observed in a different producer's CLASSES section.
+    static constexpr std::uint16_t kDwgClassNum = 526;
+
     DRW_Wipeout() {
         eType = DRW::WIPEOUT;
         fade = clip = 0;
         brightness = contrast = 50;
         m_clipBoundaryType = 2;
     }
+
+    /// WIPEOUT is meaningful only with a rectangle or polygon boundary.
+    bool hasValidBoundary() const;
 
 protected:
     bool parseCode(int code, const std::unique_ptr<dxfReader>& reader) override;
