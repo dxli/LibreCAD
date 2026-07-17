@@ -56,7 +56,6 @@ TRANSLATIONS = ./ts/plugins_ar.ts \
     ./ts/plugins_gl.ts \
     ./ts/plugins_hi.ts \
     ./ts/plugins_hu.ts \
-    ./ts/plugins_id_id.ts \
     ./ts/plugins_it.ts \
     ./ts/plugins_ja.ts \
     ./ts/plugins_ko.ts \
