@@ -87,7 +87,7 @@
       "role": "shared-utility",
       "shared_symbol": "readCommonObjectHandles (free function, drw_objects.cpp:66)",
       "shared_write_symbol": "N/A (no write counterpart; write side hardcodes per emitRecordPreamble stub)",
-      "callers_read": ["40 sites in drw_objects.cpp (plan estimate: 28 — plan was under)"],
+      "callers_read": ["38 sites in drw_objects.cpp (plan estimate: 28 — plan was under; see corrections.readCommonObjectHandles_call_sites for the re-verified derivation)"],
       "callers_write": [],
       "symmetric_body_pair": false,
       "notes": "Every table-record parser MUST route through here per S5.2 discipline. The 5 broken parsers (Layer/Textstyle/Vport/Dimstyle/AppId) don't call it; the 4 clean ones (LType/Block_Record/UCS/View) do."
@@ -135,7 +135,7 @@
   ],
   "corrections": {
     "plan_2.2_ride_free_claim": "Overstated. MPOLYGON and HELIX inherit parseDwgBoundaryData/parseDwgSplineBody free BUT have byte-parallel top-level parseDwg bodies (drw_entities.cpp:6491, :7307) that need their own row-walks. Fixed here.",
-    "readCommonObjectHandles_call_sites": "Plan estimate 28, actual 40 (grep-verified 2026-07-18).",
-    "seekObjectHandleStream_call_sites": "Plan 44, round-3 corrected 36 (definition + 6 comment mentions subtracted). Verified 38 raw grep hits - 1 def - 1 comment = 36."
+    "readCommonObjectHandles_call_sites": "Plan estimate 28. Re-verified independently 2026-07-18: 43 raw grep hits (--include=*.cpp --include=*.h, .orig excluded) = 1 definition + 4 comment-only mentions + 38 actual call sites. Corrected from this file's prior (incorrect) claim of 40 -- that figure did not reproduce on re-grep.",
+    "seekObjectHandleStream_call_sites": "Plan 44 (raw grep hits, uncorrected). Round-3 derivation: 44 = 1 def @drw_objects.cpp:59 + 7 comment-only mentions + 36 actual call sites -- CONFIRMED by independent re-grep 2026-07-18 (exact match: 44 raw, 1 def, 7 comments, 36 calls). Final answer 36 is correct. This file's prior note stated a different, non-reproducing derivation (\"38 raw grep hits - 1 def - 1 comment\") which did not match a fresh grep (44 raw, not 38) -- corrected here to the verified derivation."
   }
 }

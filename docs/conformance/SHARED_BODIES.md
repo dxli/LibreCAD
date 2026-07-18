@@ -33,7 +33,7 @@ Each shared body is one row; the code+scope details live in
 | SB-trace-solid                  | shared-decoder-family      | **no**    | Trace, Solid (parseDwg delegates, encodeDwg does NOT) |
 | SB-image-line-shadow            | shadowing-inheritance      | **no**    | Image::encodeDwg SHADOWS Line::encodeDwg |
 | SB-dim-base                     | dim-shared-encoder         | yes       | all 8 typed dims |
-| SB-readCommonObjectHandles      | shared-utility             | **no**    | 40 sites in drw_objects.cpp |
+| SB-readCommonObjectHandles      | shared-utility             | **no**    | 38 sites in drw_objects.cpp |
 | SB-objControl                   | shared-control-parser      | **no**    | BLOCK CONTROL + 9 UNDOCUMENTED |
 | SB-DimLinear-inherit            | inheritance-silent         | yes       | DimLinear inherits DimAligned |
 | SB-Wipeout-total-delegation     | asymmetric-inheritance     | **no**    | Wipeout parseDwg = 3-line delegation; encodeDwg = 49 own lines |
@@ -52,15 +52,26 @@ per addendum A.2.
 
 ### `readCommonObjectHandles` call-site count
 
-Plan estimate: 28. **Actual verified count: 40** (grep-count in
-`drw_objects.cpp` this session). The plan under-counted; the S5.2 sweep's
-call-site enumeration must run mechanically, not from the plan estimate.
+Plan estimate: 28. **Actual verified count: 38** (re-verified independently
+2026-07-18: `--include=*.cpp --include=*.h`, `.orig` excluded, gives 43 raw
+grep hits = 1 definition + 4 comment-only mentions + 38 actual call sites).
+The plan under-counted; the S5.2 sweep's call-site enumeration must run
+mechanically, not from the plan estimate. **Correction note:** this section
+previously claimed 40 (a raw grep total of 43 minus only 3 non-call-site
+hits, when the correct split is 1 def + 4 comments = 5 non-call-site hits).
+That number did not reproduce on independent re-grep and has been fixed here.
 
 ### `seekObjectHandleStream` call-site count
 
-Plan: 44. Round-3: 36. Verified this session: raw grep of 38 hits −
-1 definition (drw_objects.cpp:59 per BRIEF) − 1 comment mention = **36**.
-Matches round-3.
+Plan: 44 (raw grep hits, uncorrected). Round-3 derivation: 44 = 1 definition
+(`drw_objects.cpp:59`) + 7 comment-only mentions + **36** actual call sites.
+Independently re-verified 2026-07-18: exact match (44 raw, 1 def, 7 comments,
+36 calls). Final answer 36 is correct and matches round-3. **Correction
+note:** this section previously stated a different, non-reproducing
+derivation ("raw grep of 38 hits − 1 definition − 1 comment mention = 36")
+that does not match a fresh grep (44 raw, not 38; 7 comment mentions, not 1)
+— the arithmetic happened to land on the right final number by coincidence.
+Fixed here to the verified derivation.
 
 ## What the `NOT FOUND` bounds.py results teach
 
