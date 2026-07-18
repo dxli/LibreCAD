@@ -36,7 +36,7 @@
 
 | State | Count |
 |---|---|
-| committed | 10 |
+| committed | 11 |
 | planned | 3 |
 
 *For the finer push/landed breakdown, run `--status` (live, not byte-diffed).*
@@ -49,6 +49,7 @@
 | P0 | `00-O-fieldhit` | O | no | `-` | -DDRW_FIELD_COVERAGE counter -> corpus_hits.json (round-3 H2 attribution decision required first) |
 | P0 | `00-T-antiloss` | T | yes | `6c9b3b539dbb` | Anti-loss protocol: branch + directory structure + spec substrate + seed artifacts |
 | P0 | `00-T-bounds` | T | yes | `a49f6d0d585a` | bounds.py brace-matched Class::method ranges |
+| P0 | `00-T-corpus-provenance` | T | yes | `b27f753a8856` | tag_corpus_provenance.py -> corpus_provenance.json (round-3 M9 prerequisite for 00-O-corpus-wire) |
 | P0 | `00-T-extract-code` | T | yes | `2684da567dad` | extract_code.py -> code_fields.json (readSeq/writeSeq/sinkKind + delegation) |
 | P0 | `00-T-extract-spec` | T | yes | `78a781246636` | extract_spec.py -> spec_fields.json (104 units, ~1345 rows first-pass) |
 | P0 | `00-T-gate-branches` | T | yes | `1d6d579f12e8` | GATE_BRANCHES.json: authored gate-string -> version-branch-subset map (round-3 H3) |

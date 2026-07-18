@@ -22,7 +22,7 @@
     "spec_data_rows": 1345,
     "spec_units": 104
   },
-  "committed_count": 10,
+  "committed_count": 11,
   "per_slice": [
     {
       "commit_sha": "6c9b3b539dbb6d6217ef69b94e2f6d6e045b51b9",
@@ -144,6 +144,17 @@
       "phase": "P0",
       "phase_ord": 0,
       "title": "-DDRW_FIELD_COVERAGE counter -> corpus_hits.json (round-3 H2 attribution decision required first)"
+    },
+    {
+      "commit_sha": "b27f753a88562fde0355fb7ce095c7b0032639cf",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-corpus-provenance",
+      "input_hash": "624a133b68dba664",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "tag_corpus_provenance.py -> corpus_provenance.json (round-3 M9 prerequisite for 00-O-corpus-wire)"
     },
     {
       "commit_sha": null,
