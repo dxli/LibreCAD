@@ -200,8 +200,24 @@ print('all', len(seen), 'gates mapped')
                 [ "$N" -ge 150 ] || fail "code_fields.json has $N bodies, expected >=150"
                 ;;
             05-T-build-ledger)
-                # Future slice — dispatch documented, execution deferred.
-                fail "slice $SLICE not yet implementable in this bootstrap"
+                # --check must be idempotent (regeneration byte-identical),
+                # and the aggregate invariants (verdict counts sum to total,
+                # every spec data row projects to expected branches) must hold.
+                run "$PY" scripts/conformance/build_ledger.py --check
+                # Independent aggregate re-derivation:
+                "$PY" -c "
+import json
+led = json.load(open('scripts/conformance/spec_ledger.json'))
+m = led['meta']
+vc = m['verdict_counts']
+assert sum(vc.values()) == m['total_rows'], 'verdict-count sum mismatch'
+assert m['total_rows'] == m['branch_cells_unaudited'] + m['named_untabled_seeded'] + m['unknowable_seeded'], 'ledger row aggregate mismatch'
+sf = json.load(open('scripts/conformance/spec_fields.json'))
+spec_rows = sum(len(u['rows']) for u in sf['units'])
+distinct_pairs = len({(r['unit'], r['row_ordinal']) for r in led['rows'] if r['verdict']=='unaudited'})
+assert distinct_pairs == spec_rows, f'spec-row projection mismatch: {distinct_pairs} vs {spec_rows}'
+print('ledger aggregate invariants OK:', m['total_rows'], 'rows,', spec_rows, 'distinct (unit,row) pairs')
+" || fail "aggregate invariant"
                 ;;
             *)
                 log "TIER A: no specific check for $SLICE — accepting existence-only"

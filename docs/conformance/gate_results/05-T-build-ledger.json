@@ -1,0 +1,9 @@
+{
+  "slice_id": "05-T-build-ledger",
+  "passed": true,
+  "ts": "2026-07-18T01:47:11Z",
+  "runner": "validate_slice.sh (bootstrap)",
+  "input_hash": "d8d9fa996eb8c8a2",
+  "tier_a_dispatched_kind": "T",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
+}
