@@ -57,21 +57,37 @@ VERDICT_ENUM = [
 # Addendum A.1 — §20.3-named / §20.4-untabled family. Records get
 # verdict=named-untabled at seed (no §20.4 row to join to). Reviewers may
 # promote these to walked-clean / defective as they walk the parseDwg site.
+#
+# Round-3-round-3 correction (independent verification, 2026-07-18):
+#   (a) parse_symbol values were bare "<TYPE>::parseDwg" placeholders, not
+#       the real C++ symbols — grep-verified against code_fields.json and
+#       corrected below (DRW_ prefix; WipeoutVariables is plural in source;
+#       PLACEHOLDER's real class is DRW_AcDbPlaceholder, not DRW_Placeholder).
+#   (b) OLEFRAME has NO implementation anywhere in the tree — the only trace
+#       is a commented-out enum entry (drw_entities.h:69, `//ackaged OLEFRAME,`).
+#       parse_symbol is None, not a fabricated symbol that looks resolved.
+#   (c) every row shared the identical (unit=None, row_ordinal=None,
+#       version_branch=None) key, so any downstream consumer indexing by the
+#       ledger's own documented row identity collapsed 7 rows into 1 and
+#       silently dropped 6. Each row now gets a distinct synthetic key in a
+#       dedicated namespace that cannot collide with a real "20.4.N" unit.
 NAMED_UNTABLED = [
-    {"dwg_type": "MATERIAL",       "parse_symbol": "MATERIAL::parseDwg",
+    {"dwg_type": "MATERIAL",        "parse_symbol": "DRW_Material::parseDwg",
      "note": "prefix-only per §20.3; parseDwg lives in drw_objects.cpp — see plan §5 Deferred"},
-    {"dwg_type": "VISUALSTYLE",    "parse_symbol": "VISUALSTYLE::parseDwg",
+    {"dwg_type": "VISUALSTYLE",     "parse_symbol": "DRW_VisualStyle::parseDwg",
      "note": "R2010+ bit-layout historically mis-modelled as BB+B (now 3xB); grep-verified"},
-    {"dwg_type": "PLOTSETTINGS",   "parse_symbol": "PLOTSETTINGS::parseDwg",
+    {"dwg_type": "PLOTSETTINGS",    "parse_symbol": "DRW_PlotSettings::parseDwg",
      "note": "§20.3 non-fixed"},
-    {"dwg_type": "DBCOLOR",        "parse_symbol": "DBCOLOR::parseDwg",
+    {"dwg_type": "DBCOLOR",         "parse_symbol": "DRW_DbColor::parseDwg",
      "note": "ENC 0x40 → handle case; verified by 2026-05 fix"},
-    {"dwg_type": "WIPEOUTVARIABLE", "parse_symbol": "WIPEOUTVARIABLE::parseDwg",
-     "note": "§20.3 non-fixed"},
-    {"dwg_type": "PLACEHOLDER",    "parse_symbol": "PLACEHOLDER::parseDwg",
-     "note": "ACDBPLACEHOLDER (0x50); both fixed and non-fixed in §20.3"},
-    {"dwg_type": "OLEFRAME",       "parse_symbol": "OLEFRAME::parseDwg",
-     "note": "§20.3 fixed (0x2B)"},
+    {"dwg_type": "WIPEOUTVARIABLE", "parse_symbol": "DRW_WipeoutVariables::parseDwg",
+     "note": "§20.3 non-fixed; note the real class name is plural (WipeoutVariables)"},
+    {"dwg_type": "PLACEHOLDER",     "parse_symbol": "DRW_AcDbPlaceholder::parseDwg",
+     "note": "ACDBPLACEHOLDER (0x50); both fixed and non-fixed in §20.3; real class is DRW_AcDbPlaceholder"},
+    {"dwg_type": "OLEFRAME",        "parse_symbol": None,
+     "note": "§20.3 fixed (0x2B) but UNIMPLEMENTED — grep-verified 2026-07-18: no DRW_OleFrame class, "
+             "no dispatch case, only a commented-out enum entry at drw_entities.h:69. "
+             "parse_symbol is deliberately None; do not fabricate a resolved-looking symbol here."},
 ]
 
 # Round-3 M5 — the 9 UNDOCUMENTED control-objects seed with verdict=unknowable.
@@ -165,12 +181,16 @@ def _build_ledger(strict: bool = False) -> dict:
                     "finding_id": None,
                 })
 
-    # Named-untabled family (A.1) — one seed row per type. No unit join.
+    # Named-untabled family (A.1) — one seed row per type. No §20.4 unit to
+    # join to, so each row is keyed in a dedicated synthetic namespace
+    # ("__named-untabled__/<TYPE>") that cannot collide with a real "20.4.N"
+    # unit string, giving every row a distinct (unit, row_ordinal,
+    # version_branch) triple as meta.row_identity promises.
     for e in NAMED_UNTABLED:
         rows.append({
-            "unit": None,
-            "row_ordinal": None,
-            "version_branch": None,
+            "unit": f"__named-untabled__/{e['dwg_type']}",
+            "row_ordinal": 0,
+            "version_branch": "Common",
             "spec_line": None,
             "gate": None,
             "name": e["dwg_type"],
@@ -204,7 +224,16 @@ def _build_ledger(strict: bool = False) -> dict:
             "corpus_hits": None,
             "verdict": "unknowable",
             "finding_id": None,
-            "note": "9 UNDOCUMENTED control-objects — round-3 M5 restores `unknowable` verdict.",
+            "note": (
+                "9 UNDOCUMENTED control-objects — round-3 M5 restores `unknowable` verdict. "
+                "SCOPE (independent verification, 2026-07-18): this marker covers SEMANTICS "
+                "only. The unit's real field rows (~10, verdict=unaudited, keyed by their own "
+                "row_ordinal/version_branch — see addendum A.1-seam4) ARE structurally walkable "
+                "and are NOT covered by this marker; they carry no literal key collision with "
+                "it (this row's version_branch is the literal string \"Common\", which never "
+                "appears as a real branch value). Per §2.2: field rows get walked, semantics do "
+                "not — this row records only the latter."
+            ),
         })
 
     # Aggregate stats — independently reproducible from the row list.

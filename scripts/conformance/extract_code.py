@@ -461,7 +461,35 @@ HAND_LABELED = {
 
 def _selfcheck() -> int:
     result = _extract_all()
-    by_sym = {r["symbol"]: r for r in result["bodies"]}
+    # Round-3-round-3 correction (independent verification, 2026-07-18): this
+    # was `{r["symbol"]: r for r in result["bodies"]}`, the exact same
+    # silent-last-write-wins pattern build_ledger.py had to fix for
+    # DRW_Dimension::parseDwg's 2 overloads (a 4-arg "never call directly"
+    # stub + the real 5-arg implementation). No HAND_LABELED entry currently
+    # collides, so it was dormant here -- but it is the identical bug class,
+    # live in this file too, and would silently misresolve the next lookup
+    # that does hit an overloaded symbol. Group by symbol first; report any
+    # collision visibly; when one exists, deterministically prefer the
+    # definition with the most read+write tokens (the stub has ~0, the real
+    # implementation does not) rather than trusting iteration order.
+    by_sym_all: dict[str, list[dict]] = {}
+    for r in result["bodies"]:
+        by_sym_all.setdefault(r["symbol"], []).append(r)
+    sym_collisions = {sym: len(lst) for sym, lst in by_sym_all.items() if len(lst) > 1}
+    if sym_collisions:
+        print(f"NOTE: {len(sym_collisions)} symbol(s) have >1 body definition (overloads) -- "
+              f"picking the definition with the most read+write tokens for each, never an "
+              f"arbitrary last-one-wins pick:")
+        for sym, n in sym_collisions.items():
+            print(f"  {sym}: {n} definitions")
+        print()
+
+    def _pick(lst: list[dict]) -> dict:
+        if len(lst) == 1:
+            return lst[0]
+        return max(lst, key=lambda r: r["readCount"] + r["writeCount"])
+
+    by_sym = {sym: _pick(lst) for sym, lst in by_sym_all.items()}
     ok = True
     print(f"n_bodies: {result['meta']['n_bodies']}   total_reads: {result['meta']['total_read_tokens']}   total_writes: {result['meta']['total_write_tokens']}")
     print(f"DRW_UNUSED split: {result['meta']['drw_unused_split']['real_read_discards']} real read-discards + {result['meta']['drw_unused_split']['unused_param_suppressions']} param suppressions = {result['meta']['drw_unused_split']['combined']}")
@@ -507,12 +535,20 @@ def main() -> int:
         return _selfcheck()
     result = _extract_all()
     if args.symbol:
-        for r in result["bodies"]:
-            if r["symbol"] == args.symbol:
-                print(json.dumps(r, indent=2, sort_keys=True))
-                return 0
-        print(f"NOT FOUND: {args.symbol}", file=sys.stderr)
-        return 1
+        # Round-3-round-3 correction: this returned only the FIRST match on
+        # a linear scan, silently discarding any other overload of the same
+        # symbol (e.g. DRW_Dimension::parseDwg has 2). Report every match.
+        matches = [r for r in result["bodies"] if r["symbol"] == args.symbol]
+        if not matches:
+            print(f"NOT FOUND: {args.symbol}", file=sys.stderr)
+            return 1
+        if len(matches) > 1:
+            print(f"NOTE: {len(matches)} definitions found for {args.symbol} (overloaded) -- "
+                  f"printing all, not just the first.", file=sys.stderr)
+            print(json.dumps(matches, indent=2, sort_keys=True))
+        else:
+            print(json.dumps(matches[0], indent=2, sort_keys=True))
+        return 0
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=True)
