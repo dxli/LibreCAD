@@ -245,6 +245,28 @@
     "gate": {"cmd": "python scripts/conformance/check_oracle_mutation.py 00-O-fieldhit", "tier": "heavy"}
   },
   {
+    "id": "00-T-corpus-provenance",
+    "kind": "T",
+    "phase": "P0",
+    "phase_ord": 0,
+    "key": "corpus-provenance",
+    "title": "tag_corpus_provenance.py -> corpus_provenance.json (round-3 M9 prerequisite for 00-O-corpus-wire)",
+    "sp_ref": "Round3M9",
+    "plan_anchor": "round3#M9",
+    "acceptance": [
+      "670 files enumerated from ~/doc/dwg5 + ~/doc/dwg6 (case-insensitive .dwg suffix)",
+      "641 DWG binary + 29 non-DWG-magic files distinguished",
+      "producer signatures classified: genuine-AutoCAD | ODA-Teigha | libdxfrw-generated | libredwg-generated | third-party | unknown",
+      "--check verifies committed summary matches recomputed from files list (catches silent hand-edits)"
+    ],
+    "deps": ["00-T-antiloss"],
+    "ledger_units": [],
+    "findings_shard": null,
+    "coverage_boundary": null,
+    "branch": "conformance/spec-review-2026-07",
+    "gate": {"cmd": "python scripts/conformance/tag_corpus_provenance.py --check", "tier": "cheap"}
+  },
+  {
     "id": "00-O-corpus-wire",
     "kind": "O",
     "phase": "P0",
@@ -259,7 +281,7 @@
       "PARSE_FAILURES.md ranked desc",
       "dwgts_json_diff.py --write-baseline stable on re-run"
     ],
-    "deps": ["00-T-antiloss"],
+    "deps": ["00-T-antiloss", "00-T-corpus-provenance"],
     "ledger_units": [],
     "findings_shard": null,
     "coverage_boundary": null,

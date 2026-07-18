@@ -166,6 +166,22 @@ print('slices.json schema OK,', len(s), 'entries')
                 # Deferred bootstrap: PASS iff the script exists.
                 [ -f scripts/conformance/gen_readme.py ] || fail "gen_readme.py missing"
                 ;;
+            00-T-corpus-provenance)
+                # --check verifies the artifacts and their internal consistency
+                # (recomputed summary matches committed). Doesn't rescan the
+                # corpus — that's cadence work, not per-commit.
+                run "$PY" scripts/conformance/tag_corpus_provenance.py --check
+                # Independent aggregate re-derivation:
+                "$PY" -c "
+import json
+d = json.load(open('docs/conformance/corpus_provenance.json'))
+s = d['summary']
+assert sum(s['by_magic'].values()) == s['total_files'], 'by_magic sum mismatch'
+assert sum(s['by_producer_family'].values()) == s['total_files'], 'by_family sum mismatch'
+assert s['dwg_binary'] + s['non_dwg_magic_filtered'] == s['total_files'], 'binary+filtered mismatch'
+print('provenance aggregate invariants OK:', s['total_files'], 'files,', s['dwg_binary'], 'DWG binary')
+" || fail "provenance aggregate invariant"
+                ;;
             00-T-shared-bodies)
                 [ -f scripts/conformance/shared_bodies.json ] || fail "shared_bodies.json missing"
                 [ -f docs/conformance/SHARED_BODIES.md ] || fail "SHARED_BODIES.md missing"

@@ -1,0 +1,6093 @@
+{
+  "files": [
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#House-Dwgfree.com_-1.dwg",
+      "byte_size": 213388,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#House-Dwgfree.com_-1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#Pool_Detail.dwg",
+      "byte_size": 1228697,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#Pool_Detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#Sidewalk-patterns.dwg",
+      "byte_size": 5023017,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#Sidewalk-patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#blocks_and_tables_-_metric.dwg",
+      "byte_size": 378774,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#blocks_and_tables_-_metric.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#gear_pump_subassy.dwg",
+      "byte_size": 172345,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#gear_pump_subassy.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#lever_detail.dwg",
+      "byte_size": 70891,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#lever_detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#makeall-plus.dwg",
+      "byte_size": 207782,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#makeall-plus.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#mechanical_example-imperial.dwg",
+      "byte_size": 67441,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#mechanical_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#title_block-iso.dwg",
+      "byte_size": 111516,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#title_block-iso.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/#tray.dwg",
+      "byte_size": 150103,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/#tray.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/1\u7ed3\u67843.23.dwg",
+      "byte_size": 20741463,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/1\u7ed3\u67843.23.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/2\u5e26\u5c3a\u5bf8\u56fe\u5e93.dwg",
+      "byte_size": 14393792,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/2\u5e26\u5c3a\u5bf8\u56fe\u5e93.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/3D Gas station.dwg",
+      "byte_size": 4160824,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/3D Gas station.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/3D slide.dwg",
+      "byte_size": 321104,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/3D slide.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/807_1.dwg",
+      "byte_size": 506807,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/807_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ACEB10.dwg",
+      "byte_size": 93538,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ACEB10.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ATMOS-DC22S.dwg",
+      "byte_size": 398400,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ATMOS-DC22S.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/AecObjects.dwg",
+      "byte_size": 423600,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/AecObjects.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Airport.dwg",
+      "byte_size": 2642599,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Airport.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Arc.dwg",
+      "byte_size": 63276,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Arc.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Arc_1.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Arc_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Arc_2.dwg",
+      "byte_size": 36305,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Arc_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Arc_3.dwg",
+      "byte_size": 62825,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Arc_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Arc_4.dwg",
+      "byte_size": 173717,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Arc_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Architectural-Modern-Building-Design.dwg",
+      "byte_size": 331123,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Architectural-Modern-Building-Design.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/BLOCKLINEARPARAMETER.dwg",
+      "byte_size": 37071,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/BLOCKLINEARPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/BLOCKPOINTPARAMETER.dwg",
+      "byte_size": 35951,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/BLOCKPOINTPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/BLOCKROTATIONPARAMETER.dwg",
+      "byte_size": 38027,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/BLOCKROTATIONPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/BLOCKVISIBILITYPARAMETER.dwg",
+      "byte_size": 38641,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/BLOCKVISIBILITYPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/BYDD00301000002-3241481-\u8f66\u8eab\u603b\u5e03\u7f6e,12.9,\u65c5\u6e38\u7248-\u5f00\u540e\u95e8,\u8fc7\u9053\u659c\u5761-55+1+1,\u7535\u52a8\u53f8\u673a\u7a97,\u8f6e\u6905\u5347\u964d\u5e73\u53f0,DAFO\u706d\u706b\u5668.dwg",
+      "byte_size": 31814868,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/BYDD00301000002-3241481-\u8f66\u8eab\u603b\u5e03\u7f6e,12.9,\u65c5\u6e38\u7248-\u5f00\u540e\u95e8,\u8fc7\u9053\u659c\u5761-55+1+1,\u7535\u52a8\u53f8\u673a\u7a97,\u8f6e\u6905\u5347\u964d\u5e73\u53f0,DAFO\u706d\u706b\u5668.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Cone.dwg",
+      "byte_size": 177037,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Cone.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints.dwg",
+      "byte_size": 152763,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_1.dwg",
+      "byte_size": 33206,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_2.dwg",
+      "byte_size": 28932,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_3.dwg",
+      "byte_size": 320256,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_4.dwg",
+      "byte_size": 63816,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_5.dwg",
+      "byte_size": 303057,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Constraints_6.dwg",
+      "byte_size": 146857,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Constraints_6.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ConstructionLine.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ConstructionLine.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ConstructionLine_1.dwg",
+      "byte_size": 31899,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ConstructionLine_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ConstructionLine_2.dwg",
+      "byte_size": 63178,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ConstructionLine_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ConstructionLine_3.dwg",
+      "byte_size": 62280,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ConstructionLine_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ConstructionLine_4.dwg",
+      "byte_size": 173829,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ConstructionLine_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Cover.dwg",
+      "byte_size": 18880,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Cover.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut.dwg",
+      "byte_size": 62060,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut_1.dwg",
+      "byte_size": 27691,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut_2.dwg",
+      "byte_size": 61638,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut_3.dwg",
+      "byte_size": 173705,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut_4.dwg",
+      "byte_size": 31833,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Donut_5.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Donut_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Dynblocks.dwg",
+      "byte_size": 2179277,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Dynblocks.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ET-Drawing-with-Border.dwg",
+      "byte_size": 30217,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ET-Drawing-with-Border.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Ellipse.dwg",
+      "byte_size": 63081,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Ellipse.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Ellipse_1.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Ellipse_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Ellipse_2.dwg",
+      "byte_size": 32090,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Ellipse_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Ellipse_3.dwg",
+      "byte_size": 63468,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Ellipse_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Ellipse_4.dwg",
+      "byte_size": 173726,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Ellipse_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Extruder2.dwg",
+      "byte_size": 2856002,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Extruder2.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/GCE023-510001-101-3230435_ \u5730\u677f\u9aa8\u67b6\u603b\u6210.dwg",
+      "byte_size": 48355902,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/GCE023-510001-101-3230435_ \u5730\u677f\u9aa8\u67b6\u603b\u6210.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/HatchG.dwg",
+      "byte_size": 59489,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/HatchG.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix.dwg",
+      "byte_size": 33325,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix_1.dwg",
+      "byte_size": 180176,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix_2.dwg",
+      "byte_size": 39095,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix_3.dwg",
+      "byte_size": 68656,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix_4.dwg",
+      "byte_size": 68650,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Helix_5.dwg",
+      "byte_size": 81792,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Helix_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/House-Dwgfree.com_-1.dwg",
+      "byte_size": 183744,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/House-Dwgfree.com_-1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Leader.dwg",
+      "byte_size": 202493,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Leader.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Leader_1.dwg",
+      "byte_size": 156898,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Leader_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Leader_2.dwg",
+      "byte_size": 34481,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Leader_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Leader_3.dwg",
+      "byte_size": 71047,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Leader_3.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Leader_4.dwg",
+      "byte_size": 359144,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Leader_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Line.dwg",
+      "byte_size": 62664,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Line.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Line_1.dwg",
+      "byte_size": 62118,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Line_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Line_2.dwg",
+      "byte_size": 37961,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Line_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Line_3.dwg",
+      "byte_size": 174005,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Line_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Little Square.dwg",
+      "byte_size": 1357858,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Little Square.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/LiveSection1.dwg",
+      "byte_size": 40591,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/LiveSection1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Mechanical and Annotative.dwg",
+      "byte_size": 120578,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Mechanical and Annotative.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline.dwg",
+      "byte_size": 77728,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline_1.dwg",
+      "byte_size": 177722,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline_2.dwg",
+      "byte_size": 28462,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline_3.dwg",
+      "byte_size": 65605,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline_4.dwg",
+      "byte_size": 65836,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Multiline_5.dwg",
+      "byte_size": 31614,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Multiline_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Patterns-art-block.dwg",
+      "byte_size": 2663803,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Patterns-art-block.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Point.dwg",
+      "byte_size": 74624,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Point.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Point_1.dwg",
+      "byte_size": 61735,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Point_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Point_2.dwg",
+      "byte_size": 173749,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Point_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Point_3.dwg",
+      "byte_size": 31931,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Point_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Point_4.dwg",
+      "byte_size": 61348,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Point_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine2D.dwg",
+      "byte_size": 113029,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine2D.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D.dwg",
+      "byte_size": 63399,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D_1.dwg",
+      "byte_size": 179722,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D_2.dwg",
+      "byte_size": 27819,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D_3.dwg",
+      "byte_size": 63044,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D_4.dwg",
+      "byte_size": 30939,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/PolyLine3D_5.dwg",
+      "byte_size": 75936,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/PolyLine3D_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon.dwg",
+      "byte_size": 27950,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon_1.dwg",
+      "byte_size": 173842,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon_2.dwg",
+      "byte_size": 32156,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon_3.dwg",
+      "byte_size": 62633,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon_4.dwg",
+      "byte_size": 62923,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polygon_5.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polygon_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polyline.dwg",
+      "byte_size": 62884,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polyline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polyline_1.dwg",
+      "byte_size": 179491,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polyline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polyline_2.dwg",
+      "byte_size": 30782,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polyline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polyline_3.dwg",
+      "byte_size": 63239,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polyline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Polyline_4.dwg",
+      "byte_size": 75936,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Polyline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Pool_Detail.dwg",
+      "byte_size": 420256,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Pool_Detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/RAY.dwg",
+      "byte_size": 173716,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/RAY.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/RAY_1.dwg",
+      "byte_size": 61833,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/RAY_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/RAY_2.dwg",
+      "byte_size": 62508,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/RAY_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/RAY_3.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/RAY_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/RAY_4.dwg",
+      "byte_size": 37634,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/RAY_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Sidewalk-patterns.dwg",
+      "byte_size": 841228,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Sidewalk-patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Single-Storey-House.dwg",
+      "byte_size": 1004615,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Single-Storey-House.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Spline.dwg",
+      "byte_size": 173739,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Spline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Spline_1.dwg",
+      "byte_size": 61545,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Spline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Spline_2.dwg",
+      "byte_size": 74624,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Spline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Spline_3.dwg",
+      "byte_size": 31835,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Spline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Spline_4.dwg",
+      "byte_size": 27661,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Spline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Sport-Man-Signs.dwg",
+      "byte_size": 1837312,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Sport-Man-Signs.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Surface.dwg",
+      "byte_size": 162991,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Surface.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/THREE BEDROOM HOUSE PLAN.dwg",
+      "byte_size": 965440,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/THREE BEDROOM HOUSE PLAN.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/TS1.dwg",
+      "byte_size": 418007,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/TS1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text.dwg",
+      "byte_size": 31164,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text_1.dwg",
+      "byte_size": 62535,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text_2.dwg",
+      "byte_size": 62180,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text_3.dwg",
+      "byte_size": 76448,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text_4.dwg",
+      "byte_size": 179310,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Text_5.dwg",
+      "byte_size": 27916,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Text_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Underlay.dwg",
+      "byte_size": 70412,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Underlay.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/Wheel_casing.dwg",
+      "byte_size": 88957,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/Wheel_casing.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/acad_table_cells.dwg",
+      "byte_size": 17606,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/acad_table_cells.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2000.dwg",
+      "byte_size": 116900,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2004.dwg",
+      "byte_size": 37537,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2007.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2010.dwg",
+      "byte_size": 51549,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2013.dwg",
+      "byte_size": 16107,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_2018.dwg",
+      "byte_size": 27822,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/arc_R14.dwg",
+      "byte_size": 122353,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/arc_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/architectural_-_annotation_scaling_and_multileaders.dwg",
+      "byte_size": 188992,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/architectural_-_annotation_scaling_and_multileaders.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/architectural_example-imperial.dwg",
+      "byte_size": 148638,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/architectural_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/block.dwg",
+      "byte_size": 1313,
+      "dwg_magic": "AC2.10",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/block.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/blocks_and_tables_-_imperial.dwg",
+      "byte_size": 227008,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/blocks_and_tables_-_imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/blocks_and_tables_-_metric.dwg",
+      "byte_size": 258848,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/blocks_and_tables_-_metric.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/children-room-decoration.dwg",
+      "byte_size": 1715680,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/children-room-decoration.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle.dwg",
+      "byte_size": 30971,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_1.dwg",
+      "byte_size": 177345,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2.dwg",
+      "byte_size": 64038,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2000.dwg",
+      "byte_size": 116875,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2004.dwg",
+      "byte_size": 37598,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2007.dwg",
+      "byte_size": 66560,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2010.dwg",
+      "byte_size": 51805,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2013.dwg",
+      "byte_size": 16395,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_2018.dwg",
+      "byte_size": 27886,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_3.dwg",
+      "byte_size": 64302,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_4.dwg",
+      "byte_size": 77472,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/circle_R14.dwg",
+      "byte_size": 122329,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/circle_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/civil_example-imperial.dwg",
+      "byte_size": 169592,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/civil_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/cjk_gbk_2000.dwg",
+      "byte_size": 95476,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/cjk_gbk_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/cjk_sjis_2004.dwg",
+      "byte_size": 15730,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/cjk_sjis_2004.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "Teigha"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/colorwh.dwg",
+      "byte_size": 1786976,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/colorwh.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dim.dwg",
+      "byte_size": 4253,
+      "dwg_magic": "AC1003",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dim.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dim_linear_tutorial.dwg",
+      "byte_size": 36391,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dim_linear_tutorial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dim_radial_tutorial.dwg",
+      "byte_size": 64280,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dim_radial_tutorial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dimstyle-vars.dwg",
+      "byte_size": 44888,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dimstyle-vars.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dimtad-dimjust.dwg",
+      "byte_size": 33965,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dimtad-dimjust.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/dwgreader21_230.dwg",
+      "byte_size": 522,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/dwgreader21_230.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2000.dwg",
+      "byte_size": 151891,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2004.dwg",
+      "byte_size": 39945,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2007.dwg",
+      "byte_size": 69120,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2010.dwg",
+      "byte_size": 51773,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_2018.dwg",
+      "byte_size": 27883,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ellipse_R14.dwg",
+      "byte_size": 157528,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ellipse_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/empty.dwg",
+      "byte_size": 30639,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/empty.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities-2d.dwg",
+      "byte_size": 24028,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities-2d.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities-2d_1.dwg",
+      "byte_size": 5416,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities-2d_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities-3d.dwg",
+      "byte_size": 5522,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities-3d.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities-3d_1.dwg",
+      "byte_size": 23955,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities-3d_1.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities.dwg",
+      "byte_size": 3347,
+      "dwg_magic": "AC1003",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities_1.dwg",
+      "byte_size": 4305,
+      "dwg_magic": "AC1006",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities_2.dwg",
+      "byte_size": 2236,
+      "dwg_magic": "AC2.10",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/entities_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities_3.dwg",
+      "byte_size": 1152,
+      "dwg_magic": "AC1.40",
+      "is_dwg_binary": false,
+      "path": "doc/dwg5/entities_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/entities_4.dwg",
+      "byte_size": 3476,
+      "dwg_magic": "AC1004",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/entities_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2000.dwg",
+      "byte_size": 582572,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2000.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2004.dwg",
+      "byte_size": 187890,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2007.dwg",
+      "byte_size": 456000,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2010.dwg",
+      "byte_size": 450071,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2013.dwg",
+      "byte_size": 146906,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2013.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_2018.dwg",
+      "byte_size": 149218,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_2018.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_r13.dwg",
+      "byte_size": 519995,
+      "dwg_magic": "AC1012",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_r13.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/example_r14.dwg",
+      "byte_size": 439875,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/example_r14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/export_sample.dwg",
+      "byte_size": 94819,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/export_sample.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gear_pump_subassy.dwg",
+      "byte_size": 298244,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gear_pump_subassy.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/geoloc.dwg",
+      "byte_size": 46960,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/geoloc.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gh109_1.dwg",
+      "byte_size": 102258,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gh109_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gh209_1.dwg",
+      "byte_size": 65070,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gh209_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gh44-error.dwg",
+      "byte_size": 575606,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gh44-error.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gripper.dwg",
+      "byte_size": 216019,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gripper.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/gripper_assembly_new.dwg",
+      "byte_size": 676935,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/gripper_assembly_new.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/large_radial.dwg",
+      "byte_size": 12632,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/large_radial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/leader_2007.dwg",
+      "byte_size": 328192,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/leader_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/leader_2013.dwg",
+      "byte_size": 52977,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/leader_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/lever_detail.dwg",
+      "byte_size": 106115,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/lever_detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2000.dwg",
+      "byte_size": 116899,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2004.dwg",
+      "byte_size": 37281,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2007.dwg",
+      "byte_size": 74880,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2007_1.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2007_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2010.dwg",
+      "byte_size": 51741,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_2018.dwg",
+      "byte_size": 27982,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/line_R14.dwg",
+      "byte_size": 122353,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/line_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/lineweights.dwg",
+      "byte_size": 58496,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/lineweights.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/makeall-plus.dwg",
+      "byte_size": 574537,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/makeall-plus.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/material.dwg",
+      "byte_size": 1466173,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/material.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/mechanical_example-imperial.dwg",
+      "byte_size": 142267,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/mechanical_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/mpolygon_solid.dwg",
+      "byte_size": 11767,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/mpolygon_solid.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/plot_screening_and_fill_patterns.dwg",
+      "byte_size": 85952,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/plot_screening_and_fill_patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_2000.dwg",
+      "byte_size": 116822,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_2004.dwg",
+      "byte_size": 37565,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_2007.dwg",
+      "byte_size": 66048,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_2010.dwg",
+      "byte_size": 51482,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_2013.dwg",
+      "byte_size": 16202,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point2d_R14.dwg",
+      "byte_size": 122227,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point2d_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_2000.dwg",
+      "byte_size": 116846,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_2004.dwg",
+      "byte_size": 37533,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_2007.dwg",
+      "byte_size": 66048,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_2010.dwg",
+      "byte_size": 51834,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point3d_R14.dwg",
+      "byte_size": 122251,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point3d_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/point_2018.dwg",
+      "byte_size": 27658,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/point_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_2000.dwg",
+      "byte_size": 116916,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_2004.dwg",
+      "byte_size": 37505,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_2007.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_2010.dwg",
+      "byte_size": 51773,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_2013.dwg",
+      "byte_size": 16299,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline2d_line_R14.dwg",
+      "byte_size": 122369,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline2d_line_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/polyline_2018.dwg",
+      "byte_size": 27691,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/polyline_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/pump_cover.dwg",
+      "byte_size": 107020,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/pump_cover.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/pump_wheel.dwg",
+      "byte_size": 89086,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/pump_wheel.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/ray_2018.dwg",
+      "byte_size": 27662,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/ray_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/robot_handling_cell.dwg",
+      "byte_size": 696884,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/robot_handling_cell.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_2000.dwg",
+      "byte_size": 22027,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_2018.dwg",
+      "byte_size": 19848,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1014.dwg",
+      "byte_size": 1312281,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1014.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1015.dwg",
+      "byte_size": 1297511,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1015.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1018.dwg",
+      "byte_size": 1097214,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1021.dwg",
+      "byte_size": 1063168,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1021.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1024.dwg",
+      "byte_size": 1122389,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1024.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1027.dwg",
+      "byte_size": 1091959,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1027.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_AC1032.dwg",
+      "byte_size": 1081979,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_AC1032.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/sample_base.dwg",
+      "byte_size": 1095707,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/sample_base.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/simple.dwg",
+      "byte_size": 12117,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/simple.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/spline_2010.dwg",
+      "byte_size": 61932,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/spline_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/t1.dwg",
+      "byte_size": 72229,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/t1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/tablet.dwg",
+      "byte_size": 438656,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/tablet.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/title_block-arch.dwg",
+      "byte_size": 126985,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/title_block-arch.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/title_block-iso.dwg",
+      "byte_size": 128233,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/title_block-iso.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/tmp_line.dwg",
+      "byte_size": 2421,
+      "dwg_magic": "AC1006",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/tmp_line.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/tray.dwg",
+      "byte_size": 108607,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/tray.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/trolley_structure.dwg",
+      "byte_size": 1177449,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/trolley_structure.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/truetype.dwg",
+      "byte_size": 70464,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/truetype.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/v.dwg",
+      "byte_size": 26840,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/v.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/visualization_-_aerial.dwg",
+      "byte_size": 733036,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/visualization_-_aerial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/visualization_-_condominium_with_skylight.dwg",
+      "byte_size": 1415699,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/visualization_-_condominium_with_skylight.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/visualization_-_conference_room.dwg",
+      "byte_size": 973730,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/visualization_-_conference_room.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/visualization_-_sun_and_sky_demo.dwg",
+      "byte_size": 553297,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/visualization_-_sun_and_sky_demo.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/xline_2018.dwg",
+      "byte_size": 27595,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/xline_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u4eba\u7269\u7acb\u9762\u56fe\u5e93.dwg",
+      "byte_size": 5291616,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u4eba\u7269\u7acb\u9762\u56fe\u5e93.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u5168\u56fd\u901a\u7528\u8282\u70b9\u8be6\u7ec6\u89e3\u6790.dwg",
+      "byte_size": 6084288,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u5168\u56fd\u901a\u7528\u8282\u70b9\u8be6\u7ec6\u89e3\u6790.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe.dwg",
+      "byte_size": 498615,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u5e7f\u4e1c\u7701\u6cb3\u6e90\u5e02-\u65b0\u5efa\u9879\u76ee2-1\u671f-\u661f\u60a6\u6e7e1\u53f7\u697c-\u539f\u59cb\u56fe.dwg",
+      "byte_size": 12701000,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u5e7f\u4e1c\u7701\u6cb3\u6e90\u5e02-\u65b0\u5efa\u9879\u76ee2-1\u671f-\u661f\u60a6\u6e7e1\u53f7\u697c-\u539f\u59cb\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u690d\u7269.dwg",
+      "byte_size": 8534976,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u690d\u7269.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u7bb1\u76d6.dwg",
+      "byte_size": 78970,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u7bb1\u76d6.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u8f74\u627f\u5ea7.dwg",
+      "byte_size": 73984,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u8f74\u627f\u5ea7.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u9ad8\u6746\u706f\u72ec\u6746\u4f53.dwg",
+      "byte_size": 230016,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u9ad8\u6746\u706f\u72ec\u6746\u4f53.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg5/\u9f7f\u8f6e\u8f74(2).dwg",
+      "byte_size": 61201,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg5/\u9f7f\u8f6e\u8f74(2).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#House-Dwgfree.com_-1.dwg",
+      "byte_size": 213388,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#House-Dwgfree.com_-1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#Pool_Detail.dwg",
+      "byte_size": 1228697,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#Pool_Detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#Sidewalk-patterns.dwg",
+      "byte_size": 5023017,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#Sidewalk-patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#blocks_and_tables_-_metric.dwg",
+      "byte_size": 378774,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#blocks_and_tables_-_metric.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#ellipse.dwg",
+      "byte_size": 19443,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#ellipse.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#gear_pump_subassy.dwg",
+      "byte_size": 172345,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#gear_pump_subassy.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#lever_detail.dwg",
+      "byte_size": 70891,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#lever_detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#makeall-plus.dwg",
+      "byte_size": 207782,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#makeall-plus.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#mechanical_example-imperial.dwg",
+      "byte_size": 67441,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#mechanical_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#simple_dim.dwg",
+      "byte_size": 12250,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/#simple_dim.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#title_block-iso.dwg",
+      "byte_size": 111516,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#title_block-iso.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#tmp5.dwg",
+      "byte_size": 16664,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#tmp5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#tray.dwg",
+      "byte_size": 150103,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#tray.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/#usa_dollar100_front.dwg",
+      "byte_size": 36156538,
+      "dwg_magic": "999\ndx",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/#usa_dollar100_front.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-BT-1059)++JS89\u7cfb\u5217\u672c\u4f53\u56fe.dwg",
+      "byte_size": 122657,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-BT-1059)++JS89\u7cfb\u5217\u672c\u4f53\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-BT-1127)++VFR32L-K - \u526f\u672c.dwg",
+      "byte_size": 265643,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-BT-1127)++VFR32L-K - \u526f\u672c.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-BT-1127)++VFR32L-K.dwg",
+      "byte_size": 265643,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-BT-1127)++VFR32L-K.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-BT-1272)++RVT-KY-K4.0-N4\u7cfb\u5217\u672c\u4f53\u56fe.dwg",
+      "byte_size": 258749,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-BT-1272)++RVT-KY-K4.0-N4\u7cfb\u5217\u672c\u4f53\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-BT-2133)  TR572-KH5\u6c14\u95e8\u5634\u672c\u4f53\u56fe(1).dwg",
+      "byte_size": 435809,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-BT-2133)  TR572-KH5\u6c14\u95e8\u5634\u672c\u4f53\u56fe(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3050\uff09\uff08T\uff09TR4\u7ec4\u5408\u5f0f\u52a0\u786b\u6a21\u677f90\u5b54.dwg",
+      "byte_size": 1023402,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3050\uff09\uff08T\uff09TR4\u7ec4\u5408\u5f0f\u52a0\u786b\u6a21\u677f90\u5b54.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3055) TR4\u52a0\u786b\u672c\u6a21\uff08120\u5b54\uff09.dwg",
+      "byte_size": 339787,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3055) TR4\u52a0\u786b\u672c\u6a21\uff08120\u5b54\uff09.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3081\uff09\u9ad8\u901f\u5480\u7cfb\u5217\u52a0\u786b\u672c\u6a21(256\u5b54).dwg",
+      "byte_size": 1216873,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3081\uff09\u9ad8\u901f\u5480\u7cfb\u5217\u52a0\u786b\u672c\u6a21(256\u5b54).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3088\uff09TR4-40\u7ec4\u5408\u5f0f\u52a0\u786b\u6a21\u677f\uff08110\u5b54\uff09.dwg",
+      "byte_size": 888850,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3088\uff09TR4-40\u7ec4\u5408\u5f0f\u52a0\u786b\u6a21\u677f\uff08110\u5b54\uff09.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54) - \u526f\u672c.dwg",
+      "byte_size": 585406,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54) - \u526f\u672c.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54)(2).dwg",
+      "byte_size": 585406,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54)(2).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54).dwg",
+      "byte_size": 585406,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/(TZ-JLM-3101)+VFR28\u52a0\u786b\u6a21\u677f(144\u5b54).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/01-\u5b9e\u65bd-5#\u697c\u30016#\u697c\u5e55\u5899\u5e73\u7acb\u9762\u8be6\u56fe\uff0820251111)(3).dwg",
+      "byte_size": 72508875,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/01-\u5b9e\u65bd-5#\u697c\u30016#\u697c\u5e55\u5899\u5e73\u7acb\u9762\u8be6\u56fe\uff0820251111)(3).dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/15.dwg",
+      "byte_size": 19304548,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/15.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/1\u7ed3\u67843.23.dwg",
+      "byte_size": 20741463,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/1\u7ed3\u67843.23.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20230401-\u8386\u7530B\u5730\u5757\u603b\u5e73\u53ca\u914d\u5957\u56fe_t3.dwg",
+      "byte_size": 16840521,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20230401-\u8386\u7530B\u5730\u5757\u603b\u5e73\u53ca\u914d\u5957\u56fe_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023 \u516d\u9ccc\u5efa\u65bd3~7#\u7acb\u9762\u53ca\u95e8\u7a97\u5927\u6837_t3.dwg",
+      "byte_size": 23004894,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023 \u516d\u9ccc\u5efa\u65bd3~7#\u7acb\u9762\u53ca\u95e8\u7a97\u5927\u6837_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd15# 16#_t3.dwg",
+      "byte_size": 69100673,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd15# 16#_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd3-7#\u901a\u7528\u5899\u8eab_t3.dwg",
+      "byte_size": 15092529,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd3-7#\u901a\u7528\u5899\u8eab_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd3-7#\uff08\u5e73\u9762+\u5256\u9762+\u697c\u68af\u536b\u751f\u95f4\uff09_t3_t3.dwg",
+      "byte_size": 55155728,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd3-7#\uff08\u5e73\u9762+\u5256\u9762+\u697c\u68af\u536b\u751f\u95f4\uff09_t3_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u5899\u8eab_t3.dwg",
+      "byte_size": 6207287,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u5899\u8eab_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u5e73\u7acb\u52561023_t3.dwg",
+      "byte_size": 24168984,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u5e73\u7acb\u52561023_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u697c\u7535\u68af\u8be6\u56fe_t3.dwg",
+      "byte_size": 3605181,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u5efa\u65bd9#\u697c\u7535\u68af\u8be6\u56fe_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231023\u516d\u9ccc\u8bbe\u8ba1\u8bf4\u660e_t3.dwg",
+      "byte_size": 11005277,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231023\u516d\u9ccc\u8bbe\u8ba1\u8bf4\u660e_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20231106\u516d\u9ccc\u603b\u56fe\u5efa\u65bd_t8.dwg",
+      "byte_size": 22315158,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20231106\u516d\u9ccc\u603b\u56fe\u5efa\u65bd_t8.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/20251218-\u5b81\u6ce2\u9707\u88d5-\u4e1d\u6760.dwg",
+      "byte_size": 18731794,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/20251218-\u5b81\u6ce2\u9707\u88d5-\u4e1d\u6760.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/250807D01\u798f\u5efa\u7701\u4e2d\u8386\u52a0\u6cb9\u7ad9\u6709\u9650\u516c\u53f8\u52a0\u6cb9\u7ad9\u5efa\u8bbe.dwg",
+      "byte_size": 2570218,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/250807D01\u798f\u5efa\u7701\u4e2d\u8386\u52a0\u6cb9\u7ad9\u6709\u9650\u516c\u53f8\u52a0\u6cb9\u7ad9\u5efa\u8bbe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/2\u5e26\u5c3a\u5bf8\u56fe\u5e93.dwg",
+      "byte_size": 14393792,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/2\u5e26\u5c3a\u5bf8\u56fe\u5e93.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/3D Gas station.dwg",
+      "byte_size": 4160824,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/3D Gas station.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/3D slide.dwg",
+      "byte_size": 321104,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/3D slide.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/5061b7aa-8cf0-48d9-8c68-35c6ce611c89.dwg",
+      "byte_size": 130207,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/5061b7aa-8cf0-48d9-8c68-35c6ce611c89.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/5724pln.dwg",
+      "byte_size": 123124,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/5724pln.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/807_1.dwg",
+      "byte_size": 506807,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/807_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/A-01.dwg",
+      "byte_size": 132128,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/A-01.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/A10460-006(\u8010\u78e8\u73af).dwg",
+      "byte_size": 172156,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/A10460-006(\u8010\u78e8\u73af).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ACEB10.dwg",
+      "byte_size": 93538,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ACEB10.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ATMOS-DC22S.dwg",
+      "byte_size": 398400,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ATMOS-DC22S.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/AecObjects.dwg",
+      "byte_size": 423600,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/AecObjects.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Airport.dwg",
+      "byte_size": 2642599,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Airport.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Arc.dwg",
+      "byte_size": 36305,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Arc.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Arc_1.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Arc_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Arc_2.dwg",
+      "byte_size": 173717,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Arc_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Arc_3.dwg",
+      "byte_size": 63276,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Arc_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Arc_4.dwg",
+      "byte_size": 62825,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Arc_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Architectural-Modern-Building-Design.dwg",
+      "byte_size": 331123,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Architectural-Modern-Building-Design.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Audi-R8-2008-DWGFree.com_.dwg",
+      "byte_size": 337120,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Audi-R8-2008-DWGFree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Audi-R8-LeMans-DWGFree.com_.dwg",
+      "byte_size": 580672,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Audi-R8-LeMans-DWGFree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Audi-S8-DWGFree.com_.dwg",
+      "byte_size": 121984,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Audi-S8-DWGFree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Audi-TT-DwgFree.com_.dwg",
+      "byte_size": 200128,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Audi-TT-DwgFree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/AutocadEntitiesSamples.dwg",
+      "byte_size": 12908194,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/AutocadEntitiesSamples.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/B1\u751f\u4ea7\u5382\u623f.dwg",
+      "byte_size": 42069559,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/B1\u751f\u4ea7\u5382\u623f.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BLOCKLINEARPARAMETER.dwg",
+      "byte_size": 37071,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BLOCKLINEARPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BLOCKPOINTPARAMETER.dwg",
+      "byte_size": 35951,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BLOCKPOINTPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BLOCKROTATIONPARAMETER.dwg",
+      "byte_size": 38027,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BLOCKROTATIONPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BLOCKVISIBILITYPARAMETER.dwg",
+      "byte_size": 38641,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BLOCKVISIBILITYPARAMETER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BU040377-001_A_\u4e0a\u76d6(1).dwg",
+      "byte_size": 1278275,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BU040377-001_A_\u4e0a\u76d6(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/BYDD00301000002-3241481-\u8f66\u8eab\u603b\u5e03\u7f6e,12.9,\u65c5\u6e38\u7248-\u5f00\u540e\u95e8,\u8fc7\u9053\u659c\u5761-55+1+1,\u7535\u52a8\u53f8\u673a\u7a97,\u8f6e\u6905\u5347\u964d\u5e73\u53f0,DAFO\u706d\u706b\u5668.dwg",
+      "byte_size": 31814868,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/BYDD00301000002-3241481-\u8f66\u8eab\u603b\u5e03\u7f6e,12.9,\u65c5\u6e38\u7248-\u5f00\u540e\u95e8,\u8fc7\u9053\u659c\u5761-55+1+1,\u7535\u52a8\u53f8\u673a\u7a97,\u8f6e\u6905\u5347\u964d\u5e73\u53f0,DAFO\u706d\u706b\u5668.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Bear_Autocad_Block.dwg",
+      "byte_size": 118852,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Bear_Autocad_Block.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Big-Blocks-CAD.dwg",
+      "byte_size": 4876015,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Big-Blocks-CAD.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Bowlingova_kuzelka.dwg",
+      "byte_size": 18058,
+      "dwg_magic": "AC1012",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Bowlingova_kuzelka.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Cone.dwg",
+      "byte_size": 177037,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Cone.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints.dwg",
+      "byte_size": 33206,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_1.dwg",
+      "byte_size": 152763,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_2.dwg",
+      "byte_size": 320256,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_3.dwg",
+      "byte_size": 146857,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_4.dwg",
+      "byte_size": 303057,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_5.dwg",
+      "byte_size": 28932,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Constraints_6.dwg",
+      "byte_size": 63816,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Constraints_6.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ConstructionLine.dwg",
+      "byte_size": 31899,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ConstructionLine.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ConstructionLine_1.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ConstructionLine_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ConstructionLine_2.dwg",
+      "byte_size": 173829,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ConstructionLine_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ConstructionLine_3.dwg",
+      "byte_size": 63178,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ConstructionLine_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ConstructionLine_4.dwg",
+      "byte_size": 62280,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ConstructionLine_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Cover.dwg",
+      "byte_size": 18880,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Cover.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut.dwg",
+      "byte_size": 27691,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut_1.dwg",
+      "byte_size": 31833,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut_2.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut_3.dwg",
+      "byte_size": 173705,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut_4.dwg",
+      "byte_size": 62060,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Donut_5.dwg",
+      "byte_size": 61638,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Donut_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Drawing-Fire-Extinguisher.dwg",
+      "byte_size": 187584,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Drawing-Fire-Extinguisher.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Dynblocks.dwg",
+      "byte_size": 2179277,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Dynblocks.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/EDITING_3D_SOLID.dwg",
+      "byte_size": 1759261,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/EDITING_3D_SOLID.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ET-Drawing-with-Border.dwg",
+      "byte_size": 30217,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ET-Drawing-with-Border.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Ellipse.dwg",
+      "byte_size": 32090,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Ellipse.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Ellipse_1.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Ellipse_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Ellipse_2.dwg",
+      "byte_size": 173726,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Ellipse_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Ellipse_3.dwg",
+      "byte_size": 63468,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Ellipse_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Ellipse_4.dwg",
+      "byte_size": 63081,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Ellipse_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Executive-Apartment-for-4-Families.dwg",
+      "byte_size": 10239156,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Executive-Apartment-for-4-Families.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Extruder2.dwg",
+      "byte_size": 2856002,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Extruder2.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/FH12A002.dwg",
+      "byte_size": 109632,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/FH12A002.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/GCE023-510001-101-3230435_ \u5730\u677f\u9aa8\u67b6\u603b\u6210.dwg",
+      "byte_size": 48355902,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/GCE023-510001-101-3230435_ \u5730\u677f\u9aa8\u67b6\u603b\u6210.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/HatchG.dwg",
+      "byte_size": 59489,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/HatchG.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix.dwg",
+      "byte_size": 39095,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix_1.dwg",
+      "byte_size": 81792,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix_2.dwg",
+      "byte_size": 180176,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix_3.dwg",
+      "byte_size": 68650,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix_4.dwg",
+      "byte_size": 33325,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Helix_5.dwg",
+      "byte_size": 68656,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Helix_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/High-rise-building-with-terrace.dwg",
+      "byte_size": 1333953,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/High-rise-building-with-terrace.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/House-Dwgfree.com_-1.dwg",
+      "byte_size": 183744,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/House-Dwgfree.com_-1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/IH2_Eupec.dwg",
+      "byte_size": 43485,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/IH2_Eupec.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/IKS-6726A-2GTXSFP.dwg",
+      "byte_size": 55250,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/IKS-6726A-2GTXSFP.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/IM-6700A-4SSC2TX.dwg",
+      "byte_size": 35938,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/IM-6700A-4SSC2TX.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/IMPERIAL_FRACTIONAL_VERNIER_CALIPER.dwg",
+      "byte_size": 426988,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/IMPERIAL_FRACTIONAL_VERNIER_CALIPER.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Leader.dwg",
+      "byte_size": 156898,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Leader.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Leader_1.dwg",
+      "byte_size": 202493,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Leader_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Leader_2.dwg",
+      "byte_size": 359144,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Leader_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Leader_3.dwg",
+      "byte_size": 34481,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Leader_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Leader_4.dwg",
+      "byte_size": 71047,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Leader_4.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Line.dwg",
+      "byte_size": 37961,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Line.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Line_1.dwg",
+      "byte_size": 174005,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Line_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Line_2.dwg",
+      "byte_size": 62664,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Line_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Line_3.dwg",
+      "byte_size": 62118,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Line_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Little Square.dwg",
+      "byte_size": 1357858,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Little Square.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/LiveSection1.dwg",
+      "byte_size": 40591,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/LiveSection1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Mechanical and Annotative.dwg",
+      "byte_size": 120578,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Mechanical and Annotative.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Moto-Yamaha-R6-2001-Dwgfree.com_.dwg",
+      "byte_size": 71101,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Moto-Yamaha-R6-2001-Dwgfree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline.dwg",
+      "byte_size": 31614,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline_1.dwg",
+      "byte_size": 77728,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline_2.dwg",
+      "byte_size": 177722,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline_3.dwg",
+      "byte_size": 65836,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline_4.dwg",
+      "byte_size": 28462,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Multiline_5.dwg",
+      "byte_size": 65605,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Multiline_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PDBSD217516003L(1.1)(1).dwg",
+      "byte_size": 563398,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PDBSD217516003L(1.1)(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PDHCD316058993L(C-0).dwg",
+      "byte_size": 3291453,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PDHCD316058993L(C-0).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PEAEH02003002B(A-0).dwg",
+      "byte_size": 4892048,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PEAEH02003002B(A-0).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PEBCK16015S6HV(A-0)(1).dwg",
+      "byte_size": 194541,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PEBCK16015S6HV(A-0)(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PEBCL01005803R(A-0).dwg",
+      "byte_size": 4437335,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PEBCL01005803R(A-0).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PENRL20010S0KS(A-0).dwg",
+      "byte_size": 534308,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PENRL20010S0KS(A-0).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Patterns-art-block.dwg",
+      "byte_size": 2663803,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Patterns-art-block.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/People-do-yoga-DwgFree.com_.dwg",
+      "byte_size": 725184,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/People-do-yoga-DwgFree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Playground-equipment-in-plan.dwg",
+      "byte_size": 216568,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Playground-equipment-in-plan.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Point.dwg",
+      "byte_size": 31931,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Point.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Point_1.dwg",
+      "byte_size": 74624,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Point_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Point_2.dwg",
+      "byte_size": 173749,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Point_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Point_3.dwg",
+      "byte_size": 61735,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Point_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Point_4.dwg",
+      "byte_size": 61348,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Point_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine2D.dwg",
+      "byte_size": 113029,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine2D.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D.dwg",
+      "byte_size": 30939,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D_1.dwg",
+      "byte_size": 75936,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D_2.dwg",
+      "byte_size": 179722,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D_3.dwg",
+      "byte_size": 63399,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D_4.dwg",
+      "byte_size": 27819,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/PolyLine3D_5.dwg",
+      "byte_size": 63044,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/PolyLine3D_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon.dwg",
+      "byte_size": 32156,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon_1.dwg",
+      "byte_size": 75392,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon_2.dwg",
+      "byte_size": 173842,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon_3.dwg",
+      "byte_size": 62923,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon_4.dwg",
+      "byte_size": 27950,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polygon_5.dwg",
+      "byte_size": 62633,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polygon_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polyline.dwg",
+      "byte_size": 30782,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polyline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polyline_1.dwg",
+      "byte_size": 75936,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polyline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polyline_2.dwg",
+      "byte_size": 179491,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polyline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polyline_3.dwg",
+      "byte_size": 63239,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polyline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Polyline_4.dwg",
+      "byte_size": 62884,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Polyline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Pool_Detail.dwg",
+      "byte_size": 420256,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Pool_Detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/RAY.dwg",
+      "byte_size": 37634,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/RAY.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/RAY_1.dwg",
+      "byte_size": 75136,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/RAY_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/RAY_2.dwg",
+      "byte_size": 173716,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/RAY_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/RAY_3.dwg",
+      "byte_size": 62508,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/RAY_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/RAY_4.dwg",
+      "byte_size": 61833,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/RAY_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/SKM200GAL123D.dwg",
+      "byte_size": 42973,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/SKM200GAL123D.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/SYMMETRY-RESPECT-ARCH-PJH.dwg",
+      "byte_size": 472906,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/SYMMETRY-RESPECT-ARCH-PJH.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Sidewalk-patterns.dwg",
+      "byte_size": 841228,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Sidewalk-patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Single-Storey-House.dwg",
+      "byte_size": 1004615,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Single-Storey-House.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spanner_with_Dimensions-PJH.dwg",
+      "byte_size": 403168,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spanner_with_Dimensions-PJH.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spline.dwg",
+      "byte_size": 31835,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spline.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spline_1.dwg",
+      "byte_size": 74624,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spline_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spline_2.dwg",
+      "byte_size": 173739,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spline_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spline_3.dwg",
+      "byte_size": 27661,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spline_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Spline_4.dwg",
+      "byte_size": 61545,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Spline_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Sport-Man-Signs.dwg",
+      "byte_size": 1837312,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Sport-Man-Signs.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Surface.dwg",
+      "byte_size": 162991,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Surface.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Suzuki_GSX-R750-Dwgfree.com_.dwg",
+      "byte_size": 115079,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Suzuki_GSX-R750-Dwgfree.com_.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/T-90194\u88c5\u9970\u76d6\u4fee\u65392.dwg",
+      "byte_size": 1096577,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/T-90194\u88c5\u9970\u76d6\u4fee\u65392.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/THREE BEDROOM HOUSE PLAN.dwg",
+      "byte_size": 965440,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/THREE BEDROOM HOUSE PLAN.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/TRIUMPH-TR3-SPOKES-WHEEL-SPINNERS.dwg",
+      "byte_size": 466685,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/TRIUMPH-TR3-SPOKES-WHEEL-SPINNERS.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/TS1.dwg",
+      "byte_size": 418007,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/TS1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text.dwg",
+      "byte_size": 31164,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text_1.dwg",
+      "byte_size": 76448,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text_2.dwg",
+      "byte_size": 179310,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text_3.dwg",
+      "byte_size": 62535,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text_4.dwg",
+      "byte_size": 27916,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Text_5.dwg",
+      "byte_size": 62180,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Text_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Underlay.dwg",
+      "byte_size": 70412,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Underlay.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/Wheel_casing.dwg",
+      "byte_size": 88957,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/Wheel_casing.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ZlinZ37T.dwg",
+      "byte_size": 194231,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ZlinZ37T.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/a10092-002-2 \u6539\u5b57\u4f53.dwg",
+      "byte_size": 535901,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/a10092-002-2 \u6539\u5b57\u4f53.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/acad_table_cells.dwg",
+      "byte_size": 17606,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/acad_table_cells.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/afslutning-under-terraen-byg_154.dwg",
+      "byte_size": 92504,
+      "dwg_magic": "AC1012",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/afslutning-under-terraen-byg_154.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2000.dwg",
+      "byte_size": 116900,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2004.dwg",
+      "byte_size": 37537,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2007.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2010.dwg",
+      "byte_size": 51549,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2013.dwg",
+      "byte_size": 16107,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_2018.dwg",
+      "byte_size": 27822,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/arc_R14.dwg",
+      "byte_size": 122353,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/arc_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/architectural_-_annotation_scaling_and_multileaders.dwg",
+      "byte_size": 188992,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/architectural_-_annotation_scaling_and_multileaders.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/architectural_example-imperial.dwg",
+      "byte_size": 148638,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/architectural_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/block.dwg",
+      "byte_size": 1313,
+      "dwg_magic": "AC2.10",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/block.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/blocks_and_tables_-_imperial.dwg",
+      "byte_size": 227008,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/blocks_and_tables_-_imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/blocks_and_tables_-_metric.dwg",
+      "byte_size": 258848,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/blocks_and_tables_-_metric.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/children-room-decoration.dwg",
+      "byte_size": 1715680,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/children-room-decoration.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle.dwg",
+      "byte_size": 30971,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_1.dwg",
+      "byte_size": 77472,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2.dwg",
+      "byte_size": 177345,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2000.dwg",
+      "byte_size": 116875,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2004.dwg",
+      "byte_size": 37598,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2007.dwg",
+      "byte_size": 66560,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2010.dwg",
+      "byte_size": 51805,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2013.dwg",
+      "byte_size": 16395,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_2018.dwg",
+      "byte_size": 27886,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_3.dwg",
+      "byte_size": 64302,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_4.dwg",
+      "byte_size": 64038,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/circle_R14.dwg",
+      "byte_size": 122329,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/circle_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/civil_example-imperial.dwg",
+      "byte_size": 169592,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/civil_example-imperial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/cjk_gbk_2000.dwg",
+      "byte_size": 95476,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/cjk_gbk_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/cjk_sjis_2004.dwg",
+      "byte_size": 15730,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/cjk_sjis_2004.dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "Teigha"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/colorwh.dwg",
+      "byte_size": 1786976,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/colorwh.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dim.dwg",
+      "byte_size": 4253,
+      "dwg_magic": "AC1003",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dim.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dim_linear_tutorial.dwg",
+      "byte_size": 36391,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dim_linear_tutorial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dim_radial_tutorial.dwg",
+      "byte_size": 64280,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dim_radial_tutorial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dim_sample.dwg",
+      "byte_size": 15359,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dim_sample.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dimstyle-vars.dwg",
+      "byte_size": 44888,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dimstyle-vars.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dimtad-dimjust.dwg",
+      "byte_size": 33965,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dimtad-dimjust.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/drzak_kol.dwg",
+      "byte_size": 228990,
+      "dwg_magic": "AC1012",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/drzak_kol.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/dtm_2023.Dwg",
+      "byte_size": 74278580,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/dtm_2023.Dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2000.dwg",
+      "byte_size": 151891,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2004.dwg",
+      "byte_size": 39945,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2007.dwg",
+      "byte_size": 69120,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2010.dwg",
+      "byte_size": 51773,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_2018.dwg",
+      "byte_size": 27883,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_5.dwg",
+      "byte_size": 12500,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ellipse_R14.dwg",
+      "byte_size": 157528,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ellipse_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/empty.dwg",
+      "byte_size": 30639,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/empty.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities-2d.dwg",
+      "byte_size": 24028,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities-2d.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities-2d_1.dwg",
+      "byte_size": 5416,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities-2d_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities-3d.dwg",
+      "byte_size": 23955,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities-3d.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities-3d_1.dwg",
+      "byte_size": 5522,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities-3d_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities.dwg",
+      "byte_size": 3347,
+      "dwg_magic": "AC1003",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities_1.dwg",
+      "byte_size": 3476,
+      "dwg_magic": "AC1004",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities_2.dwg",
+      "byte_size": 2236,
+      "dwg_magic": "AC2.10",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/entities_2.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities_3.dwg",
+      "byte_size": 4305,
+      "dwg_magic": "AC1006",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/entities_3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/entities_4.dwg",
+      "byte_size": 1152,
+      "dwg_magic": "AC1.40",
+      "is_dwg_binary": false,
+      "path": "doc/dwg6/entities_4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2000.dwg",
+      "byte_size": 582572,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2000.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2004.dwg",
+      "byte_size": 187890,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2007.dwg",
+      "byte_size": 456000,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2010.dwg",
+      "byte_size": 450071,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2013.dwg",
+      "byte_size": 146906,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2013.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_2018.dwg",
+      "byte_size": 149218,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_2018.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_r13.dwg",
+      "byte_size": 519995,
+      "dwg_magic": "AC1012",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_r13.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/example_r14.dwg",
+      "byte_size": 439875,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/example_r14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/export_sample.dwg",
+      "byte_size": 94819,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/export_sample.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/framing_AC1015.dwg",
+      "byte_size": 1448,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/framing_AC1015.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/framing_AC1018.dwg",
+      "byte_size": 2702,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/framing_AC1018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/framing_AC1024.dwg",
+      "byte_size": 3266,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/framing_AC1024.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/framing_AC1027.dwg",
+      "byte_size": 3269,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/framing_AC1027.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/framing_AC1032.dwg",
+      "byte_size": 3283,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/framing_AC1032.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gear_pump_subassy.dwg",
+      "byte_size": 298244,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gear_pump_subassy.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/geoloc.dwg",
+      "byte_size": 46960,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/geoloc.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gh109_1.dwg",
+      "byte_size": 102258,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gh109_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gh209_1.dwg",
+      "byte_size": 65070,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gh209_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gh44-error.dwg",
+      "byte_size": 575606,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gh44-error.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gn30000-023.dwg",
+      "byte_size": 246620,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gn30000-023.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gripper.dwg",
+      "byte_size": 216019,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gripper.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/gripper_assembly_new.dwg",
+      "byte_size": 676935,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/gripper_assembly_new.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/large_radial.dwg",
+      "byte_size": 12632,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/large_radial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/leader_2007.dwg",
+      "byte_size": 328192,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/leader_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/leader_2013.dwg",
+      "byte_size": 52977,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/leader_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/lever_detail.dwg",
+      "byte_size": 106115,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/lever_detail.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/lineCircle.dwg",
+      "byte_size": 1113,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/lineCircle.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2000.dwg",
+      "byte_size": 116899,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2004.dwg",
+      "byte_size": 37281,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2007.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2007_1.dwg",
+      "byte_size": 74880,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2007_1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2010.dwg",
+      "byte_size": 51741,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_2018.dwg",
+      "byte_size": 27982,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/line_R14.dwg",
+      "byte_size": 122353,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/line_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/lineweights.dwg",
+      "byte_size": 58496,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/lineweights.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/makeall-plus.dwg",
+      "byte_size": 220822,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/makeall-plus.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/makeall.dwg",
+      "byte_size": 139736,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/makeall.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/material.dwg",
+      "byte_size": 1466173,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/material.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/mechanical_example-imperial-alt.dwg",
+      "byte_size": 142267,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/mechanical_example-imperial-alt.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/mpolygon_solid.dwg",
+      "byte_size": 11767,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/mpolygon_solid.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/parabola.dwg",
+      "byte_size": 1014,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/parabola.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/plot_screening_and_fill_patterns.dwg",
+      "byte_size": 85952,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/plot_screening_and_fill_patterns.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_2000.dwg",
+      "byte_size": 116822,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_2004.dwg",
+      "byte_size": 37565,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_2007.dwg",
+      "byte_size": 66048,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_2010.dwg",
+      "byte_size": 51482,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_2013.dwg",
+      "byte_size": 16202,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point2d_R14.dwg",
+      "byte_size": 122227,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point2d_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_2000.dwg",
+      "byte_size": 116846,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_2004.dwg",
+      "byte_size": 37533,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_2007.dwg",
+      "byte_size": 66048,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_2010.dwg",
+      "byte_size": 51834,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_2013.dwg",
+      "byte_size": 16331,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point3d_R14.dwg",
+      "byte_size": 122251,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point3d_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/point_2018.dwg",
+      "byte_size": 27658,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/point_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_2000.dwg",
+      "byte_size": 116916,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_2004.dwg",
+      "byte_size": 37505,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_2004.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_2007.dwg",
+      "byte_size": 66304,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_2007.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_2010.dwg",
+      "byte_size": 51773,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_2013.dwg",
+      "byte_size": 16299,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_2013.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline2d_line_R14.dwg",
+      "byte_size": 122369,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline2d_line_R14.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/polyline_2018.dwg",
+      "byte_size": 27691,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/polyline_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/pump_cover.dwg",
+      "byte_size": 107020,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/pump_cover.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/pump_wheel.dwg",
+      "byte_size": 89086,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/pump_wheel.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/ray_2018.dwg",
+      "byte_size": 27662,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/ray_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/robot_handling_cell.dwg",
+      "byte_size": 696884,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/robot_handling_cell.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_2000.dwg",
+      "byte_size": 22027,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_2000.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_2018.dwg",
+      "byte_size": 19848,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1014.dwg",
+      "byte_size": 1312281,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1014.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1015.dwg",
+      "byte_size": 1297511,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1015.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1018.dwg",
+      "byte_size": 1097214,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1021.dwg",
+      "byte_size": 1063168,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1021.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1024.dwg",
+      "byte_size": 1122389,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1024.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1027.dwg",
+      "byte_size": 1091959,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1027.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "AutoCAD"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_AC1032.dwg",
+      "byte_size": 1081979,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_AC1032.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/sample_base.dwg",
+      "byte_size": 1095707,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/sample_base.dwg",
+      "producer_family": "genuine-AutoCAD",
+      "producer_signature": "Autodesk"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/severka_7.dwg",
+      "byte_size": 119544,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/severka_7.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/simple.dwg",
+      "byte_size": 12117,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/simple.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/simple_dim.dwg",
+      "byte_size": 12242,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/simple_dim.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/spline_2010.dwg",
+      "byte_size": 61932,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/spline_2010.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/t1.dwg",
+      "byte_size": 72229,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/t1.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/t4.dwg",
+      "byte_size": 193126252,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/t4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/t5.dwg",
+      "byte_size": 189411351,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/t5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tablet.dwg",
+      "byte_size": 438656,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tablet.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/title_block-arch.dwg",
+      "byte_size": 126985,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/title_block-arch.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/title_block-iso.dwg",
+      "byte_size": 128233,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/title_block-iso.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tmp3 .dwg",
+      "byte_size": 12095,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tmp3 .dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tmp3.dwg",
+      "byte_size": 12165,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tmp3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tmp4.dwg",
+      "byte_size": 12165,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tmp4.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tmp5.dwg",
+      "byte_size": 12175,
+      "dwg_magic": "AC1015",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tmp5.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tmp_line.dwg",
+      "byte_size": 2421,
+      "dwg_magic": "AC1006",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tmp_line.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/tray.dwg",
+      "byte_size": 108607,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/tray.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/trolley_structure.dwg",
+      "byte_size": 1177449,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/trolley_structure.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/truetype.dwg",
+      "byte_size": 70464,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/truetype.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/usa_dollar100_front.dwg",
+      "byte_size": 30512000,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/usa_dollar100_front.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/v.dwg",
+      "byte_size": 26840,
+      "dwg_magic": "AC1014",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/v.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/visualization_-_aerial.dwg",
+      "byte_size": 733036,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/visualization_-_aerial.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/visualization_-_condominium_with_skylight.dwg",
+      "byte_size": 1415699,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/visualization_-_condominium_with_skylight.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/visualization_-_conference_room.dwg",
+      "byte_size": 973730,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/visualization_-_conference_room.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/visualization_-_sun_and_sky_demo.dwg",
+      "byte_size": 553297,
+      "dwg_magic": "AC1024",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/visualization_-_sun_and_sky_demo.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/xline_2018.dwg",
+      "byte_size": 27595,
+      "dwg_magic": "AC1032",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/xline_2018.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u4e3b\u5382\u623f\u5efa\u7b51\u65bd\u5de5\u56fe\uff08B\u7248\uff0920240527.dwg",
+      "byte_size": 16579854,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u4e3b\u5382\u623f\u5efa\u7b51\u65bd\u5de5\u56fe\uff08B\u7248\uff0920240527.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u4eba\u7269\u7acb\u9762\u56fe\u5e93.dwg",
+      "byte_size": 5291616,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u4eba\u7269\u7acb\u9762\u56fe\u5e93.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u5168\u56fd\u901a\u7528\u8282\u70b9\u8be6\u7ec6\u89e3\u6790.dwg",
+      "byte_size": 6084288,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u5168\u56fd\u901a\u7528\u8282\u70b9\u8be6\u7ec6\u89e3\u6790.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u51b7\u5e8a\uff08\u5927\u91cf\u56fe\u5143\uff09.dwg",
+      "byte_size": 796368,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u51b7\u5e8a\uff08\u5927\u91cf\u56fe\u5143\uff09.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u51e4\u5c7f\u89c2\u6f9cZP_t3.dwg",
+      "byte_size": 15938636,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u51e4\u5c7f\u89c2\u6f9cZP_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u53a6\u724c\u536b\u6d74\u5e73\u9762\u56fe_00__t3.dwg",
+      "byte_size": 2908762,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u53a6\u724c\u536b\u6d74\u5e73\u9762\u56fe_00__t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe.dwg",
+      "byte_size": 498615,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe_Copy(1).dwg",
+      "byte_size": 2777655,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u540c\u6b65\u653b\u4e1d\u673a\u603b\u88c5\u56fe_Copy(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u541b\u4f1f\u6d69\u9152\u5e97\u603b\u5e73\u9762\u56fe+\u5206\u6790\u56fe 2025.9.17_t3.dwg",
+      "byte_size": 9281841,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u541b\u4f1f\u6d69\u9152\u5e97\u603b\u5e73\u9762\u56fe+\u5206\u6790\u56fe 2025.9.17_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u5929\u9752\u96f2\u9e93\u793a\u8303\u533abase.dwg",
+      "byte_size": 47754004,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u5929\u9752\u96f2\u9e93\u793a\u8303\u533abase.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u5e7f\u4e1c\u7701\u6cb3\u6e90\u5e02-\u65b0\u5efa\u9879\u76ee2-1\u671f-\u661f\u60a6\u6e7e1\u53f7\u697c-\u539f\u59cb\u56fe.dwg",
+      "byte_size": 12701000,
+      "dwg_magic": "AC1018",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u5e7f\u4e1c\u7701\u6cb3\u6e90\u5e02-\u65b0\u5efa\u9879\u76ee2-1\u671f-\u661f\u60a6\u6e7e1\u53f7\u697c-\u539f\u59cb\u56fe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u603b\u5e73.dwg",
+      "byte_size": 67716,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u603b\u5e73.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u652f\u67b6.dwg",
+      "byte_size": 68800,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u652f\u67b6.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u65bd\u5de5\u56fe\u65b9\u6848\u6848\u4f8b-20251021.dwg",
+      "byte_size": 12732115,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u65bd\u5de5\u56fe\u65b9\u6848\u6848\u4f8b-20251021.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u671b\u6eaa\u91cc\u5546\u573a\u603b\u5e73\u9762\u56fe_t3.dwg",
+      "byte_size": 32645529,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u671b\u6eaa\u91cc\u5546\u573a\u603b\u5e73\u9762\u56fe_t3.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u6807\u6ce8\u6587\u672c\u6253\u6563.dwg",
+      "byte_size": 220560,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u6807\u6ce8\u6587\u672c\u6253\u6563.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u690d\u7269.dwg",
+      "byte_size": 8534976,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u690d\u7269.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u697c\u5e55\u5899\u8be6\u56fe\uff0810W\u56fe\u5143).dwg",
+      "byte_size": 130996273,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u697c\u5e55\u5899\u8be6\u56fe\uff0810W\u56fe\u5143).dwg",
+      "producer_family": "ODA-Teigha",
+      "producer_signature": "ODA"
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u6b66\u6c49\u8bbe\u8ba1\u54a8\u8be2\u96c6\u56e2\u56fe\u6846\u6a21\u677f1114 - \u4fee\u89c4\u4f18\u5316\u7248.dwg",
+      "byte_size": 262987,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u6b66\u6c49\u8bbe\u8ba1\u54a8\u8be2\u96c6\u56e2\u56fe\u6846\u6a21\u677f1114 - \u4fee\u89c4\u4f18\u5316\u7248.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u7bb1\u76d6.dwg",
+      "byte_size": 78970,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u7bb1\u76d6.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u8499\u81ea\u73d1\u73a5BASE.dwg",
+      "byte_size": 15720785,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u8499\u81ea\u73d1\u73a5BASE.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u8f74\u627f\u5ea7.dwg",
+      "byte_size": 73984,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u8f74\u627f\u5ea7.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u901a\u98ce\u673a\u56fe\u7eb8.dwg",
+      "byte_size": 472901,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u901a\u98ce\u673a\u56fe\u7eb8.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u95f8\u5ba4\u6bb5\u8868\u8fbe.dwg",
+      "byte_size": 278084,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u95f8\u5ba4\u6bb5\u8868\u8fbe.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u96c6\u7f8e\u4e2d\u5b66\u897f\u5730\u57571\u30012#\u5bbf\u820d\u697c_Copy(1).dwg",
+      "byte_size": 183880408,
+      "dwg_magic": "AC1009",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u96c6\u7f8e\u4e2d\u5b66\u897f\u5730\u57571\u30012#\u5bbf\u820d\u697c_Copy(1).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u9ad8\u6746\u706f\u72ec\u6746\u4f53.dwg",
+      "byte_size": 230016,
+      "dwg_magic": "AC1021",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u9ad8\u6746\u706f\u72ec\u6746\u4f53.dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    },
+    {
+      "abs_path": "/Users/dli/doc/dwg6/\u9f7f\u8f6e\u8f74(2).dwg",
+      "byte_size": 61201,
+      "dwg_magic": "AC1027",
+      "is_dwg_binary": true,
+      "path": "doc/dwg6/\u9f7f\u8f6e\u8f74(2).dwg",
+      "producer_family": "unknown",
+      "producer_signature": null
+    }
+  ],
+  "meta": {
+    "corpus_roots": [
+      "/Users/dli/doc/dwg5",
+      "/Users/dli/doc/dwg6"
+    ],
+    "producer_patterns": [
+      "Teigha",
+      "Teigha",
+      "ODA",
+      "ODA",
+      "AutoCAD",
+      "AutoDesk",
+      "Autodesk",
+      "libdxfrw",
+      "dxfrw",
+      "LibreDWG",
+      "LibreDWG",
+      "ODA converter",
+      "DraftSight",
+      "BricsCAD",
+      "progeCAD",
+      "IntelliCAD",
+      "ZWCAD",
+      "GstarCAD",
+      "NanoCAD"
+    ],
+    "sniff_bytes": 32768
+  },
+  "summary": {
+    "by_corpus_root": {
+      "dwg5": 280,
+      "dwg6": 390
+    },
+    "by_magic": {
+      "999\ndx": 23,
+      "AC1.40": 2,
+      "AC1003": 4,
+      "AC1004": 2,
+      "AC1006": 4,
+      "AC1009": 67,
+      "AC1012": 5,
+      "AC1014": 33,
+      "AC1015": 87,
+      "AC1018": 71,
+      "AC1021": 102,
+      "AC1024": 99,
+      "AC1027": 85,
+      "AC1032": 82,
+      "AC2.10": 4
+    },
+    "by_producer_family": {
+      "ODA-Teigha": 16,
+      "genuine-AutoCAD": 32,
+      "unknown": 622
+    },
+    "dwg_binary": 641,
+    "non_dwg_magic_filtered": 29,
+    "total_files": 670
+  }
+}
