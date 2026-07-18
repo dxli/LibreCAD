@@ -154,12 +154,17 @@ print('slices.json schema OK,', len(s), 'entries')
                 # Sanity: pick a different landed slice and confirm it passes.
                 run bash scripts/conformance/validate_slice.sh 00-T-antiloss
                 ;;
-            00-T-gen-progress|00-T-gen-readme)
-                # Deferred bootstrap: PASS iff the script exists and has --check
-                # that returns cleanly against an empty ledger — will be re-armed
-                # when the ledger lands.
-                SCRIPT="scripts/conformance/$(echo "$SLICE" | sed 's/^..-T-//').py"
-                [ -f "$SCRIPT" ] || fail "$SCRIPT missing"
+            00-T-gen-progress)
+                # Real gate: --check must pass (regen byte-identical), --write
+                # is idempotent (running twice produces no diff).
+                run "$PY" scripts/conformance/gen_progress.py --check
+                # Idempotency: --write then --check.
+                run "$PY" scripts/conformance/gen_progress.py --write
+                run "$PY" scripts/conformance/gen_progress.py --check
+                ;;
+            00-T-gen-readme)
+                # Deferred bootstrap: PASS iff the script exists.
+                [ -f scripts/conformance/gen_readme.py ] || fail "gen_readme.py missing"
                 ;;
             00-T-shared-bodies)
                 [ -f scripts/conformance/shared_bodies.json ] || fail "shared_bodies.json missing"
