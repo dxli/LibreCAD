@@ -7,44 +7,55 @@
 
 | Slice ID | State | SHA | Notes |
 |---|---|---|---|
-| `00-T-antiloss` | **done** (validated, committed, pushed, reachable) | `6c9b3b539` | Branch + .gitignore + SOURCES.json + BRIEF + BASELINE + seed JSON. Round-3 B1 + B2 resolved. |
-| `00-T-extract-spec` | **done** (validated, committed, pushed, reachable) | `78a781246` | 104 units / 1345 data rows extracted. Pilot deltas documented in EXTRACTION_ACCURACY.md (SPLINE −1, VPORT −1, HATCH −1, MTEXT +2). descText hash-only per B1. |
-| `00-T-bounds` | **done** (validated, committed, pushed, reachable) | `a49f6d0d5` | All 5 property-based selfchecks pass. Round-3 R.3 verified: Dimstyle brace-matched close = 1274 (not 1325), body 18 lines. Anti-naive guard active. |
-| `00-T-slices-seed` | planned | — | Registry lifecycle machinery. Seeded manually in `slices.json` for now. |
-| `00-T-validate-slice` | planned | — | `validate_slice.sh` gate runner. Gates written manually per slice for now. |
-| `00-T-gen-progress` | planned | — | This file's generator. |
-| `00-T-gen-readme` | planned | — | Dashboard renderer. |
-| `00-T-extract-code` | planned | — | SP1.3 — `extract_code.py`. |
-| `00-O-fieldhit` | planned | — | SP1.4 — `-DDRW_FIELD_COVERAGE`. Round-3 H2: attribution mechanism decision needed before implementation. |
-| `00-O-corpus-wire` | planned | — | SP1.5 — wire `[corpus]` + `dwgts_json_diff.py` to dwg5/dwg6. Round-3 M9: also add provenance-tagging and non-DWG-magic filter. |
-| `00-T-shared-bodies` | planned | — | SP1.7 — `SHARED_BODIES.md` + `shared_bodies.json` (13 edges). |
+| `00-T-antiloss` | **done** (validated via `validate_slice.sh`, committed, pushed, reachable) | `6c9b3b539` | Branch + .gitignore + SOURCES.json + BRIEF + BASELINE + seed JSON. Round-3 B1 + B2 resolved. |
+| `00-T-extract-spec` | **done** | `78a781246` | 104 units / 1345 data rows extracted. Pilot deltas documented in EXTRACTION_ACCURACY.md. descText hash-only per B1. |
+| `00-T-bounds` | **done** | `a49f6d0d5` | All 5 property-based selfchecks pass. Round-3 R.3 verified: Dimstyle brace-matched close = 1274 (not 1325), body 18 lines. |
+| `00-T-slices-seed` | **done** | `8ac06ae76` | slices.json expanded from 3 to 13 rows covering all P0 + first P1 anchor. Status-free per Part C.0.3. |
+| `00-T-validate-slice` | **done** | `bddb422f4` | `validate_slice.sh` real gate runner. Retroactively passes for 4 landed slices; --selfcheck runs every landed slice. |
+| `00-T-shared-bodies` | **done** | `384ea6bb2` | 13 shared-body edges from plan + addendum A.2 (5 new). Wipeout asymmetric-shared-body flagged. `readCommonObjectHandles` verified 40 sites (plan under-counted 28). |
+| `00-T-gate-branches` | **done** | `1d6d579f1` | GATE_BRANCHES.json + SOURCES pin. Resolves round-3 H3. All 23 gate strings mapped. Branch-cell denominator: 7807 (round-3 A.9 estimate 4000-6000). |
+| `00-T-gen-progress` | planned | — | Deferred: awaits build_ledger. |
+| `00-T-gen-readme` | planned | — | Deferred: awaits gen_progress. |
+| `00-T-extract-code` | planned | — | Blocked on: none technical. Needs L6 (C preprocessor before tokenizing) + M8 (measured token precision/recall gate over 5+ hand-labeled bodies) discipline. |
+| `00-O-fieldhit` | planned, **H2 decision recorded** | — | Attribution decision: `__builtin_return_address(0)` + noinline + build-time symbolization. See `docs/conformance/DECISION-fieldhit-attribution.md`. |
+| `00-O-corpus-wire` | planned | — | Blocked on round-3 M9 provenance-tagging step (documented but not yet built). |
 
 ## P1 — Code extractor + ledger
 
 | Slice ID | State | SHA | Notes |
 |---|---|---|---|
-| `05-T-build-ledger` | planned | — | SP1.6 — `build_ledger.py --check`. Blocked on extract_spec + extract_code + shared_bodies + fieldhit + `GATE_BRANCHES.json` (round-3 H3). |
+| `05-T-build-ledger` | planned | — | Blocked on: `00-T-extract-code`, `00-O-fieldhit`. All other deps (spec_fields, shared_bodies, GATE_BRANCHES) landed. |
 
-## Round-3 blockers resolved this session
+## Round-3 blocker status
 
-- **B1 (licensing)** — RESOLVED at `00-T-antiloss`: `libraries/libdxfrw/spec/.gitignore` blocks spec text and PDF; `SOURCES.json` records sha256 pins only; `extract_spec.py` writes descText as sha256 hash only (verbatim mode is developer-local only).
-- **B2 (substrate)** — RESOLVED at `00-T-antiloss`: `pdftotext -layout /Users/dli/doc/dwg/dwg.pdf …` regenerated the text deterministically; identity checks `14992 lines` + `sed -n '10471p'` startswith `20.4.75 HATCH` both verified in the extractor's hard-fail path.
-- **H1 (bounds.py naive-window contradiction)** — RESOLVED at `00-T-bounds`: acceptance is property-based (anti-naive guard, S4-stub-detector positive control), not a hardcoded close-line table. Round-3 R.3 discipline is now enforced by the selfcheck.
-- **R.4 (never cite absolute .cpp lines)** — `BRIEF.md` records this rule; all future slices resolve via `bounds.py` at run time.
-
-## Round-3 blockers NOT YET resolved (future slices)
-
-- **H2 — field-hit counter attribution**: decide `__builtin_return_address(0)` vs per-primitive granularity before `00-O-fieldhit` starts.
-- **H3 — GATE_BRANCHES.json**: needs a dedicated authoring slice, its own sha256 pin in SOURCES.json.
-- **M4 — §20.4.22 COMMON DIMENSION DATA** unit assignment.
-- **M5 — `unknowable` verdict enum**: restore in A.16.
-- **M6/M7 — effort roll-up and P6/P7 verification-home**: cosmetic reconciliation.
-- **M9 — corpus provenance tagging**: needs to run before P0 free-win (SP1.5).
-- **M10 — encoding=utf-8 + LC_ALL=C `--check`**: the extractor already opens with utf-8; a formal `--check` byte-identity gate is future work.
+| ID | Status | Where resolved |
+|---|---|---|
+| **B1 (licensing)** | RESOLVED | `00-T-antiloss` — spec text + PDF gitignored, sha256 pins only, descText hash-only in `spec_fields.json` |
+| **B2 (substrate)** | RESOLVED | `00-T-antiloss` — spec regenerated from `/Users/dli/doc/dwg/dwg.pdf`; identity 14992 lines + HATCH@10471 verified |
+| **H1 (bounds.py naive-window contradiction)** | RESOLVED | `00-T-bounds` — property-based selfcheck, not a hardcoded table |
+| **H2 (field-hit counter attribution)** | RESOLVED | `docs/conformance/DECISION-fieldhit-attribution.md` — `__builtin_return_address(0)` + noinline + symbolize |
+| **H3 (GATE_BRANCHES.json unowned)** | RESOLVED | `00-T-gate-branches` — authored, sha256-pinned |
+| **R.4 (never cite absolute .cpp lines)** | ENFORCED | `BRIEF.md` records rule; every finished slice resolves via `bounds.py` |
+| **M2 (errata dependency inversion)** | RESOLVED | `00-T-antiloss` seeded `errata.json` with MTEXT-4, VPORT-V6, SPLINE-BD-vs-RD |
+| **M4 (§20.4.22 COMMON DIMENSION DATA prereq)** | OPEN | Needs SP2 slice authoring or Tier-0 exclusion |
+| **M5 (`unknowable` verdict enum missing)** | ADDRESSED IN SPEC | slices.json's `05-T-build-ledger` acceptance restores `unknowable` |
+| **M6 (effort roll-up mis-adds)** | OPEN | Cosmetic; no impact on execution |
+| **M7 (P6 verification home)** | OPEN | Design decision needed before P6 |
+| **M9 (corpus provenance-tagging)** | OPEN | Needs to run before `00-O-corpus-wire` starts |
+| **M10 (encoding=utf-8 + LC_ALL=C --check)** | PARTIAL | extract_spec.py already opens utf-8; formal --check byte-identity gate deferred |
 
 ## Branch and push state
 
 - Branch: `conformance/spec-review-2026-07`
-- Tracked remote: `dli` (personal fork, NOT `origin` which is the public LibreCAD GPL repo).
-- All 3 done slices pushed and `git merge-base --is-ancestor HEAD dli/…` confirmed reachable per slice.
+- Tracked remote: `dli` (personal fork), NOT `origin` (public LibreCAD GPL repo).
+- All 7 done T-slices pushed and `git merge-base --is-ancestor HEAD dli/…` confirmed reachable per slice.
 - 0 slices `landed/on_master` — landing waits until the CI ratchet + `--no-ff` tree-preserving merge is set up (SP6.6).
+
+## Aggregate scorecard
+
+- Slices landed: **7 T-slices** (antiloss, extract-spec, bounds, slices-seed, validate-slice, shared-bodies, gate-branches).
+- Design docs: **1** (DECISION-fieldhit-attribution.md).
+- Commits on branch: **10** (7 slice commits + 2 progress refreshes + 1 decision doc).
+- Spec substrate: **1466-row target, 1345 rows extracted (91.8%)** documented as first-pass drift.
+- Ledger branch-cells: 7807 (dominated by Common-gate row expansion; exceeds round-3 estimate 4000-6000).
+- Round-3 blockers resolved: **B1, B2, H1, H2, H3, M2, R.4** (7 of 14).
