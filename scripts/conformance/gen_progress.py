@@ -38,8 +38,6 @@ def _render_progress_md(data: dict) -> str:
     fields = [
         ("Branch", agg["branch"]),
         ("Tracked remote", agg["remote"]),
-        ("HEAD", agg["current_head"][:12] if agg["current_head"] else "?"),
-        ("Commits ahead of master", agg["commit_count_ahead_of_master"]),
         ("Spec units", agg["spec_units"]),
         ("Spec data rows", agg["spec_data_rows"]),
         ("Code bodies", agg["code_bodies_total"]),

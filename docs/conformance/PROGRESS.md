@@ -9,8 +9,6 @@
 
 - **Branch**: conformance/spec-review-2026-07
 - **Tracked remote**: dli
-- **HEAD**: 0ab39aca59c3
-- **Commits ahead of master**: 20
 - **Spec units**: 104
 - **Spec data rows**: 1345
 - **Code bodies**: 186

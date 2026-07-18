@@ -124,12 +124,13 @@ def compute_progress() -> dict:
     spec_meta = (spec or {}).get("meta", {}) if spec else {}
 
     # Aggregate scorecard — every number derived from an in-repo artifact.
+    # Deliberately NOT embedding `current_head` or `commit_count_ahead_of_master`:
+    # both change on every commit including PROGRESS.md's own commit, producing
+    # a chase-your-tail dynamic where --check fails immediately after --write.
+    # Transient git state is queried live at CI time, never persisted here.
     aggregate = {
         "branch": BRANCH,
         "remote": REMOTE_TRACK,
-        "current_head": _git("rev-parse", "HEAD"),
-        "commit_count_ahead_of_master": int(_git(
-            "rev-list", "--count", f"{REMOTE_TRACK}/master..HEAD") or "0"),
         "spec_units": spec_meta.get("units_count"),
         "spec_data_rows": sum(
             u.get("row_count", 0) for u in (spec or {}).get("units", [])

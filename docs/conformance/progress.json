@@ -7,8 +7,6 @@
     "code_drw_unused_real": 4,
     "code_total_reads": 1825,
     "code_total_writes": 1085,
-    "commit_count_ahead_of_master": 20,
-    "current_head": "0ab39aca59c3a7fcebcde92c647296a992f00354",
     "errata_count": 3,
     "findings_count": 0,
     "ledger_branch_cells_unaudited": 7919,
