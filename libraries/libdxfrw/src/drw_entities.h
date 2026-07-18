@@ -2083,10 +2083,10 @@ protected:
 class DRW_Wipeout : public DRW_Image {
     SETENTFRIENDS
 public:
-    // DWG custom-class ordinals are file-local. Keep WIPEOUT adjacent to the
-    // writer's other typed custom entities rather than copying an ordinal
-    // observed in a different producer's CLASSES section.
-    static constexpr std::uint16_t kDwgClassNum = 526;
+    // DWG custom-class ordinals are file-local to this writer. 526–528 are
+    // UNDERLAY *definition* classes (PDF/DGN/DWF); WIPEOUTVARIABLES is 529.
+    // Use 530 so WIPEOUT never collides with PDFUNDERLAYDEFINITION (526).
+    static constexpr std::uint16_t kDwgClassNum = 530;
 
     DRW_Wipeout() {
         eType = DRW::WIPEOUT;

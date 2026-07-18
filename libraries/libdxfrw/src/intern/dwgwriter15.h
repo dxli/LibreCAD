@@ -15,6 +15,7 @@
 #define DWGWRITER15_H
 
 #include <initializer_list>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -77,6 +78,8 @@ public:
     std::uint32_t defineBlock(const std::string& name,
                         const DRW_Coord& basePoint,
                         int insUnits = 0) override;
+    bool beginBlockContent(std::uint32_t blockRecordHandle) override;
+    bool endBlockContent() override;
     bool emitDeferredBlockControl() override;
 
     /// Accept a user-defined table record for deferred emission in
@@ -101,6 +104,10 @@ public:
     bool writeMLineStyle(const DRW_MLineStyle& style);
     bool writeRasterVariables(const DRW_RasterVariables& rasterVariables);
     bool writeWipeoutVariables(const DRW_WipeoutVariables& wipeoutVariables);
+    /// IMAGEDEF (fixed type 102). Mutates `imageDef.handle` when zero.
+    bool writeImageDef(DRW_ImageDef& imageDef);
+    /// IMAGEDEF_REACTOR (custom class 532). Mutates `reactor.handle` when zero.
+    bool writeImageDefinitionReactor(DRW_ImageDefinitionReactor& reactor);
     bool writeGeoData(const DRW_GeoData& geoData);
     bool writeSpatialFilter(const DRW_SpatialFilter& filter);
     // PR 8d.2a — five small no-storage OBJECTS families.
@@ -221,6 +228,13 @@ protected:
     void emitUnderlayDefinitionObject(std::uint32_t handle,
                                       const DRW_UnderlayDefinition& definition);
 
+    /// Apply the active BLOCK content scope to one entity and resolve a named
+    /// INSERT to its registered BLOCK_RECORD handle when needed.
+    void prepareBlockOwnedEntity(DRW_Entity& entity);
+
+    /// Record a successfully encoded entity in the active BLOCK content scope.
+    void recordBlockOwnedEntity(std::uint32_t entityHandle);
+
 protected:
     /// Populate m_header's ctrl-handle fields with canonical reserved values
     /// where they are still zero (caller may have pre-filled them on read).
@@ -306,10 +320,11 @@ private:
         std::vector<std::uint32_t> entityHandles;
     };
 
-    /// User-defined blocks from defineBlock().  The Block/ENDBLK entities are
+    /// User-defined blocks from defineBlock(). The Block/ENDBLK entities are
     /// emitted immediately, while the Block_Record is deferred until after
-    /// writeBlocks() has had a chance to write block-owned entities.
+    /// the balanced block-content scopes have recorded block-owned entities.
     std::vector<PendingUserBlock> m_userBlocks;
+    std::unordered_map<std::string, std::uint32_t> m_userBlockHandles;
     std::uint32_t m_activeUserBlockRecordHandle {0};
 };
 

@@ -195,6 +195,7 @@ bool dwgWriter24::encodeEntity(DRW_Entity *ent) {
                 mline->styleHandle = styleIt->second;
         }
     }
+    prepareBlockOwnedEntity(*ent);
 
     beginObject(ent->handle);
     m_objectStrings.reset();
@@ -204,6 +205,7 @@ bool dwgWriter24::encodeEntity(DRW_Entity *ent) {
                              &m_objectStrings, &m_objectHandles);
     if (!ok) return false;
     finishObject();
+    recordBlockOwnedEntity(ent->handle);
     return true;
 }
 

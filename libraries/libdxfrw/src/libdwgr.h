@@ -111,19 +111,24 @@ public:
     bool writeOle2Frame(DRW_Ole2Frame *ent);
     bool writeMesh(DRW_Mesh *ent);
     bool writeWipeout(DRW_Wipeout *ent);
+    /// Write IMAGE entity. When `fileName` is non-null, also emits IMAGEDEF
+    /// (+ IMAGEDEF_REACTOR) and fills `ent->ref` / reactor handles.
+    bool writeImage(DRW_Image *ent, const std::string *fileName = nullptr);
+    bool writeImageDef(DRW_ImageDef *object);
+    bool writeImageDefinitionReactor(DRW_ImageDefinitionReactor *object);
     bool writePointCloud(DRW_PointCloud *ent);
     bool writePointCloudEx(DRW_PointCloudEx *ent);
     bool writeSurface(DRW_Surface *ent);
 
-    /// Define an empty user-block.  Allocates fresh Block_Record + Block
-    /// + ENDBLK handles, emits all three into the object stream, and
-    /// appends the new Block_Record to BLOCK_CONTROL's child list.
-    /// Returns the Block_Record handle, which callers use as the
-    /// `blockRecH.ref` on subsequent `DRW_Insert` entities.  Must be
-    /// invoked from the iface's `writeBlocks()` callback (before
-    /// `writeEntities`); returns 0 if invoked outside that window.
+    /// Define a user-block and return its BLOCK_RECORD handle. Use the
+    /// balanced beginBlockContent()/endBlockContent() scope from
+    /// `writeBlocks()` to write its owned entities. INSERT names are resolved
+    /// against the set of registered user blocks during encoding.
     std::uint32_t defineBlock(const std::string& name, const DRW_Coord& basePoint,
                         int insUnits = 0);
+
+    bool beginBlockContent(std::uint32_t blockRecordHandle);
+    bool endBlockContent();
 
     /// Reserve a preserved source handle BEFORE write() so it can never be
     /// minted by defineBlock()/next() during the write.  The caller (filter)
@@ -164,6 +169,7 @@ public:
     bool registerWipeoutVariablesObjectClass(DRW_WipeoutVariables *object);
     bool writeWipeoutVariables(DRW_WipeoutVariables *object);
     bool registerWipeoutEntityClass();
+    bool registerImageDefReactorObjectClass(DRW_ImageDefinitionReactor *object);
     bool registerGeoDataObjectClass(DRW_GeoData *object);
     bool writeGeoData(DRW_GeoData *object);
     bool registerSpatialFilterObjectClass(DRW_SpatialFilter *object);
@@ -189,6 +195,7 @@ public:
     bool registerFieldObjectClass(DRW_Field *object);
     bool writeField(DRW_Field *object);
     bool registerUnderlayDefinitionObjectClass(DRW_UnderlayDefinition *object);
+    bool registerUnderlayEntityClass(DRW_Underlay::Kind kind);
     bool writeUnderlayDefinition(DRW_UnderlayDefinition *object);
     bool registerRawDwgObjectClass(const DRW_UnsupportedObject *object);
     bool writeRawDwgObject(DRW_UnsupportedObject *object);

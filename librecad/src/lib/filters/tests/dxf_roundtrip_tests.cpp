@@ -31,12 +31,14 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include <algorithm>
+#include <cmath>
 #include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <map>
 #include <set>
 #include <string>
+#include <tuple>
 #include <vector>
 
 #include <QCoreApplication>
@@ -97,6 +99,30 @@ int countRecords(const std::string &path, const std::string &name) {
     prevZero = (trimmed == "0");
   }
   return count;
+}
+
+std::vector<std::string> recordGroupValues(const std::string &path,
+                                           const std::string &recordName,
+                                           const std::string &code) {
+  std::ifstream in(path);
+  std::string codeLine, valueLine;
+  std::vector<std::string> values;
+  bool inRecord = false;
+  auto trim = [](std::string value) {
+    if (!value.empty() && value.back() == '\r')
+      value.pop_back();
+    const size_t first = value.find_first_not_of(" \t");
+    return first == std::string::npos ? std::string() : value.substr(first);
+  };
+  while (std::getline(in, codeLine) && std::getline(in, valueLine)) {
+    const std::string groupCode = trim(codeLine);
+    const std::string value = trim(valueLine);
+    if (groupCode == "0")
+      inRecord = value == recordName;
+    else if (inRecord && groupCode == code)
+      values.push_back(value);
+  }
+  return values;
 }
 
 // Collects every group-5 (handle) value in a DXF file, in order. DXF is a
@@ -325,6 +351,722 @@ TEST_CASE("DXF round-trip via RS_FilterDXFRW preserves unmodeled object + entity
   const std::set<std::string> classes = classRecordNames(out);
   CHECK(classes.count("MATERIAL") == 1);
   CHECK(classes.count("WEIRDENT") == 0);
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+}
+
+TEST_CASE("DXF filter normalizes reflected LWPOLYLINE extrusion once",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("lwpolyline_reflected_src.dxf");
+  const std::string out = tmpFile("lwpolyline_reflected_out.dxf");
+  const std::string out2 = tmpFile("lwpolyline_reflected_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nLWPOLYLINE\n8\n0\n90\n2\n70\n0\n38\n7.0\n"
+            "10\n1.0\n20\n2.0\n42\n0.5\n"
+            "10\n3.0\n20\n4.0\n42\n-0.5\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  const auto firstX = recordGroupValues(out, "LWPOLYLINE", "10");
+  const auto firstElevation = recordGroupValues(out, "LWPOLYLINE", "38");
+  const auto firstBulges = recordGroupValues(out, "LWPOLYLINE", "42");
+  REQUIRE(firstX.size() == 2);
+  REQUIRE(firstElevation.size() == 1);
+  REQUIRE(firstBulges.size() == 2);
+  CHECK(std::stod(firstX[0]) == -1.0);
+  CHECK(std::stod(firstElevation[0]) == -7.0);
+  CHECK(std::stod(firstBulges[0]) < -0.499);
+  CHECK(std::stod(firstBulges[0]) > -0.501);
+  CHECK(recordGroupValues(out, "LWPOLYLINE", "210").empty());
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  const auto secondX = recordGroupValues(out2, "LWPOLYLINE", "10");
+  const auto secondElevation = recordGroupValues(out2, "LWPOLYLINE", "38");
+  REQUIRE(secondX.size() == 2);
+  REQUIRE(secondElevation.size() == 1);
+  CHECK(std::stod(secondX[0]) == -1.0);
+  CHECK(std::stod(secondElevation[0]) == -7.0);
+  CHECK(recordGroupValues(out2, "LWPOLYLINE", "210").empty());
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter normalizes reflected legacy POLYLINE extrusion once",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("polyline_reflected_src.dxf");
+  const std::string out = tmpFile("polyline_reflected_out.dxf");
+  const std::string out2 = tmpFile("polyline_reflected_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nPOLYLINE\n8\n0\n66\n1\n10\n0.0\n20\n0.0\n30\n7.0\n"
+            "39\n0.25\n40\n0.1\n41\n0.2\n70\n0\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nVERTEX\n8\n0\n10\n1.0\n20\n2.0\n42\n0.5\n"
+            "0\nVERTEX\n8\n0\n10\n3.0\n20\n4.0\n42\n-0.5\n"
+            "0\nSEQEND\n0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  REQUIRE(countRecords(out, "POLYLINE") == 0);
+  REQUIRE(countRecords(out, "LWPOLYLINE") == 1);
+  const auto firstX = recordGroupValues(out, "LWPOLYLINE", "10");
+  const auto firstElevation = recordGroupValues(out, "LWPOLYLINE", "38");
+  const auto firstThickness = recordGroupValues(out, "LWPOLYLINE", "39");
+  const auto firstBulges = recordGroupValues(out, "LWPOLYLINE", "42");
+  const auto firstStartWidths = recordGroupValues(out, "LWPOLYLINE", "40");
+  const auto firstEndWidths = recordGroupValues(out, "LWPOLYLINE", "41");
+  REQUIRE(firstX.size() == 2);
+  REQUIRE(firstElevation.size() == 1);
+  REQUIRE(firstThickness.size() == 1);
+  REQUIRE(firstBulges.size() == 2);
+  REQUIRE(firstStartWidths.size() == 2);
+  REQUIRE(firstEndWidths.size() == 2);
+  CHECK(std::stod(firstX[0]) == -1.0);
+  CHECK(std::stod(firstElevation[0]) == -7.0);
+  CHECK(std::stod(firstThickness[0]) == -0.25);
+  CHECK(std::abs(std::stod(firstBulges[0]) + 0.5) < 1.0e-12);
+  CHECK(std::stod(firstStartWidths[0]) == 0.1);
+  CHECK(std::stod(firstEndWidths[0]) == 0.2);
+  CHECK(recordGroupValues(out, "LWPOLYLINE", "210").empty());
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "38", "39", "40", "41", "42"})
+    CHECK(recordGroupValues(out2, "LWPOLYLINE", code)
+          == recordGroupValues(out, "LWPOLYLINE", code));
+  CHECK(recordGroupValues(out2, "LWPOLYLINE", "210").empty());
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter normalizes reflected planar curves once",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("planar_curves_reflected_src.dxf");
+  const std::string out = tmpFile("planar_curves_reflected_out.dxf");
+  const std::string out2 = tmpFile("planar_curves_reflected_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nCIRCLE\n8\n0\n10\n10.0\n20\n20.0\n40\n3.0\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nARC\n8\n0\n10\n20.0\n20\n30.0\n40\n4.0\n50\n15.0\n51\n120.0\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nELLIPSE\n8\n0\n10\n30.0\n20\n40.0\n"
+            "11\n5.0\n21\n1.0\n40\n0.3\n41\n0.25\n42\n1.75\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  REQUIRE(countRecords(out, "CIRCLE") == 1);
+  REQUIRE(countRecords(out, "ARC") == 1);
+  REQUIRE(countRecords(out, "ELLIPSE") == 1);
+  CHECK(std::stod(recordGroupValues(out, "CIRCLE", "10").front()) == -10.0);
+  CHECK(std::stod(recordGroupValues(out, "ARC", "10").front()) == -20.0);
+  CHECK(std::stod(recordGroupValues(out, "ELLIPSE", "10").front()) == -30.0);
+  CHECK(std::stod(recordGroupValues(out, "ELLIPSE", "11").front()) == -5.0);
+  for (const char *record : {"CIRCLE", "ARC", "ELLIPSE"})
+    CHECK(recordGroupValues(out, record, "210").empty());
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+
+  // The first export is normalized WCS, so reading it again must not reflect
+  // centers, axes, or curve parameters a second time.
+  for (const auto &[record, codes] : std::initializer_list<
+           std::pair<const char *, std::initializer_list<const char *>>>{
+           {"CIRCLE", {"10", "20", "40"}},
+           {"ARC", {"10", "20", "40", "50", "51"}},
+           {"ELLIPSE", {"10", "20", "11", "21", "40", "41", "42"}}}) {
+    for (const char *code : codes)
+      CHECK(recordGroupValues(out2, record, code)
+            == recordGroupValues(out, record, code));
+    CHECK(recordGroupValues(out2, record, "210").empty());
+  }
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter preserves WCS POINT and LINE extrusion fields",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("wcs_point_line_extrusion_src.dxf");
+  const std::string out = tmpFile("wcs_point_line_extrusion_out.dxf");
+  const std::string out2 = tmpFile("wcs_point_line_extrusion_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  // POINT and LINE coordinates are WCS. Their extrusion vectors govern
+  // thickness, so the filter must retain them rather than OCS-transforming
+  // coordinates or silently exporting the default normal.
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nPOINT\n8\n0\n10\n1.0\n20\n2.0\n30\n3.0\n39\n0.5\n50\n30.0\n"
+            "210\n0.2\n220\n0.3\n230\n0.9327379053088815\n"
+            "0\nLINE\n8\n0\n10\n4.0\n20\n5.0\n30\n6.0\n"
+            "11\n7.0\n21\n8.0\n31\n9.0\n39\n2.5\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  for (const auto &[record, values] : std::initializer_list<
+           std::pair<const char *, std::initializer_list<std::pair<const char *, const char *>>>>{
+           {"POINT", {{"30", "3"}, {"39", "0.5"}, {"50", "30"}, {"210", "0.2"},
+                      {"220", "0.3"}, {"230", "0.9327379053088815"}}},
+           {"LINE", {{"30", "6"}, {"31", "9"}, {"39", "2.5"},
+                     {"210", "0"}, {"220", "1"}, {"230", "0"}}}}) {
+    for (const auto &[code, expected] : values) {
+      const auto actual = recordGroupValues(out, record, code);
+      REQUIRE(actual.size() == 1);
+      CHECK(std::stod(actual.front()) == std::stod(expected));
+    }
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const auto &[record, codes] : std::initializer_list<
+           std::pair<const char *, std::initializer_list<const char *>>>{
+           {"POINT", {"10", "20", "30", "39", "50", "210", "220", "230"}},
+           {"LINE", {"10", "20", "30", "11", "21", "31", "39", "210", "220", "230"}}}) {
+    for (const char *code : codes)
+      CHECK(recordGroupValues(out2, record, code)
+            == recordGroupValues(out, record, code));
+  }
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter preserves raw HATCH OCS elevation and extrusion",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("hatch_ocs_extrusion_src.dxf");
+  const std::string out = tmpFile("hatch_ocs_extrusion_out.dxf");
+  const std::string out2 = tmpFile("hatch_ocs_extrusion_out2.dxf");
+  const std::string dwg = tmpFile("hatch_ocs_extrusion.dwg");
+  const std::string dwgOut = tmpFile("hatch_ocs_extrusion_from_dwg.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+  std::filesystem::remove(dwg);
+  std::filesystem::remove(dwgOut);
+
+  // libdxfrw keeps HATCH boundaries in OCS. The filter must therefore retain
+  // the elevation and normal together with those unchanged boundary values.
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nHATCH\n8\n0\n100\nAcDbHatch\n"
+            "10\n0.0\n20\n0.0\n30\n7.0\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "2\nSOLID\n70\n1\n71\n0\n91\n1\n"
+            "92\n2\n72\n0\n73\n1\n93\n4\n"
+            "10\n1.0\n20\n2.0\n10\n3.0\n20\n2.0\n"
+            "10\n3.0\n20\n4.0\n10\n1.0\n20\n4.0\n97\n0\n"
+            "75\n0\n76\n1\n98\n0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  REQUIRE(countRecords(out, "HATCH") == 1);
+  for (const auto &[code, expected] :
+       std::initializer_list<std::pair<const char *, const char *>>{
+           {"30", "7"}, {"210", "0"}, {"220", "0"}, {"230", "-1"}}) {
+    const auto values = recordGroupValues(out, "HATCH", code);
+    REQUIRE(values.size() == 1);
+    CHECK(std::stod(values.front()) == std::stod(expected));
+  }
+  CHECK(recordGroupValues(out, "HATCH", "10")
+        == std::vector<std::string>{"0", "1", "3", "3", "1"});
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "210", "220", "230"})
+    CHECK(recordGroupValues(out2, "HATCH", code)
+          == recordGroupValues(out, "HATCH", code));
+
+#ifdef DWGSUPPORT
+  // Drive the same raw-sidecar boundary through an R2004 DWG write/read. The
+  // source graphic originated as DXF, avoiding unrelated raw-DWG object replay
+  // while still exercising the native DWG HATCH encoder and decoder.
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(dwg),
+                              RS2::FormatDWG2004));
+  }
+  RS_Graphic fromDwg;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(fromDwg, QString::fromStdString(dwg),
+                              RS2::FormatDWG));
+    REQUIRE(filter.fileExport(fromDwg, QString::fromStdString(dwgOut),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "210", "220", "230"})
+    CHECK(recordGroupValues(dwgOut, "HATCH", code)
+          == recordGroupValues(out, "HATCH", code));
+#endif
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+  std::filesystem::remove(dwg);
+  std::filesystem::remove(dwgOut);
+}
+
+TEST_CASE("DXF filter preserves IMAGE WCS frame Z coordinates",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("image_wcs_frame_src.dxf");
+  const std::string out = tmpFile("image_wcs_frame_out.dxf");
+  const std::string out2 = tmpFile("image_wcs_frame_out2.dxf");
+  const std::string dwg = tmpFile("image_wcs_frame.dwg");
+  const std::string dwgOut = tmpFile("image_wcs_frame_from_dwg.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+  std::filesystem::remove(dwg);
+  std::filesystem::remove(dwgOut);
+
+  // IMAGE's insertion point and per-pixel U/V vectors are WCS fields, not
+  // OCS coordinates. LibreCAD edits their XY frame only, so retain Z values
+  // independently rather than relabeling the full source frame as planar.
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nIMAGE\n8\n0\n100\nAcDbRasterImage\n90\n0\n"
+            "10\n1.0\n20\n2.0\n30\n3.0\n"
+            "11\n0.5\n21\n0.0\n31\n4.0\n"
+            "12\n0.0\n22\n0.25\n32\n5.0\n"
+            "13\n16.0\n23\n12.0\n340\n1\n70\n3\n"
+            "280\n1\n281\n50\n282\n50\n283\n0\n"
+            "71\n1\n91\n2\n14\n-0.5\n24\n-0.5\n"
+            "14\n15.5\n24\n11.5\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  REQUIRE(countRecords(out, "IMAGE") == 1);
+  const auto xdataApps = recordGroupValues(out, "IMAGE", "1001");
+  CHECK(std::find(xdataApps.begin(), xdataApps.end(), "LibreCAD_IMAGE_FRAME")
+        == xdataApps.end());
+  for (const auto &[code, expected] :
+       std::initializer_list<std::pair<const char *, const char *>>{
+           {"10", "1"}, {"20", "2"}, {"30", "3"},
+           {"11", "0.5"}, {"21", "0"}, {"31", "4"},
+           {"12", "0"}, {"22", "0.25"}, {"32", "5"}}) {
+    const auto values = recordGroupValues(out, "IMAGE", code);
+    REQUIRE(values.size() == 1);
+    CHECK(std::stod(values.front()) == std::stod(expected));
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "11", "21", "31", "12", "22", "32"})
+    CHECK(recordGroupValues(out2, "IMAGE", code)
+          == recordGroupValues(out, "IMAGE", code));
+
+#ifdef DWGSUPPORT
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(dwg),
+                              RS2::FormatDWG2004));
+  }
+  RS_Graphic fromDwg;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(fromDwg, QString::fromStdString(dwg),
+                              RS2::FormatDWG));
+    REQUIRE(filter.fileExport(fromDwg, QString::fromStdString(dwgOut),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "11", "21", "31", "12", "22", "32"})
+    CHECK(recordGroupValues(dwgOut, "IMAGE", code)
+          == recordGroupValues(out, "IMAGE", code));
+#endif
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+  std::filesystem::remove(dwg);
+  std::filesystem::remove(dwgOut);
+}
+
+TEST_CASE("DXF filter preserves raw TEXT OCS fields",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("text_ocs_src.dxf");
+  const std::string out = tmpFile("text_ocs_out.dxf");
+  const std::string out2 = tmpFile("text_ocs_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nTEXT\n8\n0\n10\n1.0\n20\n2.0\n30\n7.0\n"
+            "11\n4.0\n21\n5.0\n31\n7.0\n40\n2.0\n1\nOCS\n"
+            "50\n15.0\n7\nSTANDARD\n39\n0.5\n72\n5\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src), RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out), RS2::FormatDXFRW));
+  }
+  for (const auto &[code, expected] :
+       std::initializer_list<std::pair<const char *, const char *>>{
+           {"30", "7"}, {"31", "7"}, {"39", "0.5"},
+           {"210", "0"}, {"220", "0"}, {"230", "-1"}}) {
+    const auto values = recordGroupValues(out, "TEXT", code);
+    REQUIRE(values.size() == 1);
+    CHECK(std::stod(values.front()) == std::stod(expected));
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out), RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2), RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "11", "21", "31", "39", "210", "220", "230"})
+    CHECK(recordGroupValues(out2, "TEXT", code)
+          == recordGroupValues(out, "TEXT", code));
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter preserves MTEXT OCS frame and x-axis vector",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("mtext_ocs_src.dxf");
+  const std::string out = tmpFile("mtext_ocs_out.dxf");
+  const std::string out2 = tmpFile("mtext_ocs_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nMTEXT\n8\n0\n10\n1.0\n20\n2.0\n30\n7.0\n"
+            "40\n2.0\n41\n10.0\n71\n1\n72\n1\n1\nOCS MTEXT\n"
+            "7\nSTANDARD\n210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "11\n1.0\n21\n0.0\n31\n3.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src), RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out), RS2::FormatDXFRW));
+  }
+  for (const auto &[code, expected] :
+       std::initializer_list<std::pair<const char *, const char *>>{
+           {"30", "7"}, {"11", "1"}, {"21", "0"}, {"31", "3"},
+           {"210", "0"}, {"220", "0"}, {"230", "-1"}}) {
+    const auto values = recordGroupValues(out, "MTEXT", code);
+    REQUIRE(values.size() == 1);
+    CHECK(std::stod(values.front()) == std::stod(expected));
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out), RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2), RS2::FormatDXFRW));
+  }
+  for (const char *code : {"10", "20", "30", "11", "21", "31", "210", "220", "230"})
+    CHECK(recordGroupValues(out2, "MTEXT", code)
+          == recordGroupValues(out, "MTEXT", code));
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter preserves reflected MINSERT source fields with a block definition",
+          "[dxf][roundtrip][filter][extrusion][insert]") {
+  ensureSettings();
+  const std::string src = tmpFile("minsert_source_fields_src.dxf");
+  const std::string out = tmpFile("minsert_source_fields_out.dxf");
+  const std::string out2 = tmpFile("minsert_source_fields_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  // A real definition makes the filter expand derived children, while export
+  // must still serialize the original MINSERT source record rather than those
+  // children. The nonzero block base point also exercises the source equation.
+  writeText(src,
+            "0\nSECTION\n2\nBLOCKS\n"
+            "0\nBLOCK\n8\n0\n2\nGRID_SYMBOL\n70\n0\n"
+            "10\n1.0\n20\n2.0\n30\n0.0\n3\nGRID_SYMBOL\n1\n\n"
+            "0\nLINE\n8\n0\n10\n1.0\n20\n2.0\n11\n3.0\n21\n2.0\n"
+            "0\nENDBLK\n8\n0\n0\nENDSEC\n"
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nINSERT\n8\n0\n2\nGRID_SYMBOL\n"
+            "10\n10.0\n20\n20.0\n30\n30.0\n"
+            "41\n2.0\n42\n-3.0\n43\n4.0\n50\n30.0\n"
+            "70\n3\n71\n2\n44\n5.0\n45\n6.0\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  REQUIRE(countRecords(out, "INSERT") == 1);
+  for (const auto &[code, expected] :
+       std::initializer_list<std::pair<const char *, const char *>>{
+           {"2", "GRID_SYMBOL"}, {"10", "10"}, {"20", "20"},
+           {"30", "30"}, {"41", "2"}, {"42", "-3"}, {"43", "4"},
+           {"50", "30"}, {"70", "3"}, {"71", "2"}, {"44", "5"},
+           {"45", "6"}, {"210", "0"}, {"220", "0"}, {"230", "-1"}}) {
+    const auto actual = recordGroupValues(out, "INSERT", code);
+    REQUIRE(actual.size() == 1);
+    if (std::string(code) == "2")
+      CHECK(actual.front() == expected);
+    else
+      CHECK(std::stod(actual.front()) == std::stod(expected));
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const char *code : {"2", "10", "20", "30", "41", "42", "43",
+                           "50", "70", "71", "44", "45", "210", "220", "230"}) {
+    CHECK(recordGroupValues(out2, "INSERT", code)
+          == recordGroupValues(out, "INSERT", code));
+  }
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter normalizes TRACE and SOLID extrusion once",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("trace_solid_reflected_src.dxf");
+  const std::string out = tmpFile("trace_solid_reflected_out.dxf");
+  const std::string out2 = tmpFile("trace_solid_reflected_out2.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nTRACE\n8\n0\n10\n1.0\n20\n2.0\n30\n3.0\n"
+            "11\n4.0\n21\n5.0\n31\n6.0\n12\n7.0\n22\n8.0\n32\n9.0\n"
+            "13\n10.0\n23\n11.0\n33\n12.0\n39\n0.5\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nSOLID\n8\n0\n10\n13.0\n20\n14.0\n30\n15.0\n"
+            "11\n16.0\n21\n17.0\n31\n18.0\n12\n19.0\n22\n20.0\n32\n21.0\n"
+            "13\n22.0\n23\n23.0\n33\n24.0\n39\n1.5\n"
+            "210\n0.0\n220\n0.0\n230\n-1.0\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  for (const auto &[record, expectedX, expectedThickness] :
+       {std::tuple{"TRACE", -1.0, -0.5}, std::tuple{"SOLID", -13.0, -1.5}}) {
+    REQUIRE(countRecords(out, record) == 1);
+    CHECK(std::stod(recordGroupValues(out, record, "10").front()) == expectedX);
+    CHECK(std::stod(recordGroupValues(out, record, "39").front()) == expectedThickness);
+    CHECK(recordGroupValues(out, record, "210").empty());
+  }
+
+  RS_Graphic graphic2;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic2, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic2, QString::fromStdString(out2),
+                              RS2::FormatDXFRW));
+  }
+  for (const auto &[record, codes] : std::initializer_list<
+           std::pair<const char *, std::initializer_list<const char *>>>{
+           {"TRACE", {"10", "20", "30", "11", "21", "31", "12", "22", "32", "13", "23", "33", "39"}},
+           {"SOLID", {"10", "20", "30", "11", "21", "31", "12", "22", "32", "13", "23", "33", "39"}}}) {
+    for (const char *code : codes)
+      CHECK(recordGroupValues(out2, record, code)
+            == recordGroupValues(out, record, code));
+    CHECK(recordGroupValues(out2, record, "210").empty());
+  }
+
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+  std::filesystem::remove(out2);
+}
+
+TEST_CASE("DXF filter rejects tilted planar entities before 2D creation",
+          "[dxf][roundtrip][filter][extrusion]") {
+  ensureSettings();
+  const std::string src = tmpFile("lwpolyline_tilted_src.dxf");
+  const std::string out = tmpFile("lwpolyline_tilted_out.dxf");
+  std::filesystem::remove(src);
+  std::filesystem::remove(out);
+
+  writeText(src,
+            "0\nSECTION\n2\nENTITIES\n"
+            "0\nLINE\n8\n0\n10\n0.0\n20\n0.0\n11\n1.0\n21\n1.0\n"
+            "0\nLWPOLYLINE\n8\n0\n90\n2\n"
+            "10\n1.0\n20\n2.0\n10\n3.0\n20\n4.0\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nCIRCLE\n8\n0\n10\n5.0\n20\n5.0\n40\n2.0\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nARC\n8\n0\n10\n10.0\n20\n5.0\n40\n2.0\n50\n0.0\n51\n90.0\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nELLIPSE\n8\n0\n10\n15.0\n20\n5.0\n"
+            "11\n3.0\n21\n0.0\n40\n0.5\n41\n0.0\n42\n6.283185307179586\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nPOLYLINE\n8\n0\n66\n1\n70\n0\n"
+            "210\n0.0\n220\n1.0\n230\n0.0\n"
+            "0\nVERTEX\n8\n0\n10\n20.0\n20\n5.0\n"
+            "0\nVERTEX\n8\n0\n10\n22.0\n20\n5.0\n"
+            "0\nSEQEND\n"
+            "0\nENDSEC\n0\nEOF\n");
+
+  RS_Graphic graphic;
+  {
+    RS_FilterDXFRW filter;
+    REQUIRE(filter.fileImport(graphic, QString::fromStdString(src),
+                              RS2::FormatDXFRW));
+    REQUIRE(filter.fileExport(graphic, QString::fromStdString(out),
+                              RS2::FormatDXFRW));
+  }
+
+  CHECK(countRecords(out, "LINE") == 1);
+  CHECK(countRecords(out, "LWPOLYLINE") == 0);
+  CHECK(countRecords(out, "POLYLINE") == 0);
+  CHECK(countRecords(out, "CIRCLE") == 0);
+  CHECK(countRecords(out, "ARC") == 0);
+  CHECK(countRecords(out, "ELLIPSE") == 0);
 
   std::filesystem::remove(src);
   std::filesystem::remove(out);

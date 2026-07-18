@@ -21,6 +21,8 @@
 #include "../drw_base.h"
 #include "../drw_entities.h"
 #include "../drw_objects.h"
+#include "dwgbuffer.h"
+#include "dwgbufferw.h"
 #include "dwgutil.h"
 
 namespace {
@@ -488,6 +490,13 @@ void dwgWriter15::emitControlObject(
 std::uint32_t dwgWriter15::defineBlock(const std::string& name,
                                  const DRW_Coord& basePoint,
                                  int insUnits) {
+    const std::string key = toUpperCase(name);
+    if (key.empty())
+        return 0;
+    const auto existing = m_userBlockHandles.find(key);
+    if (existing != m_userBlockHandles.end())
+        return existing->second;
+
     // Allocate a fresh handle trio.
     std::uint32_t blockRecH  = m_handles.next();
     std::uint32_t blockH     = m_handles.next();
@@ -503,7 +512,16 @@ std::uint32_t dwgWriter15::defineBlock(const std::string& name,
     bk.setIsEnd(false);
     {
         dwgBufferW& body = beginObject(blockH);
-        (void)bk.encodeDwg(m_version, &body, /*bs=*/0);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+        if (m_version > DRW::AC1018) {
+            m_objectStrings.reset();
+            m_objectHandles.reset();
+            if (!bk.encodeDwg(m_version, &body, /*bs=*/0,
+                              &m_objectStrings, &m_objectHandles)) {
+                return 0;
+            }
+        } else if (!bk.encodeDwg(m_version, &body, /*bs=*/0)) {
+            return 0;
+        }
 
         finishObject();
     }
@@ -517,7 +535,16 @@ std::uint32_t dwgWriter15::defineBlock(const std::string& name,
     endBlk.setIsEnd(true);
     {
         dwgBufferW& body = beginObject(endBlockH);
-        (void)endBlk.encodeDwg(m_version, &body, /*bs=*/0);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+        if (m_version > DRW::AC1018) {
+            m_objectStrings.reset();
+            m_objectHandles.reset();
+            if (!endBlk.encodeDwg(m_version, &body, /*bs=*/0,
+                                  &m_objectStrings, &m_objectHandles)) {
+                return 0;
+            }
+        } else if (!endBlk.encodeDwg(m_version, &body, /*bs=*/0)) {
+            return 0;
+        }
 
         finishObject();
     }
@@ -530,18 +557,37 @@ std::uint32_t dwgWriter15::defineBlock(const std::string& name,
     block.basePoint = basePoint;
     block.insUnits = insUnits;
     m_userBlocks.push_back(block);
-    m_activeUserBlockRecordHandle = blockRecH;
+    m_userBlockHandles.emplace(key, blockRecH);
     return blockRecH;
 }
 
+bool dwgWriter15::beginBlockContent(std::uint32_t blockRecordHandle) {
+    if (m_activeUserBlockRecordHandle != 0)
+        return false;
+    for (const PendingUserBlock& block : m_userBlocks) {
+        if (block.blockRecordHandle == blockRecordHandle) {
+            m_activeUserBlockRecordHandle = blockRecordHandle;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool dwgWriter15::endBlockContent() {
+    if (m_activeUserBlockRecordHandle == 0)
+        return false;
+    m_activeUserBlockRecordHandle = 0;
+    return true;
+}
+
 bool dwgWriter15::emitDeferredBlockControl() {
+    if (m_activeUserBlockRecordHandle != 0)
+        return false;
     for (const PendingUserBlock& block : m_userBlocks) {
         emitBlockRecord(block.blockRecordHandle, block.name, block.basePoint,
                         block.blockHandle, block.endBlockHandle,
                         block.entityHandles, block.insUnits);
     }
-    m_activeUserBlockRecordHandle = 0;
-
     // BLOCK_CONTROL: numEntries = user blocks count; +2 phantoms for
     // MODEL_SPACE + PAPER_SPACE are appended to the child handle list.
     std::vector<std::uint32_t> children;
@@ -1075,7 +1121,8 @@ void dwgWriter15::emitRasterVariablesObject(
                        DRW_RasterVariables::kDwgClassNum, handle,
                        m_objectStrings, m_objectHandles, sb, hb);
     DRW_UNUSED(sb);
-    (void)rasterVariables.encodeDwg(m_version, &body, nullptr, hb);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+    if (!rasterVariables.encodeDwg(m_version, &body, nullptr, hb))
+        return;
 
     finishObject();
 }
@@ -1114,7 +1161,8 @@ void dwgWriter15::emitWipeoutVariablesObject(
                        DRW_WipeoutVariables::kDwgClassNum, handle,
                        m_objectStrings, m_objectHandles, sb, hb);
     DRW_UNUSED(sb);
-    (void)wipeoutVariables.encodeDwg(m_version, &body, nullptr, hb);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+    if (!wipeoutVariables.encodeDwg(m_version, &body, nullptr, hb))
+        return;
 
     finishObject();
 }
@@ -1137,6 +1185,45 @@ bool dwgWriter15::writeWipeoutVariables(
     return true;
 }
 
+// IMAGEDEF (fixed type 102 / dwgObjType::IMAGEDEF) — no CLASSES entry.
+// Inverts DRW_ImageDef::parseDwg; handle is assigned when the caller left it 0.
+bool dwgWriter15::writeImageDef(DRW_ImageDef& imageDef) {
+    if (imageDef.handle == 0) {
+        imageDef.handle = m_handles.next();
+    } else {
+        m_handles.reserve(imageDef.handle);
+    }
+    dwgBufferW& body = beginObject(imageDef.handle);
+    dwgBufferW *sb, *hb;
+    emitRecordPreamble(body, m_version, /*typeCode=*/102, imageDef.handle,
+                       m_objectStrings, m_objectHandles, sb, hb);
+    if (!imageDef.encodeDwg(m_version, &body, sb, hb))
+        return false;
+    finishObject();
+    return true;
+}
+
+// IMAGEDEF_REACTOR (custom class 532). Body is class_version + common handles.
+bool dwgWriter15::writeImageDefinitionReactor(
+    DRW_ImageDefinitionReactor& reactor) {
+    if (reactor.handle == 0) {
+        reactor.handle = m_handles.next();
+    } else {
+        m_handles.reserve(reactor.handle);
+    }
+    if (!registerImageDefReactorObjectClass(reactor.handle))
+        return false;
+    dwgBufferW& body = beginObject(reactor.handle);
+    dwgBufferW *sb, *hb;
+    emitRecordPreamble(body, m_version, DRW_ImageDefinitionReactor::kDwgClassNum,
+                       reactor.handle, m_objectStrings, m_objectHandles, sb, hb);
+    DRW_UNUSED(sb);
+    if (!reactor.encodeDwg(m_version, &body, nullptr, hb))
+        return false;
+    finishObject();
+    return true;
+}
+
 // GEODATA (AcDbGeoData, custom class 506) - class registration required.
 // Standard preamble + DRW_GeoData::encodeDwg sandwich. Encoder writes its own
 // common-handle prefix into hb (the preamble does not) plus several
@@ -1146,7 +1233,8 @@ void dwgWriter15::emitGeoDataObject(std::uint32_t handle, const DRW_GeoData& geo
     dwgBufferW *sb, *hb;
     emitRecordPreamble(body, m_version, DRW_GeoData::kDwgClassNum, handle,
                        m_objectStrings, m_objectHandles, sb, hb);
-    (void)geoData.encodeDwg(m_version, &body, sb, hb);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+    if (!geoData.encodeDwg(m_version, &body, sb, hb))
+        return;
 
     finishObject();
 }
@@ -1183,7 +1271,8 @@ void dwgWriter15::emitSpatialFilterObject(std::uint32_t handle,
                        DRW_SpatialFilter::kDwgClassNum, handle,
                        m_objectStrings, m_objectHandles, sb, hb);
     DRW_UNUSED(sb);
-    (void)filter.encodeDwg(m_version, &body, nullptr, hb);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+    if (!filter.encodeDwg(m_version, &body, nullptr, hb))
+        return;
 
     finishObject();
 }
@@ -1548,7 +1637,8 @@ void dwgWriter15::emitUnderlayDefinitionObject(
     dwgBufferW *sb, *hb;
     emitRecordPreamble(body, m_version, underlayDefinitionClassNum(definition),
                        handle, m_objectStrings, m_objectHandles, sb, hb);
-    (void)definition.encodeDwg(m_version, &body, sb, hb);  // (void): void emitter; object serializes into in-memory buffer (no failure path)
+    if (!definition.encodeDwg(m_version, &body, sb, hb))
+        return;
 
     finishObject();
 }
@@ -1646,6 +1736,29 @@ void dwgWriter15::addAppId(const DRW_AppId& ai) {
     m_pendingAppIds.emplace_back(h, ai);
 }
 
+void dwgWriter15::prepareBlockOwnedEntity(DRW_Entity& entity) {
+    if (auto* insert = dynamic_cast<DRW_Insert*>(&entity)) {
+        if (insert->blockRecH.ref == 0 && !insert->name.empty()) {
+            const auto block = m_userBlockHandles.find(toUpperCase(insert->name));
+            if (block != m_userBlockHandles.end())
+                insert->blockRecH.ref = block->second;
+        }
+    }
+    if (m_activeUserBlockRecordHandle != 0)
+        entity.parentHandle = m_activeUserBlockRecordHandle;
+}
+
+void dwgWriter15::recordBlockOwnedEntity(std::uint32_t entityHandle) {
+    if (m_activeUserBlockRecordHandle == 0)
+        return;
+    for (PendingUserBlock& block : m_userBlocks) {
+        if (block.blockRecordHandle == m_activeUserBlockRecordHandle) {
+            block.entityHandles.push_back(entityHandle);
+            return;
+        }
+    }
+}
+
 bool dwgWriter15::encodeEntity(DRW_Entity *ent) {
     if (ent == nullptr) return false;
     // Honor caller-set handles (round-trip preservation); allocate a
@@ -1675,6 +1788,19 @@ bool dwgWriter15::encodeEntity(DRW_Entity *ent) {
         if (it != m_writingCtx.ltypeMap.end())
             ent->lTypeH.ref = it->second;
     }
+    // Drive ltFlags from resolved name/handle so encodeDwgCommon emits the
+    // correct BB and encodeDwgEntHandle emits lTypeH when needed.
+    if (ent->ltFlags == 0) {
+        const auto ltUp = toUpperCase(ent->lineType);
+        if (ent->lTypeH.ref != 0
+            && ltUp != "BYLAYER" && ltUp != "BYBLOCK" && ltUp != "CONTINUOUS"
+            && !ltUp.empty())
+            ent->ltFlags = 3;
+        else if (ltUp == "BYBLOCK")
+            ent->ltFlags = 1;
+        else if (ltUp == "CONTINUOUS")
+            ent->ltFlags = 2;
+    }
     if (ent->eType == DRW::MLINE) {
         auto *mline = dynamic_cast<DRW_MLine *>(ent);
         if (mline != nullptr && mline->styleHandle == 0 && !mline->styleName.empty()) {
@@ -1683,22 +1809,14 @@ bool dwgWriter15::encodeEntity(DRW_Entity *ent) {
                 mline->styleHandle = styleIt->second;
         }
     }
-    if (m_activeUserBlockRecordHandle != 0)
-        ent->parentHandle = m_activeUserBlockRecordHandle;
+    prepareBlockOwnedEntity(*ent);
 
     dwgBufferW& body = beginObject(handle);
     bool ok = ent->encodeDwg(m_version, &body, /*bs=*/0);
     if (!ok) return false;
     finishObject();
 
-    if (m_activeUserBlockRecordHandle != 0) {
-        for (PendingUserBlock& block : m_userBlocks) {
-            if (block.blockRecordHandle == m_activeUserBlockRecordHandle) {
-                block.entityHandles.push_back(handle);
-                break;
-            }
-        }
-    }
+    recordBlockOwnedEntity(handle);
     return true;
 }
 
@@ -1846,6 +1964,45 @@ bool dwgWriter15::writeDwgObjects() {
     return true;
 }
 
+namespace {
+
+/// Rebuild raw object body with a replacement OT when raw class nums remapped.
+bool patchRawObjectType(const std::vector<std::uint8_t>& raw,
+                        DRW::Version version,
+                        std::uint16_t newType,
+                        std::vector<std::uint8_t>& out) {
+    if (raw.empty())
+        return false;
+    dwgBuffer reader(const_cast<std::uint8_t*>(raw.data()), raw.size());
+    (void)reader.getObjType(version);
+    if (!reader.isGood())
+        return false;
+
+    dwgBufferW rebuilt;
+    rebuilt.putObjType(version, newType);
+    // Copy remaining bits after the original OT.
+    while (reader.numRemainingBytes() > 0 || reader.getBitPos() != 0) {
+        // Prefer whole remaining bytes when aligned.
+        if (reader.getBitPos() == 0 && reader.numRemainingBytes() > 0) {
+            const size_t n = reader.numRemainingBytes();
+            std::vector<std::uint8_t> tail(n);
+            if (!reader.getBytes(tail.data(), static_cast<int>(n)))
+                return false;
+            rebuilt.putBytes(tail.data(), n);
+            break;
+        }
+        const std::uint8_t bit = reader.getBit();
+        if (!reader.isGood())
+            return false;
+        rebuilt.putBit(bit);
+    }
+    rebuilt.alignToByte();
+    out = rebuilt.data();
+    return !out.empty();
+}
+
+} // namespace
+
 bool dwgWriter15::replayRawObject(const DRW_UnsupportedObject& object) {
     if (object.m_version != m_version
         || (object.m_isEntity && !isReplayableFixedModelerRawEntity(object))
@@ -1857,15 +2014,26 @@ bool dwgWriter15::replayRawObject(const DRW_UnsupportedObject& object) {
     if (!registerRawObjectClass(object))
         return false;
 
+    const std::uint16_t sourceType =
+        static_cast<std::uint16_t>(object.m_objectType);
+    const std::uint16_t writerType = remappedRawClassNum(sourceType);
+    const std::vector<std::uint8_t>* bodyBytes = &object.m_rawBytes;
+    std::vector<std::uint8_t> patched;
+    if (object.m_isCustomClass && sourceType >= 500 && writerType != sourceType) {
+        if (!patchRawObjectType(object.m_rawBytes, m_version, writerType, patched))
+            return false;
+        bodyBytes = &patched;
+    }
+
     const std::uint32_t frameStart = static_cast<std::uint32_t>(m_buf.size());
-    m_buf.putModularShort(static_cast<std::int32_t>(object.m_rawBytes.size()));
+    m_buf.putModularShort(static_cast<std::int32_t>(bodyBytes->size()));
     if (m_version > DRW::AC1021)
         m_buf.putUModularChar(object.m_bodyBitSize);
     const size_t bodyStart = m_buf.size();
-    m_buf.putBytes(object.m_rawBytes.data(), object.m_rawBytes.size());
+    m_buf.putBytes(bodyBytes->data(), bodyBytes->size());
 
     const std::uint16_t crc = m_buf.crc16(0xC0C1, static_cast<size_t>(frameStart),
-                                    bodyStart + object.m_rawBytes.size());
+                                    bodyStart + bodyBytes->size());
     m_buf.putRawShort16(crc);
     m_objectMap.emplace_back(object.m_handle, frameStart);
     return true;

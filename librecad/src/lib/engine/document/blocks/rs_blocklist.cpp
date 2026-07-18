@@ -27,6 +27,7 @@
 #include "rs_blocklist.h"
 
 #include <QRegularExpression>
+#include <QSet>
 #include <iostream>
 
 #include "rs_block.h"
@@ -310,6 +311,25 @@ void RS_BlockList::toggle(RS_Block* block) {
     for (const auto l : std::as_const(m_blockListListeners)) {
         l->blockToggled(block);
     }
+}
+
+bool RS_BlockList::toggleMulti(const QList<RS_Block*>& blocks) {
+    QSet<RS_Block*> toggled;
+    for (RS_Block* block : blocks) {
+        if (block != nullptr && !toggled.contains(block)) {
+            block->toggle();
+            toggled.insert(block);
+        }
+    }
+    if (toggled.isEmpty())
+        return false;
+
+    // Every row may have changed. Match freezeAll's full-list notification so
+    // consumers never observe an intermediate derived-INSERT display state.
+    for (const auto listener : std::as_const(m_blockListListeners)) {
+        listener->blockToggled(nullptr);
+    }
+    return true;
 }
 
 /**

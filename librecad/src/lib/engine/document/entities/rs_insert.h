@@ -30,6 +30,7 @@
 
 #include <cstddef>
 
+#include "lc_insert_transform.h"
 #include "rs_entitycontainer.h"
 
 class RS_BlockList;
@@ -208,6 +209,14 @@ public:
         m_data.spacing = s;
     }
 
+    [[nodiscard]] LC_InsertSourceEditStatus lastSourceEditStatus() const noexcept {
+        return m_lastSourceEditStatus;
+    }
+
+    [[nodiscard]] bool lastSourceEditSucceeded() const noexcept {
+        return m_lastSourceEditStatus == LC_InsertSourceEditStatus::Ok;
+    }
+
     bool isVisible() const override;
 
     RS_VectorSolutions getRefPoints() const override;
@@ -225,6 +234,11 @@ public:
     friend std::ostream& operator <<(std::ostream& os, const RS_Insert& i);
 
 protected:
+    void applySourceEdit(const LC_InsertTransform& edit, const char* operation);
+    void setLastSourceEditStatus(LC_InsertSourceEditStatus status) noexcept {
+        m_lastSourceEditStatus = status;
+    }
+
     void invalidateBlockCache() const noexcept {
         m_block = nullptr;
         m_blockList = nullptr;
@@ -232,6 +246,7 @@ protected:
     }
 
     RS_InsertData m_data;
+    LC_InsertSourceEditStatus m_lastSourceEditStatus {LC_InsertSourceEditStatus::Ok};
     mutable RS_Block* m_block = nullptr;
     mutable const RS_BlockList* m_blockList = nullptr;
     mutable std::size_t m_blockListGeneration = 0U;

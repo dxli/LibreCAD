@@ -223,8 +223,12 @@ public:
 class RawEntityCapture : public StubInterface {
 public:
   std::vector<DRW_RawDxfObject> m_entities;
+  std::vector<DRW_Attdef> m_attdefs;
   void addRawDxfEntity(const DRW_RawDxfObject &d) override {
     m_entities.push_back(d);
+  }
+  void addAttDef(const DRW_Attdef &d) override {
+    m_attdefs.push_back(d);
   }
 };
 
@@ -838,17 +842,16 @@ TEST_CASE("DXF ATTDEF writer emits attribute definition fields",
     }
     std::filesystem::remove(path);
 
-    REQUIRE(cap.m_entities.size() == 1);
-    const DRW_RawDxfObject &attdef = cap.m_entities[0];
-    CHECK(attdef.name == "ATTDEF");
-    CHECK(hasStringGroup(attdef, 100, "AcDbAttributeDefinition"));
-    CHECK(hasStringGroup(attdef, 1, "Default"));
-    CHECK(hasStringGroup(attdef, 2, "PARTNO"));
-    CHECK(hasStringGroup(attdef, 3, "Part number?"));
-    CHECK(hasIntGroup(attdef, 70, 3));
-    CHECK(hasIntGroup(attdef, 73, 12));
-    CHECK(hasIntGroup(attdef, 74, DRW_Text::VMiddle));
-    CHECK(hasIntGroup(attdef, 280, 1));
+    REQUIRE(cap.m_entities.empty());
+    REQUIRE(cap.m_attdefs.size() == 1);
+    const DRW_Attdef &attdef = cap.m_attdefs.front();
+    CHECK(attdef.text == "Default");
+    CHECK(attdef.tag == "PARTNO");
+    CHECK(attdef.prompt == "Part number?");
+    CHECK(attdef.attribFlags == 3);
+    CHECK(attdef.m_fieldLength == 12);
+    CHECK(attdef.alignV == DRW_Text::VMiddle);
+    CHECK(attdef.lockPosition == true);
   }
 }
 

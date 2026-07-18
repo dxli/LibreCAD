@@ -30,6 +30,8 @@
 
 #include "rs_actionlayerstoggleview.h"
 
+#include <QList>
+
 #include "rs_debug.h"
 #include "rs_graphic.h"
 #include "rs_layer.h"
@@ -44,21 +46,20 @@ void RS_ActionLayersToggleView::trigger() {
     RS_DEBUG->print("toggle layer");
     if (m_graphic != nullptr) {
         RS_LayerList* ll = m_graphic->getLayerList();
-        bool noLayersToggled = true;
+        QList<RS_Layer*> layersToToggle;
         // toggle selected layers
         for (const auto layer : *ll) {
             if (layer == nullptr || !layer->isVisibleInLayerList() || !layer->isSelectedInLayerList()) {
                 continue;
             }
-            m_graphic->toggleLayer(layer);
-            noLayersToggled = false;
+            layersToToggle.append(layer);
         }
         // if there wasn't selected layers, toggle active layer
-        if (noLayersToggled) {
+        if (layersToToggle.isEmpty()) {
             m_graphic->toggleLayer(m_layer);
+        } else {
+            m_graphic->toggleFreezeLayers(layersToToggle);
         }
-        m_graphic->updateInserts();
-        m_document->calculateBorders();
     }
     finish();
 }

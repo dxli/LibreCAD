@@ -13,6 +13,7 @@
 ******************************************************************************/
 
 #include <algorithm>
+#include <cctype>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -1758,9 +1759,17 @@ bool DRW_Entity::encodeDwgCommon(DRW::Version version, dwgBufferW *buf,
 
     const bool hasOwner = parentHandle != DRW::NoHandle;
 
-    // entmode: 0 = owner handle follows in the handle stream; 2 = modelspace,
-    // no owner-handle in stream.
-    buf->put2Bits(hasOwner ? 0 : 2);
+    // entmode BB (ODA §20.4.1 / Open Design FE):
+    //   0 = owner handle follows in the handle stream
+    //   1 = paperspace entity without owner-relative handle
+    //   2 = modelspace entity without owner-relative handle
+    // Prefer owner when present; otherwise honor DRW_Entity::space.
+    std::uint8_t entmode = 2;
+    if (hasOwner)
+        entmode = 0;
+    else if (space == DRW::PaperSpace)
+        entmode = 1;
+    buf->put2Bits(entmode);
 
     // numReactors (BL per spec §20.4.1). 2a.2: emit the real count; empty
     // reactorHandles → 0 → byte-identical to legacy.
@@ -1798,9 +1807,35 @@ bool DRW_Entity::encodeDwgCommon(DRW::Version version, dwgBufferW *buf,
     // ltypeScale BD.
     buf->putBitDouble(ltypeScale);
 
-    // ltFlags BB (0 = BYLAYER), plotFlags BB (0 = BYLAYER).
-    buf->put2Bits(0);
-    buf->put2Bits(0);
+    // ltFlags BB: 0=BYLAYER, 1=BYBLOCK, 2=CONTINUOUS, 3=lTypeH present.
+    // Prefer an already-set ltFlags; otherwise derive from lineType / lTypeH.
+    {
+        auto upper = [](std::string s) {
+            for (char& c : s)
+                c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));
+            return s;
+        };
+        std::uint8_t flags = ltFlags;
+        if (flags > 3)
+            flags = 0;
+        if (flags == 0 && lTypeH.ref != 0)
+            flags = 3;
+        if (flags == 0) {
+            const std::string lt = upper(lineType);
+            if (lt.empty() || lt == "BYLAYER")
+                flags = 0;
+            else if (lt == "BYBLOCK")
+                flags = 1;
+            else if (lt == "CONTINUOUS")
+                flags = 2;
+            else
+                flags = 3;  // named linetype — handle required
+        }
+        ltFlags = flags;
+    }
+    buf->put2Bits(ltFlags);
+    // plotFlags BB: keep BYLAYER (0) this pass unless already set to 3.
+    buf->put2Bits(plotFlags & 0x3);
 
     // R2010 (AC1024): materialFlag BB + shadowFlag RC (version > AC1018).
     if (version > DRW::AC1018) {
@@ -1892,10 +1927,20 @@ bool DRW_Entity::encodeDwgEntHandle(DRW::Version version, dwgBufferW *buf,
     }
     hb->putHandle(lH);
 
-    // ltFlags=0 → no separate lTypeH (BYLAYER).
-    // plotFlags=0 → no plotStyleH (BYLAYER).
-    // materialFlag=0 → no materialH (for AC1024).
-    // visualStyle flags=0 → no visualStyleH (for AC1024).
+    // ltFlags=3 → lTypeH (hard pointer, code 5) present; else omit.
+    if (ltFlags == 3) {
+        dwgHandle ltH;
+        ltH.code = lTypeH.ref == 0 ? 0 : 5;
+        ltH.ref = lTypeH.ref;
+        ltH.size = 0;
+        if (ltH.ref != 0) {
+            std::uint32_t t = ltH.ref;
+            while (t != 0) { t >>= 8; ++ltH.size; }
+        }
+        hb->putHandle(ltH);
+    }
+    // plotFlags remain 0 this pass → no plot-style handle.
+    // materialFlag / visualStyle flags remain 0 → no extra handles.
 
     return true;
 }
@@ -2705,6 +2750,7 @@ bool DRW_Ellipse::parseCode(int code, const std::unique_ptr<dxfReader>& reader){
 void DRW_Ellipse::applyExtrusion(){
     if (haveExtrusion) {
         calculateAxis(extPoint);
+        extrudePoint(extPoint, &basePoint);
         extrudePoint(extPoint, &secPoint);
         double intialparam = staparam;
         if (extPoint.z < 0.){
@@ -5050,6 +5096,7 @@ bool DRW_ArcAlignedText::parseDwg(DRW::Version version, dwgBuffer *buf, std::uin
 DRW_Attrib::~DRW_Attrib() = default;
 DRW_Attrib::DRW_Attrib(const DRW_Attrib& o)
     : DRW_Text(o), tag(o.tag), attribFlags(o.attribFlags),
+      m_fieldLength(o.m_fieldLength),
       lockPosition(o.lockPosition), attVersion(o.attVersion),
       m_attributeType(o.m_attributeType),
       mtext(o.mtext ? std::make_unique<DRW_MText>(*o.mtext) : nullptr) {}
@@ -5058,6 +5105,7 @@ DRW_Attrib& DRW_Attrib::operator=(const DRW_Attrib& o) {
         DRW_Text::operator=(o);
         tag = o.tag;
         attribFlags = o.attribFlags;
+        m_fieldLength = o.m_fieldLength;
         lockPosition = o.lockPosition;
         attVersion = o.attVersion;
         m_attributeType = o.m_attributeType;
@@ -7516,6 +7564,15 @@ bool DRW_Image::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t b
         DRW_DBG("IMAGE clip vertices exceed DWG limit\n");
         return false;
     }
+    // Callers sometimes populate clipPath without setting m_clipBoundaryType
+    // (DXF import historically stored only the vertices). Infer a coherent type
+    // so encode does not reject a well-formed polygon/rectangle path.
+    if (m_clipBoundaryType == 0 && !clipPath.empty()) {
+        if (clipPath.size() == 2)
+            m_clipBoundaryType = 1;
+        else if (clipPath.size() >= 3)
+            m_clipBoundaryType = 2;
+    }
     oType = 101;  // IMAGE class id — see dwgreader.cpp case 101
     if (!encodeDwgCommon(version, buf)) return false;
 
@@ -7695,9 +7752,10 @@ bool DRW_PointCloud::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_
 
 bool DRW_PointCloud::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t bs,
                                 dwgBufferW *strBuf, dwgBufferW *handleBuf) {
-    (void)bs; (void)strBuf; (void)handleBuf;
-    oType = 1157;
-    return encodeDwgCommon(version, buf);
+    // Typed POINTCLOUD body encode is not implemented. Refuse rather than
+    // emit a header-only stub that third-party readers reject.
+    (void)version; (void)buf; (void)bs; (void)strBuf; (void)handleBuf;
+    return false;
 }
 
 bool DRW_PointCloudEx::parseCode(int code, const std::unique_ptr<dxfReader>& reader) {
@@ -7755,9 +7813,8 @@ bool DRW_PointCloudEx::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint3
 
 bool DRW_PointCloudEx::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t bs,
                                   dwgBufferW *strBuf, dwgBufferW *handleBuf) {
-    (void)bs; (void)strBuf; (void)handleBuf;
-    oType = 1158;
-    return encodeDwgCommon(version, buf);
+    (void)version; (void)buf; (void)bs; (void)strBuf; (void)handleBuf;
+    return false;
 }
 
 bool DRW_Surface::parseCode(int code, const std::unique_ptr<dxfReader>& reader) {
@@ -7791,8 +7848,9 @@ bool DRW_Surface::parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t b
 
 bool DRW_Surface::encodeDwg(DRW::Version version, dwgBufferW *buf, std::uint32_t bs,
                              dwgBufferW *strBuf, dwgBufferW *handleBuf) {
-    (void)bs; (void)strBuf; (void)handleBuf;
-    return encodeDwgCommon(version, buf);
+    // Surface/ACIS body encode is not implemented as a full typed path.
+    (void)version; (void)buf; (void)bs; (void)strBuf; (void)handleBuf;
+    return false;
 }
 
 bool DRW_Dimension::parseCode(int code, const std::unique_ptr<dxfReader>& reader){

@@ -23,6 +23,7 @@
 
 #include "lc_dimstylepreviewgraphicview.h"
 
+#include <QList>
 #include <QMouseEvent>
 
 #include "lc_defaultactioncontext.h"
@@ -153,11 +154,14 @@ LC_DimStylePreviewGraphicView* LC_DimStylePreviewGraphicView::init(QWidget* pare
 }
 
 void LC_DimStylePreviewGraphicView::hideNonRelevantLayers(const RS2::EntityType dimType) const {
+    auto* graphic = getGraphic(false);
     if (dimType == RS2::EntityUnknown) {
-        const auto layersList = getGraphic(false)->getLayerList();
-        for (const auto layer: *layersList) {
-            layer->freeze(false);
+        QList<RS_Layer*> layersToShow;
+        const auto layersList = graphic->getLayerList();
+        for (RS_Layer* layer : *layersList) {
+            layersToShow.append(layer);
         }
+        graphic->setFreezeLayers(layersToShow, {});
     }
     else {
         QString layerToShow;
@@ -185,13 +189,20 @@ void LC_DimStylePreviewGraphicView::hideNonRelevantLayers(const RS2::EntityType 
             default:
                 break;
         }
-        const auto layersList = getGraphic(false)->getLayerList();
+        const auto layersList = graphic->getLayerList();
+        QList<RS_Layer*> layersToShow;
+        QList<RS_Layer*> layersToHide;
         for (const auto layer: *layersList) {
-            QString layerName = layer->getName();
+            const QString layerName = layer->getName();
             if (layerName != "0") {
-                layer->freeze(layerName != layerToShow);
+                if (layerName == layerToShow) {
+                    layersToShow.append(layer);
+                } else {
+                    layersToHide.append(layer);
+                }
             }
         }
+        graphic->setFreezeLayers(layersToShow, layersToHide);
     }
 }
 

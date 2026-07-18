@@ -26,6 +26,8 @@
 
 #include "rs_actionblockstoggleview.h"
 
+#include <QList>
+
 #include "rs_block.h"
 #include "rs_debug.h"
 #include "rs_graphic.h"
@@ -40,18 +42,16 @@ void RS_ActionBlocksToggleView::trigger() {
     RS_DEBUG->print("toggle block");
     if (m_graphic != nullptr) {
         RS_BlockList* blockList = m_graphic->getBlockList();
-        unsigned toggledBlocksCount = 0;
-        // toggle selected blocks
+        QList<RS_Block*> blocksToToggle;
+        // Collect first so a multi-selection has one derived-INSERT refresh.
         for (const auto block: *blockList) {
             if (block != nullptr && block->isVisibleInBlockList() && block->isSelectedInBlockList()) {
-                m_graphic->toggleBlock(block);
-                toggledBlocksCount++;
+                blocksToToggle.append(block);
             }
         }
-        // if there wasn't selected blocks, toggle active block
-        if (toggledBlocksCount == 0) {
-            m_graphic->toggleBlock(m_graphic->getActiveBlock());
-        }
+        if (blocksToToggle.isEmpty())
+            blocksToToggle.append(m_graphic->getActiveBlock());
+        m_graphic->toggleBlocks(blocksToToggle);
     }
     redrawDrawing();
     finish();

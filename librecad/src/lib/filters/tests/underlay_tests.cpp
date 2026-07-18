@@ -131,6 +131,7 @@ public:
 
   void writeDwgClasses() override {
     m_rw->registerUnderlayDefinitionObjectClass(&m_definition);
+    m_rw->registerUnderlayEntityClass(m_u.kind);
   }
   void writeEntities() override { m_rw->writeUnderlay(&m_u); }
   void writeObjects() override { m_rw->writeUnderlayDefinition(&m_definition); }
@@ -270,7 +271,12 @@ TEST_CASE("DWG round-trip: UNDERLAY reference and definition preserve fields",
   {
     dwgRW w(path.string().c_str());
     emitter.m_rw = &w;
-    REQUIRE(w.write(&emitter, DRW::AC1018, true));
+    const bool ok = w.write(&emitter, DRW::AC1018, true);
+    if (!ok) {
+      UNSCOPED_INFO("write error code=" << static_cast<int>(w.getError()));
+      FAIL("dwg write failed with error=" << static_cast<int>(w.getError()));
+    }
+    REQUIRE(ok);
   }
 
   UnderlayCapture capture;

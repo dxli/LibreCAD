@@ -529,7 +529,19 @@ bool dwgRW::writeMLine(DRW_MLine *ent) {
 }
 
 bool dwgRW::writeUnderlay(DRW_Underlay *ent) {
+    if (ent == nullptr)
+        return recordWriteResult(WriteSkipKind::Entity, false);
+    // Entity custom class must be in CLASSES before the body is encoded.
+    if (!registerUnderlayEntityClass(ent->kind))
+        return recordWriteResult(WriteSkipKind::ClassRegistration, false);
     return encodeEntityForWrite(ent);
+}
+
+bool dwgRW::registerUnderlayEntityClass(DRW_Underlay::Kind kind) {
+    if (writer == nullptr)
+        return recordWriteResult(WriteSkipKind::ClassRegistration, false);
+    return recordWriteResult(WriteSkipKind::ClassRegistration,
+                             writer->registerUnderlayEntityClass(kind));
 }
 
 bool dwgRW::writePolyline(DRW_Polyline *ent) {
@@ -593,11 +605,98 @@ bool dwgRW::writeOle2Frame(DRW_Ole2Frame *ent) {
     return encodeEntityForWrite(ent);
 }
 
+// Table-record add* methods — forward to dwgWriter15 via dynamic_cast since
+// the add*() API lives on dwgWriter15 (all concrete writers derive from it).
+// Declared early so entity writers (IMAGE / IMAGEDEF) can reuse it.
+static dwgWriter15 *asWriter15(std::unique_ptr<dwgWriter> &w) {
+    return dynamic_cast<dwgWriter15 *>(w.get());
+}
+
 bool dwgRW::writeMesh(DRW_Mesh *ent) {
     return encodeEntityForWrite(ent);
 }
 
 bool dwgRW::writeWipeout(DRW_Wipeout *ent) {
+    if (ent == nullptr)
+        return recordWriteResult(WriteSkipKind::Entity, false);
+    // Ensure WIPEOUT custom class is present (bootstrap also registers 530).
+    if (!registerWipeoutEntityClass())
+        return recordWriteResult(WriteSkipKind::ClassRegistration, false);
+    return encodeEntityForWrite(ent);
+}
+
+bool dwgRW::writeImageDef(DRW_ImageDef *object) {
+    auto *w = asWriter15(writer);
+    if (w == nullptr || object == nullptr)
+        return recordWriteResult(WriteSkipKind::Object, false);
+    return recordWriteResult(WriteSkipKind::Object, w->writeImageDef(*object));
+}
+
+bool dwgRW::writeImageDefinitionReactor(DRW_ImageDefinitionReactor *object) {
+    auto *w = asWriter15(writer);
+    if (w == nullptr || object == nullptr)
+        return recordWriteResult(WriteSkipKind::Object, false);
+    return recordWriteResult(WriteSkipKind::Object,
+                             w->writeImageDefinitionReactor(*object));
+}
+
+bool dwgRW::registerImageDefReactorObjectClass(
+    DRW_ImageDefinitionReactor *object) {
+    if (writer == nullptr)
+        return recordWriteResult(WriteSkipKind::ClassRegistration, false);
+    const std::uint32_t handle = object != nullptr ? object->handle : 0;
+    return recordWriteResult(WriteSkipKind::ClassRegistration,
+                             writer->registerImageDefReactorObjectClass(handle));
+}
+
+bool dwgRW::writeImage(DRW_Image *ent, const std::string *fileName) {
+    if (ent == nullptr)
+        return recordWriteResult(WriteSkipKind::Entity, false);
+
+    // When a path is provided, emit IMAGEDEF + reactor and wire handles so
+    // re-read delivers both the entity frame and linkImage().
+    if (fileName != nullptr && !fileName->empty()) {
+        auto *w = asWriter15(writer);
+        if (w == nullptr)
+            return recordWriteResult(WriteSkipKind::Entity, false);
+
+        DRW_ImageDef imageDef;
+        imageDef.name = *fileName;
+        imageDef.imgVersion = 0;
+        imageDef.u = ent->sizeu;
+        imageDef.v = ent->sizev;
+        imageDef.up = 1.0;
+        imageDef.vp = 1.0;
+        imageDef.loaded = 1;
+        imageDef.resolution = 0;
+        imageDef.parentHandle = 0xC;  // named object dictionary default owner
+        if (!w->writeImageDef(imageDef))
+            return recordWriteResult(WriteSkipKind::Object, false);
+
+        // Allocate the image entity handle before the reactor so the reactor
+        // can name the image as its owner when the caller left it unset.
+        if (ent->handle == 0)
+            ent->handle = w->allocNextHandle();
+        else
+            w->reserveHandle(ent->handle);
+
+        DRW_ImageDefinitionReactor reactor;
+        reactor.m_classVersion = 2;
+        reactor.parentHandle = static_cast<int>(ent->handle);
+        if (!w->writeImageDefinitionReactor(reactor))
+            return recordWriteResult(WriteSkipKind::Object, false);
+
+        ent->ref = imageDef.handle;
+        ent->m_imageDefReactorHandle = reactor.handle;
+    }
+
+    // IMAGE uses fixed oType 101 — no custom class registration.
+    if (ent->m_clipBoundaryType == 0 && ent->clipPath.empty()) {
+        // Default full-image rectangle so encodeDwg accepts a fresh IMAGE.
+        ent->m_clipBoundaryType = 1;
+        ent->clipPath = {DRW_Coord{-0.5, -0.5, 0.0},
+                         DRW_Coord{ent->sizeu - 0.5, ent->sizev - 0.5, 0.0}};
+    }
     return encodeEntityForWrite(ent);
 }
 
@@ -624,10 +723,12 @@ std::uint32_t dwgRW::defineBlock(const std::string& name, const DRW_Coord& baseP
     return handle;
 }
 
-// Table-record add* methods — forward to dwgWriter15 via dynamic_cast since
-// the add*() API lives on dwgWriter15 (all concrete writers derive from it).
-static dwgWriter15 *asWriter15(std::unique_ptr<dwgWriter> &w) {
-    return dynamic_cast<dwgWriter15 *>(w.get());
+bool dwgRW::beginBlockContent(std::uint32_t blockRecordHandle) {
+    return writer != nullptr && writer->beginBlockContent(blockRecordHandle);
+}
+
+bool dwgRW::endBlockContent() {
+    return writer != nullptr && writer->endBlockContent();
 }
 
 bool dwgRW::addLType(DRW_LType *ent) {

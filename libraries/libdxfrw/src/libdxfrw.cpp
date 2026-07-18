@@ -1039,6 +1039,15 @@ bool dxfRW::writePoint(DRW_Point *ent) {
     if (ent->basePoint.z != 0.0) {
         writer->writeDouble(30, ent->basePoint.z);
     }
+    if (ent->thickness != 0.0) {
+        writer->writeDouble(39, ent->thickness);
+    }
+    if (ent->extPoint.x != 0.0 || ent->extPoint.y != 0.0
+        || ent->extPoint.z != 1.0) {
+        writer->writeDouble(210, ent->extPoint.x);
+        writer->writeDouble(220, ent->extPoint.y);
+        writer->writeDouble(230, ent->extPoint.z);
+    }
     if (ent->xAxisAngle != 0.0)
         writer->writeDouble(50, ent->xAxisAngle * ARAD);  // radians -> DXF degrees (rad * 180/pi)
     if (!ent->extData.empty())
@@ -2785,6 +2794,15 @@ bool dxfRW::writeMText(DRW_MText *ent){
         writer->writeDouble(220, ent->extPoint.y);
         writer->writeDouble(230, ent->extPoint.z);
         writer->writeDouble(50, ent->angle);
+        // MTEXT may carry an explicit WCS x-axis direction (groups 11/21/31)
+        // instead of deriving its rotation from group 50. Preserve it when
+        // present; a zero vector means the optional field was absent.
+        if (ent->secPoint.x != 0.0 || ent->secPoint.y != 0.0
+            || ent->secPoint.z != 0.0) {
+            writer->writeDouble(11, ent->secPoint.x);
+            writer->writeDouble(21, ent->secPoint.y);
+            writer->writeDouble(31, ent->secPoint.z);
+        }
         writer->writeInt16(73, ent->linespacingStyle);  // linespacing style (was: alignV)
         writer->writeDouble(44, ent->interlin);
 //RLZ ... 11, 21, 31 needed?

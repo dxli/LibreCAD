@@ -222,6 +222,10 @@ public:
         m_updateEnabled = on;
     }
 
+    [[nodiscard]] bool isUpdateEnabled() const noexcept {
+        return m_updateEnabled;
+    }
+
     /**
      * This method doesn't do any calculations.
      * @return minimum coordinate of the entity.

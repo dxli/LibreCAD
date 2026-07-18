@@ -36,6 +36,7 @@
 #include "rs_debug.h"
 #include "rs_dialogfactory.h"
 #include "rs_dimension.h"
+#include "rs_document.h"
 #include "rs_ellipse.h"
 #include "rs_information.h"
 #include "rs_insert.h"
@@ -71,6 +72,16 @@ namespace {
         double distance = RS_MAXDOUBLE;
         entity.getNearestEndpoint(point, nullptr, &distance);
         return distance;
+    }
+
+    void clearSelectionBeforeDeletion(RS_Entity* entity) {
+        if (entity == nullptr || !entity->getFlag(RS2::FlagSelected))
+            return;
+        if (RS_Document* document = entity->getDocument()) {
+            document->unselect(entity);
+        } else {
+            entity->setSelectionFlag(false);
+        }
     }
 }
 
@@ -484,6 +495,11 @@ bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
         if (ret) {
             // actually was contained in container
             const bool mayAffectBorders = entity->isVisible();
+            // A selected child may be owned by a transient container such as
+            // an expanded INSERT. Remove it from the document selection before
+            // its storage is released, so selection never retains a dangling
+            // entity pointer.
+            clearSelectionBeforeDeletion(entity);
             if (m_autoDelete) {
                 delete entity;
             }
@@ -502,7 +518,8 @@ bool RS_EntityContainer::removeEntity(RS_Entity* entity) {
 void RS_EntityContainer::clear() {
     if (m_autoDelete) {
         while (!m_entities.isEmpty()) {
-            const RS_Entity* en = m_entities.takeFirst();
+            RS_Entity* en = m_entities.takeFirst();
+            clearSelectionBeforeDeletion(en);
             delete en;
         }
     }
@@ -1125,6 +1142,7 @@ RS_Entity* RS_EntityContainer::entityAt(const int index) const {
 
 void RS_EntityContainer::setEntityAt(const int index, RS_Entity* en) {
     if (m_autoDelete && (m_entities.at(index) != nullptr)) {
+        clearSelectionBeforeDeletion(m_entities.at(index));
         delete m_entities.at(index);
     }
     debugEntityAlreadyPresentExists(en);

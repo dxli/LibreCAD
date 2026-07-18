@@ -60,6 +60,11 @@ class LC_SplinePoints;
 namespace {
       // fixme - sand - add option for intersection tolerance????
 
+    bool acceptedInsertSourceEdit(const RS_Entity& entity) {
+        return entity.rtti() != RS2::EntityInsert
+               || static_cast<const RS_Insert&>(entity).lastSourceEditSucceeded();
+    }
+
     RS_VectorSolutions findIntersection(const RS_Entity& trimEntity, const RS_Entity& limitEntity, double tolerance = 1e-4) {
         RS_VectorSolutions sol;
         if (limitEntity.isAtomic()) {
@@ -946,21 +951,27 @@ RS_Polyline* RS_Modification::polylineTrim(RS_Polyline* polyline, RS_AtomicEntit
 void RS_Modification::move(const RS_MoveData& data, const QList<RS_Entity*>& entitiesList, const bool forPreviewOnly,
                            LC_DocumentModificationBatch& ctx) {
     const int numberOfCopies = data.obtainNumberOfCopies();
+    QList<RS_Entity*> transformedOriginals = entitiesList;
     for (const auto e : entitiesList) {
         // Create new entities
         for (int num = 1; num <= numberOfCopies; num++) {
             RS_Entity* clone = getClone(forPreviewOnly, e);
             clone->move(data.offset * num);
+            if (!acceptedInsertSourceEdit(*clone)) {
+                transformedOriginals.removeAll(e);
+                delete clone;
+                continue;
+            }
             ctx += clone;
         }
     }
 
     if (!data.keepOriginals) {
-        ctx -= entitiesList;
+        ctx -= transformedOriginals;
     }
     ctx.setActiveLayer = data.useCurrentLayer;
     ctx.setActivePen = data.useCurrentAttributes;
-    ctx.success = true;
+    ctx.success = !transformedOriginals.isEmpty();
 }
 
 RS_Entity* RS_Modification::getClone(const bool forPreviewOnly, const RS_Entity* e) {
@@ -1064,12 +1075,14 @@ bool RS_Modification::rotate(const RS_RotateData& data, const QList<RS_Entity*>&
                              LC_DocumentModificationBatch& ctx) {
     // Create new entities
     const int numberOfCopies = data.obtainNumberOfCopies();
+    QList<RS_Entity*> transformedOriginals = entitiesList;
     for (const auto e : entitiesList) {
         for (int num = 1; num <= numberOfCopies; num++) {
             RS_Entity* clone = getClone(forPreviewOnly, e);
 
             const double rotationAngle = data.angle * num;
             clone->rotate(data.center, rotationAngle);
+            bool accepted = acceptedInsertSourceEdit(*clone);
 
             bool rotateTwice = data.twoRotations;
             const double distance = data.refPoint.distanceTo(data.center);
@@ -1086,14 +1099,20 @@ bool RS_Modification::rotate(const RS_RotateData& data, const QList<RS_Entity*>&
                     secondRotationAngle -= rotationAngle;
                 }
                 clone->rotate(rotatedRefPoint, secondRotationAngle);
+                accepted = accepted && acceptedInsertSourceEdit(*clone);
+            }
+            if (!accepted) {
+                transformedOriginals.removeAll(e);
+                delete clone;
+                continue;
             }
             ctx += clone;
         }
     }
     if (!data.keepOriginals) {
-        ctx -= entitiesList;
+        ctx -= transformedOriginals;
     }
-    return true;
+    return !transformedOriginals.isEmpty();
 }
 
 /**
@@ -1137,6 +1156,7 @@ bool RS_Modification::scale(const RS_ScaleData& data, const QList<RS_Entity*>& e
     }
 
     const int numberOfCopies = data.obtainNumberOfCopies();
+    QList<RS_Entity*> transformedOriginals = entitiesList;
 
     // Create new entities
     for (const RS_Entity* e : entitiesToScale) {
@@ -1144,6 +1164,11 @@ bool RS_Modification::scale(const RS_ScaleData& data, const QList<RS_Entity*>& e
             for (int num = 1; num <= numberOfCopies; num++) {
                 RS_Entity* clone = getClone(forPreviewOnly, e);
                 clone->scale(data.referencePoint, RS_Math::pow(data.factor, num));
+                if (!acceptedInsertSourceEdit(*clone)) {
+                    transformedOriginals.removeAll(const_cast<RS_Entity*>(e));
+                    delete clone;
+                    continue;
+                }
                 ctx += clone;
             }
         }
@@ -1155,10 +1180,10 @@ bool RS_Modification::scale(const RS_ScaleData& data, const QList<RS_Entity*>& e
     }
 
     if (!data.keepOriginals) {
-        ctx -= entitiesList;
+        ctx -= transformedOriginals;
     }
 
-    return true;
+    return !transformedOriginals.isEmpty();
 }
 
 /**
@@ -1172,20 +1197,26 @@ bool RS_Modification::mirror(const RS_MirrorData& data, const QList<RS_Entity*>&
     constexpr int numberOfCopies = 1;
     // fixme - think about support of multiple copies.... may it be something like moving the central point of selection? Like mirror+move?
 
+    QList<RS_Entity*> transformedOriginals = entitiesList;
     // Create new entities
     for (const auto e : entitiesList) {
         for (int num = 1; num <= numberOfCopies; ++num) {
             RS_Entity* clone = getClone(forPreviewOnly, e);
             clone->mirror(data.axisPoint1, data.axisPoint2);
+            if (!acceptedInsertSourceEdit(*clone)) {
+                transformedOriginals.removeAll(e);
+                delete clone;
+                continue;
+            }
             ctx += clone;
         }
     }
 
     if (!data.keepOriginals) {
-        ctx -= entitiesList;
+        ctx -= transformedOriginals;
     }
 
-    return true;
+    return !transformedOriginals.isEmpty();
 }
 
 /**

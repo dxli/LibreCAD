@@ -25,6 +25,7 @@
 **********************************************************************/
 
 #include "rs_insert.h"
+#include "lc_insert_transform.h"
 
 #include <algorithm>
 #include <cmath>
@@ -41,166 +42,40 @@
 #include "rs_ellipse.h"
 #include "rs_graphic.h"
 #include "rs_layer.h"
-#include "rs_math.h"
 #include "rs_pen.h"
 
 namespace {
-
-constexpr double kIdentityScale = 1.0;
-constexpr double kZero = 0.0;
-constexpr double kNegativeIdentityScale = -kIdentityScale;
-const double kHalfTurnRadians = std::acos(kNegativeIdentityScale);
-const double kFullTurnRadians = kHalfTurnRadians + kHalfTurnRadians;
-
-const RS_Vector& transformOrigin() {
-    static const RS_Vector origin(kZero, kZero);
-    return origin;
-}
 
 const QString& layerZeroName() {
     static const QString name = QStringLiteral("0");
     return name;
 }
 
-enum class LC_InsertTransformStatus {
-    Ok,
-    InvalidFields,
-    UnsupportedNormal,
-    NonFiniteResult
-};
-
-const char* insertTransformStatusName(LC_InsertTransformStatus status) {
-    switch (status) {
-    case LC_InsertTransformStatus::Ok:
-        return "ok";
-    case LC_InsertTransformStatus::InvalidFields:
-        return "invalid fields";
-    case LC_InsertTransformStatus::UnsupportedNormal:
-        return "unsupported normal";
-    case LC_InsertTransformStatus::NonFiniteResult:
-        return "non-finite result";
-    }
-    return "unknown status";
+bool layerNameEquals(RS_Layer *layer, const QString &name) {
+    return layer != nullptr && layer->getName().compare(name, Qt::CaseInsensitive) == 0;
 }
 
-// A 2D affine map used solely while expanding INSERTs.  The source fields are
-// the BLOCK base point, INSERT insertion/scale/rotation, MINSERT spacing, and
-// the only two OCS normals representable by LibreCAD's 2D entity model (+Z/-Z).
-// General affine shear and non-planar OCS are rejected before an expansion is
-// committed; approximating either would silently change drawing geometry.
-struct LC_InsertTransform {
-    double a = kIdentityScale;
-    double b = kZero;
-    double c = kZero;
-    double d = kIdentityScale;
-    double tx = kZero;
-    double ty = kZero;
+bool usesInheritedLayer(const RS_Entity& entity) {
+    return layerNameEquals(entity.getLayer(), layerZeroName());
+}
 
-    bool isFinite() const {
-        return std::isfinite(a) && std::isfinite(b) && std::isfinite(c)
-               && std::isfinite(d) && std::isfinite(tx) && std::isfinite(ty);
+// Expanded INSERTs are flattened, so the derived child must retain the
+// visibility contributed by every block-reference ancestor. Layer 0 is the
+// exception: within a block definition it inherits that ancestor's layer.
+bool hasEffectiveInsertVisibility(const RS_Entity& entity, bool inheritedVisibility) {
+    if (!inheritedVisibility || entity.isDeleted()
+        || !entity.getFlag(RS2::FlagVisible)) {
+        return false;
     }
+    if (usesInheritedLayer(entity))
+        return true;
 
-    RS_Vector mapVector(const RS_Vector& vector) const {
-        return RS_Vector(a * vector.x + c * vector.y,
-                         b * vector.x + d * vector.y, vector.z);
-    }
-
-    RS_Vector mapLeafPoint(const RS_Vector& point) const {
-        RS_Vector result = mapVector(point);
-        result.move(RS_Vector(tx, ty));
-        return result;
-    }
-
-    static bool compose(const LC_InsertTransform& parent,
-                        const LC_InsertTransform& child,
-                        LC_InsertTransform& result) {
-        result.a = parent.a * child.a + parent.c * child.b;
-        result.b = parent.b * child.a + parent.d * child.b;
-        result.c = parent.a * child.c + parent.c * child.d;
-        result.d = parent.b * child.c + parent.d * child.d;
-        result.tx = parent.a * child.tx + parent.c * child.ty + parent.tx;
-        result.ty = parent.b * child.tx + parent.d * child.ty + parent.ty;
-        return result.isFinite();
-    }
-
-    static RS_Vector mapArrayOffset(const RS_Vector& spacing, int column, int row,
-                                    double cosAngle, double sinAngle,
-                                    double ocsXAxis) {
-        const RS_Vector arrayOffset(spacing.x * column, spacing.y * row);
-        // MINSERT spacing is rotated into OCS but is not affected by INSERT
-        // scale.  The base point is part of the scaled block-local geometry.
-        return RS_Vector(ocsXAxis * (cosAngle * arrayOffset.x
-                                     - sinAngle * arrayOffset.y),
-                         sinAngle * arrayOffset.x + cosAngle * arrayOffset.y);
-    }
-
-    static LC_InsertTransformStatus fromInsert(const RS_InsertData& data,
-                                                const RS_Vector& base, int column,
-                                                int row, LC_InsertTransform& result) {
-        const double sx = data.scaleFactor.x;
-        const double sy = data.scaleFactor.y;
-        if (column < 0 || row < 0 || !std::isfinite(sx) || !std::isfinite(sy)
-            || sx == kZero || sy == kZero || !std::isfinite(data.angle)
-            || !data.insertionPoint.valid || !base.valid
-            || !std::isfinite(data.insertionPoint.x) || !std::isfinite(data.insertionPoint.y)
-            || !std::isfinite(base.x) || !std::isfinite(base.y)
-            || !std::isfinite(data.spacing.x) || !std::isfinite(data.spacing.y)) {
-            return LC_InsertTransformStatus::InvalidFields;
-        }
-        // DXF INSERT is OCS.  A 2D document can faithfully represent only the
-        // two axial normals.  The -Z arbitrary-axis basis maps local X to -X.
-        if (!std::isfinite(data.extrusion.x) || !std::isfinite(data.extrusion.y)
-            || !std::isfinite(data.extrusion.z) || data.extrusion.x != kZero
-            || data.extrusion.y != kZero || data.extrusion.z == kZero) {
-            return LC_InsertTransformStatus::UnsupportedNormal;
-        }
-        const double cosAngle = std::cos(data.angle);
-        const double sinAngle = std::sin(data.angle);
-        const double ocsXAxis = data.extrusion.z < kZero ? kNegativeIdentityScale
-                                                        : kIdentityScale;
-        // INSERT points are in OCS.  For the two axial normals a 2D engine can
-        // represent, the arbitrary-axis frame is F(+Z)=I and F(-Z)=diag(-1,1).
-        // The columns below are F * rotation(angle) * scale(x,y).
-        result.a = ocsXAxis * cosAngle * sx;
-        result.b = sinAngle * sx;
-        result.c = -ocsXAxis * sinAngle * sy;
-        result.d = cosAngle * sy;
-        const RS_Vector rotatedArrayOffset = mapArrayOffset(data.spacing, column, row,
-                                                             cosAngle, sinAngle, ocsXAxis);
-        const RS_Vector mappedBase = result.mapVector(base);
-        result.tx = ocsXAxis * data.insertionPoint.x + rotatedArrayOffset.x
-                    - mappedBase.x;
-        result.ty = data.insertionPoint.y + rotatedArrayOffset.y - mappedBase.y;
-        if (!result.isFinite() || !std::isfinite(rotatedArrayOffset.x)
-            || !std::isfinite(rotatedArrayOffset.y)) {
-            return LC_InsertTransformStatus::NonFiniteResult;
-        }
-        return LC_InsertTransformStatus::Ok;
-    }
-
-    // This decomposition is the capability boundary.  Native LibreCAD entity
-    // transforms support translation, rotation, scaling and reflection, but
-    // not a general affine shear.  The epsilon only compares computed values;
-    // it never selects geometry based on drawing-unit magnitude.
-    bool decompose(double& sx, double& sy, double& angle) const {
-        const double col0 = std::hypot(a, b);
-        const double col1 = std::hypot(c, d);
-        const double dot = a * c + b * d;
-        // The dot product is the sum of the two products below. Its rounding
-        // error scales with those operands, not with a drawing-unit constant.
-        const double tolerance = std::numeric_limits<double>::epsilon()
-                                 * (std::abs(a * c) + std::abs(b * d));
-        if (!std::isfinite(col0) || !std::isfinite(col1) || col0 == kZero
-            || col1 == kZero || std::abs(dot) > tolerance) {
-            return false;
-        }
-        sx = col0;
-        sy = (a * d - b * c) / col0;
-        angle = std::atan2(b, a);
-        return std::isfinite(sy) && sy != kZero && std::isfinite(angle);
-    }
-};
+    // getLayer() validates imported layer pointers once an entity belongs to a
+    // graphic. Avoid RS_Entity::isVisible() here because its explicit-layer
+    // fast path intentionally assumes a live pointer.
+    const RS_Layer* layer = entity.getLayer();
+    return layer == nullptr || !layer->isFrozen();
+}
 
 enum class InsertTransformCapability {
     NativeOrthogonal,
@@ -274,29 +149,36 @@ InsertTransformCapability transformCapability(const RS_Entity& entity) {
     return InsertTransformCapability::Unsupported;
 }
 
-bool isUniformScale(double sx, double sy) {
+bool isUniformScale(const LC_InsertTransformParts& parts) {
     const double tolerance = std::numeric_limits<double>::epsilon()
-                             * std::max({kIdentityScale, std::abs(sx), std::abs(sy)});
-    return std::abs(std::abs(sx) - std::abs(sy)) <= tolerance;
+                             * std::max({LC_InsertTransform::IdentityScale,
+                                         std::abs(parts.scaleX),
+                                         std::abs(parts.scaleY)});
+    return std::abs(std::abs(parts.scaleX) - std::abs(parts.scaleY)) <= tolerance;
 }
 
 std::unique_ptr<RS_Entity> cloneForTransform(const RS_Entity& source,
-                                              double sx, double sy) {
+                                              const LC_InsertTransformParts& parts) {
     switch (transformCapability(source)) {
     case InsertTransformCapability::CircleToEllipse:
-        if (!isUniformScale(sx, sy)) {
+        if (!isUniformScale(parts)) {
             const auto& circle = static_cast<const RS_Circle&>(source);
             return std::make_unique<RS_Ellipse>(nullptr,
-                RS_EllipseData{circle.getCenter(), RS_Vector(circle.getRadius(), kZero),
-                               kIdentityScale, kZero, kFullTurnRadians, false});
+                RS_EllipseData{circle.getCenter(),
+                               RS_Vector(circle.getRadius(), LC_InsertTransform::Zero),
+                               LC_InsertTransform::IdentityScale,
+                               LC_InsertTransform::Zero,
+                               lcInsertTransformFullTurnRadians(), false});
         }
         break;
     case InsertTransformCapability::ArcToEllipse:
-        if (!isUniformScale(sx, sy)) {
+        if (!isUniformScale(parts)) {
             const auto& arc = static_cast<const RS_Arc&>(source);
             return std::make_unique<RS_Ellipse>(nullptr,
-                RS_EllipseData{arc.getCenter(), RS_Vector(arc.getRadius(), kZero),
-                               kIdentityScale, arc.getAngle1(), arc.getAngle2(),
+                RS_EllipseData{arc.getCenter(),
+                               RS_Vector(arc.getRadius(), LC_InsertTransform::Zero),
+                               LC_InsertTransform::IdentityScale,
+                               arc.getAngle1(), arc.getAngle2(),
                                arc.isReversed()});
         }
         break;
@@ -315,32 +197,36 @@ void copyExpansionProperties(const RS_Entity& source, RS_Entity& target) {
     target.setVisible(source.getFlag(RS2::FlagVisible));
 }
 
-bool applyTransform(RS_Entity& entity, const LC_InsertTransform& transform) {
-    double sx = kZero;
-    double sy = kZero;
-    double angle = kZero;
-    if (!transform.decompose(sx, sy, angle))
-        return false;
-    const bool reversesOrientation = sy < kZero;
-    entity.setUpdateEnabled(false);
+class ScopedEntityUpdateState final {
+public:
+    explicit ScopedEntityUpdateState(RS_Entity& entity)
+        : m_entity(entity), m_previous(entity.isUpdateEnabled()) {
+        m_entity.setUpdateEnabled(false);
+    }
+
+    ~ScopedEntityUpdateState() {
+        m_entity.setUpdateEnabled(m_previous);
+    }
+
+private:
+    RS_Entity& m_entity;
+    bool m_previous;
+};
+
+void applyTransform(RS_Entity& entity, const LC_InsertTransform& transform,
+                    const LC_InsertTransformParts& parts) {
+    ScopedEntityUpdateState updateState(entity);
     // The decomposition carries the determinant sign in sy.  Route that
     // reflection through the entity's mirror contract rather than hoping each
     // scale() implementation updates directional state (arc sweeps, hatch
     // angles, text alignment, image frames, and similar metadata) for a
     // negative component scale.
-    entity.scale(transformOrigin(), RS_Vector(sx, std::abs(sy)));
-    if (reversesOrientation)
-        entity.mirror(transformOrigin(), RS_Vector(kIdentityScale, kZero));
-    entity.rotate(transformOrigin(), angle);
+    entity.scale(lcInsertTransformOrigin(),
+                 RS_Vector(parts.scaleX, std::abs(parts.scaleY)));
+    if (parts.reversesOrientation)
+        entity.mirror(lcInsertTransformOrigin(), lcInsertTransformReflectionAxisPoint());
+    entity.rotate(lcInsertTransformOrigin(), parts.angle);
     entity.move(RS_Vector(transform.tx, transform.ty));
-    entity.setUpdateEnabled(true);
-    return true;
-}
-
-RS_Vector scaleComponents(const RS_Vector& vector, const RS_Vector& factor) {
-    // INSERT expansion is 2D. Match RS_Vector::scale's established contract:
-    // preserve Z metadata when callers provide the usual two-component factor.
-    return RS_Vector(vector.x * factor.x, vector.y * factor.y, vector.z);
 }
 
 // update the entity pen according to the blockPen
@@ -504,24 +390,30 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
                                 bool inheritedVisibility) -> bool {
         if (expanded.size() >= budget.maxDerivedEntities)
             return false;
-        double sx = kZero;
-        double sy = kZero;
-        double angle = kZero;
-        if (!transform.decompose(sx, sy, angle))
+        LC_InsertTransformParts parts;
+        const auto decompositionStatus = transform.decompose(parts);
+        if (decompositionStatus != LC_InsertTransformDecompositionStatus::Ok) {
+            RS_DEBUG->print(RS_Debug::D_ERROR,
+                            "RS_Insert::update: derived transform rejected: %s",
+                            lcInsertTransformDecompositionStatusName(decompositionStatus));
             return false;
-        auto clone = cloneForTransform(source, sx, sy);
+        }
+        auto clone = cloneForTransform(source, parts);
         if (clone)
             copyExpansionProperties(source, *clone);
-        if (!clone || !applyTransform(*clone, transform))
+        if (!clone) {
+            RS_DEBUG->print(RS_Debug::D_ERROR,
+                            "RS_Insert::update: unsupported derived entity transform");
             return false;
+        }
+        applyTransform(*clone, transform, parts);
         RS_Layer* layer = clone->getLayer();
         if (layerNameEquals(layer, layerZeroName()))
             clone->setLayer(inheritedLayer);
         else if (layer != nullptr && validatedLayer(layer) == nullptr)
             clone->setLayer(nullptr);
         clone->setParent(this);
-        clone->setVisible(source.getFlag(RS2::FlagVisible)
-                          && inheritedVisibility);
+        clone->setVisible(hasEffectiveInsertVisibility(source, inheritedVisibility));
         clone->setSelectionFlag(false);
         clone->setPen(updatePen(clone->getPen(false), blockPen));
         if (m_data.updateMode != RS2::PreviewUpdate)
@@ -554,7 +446,7 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
     bool success = budget.isValid() && arrayFitsBudget(m_data);
     if (success) {
         queueArrayCell(*blk, m_data, LC_InsertTransform{}, expansionPen, getLayer(),
-                       getFlag(RS2::FlagVisible) && !blk->isFrozen(), 0, 0);
+                       isVisible(), 0, 0);
     }
     while (success && !work.empty()) {
         LC_InsertExpansionWork item = std::move(work.back());
@@ -582,7 +474,7 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
             if (transformStatus != LC_InsertTransformStatus::Ok) {
                 RS_DEBUG->print(RS_Debug::D_ERROR,
                                 "RS_Insert::update: transform rejected: %s",
-                                insertTransformStatusName(transformStatus));
+                                lcInsertTransformStatusName(transformStatus));
                 success = false;
                 break;
             }
@@ -684,9 +576,9 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
                 RS_Layer* nestedLayer = nested.getLayer();
                 if (layerNameEquals(nestedLayer, layerZeroName()))
                     nestedLayer = item.inheritedLayer;
-                const bool nestedVisibility = item.inheritedVisibility
-                                              && nested.getFlag(RS2::FlagVisible)
-                                              && !nestedBlock->isFrozen();
+                const bool nestedVisibility =
+                    hasEffectiveInsertVisibility(nested, item.inheritedVisibility)
+                    && !nestedBlock->isFrozen();
                 queueArrayCell(*nestedBlock, nestedData, item.transform,
                                updatePen(nested.getPen(false), item.blockPen), nestedLayer,
                                nestedVisibility, 0, 0);
@@ -773,54 +665,69 @@ RS_Vector RS_Insert::doGetNearestRef(const RS_Vector& coord, double* dist) const
 }
 
 void RS_Insert::move(const RS_Vector& offset) {
-    RS_DEBUG->print("RS_Insert::move: offset: %f/%f", offset.x, offset.y);
-    RS_DEBUG->print("RS_Insert::move1: insertionPoint: %f/%f", m_data.insertionPoint.x, m_data.insertionPoint.y);
-    m_data.insertionPoint.move(offset);
-    RS_DEBUG->print("RS_Insert::move2: insertionPoint: %f/%f", m_data.insertionPoint.x, m_data.insertionPoint.y);
-    update();
+    LC_InsertTransform edit;
+    if (LC_InsertTransform::translation(offset, edit))
+        applySourceEdit(edit, "move");
+    else {
+        setLastSourceEditStatus(LC_InsertSourceEditStatus::InvalidEdit);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Insert::move: invalid transform");
+    }
 }
 
 void RS_Insert::rotate(const RS_Vector& center, double angle) {
-    RS_DEBUG->print("RS_Insert::rotate1: insertionPoint: %f/%f / center: %f/%f",
-                    m_data.insertionPoint.x, m_data.insertionPoint.y,
-                    center.x, center.y);
-    m_data.insertionPoint.rotate(center, angle);
-    m_data.angle = RS_Math::correctAngle(m_data.angle + angle);
-    RS_DEBUG->print("RS_Insert::rotate2: insertionPoint: %f/%f", m_data.insertionPoint.x, m_data.insertionPoint.y);
-    update();
+    LC_InsertTransform edit;
+    if (LC_InsertTransform::rotation(center, angle, edit))
+        applySourceEdit(edit, "rotate");
+    else {
+        setLastSourceEditStatus(LC_InsertSourceEditStatus::InvalidEdit);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Insert::rotate: invalid transform");
+    }
 }
 
 void RS_Insert::rotate(const RS_Vector& center, const RS_Vector& angleVector) {
-    RS_DEBUG->print("RS_Insert::rotate1: insertionPoint: %f/%f "
-                    "/ center: %f/%f",
-                    m_data.insertionPoint.x, m_data.insertionPoint.y,
-                    center.x, center.y);
-    m_data.insertionPoint.rotate(center, angleVector);
-    m_data.angle = RS_Math::correctAngle(m_data.angle + angleVector.angle());
-    RS_DEBUG->print("RS_Insert::rotate2: insertionPoint: %f/%f",
-                    m_data.insertionPoint.x, m_data.insertionPoint.y);
-    update();
+    if (!angleVector.valid || !std::isfinite(angleVector.x)
+        || !std::isfinite(angleVector.y)
+        || (angleVector.x == LC_InsertTransform::Zero
+            && angleVector.y == LC_InsertTransform::Zero)) {
+        setLastSourceEditStatus(LC_InsertSourceEditStatus::InvalidEdit);
+        RS_DEBUG->print(RS_Debug::D_ERROR,
+                        "RS_Insert::rotate: invalid angle vector");
+        return;
+    }
+    rotate(center, angleVector.angle());
 }
 
 void RS_Insert::scale(const RS_Vector& center, const RS_Vector& factor) {
-    RS_DEBUG->print("RS_Insert::scale1: insertionPoint: %f/%f",
-                    m_data.insertionPoint.x, m_data.insertionPoint.y);
-    m_data.insertionPoint.scale(center, factor);
-    m_data.scaleFactor = scaleComponents(m_data.scaleFactor, factor);
-    m_data.spacing = scaleComponents(m_data.spacing, factor);
-    RS_DEBUG->print("RS_Insert::scale2: insertionPoint: %f/%f",
-                    m_data.insertionPoint.x, m_data.insertionPoint.y);
-    update();
-
+    LC_InsertTransform edit;
+    if (LC_InsertTransform::scale(center, factor, edit))
+        applySourceEdit(edit, "scale");
+    else {
+        setLastSourceEditStatus(LC_InsertSourceEditStatus::InvalidEdit);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Insert::scale: invalid transform");
+    }
 }
 
 void RS_Insert::mirror(const RS_Vector& axisPoint1, const RS_Vector& axisPoint2) {
-    m_data.insertionPoint.mirror(axisPoint1, axisPoint2);
-    RS_Vector axisDirection = axisPoint2 - axisPoint1;
-    RS_Vector direction = RS_Vector::polar(kIdentityScale, m_data.angle);
-    direction.mirror(transformOrigin(), axisDirection);
-    m_data.angle = RS_Math::correctAngle(direction.angle() - kHalfTurnRadians);
-    m_data.scaleFactor.x *= -1;
+    LC_InsertTransform edit;
+    if (LC_InsertTransform::reflection(axisPoint1, axisPoint2, edit))
+        applySourceEdit(edit, "mirror");
+    else {
+        setLastSourceEditStatus(LC_InsertSourceEditStatus::InvalidEdit);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Insert::mirror: invalid transform");
+    }
+}
+
+void RS_Insert::applySourceEdit(const LC_InsertTransform& edit, const char* operation) {
+    RS_InsertData transformed;
+    const auto status = lcApplyInsertSourceEdit(m_data, edit, transformed);
+    if (status != LC_InsertSourceEditStatus::Ok) {
+        setLastSourceEditStatus(status);
+        RS_DEBUG->print(RS_Debug::D_ERROR, "RS_Insert::%s: source transform rejected: %s",
+                        operation, lcInsertSourceEditStatusName(status));
+        return;
+    }
+    m_data = std::move(transformed);
+    setLastSourceEditStatus(LC_InsertSourceEditStatus::Ok);
     update();
 }
 

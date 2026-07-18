@@ -31,13 +31,26 @@
 
 #include <QSet>
 
-
 #include "rs_block.h"
 
 #include "rs_blocklist.h"
 #include "rs_graphic.h"
 #include "rs_insert.h"
 #include "rs_line.h"
+
+namespace {
+
+// Presentation-only color for BLOCK definition previews; it is not serialized
+// BLOCK geometry and must not participate in INSERT transform decisions.
+constexpr int kBlockPreviewGrayChannel = 128;
+
+RS_Pen blockDefinitionPreviewPen() {
+    return {RS_Color(kBlockPreviewGrayChannel, kBlockPreviewGrayChannel,
+                     kBlockPreviewGrayChannel),
+            RS2::Width01, RS2::SolidLine};
+}
+
+} // namespace
 
 RS_BlockData::RS_BlockData(const QString& name, const RS_Vector& basePoint, const bool frozen) : name(name), basePoint(basePoint),
     frozen(frozen) {
@@ -53,7 +66,7 @@ bool RS_BlockData::isValid() const {
  */
 RS_Block::RS_Block(RS_EntityContainer* parent, const RS_BlockData& blockData)
     : RS_Document(parent), m_data(blockData) {
-    setPen({RS_Color(128, 128, 128), RS2::Width01, RS2::SolidLine});
+    setPen(blockDefinitionPreviewPen());
 }
 
 RS_Entity* RS_Block::clone() const {

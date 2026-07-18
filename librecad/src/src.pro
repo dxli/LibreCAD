@@ -496,6 +496,7 @@ HEADERS += \
     lib/engine/document/rs_graphic.h \
     lib/engine/document/entities/rs_hatch.h \
     lib/engine/document/entities/lc_hyperbola.h \
+    lib/engine/document/entities/lc_insert_transform.h \
     lib/engine/document/entities/rs_insert.h \
     lib/engine/document/entities/rs_image.h \
     lib/engine/document/entities/lc_wipeout.h \
@@ -1145,6 +1146,7 @@ SOURCES += \
     lib/engine/document/rs_graphic.cpp \
     lib/engine/document/entities/rs_hatch.cpp \
     lib/engine/document/entities/lc_hyperbola.cpp \
+    lib/engine/document/entities/lc_insert_transform.cpp \
     lib/engine/document/entities/rs_insert.cpp \
     lib/engine/document/entities/rs_image.cpp \
     lib/engine/document/entities/lc_wipeout.cpp \

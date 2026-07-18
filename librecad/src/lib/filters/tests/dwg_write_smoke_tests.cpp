@@ -60,6 +60,8 @@
 #include "libdwgr.h"
 #include "rs_filterdxfrw.h"
 #include "rs_graphic.h"
+#include "rs_block.h"
+#include "rs_insert.h"
 #include "rs_layer.h"
 #include "rs_line.h"
 #include "rs_polyline.h"
@@ -640,6 +642,11 @@ public:
     void writeBlocks() override {
         if (m_writer == nullptr)
             return;
+        // defineBlock only registers the block; content must be written inside
+        // beginBlockContent/endBlockContent so entities get parentHandle +
+        // BLOCK_RECORD entity lists (filter uses the same contract).
+        std::vector<std::pair<std::string, std::uint32_t>> handles;
+        handles.reserve(m_order.size());
         for (const std::string& name : m_order) {
             const auto it = m_blocks.find(name);
             REQUIRE(it != m_blocks.end());
@@ -647,7 +654,13 @@ public:
             const std::uint32_t blockRecord =
                 m_writer->defineBlock(name, block.block.basePoint, block.block.insUnits);
             REQUIRE(blockRecord != 0);
-
+            handles.emplace_back(name, blockRecord);
+        }
+        for (const auto& entry : handles) {
+            const auto it = m_blocks.find(entry.first);
+            REQUIRE(it != m_blocks.end());
+            const CapturedVisibilityBlock& block = it->second;
+            REQUIRE(m_writer->beginBlockContent(entry.second));
             for (const DRW_Line& source : block.lines) {
                 DRW_Line line = source;
                 line.handle = DRW::NoHandle;
@@ -666,6 +679,7 @@ public:
                 lwpolyline.parentHandle = DRW::NoHandle;
                 REQUIRE(m_writer->writeLWPolyline(&lwpolyline));
             }
+            REQUIRE(m_writer->endBlockContent());
         }
     }
 
@@ -767,8 +781,9 @@ public:
         if (m_writer == nullptr || m_blockRecH == 0) return;
         DRW_Insert ins;
         ins.basePoint = DRW_Coord{10.0, 20.0, 0.0};
-        ins.xscale = 1.0; ins.yscale = 1.0; ins.zscale = 1.0;
-        ins.angle = 0.0;
+        ins.xscale = 2.0; ins.yscale = -3.0; ins.zscale = 4.0;
+        ins.angle = 0.5;
+        ins.extPoint = DRW_Coord{0.0, 0.0, -1.0};
         ins.color = 4;
         ins.colcount = 3;     // grid → MINSERT (oType 8)
         ins.rowcount = 2;
@@ -788,7 +803,9 @@ public:
 // "GridSym" is the alignment proof.
 TEST_CASE("dwgRW MINSERT round-trips col/row/spacing grid",
           "[dwg-write][smoke][minsert]") {
-    for (DRW::Version ver : {DRW::AC1015, DRW::AC1018}) {
+    for (DRW::Version ver : {DRW::AC1015, DRW::AC1018, DRW::AC1024,
+                             DRW::AC1027, DRW::AC1032}) {
+        CAPTURE(static_cast<int>(ver));
         const std::string path = tempPath("minsert.dwg");
         {
             dwgRW writer(path.c_str());
@@ -810,6 +827,13 @@ TEST_CASE("dwgRW MINSERT round-trips col/row/spacing grid",
         REQUIRE(readIface.m_inserts[0].colspace == 10.0);
         REQUIRE(readIface.m_inserts[0].rowspace == 5.0);
         REQUIRE(readIface.m_inserts[0].basePoint.x == 10.0);
+        REQUIRE(readIface.m_inserts[0].xscale == 2.0);
+        REQUIRE(readIface.m_inserts[0].yscale == -3.0);
+        REQUIRE(readIface.m_inserts[0].zscale == 4.0);
+        REQUIRE(readIface.m_inserts[0].angle == 0.5);
+        REQUIRE(readIface.m_inserts[0].extPoint.x == 0.0);
+        REQUIRE(readIface.m_inserts[0].extPoint.y == 0.0);
+        REQUIRE(readIface.m_inserts[0].extPoint.z == -1.0);
         std::remove(path.c_str());
     }
 }
@@ -1026,6 +1050,75 @@ public:
     void addArc(const DRW_Arc& a)        override { m_arcs.push_back(a); }
     void addEllipse(const DRW_Ellipse& e) override { m_ellipses.push_back(e); }
     void addBlock(const DRW_Block& b)    override { m_blocks.push_back(b.name); }
+};
+
+class ReflectedPlanarCurvesIface : public EntityRoundTripIface {
+public:
+    std::vector<DRW_Trace> m_traces;
+    std::vector<DRW_Solid> m_solids;
+
+    void writeEntities() override {
+        if (m_writer == nullptr)
+            return;
+
+        DRW_Point point;
+        point.basePoint = DRW_Coord{1.0, 2.0, 3.0};
+        point.thickness = 0.5;
+        point.extPoint = DRW_Coord{0.2, 0.3, 0.9327379053088815};
+        point.xAxisAngle = 0.5;
+        REQUIRE(m_writer->writePoint(&point));
+
+        DRW_Line line;
+        line.basePoint = DRW_Coord{4.0, 5.0, 6.0};
+        line.secPoint = DRW_Coord{7.0, 8.0, 9.0};
+        line.thickness = 2.5;
+        line.extPoint = DRW_Coord{0.0, 1.0, 0.0};
+        REQUIRE(m_writer->writeLine(&line));
+
+        DRW_Circle circle;
+        circle.basePoint = DRW_Coord{10.0, 20.0, 0.0};
+        circle.radious = 3.0;
+        circle.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+        REQUIRE(m_writer->writeCircle(&circle));
+
+        DRW_Arc arc;
+        arc.basePoint = DRW_Coord{20.0, 30.0, 0.0};
+        arc.radious = 4.0;
+        arc.staangle = 15.0 * M_PI / 180.0;
+        arc.endangle = 120.0 * M_PI / 180.0;
+        arc.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+        REQUIRE(m_writer->writeArc(&arc));
+
+        DRW_Ellipse ellipse;
+        ellipse.basePoint = DRW_Coord{30.0, 40.0, 0.0};
+        ellipse.secPoint = DRW_Coord{5.0, 1.0, 0.0};
+        ellipse.ratio = 0.3;
+        ellipse.staparam = 0.25;
+        ellipse.endparam = 1.75;
+        ellipse.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+        REQUIRE(m_writer->writeEllipse(&ellipse));
+
+        DRW_Trace trace;
+        trace.basePoint = DRW_Coord{1.0, 2.0, 3.0};
+        trace.secPoint = DRW_Coord{4.0, 5.0, 6.0};
+        trace.thirdPoint = DRW_Coord{7.0, 8.0, 9.0};
+        trace.fourPoint = DRW_Coord{10.0, 11.0, 12.0};
+        trace.thickness = 0.5;
+        trace.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+        REQUIRE(m_writer->writeTrace(&trace));
+
+        DRW_Solid solid;
+        solid.basePoint = DRW_Coord{13.0, 14.0, 15.0};
+        solid.secPoint = DRW_Coord{16.0, 17.0, 18.0};
+        solid.thirdPoint = DRW_Coord{19.0, 20.0, 21.0};
+        solid.fourPoint = DRW_Coord{22.0, 23.0, 24.0};
+        solid.thickness = 1.5;
+        solid.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+        REQUIRE(m_writer->writeSolid(&solid));
+    }
+
+    void addTrace(const DRW_Trace& trace) override { m_traces.push_back(trace); }
+    void addSolid(const DRW_Solid& solid) override { m_solids.push_back(solid); }
 };
 
 class WholeModelRegistryIface;
@@ -1577,10 +1670,9 @@ public:
     void writeDwgClasses() override {
         if (m_writer == nullptr)
             return;
-        if (m_expectReplay)
-            REQUIRE(m_writer->registerRawDwgObjectClass(&m_rawObject));
-        else
-            REQUIRE_FALSE(m_writer->registerRawDwgObjectClass(&m_rawObject));
+        // Class registration is version-agnostic (ordinal + identity only).
+        // Version mismatch is enforced at raw-object replay time.
+        REQUIRE(m_writer->registerRawDwgObjectClass(&m_rawObject));
     }
 
     void writeObjects() override {
@@ -1824,8 +1916,9 @@ public:
     void writeDwgClasses() override {
         if (m_writer == nullptr)
             return;
+        // Same source ordinal, different identity: remap rather than abort.
         REQUIRE(m_writer->registerRawDwgObjectClass(&m_first));
-        REQUIRE_FALSE(m_writer->registerRawDwgObjectClass(&m_second));
+        REQUIRE(m_writer->registerRawDwgObjectClass(&m_second));
     }
 };
 
@@ -2446,6 +2539,99 @@ public:
     }
 };
 
+// IMAGE + IMAGEDEF + IMAGEDEF_REACTOR native write (fixed type 102 + class 532).
+// Previously RS_FilterDXFRW::writeImage no-op'd on the DWG path.
+class ImageRoundTripIface : public EmptyIface {
+public:
+    dwgRW *m_writer {nullptr};
+    std::vector<DRW_Image> m_images;
+    std::vector<DRW_ImageDef> m_imageDefs;
+
+    void writeEntities() override {
+        if (m_writer == nullptr)
+            return;
+        DRW_Image image;
+        image.basePoint = DRW_Coord{1.0, 2.0, 0.0};
+        image.secPoint = DRW_Coord{10.0, 0.0, 0.0};
+        image.vVector = DRW_Coord{0.0, 8.0, 0.0};
+        image.sizeu = 100.0;
+        image.sizev = 50.0;
+        image.brightness = 60;
+        image.contrast = 55;
+        image.fade = 5;
+        image.clip = 1;
+        image.m_displayProps = 7;
+        const std::string fileName = "fixture-raster.png";
+        REQUIRE(m_writer->writeImage(&image, &fileName));
+    }
+
+    void addImage(const DRW_Image *image) override {
+        if (image != nullptr)
+            m_images.push_back(*image);
+    }
+
+    void linkImage(const DRW_ImageDef *imageDef) override {
+        if (imageDef != nullptr)
+            m_imageDefs.push_back(*imageDef);
+    }
+};
+
+// Coexistence: WIPEOUT (530) + UNDERLAY PDF definition (526) must not share
+// a class ordinal (regression for the 526 collision).
+class WipeoutAndUnderlayCoexistIface : public EmptyIface {
+public:
+    dwgRW *m_writer {nullptr};
+    std::vector<DRW_Wipeout> m_wipeouts;
+    std::vector<DRW_UnderlayDefinition> m_defs;
+
+    void writeDwgClasses() override {
+        if (m_writer == nullptr)
+            return;
+        REQUIRE(m_writer->registerWipeoutEntityClass());
+        DRW_UnderlayDefinition def;
+        def.kind = DRW_UnderlayDefinition::PDF;
+        def.handle = 0xA10u;
+        REQUIRE(m_writer->registerUnderlayDefinitionObjectClass(&def));
+    }
+
+    void writeEntities() override {
+        if (m_writer == nullptr)
+            return;
+        DRW_Wipeout wipeout;
+        wipeout.basePoint = DRW_Coord{0.0, 0.0, 0.0};
+        wipeout.secPoint = DRW_Coord{1.0, 0.0, 0.0};
+        wipeout.vVector = DRW_Coord{0.0, 1.0, 0.0};
+        wipeout.sizeu = 2.0;
+        wipeout.sizev = 2.0;
+        wipeout.clip = 1;
+        wipeout.m_clipBoundaryType = 1;
+        wipeout.clipPath = {DRW_Coord{-0.5, -0.5, 0.0},
+                            DRW_Coord{1.5, 1.5, 0.0}};
+        REQUIRE(m_writer->writeWipeout(&wipeout));
+    }
+
+    void writeObjects() override {
+        if (m_writer == nullptr)
+            return;
+        DRW_UnderlayDefinition def;
+        def.kind = DRW_UnderlayDefinition::PDF;
+        def.handle = 0xA10u;
+        def.filename = "sheet.pdf";
+        def.sheetName = "1";
+        REQUIRE(m_writer->writeUnderlayDefinition(&def));
+    }
+
+    void addWipeout(const DRW_Wipeout *wipeout) override {
+        if (wipeout != nullptr)
+            m_wipeouts.push_back(*wipeout);
+    }
+
+    void linkUnderlay(const DRW_UnderlayDefinition *def) override {
+        if (def != nullptr)
+            m_defs.push_back(*def);
+    }
+};
+
 // SPATIAL_FILTER round-trip — populates a clipped-xref filter with a
 // 4-point clip boundary, both clip planes, and identity transform
 // matrices.  Exercises PR 8d.1d's class registration + dispatch.
@@ -3018,6 +3204,181 @@ TEST_CASE("dwgRW writes POINT/LINE/CIRCLE/ARC and reader recovers them",
     std::remove(path.c_str());
 }
 
+TEST_CASE("RS_FilterDXFRW normalizes reflected planar curves in DWG once",
+          "[dwg-write][extrusion][filter]") {
+    ensureQtSettings();
+    const std::string sourcePath = tempPath("reflected_planar_source.dwg");
+    const std::string exportPath = tempPath("reflected_planar_export.dwg");
+    const std::string exportPath2 = tempPath("reflected_planar_export2.dwg");
+
+    {
+        dwgRW writer(sourcePath.c_str());
+        ReflectedPlanarCurvesIface source;
+        source.m_writer = &writer;
+        REQUIRE(writer.write(&source, DRW::AC1015, /*bin=*/false));
+    }
+
+    ReflectedPlanarCurvesIface rawSource;
+    {
+        dwgRW reader(sourcePath.c_str());
+        REQUIRE(reader.read(&rawSource, /*ext=*/false));
+    }
+    REQUIRE(rawSource.m_points.size() == 1);
+    REQUIRE(rawSource.m_lines.size() == 1);
+    REQUIRE(rawSource.m_circles.size() == 1);
+    REQUIRE(rawSource.m_arcs.size() == 1);
+    REQUIRE(rawSource.m_ellipses.size() == 1);
+    REQUIRE(rawSource.m_traces.size() == 1);
+    REQUIRE(rawSource.m_solids.size() == 1);
+    CHECK(rawSource.m_points[0].basePoint.z == 3.0);
+    CHECK(rawSource.m_points[0].thickness == 0.5);
+    CHECK(rawSource.m_points[0].extPoint.x == 0.2);
+    CHECK(rawSource.m_points[0].xAxisAngle == 0.5);
+    CHECK(rawSource.m_lines[0].basePoint.z == 6.0);
+    CHECK(rawSource.m_lines[0].secPoint.z == 9.0);
+    CHECK(rawSource.m_lines[0].thickness == 2.5);
+    CHECK(rawSource.m_lines[0].extPoint.y == 1.0);
+    CHECK(rawSource.m_circles[0].extPoint.z == -1.0);
+    CHECK(rawSource.m_arcs[0].extPoint.z == -1.0);
+    CHECK(rawSource.m_ellipses[0].extPoint.z == -1.0);
+    CHECK(rawSource.m_traces[0].extPoint.z == -1.0);
+    CHECK(rawSource.m_traces[0].thickness == 0.5);
+    CHECK(rawSource.m_solids[0].extPoint.z == -1.0);
+    CHECK(rawSource.m_solids[0].thickness == 1.5);
+
+    RS_Graphic graphic;
+    {
+        RS_FilterDXFRW filter;
+        REQUIRE(filter.fileImport(graphic, QString::fromStdString(sourcePath),
+                                  RS2::FormatDWG));
+        REQUIRE(filter.fileExport(graphic, QString::fromStdString(exportPath),
+                                  RS2::FormatDWG));
+    }
+
+    ReflectedPlanarCurvesIface normalized;
+    {
+        dwgRW reader(exportPath.c_str());
+        REQUIRE(reader.read(&normalized, /*ext=*/false));
+    }
+    REQUIRE(normalized.m_points.size() == 1);
+    REQUIRE(normalized.m_lines.size() == 1);
+    REQUIRE(normalized.m_circles.size() == 1);
+    REQUIRE(normalized.m_arcs.size() == 1);
+    REQUIRE(normalized.m_ellipses.size() == 1);
+    REQUIRE(normalized.m_traces.size() == 1);
+    REQUIRE(normalized.m_solids.size() == 1);
+    CHECK(normalized.m_points[0].basePoint.z == 3.0);
+    CHECK(normalized.m_points[0].thickness == 0.5);
+    CHECK(normalized.m_points[0].extPoint.x == 0.2);
+    CHECK(normalized.m_points[0].xAxisAngle == 0.5);
+    CHECK(normalized.m_lines[0].basePoint.z == 6.0);
+    CHECK(normalized.m_lines[0].secPoint.z == 9.0);
+    CHECK(normalized.m_lines[0].thickness == 2.5);
+    CHECK(normalized.m_lines[0].extPoint.y == 1.0);
+    CHECK(normalized.m_circles[0].basePoint.x == -10.0);
+    CHECK(normalized.m_arcs[0].basePoint.x == -20.0);
+    CHECK(normalized.m_ellipses[0].basePoint.x == -30.0);
+    CHECK(normalized.m_ellipses[0].secPoint.x == -5.0);
+    CHECK(normalized.m_traces[0].basePoint.x == -1.0);
+    CHECK(normalized.m_traces[0].secPoint.x == -4.0);
+    CHECK(normalized.m_traces[0].thirdPoint.x == -7.0);
+    CHECK(normalized.m_traces[0].fourPoint.x == -10.0);
+    CHECK(normalized.m_traces[0].thickness == -0.5);
+    CHECK(normalized.m_solids[0].basePoint.x == -13.0);
+    CHECK(normalized.m_solids[0].secPoint.x == -16.0);
+    CHECK(normalized.m_solids[0].thirdPoint.x == -19.0);
+    CHECK(normalized.m_solids[0].fourPoint.x == -22.0);
+    CHECK(normalized.m_solids[0].thickness == -1.5);
+    CHECK(normalized.m_circles[0].extPoint.z == 1.0);
+    CHECK(normalized.m_arcs[0].extPoint.z == 1.0);
+    CHECK(normalized.m_ellipses[0].extPoint.z == 1.0);
+    CHECK(normalized.m_traces[0].extPoint.z == 1.0);
+    CHECK(normalized.m_solids[0].extPoint.z == 1.0);
+
+    RS_Graphic graphic2;
+    {
+        RS_FilterDXFRW filter;
+        REQUIRE(filter.fileImport(graphic2, QString::fromStdString(exportPath),
+                                  RS2::FormatDWG));
+        REQUIRE(filter.fileExport(graphic2, QString::fromStdString(exportPath2),
+                                  RS2::FormatDWG));
+    }
+
+    ReflectedPlanarCurvesIface normalizedTwice;
+    {
+        dwgRW reader(exportPath2.c_str());
+        REQUIRE(reader.read(&normalizedTwice, /*ext=*/false));
+    }
+    REQUIRE(normalizedTwice.m_points.size() == 1);
+    REQUIRE(normalizedTwice.m_lines.size() == 1);
+    REQUIRE(normalizedTwice.m_circles.size() == 1);
+    REQUIRE(normalizedTwice.m_arcs.size() == 1);
+    REQUIRE(normalizedTwice.m_ellipses.size() == 1);
+    REQUIRE(normalizedTwice.m_traces.size() == 1);
+    REQUIRE(normalizedTwice.m_solids.size() == 1);
+    CHECK(normalizedTwice.m_points[0].basePoint.z
+          == normalized.m_points[0].basePoint.z);
+    CHECK(normalizedTwice.m_points[0].thickness
+          == normalized.m_points[0].thickness);
+    CHECK(normalizedTwice.m_points[0].extPoint.x
+          == normalized.m_points[0].extPoint.x);
+    CHECK(normalizedTwice.m_points[0].xAxisAngle
+          == normalized.m_points[0].xAxisAngle);
+    CHECK(normalizedTwice.m_lines[0].basePoint.z
+          == normalized.m_lines[0].basePoint.z);
+    CHECK(normalizedTwice.m_lines[0].secPoint.z
+          == normalized.m_lines[0].secPoint.z);
+    CHECK(normalizedTwice.m_lines[0].thickness
+          == normalized.m_lines[0].thickness);
+    CHECK(normalizedTwice.m_lines[0].extPoint.y
+          == normalized.m_lines[0].extPoint.y);
+    CHECK(normalizedTwice.m_circles[0].basePoint.x
+          == normalized.m_circles[0].basePoint.x);
+    CHECK(normalizedTwice.m_arcs[0].basePoint.x
+          == normalized.m_arcs[0].basePoint.x);
+    CHECK(normalizedTwice.m_arcs[0].staangle
+          == normalized.m_arcs[0].staangle);
+    CHECK(normalizedTwice.m_arcs[0].endangle
+          == normalized.m_arcs[0].endangle);
+    CHECK(normalizedTwice.m_ellipses[0].basePoint.x
+          == normalized.m_ellipses[0].basePoint.x);
+    CHECK(normalizedTwice.m_ellipses[0].secPoint.x
+          == normalized.m_ellipses[0].secPoint.x);
+    CHECK(normalizedTwice.m_ellipses[0].staparam
+          == normalized.m_ellipses[0].staparam);
+    CHECK(normalizedTwice.m_ellipses[0].endparam
+          == normalized.m_ellipses[0].endparam);
+    CHECK(normalizedTwice.m_traces[0].basePoint.x
+          == normalized.m_traces[0].basePoint.x);
+    CHECK(normalizedTwice.m_traces[0].secPoint.x
+          == normalized.m_traces[0].secPoint.x);
+    CHECK(normalizedTwice.m_traces[0].thirdPoint.x
+          == normalized.m_traces[0].thirdPoint.x);
+    CHECK(normalizedTwice.m_traces[0].fourPoint.x
+          == normalized.m_traces[0].fourPoint.x);
+    CHECK(normalizedTwice.m_traces[0].thickness
+          == normalized.m_traces[0].thickness);
+    CHECK(normalizedTwice.m_solids[0].basePoint.x
+          == normalized.m_solids[0].basePoint.x);
+    CHECK(normalizedTwice.m_solids[0].secPoint.x
+          == normalized.m_solids[0].secPoint.x);
+    CHECK(normalizedTwice.m_solids[0].thirdPoint.x
+          == normalized.m_solids[0].thirdPoint.x);
+    CHECK(normalizedTwice.m_solids[0].fourPoint.x
+          == normalized.m_solids[0].fourPoint.x);
+    CHECK(normalizedTwice.m_solids[0].thickness
+          == normalized.m_solids[0].thickness);
+    CHECK(normalizedTwice.m_circles[0].extPoint.z == 1.0);
+    CHECK(normalizedTwice.m_arcs[0].extPoint.z == 1.0);
+    CHECK(normalizedTwice.m_ellipses[0].extPoint.z == 1.0);
+    CHECK(normalizedTwice.m_traces[0].extPoint.z == 1.0);
+    CHECK(normalizedTwice.m_solids[0].extPoint.z == 1.0);
+
+    std::remove(sourcePath.c_str());
+    std::remove(exportPath.c_str());
+    std::remove(exportPath2.c_str());
+}
+
 TEST_CASE("dwgRW whole-model registry round-trips seeded writable types",
           "[dwg-write][whole-model][registry]") {
     const std::vector<WritableTypeEntry>& registry = writableTypeRegistry();
@@ -3174,19 +3535,19 @@ TEST_CASE("dwgRW rejects raw object replay without an exact source version",
           "[dwg-write][raw-replay][version]") {
     const std::string path = tempPath("raw_replay_version_mismatch.dwg");
     dwgRW::WriteSkipCounters writeSkips;
+    RawObjectReplayIface writeIface(DRW::AC1027, /*expectReplay=*/false);
 
     {
-        // The carrier was encoded for R2013, while this file is R2018. The
-        // facade and the writer must both reject it before reserving its handle
-        // or registering its custom class.
-        RawObjectReplayIface writeIface(DRW::AC1027, /*expectReplay=*/false);
+        // The carrier was encoded for R2013, while this file is R2018.
+        // Class registration may succeed (remappable ordinal), but replay
+        // must reject the version-mismatched raw body.
         dwgRW writer(path.c_str());
         writeIface.m_writer = &writer;
         REQUIRE(writer.write(&writeIface, DRW::AC1032, /*bin=*/false));
         writeSkips = writer.getWriteSkipCounters();
     }
 
-    CHECK(writeSkips.classRegistrations == 1);
+    CHECK(writeSkips.classRegistrations == 0);
     CHECK(writeSkips.rawObjectWrites == 1);
 
     RawObjectReplayIface readIface(DRW::AC1032);
@@ -3196,7 +3557,15 @@ TEST_CASE("dwgRW rejects raw object replay without an exact source version",
         REQUIRE(reader.getVersion() == DRW::AC1032);
         REQUIRE(reader.getError() == DRW::BAD_NONE);
     }
-    CHECK(readIface.m_unsupportedObjects.empty());
+    bool foundRejectedCarrier = false;
+    for (const DRW_UnsupportedObject& object : readIface.m_unsupportedObjects) {
+        if (object.m_handle == writeIface.m_rawObject.m_handle
+            && object.m_objectType == writeIface.m_rawObject.m_objectType) {
+            foundRejectedCarrier = true;
+            break;
+        }
+    }
+    CHECK_FALSE(foundRejectedCarrier);
 
     std::remove(path.c_str());
 }
@@ -3483,7 +3852,7 @@ TEST_CASE("dwgRW dual-delivers BREAKDATA raw payloads for same-format replay",
     }
 }
 
-TEST_CASE("dwgRW rejects conflicting custom class registrations",
+TEST_CASE("dwgRW remaps conflicting custom class registrations",
           "[dwg-write][raw-replay][classes]") {
     const DRW::Version versions[] = {DRW::AC1024, DRW::AC1027, DRW::AC1032};
 
@@ -3492,7 +3861,10 @@ TEST_CASE("dwgRW rejects conflicting custom class registrations",
         ConflictingRawClassIface iface(version);
         dwgRW writer(path.c_str());
         iface.m_writer = &writer;
-        REQUIRE_FALSE(writer.write(&iface, version, /*bin=*/false));
+        // Whole-file write must succeed: dual identity on one ordinal remaps
+        // to a free custom class number (G2) instead of aborting.
+        REQUIRE(writer.write(&iface, version, /*bin=*/false));
+        CHECK(writer.getWriteSkipCounters().classRegistrations == 0);
         std::remove(path.c_str());
     }
 }
@@ -4301,6 +4673,68 @@ TEST_CASE("dwgRW writes and reads a rectangular WIPEOUT native frame",
 
         std::remove(path.c_str());
     }
+}
+
+TEST_CASE("dwgRW writes and reads IMAGE with IMAGEDEF",
+          "[dwg-write][image]") {
+    const DRW::Version versions[] = {DRW::AC1015, DRW::AC1018,
+                                     DRW::AC1024, DRW::AC1027, DRW::AC1032};
+
+    for (DRW::Version version : versions) {
+        const std::string path = tempPath("native_image.dwg");
+        {
+            dwgRW writer(path.c_str());
+            ImageRoundTripIface iface;
+            iface.m_writer = &writer;
+            REQUIRE(writer.write(&iface, version, /*bin=*/false));
+        }
+
+        ImageRoundTripIface readIface;
+        {
+            dwgRW reader(path.c_str());
+            REQUIRE(reader.read(&readIface, /*ext=*/false));
+            REQUIRE(reader.getVersion() == version);
+            REQUIRE(reader.getError() == DRW::BAD_NONE);
+        }
+
+        REQUIRE(readIface.m_images.size() == 1);
+        const DRW_Image& image = readIface.m_images.front();
+        CHECK(image.basePoint.x == Catch::Approx(1.0));
+        CHECK(image.basePoint.y == Catch::Approx(2.0));
+        CHECK(image.sizeu == Catch::Approx(100.0));
+        CHECK(image.sizev == Catch::Approx(50.0));
+        CHECK(image.brightness == 60);
+        CHECK(image.contrast == 55);
+        CHECK(image.ref != 0u);
+        REQUIRE(readIface.m_imageDefs.size() == 1);
+        CHECK(readIface.m_imageDefs.front().name == "fixture-raster.png");
+        CHECK(readIface.m_imageDefs.front().u == Catch::Approx(100.0));
+        CHECK(readIface.m_imageDefs.front().handle == image.ref);
+
+        std::remove(path.c_str());
+    }
+}
+
+TEST_CASE("dwgRW writes WIPEOUT and PDF UNDERLAYDEFINITION without class conflict",
+          "[dwg-write][wipeout][underlay]") {
+    const std::string path = tempPath("wipeout_underlay_coexist.dwg");
+    {
+        dwgRW writer(path.c_str());
+        WipeoutAndUnderlayCoexistIface iface;
+        iface.m_writer = &writer;
+        REQUIRE(writer.write(&iface, DRW::AC1018, /*bin=*/false));
+    }
+
+    WipeoutAndUnderlayCoexistIface readIface;
+    {
+        dwgRW reader(path.c_str());
+        REQUIRE(reader.read(&readIface, /*ext=*/false));
+        REQUIRE(reader.getError() == DRW::BAD_NONE);
+    }
+    REQUIRE(readIface.m_wipeouts.size() == 1);
+    REQUIRE(readIface.m_defs.size() == 1);
+    CHECK(readIface.m_defs.front().filename == "sheet.pdf");
+    std::remove(path.c_str());
 }
 
 // NOLINTNEXTLINE(readability-identifier-naming)
@@ -5861,7 +6295,10 @@ public:
         pl.width = 0.25;
         pl.elevation = 7.5;
         pl.thickness = 1.25;
-        pl.extPoint = DRW_Coord{0.0, 1.0, 0.0};
+        // Axial extrusion only: RS_FilterDXFRW drops non-axial LWPOLYLINE
+        // (strictly 2D LibreCAD polylines). Metadata under test is width /
+        // elevation / thickness / vertex ids, not arbitrary OCS normals.
+        pl.extPoint = DRW_Coord{0.0, 0.0, 1.0};
 
         DRW_Vertex2D v0(0.0, 0.0, 0.0);
         v0.stawidth = 0.1;
@@ -6069,8 +6506,8 @@ TEST_CASE("RS_FilterDXFRW preserves LWPOLYLINE metadata sidecar",
     REQUIRE(roundTrip.elevation == 7.5);
     REQUIRE(roundTrip.thickness == 1.25);
     REQUIRE(roundTrip.extPoint.x == 0.0);
-    REQUIRE(roundTrip.extPoint.y == 1.0);
-    REQUIRE(roundTrip.extPoint.z == 0.0);
+    REQUIRE(roundTrip.extPoint.y == 0.0);
+    REQUIRE(roundTrip.extPoint.z == 1.0);
     REQUIRE(roundTrip.vertlist.size() == 3);
     REQUIRE(roundTrip.vertlist[0]->stawidth == 0.1);
     REQUIRE(roundTrip.vertlist[0]->endwidth == 0.2);
@@ -6592,6 +7029,44 @@ std::vector<RS_Line*> collectFilterRoundTripLines(RS_Graphic& graphic) {
     return lines;
 }
 
+RS_Insert* collectOnlyTopLevelInsert(RS_Graphic& graphic) {
+    RS_Insert* insert = nullptr;
+    for (RS_Entity* entity :
+         lc::LC_ContainerTraverser{graphic, RS2::ResolveNone}.entities()) {
+        if (entity == nullptr || entity->rtti() != RS2::EntityInsert)
+            continue;
+        REQUIRE(insert == nullptr);
+        insert = static_cast<RS_Insert*>(entity);
+    }
+    REQUIRE(insert != nullptr);
+    return insert;
+}
+
+void populateFilterMInsertSourceGraphic(RS_Graphic& graphic) {
+    graphic.initForNewDocument();
+    auto* leaf = new RS_Block(
+        &graphic, RS_BlockData(QStringLiteral("LEAF_SYMBOL"),
+                               RS_Vector(1.0, 2.0, 0.0), false));
+    leaf->addEntity(new RS_Line(leaf, RS_LineData(RS_Vector(1.0, 2.0, 0.0),
+                                                   RS_Vector(3.0, 2.0, 0.0))));
+    graphic.addBlock(leaf);
+
+    auto* block = new RS_Block(
+        &graphic, RS_BlockData(QStringLiteral("GRID_SYMBOL"),
+                               RS_Vector(1.0, 2.0, 0.0), false));
+    block->addEntity(new RS_Insert(
+        block, RS_InsertData(QStringLiteral("LEAF_SYMBOL"), RS_Vector(4.0, 5.0, 0.0),
+                             RS_Vector(1.0, 1.0, 1.0), 0.25, 1, 1,
+                             RS_Vector(0.0, 0.0), nullptr)));
+    graphic.addBlock(block);
+
+    RS_InsertData data(QStringLiteral("GRID_SYMBOL"), RS_Vector(10.0, 20.0, 30.0),
+                       RS_Vector(2.0, -3.0, 4.0), 0.5, 3, 2,
+                       RS_Vector(5.0, 6.0), nullptr, RS2::NoUpdate);
+    data.extrusion = RS_Vector(0.0, 0.0, -1.0);
+    graphic.addEntity(new RS_Insert(&graphic, data));
+}
+
 bool samePoint(const RS_Vector& point, double x, double y) {
     return std::abs(point.x - x) < 1.0e-9
         && std::abs(point.y - y) < 1.0e-9;
@@ -6681,6 +7156,74 @@ TEST_CASE("RS_FilterDXFRW round-trips DWG exports across writer versions",
         REQUIRE(sawVertical);
 
         std::remove(path.c_str());
+    }
+}
+
+TEST_CASE("RS_FilterDXFRW preserves reflected MINSERT source fields across DWG versions",
+          "[dwg-write][filter-roundtrip][insert][extrusion]") {
+    ensureQtSettings();
+
+    for (const FilterDwgRoundTripCase& item : filterDwgRoundTripCases()) {
+        INFO("DWG version: " << item.tag);
+        const std::string path =
+            tempPath((std::string("filter_minsert_") + item.tag + ".dwg").c_str());
+        std::filesystem::remove(path);
+
+        {
+            RS_Graphic source;
+            populateFilterMInsertSourceGraphic(source);
+            RS_FilterDXFRW filter;
+            REQUIRE(filter.fileExport(source, QString::fromStdString(path), item.format));
+        }
+
+        RS_Graphic reopened;
+        {
+            RS_FilterDXFRW filter;
+            REQUIRE(filter.fileImport(reopened, QString::fromStdString(path),
+                                      RS2::FormatDWG));
+        }
+
+        RS_Insert* insert = collectOnlyTopLevelInsert(reopened);
+        const RS_InsertData data = insert->getData();
+        CHECK(data.name == QStringLiteral("GRID_SYMBOL"));
+        // A reflected non-uniform MINSERT of a rotated nested INSERT composes
+        // to shear.  The source INSERT must survive, while the derived cache
+        // remains empty rather than containing an incorrect partial expansion.
+        REQUIRE(insert->count() == 0);
+        CHECK(data.insertionPoint.x == Catch::Approx(10.0));
+        CHECK(data.insertionPoint.y == Catch::Approx(20.0));
+        CHECK(data.insertionPoint.z == Catch::Approx(30.0));
+        CHECK(data.scaleFactor.x == Catch::Approx(2.0));
+        CHECK(data.scaleFactor.y == Catch::Approx(-3.0));
+        CHECK(data.scaleFactor.z == Catch::Approx(4.0));
+        CHECK(data.angle == Catch::Approx(0.5));
+        CHECK(data.cols == 3);
+        CHECK(data.rows == 2);
+        CHECK(data.spacing.x == Catch::Approx(5.0));
+        CHECK(data.spacing.y == Catch::Approx(6.0));
+        CHECK(data.extrusion.x == Catch::Approx(0.0));
+        CHECK(data.extrusion.y == Catch::Approx(0.0));
+        CHECK(data.extrusion.z == Catch::Approx(-1.0));
+        RS_Block* grid = reopened.getBlockList()->find(QStringLiteral("GRID_SYMBOL"));
+        REQUIRE(grid != nullptr);
+        REQUIRE(grid->count() == 1);
+        const auto* nested = dynamic_cast<const RS_Insert*>(grid->entityAt(0));
+        REQUIRE(nested != nullptr);
+        CHECK(nested->getName() == QStringLiteral("LEAF_SYMBOL"));
+        CHECK(nested->count() == 1);
+        CHECK(nested->getInsertionPoint().x == Catch::Approx(4.0));
+        CHECK(nested->getInsertionPoint().y == Catch::Approx(5.0));
+        CHECK(nested->getAngle() == Catch::Approx(0.25));
+
+        RS_Block* leaf = reopened.getBlockList()->find(QStringLiteral("LEAF_SYMBOL"));
+        REQUIRE(leaf != nullptr);
+        REQUIRE(leaf->count() == 1);
+        const auto* line = dynamic_cast<const RS_Line*>(leaf->entityAt(0));
+        REQUIRE(line != nullptr);
+        CHECK(line->getStartpoint().x == Catch::Approx(1.0));
+        CHECK(line->getEndpoint().x == Catch::Approx(3.0));
+
+        std::filesystem::remove(path);
     }
 }
 
@@ -7083,4 +7626,42 @@ TEST_CASE("RS_FilterDXFRW raw-object replay allows only exact same-version repla
     CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1015, DRW::AC1024));
     CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::AC1014, DRW::AC1015));
     CHECK_FALSE(F::sameRawObjectEncodingFamily(DRW::UNKNOWNV, DRW::AC1018));
+}
+
+TEST_CASE("dwgRW remaps raw class ordinal conflicts instead of aborting write",
+          "[dwg-write][class-remap]") {
+    // Bootstrap already claims class 520 for MESH. Register a raw custom object
+    // that also uses 520 with a different identity — must remap and still write.
+    class RemapIface : public EmptyIface {
+    public:
+        dwgRW *m_writer {nullptr};
+        void writeDwgClasses() override {
+            if (m_writer == nullptr)
+                return;
+            DRW_UnsupportedObject raw;
+            raw.m_version = DRW::AC1018;
+            raw.m_objectType = 520;  // collides with MESH bootstrap
+            raw.m_handle = 0xB00u;
+            raw.m_isCustomClass = true;
+            raw.m_isEntity = false;
+            raw.m_recordName = "FAKE_CUSTOM_OBJ";
+            raw.m_className = "AcDbFakeCustomObj";
+            // Minimal object body: OT 520 as bitshort + common handle padding.
+            dwgBufferW body;
+            body.putBitShort(520);
+            dwgHandle nullH;
+            body.putHandle(nullH);
+            raw.m_rawBytes = body.data();
+            // Registration alone exercises remap; write may skip invalid body.
+            REQUIRE(m_writer->registerRawDwgObjectClass(&raw));
+        }
+    };
+
+    const std::string path = tempPath("class_remap.dwg");
+    dwgRW writer(path.c_str());
+    RemapIface iface;
+    iface.m_writer = &writer;
+    // write should succeed (no class conflict abort) even with ordinal clash.
+    REQUIRE(writer.write(&iface, DRW::AC1018, /*bin=*/false));
+    std::remove(path.c_str());
 }

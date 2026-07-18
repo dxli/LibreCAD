@@ -25,6 +25,7 @@
  * the group into LC_DwgAdvancedMetadata.
  */
 
+#include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
 
 #include <algorithm>
@@ -38,6 +39,7 @@
 #include <string>
 
 #include "drw_header.h"
+#include "drw_entities.h"
 #include "drw_objects.h"
 #include "libdxfrw.h"
 
@@ -121,6 +123,54 @@ public:
 
   void addInsert(const DRW_Insert &d) override {
     m_captured.push_back(d);
+  }
+};
+
+class EllipseCapture : public StubInterface {
+public:
+  int m_callCount = 0;
+  DRW_Ellipse m_captured;
+
+  void addEllipse(const DRW_Ellipse &d) override {
+    if (m_callCount == 0)
+      m_captured = d;
+    ++m_callCount;
+  }
+};
+
+class CircleCapture : public StubInterface {
+public:
+  int m_callCount = 0;
+  DRW_Circle m_captured;
+
+  void addCircle(const DRW_Circle &d) override {
+    if (m_callCount == 0)
+      m_captured = d;
+    ++m_callCount;
+  }
+};
+
+class ArcCapture : public StubInterface {
+public:
+  int m_callCount = 0;
+  DRW_Arc m_captured;
+
+  void addArc(const DRW_Arc &d) override {
+    if (m_callCount == 0)
+      m_captured = d;
+    ++m_callCount;
+  }
+};
+
+class LWPolylineCapture : public StubInterface {
+public:
+  int m_callCount = 0;
+  DRW_LWPolyline m_captured;
+
+  void addLWPolyline(const DRW_LWPolyline &d) override {
+    if (m_callCount == 0)
+      m_captured = d;
+    ++m_callCount;
   }
 };
 
@@ -729,7 +779,8 @@ std::string toHexUpper(std::uint32_t h) {
   return std::string(buf);
 }
 
-void readDxf(const std::string &dxf, DRW_Interface &cap, const char *name) {
+void readDxf(const std::string &dxf, DRW_Interface &cap, const char *name,
+             bool applyExtrusion = true) {
   const auto path = std::filesystem::temp_directory_path() / name;
   std::filesystem::remove(path);
   {
@@ -737,7 +788,7 @@ void readDxf(const std::string &dxf, DRW_Interface &cap, const char *name) {
     out << dxf;
   }
   dxfRW r(path.string().c_str());
-  REQUIRE(r.read(&cap, /*ext=*/true));
+  REQUIRE(r.read(&cap, applyExtrusion));
   std::filesystem::remove(path);
 }
 
@@ -3253,4 +3304,145 @@ TEST_CASE("DXF SECTIONSETTINGS is read into a DRW_Section (type triple)",
   CHECK(s.m_sectionType == 2);
   CHECK(s.m_generationOptions == 4);
   CHECK(s.m_destinationBlockHandle == 0x3B0u);
+}
+
+TEST_CASE("Ellipse extrusion transforms the OCS center and axis vector",
+          "[dxf][entities][extrusion]") {
+  DRW_Ellipse ellipse;
+  ellipse.basePoint = DRW_Coord(10.0, 20.0, 0.0);
+  ellipse.secPoint = DRW_Coord(3.0, 0.0, 0.0);
+  ellipse.extPoint = DRW_Coord(0.0, 0.0, -1.0);
+  ellipse.haveExtrusion = true;
+  ellipse.staparam = 0.2;
+  ellipse.endparam = 1.3;
+
+  ellipse.applyExtrusion();
+
+  // An OCS normal of (0, 0, -1) reverses OCS X while preserving Y.
+  CHECK(ellipse.basePoint.x == -10.0);
+  CHECK(ellipse.basePoint.y == 20.0);
+  CHECK(ellipse.basePoint.z == 0.0);
+  CHECK(ellipse.secPoint.x == -3.0);
+  CHECK(ellipse.secPoint.y == 0.0);
+  CHECK(ellipse.secPoint.z == 0.0);
+  CHECK(ellipse.staparam == Catch::Approx(2.0 * 3.14159265358979323846 - 1.3));
+  CHECK(ellipse.endparam == Catch::Approx(2.0 * 3.14159265358979323846 - 0.2));
+}
+
+TEST_CASE("DXF ellipse callbacks distinguish raw OCS from converted geometry",
+          "[dxf][entities][extrusion]") {
+  const char *dxf =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\nELLIPSE\n5\n10\n100\nAcDbEntity\n8\n0\n100\nAcDbEllipse\n"
+      "10\n10.0\n20\n20.0\n30\n0.0\n"
+      "11\n3.0\n21\n0.0\n31\n0.0\n40\n0.5\n41\n0.2\n42\n1.3\n"
+      "210\n0.0\n220\n0.0\n230\n-1.0\n"
+      "0\nENDSEC\n0\nEOF\n";
+
+  EllipseCapture raw;
+  readDxf(dxf, raw, "lc_ellipse_raw_ocs.dxf", /*applyExtrusion=*/false);
+  REQUIRE(raw.m_callCount == 1);
+  CHECK(raw.m_captured.basePoint.x == 10.0);
+  CHECK(raw.m_captured.secPoint.x == 3.0);
+  CHECK(raw.m_captured.extPoint.z == -1.0);
+
+  EllipseCapture converted;
+  readDxf(dxf, converted, "lc_ellipse_converted_wcs.dxf",
+          /*applyExtrusion=*/true);
+  REQUIRE(converted.m_callCount == 1);
+  CHECK(converted.m_captured.basePoint.x == -10.0);
+  CHECK(converted.m_captured.secPoint.x == -3.0);
+  CHECK(converted.m_captured.extPoint.z == -1.0);
+  CHECK(converted.m_captured.staparam ==
+        Catch::Approx(2.0 * 3.14159265358979323846 - 1.3));
+  CHECK(converted.m_captured.endparam ==
+        Catch::Approx(2.0 * 3.14159265358979323846 - 0.2));
+}
+
+TEST_CASE("DXF circle callbacks distinguish raw OCS from converted geometry",
+          "[dxf][entities][extrusion]") {
+  const char *dxf =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\nCIRCLE\n5\n11\n100\nAcDbEntity\n8\n0\n100\nAcDbCircle\n"
+      "10\n10.0\n20\n20.0\n30\n0.0\n40\n3.0\n"
+      "210\n0.0\n220\n0.0\n230\n-1.0\n"
+      "0\nENDSEC\n0\nEOF\n";
+
+  CircleCapture raw;
+  readDxf(dxf, raw, "lc_circle_raw_ocs.dxf", /*applyExtrusion=*/false);
+  REQUIRE(raw.m_callCount == 1);
+  CHECK(raw.m_captured.basePoint.x == 10.0);
+  CHECK(raw.m_captured.radious == 3.0);
+  CHECK(raw.m_captured.extPoint.z == -1.0);
+
+  CircleCapture converted;
+  readDxf(dxf, converted, "lc_circle_converted_wcs.dxf",
+          /*applyExtrusion=*/true);
+  REQUIRE(converted.m_callCount == 1);
+  CHECK(converted.m_captured.basePoint.x == -10.0);
+  CHECK(converted.m_captured.radious == 3.0);
+  CHECK(converted.m_captured.extPoint.z == -1.0);
+}
+
+TEST_CASE("DXF arc conversion reverses an axial-negative partial sweep",
+          "[dxf][entities][extrusion]") {
+  const char *dxf =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\nARC\n5\n12\n100\nAcDbEntity\n8\n0\n100\nAcDbCircle\n"
+      "10\n10.0\n20\n20.0\n30\n0.0\n40\n3.0\n"
+      "210\n0.0\n220\n0.0\n230\n-1.0\n"
+      "100\nAcDbArc\n50\n30.0\n51\n120.0\n"
+      "0\nENDSEC\n0\nEOF\n";
+
+  ArcCapture raw;
+  readDxf(dxf, raw, "lc_arc_raw_ocs.dxf", /*applyExtrusion=*/false);
+  REQUIRE(raw.m_callCount == 1);
+  CHECK(raw.m_captured.basePoint.x == 10.0);
+  CHECK(raw.m_captured.staangle == Catch::Approx(3.14159265358979323846 / 6.0));
+  CHECK(raw.m_captured.endangle == Catch::Approx(2.0 * 3.14159265358979323846 / 3.0));
+
+  ArcCapture converted;
+  readDxf(dxf, converted, "lc_arc_converted_wcs.dxf",
+          /*applyExtrusion=*/true);
+  REQUIRE(converted.m_callCount == 1);
+  CHECK(converted.m_captured.basePoint.x == -10.0);
+  // The reflected OCS frame reverses traversal. Arc stores an undirected
+  // CCW sweep, so the converted endpoints are mirrored and swapped.
+  CHECK(converted.m_captured.staangle ==
+        Catch::Approx(3.14159265358979323846 / 3.0));
+  CHECK(converted.m_captured.endangle ==
+        Catch::Approx(5.0 * 3.14159265358979323846 / 6.0));
+  CHECK(converted.m_captured.extPoint.z == -1.0);
+}
+
+TEST_CASE("DXF LWPolyline conversion retains raw elevation metadata",
+          "[dxf][entities][extrusion]") {
+  const char *dxf =
+      "0\nSECTION\n2\nENTITIES\n"
+      "0\nLWPOLYLINE\n5\n13\n100\nAcDbEntity\n8\n0\n100\nAcDbPolyline\n"
+      "90\n2\n70\n0\n38\n7.0\n"
+      "10\n1.0\n20\n2.0\n42\n0.5\n"
+      "10\n3.0\n20\n4.0\n42\n-0.5\n"
+      "210\n0.0\n220\n0.0\n230\n-1.0\n"
+      "0\nENDSEC\n0\nEOF\n";
+
+  LWPolylineCapture raw;
+  readDxf(dxf, raw, "lc_lwpolyline_raw_ocs.dxf", /*applyExtrusion=*/false);
+  REQUIRE(raw.m_callCount == 1);
+  REQUIRE(raw.m_captured.vertlist.size() == 2);
+  CHECK(raw.m_captured.vertlist[0]->x == 1.0);
+  CHECK(raw.m_captured.elevation == 7.0);
+  CHECK(raw.m_captured.extPoint.z == -1.0);
+
+  LWPolylineCapture converted;
+  readDxf(dxf, converted, "lc_lwpolyline_converted_wcs.dxf",
+          /*applyExtrusion=*/true);
+  REQUIRE(converted.m_callCount == 1);
+  REQUIRE(converted.m_captured.vertlist.size() == 2);
+  CHECK(converted.m_captured.vertlist[0]->x == -1.0);
+  CHECK(converted.m_captured.vertlist[0]->y == 2.0);
+  CHECK(converted.m_captured.elevation == 7.0);
+  CHECK(converted.m_captured.extPoint.z == -1.0);
+  CHECK(converted.m_captured.vertlist[0]->bulge == 0.5);
+  CHECK(converted.m_captured.vertlist[1]->bulge == -0.5);
 }

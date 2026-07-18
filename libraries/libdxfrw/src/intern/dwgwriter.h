@@ -23,6 +23,7 @@
 #include <vector>
 
 #include "../drw_base.h"
+#include "../drw_entities.h"
 #include "../drw_header.h"
 #include "../drw_objects.h"
 #include "../handle_allocator.h"
@@ -103,9 +104,15 @@ public:
                           "AcDbDgnReference", "DGNUNDERLAY", false, 0x1F2});
         registerDwgClass({525, 0x401, "ObjectDBX Classes",
                           "AcDbDwfReference", "DWFUNDERLAY", false, 0x1F2});
-        // WIPEOUT entity custom class (DRW_Wipeout::kDwgClassNum == 526)
-        registerDwgClass({526, 0x401, "WipeOut",
+        // WIPEOUT (530): was 526, which collided with PDF UNDERLAYDEFINITION.
+        // Bootstrap so writeWipeout works even without an explicit register call.
+        registerDwgClass({530, 0x401, "WipeOut",
                           "AcDbWipeout", "WIPEOUT", false, 0x1F2});
+        // IMAGEDEF_REACTOR is a custom object class (fixed IMAGEDEF is type 102).
+        // Ordinal must match DRW_ImageDefinitionReactor::kDwgClassNum (532).
+        registerDwgClass({DRW_ImageDefinitionReactor::kDwgClassNum, 0x401, "ACAD",
+                          "AcDbRasterImageDefReactor", "IMAGEDEF_REACTOR",
+                          false, 0x1F3});
     }
 
     virtual ~dwgWriter() = default;
@@ -149,15 +156,21 @@ public:
     /// calling.  Returns true on success.
     virtual bool encodeEntity(DRW_Entity *ent) = 0;
 
-    /// Define an empty user-block.  Allocates fresh handles for the
-    /// Block_Record + Block + ENDBLK trio and emits all three to the
-    /// object stream.  Appends the block_record handle to the deferred
-    /// BLOCK_CONTROL list so a later `emitDeferredBlockControl` call
-    /// includes it.  Returns the Block_Record handle (suitable for
-    /// `DRW_Insert::blockRecH.ref`).  Returns 0 on failure.
+    /// Define a user-block. Allocates fresh handles for the Block_Record,
+    /// Block, and ENDBLK trio, and appends its record handle to the deferred
+    /// BLOCK_CONTROL list. Call beginBlockContent()/endBlockContent() to
+    /// associate subsequently encoded entities with this definition.
+    /// Returns the Block_Record handle (suitable for
+    /// `DRW_Insert::blockRecH.ref`), or 0 on failure.
     virtual std::uint32_t defineBlock(const std::string& name,
                                 const DRW_Coord& basePoint,
                                 int insUnits = 0) = 0;
+
+    /// Select a previously defined user block as the owner for subsequently
+    /// encoded entities. Calls may not nest and must be balanced by
+    /// endBlockContent() before emitDeferredBlockControl().
+    virtual bool beginBlockContent(std::uint32_t blockRecordHandle) = 0;
+    virtual bool endBlockContent() = 0;
 
     /// Emit BLOCK_CONTROL with the user-block list captured by all
     /// prior `defineBlock` calls.  Invoked by the orchestrator after
@@ -198,6 +211,31 @@ public:
         return false;
     }
 
+    /// Remap source (file-local) custom class number → writer-local class
+    /// number when raw replay would collide with a different CLASSES identity.
+    std::uint16_t remappedRawClassNum(std::uint16_t sourceClassNum) const {
+        auto it = m_rawClassNumRemap.find(sourceClassNum);
+        return it != m_rawClassNumRemap.end() ? it->second : sourceClassNum;
+    }
+
+    std::uint16_t nextFreeCustomClassNum() const {
+        std::uint16_t candidate = 500;
+        for (;;) {
+            bool taken = false;
+            for (const DwgClassDefinition& existing : m_dwgClassDefinitions) {
+                if (existing.m_classNum == candidate) {
+                    taken = true;
+                    break;
+                }
+            }
+            if (!taken)
+                return candidate;
+            if (candidate == 0xFFFF)
+                return 0;
+            ++candidate;
+        }
+    }
+
     bool registerRawObjectClass(const DRW_UnsupportedObject& object) {
         if (!object.m_isCustomClass || object.m_objectType < 500)
             return true;
@@ -216,6 +254,35 @@ public:
         // 0x1F2->entity and everything else->object, so this only improves
         // third-party/AutoCAD conformance; self-round-trip is unaffected.
         definition.m_entityFlagRaw = object.m_isEntity ? 0x1F2 : 0x1F3;
+
+        // Resolve ordinal collisions with a different identity by remapping to
+        // a free class number (writer-local). Do not set m_hasDwgClassConflict
+        // for remappable raw classes — that aborted whole-file saves.
+        for (const DwgClassDefinition& existing : m_dwgClassDefinitions) {
+            if (existing.m_classNum != definition.m_classNum)
+                continue;
+            if (sameDwgClassIdentity(existing, definition))
+                break;  // same identity — fall through to registerDwgClass
+            // Prefer an already-registered slot with the same identity.
+            bool reused = false;
+            for (const DwgClassDefinition& other : m_dwgClassDefinitions) {
+                if (sameDwgClassIdentity(other, definition)) {
+                    m_rawClassNumRemap[definition.m_classNum] = other.m_classNum;
+                    definition.m_classNum = other.m_classNum;
+                    reused = true;
+                    break;
+                }
+            }
+            if (!reused) {
+                const std::uint16_t freeNum = nextFreeCustomClassNum();
+                if (freeNum < 500)
+                    return false;
+                m_rawClassNumRemap[definition.m_classNum] = freeNum;
+                definition.m_classNum = freeNum;
+            }
+            break;
+        }
+
         if (object.m_handle != 0
             && m_rawClassInstanceHandles.insert({definition.m_classNum,
                                                  object.m_handle}).second) {
@@ -288,16 +355,30 @@ public:
         return registerDwgClass(definition);
     }
 
-    /// Register WIPEOUT entity custom class (AcDbWipeout).
-    /// Matches DRW_Wipeout::kDwgClassNum in drw_entities.h (file-local 526).
     bool registerWipeoutEntityClass() {
         DwgClassDefinition definition;
-        definition.m_classNum = 526;  // DRW_Wipeout::kDwgClassNum
+        definition.m_classNum = DRW_Wipeout::kDwgClassNum;  // 530
         definition.m_proxyFlag = 0x401;
         definition.m_appName = "WipeOut";
         definition.m_className = "AcDbWipeout";
         definition.m_recordName = "WIPEOUT";
         definition.m_entityFlagRaw = 0x1F2;  // entity class (ODA item_class_id)
+        return registerDwgClass(definition);
+    }
+
+    bool registerImageDefReactorObjectClass(std::uint32_t handle = 0) {
+        DwgClassDefinition definition;
+        definition.m_classNum = DRW_ImageDefinitionReactor::kDwgClassNum;
+        definition.m_proxyFlag = 0x401;
+        definition.m_appName = "ACAD";
+        definition.m_className = "AcDbRasterImageDefReactor";
+        definition.m_recordName = "IMAGEDEF_REACTOR";
+        definition.m_entityFlagRaw = 0x1F3;  // object class
+        if (handle != 0
+            && m_rawClassInstanceHandles.insert({definition.m_classNum,
+                                                 handle}).second) {
+            definition.m_instanceCount = 1;
+        }
         return registerDwgClass(definition);
     }
 
@@ -515,6 +596,35 @@ public:
         return registerDwgClass(definition);
     }
 
+    /// Register UNDERLAY *entity* class (PDFUNDERLAY/DGNUNDERLAY/DWFUNDERLAY).
+    /// Required before encodeEntity can emit a custom-class underlay body —
+    /// definition registration alone is not enough (read-side classes both).
+    bool registerUnderlayEntityClass(DRW_Underlay::Kind kind) {
+        DwgClassDefinition definition;
+        definition.m_proxyFlag = 0x401;
+        definition.m_appName = "ObjectDBX Classes";
+        definition.m_entityFlagRaw = 0x1F2;  // entity class
+        switch (kind) {
+        case DRW_Underlay::DGN:
+            definition.m_classNum = DRW_Underlay::kDwgClassNumDgn;
+            definition.m_className = "AcDbDgnReference";
+            definition.m_recordName = "DGNUNDERLAY";
+            break;
+        case DRW_Underlay::DWF:
+            definition.m_classNum = DRW_Underlay::kDwgClassNumDwf;
+            definition.m_className = "AcDbDwfReference";
+            definition.m_recordName = "DWFUNDERLAY";
+            break;
+        case DRW_Underlay::PDF:
+        default:
+            definition.m_classNum = DRW_Underlay::kDwgClassNumPdf;
+            definition.m_className = "AcDbPdfReference";
+            definition.m_recordName = "PDFUNDERLAY";
+            break;
+        }
+        return registerDwgClass(definition);
+    }
+
     bool hasDwgClassDefinition(std::uint16_t classNum) const {
         return std::any_of(m_dwgClassDefinitions.begin(), m_dwgClassDefinitions.end(),
                            [classNum](const DwgClassDefinition& definition) {
@@ -678,6 +788,8 @@ protected:
 
     std::vector<DwgClassDefinition> m_dwgClassDefinitions;
     std::set<std::pair<std::uint16_t, std::uint32_t>> m_rawClassInstanceHandles;
+    /// Source custom class ordinal → writer-local ordinal (raw replay only).
+    std::map<std::uint16_t, std::uint16_t> m_rawClassNumRemap;
     bool m_hasDwgClassConflict {false};
 };
 

@@ -81,6 +81,8 @@ public:
     QString newName(const QString& suggestion = "");
     void toggle(const QString& name);
     void toggle(RS_Block* block);
+    /** Toggles each distinct block once and emits one full-list notification. */
+    bool toggleMulti(const QList<RS_Block*>& blocks);
     void freezeAll(bool freeze);
 
     void addListener(RS_BlockListListener* listener);

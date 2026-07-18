@@ -23,6 +23,8 @@
 
 #include "lc_actionentitylayertoggle.h"
 
+#include <QList>
+
 #include "rs_graphic.h"
 #include "rs_layer.h"
 
@@ -54,12 +56,16 @@ void LC_ActionLayerToggle::doWithLayer(RS_Graphic* graphic, RS_Layer* layer) {
         }
         case RS2::ActionLayerEntityHideOthers: {
             const auto layersList = graphic->getLayerList();
+            QList<RS_Layer*> layersToShow;
+            QList<RS_Layer*> layersToHide;
             for (RS_Layer* l: *layersList) {
-                if (l != layer) {
-                    l->freeze(true);
+                if (l == layer) {
+                    layersToShow.append(l);
+                } else {
+                    layersToHide.append(l);
                 }
             }
-            layersList->fireLayerToggled();
+            graphic->setFreezeLayers(layersToShow, layersToHide);
             break;
         }
         default:

@@ -29,6 +29,8 @@
 
 #include<iostream>
 
+#include <QSet>
+
 #include "rs_debug.h"
 #include "rs_layer.h"
 #include "rs_layerlistlistener.h"
@@ -489,11 +491,11 @@ void RS_LayerList::setConstructionMulti(const QList<RS_Layer*>& layersNoConstruc
 }
 
 void RS_LayerList::toggleFreezeMulti(const QList<RS_Layer*>& layers) {
-    const int count = layers.count();
-    for (int i = 0; i < count; i++) {
-        RS_Layer* layer = layers.at(i);
-        if (layer != nullptr) {
+    QSet<RS_Layer*> toggled;
+    for (RS_Layer* layer : layers) {
+        if (layer != nullptr && !toggled.contains(layer)) {
             layer->toggle();
+            toggled.insert(layer);
         }
     }
     fireLayerToggled();

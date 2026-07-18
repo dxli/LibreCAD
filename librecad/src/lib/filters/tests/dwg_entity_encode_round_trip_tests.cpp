@@ -64,6 +64,7 @@ public:
     static dwgHandle& layerH(DRW_Entity& e) { return e.layerH; }
     static std::uint16_t oType(const DRW_Entity& e) { return e.oType; }
     static std::uint8_t& hasDsData(DRW_Entity& e) { return e.hasDsData; }
+    static std::uint8_t& ltFlags(DRW_Entity& e) { return e.ltFlags; }
 };
 
 namespace {
@@ -670,7 +671,9 @@ TEST_CASE("DRW_LWPolyline::encodeDwg round-trips bulges + widths",
     src.handle = 0xA1;
     src.color = 2;
     src.flags = 0;
-    src.extPoint = DRW_Coord{0.0, 0.0, 1.0};
+    src.extPoint = DRW_Coord{0.0, 0.0, -1.0};
+    src.elevation = 7.0;
+    src.thickness = 0.25;
 
     auto v0 = src.addVertex(); v0->x = 0.0; v0->y = 0.0;
         v0->bulge = 0.5;  v0->stawidth = 0.1; v0->endwidth = 0.2;
@@ -693,6 +696,9 @@ TEST_CASE("DRW_LWPolyline::encodeDwg round-trips bulges + widths",
         REQUIRE(dst.vertlist[0]->stawidth == 0.1);
         REQUIRE(dst.vertlist[0]->endwidth == 0.2);
         REQUIRE(dst.vertlist[1]->stawidth == 0.2);
+        REQUIRE(dst.elevation == 7.0);
+        REQUIRE(dst.thickness == 0.25);
+        REQUIRE(dst.extPoint.z == -1.0);
     }
 }
 
@@ -753,12 +759,12 @@ TEST_CASE("DRW_Ellipse::encodeDwg round-trips center + axis + ratio + params",
     DRW_Ellipse src;
     src.handle = 0x80;
     src.color = 4;
-    src.basePoint = DRW_Coord{0.0, 0.0, 0.0};
-    src.secPoint  = DRW_Coord{10.0, 0.0, 0.0};  // major axis
-    src.extPoint  = DRW_Coord{0.0, 0.0, 1.0};
+    src.basePoint = DRW_Coord{10.0, 20.0, 0.0};
+    src.secPoint  = DRW_Coord{3.0, 0.0, 0.0};  // major axis vector
+    src.extPoint  = DRW_Coord{0.0, 0.0, -1.0};
     src.ratio = 0.5;
-    src.staparam = 0.0;
-    src.endparam = 6.283185307179586;  // 2π — full ellipse
+    src.staparam = 0.2;
+    src.endparam = 1.3;
     DrwEntityEncodeTestAccess::layerH(src).ref = 0x12;
 
     for (DRW::Version ver : {DRW::AC1015, DRW::AC1018}) {
@@ -770,11 +776,13 @@ TEST_CASE("DRW_Ellipse::encodeDwg round-trips center + axis + ratio + params",
         REQUIRE(DrwEntityEncodeTestAccess::parse(dst, ver, &r));
 
         REQUIRE(dst.handle      == 0x80u);
-        REQUIRE(dst.basePoint.x == 0.0);
-        REQUIRE(dst.secPoint.x  == 10.0);
+        REQUIRE(dst.basePoint.x == 10.0);
+        REQUIRE(dst.basePoint.y == 20.0);
+        REQUIRE(dst.secPoint.x  == 3.0);
+        REQUIRE(dst.extPoint.z  == -1.0);
         REQUIRE(dst.ratio       == 0.5);
-        REQUIRE(dst.staparam    == 0.0);
-        REQUIRE(dst.endparam    == 6.283185307179586);
+        REQUIRE(dst.staparam    == 0.2);
+        REQUIRE(dst.endparam    == 1.3);
     }
 }
 
@@ -1859,4 +1867,52 @@ TEST_CASE("DRW_Entity sources has_ds_data from the member at AC1027/AC1032",
         // Flipping has_ds_data must alter the stream (bit is member-sourced now).
         REQUIRE(withZero != withOne);
     }
+}
+
+TEST_CASE("DRW_Line::encodeDwg emits CONTINUOUS ltFlags and paperspace entmode",
+          "[dwg-write][entity-encode][linetype][paperspace]") {
+    for (DRW::Version ver : {DRW::AC1015, DRW::AC1018}) {
+        {
+            DRW_Line src;
+            src.handle = 0x50;
+            src.lineType = "CONTINUOUS";
+            DrwEntityEncodeTestAccess::ltFlags(src) = 2;
+            src.basePoint = DRW_Coord{0, 0, 0};
+            src.secPoint = DRW_Coord{1, 0, 0};
+            DrwEntityEncodeTestAccess::layerH(src).ref = 0x12;
+
+            dwgBufferW w;
+            REQUIRE(DrwEntityEncodeTestAccess::encode(src, ver, &w));
+            auto bytes = snapshot(w);
+            dwgBuffer r(bytes.data(), bytes.size());
+            DRW_Line dst;
+            REQUIRE(DrwEntityEncodeTestAccess::parse(dst, ver, &r));
+            CHECK(DrwEntityEncodeTestAccess::ltFlags(dst) == 2);
+            CHECK(dst.lineType == "CONTINUOUS");
+        }
+        {
+            DRW_Line src;
+            src.handle = 0x51;
+            src.space = DRW::PaperSpace;
+            src.parentHandle = DRW::NoHandle;
+            src.basePoint = DRW_Coord{2, 3, 0};
+            src.secPoint = DRW_Coord{4, 5, 0};
+            DrwEntityEncodeTestAccess::layerH(src).ref = 0x12;
+
+            dwgBufferW w;
+            REQUIRE(DrwEntityEncodeTestAccess::encode(src, ver, &w));
+            auto bytes = snapshot(w);
+            dwgBuffer r(bytes.data(), bytes.size());
+            DRW_Line dst;
+            REQUIRE(DrwEntityEncodeTestAccess::parse(dst, ver, &r));
+            CHECK(dst.space == DRW::PaperSpace);
+        }
+    }
+}
+
+TEST_CASE("DRW_PointCloud::encodeDwg refuses stub body",
+          "[dwg-write][entity-encode][pointcloud]") {
+    DRW_PointCloud pc;
+    dwgBufferW w;
+    CHECK_FALSE(DrwEntityEncodeTestAccess::encode(pc, DRW::AC1024, &w));
 }

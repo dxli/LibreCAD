@@ -85,6 +85,66 @@ namespace {
     }
 }
 
+void RS_Graphic::refreshBlockVisibility() {
+    updateInserts();
+    calculateBorders();
+    validateSelection();
+}
+
+void RS_Graphic::refreshLayerVisibility() {
+    // Expanded INSERT children flatten nested reference layers into their
+    // visibility flags. Rebuild them before deriving bounds or selection.
+    updateInserts();
+    calculateBorders();
+    validateSelection();
+}
+
+void RS_Graphic::toggleLayer(const QString& name) {
+    toggleLayer(m_layerList.find(name));
+}
+
+void RS_Graphic::toggleLayer(RS_Layer* layer) {
+    if (layer == nullptr) {
+        return;
+    }
+    m_layerList.toggle(layer);
+    refreshLayerVisibility();
+}
+
+void RS_Graphic::freezeAllLayers(const bool freeze) {
+    m_layerList.freezeAll(freeze);
+    refreshLayerVisibility();
+}
+
+void RS_Graphic::toggleFreezeLayers(const QList<RS_Layer*>& layers) {
+    m_layerList.toggleFreezeMulti(layers);
+    refreshLayerVisibility();
+}
+
+void RS_Graphic::setFreezeLayers(const QList<RS_Layer*>& layersEnable,
+                                 const QList<RS_Layer*>& layersDisable) {
+    m_layerList.setFreezeMulti(layersEnable, layersDisable);
+    refreshLayerVisibility();
+}
+
+void RS_Graphic::toggleBlock(const QString& name) {
+    toggleBlock(m_blockList.find(name));
+}
+
+void RS_Graphic::toggleBlock(RS_Block* block) {
+    toggleBlocks(QList<RS_Block*>{block});
+}
+
+void RS_Graphic::toggleBlocks(const QList<RS_Block*>& blocks) {
+    if (m_blockList.toggleMulti(blocks))
+        refreshBlockVisibility();
+}
+
+void RS_Graphic::freezeAllBlocks(const bool freeze) {
+    m_blockList.freezeAll(freeze);
+    refreshBlockVisibility();
+}
+
 /**
  * Default constructor.
  */

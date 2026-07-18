@@ -222,10 +222,6 @@ private:
 
 //! Raw carrier for a DWG object/entity class that libdxfrw does not model yet.
 struct DRW_UnsupportedObject {
-    // Raw object bytes are only valid for the DWG version that encoded them.
-    // Keep the provenance with the bytes so direct writer users cannot
-    // accidentally replay an otherwise unlabelled carrier into another format.
-    DRW::Version m_version = DRW::UNKNOWNV;
     int m_objectType = 0;
     std::uint32_t m_handle = 0;
     std::uint32_t m_bodyBitSize = 0;
@@ -236,6 +232,11 @@ struct DRW_UnsupportedObject {
     UTF8STRING m_recordName;
     UTF8STRING m_className;
     std::vector<std::uint8_t> m_rawBytes;
+    // Raw object bytes are only valid for the DWG version that encoded them.
+    // Keep the provenance with the bytes so direct writer users cannot
+    // accidentally replay an otherwise unlabelled carrier into another format.
+    // Append it to preserve the layout of the long-standing carrier fields.
+    DRW::Version m_version = DRW::UNKNOWNV;
 };
 
 //! Lossless carrier for non-object DWG data sections preserved byte-for-byte.
@@ -278,10 +279,16 @@ public:
 class DRW_ImageDefinitionReactor : public DRW_TableEntry {
     SETOBJFRIENDS
 public:
+    // File-local custom class ordinal; matches dwgWriter bootstrap (532).
+    static constexpr std::uint16_t kDwgClassNum = 532;
+
     DRW_ImageDefinitionReactor() { tType = DRW::IMAGEDEFREACTOR; }
 protected:
     bool parseCode(int code, const std::unique_ptr<dxfReader>& reader) override;
     bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
+    [[nodiscard]] bool encodeDwg(DRW::Version version, dwgBufferW *buf,
+                                  dwgBufferW *strBuf = nullptr,
+                                  dwgBufferW *handleBuf = nullptr) const;
 public:
     std::int32_t m_classVersion = 0;
 };
@@ -925,6 +932,10 @@ public:
 protected:
     bool parseCode(int code, const std::unique_ptr<dxfReader>& reader) override;
     bool parseDwg(DRW::Version version, dwgBuffer *buf, std::uint32_t bs=0) override;
+    /// Inverse of parseDwg. Fixed DWG object type 102 (no CLASSES entry).
+    [[nodiscard]] bool encodeDwg(DRW::Version version, dwgBufferW *buf,
+                                  dwgBufferW *strBuf = nullptr,
+                                  dwgBufferW *handleBuf = nullptr) const;
 
 public:
 //    std::string handle;       /*!< entity identifier, code 5 */
@@ -1366,7 +1377,9 @@ public:
 class DRW_DataTable : public DRW_TableEntry {
     SETOBJFRIENDS
 public:
-    static constexpr std::uint16_t kDwgClassNum = 520;
+    // 520 is MESH (AcDbSubDMesh) in the writer's fixed entity class map.
+    // DATATABLE is an object class — keep it off the MESH ordinal.
+    static constexpr std::uint16_t kDwgClassNum = 531;
 
     //! One cell of a DATATABLE column.  A cell always carries all three
     //! variants on the wire (long/double/string); the column's type selects

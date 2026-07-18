@@ -104,6 +104,12 @@ namespace {
 
 constexpr int kImportedSplineFallbackSamples = 96;
 
+template <typename T>
+bool hasNormalizedAxialExtrusion(const T& entity) {
+    return entity.extPoint.x == 0.0 && entity.extPoint.y == 0.0
+        && (entity.extPoint.z == 1.0 || entity.extPoint.z == -1.0);
+}
+
 bool layerExtStringEmpty(const DRW_Variant* v) {
     if (v == nullptr || v->type() != DRW_Variant::STRING)
         return false;
@@ -1385,6 +1391,28 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     }
     RS_DEBUG->print("RS_FilterDXFRW::fileImport: updating inserts");
     const auto updateInsertsStart = std::chrono::steady_clock::now();
+
+    // BLOCK_CONTROL order is not a dependency order. Resolve definition-owned
+    // INSERTs first, from their referenced blocks outward, so model-space
+    // INSERT expansion never snapshots an unresolved nested definition.
+    std::set<RS_Block*> resolvedBlocks;
+    std::set<RS_Block*> resolvingBlocks;
+    const auto updateBlockInserts = [&](auto&& self, RS_Block* block) -> void {
+        if (block == nullptr || resolvedBlocks.find(block) != resolvedBlocks.end())
+            return;
+        if (!resolvingBlocks.insert(block).second)
+            return; // RS_Insert::update() will reject the reference cycle.
+        for (RS_Entity* entity : *block) {
+            if (entity == nullptr || entity->rtti() != RS2::EntityInsert)
+                continue;
+            self(self, static_cast<RS_Insert*>(entity)->getBlockForInsert());
+        }
+        block->updateInserts();
+        resolvingBlocks.erase(block);
+        resolvedBlocks.insert(block);
+    };
+    for (unsigned i = 0; i < m_graphic->countBlocks(); ++i)
+        updateBlockInserts(updateBlockInserts, m_graphic->blockAt(i));
     m_graphic->updateInserts();
     if (std::getenv("LC_IMPORT_BENCH") != nullptr) {
         const auto updateInsertsMs = std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -1982,6 +2010,37 @@ void RS_FilterDXFRW::endBlock() {
     m_currentContainer = m_graphic;
 }
 
+namespace {
+// F2 type-fidelity sidecar markers. POINT and LINE coordinates are WCS, but
+// LibreCAD's 2D entities cannot retain their Z values, thickness, or arbitrary
+// extrusion direction. Keep those fields separately for native re-emission.
+constexpr const char *kPointExtrusionMarker = "LibreCAD_POINT_EXTRUSION";
+constexpr const char *kLineExtrusionMarker = "LibreCAD_LINE_EXTRUSION";
+// HATCH boundary coordinates remain raw OCS in libdxfrw. Preserve the
+// accompanying elevation/normal so the writer does not relabel them as WCS.
+constexpr const char *kHatchExtrusionMarker = "LibreCAD_HATCH_EXTRUSION";
+// IMAGE has no extrusion normal. Its insertion and pixel U/V vectors are WCS,
+// while RS_Image exposes a 2D-editable frame, so retain their source Z values
+// separately for native output.
+constexpr const char *kImageFrameMarker = "LibreCAD_IMAGE_FRAME";
+constexpr const char *kTextOcsMarker = "LibreCAD_TEXT_OCS";
+constexpr const char *kMTextOcsMarker = "LibreCAD_MTEXT_OCS";
+constexpr const char *kRayMarker = "LibreCAD_RAY";
+constexpr const char *kXlineMarker = "LibreCAD_XLINE";
+constexpr const char *kTraceMarker = "LibreCAD_TRACE";
+constexpr const char *kSolidMarker = "LibreCAD_SOLID";
+constexpr const char *k3dFaceMarker = "LibreCAD_3DFACE";
+
+bool needsWcsThicknessSidecar(const DRW_Point& entity) {
+    return entity.thickness != 0.0 || entity.extPoint.x != 0.0
+        || entity.extPoint.y != 0.0 || entity.extPoint.z != 1.0
+        || entity.xAxisAngle != 0.0;
+}
+
+void appendTypeSidecar(RS_Entity *entity, const char *marker,
+                       std::vector<std::shared_ptr<DRW_Variant>> payload);
+} // namespace
+
 /**
  * Implementation of the method which handles point entities.
  */
@@ -1989,6 +2048,16 @@ void RS_FilterDXFRW::addPoint(const DRW_Point& data) {
     const RS_Vector v(data.basePoint.x, data.basePoint.y);
     const auto entity = new RS_Point(m_currentContainer, RS_PointData(v));
     setEntityAttributes(entity, &data);
+    if (needsWcsThicknessSidecar(data)) {
+        std::vector<std::shared_ptr<DRW_Variant>> payload;
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord(data.basePoint.x, data.basePoint.y, data.basePoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1011, DRW_Coord(data.extPoint.x, data.extPoint.y, data.extPoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(1040, data.thickness));
+        payload.push_back(std::make_shared<DRW_Variant>(1041, data.xAxisAngle));
+        appendTypeSidecar(entity, kPointExtrusionMarker, std::move(payload));
+    }
     m_currentContainer->addEntity(entity);
 }
 
@@ -2010,6 +2079,17 @@ void RS_FilterDXFRW::addLine(const DRW_Line& data) {
     const auto entity = new RS_Line{m_currentContainer, {v1, v2}};
     RS_DEBUG->print("RS_FilterDXF::addLine: set attributes");
     setEntityAttributes(entity, &data);
+    if (needsWcsThicknessSidecar(data)) {
+        std::vector<std::shared_ptr<DRW_Variant>> payload;
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord(data.basePoint.x, data.basePoint.y, data.basePoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1011, DRW_Coord(data.secPoint.x, data.secPoint.y, data.secPoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1012, DRW_Coord(data.extPoint.x, data.extPoint.y, data.extPoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(1040, data.thickness));
+        appendTypeSidecar(entity, kLineExtrusionMarker, std::move(payload));
+    }
 
     RS_DEBUG->print("RS_FilterDXF::addLine: add entity");
 
@@ -2021,16 +2101,6 @@ void RS_FilterDXFRW::addLine(const DRW_Line& data) {
 }
 
 namespace {
-// F2 type-fidelity sidecar markers. LibreCAD's RS model is 2D-lossy for these
-// types (RAY/XLINE -> RS_Line, TRACE -> RS_Solid, 3DFACE -> RS_Polyline drops
-// Z and edge flags), so the original DRW type + FULL geometry is stashed as
-// XDATA on the converted RS entity at read; a write pre-pass rebuilds the
-// native DRW type and consumes the RS entity.
-constexpr const char *kRayMarker = "LibreCAD_RAY";
-constexpr const char *kXlineMarker = "LibreCAD_XLINE";
-constexpr const char *kTraceMarker = "LibreCAD_TRACE";
-constexpr const char *k3dFaceMarker = "LibreCAD_3DFACE";
-
 // Append a type-fidelity sidecar (marker + payload variants) to whatever
 // XDATA the entity already carries from setEntityAttributes().
 void appendTypeSidecar(RS_Entity *entity, const char *marker,
@@ -2120,8 +2190,21 @@ void RS_FilterDXFRW::addXline(const DRW_Xline& data) {
 /**
  * Implementation of the method which handles circle entities.
  */
+namespace {
+template <typename T>
+bool canCreatePlanarEntity(const T& entity, const char* typeName) {
+    if (hasNormalizedAxialExtrusion(entity))
+        return true;
+    RS_DEBUG->print(RS_Debug::D_WARNING,
+                    "RS_FilterDXFRW::%s: skipped non-axial extrusion", typeName);
+    return false;
+}
+} // namespace
+
 void RS_FilterDXFRW::addCircle(const DRW_Circle& data) {
     RS_DEBUG->print("RS_FilterDXF::addCircle");
+    if (!canCreatePlanarEntity(data, "addCircle"))
+        return;
 
     RS_Vector v{data.basePoint.x, data.basePoint.y};
     const auto entity = new RS_Circle(m_currentContainer, {v, data.radious});
@@ -2136,6 +2219,8 @@ void RS_FilterDXFRW::addCircle(const DRW_Circle& data) {
  */
 void RS_FilterDXFRW::addArc(const DRW_Arc& data) {
     RS_DEBUG->print("RS_FilterDXF::addArc");
+    if (!canCreatePlanarEntity(data, "addArc"))
+        return;
     const RS_Vector v(data.basePoint.x, data.basePoint.y);
     const RS_ArcData d(v, data.radious, data.staangle, data.endangle, false);
     const auto entity = new RS_Arc(m_currentContainer, d);
@@ -2150,6 +2235,8 @@ void RS_FilterDXFRW::addArc(const DRW_Arc& data) {
  */
 void RS_FilterDXFRW::addEllipse(const DRW_Ellipse& data) {
     RS_DEBUG->print("RS_FilterDXFRW::addEllipse");
+    if (!canCreatePlanarEntity(data, "addEllipse"))
+        return;
 
     const RS_Vector v1(data.basePoint.x, data.basePoint.y);
     const RS_Vector v2(data.secPoint.x, data.secPoint.y);
@@ -2173,6 +2260,11 @@ void RS_FilterDXFRW::addTrace(const DRW_Trace& data) {
     if (m_version == 1009 && m_currentContainer == m_graphic) {
         return;
     }
+    if (!hasNormalizedAxialExtrusion(data)) {
+        RS_DEBUG->print(RS_Debug::D_WARNING,
+                        "RS_FilterDXFRW::addTrace: skipped non-axial extrusion");
+        return;
+    }
 
     RS_Solid* entity;
     const RS_Vector v1{data.basePoint.x, data.basePoint.y};
@@ -2188,10 +2280,13 @@ void RS_FilterDXFRW::addTrace(const DRW_Trace& data) {
 
     setEntityAttributes(entity, &data);
 
-    // F2 sidecar: only for a genuine TRACE (addSolid() routes SOLID here too,
-    // and a SOLID must stay a SOLID). Store all 4 corners with Z (the RS_Solid
-    // is 2D-lossy) so the write pre-pass can rebuild the native TRACE.
-    if (data.eType == DRW::DXF_TRACE) {
+    // F2 sidecar: preserve the exact native TRACE/SOLID type and all four WCS
+    // corners. RS_Solid is 2D-lossy, so the write pre-pass must rebuild the
+    // source type with canonicalized axial thickness.
+    const char *marker = data.eType == DRW::DXF_TRACE ? kTraceMarker
+                         : data.eType == DRW::SOLID ? kSolidMarker : nullptr;
+    if (marker != nullptr) {
+        const bool reflectedOcs = data.extPoint.z < 0.0;
         std::vector<std::shared_ptr<DRW_Variant>> payload;
         payload.push_back(std::make_shared<DRW_Variant>(
             1010, DRW_Coord(data.basePoint.x, data.basePoint.y, data.basePoint.z)));
@@ -2201,7 +2296,9 @@ void RS_FilterDXFRW::addTrace(const DRW_Trace& data) {
             1012, DRW_Coord(data.thirdPoint.x, data.thirdPoint.y, data.thirdPoint.z)));
         payload.push_back(std::make_shared<DRW_Variant>(
             1013, DRW_Coord(data.fourPoint.x, data.fourPoint.y, data.fourPoint.z)));
-        appendTypeSidecar(entity, kTraceMarker, std::move(payload));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1040, reflectedOcs ? -data.thickness : data.thickness));
+        appendTypeSidecar(entity, marker, std::move(payload));
     }
 
     m_currentContainer->addEntity(entity);
@@ -2401,6 +2498,16 @@ void RS_FilterDXFRW::addLWPolyline(const DRW_LWPolyline& data) {
     if (data.vertlist.empty()) {
         return;
     }
+
+    // libdxfrw has already applied the OCS frame before this callback. A
+    // LibreCAD polyline is strictly 2D, so only the two normalized axial
+    // frames can be represented without retaining a second coordinate space.
+    if (!hasNormalizedAxialExtrusion(data)) {
+        RS_DEBUG->print(RS_Debug::D_WARNING,
+                        "RS_FilterDXFRW::addLWPolyline: skipped non-axial extrusion");
+        return;
+    }
+    const bool reflectedOcs = data.extPoint.z < 0.0;
     RS_PolylineData d(RS_Vector{},
                       RS_Vector{},
                       data.flags&0x1);
@@ -2409,13 +2516,12 @@ void RS_FilterDXFRW::addLWPolyline(const DRW_LWPolyline& data) {
 
     std::vector<std::pair<RS_Vector, double>> verList;
     for (const auto& v : data.vertlist) {
-        verList.emplace_back(std::make_pair(RS_Vector{v->x, v->y}, v->bulge));
+        verList.emplace_back(std::make_pair(
+            RS_Vector{v->x, v->y}, reflectedOcs ? -v->bulge : v->bulge));
     }
 
     polyline->appendVertexs(verList);
-    const bool defaultExtrusion = data.extPoint.x == 0.0
-        && data.extPoint.y == 0.0
-        && data.extPoint.z == 1.0;
+    const bool defaultExtrusion = !reflectedOcs;
     bool hasVertexMetadata = false;
     for (const auto& v : data.vertlist) {
         if (v && (v->stawidth != 0.0 || v->endwidth != 0.0
@@ -2430,9 +2536,12 @@ void RS_FilterDXFRW::addLWPolyline(const DRW_LWPolyline& data) {
         ext.push_back(std::make_shared<DRW_Variant>(
             1001, std::string("LibreCAD_LWPOLYLINE")));
         ext.push_back(std::make_shared<DRW_Variant>(1040, data.width));
-        ext.push_back(std::make_shared<DRW_Variant>(1040, data.elevation));
-        ext.push_back(std::make_shared<DRW_Variant>(1040, data.thickness));
-        ext.push_back(std::make_shared<DRW_Variant>(1010, data.extPoint));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1040, reflectedOcs ? -data.elevation : data.elevation));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1040, reflectedOcs ? -data.thickness : data.thickness));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord{0.0, 0.0, 1.0}));
         ext.push_back(std::make_shared<DRW_Variant>(
             1070, std::int32_t{static_cast<int>(data.vertlist.size())}));
         for (const auto& v : data.vertlist) {
@@ -2908,6 +3017,13 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
     }
 
     RS_PolylineData pd(RS_Vector{}, RS_Vector{}, data.flags & 0x1);
+    const bool is2dPolyline = (data.flags & (8 | 16 | 64)) == 0;
+    if (is2dPolyline && !hasNormalizedAxialExtrusion(data)) {
+        RS_DEBUG->print(RS_Debug::D_WARNING,
+                        "RS_FilterDXFRW::addPolyline: skipped non-axial 2D extrusion");
+        return;
+    }
+    const bool reflectedOcs = is2dPolyline && data.extPoint.z < 0.0;
     auto polyline = std::make_unique<RS_Polyline>(m_currentContainer, pd);
     setEntityAttributes(polyline.get(), &data);
 
@@ -2917,8 +3033,10 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
     }
 
     auto vert0 = data.vertlist[0];
-    RS_Vector first_pos(vert0->basePoint.x, vert0->basePoint.y);
-    polyline->addVertex(first_pos, 0.0, false);
+    RS_Vector first_pos(reflectedOcs ? -vert0->basePoint.x : vert0->basePoint.x,
+                        vert0->basePoint.y);
+    const double firstBulge = reflectedOcs ? -vert0->bulge : vert0->bulge;
+    polyline->addVertex(first_pos, firstBulge, false);
     RS_Vector prev_pos = first_pos;
 
     bool closed = (data.flags & 0x1) != 0;
@@ -2927,25 +3045,65 @@ void RS_FilterDXFRW::addPolyline(const DRW_Polyline& data) {
     for (size_t i = 0; i < num_segments; ++i) {
         size_t vert_idx = (i + 1) % data.vertlist.size();
         auto vert = data.vertlist[vert_idx];
-        RS_Vector curr_pos(vert->basePoint.x, vert->basePoint.y);
+        RS_Vector curr_pos(reflectedOcs ? -vert->basePoint.x : vert->basePoint.x,
+                           vert->basePoint.y);
 
         size_t bulge_idx = i % data.vertlist.size();
-        double bulge = data.vertlist[bulge_idx]->bulge;
+        double segmentBulge = data.vertlist[bulge_idx]->bulge;
+        if (reflectedOcs)
+            segmentBulge = -segmentBulge;
+        double nextBulge = vert->bulge;
+        if (reflectedOcs)
+            nextBulge = -nextBulge;
         const auto& extData = data.vertlist[bulge_idx]->extData;
 
-        bool is_closed_seg = closed && (i == num_segments - 1);
-        addPolylineSegment(*polyline, prev_pos, curr_pos, bulge, extData, is_closed_seg);
+        addPolylineSegment(*polyline, prev_pos, curr_pos, segmentBulge,
+                           nextBulge, extData);
 
         prev_pos = curr_pos;
     }
 
     if (closed) {
         polyline->setFlag(RS2::FlagClosed);
-        polyline->setNextBulge(data.vertlist.back()->bulge);
         polyline->getData().endpoint = polyline->getData().startpoint;
     }
     else {
         polyline->endPolyline();
+    }
+
+    bool hasVertexMetadata = data.defstawidth != 0.0 || data.defendwidth != 0.0;
+    for (const auto& vertex : data.vertlist) {
+        if (vertex && (vertex->stawidth != 0.0 || vertex->endwidth != 0.0
+                       || vertex->identifier != 0)) {
+            hasVertexMetadata = true;
+            break;
+        }
+    }
+    if (is2dPolyline && (data.basePoint.z != 0.0 || data.thickness != 0.0
+                         || reflectedOcs || hasVertexMetadata)) {
+        std::vector<std::shared_ptr<DRW_Variant>> ext;
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1001, std::string("LibreCAD_LWPOLYLINE")));
+        ext.push_back(std::make_shared<DRW_Variant>(1040, 0.0));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1040, reflectedOcs ? -data.basePoint.z : data.basePoint.z));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1040, reflectedOcs ? -data.thickness : data.thickness));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord{0.0, 0.0, 1.0}));
+        ext.push_back(std::make_shared<DRW_Variant>(
+            1070, std::int32_t{static_cast<int>(data.vertlist.size())}));
+        for (const auto& vertex : data.vertlist) {
+            const double startWidth = vertex && vertex->stawidth != 0.0
+                                      ? vertex->stawidth : data.defstawidth;
+            const double endWidth = vertex && vertex->endwidth != 0.0
+                                    ? vertex->endwidth : data.defendwidth;
+            ext.push_back(std::make_shared<DRW_Variant>(1040, startWidth));
+            ext.push_back(std::make_shared<DRW_Variant>(1040, endWidth));
+            ext.push_back(std::make_shared<DRW_Variant>(
+                1071, std::int32_t{vertex ? vertex->identifier : 0}));
+        }
+        polyline->setDrwExtData(std::move(ext));
     }
 
     m_currentContainer->addEntity(polyline.release());
@@ -3478,6 +3636,16 @@ void RS_FilterDXFRW::addMText(const DRW_MText &data) {
   auto *entity = mtextEntityFromDRW(data);
   entity->setParent(m_currentContainer);
   setEntityAttributes(entity, &data);
+  if (data.basePoint.z != 0.0 || data.secPoint.x != 0.0
+      || data.secPoint.y != 0.0 || data.secPoint.z != 0.0
+      || data.extPoint.x != 0.0 || data.extPoint.y != 0.0
+      || data.extPoint.z != 1.0) {
+    std::vector<std::shared_ptr<DRW_Variant>> payload;
+    payload.push_back(std::make_shared<DRW_Variant>(1010, data.basePoint));
+    payload.push_back(std::make_shared<DRW_Variant>(1011, data.secPoint));
+    payload.push_back(std::make_shared<DRW_Variant>(1012, data.extPoint));
+    appendTypeSidecar(entity, kMTextOcsMarker, std::move(payload));
+  }
   entity->update();
   m_currentContainer->addEntity(entity);
 }
@@ -3527,6 +3695,16 @@ void RS_FilterDXFRW::addText(const DRW_Text& data) {
     auto* entity = new RS_Text(m_currentContainer, d);
 
     setEntityAttributes(entity, &data);
+    if (data.basePoint.z != 0.0 || data.secPoint.z != 0.0
+        || data.thickness != 0.0 || data.extPoint.x != 0.0
+        || data.extPoint.y != 0.0 || data.extPoint.z != 1.0) {
+        std::vector<std::shared_ptr<DRW_Variant>> payload;
+        payload.push_back(std::make_shared<DRW_Variant>(1010, data.basePoint));
+        payload.push_back(std::make_shared<DRW_Variant>(1011, data.secPoint));
+        payload.push_back(std::make_shared<DRW_Variant>(1012, data.extPoint));
+        payload.push_back(std::make_shared<DRW_Variant>(1040, data.thickness));
+        appendTypeSidecar(entity, kTextOcsMarker, std::move(payload));
+    }
     entity->update();
     m_currentContainer->addEntity(entity);
 }
@@ -5036,6 +5214,16 @@ void RS_FilterDXFRW::addHatch(const DRW_Hatch* data) {
     const auto hatch = new RS_Hatch(m_currentContainer,
                                     RS_HatchData(data->solid, data->scale, data->angle, QString::fromUtf8(data->name.c_str())));
     setEntityAttributes(hatch, data);
+    if (data->basePoint.z != 0.0 || data->extPoint.x != 0.0
+        || data->extPoint.y != 0.0 || data->extPoint.z != 1.0) {
+        std::vector<std::shared_ptr<DRW_Variant>> payload;
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord(0.0, 0.0, data->basePoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1011, DRW_Coord(data->extPoint.x, data->extPoint.y,
+                            data->extPoint.z)));
+        appendTypeSidecar(hatch, kHatchExtrusionMarker, std::move(payload));
+    }
     m_currentContainer->appendEntity(hatch);
 
     for (size_t i = 0; i < data->looplist.size(); i++) {
@@ -5189,6 +5377,20 @@ void RS_FilterDXFRW::addImage(const DRW_Image* data) {
                                     RS_ImageData(data->ref, ip, uv, vv, size, QString(), data->brightness, data->contrast, data->fade));
 
     setEntityAttributes(image, data);
+    if (data->basePoint.z != 0.0 || data->secPoint.z != 0.0
+        || data->vVector.z != 0.0) {
+        std::vector<std::shared_ptr<DRW_Variant>> payload;
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1010, DRW_Coord(data->basePoint.x, data->basePoint.y,
+                            data->basePoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1011, DRW_Coord(data->secPoint.x, data->secPoint.y,
+                            data->secPoint.z)));
+        payload.push_back(std::make_shared<DRW_Variant>(
+            1012, DRW_Coord(data->vVector.x, data->vVector.y,
+                            data->vVector.z)));
+        appendTypeSidecar(image, kImageFrameMarker, std::move(payload));
+    }
     m_currentContainer->appendEntity(image);
 }
 
@@ -6078,6 +6280,26 @@ bool RS_FilterDXFRW::fileExport(RS_Graphic& g, const QString& file, const RS2::F
         }
         bool success = m_dwgW->write(this, dwgVer, false) && !m_writeFailed;
         m_lastDwgWriteSkipCounters = m_dwgW->getWriteSkipCounters();
+        // Geometry / typed-object / class-registration skips mean the save is
+        // incomplete. Raw same-version replay may still skip cross-family
+        // blobs; those are counted but do not alone fail the save.
+        const auto& skips = m_lastDwgWriteSkipCounters;
+        const std::size_t hardSkips = skips.entityWrites + skips.objectWrites
+            + skips.classRegistrations + skips.blockDefinitions;
+        if (success && hardSkips > 0) {
+            success = false;
+            m_writeFailed = true;
+            RS_DEBUG->print(RS_Debug::D_WARNING,
+                            "RS_FilterDXFRW: DWG write dropped %zu typed item(s) "
+                            "(entities=%zu objects=%zu classes=%zu blocks=%zu; "
+                            "raw skips=%zu)",
+                            hardSkips,
+                            skips.entityWrites,
+                            skips.objectWrites,
+                            skips.classRegistrations,
+                            skips.blockDefinitions,
+                            skips.rawObjectWrites + skips.rawSectionWrites);
+        }
         delete m_dwgW;
         m_dwgW = nullptr;
         return success;
@@ -6601,15 +6823,41 @@ void RS_FilterDXFRW::writeBlockRecords() {
 void RS_FilterDXFRW::writeBlocks() {
 #ifdef DWGSUPPORT
     if (m_dwgW) {
-        // Register each user block so INSERT entities can reference them by name.
+        std::vector<std::pair<RS_Block*, std::uint32_t>> blockHandles;
+        blockHandles.reserve(m_graphic->countBlocks());
+
+        // Register every block before encoding any contents. This makes a
+        // nested INSERT resolvable even when its referenced definition is
+        // later in the graphic's block list.
         for (unsigned i = 0; i < m_graphic->countBlocks(); i++) {
             RS_Block *blk = m_graphic->blockAt(i);
             if (!blk->isDeleted()) {
                 DRW_Coord bp{blk->getBasePoint().x, blk->getBasePoint().y,
                              blk->getBasePoint().z};
-                m_dwgW->defineBlock(blk->getName().toUtf8().constData(), bp,
-                                    blk->getInsertionUnits());
+                const std::uint32_t handle = m_dwgW->defineBlock(
+                    blk->getName().toUtf8().constData(), bp,
+                    blk->getInsertionUnits());
+                if (handle == 0) {
+                    m_writeFailed = true;
+                    continue;
+                }
+                blockHandles.emplace_back(blk, handle);
             }
+        }
+
+        for (const auto& blockHandle : blockHandles) {
+            RS_Block* blk = blockHandle.first;
+            if (!m_dwgW->beginBlockContent(blockHandle.second)) {
+                m_writeFailed = true;
+                continue;
+            }
+            for (RS_Entity* entity :
+                 lc::LC_ContainerTraverser{*blk, RS2::ResolveNone}.entities()) {
+                if (!entity->getFlag(RS2::FlagDeleted))
+                    writeEntity(entity);
+            }
+            if (!m_dwgW->endBlockContent())
+                m_writeFailed = true;
         }
         return;
     }
@@ -9853,10 +10101,12 @@ void RS_FilterDXFRW::reconstructPolylineSidecars(
       polyline.addVertex(vertex);
     }
 
-    if (m_dwgW)
-      m_dwgW->writePolyline(&polyline);
-    else if (m_dxfW)
+    if (m_dwgW) {
+      if (!m_dwgW->writePolyline(&polyline))
+        m_writeFailed = true;
+    } else if (m_dxfW) {
       m_dxfW->writePolyline(&polyline);
+    }
 
     for (const auto &entry : entries)
       consumed.insert(entry.entity);
@@ -9950,10 +10200,12 @@ void RS_FilterDXFRW::reconstructPolylineSidecars(
       polyline.addVertex(face);
     }
 
-    if (m_dwgW)
-      m_dwgW->writePolyline(&polyline);
-    else if (m_dxfW)
+    if (m_dwgW) {
+      if (!m_dwgW->writePolyline(&polyline))
+        m_writeFailed = true;
+    } else if (m_dxfW) {
       m_dxfW->writePolyline(&polyline);
+    }
 
     for (const auto &entry : entries)
       consumed.insert(entry.entity);
@@ -10052,10 +10304,12 @@ void RS_FilterDXFRW::reconstructMLines(RS_EntityContainer *container,
       ml.vertlist.push_back(std::move(v));
     }
 
-    if (m_dwgW)
-      m_dwgW->writeMLine(&ml);
-    else if (m_dxfW)
+    if (m_dwgW) {
+      if (!m_dwgW->writeMLine(&ml))
+        m_writeFailed = true;
+    } else if (m_dxfW) {
       m_dxfW->writeMLine(&ml);
+    }
     for (const auto &m : entries)
       consumed.insert(m.entity);
   }
@@ -10064,9 +10318,11 @@ void RS_FilterDXFRW::reconstructMLines(RS_EntityContainer *container,
 namespace {
 // One parsed F2 type-fidelity sidecar (marker + payload coords/flag).
 struct TypedConversionSidecar {
-  QString marker;                 // LibreCAD_RAY / _XLINE / _TRACE / _3DFACE
+  QString marker;
   std::vector<DRW_Coord> coords;  // 1010.. payload coordinates
   int flag = 0;                   // 1070 invisible-edge flag (3DFACE only)
+  double thickness = 0.0;         // 1040 POINT/LINE thickness
+  double pointXAxisAngle = 0.0;   // 1041 POINT x-axis angle, in radians
 };
 
 // Find a single F2 type-fidelity sidecar on an RS entity's XDATA, if present.
@@ -10083,8 +10339,9 @@ extractTypedConversionSidecar(RS_Entity *e) {
     const int code = sp->code();
     if (code == 1001) {
       const std::string app{sp->c_str()};
-      if (app == "LibreCAD_RAY" || app == "LibreCAD_XLINE" ||
-          app == "LibreCAD_TRACE" || app == "LibreCAD_3DFACE") {
+      if (app == kPointExtrusionMarker || app == kLineExtrusionMarker ||
+          app == kRayMarker || app == kXlineMarker ||
+          app == kTraceMarker || app == kSolidMarker || app == k3dFaceMarker) {
         meta.marker = QString::fromStdString(app);
         inGroup = true;
       } else {
@@ -10099,11 +10356,256 @@ extractTypedConversionSidecar(RS_Entity *e) {
         meta.coords.push_back(*crd);
     } else if (code == 1070) {
       meta.flag = static_cast<int>(sp->i_val());
+    } else if (code == 1040) {
+      meta.thickness = sp->d_val();
+    } else if (code == 1041) {
+      meta.pointXAxisAngle = sp->d_val();
     }
   }
   if (meta.marker.isEmpty())
     return std::nullopt;
   return meta;
+}
+
+struct HatchExtrusionSidecar {
+  double elevation = 0.0;
+  DRW_Coord extrusion {0.0, 0.0, 1.0};
+};
+
+std::optional<HatchExtrusionSidecar>
+extractHatchExtrusionSidecar(const RS_Entity *entity) {
+  if (!entity || !entity->hasDrwExtData())
+    return std::nullopt;
+
+  HatchExtrusionSidecar sidecar;
+  bool inGroup = false;
+  bool gotElevation = false;
+  bool gotExtrusion = false;
+  for (const auto &value : entity->getDrwExtData()) {
+    if (!value)
+      continue;
+    if (value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kHatchExtrusionMarker;
+      continue;
+    }
+    if (!inGroup)
+      continue;
+    if (value->code() == 1010) {
+      if (const DRW_Coord *point = value->coord()) {
+        sidecar.elevation = point->z;
+        gotElevation = true;
+      }
+    } else if (value->code() == 1011) {
+      if (const DRW_Coord *normal = value->coord()) {
+        sidecar.extrusion = *normal;
+        gotExtrusion = true;
+      }
+    }
+  }
+  if (!gotElevation || !gotExtrusion)
+    return std::nullopt;
+  return sidecar;
+}
+
+void removeHatchExtrusionSidecar(DRW_Entity &entity) {
+  std::vector<std::shared_ptr<DRW_Variant>> filtered;
+  bool inGroup = false;
+  for (const auto &value : entity.extData) {
+    if (value && value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kHatchExtrusionMarker;
+      if (inGroup)
+        continue;
+    }
+    if (!inGroup)
+      filtered.push_back(value);
+  }
+  entity.extData = std::move(filtered);
+}
+
+struct ImageFrameSidecar {
+  DRW_Coord insertion;
+  DRW_Coord uVector;
+  DRW_Coord vVector;
+};
+
+std::optional<ImageFrameSidecar>
+extractImageFrameSidecar(const RS_Entity *entity) {
+  if (!entity || !entity->hasDrwExtData())
+    return std::nullopt;
+
+  ImageFrameSidecar sidecar;
+  bool gotInsertion = false;
+  bool gotUVector = false;
+  bool gotVVector = false;
+  bool inGroup = false;
+  for (const auto &value : entity->getDrwExtData()) {
+    if (!value)
+      continue;
+    if (value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kImageFrameMarker;
+      continue;
+    }
+    if (!inGroup || value->code() < 1010 || value->code() > 1012)
+      continue;
+    const DRW_Coord *point = value->coord();
+    if (!point)
+      continue;
+    if (value->code() == 1010) {
+      sidecar.insertion = *point;
+      gotInsertion = true;
+    } else if (value->code() == 1011) {
+      sidecar.uVector = *point;
+      gotUVector = true;
+    } else {
+      sidecar.vVector = *point;
+      gotVVector = true;
+    }
+  }
+  if (!gotInsertion || !gotUVector || !gotVVector)
+    return std::nullopt;
+  return sidecar;
+}
+
+void removeImageFrameSidecar(DRW_Entity &entity) {
+  std::vector<std::shared_ptr<DRW_Variant>> filtered;
+  bool inGroup = false;
+  for (const auto &value : entity.extData) {
+    if (value && value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kImageFrameMarker;
+      if (inGroup)
+        continue;
+    }
+    if (!inGroup)
+      filtered.push_back(value);
+  }
+  entity.extData = std::move(filtered);
+}
+
+struct TextOcsSidecar {
+  double baseElevation = 0.0;
+  double alignmentElevation = 0.0;
+  DRW_Coord extrusion {0.0, 0.0, 1.0};
+  double thickness = 0.0;
+};
+
+std::optional<TextOcsSidecar>
+extractTextOcsSidecar(const RS_Entity *entity) {
+  if (!entity || !entity->hasDrwExtData())
+    return std::nullopt;
+  TextOcsSidecar sidecar;
+  bool gotBase = false;
+  bool gotAlignment = false;
+  bool gotExtrusion = false;
+  bool gotThickness = false;
+  bool inGroup = false;
+  for (const auto &value : entity->getDrwExtData()) {
+    if (!value)
+      continue;
+    if (value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kTextOcsMarker;
+      continue;
+    }
+    if (!inGroup)
+      continue;
+    if (value->code() == 1010) {
+      if (const DRW_Coord *point = value->coord()) {
+        sidecar.baseElevation = point->z;
+        gotBase = true;
+      }
+    } else if (value->code() == 1011) {
+      if (const DRW_Coord *point = value->coord()) {
+        sidecar.alignmentElevation = point->z;
+        gotAlignment = true;
+      }
+    } else if (value->code() == 1012) {
+      if (const DRW_Coord *normal = value->coord()) {
+        sidecar.extrusion = *normal;
+        gotExtrusion = true;
+      }
+    } else if (value->code() == 1040) {
+      sidecar.thickness = value->d_val();
+      gotThickness = true;
+    }
+  }
+  if (!gotBase || !gotAlignment || !gotExtrusion || !gotThickness)
+    return std::nullopt;
+  return sidecar;
+}
+
+void removeTextOcsSidecar(DRW_Entity &entity) {
+  std::vector<std::shared_ptr<DRW_Variant>> filtered;
+  bool inGroup = false;
+  for (const auto &value : entity.extData) {
+    if (value && value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kTextOcsMarker;
+      if (inGroup)
+        continue;
+    }
+    if (!inGroup)
+      filtered.push_back(value);
+  }
+  entity.extData = std::move(filtered);
+}
+
+struct MTextOcsSidecar {
+  double elevation = 0.0;
+  DRW_Coord xAxis;
+  DRW_Coord extrusion {0.0, 0.0, 1.0};
+};
+
+std::optional<MTextOcsSidecar>
+extractMTextOcsSidecar(const RS_Entity *entity) {
+  if (!entity || !entity->hasDrwExtData())
+    return std::nullopt;
+  MTextOcsSidecar sidecar;
+  bool gotElevation = false;
+  bool gotXAxis = false;
+  bool gotExtrusion = false;
+  bool inGroup = false;
+  for (const auto &value : entity->getDrwExtData()) {
+    if (!value)
+      continue;
+    if (value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kMTextOcsMarker;
+      continue;
+    }
+    if (!inGroup)
+      continue;
+    if (value->code() == 1010) {
+      if (const DRW_Coord *point = value->coord()) {
+        sidecar.elevation = point->z;
+        gotElevation = true;
+      }
+    } else if (value->code() == 1011) {
+      if (const DRW_Coord *axis = value->coord()) {
+        sidecar.xAxis = *axis;
+        gotXAxis = true;
+      }
+    } else if (value->code() == 1012) {
+      if (const DRW_Coord *normal = value->coord()) {
+        sidecar.extrusion = *normal;
+        gotExtrusion = true;
+      }
+    }
+  }
+  if (!gotElevation || !gotXAxis || !gotExtrusion)
+    return std::nullopt;
+  return sidecar;
+}
+
+void removeMTextOcsSidecar(DRW_Entity &entity) {
+  std::vector<std::shared_ptr<DRW_Variant>> filtered;
+  bool inGroup = false;
+  for (const auto &value : entity.extData) {
+    if (value && value->code() == 1001) {
+      inGroup = std::string{value->c_str()} == kMTextOcsMarker;
+      if (inGroup)
+        continue;
+    }
+    if (!inGroup)
+      filtered.push_back(value);
+  }
+  entity.extData = std::move(filtered);
 }
 } // namespace
 
@@ -10135,8 +10637,9 @@ void RS_FilterDXFRW::reconstructTypedConversions(
       for (const auto &v : drw->extData) {
         if (v && v->code() == 1001) {
           const std::string app{v->c_str()};
-          inGroup = (app == "LibreCAD_RAY" || app == "LibreCAD_XLINE" ||
-                     app == "LibreCAD_TRACE" || app == "LibreCAD_3DFACE");
+          inGroup = (app == kPointExtrusionMarker || app == kLineExtrusionMarker
+                     || app == kRayMarker || app == kXlineMarker
+                     || app == kTraceMarker || app == kSolidMarker || app == k3dFaceMarker);
           if (inGroup)
             continue;
         }
@@ -10147,31 +10650,75 @@ void RS_FilterDXFRW::reconstructTypedConversions(
       drw->extData = std::move(filtered);
     };
 
-    if (meta->marker == "LibreCAD_RAY") {
+    if (meta->marker == kPointExtrusionMarker) {
+      if (meta->coords.size() < 2 || e->rtti() != RS2::EntityPoint)
+        continue;
+      auto *source = static_cast<RS_Point *>(e);
+      DRW_Point point;
+      point.basePoint = meta->coords[0];
+      point.basePoint.x = source->getStartpoint().x;
+      point.basePoint.y = source->getStartpoint().y;
+      point.extPoint = meta->coords[1];
+      point.thickness = meta->thickness;
+      point.xAxisAngle = meta->pointXAxisAngle;
+      emitNative(&point);
+      if (m_dwgW) {
+        if (!m_dwgW->writePoint(&point))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
+        m_dxfW->writePoint(&point);
+      }
+      consumed.insert(e);
+    } else if (meta->marker == kLineExtrusionMarker) {
+      if (meta->coords.size() < 3 || e->rtti() != RS2::EntityLine)
+        continue;
+      auto *source = static_cast<RS_Line *>(e);
+      DRW_Line line;
+      line.basePoint = meta->coords[0];
+      line.secPoint = meta->coords[1];
+      line.basePoint.x = source->getStartpoint().x;
+      line.basePoint.y = source->getStartpoint().y;
+      line.secPoint.x = source->getEndpoint().x;
+      line.secPoint.y = source->getEndpoint().y;
+      line.extPoint = meta->coords[2];
+      line.thickness = meta->thickness;
+      emitNative(&line);
+      if (m_dwgW) {
+        if (!m_dwgW->writeLine(&line))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
+        m_dxfW->writeLine(&line);
+      }
+      consumed.insert(e);
+    } else if (meta->marker == kRayMarker) {
       if (meta->coords.size() < 2)
         continue;
       DRW_Ray ray;
       ray.basePoint = meta->coords[0];
       ray.secPoint = meta->coords[1];
       emitNative(&ray);
-      if (m_dwgW)
-        m_dwgW->writeRay(&ray);
-      else if (m_dxfW)
+      if (m_dwgW) {
+        if (!m_dwgW->writeRay(&ray))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
         m_dxfW->writeRay(&ray);
+      }
       consumed.insert(e);
-    } else if (meta->marker == "LibreCAD_XLINE") {
+    } else if (meta->marker == kXlineMarker) {
       if (meta->coords.size() < 2)
         continue;
       DRW_Xline xline;
       xline.basePoint = meta->coords[0];
       xline.secPoint = meta->coords[1];
       emitNative(&xline);
-      if (m_dwgW)
-        m_dwgW->writeXline(&xline);
-      else if (m_dxfW)
+      if (m_dwgW) {
+        if (!m_dwgW->writeXline(&xline))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
         m_dxfW->writeXline(&xline);
+      }
       consumed.insert(e);
-    } else if (meta->marker == "LibreCAD_TRACE") {
+    } else if (meta->marker == kTraceMarker) {
       if (meta->coords.size() < 4)
         continue;
       DRW_Trace trace;
@@ -10179,13 +10726,33 @@ void RS_FilterDXFRW::reconstructTypedConversions(
       trace.secPoint = meta->coords[1];
       trace.thirdPoint = meta->coords[2];
       trace.fourPoint = meta->coords[3];
+      trace.thickness = meta->thickness;
       emitNative(&trace);
-      if (m_dwgW)
-        m_dwgW->writeTrace(&trace);
-      else if (m_dxfW)
+      if (m_dwgW) {
+        if (!m_dwgW->writeTrace(&trace))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
         m_dxfW->writeTrace(&trace);
+      }
       consumed.insert(e);
-    } else if (meta->marker == "LibreCAD_3DFACE") {
+    } else if (meta->marker == kSolidMarker) {
+      if (meta->coords.size() < 4)
+        continue;
+      DRW_Solid solid;
+      solid.basePoint = meta->coords[0];
+      solid.secPoint = meta->coords[1];
+      solid.thirdPoint = meta->coords[2];
+      solid.fourPoint = meta->coords[3];
+      solid.thickness = meta->thickness;
+      emitNative(&solid);
+      if (m_dwgW) {
+        if (!m_dwgW->writeSolid(&solid))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
+        m_dxfW->writeSolid(&solid);
+      }
+      consumed.insert(e);
+    } else if (meta->marker == k3dFaceMarker) {
       if (meta->coords.size() < 4)
         continue;
       DRW_3Dface face;
@@ -10195,10 +10762,12 @@ void RS_FilterDXFRW::reconstructTypedConversions(
       face.fourPoint = meta->coords[3];
       face.invisibleflag = meta->flag;
       emitNative(&face);
-      if (m_dwgW)
-        m_dwgW->write3dface(&face);
-      else if (m_dxfW)
+      if (m_dwgW) {
+        if (!m_dwgW->write3dface(&face))
+          m_writeFailed = true;
+      } else if (m_dxfW) {
         m_dxfW->write3dface(&face);
+      }
       consumed.insert(e);
     }
   }
@@ -10391,10 +10960,12 @@ void RS_FilterDXFRW::reconstructUnderlays(RS_EntityContainer *container,
       u.clipBoundary.emplace_back(rx, ry, 0.0);
     }
 
-    if (m_dwgW)
-      m_dwgW->writeUnderlay(&u);
-    else
+    if (m_dwgW) {
+      if (!m_dwgW->writeUnderlay(&u))
+        m_writeFailed = true;
+    } else if (m_dxfW) {
       m_dxfW->writeUnderlay(&u);
+    }
     consumed.insert(e);
   }
 }
@@ -10407,7 +10978,11 @@ void RS_FilterDXFRW::writePoint(const RS_Point* p) {
     getEntityAttributes(&point, p);
     point.basePoint.x = p->getStartpoint().x;
     point.basePoint.y = p->getStartpoint().y;
-    if (m_dwgW) { m_dwgW->writePoint(&point); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writePoint(&point))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writePoint(&point);
 }
 
@@ -10421,7 +10996,11 @@ void RS_FilterDXFRW::writeLine(const RS_Line* l) {
     line.basePoint.y = l->getStartpoint().y;
     line.secPoint.x = l->getEndpoint().x;
     line.secPoint.y = l->getEndpoint().y;
-    if (m_dwgW) { m_dwgW->writeLine(&line); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeLine(&line))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeLine(&line);
 }
 
@@ -10434,7 +11013,11 @@ void RS_FilterDXFRW::writeCircle(const RS_Circle* c) {
     circle.basePoint.x = c->getCenter().x;
     circle.basePoint.y = c->getCenter().y;
     circle.radious = c->getRadius();
-    if (m_dwgW) { m_dwgW->writeCircle(&circle); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeCircle(&circle))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeCircle(&circle);
 }
 
@@ -10455,7 +11038,11 @@ void RS_FilterDXFRW::writeArc(const RS_Arc* a) {
         arc.staangle = a->getAngle1();
         arc.endangle = a->getAngle2();
     }
-    if (m_dwgW) { m_dwgW->writeArc(&arc); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeArc(&arc))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeArc(&arc);
 }
 
@@ -10537,7 +11124,11 @@ void RS_FilterDXFRW::writeLWPolyline(RS_Polyline* l) {
             }
         }
     }
-    if (m_dwgW) { m_dwgW->writeLWPolyline(&pol); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeLWPolyline(&pol))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeLWPolyline(&pol);
 }
 
@@ -10595,7 +11186,26 @@ void RS_FilterDXFRW::writePolyline(const RS_Polyline* p) {
         }
     }
     getEntityAttributes(&pol, p);
-    if (m_dwgW) { m_dwgW->writePolyline(&pol); return; }
+    if (auto lwMeta = extractLWPolylineMeta(const_cast<RS_Polyline *>(p))) {
+        pol.basePoint.z = lwMeta->elevation;
+        pol.thickness = lwMeta->thickness;
+        pol.extPoint = lwMeta->extrusion;
+        if (lwMeta->vertexCount == static_cast<int>(pol.vertlist.size())) {
+            for (size_t i = 0; i < pol.vertlist.size(); ++i) {
+                if (i < lwMeta->startWidths.size())
+                    pol.vertlist[i]->stawidth = lwMeta->startWidths[i];
+                if (i < lwMeta->endWidths.size())
+                    pol.vertlist[i]->endwidth = lwMeta->endWidths[i];
+                if (i < lwMeta->identifiers.size())
+                    pol.vertlist[i]->identifier = lwMeta->identifiers[i];
+            }
+        }
+    }
+    if (m_dwgW) {
+        if (!m_dwgW->writePolyline(&pol))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writePolyline(&pol);
 }
 
@@ -10652,7 +11262,11 @@ void RS_FilterDXFRW::writeSpline(RS_Spline *s) {
     sp.nknots = sp.knotslist.size();
 
     getEntityAttributes(&sp, s);
-    if (m_dwgW) { m_dwgW->writeSpline(&sp); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeSpline(&sp))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeSpline(&sp);
 }
 
@@ -10671,7 +11285,11 @@ void RS_FilterDXFRW::writeSplinePoints(LC_SplinePoints* s) {
 			line.secPoint.x = cp.at(1).x;
 			line.secPoint.y = cp.at(1).y;
 			getEntityAttributes(&line, s);
-			if (m_dwgW) { m_dwgW->writeLine(&line); return; }
+			if (m_dwgW) {
+        if (!m_dwgW->writeLine(&line))
+            m_writeFailed = true;
+        return;
+    }
 			m_dxfW->writeLine(&line);
 		}
 		return;
@@ -10757,7 +11375,8 @@ void RS_FilterDXFRW::writeSplinePoints(LC_SplinePoints* s) {
 			sp.fitlist.clear();
 			sp.nfit = 0;
 		}
-		m_dwgW->writeSpline(&sp);
+		if (!m_dwgW->writeSpline(&sp))
+			m_writeFailed = true;
 		return;
 	}
 	m_dxfW->writeSpline(&sp);
@@ -10784,7 +11403,11 @@ void RS_FilterDXFRW::writeEllipse(const RS_Ellipse* s) {
         el.staparam = s->getAngle1();
         el.endparam = s->getAngle2();
     }
-    if (m_dwgW) { m_dwgW->writeEllipse(&el); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeEllipse(&el))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeEllipse(&el);
 }
 
@@ -10798,7 +11421,11 @@ void RS_FilterDXFRW::writeHyperbola(LC_Hyperbola* h) {
     DRW_Spline spl;
     getEntityAttributes(&spl, h);
     if (LC_HyperbolaSpline::hyperbolaToSpline(h->getData(), spl)) {
-        if (m_dwgW) { m_dwgW->writeSpline(&spl); return; }
+        if (m_dwgW) {
+        if (!m_dwgW->writeSpline(&spl))
+            m_writeFailed = true;
+        return;
+    }
         if (m_dxfW) m_dxfW->writeSpline(&spl);
     }
 }
@@ -10813,7 +11440,11 @@ void RS_FilterDXFRW::writeParabola(LC_Parabola* p) {
     DRW_Spline spl;
     getEntityAttributes(&spl, p);
     if (LC_ParabolaSpline::parabolaToSpline(p->getData(), spl)) {
-        if (m_dwgW) { m_dwgW->writeSpline(&spl); return; }
+        if (m_dwgW) {
+        if (!m_dwgW->writeSpline(&spl))
+            m_writeFailed = true;
+        return;
+    }
         if (m_dxfW) m_dxfW->writeSpline(&spl);
     }
 }
@@ -10838,7 +11469,11 @@ void RS_FilterDXFRW::writeInsert(const RS_Insert* i) {
     in.rowspace =i->getSpacing().y;
     const RS_Vector extrusion = i->getData().extrusion;
     in.extPoint = DRW_Coord(extrusion.x, extrusion.y, extrusion.z);
-    if (m_dwgW) { m_dwgW->writeInsert(&in); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeInsert(&in))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeInsert(&in);
 }
 
@@ -10858,6 +11493,14 @@ void RS_FilterDXFRW::writeMText(const RS_MText* t) {
     }
 
     getEntityAttributes(text, t);
+    if (m_version != 1009) {
+        if (const auto ocs = extractMTextOcsSidecar(t)) {
+            text->basePoint.z = ocs->elevation;
+            text->extPoint = ocs->extrusion;
+            static_cast<DRW_MText *>(text)->secPoint = ocs->xAxis;
+            removeMTextOcsSidecar(*text);
+        }
+    }
     text->basePoint.x = t->getInsertionPoint().x;
     text->basePoint.y = t->getInsertionPoint().y;
     text->height = t->getHeight();
@@ -10967,7 +11610,11 @@ void RS_FilterDXFRW::writeMText(const RS_MText* t) {
         text->widthscale = t->getUsedTextWidth(); //getSize().x;
         txt2.interlin = t->getLineSpacingFactor();
 
-        if (m_dwgW) { m_dwgW->writeMText(static_cast<DRW_MText*>(text)); return; }
+        if (m_dwgW) {
+        if (!m_dwgW->writeMText(static_cast<DRW_MText*>(text)))
+            m_writeFailed = true;
+        return;
+    }
         m_dxfW->writeMText(static_cast<DRW_MText*>(text));
     }
 }
@@ -10979,6 +11626,13 @@ void RS_FilterDXFRW::writeText(RS_Text* t) {
     DRW_Text text;
 
     getEntityAttributes(&text, t);
+    if (const auto ocs = extractTextOcsSidecar(t)) {
+        text.basePoint.z = ocs->baseElevation;
+        text.secPoint.z = ocs->alignmentElevation;
+        text.extPoint = ocs->extrusion;
+        text.thickness = ocs->thickness;
+        removeTextOcsSidecar(text);
+    }
     text.basePoint.x = t->getInsertionPoint().x;
     text.basePoint.y = t->getInsertionPoint().y;
     text.height = t->getHeight();
@@ -11008,7 +11662,11 @@ void RS_FilterDXFRW::writeText(RS_Text* t) {
 
     if (!t->getText().isEmpty()) {
         text.text = toDxfString(t->getText()).toUtf8().data();
-        if (m_dwgW) { m_dwgW->writeText(&text); return; }
+        if (m_dwgW) {
+        if (!m_dwgW->writeText(&text))
+            m_writeFailed = true;
+        return;
+    }
         m_dxfW->writeText(&text);
     }
 }
@@ -11182,7 +11840,12 @@ void RS_FilterDXFRW::writeDimension(RS_Dimension* d) {
     if (!blkName.isEmpty()) {
         dim->setName(blkName.toStdString());
     }
-    if (m_dwgW) { m_dwgW->writeDimension(dim); delete dim; return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeDimension(dim))
+            m_writeFailed = true;
+        delete dim;
+        return;
+    }
     LC_DimStyle* override = d->getDimStyleOverride();
     if (override != nullptr) {
         LC_ExtEntityData extEntityData;
@@ -11212,7 +11875,8 @@ void RS_FilterDXFRW::writeTolerance(LC_Tolerance* t) {
     tol.dimStyleName = style.toUtf8().constData();
 
     if (m_dwgW) {
-        m_dwgW->writeTolerance(&tol);
+        if (!m_dwgW->writeTolerance(&tol))
+            m_writeFailed = true;
         return;
     }
     if (m_dxfW) {
@@ -11261,7 +11925,8 @@ void RS_FilterDXFRW::writeLeader(const RS_Leader* l) {
     leader.vertnum = static_cast<int>(leader.vertexlist.size());
 
     if (m_dwgW) {
-        m_dwgW->writeLeader(&leader);
+        if (!m_dwgW->writeLeader(&leader))
+            m_writeFailed = true;
         return;
     }
     m_dxfW->writeLeader(&leader);
@@ -11376,6 +12041,11 @@ void RS_FilterDXFRW::writeHatch(RS_Hatch* h) {
 
     DRW_Hatch ha;
     getEntityAttributes(&ha, h);
+    if (const auto ocs = extractHatchExtrusionSidecar(h)) {
+        ha.basePoint.z = ocs->elevation;
+        ha.extPoint = ocs->extrusion;
+        removeHatchExtrusionSidecar(ha);
+    }
     ha.solid = h->isSolid();
     ha.scale = h->getScale();
     ha.angle = h->getAngle();
@@ -11466,7 +12136,11 @@ void RS_FilterDXFRW::writeHatch(RS_Hatch* h) {
             ha.appendLoop(lData);
         }
     }
-    if (m_dwgW) { m_dwgW->writeHatch(&ha); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeHatch(&ha))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeHatch(&ha);
 }
 
@@ -11496,15 +12170,28 @@ void RS_FilterDXFRW::writeSolid(RS_Solid* s) {
         solid.fourPoint.x = corner.x;
         solid.fourPoint.y = corner.y;
     }
-    if (m_dwgW) { m_dwgW->writeSolid(&solid); return; }
+    if (m_dwgW) {
+        if (!m_dwgW->writeSolid(&solid))
+            m_writeFailed = true;
+        return;
+    }
     m_dxfW->writeSolid(&solid);
 }
 
 
 void RS_FilterDXFRW::writeImage(const RS_Image * i) {
-    if (m_dwgW) return;
+    if (i == nullptr)
+        return;
+
     DRW_Image image;
     getEntityAttributes(&image, i);
+
+    if (const auto frame = extractImageFrameSidecar(i)) {
+        image.basePoint.z = frame->insertion.z;
+        image.secPoint.z = frame->uVector.z;
+        image.vVector.z = frame->vVector.z;
+        removeImageFrameSidecar(image);
+    }
 
     image.basePoint.x = i->getInsertionPoint().x;
     image.basePoint.y = i->getInsertionPoint().y;
@@ -11517,6 +12204,20 @@ void RS_FilterDXFRW::writeImage(const RS_Image * i) {
     image.brightness = i->getBrightness();
     image.contrast = i->getContrast();
     image.fade = i->getFade();
+
+#ifdef DWGSUPPORT
+    if (m_dwgW != nullptr) {
+        const std::string fileName = i->getFile().toUtf8().constData();
+        if (!m_dwgW->writeImage(&image, &fileName)) {
+            m_writeFailed = true;
+            RS_DEBUG->print(RS_Debug::D_ERROR,
+                            "RS_FilterDXFRW::writeImage: DWG writer rejected IMAGE");
+        }
+        return;
+    }
+#endif
+    if (m_dxfW == nullptr)
+        return;
 
     DRW_ImageDef* imgDef = m_dxfW->writeImage(&image, i->getFile().toUtf8().data());
     if (imgDef) {
@@ -11720,8 +12421,10 @@ void RS_FilterDXFRW::writeMLeader(LC_MLeader *m) {
           leader.vertexlist.push_back(
               std::make_shared<DRW_Coord>(point.x, point.y, point.z));
         }
-        m_dwgW->writeLeader(&leader);
-        wroteGeometry = true;
+        if (!m_dwgW->writeLeader(&leader))
+          m_writeFailed = true;
+        else
+          wroteGeometry = true;
       }
     }
     if (d.hasTextContents && !d.textLabel.isEmpty()) {
@@ -11739,8 +12442,10 @@ void RS_FilterDXFRW::writeMLeader(LC_MLeader *m) {
       text.text = toDxfString(d.textLabel).toUtf8().data();
       text.widthscale = d.boundaryWidth;
       text.interlin = 1.0;
-      m_dwgW->writeMText(&text);
-      wroteGeometry = true;
+      if (!m_dwgW->writeMText(&text))
+        m_writeFailed = true;
+      else
+        wroteGeometry = true;
     }
     if (!wroteGeometry) {
       RS_DEBUG->print(RS_Debug::D_WARNING,
@@ -12755,8 +13460,10 @@ bool RS_FilterDXFRW::isVariableTwoDimensional(const QString& var) {
 }
 }
 
-void RS_FilterDXFRW::addPolylineSegment(RS_Polyline& polyline, const RS_Vector& prev_pos, const RS_Vector& curr_pos, double bulge,
-                            const std::vector<std::shared_ptr<DRW_Variant>>& extData, bool isClosedSegment) {
+void RS_FilterDXFRW::addPolylineSegment(
+    RS_Polyline& polyline, const RS_Vector& prev_pos, const RS_Vector& curr_pos,
+    const double segmentBulge, const double nextBulge,
+    const std::vector<std::shared_ptr<DRW_Variant>>& extData) {
     bool isLcData = false;
     double yRadius = 0.0;
 
@@ -12774,7 +13481,8 @@ void RS_FilterDXFRW::addPolylineSegment(RS_Polyline& polyline, const RS_Vector& 
     bool isElliptic = yRadius > RS_TOLERANCE;
 
     if (isElliptic) {
-        std::unique_ptr<RS_Arc> arc{ RS_Polyline::arcFromBulge(prev_pos, curr_pos, bulge)};
+        std::unique_ptr<RS_Arc> arc{
+            RS_Polyline::arcFromBulge(prev_pos, curr_pos, segmentBulge)};
         if (arc != nullptr && arc->getRadius() >= RS_TOLERANCE) {
             double radius = arc->getRadius();
             double scaleRatio = yRadius / radius;
@@ -12786,16 +13494,16 @@ void RS_FilterDXFRW::addPolylineSegment(RS_Polyline& polyline, const RS_Vector& 
                 ellipse->setLayer(nullptr);
                 polyline.addEntity(ellipse);
                 polyline.getData().endpoint = curr_pos;
+                polyline.setNextBulge(nextBulge);
+                return;
             }
         }
     }
-    else {
-        polyline.addVertex(curr_pos, bulge, false);
-    }
 
-    if (isClosedSegment) {
-        polyline.setNextBulge(bulge);
-    }
+    // A malformed LibreCAD elliptic sidecar must not leave a gap in an
+    // otherwise valid polyline. addVertex consumes the current outgoing bulge
+    // and stores the following vertex's bulge for the next segment.
+    polyline.addVertex(curr_pos, nextBulge, false);
 }
 
 #ifdef DWGSUPPORT

@@ -1480,8 +1480,6 @@ void LC_LayerTreeWidget::manageLayersVisibilityFlag(const QList<RS_Layer *> &lay
         } else {
             m_graphic->setFreezeLayers(layersToEnable, layersToDisable);
         }
-        m_document->updateInserts();
-        m_document->calculateBorders();
     }
 }
 /**

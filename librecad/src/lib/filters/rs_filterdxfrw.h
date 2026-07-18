@@ -550,8 +550,10 @@ private:
     RS_EntityContainer* m_dummyContainer = nullptr;
     void applyParsedDimStyleExtData(const LC_DimStyle* dimStyle, const QString& appName, const std::vector<DRW_Variant>& vector);
     LC_DimStyle* createDimStyle(const DRW_Dimstyle& s);
-    void addPolylineSegment(RS_Polyline& polyline, const RS_Vector& previousPosition, const RS_Vector& currentPosition, double bulge,
-                            const std::vector<std::shared_ptr<DRW_Variant>>& extData, bool isClosedSegment);
+    void addPolylineSegment(RS_Polyline& polyline, const RS_Vector& previousPosition,
+                            const RS_Vector& currentPosition, double segmentBulge,
+                            double nextBulge,
+                            const std::vector<std::shared_ptr<DRW_Variant>>& extData);
     /**
      * Handle degree-2 SPLINE with exactly 3 control points (rational quadratic conic).
      * @return true if a conic entity (hyperbola or parabola) was created and handled
