@@ -27,14 +27,27 @@ log()  { echo "[validate] $*"; }
 fail() { echo "VALIDATE $SLICE: FAIL -- $1" >&2; exit 1; }
 run()  { log "+ $*"; "$@" || fail "$*"; }
 
-# ---- --selfcheck: exercise the runner end-to-end against the 3 landed slices ----
+# ---- --selfcheck: exercise the runner end-to-end against every landed slice ----
+# The set of "landed slices" is derived from slices.json cross-checked against
+# gate_results/ shard existence — this way the loop stays exhaustive as new
+# slices land, never a hardcoded list that rots.
 if [ "$SLICE" = "--selfcheck" ]; then
-    log "self-check: retroactive validation of 3 landed slices"
-    for id in 00-T-antiloss 00-T-extract-spec 00-T-bounds 00-T-slices-seed; do
+    LANDED=$("$PY" -c "
+import json, os
+s = json.load(open('scripts/conformance/slices.json'))
+for r in s:
+    shard = f'docs/conformance/gate_results/{r[\"id\"]}.json'
+    if os.path.exists(shard):
+        print(r['id'])
+")
+    N=$(echo "$LANDED" | wc -l | tr -d ' ')
+    log "self-check: retroactive validation of $N landed slices"
+    while IFS= read -r id; do
+        [ -z "$id" ] && continue
         log "  -> $id"
         "$0" "$id" || fail "self-check: $id gate would not pass"
-    done
-    log "self-check: PASS"
+    done <<< "$LANDED"
+    log "self-check: PASS ($N slices)"
     exit 0
 fi
 
@@ -130,8 +143,16 @@ print('slices.json schema OK,', len(s), 'entries')
 " || fail "slices.json schema violation"
                 ;;
             00-T-validate-slice)
-                # The runner's own selfcheck.
-                run bash scripts/conformance/validate_slice.sh --selfcheck
+                # The runner's OWN gate. Do NOT re-run --selfcheck here — that
+                # would recurse (--selfcheck iterates every landed slice, which
+                # includes this one). Instead verify:
+                #   (a) the script is executable + parses,
+                #   (b) it can validate one representative landed slice via a
+                #       child invocation that will NOT recurse back here.
+                [ -x scripts/conformance/validate_slice.sh ] || fail "runner not executable"
+                run bash -n scripts/conformance/validate_slice.sh
+                # Sanity: pick a different landed slice and confirm it passes.
+                run bash scripts/conformance/validate_slice.sh 00-T-antiloss
                 ;;
             00-T-gen-progress|00-T-gen-readme)
                 # Deferred bootstrap: PASS iff the script exists and has --check

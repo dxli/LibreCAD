@@ -1,7 +1,7 @@
 {
   "slice_id": "00-T-slices-seed",
   "passed": true,
-  "ts": "2026-07-18T00:36:32Z",
+  "ts": "2026-07-18T01:07:46Z",
   "runner": "validate_slice.sh (bootstrap)",
   "input_hash": "9364084bee1567de",
   "tier_a_dispatched_kind": "T",
