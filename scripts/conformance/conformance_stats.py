@@ -145,7 +145,11 @@ def compute_progress() -> dict:
             # when THIS slice's own evidence changes.
             "committed": bool(sha and shard and shard.get("passed")),
             "gate_passed": bool(shard and shard.get("passed")),
-            "input_hash": (shard or {}).get("input_hash"),
+            # input_hash and ts are DELIBERATELY NOT persisted here. See
+            # HANDOFF: input_hash currently hashes the full slices.json
+            # (validate_slice.sh scoping bug), so any slice-registry edit
+            # invalidates every hash. Persisting it into --check-gated files
+            # would churn PROGRESS.md/progress.json on every unrelated commit.
         })
 
     ledger_meta = (ledger or {}).get("meta", {}) if ledger else {}
