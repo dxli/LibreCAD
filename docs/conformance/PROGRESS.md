@@ -25,7 +25,7 @@
 
 | Slice ID | State | SHA | Notes |
 |---|---|---|---|
-| `05-T-build-ledger` | planned | — | Blocked on: `00-O-fieldhit` (for corpus_hits column). `00-T-extract-code` now landed; other deps (spec_fields, shared_bodies, GATE_BRANCHES) also landed. |
+| `05-T-build-ledger` | **done** | `c74aa1144` | Joined spec_fields × code_fields × GATE_BRANCHES × shared_bodies. 7935 ledger rows (7919 unaudited branch cells + 7 named-untabled A.1 seed + 9 unknowable UNDOCUMENTED-control seed). Round-3 M5 verdict enum restored. Independent aggregate reproducibility verified: (unit,row_ordinal) pair count == 1345 == spec's data-row count; verdict-count sum equals total_rows; --check idempotent byte-identically. Extra scrutiny surfaced real bug: `DRW_Dimension::parseDwg` has 2 overloads (round-3 M8 test case), plain symbol-keyed dict silently drops one — ledger meta now reports `code_bodies_total=186 vs distinct_symbol=185` and `overload_collisions=1` to keep the discrepancy visible instead of erased. `corpus_hits` column present-as-null awaiting 00-O-fieldhit. |
 
 ## Round-3 blocker status
 
@@ -39,7 +39,7 @@
 | **R.4 (never cite absolute .cpp lines)** | ENFORCED | `BRIEF.md` records rule; every finished slice resolves via `bounds.py` |
 | **M2 (errata dependency inversion)** | RESOLVED | `00-T-antiloss` seeded `errata.json` with MTEXT-4, VPORT-V6, SPLINE-BD-vs-RD |
 | **M4 (§20.4.22 COMMON DIMENSION DATA prereq)** | OPEN | Needs SP2 slice authoring or Tier-0 exclusion |
-| **M5 (`unknowable` verdict enum missing)** | ADDRESSED IN SPEC | slices.json's `05-T-build-ledger` acceptance restores `unknowable` |
+| **M5 (`unknowable` verdict enum missing)** | RESOLVED | `05-T-build-ledger` VERDICT_ENUM restored `unknowable`; 9 UNDOCUMENTED-control rows seeded with it |
 | **M6 (effort roll-up mis-adds)** | OPEN | Cosmetic; no impact on execution |
 | **M7 (P6 verification home)** | OPEN | Design decision needed before P6 |
 | **M9 (corpus provenance-tagging)** | OPEN | Needs to run before `00-O-corpus-wire` starts |
@@ -54,11 +54,11 @@
 
 ## Aggregate scorecard
 
-- Slices landed: **8 T-slices** (antiloss, extract-spec, bounds, slices-seed, validate-slice, shared-bodies, gate-branches, extract-code).
+- Slices landed: **9 slices** — 8 T-slices in P0 (antiloss, extract-spec, bounds, slices-seed, validate-slice, shared-bodies, gate-branches, extract-code) + **1 T-slice in P1 (build-ledger)**.
 - Design docs: **1** (DECISION-fieldhit-attribution.md).
 - Commits on branch: **15 conformance commits** (`git rev-list --count dli/master..HEAD` = 16; the extra one is `f2143b879` "Add Lao (lo) translation support" — real, pre-existing, unrelated history sitting at this branch's base, confirmed NOT an ancestor of `dli/master` via `git merge-base --is-ancestor`. Do not rebase it away without explicit direction — it is prior work, not junk).
 - Spec substrate: **1466-row target, 1345 rows extracted (91.8%)** documented as first-pass drift.
 - Code extract: **186 bodies, 1825 read + 1085 write tokens, 6 delegation edges, DRW_UNUSED split 4 real + 17 param** (both token totals and the DRW_UNUSED split were independently re-verified 2026-07-18 and corrected from interim values that undercounted; see the `00-T-extract-code` row).
-- Ledger branch-cells: 7807 (dominated by Common-gate row expansion; exceeds round-3 estimate 4000-6000).
-- Round-3 blockers resolved: **B1, B2, H1, H2, H3, L6, M2, M8, R.4** (9 of 14).
+- Ledger: **7935 total rows** = 7919 unaudited branch cells + 7 named-untabled + 9 unknowable; `--check` byte-identically idempotent. Extra scrutiny surfaced `DRW_Dimension::parseDwg` 2-overload case (round-3 M8 test); recorded as `overload_collisions=1` in meta rather than silently dropped.
+- Round-3 blockers resolved: **B1, B2, H1, H2, H3, L6, M2, M5, M8, R.4** (10 of 14).
 - **Verification discipline note:** two rounds of independent re-verification (not just trusting the landing agent's own report) have each caught real numeric errors in checked-in artifacts — `shared_bodies.json`'s call-site counts (round 1) and `extract_code.py`'s token/discard counts (round 2). Both were fixed at the same rigor as the review's own findings: re-derive from source, don't trust a prior claim, cite the reproducible command. Treat every number in this file as provisional until `gen_progress.py` derives it mechanically.
