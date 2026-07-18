@@ -16,7 +16,8 @@
 | `00-T-gate-branches` | **done** | `1d6d579f1` | GATE_BRANCHES.json + SOURCES pin. Resolves round-3 H3. All 23 gate strings mapped. Branch-cell denominator: 7807 (round-3 A.9 estimate 4000-6000). |
 | `00-T-gen-progress` | planned | — | Deferred: awaits build_ledger. |
 | `00-T-gen-readme` | planned | — | Deferred: awaits gen_progress. |
-| `00-T-extract-code` | planned | — | Blocked on: none technical. Needs L6 (C preprocessor before tokenizing) + M8 (measured token precision/recall gate over 5+ hand-labeled bodies) discipline. |
+| `00-T-extract-code` | **done** | `2684da567` | 186 bodies enumerated; 1643 read tokens + 956 writes. Round-3 L6 applied (LIBDXFRW_FULL_COMMON_HEADER dead branch dropped). Round-3 M8 applied (5+ hand-labeled bodies + DimLinear inheritance case in --selfcheck). DRW_UNUSED split: 3 real + 18 param (target ~5 + ~18). 6 delegation edges detected. |
+| `00-T-validate-slice --selfcheck coverage` | **fixed** | `a687b86ba` | Coordinator caught: was 4/7 landed; now 7/7. Recursion break: validate-slice's own gate runs bash -n + a child on 00-T-antiloss instead of --selfcheck. |
 | `00-O-fieldhit` | planned, **H2 decision recorded** | — | Attribution decision: `__builtin_return_address(0)` + noinline + build-time symbolization. See `docs/conformance/DECISION-fieldhit-attribution.md`. |
 | `00-O-corpus-wire` | planned | — | Blocked on round-3 M9 provenance-tagging step (documented but not yet built). |
 
@@ -24,7 +25,7 @@
 
 | Slice ID | State | SHA | Notes |
 |---|---|---|---|
-| `05-T-build-ledger` | planned | — | Blocked on: `00-T-extract-code`, `00-O-fieldhit`. All other deps (spec_fields, shared_bodies, GATE_BRANCHES) landed. |
+| `05-T-build-ledger` | planned | — | Blocked on: `00-O-fieldhit` (for corpus_hits column). `00-T-extract-code` now landed; other deps (spec_fields, shared_bodies, GATE_BRANCHES) also landed. |
 
 ## Round-3 blocker status
 
@@ -53,9 +54,10 @@
 
 ## Aggregate scorecard
 
-- Slices landed: **7 T-slices** (antiloss, extract-spec, bounds, slices-seed, validate-slice, shared-bodies, gate-branches).
+- Slices landed: **8 T-slices** (antiloss, extract-spec, bounds, slices-seed, validate-slice, shared-bodies, gate-branches, extract-code).
 - Design docs: **1** (DECISION-fieldhit-attribution.md).
-- Commits on branch: **10** (7 slice commits + 2 progress refreshes + 1 decision doc).
+- Commits on branch: **13** (8 slice commits + 3 progress refreshes + 1 decision doc + 1 coordinator's shared-body count-correction).
 - Spec substrate: **1466-row target, 1345 rows extracted (91.8%)** documented as first-pass drift.
+- Code extract: **186 bodies, 1643 read + 956 write tokens, 6 delegation edges, DRW_UNUSED split 3 real + 18 param.**
 - Ledger branch-cells: 7807 (dominated by Common-gate row expansion; exceeds round-3 estimate 4000-6000).
-- Round-3 blockers resolved: **B1, B2, H1, H2, H3, M2, R.4** (7 of 14).
+- Round-3 blockers resolved: **B1, B2, H1, H2, H3, L6, M2, M8, R.4** (9 of 14).
