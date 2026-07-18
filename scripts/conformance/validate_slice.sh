@@ -191,7 +191,15 @@ if miss:
 print('all', len(seen), 'gates mapped')
 " || fail "gate coverage"
                 ;;
-            00-T-extract-code|05-T-build-ledger)
+            00-T-extract-code)
+                # Real gate: --selfcheck must pass (5+ hand-labeled bodies +
+                # inheritance case), code_fields.json is produced.
+                run "$PY" scripts/conformance/extract_code.py --selfcheck
+                [ -f scripts/conformance/code_fields.json ] || fail "code_fields.json not produced"
+                N=$("$PY" -c "import json; print(json.load(open('scripts/conformance/code_fields.json'))['meta']['n_bodies'])")
+                [ "$N" -ge 150 ] || fail "code_fields.json has $N bodies, expected >=150"
+                ;;
+            05-T-build-ledger)
                 # Future slice — dispatch documented, execution deferred.
                 fail "slice $SLICE not yet implementable in this bootstrap"
                 ;;
