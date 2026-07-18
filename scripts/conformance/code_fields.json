@@ -7,7 +7,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 1145,
-      "readCount": 38,
+      "readCount": 60,
       "readSeq": [
         {
           "gate": "Common",
@@ -101,6 +101,114 @@
         },
         {
           "gate": "Common",
+          "line": 1210,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 1217,
+          "sinkKind": "local",
+          "tok": "getRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 1224,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 1242,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 1243,
+          "sinkKind": "local",
+          "tok": "getBERawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 1246,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 1251,
+          "sinkKind": "bare-statement",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 1259,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 1267,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 1281,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 1284,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 1292,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 1306,
+          "sinkKind": "member-assign",
+          "tok": "getRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1307,
+          "sinkKind": "member-assign",
+          "tok": "getRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1308,
+          "sinkKind": "member-assign",
+          "tok": "getRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1314,
+          "sinkKind": "local",
+          "tok": "getRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1320,
+          "sinkKind": "bare-statement",
+          "tok": "getRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 1326,
+          "sinkKind": "bare-statement",
+          "tok": "getRawLong32"
+        },
+        {
+          "gate": "Common",
           "line": 1338,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
@@ -161,6 +269,12 @@
         },
         {
           "gate": "Common",
+          "line": 1376,
+          "sinkKind": "local",
+          "tok": "get2Bits"
+        },
+        {
+          "gate": "Common",
           "line": 1384,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
@@ -200,6 +314,24 @@
           "line": 1446,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "version > DRW::AC1014",
+          "line": 1450,
+          "sinkKind": "member-assign",
+          "tok": "get2Bits"
+        },
+        {
+          "gate": "Common",
+          "line": 1458,
+          "sinkKind": "member-assign",
+          "tok": "get2Bits"
+        },
+        {
+          "gate": "version > DRW::AC1018",
+          "line": 1462,
+          "sinkKind": "member-assign",
+          "tok": "get2Bits"
         },
         {
           "gate": "Common",
@@ -575,7 +707,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Helix::encodeDwg",
-      "writeCount": 7,
+      "writeCount": 10,
       "writeSeq": [
         {
           "gate": "Common",
@@ -586,6 +718,21 @@
           "gate": "Common",
           "line": 2152,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 2153,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2154,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2155,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -624,8 +771,23 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_MText::encodeDwg",
-      "writeCount": 29,
+      "writeCount": 34,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 2171,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2172,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2173,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 2174,
@@ -718,6 +880,16 @@
         },
         {
           "gate": "Common",
+          "line": 2203,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2204,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 2205,
           "tok": "putBitDouble"
         },
@@ -783,7 +955,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Insert::encodeDwg",
-      "writeCount": 14,
+      "writeCount": 17,
       "writeSeq": [
         {
           "gate": "Common",
@@ -802,8 +974,23 @@
         },
         {
           "gate": "Common",
+          "line": 2262,
+          "tok": "put2Bits"
+        },
+        {
+          "gate": "Common",
+          "line": 2264,
+          "tok": "put2Bits"
+        },
+        {
+          "gate": "Common",
           "line": 2265,
           "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2268,
+          "tok": "put2Bits"
         },
         {
           "gate": "Common",
@@ -1232,8 +1419,23 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Ellipse::encodeDwg",
-      "writeCount": 3,
+      "writeCount": 6,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 2493,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2494,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2495,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 2496,
@@ -1578,8 +1780,26 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 2743,
-      "readCount": 3,
+      "readCount": 6,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 2749,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2751,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2753,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 2755,
@@ -1924,7 +2144,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3002,
-      "readCount": 14,
+      "readCount": 16,
       "readSeq": [
         {
           "gate": "Common",
@@ -1946,9 +2166,21 @@
         },
         {
           "gate": "Common",
+          "line": 3025,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3027,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 3031,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -2025,7 +2257,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Mesh::encodeDwg",
-      "writeCount": 14,
+      "writeCount": 16,
       "writeSeq": [
         {
           "gate": "Common",
@@ -2044,8 +2276,18 @@
         },
         {
           "gate": "Common",
+          "line": 3128,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3130,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 3132,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -2106,8 +2348,14 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3160,
-      "readCount": 7,
+      "readCount": 9,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 3167,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 3168,
@@ -2146,6 +2394,12 @@
         },
         {
           "gate": "Common",
+          "line": 3174,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3178,
           "sinkKind": "local",
           "tok": "getHandle"
@@ -2165,8 +2419,13 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Shape::encodeDwg",
-      "writeCount": 6,
+      "writeCount": 8,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 3195,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 3196,
@@ -2196,6 +2455,11 @@
           "gate": "Common",
           "line": 3201,
           "tok": "putBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 3202,
+          "tok": "put3BitDouble"
         }
       ]
     },
@@ -2289,7 +2553,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3327,
-      "readCount": 30,
+      "readCount": 33,
       "readSeq": [
         {
           "gate": "Common",
@@ -2332,6 +2596,18 @@
           "line": 3342,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3343,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3344,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -2449,6 +2725,12 @@
         },
         {
           "gate": "Common",
+          "line": 3367,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3368,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
@@ -2486,7 +2768,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Light::encodeDwg",
-      "writeCount": 30,
+      "writeCount": 33,
       "writeSeq": [
         {
           "gate": "Common",
@@ -2522,6 +2804,16 @@
           "gate": "Common",
           "line": 3397,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3398,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3399,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -2620,6 +2912,11 @@
         },
         {
           "gate": "Common",
+          "line": 3421,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3422,
           "tok": "putBitShort"
         },
@@ -2647,7 +2944,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3436,
-      "readCount": 10,
+      "readCount": 13,
       "readSeq": [
         {
           "gate": "Common",
@@ -2666,6 +2963,12 @@
           "line": 3448,
           "sinkKind": "member-assign",
           "tok": "getVariableText"
+        },
+        {
+          "gate": "Common",
+          "line": 3449,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -2699,9 +3002,21 @@
         },
         {
           "gate": "Common",
+          "line": 3466,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 3468,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 3475,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -2721,7 +3036,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3538,
-      "readCount": 5,
+      "readCount": 8,
       "readSeq": [
         {
           "gate": "Common",
@@ -2740,6 +3055,24 @@
           "line": 3552,
           "sinkKind": "DRW_DBG",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3555,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3557,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3560,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -2768,7 +3101,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Tolerance::encodeDwg",
-      "writeCount": 3,
+      "writeCount": 6,
       "writeSeq": [
         {
           "gate": "version < DRW::AC1015",
@@ -2784,6 +3117,21 @@
           "gate": "Common",
           "line": 3584,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3587,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3588,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3589,
+          "tok": "put3BitDouble"
         }
       ]
     },
@@ -2816,11 +3164,11 @@
     {
       "body_lines": 81,
       "close_line": 3962,
-      "drw_unused_param_suppressions": 1,
-      "drw_unused_real_read_discards": 0,
+      "drw_unused_param_suppressions": 0,
+      "drw_unused_real_read_discards": 1,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3882,
-      "readCount": 25,
+      "readCount": 26,
       "readSeq": [
         {
           "gate": "Common",
@@ -2857,6 +3205,12 @@
           "line": 3895,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3897,
+          "sinkKind": "local",
+          "tok": "get2Bits"
         },
         {
           "gate": "Common",
@@ -2984,7 +3338,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 3964,
-      "readCount": 35,
+      "readCount": 43,
       "readSeq": [
         {
           "gate": "Common",
@@ -3003,6 +3357,12 @@
           "line": 3978,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3980,
+          "sinkKind": "local",
+          "tok": "get2Bits"
         },
         {
           "gate": "Common",
@@ -3065,6 +3425,24 @@
           "tok": "getBitLong"
         },
         {
+          "gate": "Common",
+          "line": 4014,
+          "sinkKind": "member-assign",
+          "tok": "getHandle"
+        },
+        {
+          "gate": "Common",
+          "line": 4018,
+          "sinkKind": "bare-statement",
+          "tok": "getHandle"
+        },
+        {
+          "gate": "Common",
+          "line": 4019,
+          "sinkKind": "member-assign",
+          "tok": "getHandle"
+        },
+        {
           "gate": "!ret)\n        return ret;\n\n    if (version >= DRW::AC1024",
           "line": 4026,
           "sinkKind": "bare-statement",
@@ -3093,6 +3471,12 @@
           "line": 4044,
           "sinkKind": "bare-statement",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 4045,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -3138,6 +3522,12 @@
         },
         {
           "gate": "Common",
+          "line": 4063,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4064,
           "sinkKind": "bare-statement",
           "tok": "getBitDouble"
@@ -3156,6 +3546,12 @@
         },
         {
           "gate": "Common",
+          "line": 4076,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4077,
           "sinkKind": "bare-statement",
           "tok": "getBitLong"
@@ -3171,6 +3567,12 @@
           "line": 4094,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 4095,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -3349,7 +3751,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 4501,
-      "readCount": 11,
+      "readCount": 15,
       "readSeq": [
         {
           "gate": "Common",
@@ -3362,6 +3764,12 @@
           "line": 4510,
           "sinkKind": "member-assign",
           "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 4511,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -3386,6 +3794,24 @@
           "line": 4515,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 4527,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4528,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4529,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -3429,7 +3855,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 4607,
-      "readCount": 9,
+      "readCount": 11,
       "readSeq": [
         {
           "gate": "Common",
@@ -3439,9 +3865,21 @@
         },
         {
           "gate": "Common",
+          "line": 4611,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4612,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4613,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -3500,7 +3938,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Underlay::encodeDwg",
-      "writeCount": 8,
+      "writeCount": 10,
       "writeSeq": [
         {
           "gate": "Common",
@@ -3509,8 +3947,18 @@
         },
         {
           "gate": "Common",
+          "line": 4661,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4662,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4663,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -3709,8 +4157,20 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 4823,
-      "readCount": 5,
+      "readCount": 7,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 4833,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4835,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 4836,
@@ -3756,8 +4216,18 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_RText::encodeDwg",
-      "writeCount": 3,
+      "writeCount": 5,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 4859,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4860,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 4861,
@@ -3785,7 +4255,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_ArcAlignedText::encodeDwg",
-      "writeCount": 25,
+      "writeCount": 27,
       "writeSeq": [
         {
           "gate": "Common",
@@ -3839,6 +4309,11 @@
         },
         {
           "gate": "Common",
+          "line": 4928,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4929,
           "tok": "putBitDouble"
         },
@@ -3851,6 +4326,11 @@
           "gate": "Common",
           "line": 4931,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4932,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -3921,7 +4401,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 4995,
-      "readCount": 27,
+      "readCount": 29,
       "readSeq": [
         {
           "gate": "Common",
@@ -3985,6 +4465,12 @@
         },
         {
           "gate": "Common",
+          "line": 5015,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 5016,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
@@ -4000,6 +4486,12 @@
           "line": 5018,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5019,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -4755,8 +5247,26 @@
       "drw_unused_real_read_discards": 2,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 5800,
-      "readCount": 32,
+      "readCount": 37,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 5811,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5813,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5814,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 5817,
@@ -4870,6 +5380,18 @@
           "line": 5879,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 5880,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5881,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5107,13 +5629,19 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 6090,
-      "readCount": 11,
+      "readCount": 13,
       "readSeq": [
         {
           "gate": "Common",
           "line": 6098,
           "sinkKind": "member-assign",
           "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 6100,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5153,6 +5681,12 @@
         },
         {
           "gate": "Common",
+          "line": 6123,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6130,
           "sinkKind": "bare-statement",
           "tok": "getBitShort"
@@ -5187,7 +5721,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 6488,
-      "readCount": 33,
+      "readCount": 35,
       "readSeq": [
         {
           "gate": "Common",
@@ -5272,6 +5806,12 @@
           "line": 6524,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6525,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5377,6 +5917,12 @@
         },
         {
           "gate": "Common",
+          "line": 6559,
+          "sinkKind": "local",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6562,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
@@ -5402,7 +5948,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_MPolygon::encodeDwg",
-      "writeCount": 20,
+      "writeCount": 22,
       "writeSeq": [
         {
           "gate": "Common",
@@ -5413,6 +5959,11 @@
           "gate": "Common",
           "line": 6593,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6594,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -5501,6 +6052,11 @@
         },
         {
           "gate": "Common",
+          "line": 6626,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6627,
           "tok": "putBitLong"
         }
@@ -5513,7 +6069,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 6738,
-      "readCount": 34,
+      "readCount": 35,
       "readSeq": [
         {
           "gate": "!ret)\n        return ret;\n    DRW_DBG(                                                                                               );\n\n                                                              \n    if (version > DRW::AC1015",
@@ -5592,6 +6148,12 @@
           "line": 6787,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6788,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5734,12 +6296,17 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Hatch::encodeDwg",
-      "writeCount": 13,
+      "writeCount": 14,
       "writeSeq": [
         {
           "gate": "Common",
           "line": 6973,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6974,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -5823,7 +6390,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 7304,
-      "readCount": 7,
+      "readCount": 10,
       "readSeq": [
         {
           "gate": "Common",
@@ -5836,6 +6403,24 @@
           "line": 7314,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 7315,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7316,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7317,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5879,13 +6464,31 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 7396,
-      "readCount": 13,
+      "readCount": 19,
       "readSeq": [
         {
           "gate": "Common",
           "line": 7407,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 7409,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7411,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7413,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -5943,9 +6546,27 @@
         },
         {
           "gate": "Common",
+          "line": 7434,
+          "sinkKind": "local",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7435,
+          "sinkKind": "local",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 7441,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 7446,
+          "sinkKind": "bare-statement",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "Common",
@@ -5974,7 +6595,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Image::encodeDwg",
-      "writeCount": 23,
+      "writeCount": 24,
       "writeSeq": [
         {
           "gate": "Common",
@@ -6083,6 +6704,11 @@
         },
         {
           "gate": "Common",
+          "line": 7514,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 7530,
           "tok": "putHandle"
         },
@@ -6117,7 +6743,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Wipeout::encodeDwg",
-      "writeCount": 23,
+      "writeCount": 24,
       "writeSeq": [
         {
           "gate": "Common",
@@ -6223,6 +6849,11 @@
           "gate": "Common",
           "line": 7573,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 7575,
+          "tok": "put2RawDouble"
         },
         {
           "gate": "Common",
@@ -6337,13 +6968,19 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 7917,
-      "readCount": 18,
+      "readCount": 20,
       "readSeq": [
         {
           "gate": "version > DRW::AC1021",
           "line": 7930,
           "sinkKind": "local",
           "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 7934,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -6386,6 +7023,12 @@
           "line": 7950,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7951,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -6459,8 +7102,26 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 7975,
-      "readCount": 4,
+      "readCount": 7,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 7984,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7987,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7990,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 7993,
@@ -6497,8 +7158,20 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8015,
-      "readCount": 3,
+      "readCount": 5,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8021,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8024,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8027,
@@ -6529,13 +7202,37 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8092,
-      "readCount": 3,
+      "readCount": 7,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8096,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8097,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8098,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8099,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8100,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -6561,8 +7258,20 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8110,
-      "readCount": 3,
+      "readCount": 5,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8116,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8119,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8122,
@@ -6593,7 +7302,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8142,
-      "readCount": 4,
+      "readCount": 8,
       "readSeq": [
         {
           "gate": "Common",
@@ -6606,6 +7315,30 @@
           "line": 8150,
           "sinkKind": "member-assign",
           "tok": "getRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8153,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8156,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8159,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8162,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -6631,8 +7364,32 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8183,
-      "readCount": 2,
+      "readCount": 6,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8189,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8192,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8195,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8198,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8209,
@@ -6657,8 +7414,26 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8219,
-      "readCount": 3,
+      "readCount": 6,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8225,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8228,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8231,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8234,
@@ -6692,8 +7467,23 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimAligned::encodeDwg",
-      "writeCount": 1,
+      "writeCount": 4,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8332,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8333,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8334,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8335,
@@ -6711,8 +7501,23 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimLinear::encodeDwg",
-      "writeCount": 2,
+      "writeCount": 5,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8349,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8350,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8351,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8352,
@@ -6735,8 +7540,18 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimRadial::encodeDwg",
-      "writeCount": 1,
+      "writeCount": 3,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8367,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8368,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8369,
@@ -6754,12 +7569,32 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimLargeRadial::encodeDwg",
-      "writeCount": 1,
+      "writeCount": 5,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8385,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8386,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8387,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8388,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8389,
+          "tok": "put3BitDouble"
         }
       ]
     },
@@ -6773,8 +7608,18 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimDiametric::encodeDwg",
-      "writeCount": 1,
+      "writeCount": 3,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8403,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8404,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8405,
@@ -6792,7 +7637,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimAngular::encodeDwg",
-      "writeCount": 2,
+      "writeCount": 6,
       "writeSeq": [
         {
           "gate": "Common",
@@ -6803,6 +7648,26 @@
           "gate": "Common",
           "line": 8421,
           "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8422,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8423,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8424,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8425,
+          "tok": "put3BitDouble"
         }
       ]
     },
@@ -6816,8 +7681,29 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimAngular3p::encodeDwg",
-      "writeCount": 0,
-      "writeSeq": []
+      "writeCount": 4,
+      "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8439,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8440,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8441,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8442,
+          "tok": "put3BitDouble"
+        }
+      ]
     },
     {
       "body_lines": 18,
@@ -6826,8 +7712,32 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8480,
-      "readCount": 6,
+      "readCount": 12,
       "readSeq": [
+        {
+          "gate": "Common",
+          "line": 8482,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8483,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8484,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8485,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8486,
@@ -6851,6 +7761,18 @@
           "line": 8489,
           "sinkKind": "member-assign",
           "tok": "getBit"
+        },
+        {
+          "gate": "Common",
+          "line": 8491,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8492,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -6879,8 +7801,28 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimArc::encodeDwg",
-      "writeCount": 4,
+      "writeCount": 10,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8508,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8509,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8510,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8511,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8512,
@@ -6900,6 +7842,16 @@
           "gate": "Common",
           "line": 8515,
           "tok": "putBit"
+        },
+        {
+          "gate": "Common",
+          "line": 8519,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8520,
+          "tok": "put3BitDouble"
         }
       ]
     },
@@ -6913,8 +7865,23 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_DimOrdinate::encodeDwg",
-      "writeCount": 1,
+      "writeCount": 4,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 8534,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8535,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8536,
+          "tok": "put3BitDouble"
+        },
         {
           "gate": "Common",
           "line": 8541,
@@ -6929,7 +7896,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 8638,
-      "readCount": 22,
+      "readCount": 28,
       "readSeq": [
         {
           "gate": "Common",
@@ -6954,6 +7921,42 @@
           "line": 8652,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 8657,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8661,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8664,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8666,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 8668,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "version > DRW::AC1012",
+          "line": 8671,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -7075,7 +8078,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_entities.cpp",
       "open_line": 9202,
-      "readCount": 35,
+      "readCount": 36,
       "readSeq": [
         {
           "gate": "!ret) return ret;\n    DRW_DBG(                                                                   );\n\n                                                                     \n                                                                            \n    if (version >= DRW::AC1024",
@@ -7178,6 +8181,12 @@
           "line": 9256,
           "sinkKind": "member-assign",
           "tok": "getCmColor"
+        },
+        {
+          "gate": "Common",
+          "line": 9257,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -7302,7 +8311,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_MLeader::encodeDwg",
-      "writeCount": 28,
+      "writeCount": 29,
       "writeSeq": [
         {
           "gate": "Common",
@@ -7388,6 +8397,11 @@
           "gate": "Common",
           "line": 9398,
           "tok": "putCmColor"
+        },
+        {
+          "gate": "Common",
+          "line": 9399,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -7830,7 +8844,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_MLine::encodeDwg",
-      "writeCount": 10,
+      "writeCount": 14,
       "writeSeq": [
         {
           "gate": "Common",
@@ -7841,6 +8855,11 @@
           "gate": "Common",
           "line": 9725,
           "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 9726,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -7861,6 +8880,21 @@
           "gate": "Common",
           "line": 9730,
           "tok": "putBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 9733,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9734,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9735,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -7894,12 +8928,17 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Vertex::encodeDwg",
-      "writeCount": 11,
+      "writeCount": 13,
       "writeSeq": [
         {
           "gate": "Common",
           "line": 9788,
           "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 9789,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -7930,6 +8969,11 @@
           "gate": "Common",
           "line": 9797,
           "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 9798,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -8094,7 +9138,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Leader::encodeDwg",
-      "writeCount": 20,
+      "writeCount": 26,
       "writeSeq": [
         {
           "gate": "Common",
@@ -8115,6 +9159,36 @@
           "gate": "Common",
           "line": 9903,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 9905,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9906,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9908,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9910,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 9911,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "version > DRW::AC1012",
+          "line": 9914,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "version < DRW::AC1015",
@@ -8429,7 +9503,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 820,
-      "readCount": 20,
+      "readCount": 31,
       "readSeq": [
         {
           "gate": "Common",
@@ -8520,6 +9594,72 @@
           "line": 867,
           "sinkKind": "bare-statement",
           "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 870,
+          "sinkKind": "local",
+          "tok": "getPosition"
+        },
+        {
+          "gate": "Common",
+          "line": 871,
+          "sinkKind": "local",
+          "tok": "getBitPos"
+        },
+        {
+          "gate": "Common",
+          "line": 873,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 883,
+          "sinkKind": "local",
+          "tok": "getRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 888,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 905,
+          "sinkKind": "local",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 907,
+          "sinkKind": "local",
+          "tok": "getBERawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 911,
+          "sinkKind": "bare-statement",
+          "tok": "getBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 915,
+          "sinkKind": "bare-statement",
+          "tok": "getRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 924,
+          "sinkKind": "DRW_DBG",
+          "tok": "getPosition"
+        },
+        {
+          "gate": "Common",
+          "line": 924,
+          "sinkKind": "DRW_DBG",
+          "tok": "getBitPos"
         },
         {
           "gate": "Common",
@@ -9179,7 +10319,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 1877,
-      "readCount": 59,
+      "readCount": 65,
       "readSeq": [
         {
           "gate": "Common",
@@ -9216,6 +10356,12 @@
           "line": 1895,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1898,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "Common",
@@ -9339,6 +10485,18 @@
         },
         {
           "gate": "Common",
+          "line": 1929,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1931,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 1933,
           "sinkKind": "bare-statement",
           "tok": "getBit"
@@ -9375,6 +10533,12 @@
         },
         {
           "gate": "Common",
+          "line": 1942,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 1944,
           "sinkKind": "member-assign",
           "tok": "getBit"
@@ -9396,6 +10560,18 @@
           "line": 1948,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1950,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 1952,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "version > DRW::AC1014",
@@ -9547,13 +10723,19 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 2066,
-      "readCount": 9,
+      "readCount": 10,
       "readSeq": [
         {
           "gate": "Common",
           "line": 2076,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 2078,
+          "sinkKind": "local",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "Common",
@@ -9809,7 +10991,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 2327,
-      "readCount": 13,
+      "readCount": 17,
       "readSeq": [
         {
           "gate": "Common",
@@ -9836,6 +11018,24 @@
           "tok": "getBit"
         },
         {
+          "gate": "Common",
+          "line": 2353,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2354,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2355,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
           "gate": "version > DRW::AC1014",
           "line": 2358,
           "sinkKind": "member-assign",
@@ -9858,6 +11058,12 @@
           "line": 2364,
           "sinkKind": "local",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 2365,
+          "sinkKind": "local",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -9901,7 +11107,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 2499,
-      "readCount": 35,
+      "readCount": 41,
       "readSeq": [
         {
           "gate": "Common",
@@ -9938,6 +11144,24 @@
           "line": 2520,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2521,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2522,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2523,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -10034,6 +11258,24 @@
           "line": 2554,
           "sinkKind": "member-assign",
           "tok": "getBit"
+        },
+        {
+          "gate": "Common",
+          "line": 2556,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2557,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2558,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -10521,7 +11763,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_UCS::encodeDwg",
-      "writeCount": 14,
+      "writeCount": 18,
       "writeSeq": [
         {
           "gate": "Common",
@@ -10544,6 +11786,21 @@
           "tok": "putBit"
         },
         {
+          "gate": "Common",
+          "line": 2833,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2834,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2835,
+          "tok": "put3BitDouble"
+        },
+        {
           "gate": "version > DRW::AC1014",
           "line": 2838,
           "tok": "putBitDouble"
@@ -10562,6 +11819,11 @@
           "gate": "Common",
           "line": 2842,
           "tok": "putBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 2843,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -10605,7 +11867,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Vport::encodeDwg",
-      "writeCount": 59,
+      "writeCount": 65,
       "writeSeq": [
         {
           "gate": "Common",
@@ -10636,6 +11898,11 @@
           "gate": "Common",
           "line": 2873,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2874,
+          "tok": "put2RawDouble"
         },
         {
           "gate": "Common",
@@ -10739,6 +12006,16 @@
         },
         {
           "gate": "Common",
+          "line": 2895,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2896,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 2897,
           "tok": "putBit"
         },
@@ -10769,6 +12046,11 @@
         },
         {
           "gate": "Common",
+          "line": 2903,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 2904,
           "tok": "putBit"
         },
@@ -10786,6 +12068,16 @@
           "gate": "Common",
           "line": 2907,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2908,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2909,
+          "tok": "put2RawDouble"
         },
         {
           "gate": "version > DRW::AC1014",
@@ -10914,7 +12206,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_View::encodeDwg",
-      "writeCount": 34,
+      "writeCount": 40,
       "writeSeq": [
         {
           "gate": "Common",
@@ -10945,6 +12237,21 @@
           "gate": "Common",
           "line": 2950,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2951,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2952,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2953,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -11025,6 +12332,21 @@
           "gate": "version > DRW::AC1014",
           "line": 2975,
           "tok": "putBit"
+        },
+        {
+          "gate": "Common",
+          "line": 2977,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2978,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 2979,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -11370,8 +12692,78 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_XRecord::encodeDwg",
-      "writeCount": 7,
+      "writeCount": 21,
       "writeSeq": [
+        {
+          "gate": "Common",
+          "line": 3310,
+          "tok": "putRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 3316,
+          "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3317,
+          "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3318,
+          "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3320,
+          "tok": "putRawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 3322,
+          "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 3324,
+          "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 3326,
+          "tok": "putRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 3328,
+          "tok": "putRawLong32"
+        },
+        {
+          "gate": "Common",
+          "line": 3330,
+          "tok": "putRawLong64"
+        },
+        {
+          "gate": "Common",
+          "line": 3345,
+          "tok": "putRawChar8"
+        },
+        {
+          "gate": "Common",
+          "line": 3347,
+          "tok": "putBytes"
+        },
+        {
+          "gate": "Common",
+          "line": 3362,
+          "tok": "putRawShort16"
+        },
+        {
+          "gate": "Common",
+          "line": 3363,
+          "tok": "putRawLong64"
+        },
         {
           "gate": "Common",
           "line": 3367,
@@ -11939,7 +13331,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 4178,
-      "readCount": 47,
+      "readCount": 53,
       "readSeq": [
         {
           "gate": "Common",
@@ -12141,6 +13533,12 @@
         },
         {
           "gate": "Common",
+          "line": 4235,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4236,
           "sinkKind": "member-assign",
           "tok": "getRawDouble"
@@ -12165,6 +13563,24 @@
         },
         {
           "gate": "Common",
+          "line": 4240,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4241,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4242,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4243,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
@@ -12174,6 +13590,18 @@
           "line": 4244,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 4245,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4246,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "version >= DRW::AC1018",
@@ -12389,7 +13817,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 4513,
-      "readCount": 39,
+      "readCount": 40,
       "readSeq": [
         {
           "gate": "!ret) return ret;\n\n                                                                              \n                                                                              \n                                                                            \n                                                                             \n    if (version >= DRW::AC1024",
@@ -12552,6 +13980,12 @@
           "line": 4571,
           "sinkKind": "member-assign",
           "tok": "getCmColor"
+        },
+        {
+          "gate": "Common",
+          "line": 4572,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -12841,7 +14275,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_Layout::encodeDwg",
-      "writeCount": 50,
+      "writeCount": 56,
       "writeSeq": [
         {
           "gate": "Common",
@@ -13010,6 +14444,11 @@
         },
         {
           "gate": "Common",
+          "line": 4816,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4817,
           "tok": "putRawDouble"
         },
@@ -13030,6 +14469,21 @@
         },
         {
           "gate": "Common",
+          "line": 4821,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4822,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4823,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 4824,
           "tok": "putBitDouble"
         },
@@ -13037,6 +14491,16 @@
           "gate": "Common",
           "line": 4825,
           "tok": "putBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 4826,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 4827,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "version >= DRW::AC1018",
@@ -13262,12 +14726,27 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_SpatialFilter::encodeDwg",
-      "writeCount": 10,
+      "writeCount": 13,
       "writeSeq": [
         {
           "gate": "Common",
           "line": 4999,
           "tok": "putBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 5001,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5004,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5005,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -13326,7 +14805,7 @@
       "readCount": 0,
       "readSeq": [],
       "symbol": "DRW_GeoData::encodeDwg",
-      "writeCount": 32,
+      "writeCount": 43,
       "writeSeq": [
         {
           "gate": "Common",
@@ -13359,14 +14838,39 @@
           "tok": "putBitShort"
         },
         {
+          "gate": "m_version == 1",
+          "line": 5068,
+          "tok": "put3BitDouble"
+        },
+        {
           "gate": "Common",
           "line": 5069,
           "tok": "putBitLong"
         },
         {
           "gate": "Common",
+          "line": 5070,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5071,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5072,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 5077,
           "tok": "putBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5078,
+          "tok": "put3BitDouble"
         },
         {
           "gate": "Common",
@@ -13394,6 +14898,16 @@
           "tok": "putVariableText"
         },
         {
+          "gate": "m_version == 2 || m_version == 3",
+          "line": 5085,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5086,
+          "tok": "put3BitDouble"
+        },
+        {
           "gate": "Common",
           "line": 5087,
           "tok": "putBitDouble"
@@ -13412,6 +14926,16 @@
           "gate": "Common",
           "line": 5090,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 5091,
+          "tok": "put3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5092,
+          "tok": "put2RawDouble"
         },
         {
           "gate": "Common",
@@ -13467,6 +14991,16 @@
           "gate": "Common",
           "line": 5109,
           "tok": "putBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 5111,
+          "tok": "put2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5112,
+          "tok": "put2RawDouble"
         },
         {
           "gate": "Common",
@@ -14213,7 +15747,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 5579,
-      "readCount": 36,
+      "readCount": 47,
       "readSeq": [
         {
           "gate": "Common",
@@ -14331,6 +15865,18 @@
         },
         {
           "gate": "Common",
+          "line": 5629,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5630,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 5631,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
@@ -14397,9 +15943,33 @@
         },
         {
           "gate": "Common",
+          "line": 5657,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5658,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 5674,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 5684,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5686,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -14409,9 +15979,27 @@
         },
         {
           "gate": "Common",
+          "line": 5688,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5689,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 5694,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5695,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -14430,6 +16018,18 @@
           "line": 5698,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5719,
+          "sinkKind": "member-assign",
+          "tok": "getHandle"
+        },
+        {
+          "gate": "Common",
+          "line": 5721,
+          "sinkKind": "member-assign",
+          "tok": "getHandle"
         }
       ],
       "symbol": "DRW_ObjectContextData::parseDwg",
@@ -14501,13 +16101,31 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 5921,
-      "readCount": 6,
+      "readCount": 9,
       "readSeq": [
         {
           "gate": "Common",
           "line": 5935,
           "sinkKind": "local",
           "tok": "getBitShort"
+        },
+        {
+          "gate": "Common",
+          "line": 5941,
+          "sinkKind": "bare-statement",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5943,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 5944,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -14551,7 +16169,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 6089,
-      "readCount": 28,
+      "readCount": 39,
       "readSeq": [
         {
           "gate": "Common",
@@ -14566,6 +16184,12 @@
           "tok": "getBitShort"
         },
         {
+          "gate": "m_version == 1",
+          "line": 6112,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
           "gate": "Common",
           "line": 6113,
           "sinkKind": "member-assign",
@@ -14573,9 +16197,33 @@
         },
         {
           "gate": "Common",
+          "line": 6115,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6116,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6117,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6118,
           "sinkKind": "bare-statement",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6120,
+          "sinkKind": "bare-statement",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -14608,6 +16256,18 @@
           "tok": "getVariableText"
         },
         {
+          "gate": "m_version == 2 || m_version == 3",
+          "line": 6128,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6129,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
           "gate": "Common",
           "line": 6130,
           "sinkKind": "member-assign",
@@ -14630,6 +16290,18 @@
           "line": 6133,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 6134,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6135,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "Common",
@@ -14699,6 +16371,18 @@
         },
         {
           "gate": "Common",
+          "line": 6158,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6159,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6163,
           "sinkKind": "local",
           "tok": "getBitLong"
@@ -14733,7 +16417,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 6182,
-      "readCount": 12,
+      "readCount": 14,
       "readSeq": [
         {
           "gate": "Common",
@@ -14776,6 +16460,18 @@
           "line": 6212,
           "sinkKind": "local",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 6218,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 6219,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -15199,7 +16895,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 6480,
-      "readCount": 39,
+      "readCount": 40,
       "readSeq": [
         {
           "gate": "Common",
@@ -15383,6 +17079,12 @@
         },
         {
           "gate": "Common",
+          "line": 6731,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 6743,
           "sinkKind": "member-assign",
           "tok": "getBitShort"
@@ -15447,7 +17149,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 6800,
-      "readCount": 50,
+      "readCount": 53,
       "readSeq": [
         {
           "gate": "Common",
@@ -15490,6 +17192,12 @@
           "line": 6857,
           "sinkKind": "bare-statement",
           "tok": "getBitLong"
+        },
+        {
+          "gate": "Common",
+          "line": 6858,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -15691,6 +17399,18 @@
         },
         {
           "gate": "Common",
+          "line": 7011,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7012,
+          "sinkKind": "member-assign",
+          "tok": "get2RawDouble"
+        },
+        {
+          "gate": "Common",
           "line": 7013,
           "sinkKind": "member-assign",
           "tok": "getBitDouble"
@@ -15761,7 +17481,7 @@
       "drw_unused_real_read_discards": 0,
       "file": "libraries/libdxfrw/src/drw_objects.cpp",
       "open_line": 7120,
-      "readCount": 38,
+      "readCount": 41,
       "readSeq": [
         {
           "gate": "Common",
@@ -15792,6 +17512,12 @@
           "line": 7153,
           "sinkKind": "bare-statement",
           "tok": "getBitDouble"
+        },
+        {
+          "gate": "Common",
+          "line": 7155,
+          "sinkKind": "bare-statement",
+          "tok": "get2RawDouble"
         },
         {
           "gate": "Common",
@@ -15855,6 +17581,12 @@
         },
         {
           "gate": "Common",
+          "line": 7199,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
+        },
+        {
+          "gate": "Common",
           "line": 7200,
           "sinkKind": "member-assign",
           "tok": "getBitLong"
@@ -15912,6 +17644,12 @@
           "line": 7229,
           "sinkKind": "member-assign",
           "tok": "getBit"
+        },
+        {
+          "gate": "Common",
+          "line": 7238,
+          "sinkKind": "member-assign",
+          "tok": "get3BitDouble"
         },
         {
           "gate": "Common",
@@ -17243,12 +18981,12 @@
     },
     "drw_unused_split": {
       "combined": 21,
-      "real_read_discards": 3,
+      "real_read_discards": 4,
       "round3_expectation": "~5 real + ~18 param = ~23 total (plan's original combined figure)",
-      "unused_param_suppressions": 18
+      "unused_param_suppressions": 17
     },
     "n_bodies": 186,
-    "total_read_tokens": 1643,
-    "total_write_tokens": 956
+    "total_read_tokens": 1825,
+    "total_write_tokens": 1085
   }
 }

@@ -21,6 +21,18 @@ branches (that flag is `#define`d to 1 as the default; the corresponding
 site that a naive text scan would find in both arms. `#if 0` blocks are
 dropped entirely.
 
+Independently verified 2026-07-18: this logic is correct in isolation but
+currently INERT for the 186 parseDwg/encodeDwg bodies this extractor
+enumerates. There are zero `#if 0` blocks in that corpus, and the 4 real
+`#if LIBDXFRW_FULL_COMMON_HEADER` sites (drw_entities.cpp:1767/1820/1856/1872)
+sit inside `DRW_Entity::encodeDwgCommon`/`encodeDwgEntHandle` — helper methods
+`_SIG_RE` does not select (it only matches `bool DRW_*::(parseDwg|encodeDwg)`
+signatures). The dead-branch dropper affects 0 of the 186 counted bodies
+today. Open scope question for a future slice, not resolved here: should
+those two common-helper bodies be independently extracted (and their tokens
+attributed to every parseDwg/encodeDwg caller that inlines them), in which
+case this mechanism starts mattering; or are they out of scope by design?
+
 Round-3 M8 applied: `--selfcheck` runs a measured precision/recall test
 against 5 hand-labeled bodies (SP1.3 acceptance criterion, extended per
 round-3 M8) including the `DRW_DimAligned`/`DRW_DimLinear` inheritance case.
@@ -134,8 +146,18 @@ def _preprocess_dead_branches(text: str) -> str:
 
 # Buffer read/write call. Captures the method suffix, e.g. buf->getBitDouble()
 # → "getBitDouble".
-BUF_READ_RE = re.compile(r"\b(?P<obj>\w+)\s*->\s*(?P<m>get[A-Z]\w*)\s*\(")
-BUF_WRITE_RE = re.compile(r"\b(?P<obj>\w+)\s*->\s*(?P<m>put[A-Z]\w*)\s*\(")
+#
+# Round-3-round-2 correction (independent verification, 2026-07-18): the
+# original `get[A-Z]\w*` / `put[A-Z]\w*` after a *required* `->` undercounted
+# the true token totals by ~11-13% (1643/956 reported vs ~1825/~1085 actual).
+# Two gaps, both fixed here:
+#   (a) digit-prefixed accessors — get3BitDouble, get2RawDouble, get2Bits,
+#       and the put-side analogues — were excluded because the class
+#       required an uppercase letter immediately after get/put.
+#   (b) dot-accessed sub-buffer calls — tmpExtDataBuf.getRawChar8(),
+#       hBuff.getHandle() — were excluded because only `->` was accepted.
+BUF_READ_RE = re.compile(r"\b(?P<obj>\w+)\s*(?:->|\.)\s*(?P<m>get\d*[A-Z]\w*)\s*\(")
+BUF_WRITE_RE = re.compile(r"\b(?P<obj>\w+)\s*(?:->|\.)\s*(?P<m>put\d*[A-Z]\w*)\s*\(")
 
 # Enclosing gate detection: closest preceding `if (version …)` on its own.
 # We track the innermost open `if (version …)` block via brace matching.
@@ -298,8 +320,18 @@ def _analyze_body(text: str, open_line: int) -> dict:
     # reads paired with a subsequent DRW_UNUSED(name) of the same-line-local
     # are the MTEXT-3 pattern. Simpler: rescan the raw body for
     # `T <name> = buf->get*(...);` followed by DRW_UNUSED(<name>).
+    #
+    # Round-3-round-2 correction (independent verification, 2026-07-18): the
+    # leading "TYPE " prefix was mandatory, so a variable declared earlier and
+    # only *reassigned* from a buf->getX() call right before its DRW_UNUSED
+    # (e.g. DRW_Insert::objCount: `std::int32_t objCount = 0;` ... later
+    # `objCount = buf->getBitLong(); DRW_UNUSED(objCount);`) was missed and
+    # fell through to the param-suppression bucket instead of the real-discard
+    # bucket. The type prefix is now optional so both shapes match through the
+    # same regex without double-counting (only one starting offset in the text
+    # can produce a full match for a given occurrence).
     LOCAL_UNUSED_RE = re.compile(
-        r"\b[A-Za-z_][\w:<>]*\s+([A-Za-z_]\w*)\s*=\s*\w+\s*->\s*get[A-Z]\w*\s*\("
+        r"\b(?:[A-Za-z_][\w:<>]*\s+)?([A-Za-z_]\w*)\s*=\s*\w+\s*->\s*get[A-Z]\w*\s*\("
         r"[^;]*\)\s*;\s*[^;{}]*?\bDRW_UNUSED\s*\(\s*\1\s*\)"
     )
     two_line_matches = list(LOCAL_UNUSED_RE.finditer(clean))
