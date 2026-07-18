@@ -1,52 +1,9 @@
 {
   "slice_id": "00-T-bounds",
   "passed": true,
-  "ts": "2026-07-18",
-  "selfcheck_output": {
-    "DRW_AppId::parseDwg": {
-      "file": "libraries/libdxfrw/src/drw_objects.cpp",
-      "open_line": 2620,
-      "close_line": 2656,
-      "body_lines": 37,
-      "note": "anti-naive exemplar — next symbol starts at line 2677; brace-matched close 2656 is strictly less"
-    },
-    "DRW_Hatch::encodeDwgBoundaryData": {
-      "file": "libraries/libdxfrw/src/drw_entities.cpp",
-      "open_line": 6876,
-      "close_line": 6963,
-      "body_lines": 88,
-      "note": "trailing-const regression control — pilot's naive matcher returned 0 tokens on this method; now resolves cleanly"
-    },
-    "DRW_Dimstyle::parseDwg": {
-      "file": "libraries/libdxfrw/src/drw_objects.cpp",
-      "open_line": 1257,
-      "close_line": 1274,
-      "body_lines": 18,
-      "note": "S4 stub-detector positive control — round-3 R.3 verified: real close is 1274 (naive [start,next-1] window would give 1325 wrong)"
-    },
-    "DRW_Hatch::parseDwg": {
-      "file": "libraries/libdxfrw/src/drw_entities.cpp",
-      "open_line": 6738,
-      "close_line": 6852,
-      "body_lines": 115
-    },
-    "DRW_Layer::parseDwg": {
-      "file": "libraries/libdxfrw/src/drw_objects.cpp",
-      "open_line": 1469,
-      "close_line": 1549,
-      "body_lines": 81,
-      "note": "next symbol at line 1551 (Block_Record); brace-matched close 1549 (+1 trailing blank) is anti-naive-window-tolerant"
-    }
-  },
-  "properties_asserted": {
-    "brace_matching_is_string_and_comment_aware": true,
-    "handles_trailing_const_ref_qualifier_noexcept": true,
-    "handles_multiline_params": true,
-    "excludes_orig_shadow_files": true,
-    "anti_naive_guard": "resolved close < next Class::method start"
-  },
-  "round3_notes": [
-    "R.3: acceptance is PROPERTIES not a hardcoded close-line table — 6 of 9 originally-cited ranges in the plan were the forbidden naive window.",
-    "R.4: bounds.py is the RUN-TIME resolver for every downstream slice; no future doc should commit an absolute .cpp line number as authoritative."
-  ]
+  "ts": "2026-07-18T00:36:32Z",
+  "runner": "validate_slice.sh (bootstrap)",
+  "input_hash": "6c22b10297628806",
+  "tier_a_dispatched_kind": "T",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
 }

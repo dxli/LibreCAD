@@ -1,9 +1,9 @@
 {
-  "slice_id": "00-T-extract-spec",
+  "slice_id": "00-T-validate-slice",
   "passed": true,
-  "ts": "2026-07-18T00:36:31Z",
+  "ts": "2026-07-18T00:36:32Z",
   "runner": "validate_slice.sh (bootstrap)",
-  "input_hash": "807ed3172ff09864",
+  "input_hash": "af311584dcbd5289",
   "tier_a_dispatched_kind": "T",
   "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
 }

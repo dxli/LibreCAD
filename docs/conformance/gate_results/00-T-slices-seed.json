@@ -1,14 +1,9 @@
 {
   "slice_id": "00-T-slices-seed",
   "passed": true,
-  "ts": "2026-07-18",
-  "checks": {
-    "json_parses": true,
-    "slice_count": 13,
-    "P0_slices": 12,
-    "P1_slices": 1,
-    "no_status_field": "verified — status is derived by gen_progress (Part C.0.3)",
-    "every_row_has_id_kind_phase_key_sp_ref_plan_anchor_acceptance_deps_gate": true
-  },
-  "note": "Expanded from 3 to 13 slice records (all P0 + one P1 downstream anchor). Ready for validate_slice.sh dispatch."
+  "ts": "2026-07-18T00:36:32Z",
+  "runner": "validate_slice.sh (bootstrap)",
+  "input_hash": "9364084bee1567de",
+  "tier_a_dispatched_kind": "T",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
 }
