@@ -106,6 +106,7 @@ add_subdirectory(picfile)
 add_subdirectory(plotequation)
 add_subdirectory(pointstocsv)
 add_subdirectory(gear)
+add_subdirectory(importshp)
 
 # Compile plugin translations (.ts → .qm)
 # Note: qt_add_translations is commented out to avoid duplicate resource definition

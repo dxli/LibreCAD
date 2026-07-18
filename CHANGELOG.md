@@ -5,16 +5,11 @@
 ### Added
 - shortcut "0" to specify coordinates "0,0" on command line
 - shortcut "." or "," to specify the current point coordinates on command line
+- importshp plugin restored with shapelib 1.6.3, fixes #1481
 
 ### Removed
-- importshp plugin, see issue #1481
 
 ### Changed
-
-### Fixed
-- various issues in LFF font files
-- segfault with malformed LFF font files
-- CVE-2023-30259, OOB reads in importshp plugin (#1481)
 
 ## [2.2.0] - 2022-12-17
 

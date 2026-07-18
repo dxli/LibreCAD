@@ -1,0 +1,11 @@
+{
+    "IID": "org.librecad.PluginInterface/1.0",
+    "MetaData": {
+        "Name": "ESRI Shapefile Import",
+        "Description": "Imports ESRI Shapefile (.shp) geometry and attributes into LibreCAD",
+        "Version": "1.0.0",
+        "License": "GPL-2.0-or-later (plugin) / MIT (shapelib)",
+        "Category": "Import",
+        "Keys": ["shp", "shapefile", "esri", "gis"]
+    }
+}
