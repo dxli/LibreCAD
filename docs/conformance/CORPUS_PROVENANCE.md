@@ -55,6 +55,7 @@ The `00-O-corpus-wire` slice, when it lands, MUST:
 ## Signature-detection limits
 
 - Signatures are sniffed from the first 32KB of each file (`SNIFF_BYTES`). ODA Teigha's producer string in AppInfo is typically well within that window, but a DWG whose AppInfo is R2004+-LZ77-compressed and lands past 32KB is silently `producer_family="unknown"`. Verified true for the corpus at hand; escalate to full-decoding if a future sweep's honesty gate demands it.
+- **The 32KB/compression explanation is not the only reason a file lands in `unknown`.** Independently verified 2026-07-18: several pre-R2004 files in the corpus (AC1015/AC1009, sampled) are ALSO `unknown`, and for those the compression story doesn't apply at all — AppInfo compression is an R2004+ mechanism, so a pre-R2004 file's true reason is simply "no vendor signature string was ever embedded in the file to begin with," not "it's there but past the sniff window." Both explanations are real and distinct; do not assume every `unknown` file is a compression-window miss.
 - Signature ordering: Teigha → ODA → AutoCAD → third-party → libdxfrw. A DWG that Teigha REWROTE from an AutoCAD original will match Teigha first (correct — the last writer to touch it is what determines the byte-level fingerprint).
 
 ## Enumeration semantics — case-insensitive `.dwg` suffix

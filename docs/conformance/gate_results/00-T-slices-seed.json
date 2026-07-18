@@ -1,9 +1,8 @@
 {
-  "slice_id": "00-T-slices-seed",
+  "input_hash": "0bca45b54483d316",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them.",
   "passed": true,
-  "ts": "2026-07-18T02:54:06Z",
   "runner": "validate_slice.sh (bootstrap)",
-  "input_hash": "9364084bee1567de",
-  "tier_a_dispatched_kind": "T",
-  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
+  "slice_id": "00-T-slices-seed",
+  "tier_a_dispatched_kind": "T"
 }

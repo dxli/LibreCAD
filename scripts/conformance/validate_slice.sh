@@ -309,17 +309,44 @@ for p in ['scripts/conformance/slices.json','docs/conformance/findings.json','do
 print(h.hexdigest()[:16])
 ")
 
-cat > "$GATE_OUT" <<EOF
-{
-  "slice_id": "$SLICE",
-  "passed": true,
-  "ts": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "runner": "validate_slice.sh (bootstrap)",
-  "input_hash": "$INPUT_HASH",
-  "tier_a_dispatched_kind": "$K",
-  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
-}
-EOF
+# Round-3-round-5 correction (independent verification, 2026-07-18): this
+# shard is git-TRACKED (unlike progress.json/PROGRESS.md, which already got
+# the ref-topology-vs-content split), and it used to embed a wall-clock `ts`
+# unconditionally on every run -- so every single `validate_slice.sh`
+# invocation, including a plain re-verification with zero real change,
+# dirtied all 11 shards. Reproduced directly: two consecutive `--selfcheck`
+# runs with no intervening edits still diffed every shard's `ts` (and, as a
+# side effect of iterating other slices in the same run, `input_hash` too).
+# This is the identical transient-field bug class fixed twice already in
+# conformance_stats.py (current_head/commit_count_ahead_of_master, then
+# reachable_from_origin/on_master/state), recurring a third time here because
+# the earlier fixes only touched the progress.json/PROGRESS.md rendering
+# path, never this shard-writing path -- the actual root of the churn.
+#
+# Fix: (a) drop `ts` entirely -- it records only which second a check ran,
+# never affects PASS/FAIL, and nothing reads it. (b) make the write itself
+# conditional: only rewrite the shard when `passed` or `input_hash` actually
+# differ from what's already committed. A verification run that changes
+# nothing now leaves the tree untouched, matching Part C.3's "atomic
+# per-slice commit" discipline -- a slice landing no longer carries 10
+# unrelated timestamp-only diffs to other slices' shards.
+NEW_SHARD=$("$PY" -c "
+import json
+print(json.dumps({
+    'slice_id': '$SLICE',
+    'passed': True,
+    'runner': 'validate_slice.sh (bootstrap)',
+    'input_hash': '$INPUT_HASH',
+    'tier_a_dispatched_kind': '$K',
+    'notes': 'Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them.',
+}, indent=2, sort_keys=True) + chr(10))
+")
+
+if [ -f "$GATE_OUT" ] && [ "$(cat "$GATE_OUT")" = "$NEW_SHARD" ]; then
+  log "  gate_results/${SLICE}.json unchanged (input_hash=$INPUT_HASH) — not rewritten"
+else
+  printf '%s' "$NEW_SHARD" > "$GATE_OUT"
+  log "  gate_results/${SLICE}.json written (input_hash=$INPUT_HASH)"
+fi
 
 log "VALIDATE $SLICE: PASS -- may commit + push"
-log "  gate_results/${SLICE}.json (input_hash=$INPUT_HASH)"
