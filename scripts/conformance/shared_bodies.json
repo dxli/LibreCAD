@@ -1,0 +1,141 @@
+{
+  "_note": "Shared-body edges from plan §4 P0 item 4 + addendum A.2. Every symbol below was resolved by scripts/conformance/bounds.py at authoring time; downstream slices MUST re-resolve at run time (round-3 R.4). Absolute .cpp lines are metadata for orientation, never authority.",
+  "_ordering": "Each edge records the shared body's canonical location, the fan-out set of user types, and whether the write side is symmetric with the read side (a shared body with an asymmetric write is exactly the S2 differ's target).",
+  "edges": [
+    {
+      "id": "SB-hatch-boundary",
+      "role": "boundary-loop-body",
+      "shared_symbol": "DRW_Hatch::parseDwgBoundaryData",
+      "shared_write_symbol": "DRW_Hatch::encodeDwgBoundaryData",
+      "callers_read": ["DRW_Hatch::parseDwg", "DRW_MPolygon::parseDwg"],
+      "callers_write": ["DRW_Hatch::encodeDwg", "DRW_MPolygon::encodeDwg"],
+      "symmetric_body_pair": true,
+      "notes": "MPOLYGON inherits HATCH-1 (spline-edge tangent gate asymmetry). Round-3 note: MPOLYGON's own top-level parseDwg is a byte-parallel duplicate (addendum A.2 correction to plan §2.2 'ride free' claim)."
+    },
+    {
+      "id": "SB-spline-body",
+      "role": "spline-decode-body",
+      "shared_symbol": "DRW_Spline::parseDwgSplineBody",
+      "shared_write_symbol": "DRW_Spline::encodeDwgSplineBody",
+      "callers_read": ["DRW_Spline::parseDwg", "DRW_Helix::parseDwg"],
+      "callers_write": ["DRW_Spline::encodeDwg", "DRW_Helix::encodeDwg"],
+      "symmetric_body_pair": true,
+      "notes": "HELIX inherits SPLINE-01 scenario-flag bug for free. Top-level HELIX::parseDwg is byte-parallel with SPLINE::parseDwg, needing its own row-walk."
+    },
+    {
+      "id": "SB-mtext-embedded",
+      "role": "embedded-mtext-parser",
+      "shared_symbol": "parseEmbeddedMTextDwg (free static function in drw_entities.cpp)",
+      "shared_write_symbol": "none (write path inlined into callers)",
+      "callers_read": ["DRW_MText::parseDwg", "DRW_Attrib::parseDwg", "DRW_Attdef::parseDwg"],
+      "callers_write": [],
+      "symmetric_body_pair": false,
+      "notes": "Read-side shared free function; write-side is inlined per caller — so every MTEXT read-side finding may map to 3 sites (MText, Attrib, Attdef) but the write-side must be audited per caller. Round-3 candidate: the R2018 opt-bit 0x02 bug lives in the Attrib/Attdef write path per plan §5 rank 8."
+    },
+    {
+      "id": "SB-ray-xline",
+      "role": "shared-encoder",
+      "shared_symbol": "DRW_Ray::parseDwg / DRW_Ray::encodeDwg",
+      "shared_write_symbol": "DRW_Ray::encodeDwg",
+      "callers_read": ["DRW_Ray::parseDwg", "DRW_Xline (inherits — no own body)"],
+      "callers_write": ["DRW_Ray::encodeDwg", "DRW_Xline (inherits)"],
+      "symmetric_body_pair": true,
+      "notes": "Xline has NO own parseDwg/encodeDwg body (verified via bounds.py NOT FOUND). Inheritance is silent — extract_code.py must guard against reporting Xline as asymmetric."
+    },
+    {
+      "id": "SB-insert",
+      "role": "shared-encoder",
+      "shared_symbol": "DRW_Insert::encodeDwg",
+      "shared_write_symbol": "DRW_Insert::encodeDwg",
+      "callers_read": ["DRW_Insert::parseDwg", "DRW_MInsert::parseDwg"],
+      "callers_write": ["DRW_Insert::encodeDwg (Minsert inherits)", "DRW_Table::encodeDwg (also inherits — writes ACAD_TABLE as plain INSERT with oType=7)"],
+      "symmetric_body_pair": false,
+      "notes": "The DRW_Table silent-INSERT bug (plan §5 Tier 1 rank 6) lives here. bounds.py: DRW_Table::encodeDwg NOT FOUND — inheritance confirmed."
+    },
+    {
+      "id": "SB-trace-solid",
+      "role": "shared-decoder-family",
+      "shared_symbol": "DRW_Trace",
+      "shared_write_symbol": "DRW_Trace::encodeDwg",
+      "callers_read": ["DRW_Trace::parseDwg", "DRW_Solid::parseDwg (4-line inherit-and-delegate)"],
+      "callers_write": ["DRW_Trace::encodeDwg", "DRW_Solid::encodeDwg (22 lines — DELIBERATELY NOT delegating; plan §5 Tier 1 rank 6 warning)"],
+      "symmetric_body_pair": false,
+      "notes": "DRW_Solid::parseDwg is 4 lines (delegation to Trace) but DRW_Solid::encodeDwg is 22 lines (NOT delegating). Asymmetric-shared-body — S2 differ target."
+    },
+    {
+      "id": "SB-image-line-shadow",
+      "role": "shadowing-inheritance",
+      "shared_symbol": "DRW_Image::encodeDwg / DRW_Line::encodeDwg",
+      "shared_write_symbol": "N/A (shadow rather than shared)",
+      "callers_read": ["DRW_Image::parseDwg", "DRW_Line::parseDwg"],
+      "callers_write": ["DRW_Image::encodeDwg SHADOWS DRW_Line::encodeDwg per drw_entities.h documented warning"],
+      "symmetric_body_pair": false,
+      "notes": "Not a shared body per se — an inheritance-shadow. Ledger annotation: audit both symbols independently."
+    },
+    {
+      "id": "SB-dim-base",
+      "role": "dim-shared-encoder",
+      "shared_symbol": "DRW_Dimension::encodeDwgDimBase",
+      "shared_write_symbol": "DRW_Dimension::encodeDwgDimBase",
+      "callers_read": ["all 8 typed dimension parseDwg bodies"],
+      "callers_write": ["all 8 typed dimension encodeDwg bodies"],
+      "symmetric_body_pair": true,
+      "notes": "Downstream of §20.4.22 COMMON DIMENSION DATA (round-3 M4: needs an explicit P2 slice). Fan-out fixes 8 types at once."
+    },
+    {
+      "id": "SB-readCommonObjectHandles",
+      "role": "shared-utility",
+      "shared_symbol": "readCommonObjectHandles (free function, drw_objects.cpp:66)",
+      "shared_write_symbol": "N/A (no write counterpart; write side hardcodes per emitRecordPreamble stub)",
+      "callers_read": ["38 sites in drw_objects.cpp (plan estimate: 28 — plan was under; see corrections.readCommonObjectHandles_call_sites for the re-verified derivation)"],
+      "callers_write": [],
+      "symmetric_body_pair": false,
+      "notes": "Every table-record parser MUST route through here per S5.2 discipline. The 5 broken parsers (Layer/Textstyle/Vport/Dimstyle/AppId) don't call it; the 4 clean ones (LType/Block_Record/UCS/View) do."
+    },
+    {
+      "id": "SB-objControl",
+      "role": "shared-control-parser",
+      "shared_symbol": "DRW_ObjControl::parseDwg",
+      "shared_write_symbol": "N/A (writes are direct dwgwriter code)",
+      "callers_read": ["BLOCK CONTROL + 9 UNDOCUMENTED control objects — all 10 through this one body"],
+      "callers_write": [],
+      "symmetric_body_pair": false,
+      "notes": "Addendum A.2 edge (NEW vs plan §4 P0 item 4). Fixes to this body reach all 10 controls at once. Round-3 pre-identified finding: dwgreader.cpp:2690 reads an R2007+ string bit while its own comment says 'ObjControl do not have' it."
+    },
+    {
+      "id": "SB-DimLinear-inherit",
+      "role": "inheritance-silent",
+      "shared_symbol": "DRW_DimAligned::parseDwg (DimLinear inherits — no own body)",
+      "shared_write_symbol": "DRW_DimAligned::encodeDwg (inherits)",
+      "callers_read": ["DRW_DimLinear (inherits, no own parseDwg)"],
+      "callers_write": ["DRW_DimLinear (inherits)"],
+      "symmetric_body_pair": true,
+      "notes": "Addendum A.2 edge. bounds.py: DRW_DimLinear::parseDwg NOT FOUND — inheritance confirmed. extract_code.py must not report as asymmetry."
+    },
+    {
+      "id": "SB-Wipeout-total-delegation",
+      "role": "asymmetric-inheritance",
+      "shared_symbol": "DRW_Image::parseDwg (Wipeout parseDwg is a 3-line total delegation)",
+      "shared_write_symbol": "DRW_Wipeout::encodeDwg (49 lines — SEPARATE from Image)",
+      "callers_read": ["DRW_Wipeout::parseDwg → DRW_Image::parseDwg via 3-line total-delegation body"],
+      "callers_write": ["DRW_Wipeout::encodeDwg (own 49-line body)"],
+      "symmetric_body_pair": false,
+      "notes": "Addendum A.2 edge. Asymmetric-shared-body — S2 differ target. This is the exact pattern the plan calls 'shared read + separate write'."
+    },
+    {
+      "id": "SB-Attdef-parseCode-fall",
+      "role": "parseCode-fallthrough",
+      "shared_symbol": "DRW_Attrib::parseCode",
+      "shared_write_symbol": "N/A (DXF write shares different scaffolding)",
+      "callers_read": ["DRW_Attdef::parseCode → DRW_Attrib::parseCode via 10-line fallthrough"],
+      "callers_write": [],
+      "symmetric_body_pair": false,
+      "notes": "Addendum A.2 edge. DXF-side inheritance closure — P4/parsecode_closure.py MUST subtract this when computing MISSING codes for Attdef, or reports every Attrib case as missing."
+    }
+  ],
+  "corrections": {
+    "plan_2.2_ride_free_claim": "Overstated. MPOLYGON and HELIX inherit parseDwgBoundaryData/parseDwgSplineBody free BUT have byte-parallel top-level parseDwg bodies (drw_entities.cpp:6491, :7307) that need their own row-walks. Fixed here.",
+    "readCommonObjectHandles_call_sites": "Plan estimate 28. Re-verified independently 2026-07-18: 43 raw grep hits (--include=*.cpp --include=*.h, .orig excluded) = 1 definition + 4 comment-only mentions + 38 actual call sites. Corrected from this file's prior (incorrect) claim of 40 -- that figure did not reproduce on re-grep.",
+    "seekObjectHandleStream_call_sites": "Plan 44 (raw grep hits, uncorrected). Round-3 derivation: 44 = 1 def @drw_objects.cpp:59 + 7 comment-only mentions + 36 actual call sites -- CONFIRMED by independent re-grep 2026-07-18 (exact match: 44 raw, 1 def, 7 comments, 36 calls). Final answer 36 is correct. This file's prior note stated a different, non-reproducing derivation (\"38 raw grep hits - 1 def - 1 comment\") which did not match a fresh grep (44 raw, not 38) -- corrected here to the verified derivation."
+  }
+}

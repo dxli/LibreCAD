@@ -1,0 +1,8 @@
+{
+  "input_hash": "ffc17b0fb3ebc816",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them.",
+  "passed": true,
+  "runner": "validate_slice.sh (bootstrap)",
+  "slice_id": "00-T-gate-branches",
+  "tier_a_dispatched_kind": "T"
+}

@@ -1,0 +1,169 @@
+{
+  "aggregate": {
+    "branch": "conformance/spec-review-2026-07",
+    "code_bodies_total": 186,
+    "code_delegation_edges": 6,
+    "code_drw_unused_param": 17,
+    "code_drw_unused_real": 4,
+    "code_total_reads": 1825,
+    "code_total_writes": 1085,
+    "errata_count": 3,
+    "findings_count": 0,
+    "ledger_branch_cells_unaudited": 7919,
+    "ledger_named_untabled_seeded": 7,
+    "ledger_total_rows": 7935,
+    "ledger_unknowable_seeded": 9,
+    "ledger_verdict_counts": {
+      "named-untabled": 7,
+      "unaudited": 7919,
+      "unknowable": 9
+    },
+    "remote": "dli",
+    "spec_data_rows": 1345,
+    "spec_units": 104
+  },
+  "committed_count": 11,
+  "per_slice": [
+    {
+      "commit_sha": "6c9b3b539dbb6d6217ef69b94e2f6d6e045b51b9",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-antiloss",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "Anti-loss protocol: branch + directory structure + spec substrate + seed artifacts"
+    },
+    {
+      "commit_sha": "78a781246636fd1bcba75c4dfcd64f29c569c572",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-extract-spec",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "extract_spec.py -> spec_fields.json (104 units, ~1345 rows first-pass)"
+    },
+    {
+      "commit_sha": "a49f6d0d585a2101cfb20ddf95fba5c7268d7f8c",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-bounds",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "bounds.py brace-matched Class::method ranges"
+    },
+    {
+      "commit_sha": "8ac06ae76c58010859e2d2446f6242ee6bbcf0aa",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-slices-seed",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "Registry spine: enumerate all P0/P1 slice records in slices.json"
+    },
+    {
+      "commit_sha": "bddb422f4b6daae0c23d163ccc6189eaef553c5c",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-validate-slice",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "validate_slice.sh: pre-commit gate runner (Tier A + Tier B)"
+    },
+    {
+      "commit_sha": "0ab39aca59c3a7fcebcde92c647296a992f00354",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-gen-progress",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "gen_progress.py + conformance_stats.py: derive per-slice state + PROGRESS.md"
+    },
+    {
+      "commit_sha": null,
+      "committed": false,
+      "gate_passed": false,
+      "id": "00-T-gen-readme",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "gen_readme.py: marker-delimited dashboard for README.md"
+    },
+    {
+      "commit_sha": "384ea6bb2fbf6a3fb592bb5c3800b1610835b364",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-shared-bodies",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "shared_bodies.json + SHARED_BODIES.md: 13 shared-body edges (addendum A.2)"
+    },
+    {
+      "commit_sha": "2684da567dad3a374e4adbcc504d5781976ec310",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-extract-code",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "extract_code.py -> code_fields.json (readSeq/writeSeq/sinkKind + delegation)"
+    },
+    {
+      "commit_sha": "1d6d579f12e881ebe4958736a8f6a243a4452d7a",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-gate-branches",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "GATE_BRANCHES.json: authored gate-string -> version-branch-subset map (round-3 H3)"
+    },
+    {
+      "commit_sha": null,
+      "committed": false,
+      "gate_passed": false,
+      "id": "00-O-fieldhit",
+      "kind": "O",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "-DDRW_FIELD_COVERAGE counter -> corpus_hits.json (round-3 H2 attribution decision required first)"
+    },
+    {
+      "commit_sha": "b27f753a88562fde0355fb7ce095c7b0032639cf",
+      "committed": true,
+      "gate_passed": true,
+      "id": "00-T-corpus-provenance",
+      "kind": "T",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "tag_corpus_provenance.py -> corpus_provenance.json (round-3 M9 prerequisite for 00-O-corpus-wire)"
+    },
+    {
+      "commit_sha": null,
+      "committed": false,
+      "gate_passed": false,
+      "id": "00-O-corpus-wire",
+      "kind": "O",
+      "phase": "P0",
+      "phase_ord": 0,
+      "title": "Wire [corpus] tag + dwgts_json_diff.py to dwg5+dwg6 with provenance tagging (round-3 M9)"
+    },
+    {
+      "commit_sha": "c74aa11441eed615f24302807aac9de67a3ca115",
+      "committed": true,
+      "gate_passed": true,
+      "id": "05-T-build-ledger",
+      "kind": "T",
+      "phase": "P1",
+      "phase_ord": 5,
+      "title": "build_ledger.py -> spec_ledger.json (A.16 re-keyed by unit,row,branch)"
+    }
+  ],
+  "planned_count": 3
+}

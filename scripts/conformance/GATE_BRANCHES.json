@@ -1,0 +1,50 @@
+{
+  "_purpose": "Authored gate-string -> version-branch-subset mapping. Round-3 H3 (undelivered dependency of SP1.6 / A.9 branch-cell denominator). Every applicable gate string in scripts/conformance/spec_fields.json is mapped to a set of ordered DWG version branches; downstream build_ledger.py expands each (unit,row) into (unit,row,branch) cells by looking up the gate string here.",
+  "_authority": "Manual authoring against the ODA §20.4 spec text conventions + libdxfrw's DRW::AC10xx enum. Round-3 requires an explicit mapping (no silent inference) and its sha256 pinned in SOURCES.json.",
+  "_ordered_branches": ["R13-R14", "R2000", "R2004", "R2007", "R2010", "R2013", "R2018"],
+  "_notes": {
+    "R14_Only_pseudo_gate": "Nested inside the collapsed {R13-R14} branch; a real per-R14 verdict is unrepresentable without splitting R13 and R14. Recorded as branch=['R14-only-hint'] and downstream sweeps mark rows as unvalidatable-branch-fine-grained.",
+    "R24_alias": "'R24' is spec shorthand for 'R2010 through R2018' (per ODA §1 convention). Maps to all four AC1024/AC1027/AC1032 branches.",
+    "R14_plus_alias": "'R14+' is a rare alias meaning 'R14 and later' — maps to every branch starting from R13-R14."
+  },
+  "gates": {
+    "Common": ["R13-R14", "R2000", "R2004", "R2007", "R2010", "R2013", "R2018"],
+    "R13 & R14 Only": ["R13-R14"],
+    "R13-14 Only": ["R13-R14"],
+    "R13-R14 Only": ["R13-R14"],
+    "R14 Only": ["R14-only-hint"],
+    "R14+": ["R13-R14", "R2000", "R2004", "R2007", "R2010", "R2013", "R2018"],
+    "R13-R200": ["R13-R14", "R2000"],
+    "R13-R2000": ["R13-R14", "R2000"],
+    "R13-R2000 Only": ["R13-R14", "R2000"],
+    "R2000": ["R2000"],
+    "R2000 Only": ["R2000"],
+    "R2000+": ["R2000", "R2004", "R2007", "R2010", "R2013", "R2018"],
+    "R2000+ Only": ["R2000", "R2004", "R2007", "R2010", "R2013", "R2018"],
+    "R2004 and earlier": ["R13-R14", "R2000", "R2004"],
+    "R2004+": ["R2004", "R2007", "R2010", "R2013", "R2018"],
+    "R2007": ["R2007"],
+    "R2007+": ["R2007", "R2010", "R2013", "R2018"],
+    "R2010": ["R2010"],
+    "R2010+": ["R2010", "R2013", "R2018"],
+    "R2013+": ["R2013", "R2018"],
+    "R2018+": ["R2018"],
+    "R24": ["R2010", "R2013", "R2018"]
+  },
+  "special_gates": {
+    "_note": "Conditional pseudo-gates that depend on runtime values, not a version branch. These do NOT expand a spec row into version-cells — they compound the row's parent version gate. The ledger records them as gate_conditional=<expr> and the branch is inherited from the enclosing static version gate.",
+    "If “Transform present” == 1": {"branch": "inherit", "conditional": "Transform present == 1"}
+  },
+  "_worked_example": {
+    "unit": "20.4.75",
+    "row": "Is Gradient Fill (gate=R2004+)",
+    "expansion": [
+      "(20.4.75, row_ordinal=1, R2004)",
+      "(20.4.75, row_ordinal=1, R2007)",
+      "(20.4.75, row_ordinal=1, R2010)",
+      "(20.4.75, row_ordinal=1, R2013)",
+      "(20.4.75, row_ordinal=1, R2018)"
+    ],
+    "note": "Round-3 A.9 branch-cell denominator: 1 (unit,row) row -> 5 branch-cells. Aggregate over 1345 data rows with average expansion ~3.5 => ~4700 branch-cells, matching round-3's estimated 4000-6000."
+  }
+}

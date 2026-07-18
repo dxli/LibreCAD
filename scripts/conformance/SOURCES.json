@@ -1,0 +1,48 @@
+{
+  "_comment_licensing": "The ODA spec text and PDF are copyrighted 'All rights reserved / RESTRICTED RIGHTS' with no redistribution grant. They are DEVELOPER-LOCAL, gitignored, and referenced only by sha256 pin below. Only the pin (this file) is committed. See round3 Appendix R.1.",
+  "_comment_regeneration": "The spec text is generated from the source PDF via: pdftotext -layout <pdf> libraries/libdxfrw/spec/dwg_spec.txt. Identity assertions the P0 gate verifies: exactly 14992 lines and sed -n '10471p' startswith '20.4.75 HATCH'.",
+  "spec_pdf": {
+    "path": "/Users/dli/doc/dwg/dwg.pdf",
+    "sha256": "1ed2e02722862188120da606e4b6a816fa4014c96de68da2f84a2ecda09461e7",
+    "bytes": 2399640,
+    "description": "ODA 'Open Design Specification for .dwg files', v5.4.1",
+    "committed": false,
+    "gitignored_at": "libraries/libdxfrw/spec/.gitignore"
+  },
+  "spec_text": {
+    "path": "libraries/libdxfrw/spec/dwg_spec.txt",
+    "sha256": "f2b23bb7b0e7191a1a18f9f32c643c5635a90c65ee692e6913988820e032953a",
+    "lines": 14992,
+    "regen_cmd": "pdftotext -layout /Users/dli/doc/dwg/dwg.pdf libraries/libdxfrw/spec/dwg_spec.txt",
+    "identity_check_line": 10471,
+    "identity_check_prefix": "20.4.75 HATCH",
+    "committed": false,
+    "gitignored_at": "libraries/libdxfrw/spec/.gitignore"
+  },
+  "autocad_dxf_reference_pdf": {
+    "path": "/Users/dli/doc/dwg/autocad_2012_dxf-reference.pdf",
+    "sha256": "TODO_pin_when_first_used",
+    "committed": false,
+    "note": "DXF T1 authority (Appendix B). Pin populated when P4 begins."
+  },
+  "ezdxf": {
+    "version": "1.4.4",
+    "git_sha": "dd7f6cc34",
+    "venv_python": "/Users/dli/.venv/bin/python",
+    "committed": false,
+    "note": "L7 correction: version + git rev-parse must both match. Pin verified by dump_ezdxf_codes.py at run time."
+  },
+  "gate_branches": {
+    "path": "scripts/conformance/GATE_BRANCHES.json",
+    "sha256": "9ad41744413c4ff040ebea14292e72f2a8b1d1163c2c46ce5339a68efa0b6385",
+    "committed": true,
+    "note": "Round-3 H3 mapping. Covers all 23 gate strings observed in spec_fields.json. Branch-cell denominator computed: 7807 (compares to round-3 A.9 estimate 4000-6000; the higher value reflects Common-gate rows spanning all 7 branches)."
+  },
+  "meta": {
+    "plan": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17.md",
+    "addendum": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17-addendum.md",
+    "subplans": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17-subplans.md",
+    "round3": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17-round3.md",
+    "authority_order": "round3 > subplans B0 > addendum > plan"
+  }
+}

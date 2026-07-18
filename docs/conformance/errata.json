@@ -1,0 +1,47 @@
+[
+  {
+    "id": "MTEXT-4",
+    "unit": "20.4.46",
+    "kind": "spec-typed-wrong",
+    "specClaim": "Background scale factor typed BL",
+    "correctType": "BD",
+    "codeMatches": "BD (correct)",
+    "evidenceTier": "T3",
+    "adjudicators": {
+      "libredwg": "follows ODA spec (BL) and decodes 0x9999999A = low 32 bits of IEEE-754 1.6",
+      "acadsharp": "TBD — cross-reference at P6 time",
+      "corpus_physics": "libdxfrw's BD read of 1.6 is exact; LibreDWG's BL read is nonsense"
+    },
+    "verdict": "ERRATA — DO NOT FIX",
+    "note": "A spec-faithful differ WILL flag libdxfrw as deviating from ODA. That flag is the wrong direction of finding. Seeded per round-3 M2 to prevent re-file. See plan §1 (MTEXT-4 anti-finding), §6.6 T3 tier, §6.8 spec-not-final-authority."
+  },
+  {
+    "id": "VPORT-V6",
+    "unit": "20.4.64",
+    "kind": "spec-column-header-wrong",
+    "specClaim": "xrefindex+1 is Common (present all versions)",
+    "actualBehavior": "R2007+ reads only a BS and derives the two B flags; libdxfrw's 2-bit read is length-equivalent for occurring values",
+    "evidenceTier": "T3",
+    "adjudicators": {
+      "libredwg": "R2007+ reads only the BS — matches AutoCAD output",
+      "acadsharp": "TBD — cross-reference at P6 time"
+    },
+    "verdict": "ERRATA — REFUTED",
+    "note": "A spec-only auditor would have filed 'CRITICAL: missing BS for R2007+ desyncs every 2007+ vport'. Refuted by LibreDWG evidence. Seeded per round-3 M2."
+  },
+  {
+    "id": "SPLINE-BD-vs-RD",
+    "unit": "20.4.40",
+    "kind": "spec-type-ambiguous",
+    "specClaim": "Weight is BD-vs-RD 2-bit-prefix difference; would desync every weighted spline if wrong",
+    "codeMatches": "TBD",
+    "evidenceTier": "T2",
+    "adjudicators": {
+      "libredwg": "TBD",
+      "acadsharp": "TBD",
+      "corpus_physics": "row 20 (Weight) has ZERO coverage across the 214-file corpus — unvalidatable"
+    },
+    "verdict": "ERRATA CANDIDATE — no corpus reachability",
+    "note": "Also known as SPLINE-01 latent. Seeded per round-3 M2 to prevent re-file. Verdict revisits when P6 SPLINE unit runs OR corpus is expanded per SP1.5."
+  }
+]
