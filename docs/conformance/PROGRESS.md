@@ -9,8 +9,8 @@
 
 - **Branch**: conformance/spec-review-2026-07
 - **Tracked remote**: dli
-- **HEAD**: dadaaf5ff5d9
-- **Commits ahead of master**: 19
+- **HEAD**: 0ab39aca59c3
+- **Commits ahead of master**: 20
 - **Spec units**: 104
 - **Spec data rows**: 1345
 - **Code bodies**: 186
@@ -29,8 +29,8 @@
 
 | State | Count |
 |---|---|
-| pushed | 9 |
-| planned | 4 |
+| pushed | 10 |
+| planned | 3 |
 
 ## Per-slice detail
 
@@ -43,7 +43,7 @@
 | P0 | `00-T-extract-code` | T | **pushed** | `2684da567dad` | yes | no | extract_code.py -> code_fields.json (readSeq/writeSeq/sinkKind + delegation) |
 | P0 | `00-T-extract-spec` | T | **pushed** | `78a781246636` | yes | no | extract_spec.py -> spec_fields.json (104 units, ~1345 rows first-pass) |
 | P0 | `00-T-gate-branches` | T | **pushed** | `1d6d579f12e8` | yes | no | GATE_BRANCHES.json: authored gate-string -> version-branch-subset map (round-3 H3) |
-| P0 | `00-T-gen-progress` | T | **planned** | `-` | no | no | gen_progress.py + conformance_stats.py: derive per-slice state + PROGRESS.md |
+| P0 | `00-T-gen-progress` | T | **pushed** | `0ab39aca59c3` | yes | no | gen_progress.py + conformance_stats.py: derive per-slice state + PROGRESS.md |
 | P0 | `00-T-gen-readme` | T | **planned** | `-` | no | no | gen_readme.py: marker-delimited dashboard for README.md |
 | P0 | `00-T-shared-bodies` | T | **pushed** | `384ea6bb2fbf` | yes | no | shared_bodies.json + SHARED_BODIES.md: 13 shared-body edges (addendum A.2) |
 | P0 | `00-T-slices-seed` | T | **pushed** | `8ac06ae76c58` | yes | no | Registry spine: enumerate all P0/P1 slice records in slices.json |
