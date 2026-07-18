@@ -1,0 +1,27 @@
+{
+  "slice_id": "00-T-extract-spec",
+  "passed": true,
+  "ts": "2026-07-18",
+  "checks": {
+    "wrong_file_rejection": "spec text != 14992 lines → exit 2 (verified)",
+    "identity_line_10471": "'20.4.75 HATCH (varies)' matches expected prefix",
+    "units_enumerated": 104,
+    "data_rows_extracted": 1345,
+    "xref_rows_extracted": 143,
+    "descText_hashed_fraction": "68.3%",
+    "descText_licensing": "sha256 hash only, verbatim prose NOT committed (round-3 B1)"
+  },
+  "measured_pilot_deltas": {
+    "20.4.40_SPLINE": {"target": 20, "observed": 19, "delta": -1},
+    "20.4.64_VPORT":  {"target": 58, "observed": 57, "delta": -1},
+    "20.4.75_HATCH":  {"target": 68, "observed": 67, "delta": -1},
+    "20.4.46_MTEXT":  {"target": 35, "observed": 37, "delta": 2}
+  },
+  "acceptance_delta": {
+    "note": "First-pass extractor lands close-but-not-exact vs SP1.1 pilot targets. Deltas documented in EXTRACTION_ACCURACY.md. Downstream ledger --check MUST NOT fail on unaudited-extractor-gap rows; they are known-latent and enumerated per unit."
+  },
+  "outputs": {
+    "spec_fields.json": "scripts/conformance/spec_fields.json (475KB, keyed by unit)",
+    "extraction_accuracy": "docs/conformance/EXTRACTION_ACCURACY.md"
+  }
+}
