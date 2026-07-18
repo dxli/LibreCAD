@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "audit_diff.schema.json",
+  "title": "libdxfrw audit diff JSON",
+  "type": "object",
+  "required": ["schema", "tool", "failureLevel", "summary", "differences"],
+  "properties": {
+    "schema": {"const": 1},
+    "tool": {"const": "audit_diff"},
+    "failureLevel": {"enum": ["none", "info", "warning", "critical"]},
+    "summary": {"type": "object"},
+    "differences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "fixture", "field", "before", "after", "message"],
+        "properties": {
+          "severity": {"enum": ["info", "warning", "critical"]},
+          "fixture": {"type": "string"},
+          "field": {"type": "string"},
+          "message": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fixture_manifest.schema.json",
+  "title": "libdxfrw fixture manifest",
+  "type": "object",
+  "required": ["schema", "fixtures"],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "path",
+          "format",
+          "version",
+          "sha256",
+          "license",
+          "redistribution",
+          "defaultEnabled",
+          "featureFamilies",
+          "versionRows",
+          "dwgTsRows",
+          "writerRows",
+          "expectedDiagnostics",
+          "requiredOracles"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "enum": ["DWG", "DXF", "synthetic"]
+          },
+          "version": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "redistribution": {
+            "type": "string"
+          },
+          "defaultEnabled": {
+            "type": "boolean"
+          },
+          "featureFamilies": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "versionRows": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "dwgTsRows": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "writerRows": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "expectedDiagnostics": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "requiredOracles": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

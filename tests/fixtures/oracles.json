@@ -1,0 +1,19 @@
+{
+  "$schema": "schemas/oracles.schema.json",
+  "dwgts": {
+    "env": "DWGTS_CLI",
+    "mode": "optional"
+  },
+  "libredwg": {
+    "env": "LIBREDWG_DWGREAD",
+    "mode": "optional"
+  },
+  "ezdxf": {
+    "python": "python3",
+    "mode": "optional"
+  },
+  "oda": {
+    "env": "ODA_FILE_CONVERTER",
+    "mode": "local-only"
+  }
+}

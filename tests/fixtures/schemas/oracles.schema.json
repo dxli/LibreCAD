@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "oracles.schema.json",
+  "title": "libdxfrw external oracle config",
+  "type": "object",
+  "properties": {
+    "$schema": {"type": "string"},
+    "dwgts": {"$ref": "#/$defs/oracle"},
+    "libredwg": {"$ref": "#/$defs/oracle"},
+    "ezdxf": {"$ref": "#/$defs/oracle"},
+    "oda": {"$ref": "#/$defs/oracle"}
+  },
+  "$defs": {
+    "oracle": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "env": {"type": "string"},
+        "path": {"type": "string"},
+        "python": {"type": "string"},
+        "mode": {
+          "enum": ["optional", "required", "local-only"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

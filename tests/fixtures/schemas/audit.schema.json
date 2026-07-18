@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "audit.schema.json",
+  "title": "libdxfrw audit JSON",
+  "type": "object",
+  "required": ["schema", "tool", "format", "files"],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "tool": {
+      "enum": ["dwg_audit", "dxf_audit"]
+    },
+    "format": {
+      "enum": ["DWG", "DXF"]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fixture",
+          "format",
+          "version",
+          "readOk",
+          "error",
+          "counters",
+          "entities",
+          "objects",
+          "classes",
+          "rawObjects",
+          "dataSections",
+          "diagnostics"
+        ],
+        "properties": {
+          "fixture": {"type": "string"},
+          "format": {"enum": ["DWG", "DXF"]},
+          "version": {"type": "string"},
+          "versionEnum": {"type": "integer"},
+          "supportLevel": {"type": "string"},
+          "dwgTsParityLevel": {"type": "string"},
+          "dwgTsParityDelta": {"type": "string"},
+          "writerMode": {"type": "string"},
+          "writerDelta": {"type": "string"},
+          "readOk": {"type": "boolean"},
+          "error": {"type": "integer"},
+          "counters": {"type": "object"},
+          "entities": {"type": "object"},
+          "objects": {"type": "object"},
+          "callbacks": {"type": "object"},
+          "classes": {"type": "array"},
+          "rawEntities": {"type": "object"},
+          "rawObjects": {"type": ["array", "object"]},
+          "dataSections": {"type": "array"},
+          "diagnostics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["severity", "code"],
+              "properties": {
+                "severity": {"enum": ["info", "warning", "error"]},
+                "code": {"type": "string"},
+                "count": {"type": "integer"}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
