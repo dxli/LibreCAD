@@ -145,7 +145,32 @@ print('slices.json schema OK,', len(s), 'entries')
                 [ -f docs/conformance/SHARED_BODIES.md ] || fail "SHARED_BODIES.md missing"
                 run "$PY" scripts/conformance/check_shared_bodies.py
                 ;;
-            00-T-extract-code|00-T-gate-branches|05-T-build-ledger)
+            00-T-gate-branches)
+                # JSON parseability + SOURCES.json pin match + coverage vs
+                # spec_fields.json.
+                run "$PY" -c "import json; json.load(open('scripts/conformance/GATE_BRANCHES.json'))"
+                # sha256 pin equals SOURCES.json value.
+                GBSHA=$(shasum -a 256 scripts/conformance/GATE_BRANCHES.json | awk '{print $1}')
+                PINNED=$("$PY" -c "import json; print(json.load(open('scripts/conformance/SOURCES.json')).get('gate_branches',{}).get('sha256',''))")
+                [ "$GBSHA" = "$PINNED" ] || fail "gate-branches sha256 drift"
+                # Every gate seen in spec_fields.json must be mapped.
+                "$PY" -c "
+import json,sys
+sf=json.load(open('scripts/conformance/spec_fields.json'))
+gb=json.load(open('scripts/conformance/GATE_BRANCHES.json'))
+seen=set()
+for u in sf['units']:
+    for r in u['rows']:
+        g=r.get('gate') or ''
+        if g: seen.add(g)
+mapped=set(gb['gates'].keys()) | (set(gb.get('special_gates',{}).keys()) - {'_note'})
+miss=seen-mapped
+if miss:
+    print('MISSING gates in GATE_BRANCHES.json:', miss); sys.exit(1)
+print('all', len(seen), 'gates mapped')
+" || fail "gate coverage"
+                ;;
+            00-T-extract-code|05-T-build-ledger)
                 # Future slice — dispatch documented, execution deferred.
                 fail "slice $SLICE not yet implementable in this bootstrap"
                 ;;

@@ -1,0 +1,9 @@
+{
+  "slice_id": "00-T-gate-branches",
+  "passed": true,
+  "ts": "2026-07-18T00:44:55Z",
+  "runner": "validate_slice.sh (bootstrap)",
+  "input_hash": "3bf458c09f009928",
+  "tier_a_dispatched_kind": "T",
+  "notes": "Bootstrap Tier B covers artifact existence + SOURCES sha256 only. Heavier B4/B5/B6/B7 gates deferred to the slices that require them."
+}

@@ -32,6 +32,12 @@
     "committed": false,
     "note": "L7 correction: version + git rev-parse must both match. Pin verified by dump_ezdxf_codes.py at run time."
   },
+  "gate_branches": {
+    "path": "scripts/conformance/GATE_BRANCHES.json",
+    "sha256": "9ad41744413c4ff040ebea14292e72f2a8b1d1163c2c46ce5339a68efa0b6385",
+    "committed": true,
+    "note": "Round-3 H3 mapping. Covers all 23 gate strings observed in spec_fields.json. Branch-cell denominator computed: 7807 (compares to round-3 A.9 estimate 4000-6000; the higher value reflects Common-gate rows spanning all 7 branches)."
+  },
   "meta": {
     "plan": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17.md",
     "addendum": "~/.claude/plans/libdxfrw-spec-conformance-2026-07-17-addendum.md",
