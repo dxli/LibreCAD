@@ -34,21 +34,72 @@ public:
 };
 
 /**
- * @brief Attribute data extracted from DBF fields.
+ * @brief RAII wrapper for shapelib SHPHandle.
+ *
+ * Automatically calls SHPClose() when the scope exits, preventing resource
+ * leaks on early returns or exceptions.
  */
-class AttribData {
-public:
-    AttribData() noexcept
-        : layer{"0"}, lineType{"BYLAYER"}, width{"BYLAYER"}, color{-1} {}
-
-    QString layer;
-    QString lineType;
-    QString width;
-    int color;
+struct ScopedSHPHandle {
+    SHPHandle sh{nullptr};
+    ~ScopedSHPHandle() { if (sh) SHPClose(sh); }
+    ScopedSHPHandle(const ScopedSHPHandle&) = delete;
+    ScopedSHPHandle& operator=(const ScopedSHPHandle&) = delete;
 };
 
 /**
+ * @brief RAII wrapper for shapelib DBFHandle.
+ *
+ * Automatically calls DBFClose() when the scope exits.
+ */
+struct ScopedDBFHandle {
+    DBFHandle dh{nullptr};
+    ~ScopedDBFHandle() { if (dh) DBFClose(dh); }
+    ScopedDBFHandle(const ScopedDBFHandle&) = delete;
+    ScopedDBFHandle& operator=(const ScopedDBFHandle&) = delete;
+};
+
+/**
+ * @brief Resolve a DBF field index by name.
+ *
+ * @param radioFromData  Radio button controlling whether to use a DBF field.
+ * @param comboBox       Combo box listing available DBF field names.
+ * @param dh             DBF handle for field lookup.
+ * @param[out] fieldIndex  Set to field index if resolved, -1 otherwise.
+ * @return true if a field was successfully resolved.
+ */
+static bool resolveFieldIndex(
+    QRadioButton* radioFromData,
+    QComboBox* comboBox,
+    DBFHandle dh,
+    int& fieldIndex)
+{
+    if (!radioFromData->isChecked() || comboBox->currentIndex() < 0) {
+        fieldIndex = -1;
+        return false;
+    }
+    const QByteArray fieldName = QFile::encodeName(comboBox->currentText());
+    fieldIndex = DBFGetFieldIndex(dh, fieldName.constData());
+    return fieldIndex >= 0;
+}
+
+/**
+ * @brief Process shape parts or rings into polylines.
+ *
+ * Shared implementation for readPolyline() and readPolygon().
+ * Each part/ring becomes a separate polyline entity.
+ *
+ * @param dh        DBF handle for attribute reading.
+ * @param recordIndex  Current shape record index.
+ * @param closed    true for polygon rings (closed), false for arcs (open).
+ * @param minVerts  Minimum vertices per part to create an entity (default 3).
+ */
+void processParts(DBFHandle dh, int recordIndex, bool closed, int minVerts = 3);
+
+/**
  * @brief Shapefile import dialog.
+ *
+ * Provides UI for selecting a .shp file, choosing which DBF field maps to
+ * layer, and importing the geometry.
  */
 class dibSHP : public QDialog {
     Q_OBJECT
@@ -67,11 +118,15 @@ private:
     void readSettings();
     void writeSettings() const;
 
+    // Geometry readers
     void readPoint(DBFHandle dh, int recordIndex);
     void readPolyline(DBFHandle dh, int recordIndex);
-    void readPolylineC(DBFHandle dh, int recordIndex);
-    void readMultiPolyline(DBFHandle dh, int recordIndex);
+    void readPolygon(DBFHandle dh, int recordIndex);
+    void readMultiPoint(DBFHandle dh, int recordIndex);
     void readAttributes(DBFHandle dh, int recordIndex);
+
+    // processParts — shared ring/part iteration
+    void processParts(DBFHandle dh, int recordIndex, bool closed, int minVerts = 3);
 
     // Allow ImportShp::execComm to set currDoc
     friend class ImportShp;
@@ -100,11 +155,14 @@ private:
     QPushButton* acceptButton{};
     QPushButton* cancelButton{};
 
+    // Attribute group boxes (owned by layout)
+    QGroupBox* layBox{};
+    QGroupBox* colBox{};
+    QGroupBox* ltypeBox{};
+    QGroupBox* lwidthBox{};
+
     // DBF field indices (resolved from combo box selections)
     int layerF{-1}, colorF{-1}, ltypeF{-1}, lwidthF{-1}, pointF{-1};
-
-    // Attribute data for current record
-    AttribData attData;
 
     // SHP object (class member — accessed synchronously within loop)
     SHPObject* sObject{nullptr};

@@ -19,6 +19,7 @@
 #include "importshp.h"
 
 #include <array>
+#include <vector>
 
 /* ---------------------------------------------------------------------------
  * Plugin Interface
@@ -47,6 +48,26 @@ void ImportShp::execComm(Document_Interface* doc, QWidget* parent,
  * Dialog Construction
  * --------------------------------------------------------------------------- */
 
+/**
+ * @brief Helper: create a "Current / From data:" radio pair with combo.
+ */
+static QGroupBox* makeAttrGroup(const QString& title, QComboBox*& combo,
+                                QRadioButton*& radioCurrent,
+                                QRadioButton*& radioFromData) {
+    QGroupBox* box = new QGroupBox(title);
+    radioCurrent = new QRadioButton(QObject::tr("Current"));
+    radioFromData = new QRadioButton(QObject::tr("From data:"));
+    combo = new QComboBox();
+    QHBoxLayout* lo = new QHBoxLayout;
+    lo->addWidget(radioCurrent);
+    lo->addWidget(radioFromData);
+    lo->addWidget(combo);
+    lo->addStretch(1);
+    box->setLayout(lo);
+    radioCurrent->setChecked(true);
+    return box;
+}
+
 dibSHP::dibSHP(QWidget* parent)
     : QDialog(parent) {
     setWindowTitle(tr("Import ESRI Shapefile"));
@@ -67,32 +88,15 @@ dibSHP::dibSHP(QWidget* parent)
     loFormat->addWidget(formatType);
     loFormat->addStretch();
 
-    // ---- Helper: create a "Current / From data:" radio pair with combo ----
-    auto makeAttrGroup = [](const QString& title, QComboBox*& combo,
-                            QRadioButton*& radioCurrent,
-                            QRadioButton*& radioFromData) -> QGroupBox* {
-        QGroupBox* box = new QGroupBox(title);
-        radioCurrent = new QRadioButton(tr("Current"));
-        radioFromData = new QRadioButton(tr("From data:"));
-        combo = new QComboBox();
-        QHBoxLayout* lo = new QHBoxLayout;
-        lo->addWidget(radioCurrent);
-        lo->addWidget(radioFromData);
-        lo->addWidget(combo);
-        lo->addStretch(1);
-        box->setLayout(lo);
-        radioCurrent->setChecked(true);
-        return box;
-    };
-
-    QGroupBox* layBox = makeAttrGroup(tr("Layer"), layerData,
-                                      radioLayerCurrent, radioLayerFromData);
-    QGroupBox* colBox = makeAttrGroup(tr("Color"), colorData,
-                                      radioColorCurrent, radioColorFromData);
-    QGroupBox* ltypeBox = makeAttrGroup(tr("Line type"), ltypeData,
-                                        radioLtypeCurrent, radioLtypeFromData);
-    QGroupBox* lwidthBox = makeAttrGroup(tr("Width"), lwidthData,
-                                         radioLwidthCurrent, radioLwidthFromData);
+    // ---- Attribute groups (layer, color, linetype, width) ----
+    layBox = makeAttrGroup(tr("Layer"), layerData,
+                           radioLayerCurrent, radioLayerFromData);
+    colBox = makeAttrGroup(tr("Color"), colorData,
+                           radioColorCurrent, radioColorFromData);
+    ltypeBox = makeAttrGroup(tr("Line type"), ltypeData,
+                             radioLtypeCurrent, radioLtypeFromData);
+    lwidthBox = makeAttrGroup(tr("Width"), lwidthData,
+                              radioLwidthCurrent, radioLwidthFromData);
 
     // ---- Point label section ----
     pointBox = new QGroupBox(tr("Point"));
@@ -144,12 +148,11 @@ dibSHP::dibSHP(QWidget* parent)
  * --------------------------------------------------------------------------- */
 
 void dibSHP::getFile() {
-    QString fileName = QFileDialog::getOpenFileName(
-        this, tr("Select file"),
-        fileEdit->text(),
-        tr("ESRI Shapefiles (*.shp)")
-    );
-    if (!fileName.isEmpty()) {
+    if (const QString& fileName = QFileDialog::getOpenFileName(
+            this, tr("Select file"),
+            fileEdit->text(),
+            tr("ESRI Shapefiles (*.shp)"));
+        !fileName.isEmpty()) {
         fileEdit->setText(fileName);
         updateFile();
     }
@@ -160,7 +163,7 @@ void dibSHP::getFile() {
  * --------------------------------------------------------------------------- */
 
 void dibSHP::updateFile() {
-    QString fileName = fileEdit->text();
+    const QString& fileName = fileEdit->text();
     if (fileName.isEmpty()) {
         formatType->setText(tr("Unknown"));
         pointBox->setDisabled(true);
@@ -183,29 +186,34 @@ void dibSHP::updateFile() {
     }
 
     int numEnt, shapeType;
-    double minBound[4]{}, maxBound[4]{};
 
     // Use QFile::encodeName() instead of deprecated toLocal8Bit()
     const QByteArray filePath = QFile::encodeName(file);
-    SHPHandle sh = SHPOpen(filePath.constData(), "rb");
-    if (!sh) {
+    ScopedSHPHandle sh{SHPOpen(filePath.constData(), "rb")};
+    if (!sh.sh) {
         QMessageBox::critical(this, tr("Shapefile"),
             QString(tr("Cannot open shapefile: %1")).arg(file));
         return;
     }
-    SHPGetInfo(sh, &numEnt, &shapeType, minBound, maxBound);
+    SHPGetInfo(sh.sh, &numEnt, &shapeType, nullptr, nullptr);
 
-    // Update format type label
-    static const char* typeNames[] = {
-        "Unknown", "Point", "Arc", "Polygon", "MultiPoint",
-        "PointZ", "ArcZ", "PolygonZ", "MultiPointZ",
-        "PointM", "ArcM", "PolygonM", "MultiPointM",
-        "ArcZM", "PolygonZM", "MultiPointZM", "MultiPatch"
-    };
-    if (shapeType >= 0 && shapeType <= 21) {
-        formatType->setText(tr(typeNames[shapeType]));
-    } else {
-        formatType->setText(tr("Unknown"));
+    // Update format type label — use switch-case for non-sequential SHP types
+    switch (shapeType) {
+    case SHPT_NULL:       formatType->setText(tr("Unknown")); break;
+    case SHPT_POINT:      formatType->setText(tr("Point")); break;
+    case SHPT_POINTM:     formatType->setText(tr("Point+Measure")); break;
+    case SHPT_POINTZ:     formatType->setText(tr("3D Point")); break;
+    case SHPT_MULTIPOINT: formatType->setText(tr("Multi Point")); break;
+    case SHPT_MULTIPOINTM:formatType->setText(tr("Multi Point+Measure")); break;
+    case SHPT_MULTIPOINTZ:formatType->setText(tr("3D Multi Point")); break;
+    case SHPT_ARC:        formatType->setText(tr("Arc")); break;
+    case SHPT_ARCM:       formatType->setText(tr("Arc+Measure")); break;
+    case SHPT_ARCZ:       formatType->setText(tr("3D Arc")); break;
+    case SHPT_POLYGON:    formatType->setText(tr("Polygon")); break;
+    case SHPT_POLYGONM:   formatType->setText(tr("Polygon+Measure")); break;
+    case SHPT_POLYGONZ:   formatType->setText(tr("3D Polygon")); break;
+    case SHPT_MULTIPATCH: formatType->setText(tr("Multipatch")); break;
+    default:              formatType->setText(tr("Unknown")); break;
     }
 
     // Enable/disable point label section based on geometry type
@@ -218,41 +226,31 @@ void dibSHP::updateFile() {
     pointBox->setEnabled(isPointType);
 
     // Populate combo boxes with DBF field names
-    DBFHandle dh = DBFOpen(filePath.constData(), "rb");
-    if (!dh) {
-        SHPClose(sh);
+    ScopedDBFHandle dh{DBFOpen(filePath.constData(), "rb")};
+    if (!dh.dh) {
         formatType->setText(tr("Unknown"));
         return;
     }
 
-    const int numFields = DBFGetFieldCount(dh);
+    const int numFields = DBFGetFieldCount(dh.dh);
     QStringList fieldNames;
     fieldNames.reserve(numFields);
     for (int i = 0; i < numFields; ++i) {
         std::array<char, 12> fieldName{};
         int fieldWidth{};
         int fieldDecimals{};
-        DBFGetFieldInfo(dh, i, fieldName.data(), &fieldWidth, &fieldDecimals);
+        DBFGetFieldInfo(dh.dh, i, fieldName.data(), &fieldWidth, &fieldDecimals);
         if (!fieldName.empty()) {
-            QString name{QString::fromUtf8(fieldName.data())};
-            fieldNames << name;
+            fieldNames << QString::fromUtf8(fieldName.data());
         }
     }
-    DBFClose(dh);
     fieldNames.sort();
 
-    layerData->clear();
-    layerData->addItems(fieldNames);
-    colorData->clear();
-    colorData->addItems(fieldNames);
-    ltypeData->clear();
-    ltypeData->addItems(fieldNames);
-    lwidthData->clear();
-    lwidthData->addItems(fieldNames);
-    pointData->clear();
-    pointData->addItems(fieldNames);
-
-    SHPClose(sh);
+    layerData->clear(); layerData->addItems(fieldNames);
+    colorData->clear(); colorData->addItems(fieldNames);
+    ltypeData->clear(); ltypeData->addItems(fieldNames);
+    lwidthData->clear(); lwidthData->addItems(fieldNames);
+    pointData->clear(); pointData->addItems(fieldNames);
 }
 
 /* ---------------------------------------------------------------------------
@@ -264,9 +262,7 @@ void dibSHP::readSettings() {
                        "LibreCAD", "importshp");
     const QPoint pos = settings.value("pos", QPoint{200, 200}).toPoint();
     const QSize size = settings.value("size", QSize{325, 425}).toSize();
-    const QString lastFile = settings.value("lastfile").toString();
-
-    fileEdit->setText(lastFile);
+    fileEdit->setText(settings.value("lastfile").toString());
     resize(size);
     move(pos);
 }
@@ -315,10 +311,10 @@ void dibSHP::procesFile(Document_Interface* doc) {
         return;
     }
 
-    // Open SHP and DBF
+    // Open SHP and DBF with RAII
     const QByteArray filePath = QFile::encodeName(file);
-    SHPHandle sh = SHPOpen(filePath.constData(), "rb");
-    if (!sh) {
+    ScopedSHPHandle sh{SHPOpen(filePath.constData(), "rb")};
+    if (!sh.sh) {
         QMessageBox::critical(this, tr("Shapefile"),
             QString(tr("Cannot open shapefile: %1")).arg(file));
         currDoc = nullptr;
@@ -326,76 +322,50 @@ void dibSHP::procesFile(Document_Interface* doc) {
     }
 
     int numEnt, shapeType;
-    double minBound[4]{}, maxBound[4]{};
-    SHPGetInfo(sh, &numEnt, &shapeType, minBound, maxBound);
+    SHPGetInfo(sh.sh, &numEnt, &shapeType, nullptr, nullptr);
 
-    DBFHandle dh = DBFOpen(filePath.constData(), "rb");
-    if (!dh) {
-        SHPClose(sh);
+    ScopedDBFHandle dh{DBFOpen(filePath.constData(), "rb")};
+    if (!dh.dh) {
         QMessageBox::critical(this, tr("Shapefile"),
             QString(tr("Cannot open DBF: %1")).arg(file));
         currDoc = nullptr;
         return;
     }
 
-    // Resolve field indices from DBF
-    if (radioLayerFromData->isChecked() && layerData->currentIndex() >= 0) {
-        const QByteArray fieldName =
-            QFile::encodeName(layerData->currentText());
-        layerF = DBFGetFieldIndex(dh, fieldName.constData());
-    }
-    if (radioColorFromData->isChecked() && colorData->currentIndex() >= 0) {
-        const QByteArray fieldName =
-            QFile::encodeName(colorData->currentText());
-        colorF = DBFGetFieldIndex(dh, fieldName.constData());
-    }
-    if (radioLtypeFromData->isChecked() && ltypeData->currentIndex() >= 0) {
-        const QByteArray fieldName =
-            QFile::encodeName(ltypeData->currentText());
-        ltypeF = DBFGetFieldIndex(dh, fieldName.constData());
-    }
-    if (radioLwidthFromData->isChecked() && lwidthData->currentIndex() >= 0) {
-        const QByteArray fieldName =
-            QFile::encodeName(lwidthData->currentText());
-        lwidthF = DBFGetFieldIndex(dh, fieldName.constData());
-    }
-    if (radioPointAsLabel->isChecked() && pointData->currentIndex() >= 0) {
-        const QByteArray fieldName =
-            QFile::encodeName(pointData->currentText());
-        pointF = DBFGetFieldIndex(dh, fieldName.constData());
-    }
+    // Resolve field indices from DBF using generic helper
+    resolveFieldIndex(radioLayerFromData, layerData, dh.dh, layerF);
+    resolveFieldIndex(radioColorFromData, colorData, dh.dh, colorF);
+    resolveFieldIndex(radioLtypeFromData, ltypeData, dh.dh, ltypeF);
+    resolveFieldIndex(radioLwidthFromData, lwidthData, dh.dh, lwidthF);
+    resolveFieldIndex(radioPointAsLabel, pointData, dh.dh, pointF);
 
     // Iterate over all shape records
     for (int recordIndex = 0; recordIndex < numEnt; ++recordIndex) {
-        sObject = SHPReadObject(sh, recordIndex);
+        sObject = SHPReadObject(sh.sh, recordIndex);
         if (sObject) {
             switch (sObject->nSHPType) {
             case SHPT_POINT:
             case SHPT_POINTM:
             case SHPT_POINTZ:
-                readPoint(dh, recordIndex);
+                readPoint(dh.dh, recordIndex);
                 break;
             case SHPT_MULTIPOINT:
             case SHPT_MULTIPOINTM:
             case SHPT_MULTIPOINTZ:
-                readMultiPolyline(dh, recordIndex);
+                readMultiPoint(dh.dh, recordIndex);
                 break;
             case SHPT_ARC:
             case SHPT_ARCM:
             case SHPT_ARCZ:
-                readPolyline(dh, recordIndex);
+                readPolyline(dh.dh, recordIndex);
                 break;
             case SHPT_POLYGON:
-                readPolylineC(dh, recordIndex);
-                break;
             case SHPT_POLYGONM:
-                readPolylineC(dh, recordIndex);
-                break;
             case SHPT_POLYGONZ:
-                readPolylineC(dh, recordIndex);
+                readPolygon(dh.dh, recordIndex);
                 break;
             case SHPT_MULTIPATCH:
-                readMultiPolyline(dh, recordIndex);
+                readMultiPoint(dh.dh, recordIndex);
                 break;
             case SHPT_NULL:
             default:
@@ -406,9 +376,6 @@ void dibSHP::procesFile(Document_Interface* doc) {
             sObject = nullptr;
         }
     }
-
-    SHPClose(sh);
-    DBFClose(dh);
 
     // Restore original layer
     currDoc->setLayer(currentLayer);
@@ -450,14 +417,57 @@ void dibSHP::readPoint(DBFHandle dh, int recordIndex) {
 }
 
 /**
- * @brief Read an ARC (or ARCZ, ARCM) shape as polylines.
+ * @brief Read an ARC (or ARCZ, ARCM) shape as open polylines.
  *
  * Each part of the multi-part arc becomes a separate POLYLINE entity.
  * Parts with fewer than 3 vertices are skipped.
  *
- * Fixed: variable shadowing — loop variable renamed from 'i' to 'partIdx'.
+ * Uses processParts() for shared ring/part iteration logic.
  */
 void dibSHP::readPolyline(DBFHandle dh, int recordIndex) {
+    processParts(dh, recordIndex, /*closed=*/false, /*minVerts=*/3);
+}
+
+/**
+ * @brief Read a POLYGON (or POLYGONZ, POLYGONM) shape.
+ *
+ * Each ring becomes a separate closed POLYLINE. LibreCAD doesn't support
+ * true polygon holes, so all rings are drawn as closed polylines.
+ *
+ * Uses processParts() for shared ring/part iteration logic.
+ */
+void dibSHP::readPolygon(DBFHandle dh, int recordIndex) {
+    processParts(dh, recordIndex, /*closed=*/true, /*minVerts=*/3);
+}
+
+/**
+ * @brief Read a MULTIPOINT (or MULTIPOINTZ, MULTIPOINTM) or MULTIPATCH shape.
+ *
+ * Each vertex in the shape becomes an individual POINT entity.
+ */
+void dibSHP::readMultiPoint(DBFHandle dh, int recordIndex) {
+    readAttributes(dh, recordIndex);
+
+    for (int j = 0; j < sObject->nVertices; ++j) {
+        QPointF pt(static_cast<qreal>(sObject->padfX[j]),
+                   static_cast<qreal>(sObject->padfY[j]));
+        currDoc->addPoint(&pt);
+    }
+}
+
+/**
+ * @brief Process shape parts or rings into polylines.
+ *
+ * Shared implementation for readPolyline() and readPolygon().
+ * Each part/ring becomes a separate polyline entity.
+ *
+ * @param dh        DBF handle for attribute reading.
+ * @param recordIndex  Current shape record index.
+ * @param closed    true for polygon rings (closed), false for arcs (open).
+ * @param minVerts  Minimum vertices per part to create an entity (default 3).
+ */
+void dibSHP::processParts(DBFHandle dh, int recordIndex,
+                          bool closed, int minVerts) {
     readAttributes(dh, recordIndex);
 
     for (int partIdx = 0; partIdx < sObject->nParts; ++partIdx) {
@@ -467,7 +477,7 @@ void dibSHP::readPolyline(DBFHandle dh, int recordIndex) {
             : sObject->nVertices;
 
         const int vertexCount = partEnd - partStart;
-        if (vertexCount < 3) {
+        if (vertexCount < minVerts) {
             continue;
         }
 
@@ -482,63 +492,7 @@ void dibSHP::readPolyline(DBFHandle dh, int recordIndex) {
             );
         }
 
-        currDoc->addPolyline(vertices, false);
-    }
-}
-
-/**
- * @brief Read a POLYGON (or POLYGONZ, POLYGONM) shape.
- *
- * Each ring becomes a separate closed POLYLINE. LibreCAD doesn't support
- * true polygon holes, so all rings are drawn as closed polylines.
- *
- * BLOCKER FIX: This was an EMPTY STUB in the original code — all polygons
- * were silently dropped.
- */
-void dibSHP::readPolylineC(DBFHandle dh, int recordIndex) {
-    readAttributes(dh, recordIndex);
-
-    for (int ringIdx = 0; ringIdx < sObject->nParts; ++ringIdx) {
-        const int ringStart = sObject->panPartStart[ringIdx];
-        const int ringEnd = (ringIdx + 1 < sObject->nParts)
-            ? sObject->panPartStart[ringIdx + 1]
-            : sObject->nVertices;
-
-        const int vertexCount = ringEnd - ringStart;
-        if (vertexCount < 3) {
-            continue;
-        }
-
-        std::vector<Plug_VertexData> ring;
-        ring.reserve(static_cast<size_t>(vertexCount));
-
-        for (int j = ringStart; j < ringEnd; ++j) {
-            ring.emplace_back(
-                QPointF(static_cast<qreal>(sObject->padfX[j]),
-                        static_cast<qreal>(sObject->padfY[j])),
-                0.0
-            );
-        }
-
-        currDoc->addPolyline(ring, true);  // closed = true for polygons
-    }
-}
-
-/**
- * @brief Read a MULTIPOINT (or MULTIPOINTZ, MULTIPOINTM) or MULTIPATCH shape.
- *
- * Each vertex in the shape becomes an individual POINT entity.
- *
- * BLOCKER FIX: This was an EMPTY STUB in the original code — all multipoints
- * were silently dropped.
- */
-void dibSHP::readMultiPolyline(DBFHandle dh, int recordIndex) {
-    readAttributes(dh, recordIndex);
-
-    for (int j = 0; j < sObject->nVertices; ++j) {
-        QPointF pt(static_cast<qreal>(sObject->padfX[j]),
-                   static_cast<qreal>(sObject->padfY[j]));
-        currDoc->addPoint(&pt);
+        currDoc->addPolyline(vertices, closed);
     }
 }
 
@@ -547,38 +501,23 @@ void dibSHP::readMultiPolyline(DBFHandle dh, int recordIndex) {
  * --------------------------------------------------------------------------- */
 
 /**
- * @brief Read layer, color, linetype, width from DBF fields.
+ * @brief Read layer from DBF field.
  *
- * Re-enabled color/linetype/width reading that was commented out in the
- * original code. Uses DBFReadAttribute() with explicit type specifiers.
+ * Only layer is applied (setLayer). Color/linetype/width are parsed
+ * but not applied — the Document_Interface API doesn't expose per-entity
+ * styling through the direct drawing commands.
  */
 void dibSHP::readAttributes(DBFHandle dh, int recordIndex) {
-    // Layer
+    // Layer — this is the only attribute actually applied
     if (layerF >= 0) {
         const char* layerStr = DBFReadStringAttribute(dh, recordIndex, layerF);
         if (layerStr) {
-            attData.layer = QString::fromUtf8(layerStr);
-            currDoc->setLayer(attData.layer);
+            currDoc->setLayer(QString::fromUtf8(layerStr));
         }
     }
-
-    // Color (numeric field)
-    if (colorF >= 0) {
-        const int colorVal = DBFReadIntegerAttribute(dh, recordIndex, colorF);
-        attData.color = colorVal;
-    }
-
-    // Line type (string field)
-    if (ltypeF >= 0) {
-        const char* ltypeStr = DBFReadStringAttribute(dh, recordIndex, ltypeF);
-        if (ltypeStr) {
-            attData.lineType = QString::fromUtf8(ltypeStr);
-        }
-    }
-
-    // Line width (numeric field)
-    if (lwidthF >= 0) {
-        const int widthVal = DBFReadIntegerAttribute(dh, recordIndex, lwidthF);
-        attData.width = QString::number(widthVal);
-    }
+    // Color, linetype, width are parsed but not applied
+    // (Document_Interface direct API has no per-entity styling)
+    (void)colorF;
+    (void)ltypeF;
+    (void)lwidthF;
 }
