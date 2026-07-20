@@ -73,12 +73,12 @@ TEST_CASE("LC_Parabola: CalculatePrimitives derives focus/vertex/axis",
     // Focus at (0, h); accessor and cached primitive must agree
     REQUIRE(d.m_focus.x == Approx(0.0).margin(kTol));
     REQUIRE(d.m_focus.y == Approx(1.0).margin(kTol));
-    REQUIRE(d.GetFocus().x == Approx(0.0).margin(kTol));
-    REQUIRE(d.GetFocus().y == Approx(1.0).margin(kTol));
+    REQUIRE(d.getFocus().x == Approx(0.0).margin(kTol));
+    REQUIRE(d.getFocus().y == Approx(1.0).margin(kTol));
     // Axis points from vertex to focus, magnitude == h
     REQUIRE(d.m_axis.magnitude() == Approx(1.0).margin(kTol));
     // Directrix is perpendicular to the axis at y = -h
-    const RS_LineData dx = d.GetDirectrix();
+    const RS_LineData dx = d.getDirectrix();
     REQUIRE(dx.startpoint.y == Approx(-1.0).margin(kTol));
     REQUIRE(dx.endpoint.y == Approx(-1.0).margin(kTol));
     // Direction must be perpendicular to the axis vector
