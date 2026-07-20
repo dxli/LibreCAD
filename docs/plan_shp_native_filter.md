@@ -229,7 +229,11 @@ actually run.
 shapelib linkable from `librecad_lib` (the filter needs it) while the plugin (until Phase 5)
 keeps building.
 
-### Sub-plan 1a — move (own commit, so git tracks the rename cleanly)
+### Sub-plan 1a — move (own commit, so git tracks the rename cleanly) — done ✅
+
+**Landed**: 2026-07-21 — `refactor(shapelib): move vendored shapelib to libraries/shapelib`.
+Rename is inert (Phase-0 tests still 24/24 pass, 1790 assertions).
+
 1. `git mv plugins/importshp/shapelib libraries/shapelib/src` (keep `LICENSE-MIT`,
    `LICENSE-LGPL`, `ChangeLog` with it); add `libraries/shapelib/README.librecad` noting
    version 1.6.3, source URL `https://download.osgeo.org/shapelib/shapelib-1.6.3.tar.gz`,

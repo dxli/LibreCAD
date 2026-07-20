@@ -5,9 +5,11 @@ qt_add_plugin(
     SHARED
     importshp.cpp
     importshp.h
-    shapelib/shpopen.c
-    shapelib/dbfopen.c
-    shapelib/safileio.c
+    # Shapelib now lives under libraries/shapelib/src (Phase 1a of the SHP
+    # native-filter plan).  Retired in Phase 5 with the plugin itself.
+    ../../libraries/shapelib/src/shpopen.c
+    ../../libraries/shapelib/src/dbfopen.c
+    ../../libraries/shapelib/src/safileio.c
 )
 
 set_target_properties(
@@ -18,7 +20,7 @@ set_target_properties(
 )
 
 target_include_directories(${PLUGIN_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/shapelib
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../libraries/shapelib/src
     ../../librecad/src/plugins
 )
 

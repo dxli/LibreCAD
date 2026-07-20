@@ -2442,20 +2442,20 @@ if (BUILD_TESTS)
         librecad/src/lib/engine/settings/tests/rs_settings_migration_tests.cpp
         librecad/src/main/tests/console_command_utils_tests.cpp
         # Phase 0 shapelib safety-net tests.  shapelib sources are compiled in
-        # temporarily from plugins/importshp/shapelib until Phase 1b relocates
-        # them under libraries/shapelib and links them into librecad_lib.
+        # temporarily until Phase 1b links them into librecad_lib properly.
         librecad/src/lib/filters/tests/shp_shapelib_tests.cpp
-        plugins/importshp/shapelib/shpopen.c
-        plugins/importshp/shapelib/dbfopen.c
-        plugins/importshp/shapelib/safileio.c
+        libraries/shapelib/src/shpopen.c
+        libraries/shapelib/src/dbfopen.c
+        libraries/shapelib/src/safileio.c
     )
 
     # Include directories for rs_math.h and other dependencies
     target_include_directories (librecad_tests PRIVATE
                                 ${SHARED_INCLUDES}
-                                # Phase-0 temporary: shapelib headers live in
-                                # the plugin tree until Phase 1a relocates them.
-                                plugins/importshp/shapelib
+                                # Phase-0 temporary: shapelib headers.  Phase
+                                # 1b will fold shapelib into librecad_lib
+                                # proper (jwwlib pattern).
+                                libraries/shapelib/src
     )
 
     # Link Catch2 and other required libraries (e.g., Boost, Qt)

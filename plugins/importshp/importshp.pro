@@ -1,6 +1,6 @@
 QT       += gui widgets
 TEMPLATE = lib
-CONFIG += plugin c++17
+CONFIG += plugin c++17 debug
 VERSION = 1.0.0
 TARGET = $$qtLibraryTarget(importshp)
 
@@ -8,15 +8,15 @@ GENERATED_DIR = ../../generated/plugin/importshp
 include(../../common.pri)
 
 INCLUDEPATH    += ../../librecad/src/plugins \
-                  shapelib
+                  ../../libraries/shapelib/src
 
 SOURCES += importshp.cpp \
-           shapelib/shpopen.c \
-           shapelib/safileio.c \
-           shapelib/dbfopen.c
+           ../../libraries/shapelib/src/shpopen.c \
+           ../../libraries/shapelib/src/safileio.c \
+           ../../libraries/shapelib/src/dbfopen.c
 
 HEADERS += importshp.h \
-           shapelib/shapefil.h
+           ../../libraries/shapelib/src/shapefil.h
 
 win32 {
     DESTDIR = ../../windows/resources/plugins
