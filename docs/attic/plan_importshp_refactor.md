@@ -1,5 +1,17 @@
 # Refactoring Plan: C++17 Modernization — Readability & Correctness Proof
 
+> **SUPERSEDED — historical / do not implement.**
+> **Superseded by**: `docs/plan_shp_native_filter.md` (approved 2026-07-19,
+> implemented 2026-07-21).  The `importshp` plugin this document refactors
+> was retired in Phase 5 of that plan (commit removing `plugins/importshp/`).
+> SHP import now goes through the native `RS_FilterSHP` filter on the
+> File→Open path; there is no plugin left to refactor.  This file is kept
+> under `docs/attic/` for provenance only.
+>
+> ---
+>
+> **Original context (do not follow):**
+>
 > **Goal**: Refactor the `importshp` plugin for maximum readability, eliminate all correctness bugs, and apply C++17 idioms systematically.
 > **Status**: Post-implementation review — all 10 original fixes are in place, but deeper issues discovered.
 

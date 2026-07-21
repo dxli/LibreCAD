@@ -533,7 +533,20 @@ corpus documents CVE-2023-30259-class hardening.
 
 ---
 
-## 7. Phase 5 — Retire the importshp plugin
+## 7. Phase 5 — Retire the importshp plugin — done ✅
+
+**Landed**: 2026-07-21 — `refactor(plugins)!: remove importshp plugin,
+superseded by native SHP filter`.  `plugins/importshp/` git-rm'd; both build
+systems deregistered (`plugins/CMakeLists.txt` line 109, `plugins/plugins.pro`
+line 23); stale `LibreCAD.app/Contents/Resources/plugins/libimportshp.dylib`
+deleted from the local bundle; superseded historical planning doc
+`docs/plan_importshp_refactor.md` moved to `docs/attic/` with a "SUPERSEDED"
+header note.  Untracked planning drafts
+`docs/plan_importshp_fix_all.md` and `docs/plan_importshp_port_back.md`
+left as-is on the working tree — they're not in git so they don't confuse
+future readers via git history.  Post-commit validation: full-clean qmake6
+build has zero `importshp` mentions in the log; librecad_tests unchanged.
+
 
 **Gate**: Phases 2-4 fully validated (all tests green incl. sanitizers, manual E2E done).
 The user decision was *native filter*, not *both* — the plugin (whose import has never
