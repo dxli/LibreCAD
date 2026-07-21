@@ -47,6 +47,8 @@ namespace {
                 return QString(".jww");
             case RS2::FormatCXF:
                 return QString(".cxf");
+            case RS2::FormatSHP:
+                return QString(".shp");
 #ifdef DWGSUPPORT
             case RS2::FormatDWG:
     case RS2::FormatDWG2004:
@@ -70,9 +72,9 @@ bool hasExtension(const QString& fileName, RS2::FormatType ftype)
 {
     QString extension = getExtension(ftype);
 #ifdef DWGSUPPORT
-    QStringList supported = {".cxf", ".dxf", ".lff", ".dwg"};
+    QStringList supported = {".cxf", ".dxf", ".lff", ".dwg", ".shp"};
 #else
-    QStringList supported = {".cxf", ".dxf", ".lff"};
+    QStringList supported = {".cxf", ".dxf", ".lff", ".shp"};
 #endif
     auto testExt = [&fileName, ftype](const QString& ext) {
         return getExtension(ftype) == ext && fileName.endsWith(ext, Qt::CaseInsensitive);};
@@ -110,6 +112,9 @@ RS2::FormatType QG_FileDialog::getType(const QString& filter) const {
     if (filter == fJww) {
         return RS2::FormatJWW;
     }
+    if (filter == fShp) {
+        return RS2::FormatSHP;
+    }
     if (filter == fDxf1) {
         return RS2::FormatDXF1;
     }
@@ -143,6 +148,7 @@ QG_FileDialog::QG_FileDialog(QWidget* parent, Qt::WindowFlags f, FileType type)
 #endif
     fCxf = tr("QCad Font %1").arg("(*.cxf)");
     fJww = tr("Jww Drawing %1").arg("(*.jww)");
+    fShp = tr("ESRI Shapefile %1").arg("(*.shp)");
     fDxf1 = tr("QCad 1.x file %1").arg("(*.dxf)");
     switch (type) {
         case BlockFile:
@@ -166,9 +172,9 @@ QString QG_FileDialog::getOpenFile(RS2::FormatType* type) {
     QString fn = "";
     QStringList filters;
 #ifdef DWGSUPPORT
-    filters << fDxfrw << fDxf1 << fDwg << fLff << fCxf << fJww;
+    filters << fDxfrw << fDxf1 << fDwg << fLff << fCxf << fJww << fShp;
 #else
-    filters << fDxfrw << fDxf1 << fLff << fCxf << fJww;
+    filters << fDxfrw << fDxf1 << fLff << fCxf << fJww << fShp;
 #endif
 
     setWindowTitle(tr("Open %1").arg(m_name));

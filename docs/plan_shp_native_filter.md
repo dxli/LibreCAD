@@ -411,7 +411,15 @@ plugin's layer-only ceiling; Z preserved; codepage-aware DBF decoding.
 
 ---
 
-## 5. Phase 3 — UI wiring (File→Open surfaces SHP)
+## 5. Phase 3 — UI wiring (File→Open surfaces SHP) — done ✅
+
+**Landed**: 2026-07-21 — `feat(ui): surface Shapefile import in File→Open and format detection`.
+`fShp` filter added to `getOpenFile` only (import-only contract);
+`getSaveFile` list left untouched.  Both build systems green after the edit;
+librecad_tests still 25/25 [shp] cases, 631/631 total.
+Optional Phase 3b (File→Import→Shapefile action) and 3c (Linux mime files)
+deferred; can be follow-up commits without touching the filter.
+
 
 **Goal**: user-visible: `*.shp` appears in the Open dialog, extension auto-detected, drawing
 opens with imported content.
