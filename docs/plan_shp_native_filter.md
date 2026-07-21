@@ -459,7 +459,7 @@ feat(ui): surface Shapefile import in File→Open and format detection
 
 ---
 
-## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof
+## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof — done ✅
 
 **Sub-plan 4b landed** (2026-07-21, commit `04b749474`): filter-level test
 matrix over the pre-existing corpus.  40 [shp] cases / 1841 assertions.
@@ -485,11 +485,26 @@ librecad_tests suite 658 cases / 11 967 assertions with `~[corpus]`.
 Skipped optional Natural Earth download (step 2) — network dependency
 not worth it; documented as skippable.
 
-**Sub-plan 4c (ASan/UBSan clean-run evidence) deferred** — separate
-build-config sweep with `-fsanitize=address,undefined` against the
-current test matrix (now including the 4a hostile fixtures).  Requires
-a fresh Debug build tree with the sanitizer flags; can run against the
-test matrix as-is.
+**Sub-plan 4c landed** — done ✅ (2026-07-21): fresh `build-asan` Debug
+tree configured exactly per this section's command block
+(`-fsanitize=address,undefined -fno-omit-frame-pointer`, no additional
+flags). `[shp]` tag: 52 cases / 1897 assertions, zero ASan/UBSan reports
+(includes the 4a hostile DoS fixtures — `dos_nparts.shp` correctly hits
+shapelib's own `nParts` corruption guard and is skipped without a
+crash). Full suite with `~[corpus]`: 658 cases / 11 967 assertions,
+zero ASan/UBSan reports.
+`ASAN_OPTIONS=detect_leaks=1` was tried first and is a dead end on
+macOS ("detect_leaks is not supported on this platform") — omit it
+there; leak checking isn't available on this platform's ASan.
+Discovered in passing (unrelated to SHP, not fixed here): an earlier
+build-asan configuration that added `-fno-sanitize-recover=all` (beyond
+what this plan specifies) hit one UBSan finding in unrelated DWG code —
+`libdxfrw.cpp:6966`, an invalid `DRW::Version` enum load — which aborted
+that run after 120/658 cases. It did not reproduce under this section's
+own (recoverable) flags in the same full-suite run, so it looks
+uninitialized-read-flavored and order/layout-dependent rather than
+deterministic. Worth a follow-up issue against libdxfrw, out of scope
+for this plan.
 
 
 ### Sub-plan 4a — complete the corpus (the "downloaded SHP sample files" item)
