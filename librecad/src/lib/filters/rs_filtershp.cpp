@@ -469,7 +469,7 @@ bool RS_FilterSHP::fileImport(RS_Graphic& g, const QString& file,
         case SHPT_POINTM: {
             const double z = (rec->padfZ != nullptr) ? rec->padfZ[0] : 0.0;
             emitPoint(g, layer, pen, rec->padfX[0], rec->padfY[0], z);
-            if (opts.importLabels && rf.label >= 0
+            if (opts.importLabels && rf.label >= 0 && dbf
                 && !DBFIsAttributeNULL(dbf.get(), i, rf.label)) {
                 const QString text = trimTrailingSpaces(decodeDbfString(
                     DBFReadStringAttribute(dbf.get(), i, rf.label), codepage));

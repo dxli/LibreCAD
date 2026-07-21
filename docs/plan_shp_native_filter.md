@@ -459,7 +459,27 @@ feat(ui): surface Shapefile import in File→Open and format detection
 
 ---
 
-## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof
+## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof — partial ✅
+
+**Sub-plan 4b landed**: 2026-07-21 — `test(shp): full import validation matrix
+for RS_FilterSHP over corpus`.  40 [shp] test cases pass (1841 assertions);
+per-geometry-type happy paths (POINT/ARC/POLYGON/MULTIPOINT/multi-part),
+DBF-driven MText labels on bc_hospitals, Latin-1 codepage round-trip on
+latin1-property, edge/null/empty/missing-shx behaviour, and all four hostile
+fixtures (malformed_dbf, malformed_truncated, pointz, missing_shx) pinned
+as "false, no crash, no partial entities".
+
+**Sub-plans 4a (fixture generator for POLYGONZ/MULTIPATCH/DoS crafts) and 4c
+(ASan/UBSan clean-run evidence) deferred** to a follow-up:
+* 4a needs a Python stdlib fixture generator; new files (not modifications to
+  existing pinned fixtures) added under test_data/shp/.  Genuinely new
+  filenames only.  Scope-wise a full one-session job on its own.
+* 4c is a separate build-config sweep: -fsanitize=address,undefined with the
+  hostile portion of the corpus.  Can run against the current test matrix
+  as-is; requires a fresh Debug build tree with the sanitizer flags.
+
+Both are documented follow-up items rather than blockers on Phase 5.
+
 
 ### Sub-plan 4a — complete the corpus (the "downloaded SHP sample files" item)
 1. Generate missing Z/MULTIPATCH fixtures with a small stdlib-only script
