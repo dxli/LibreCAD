@@ -22,8 +22,12 @@
 #include <ctype.h>
 #include <string.h>
 
-#define CPLsprintf sprintf
-#define CPLsnprintf snprintf
+/* LibreCAD delta (see libraries/shapelib/README.librecad):
+ * Deduplicated the upstream CPLsprintf/CPLsnprintf macro block that appeared
+ * twice (before and after the MSVC snprintf shim below).  Keeping only the
+ * post-shim definitions is byte-equivalent because sprintf never had a shim
+ * and snprintf is re-mapped to _snprintf on old MSVC just above.
+ */
 
 #ifndef STRCASECMP
 #if defined(_MSC_VER)

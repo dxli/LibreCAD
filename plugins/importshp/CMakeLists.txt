@@ -5,11 +5,12 @@ qt_add_plugin(
     SHARED
     importshp.cpp
     importshp.h
-    # Shapelib now lives under libraries/shapelib/src (Phase 1a of the SHP
-    # native-filter plan).  Retired in Phase 5 with the plugin itself.
-    ../../libraries/shapelib/src/shpopen.c
-    ../../libraries/shapelib/src/dbfopen.c
-    ../../libraries/shapelib/src/safileio.c
+    # Shapelib now lives under libraries/shapelib/src (Phase 1a) and is
+    # compiled as C++17 (.cpp; Phase 1b).  The plugin still lists the sources
+    # explicitly here — retired in Phase 5 with the plugin itself.
+    ../../libraries/shapelib/src/shpopen.cpp
+    ../../libraries/shapelib/src/dbfopen.cpp
+    ../../libraries/shapelib/src/safileio.cpp
 )
 
 set_target_properties(

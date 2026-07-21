@@ -159,6 +159,7 @@ set (SHARED_INCLUDES
      libraries/libdxfrw/src
      libraries/libdxfrw/src/intern
      libraries/muparser/include
+     libraries/shapelib/src
      librecad/res/arrows
      librecad/res/controls
      librecad/res/dxf
@@ -402,6 +403,13 @@ set (SHARED_SOURCES
      libraries/jwwlib/src/jwtype.h
      libraries/jwwlib/src/jwwdoc.cpp
      libraries/jwwlib/src/jwwdoc.h
+     # Vendored shapelib 1.6.3 (compiled as C++17; Phase 1b of the SHP native
+     # filter plan).  Sources listed directly here, mirroring jwwlib.
+     libraries/shapelib/src/dbfopen.cpp
+     libraries/shapelib/src/safileio.cpp
+     libraries/shapelib/src/shapefil.h
+     libraries/shapelib/src/shapefil_private.h
+     libraries/shapelib/src/shpopen.cpp
     ${LIBDXFRW_ALL_FILES}
      librecad/src/actions/dock_widgets/block/rs_actionblocksadd.cpp
      librecad/src/actions/dock_widgets/block/rs_actionblocksadd.h
@@ -2441,21 +2449,16 @@ if (BUILD_TESTS)
         librecad/src/lib/filters/tests/dwg_tarch_tests.cpp
         librecad/src/lib/engine/settings/tests/rs_settings_migration_tests.cpp
         librecad/src/main/tests/console_command_utils_tests.cpp
-        # Phase 0 shapelib safety-net tests.  shapelib sources are compiled in
-        # temporarily until Phase 1b links them into librecad_lib properly.
+        # Shapelib safety-net tests.  shapelib sources are compiled into
+        # librecad_lib (SHARED_SOURCES) since Phase 1b, so the test target
+        # only needs the test file itself.
         librecad/src/lib/filters/tests/shp_shapelib_tests.cpp
-        libraries/shapelib/src/shpopen.c
-        libraries/shapelib/src/dbfopen.c
-        libraries/shapelib/src/safileio.c
     )
 
     # Include directories for rs_math.h and other dependencies
     target_include_directories (librecad_tests PRIVATE
                                 ${SHARED_INCLUDES}
-                                # Phase-0 temporary: shapelib headers.  Phase
-                                # 1b will fold shapelib into librecad_lib
-                                # proper (jwwlib pattern).
-                                libraries/shapelib/src
+                                # (shapelib include comes via SHARED_INCLUDES)
     )
 
     # Link Catch2 and other required libraries (e.g., Boost, Qt)

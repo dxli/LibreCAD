@@ -31,50 +31,63 @@
 #endif
 #endif
 
+/* LibreCAD delta (see libraries/shapelib/README.librecad):
+ * Old-style C casts in this file replaced with reinterpret_cast/static_cast
+ * so a C++17 compile with -Wold-style-cast stays clean.  Cast targets are
+ * unchanged; semantics identical to upstream.
+ */
 static SAFile SADFOpen(const char *pszFilename, const char *pszAccess,
                        void *pvUserData)
 {
     (void)pvUserData;
-    return (SAFile)fopen(pszFilename, pszAccess);
+    return reinterpret_cast<SAFile>(fopen(pszFilename, pszAccess));
 }
 
 static SAOffset SADFRead(void *p, SAOffset size, SAOffset nmemb, SAFile file)
 {
-    return (SAOffset)fread(p, (size_t)size, (size_t)nmemb, (FILE *)file);
+    return static_cast<SAOffset>(fread(p, static_cast<size_t>(size),
+                                       static_cast<size_t>(nmemb),
+                                       reinterpret_cast<FILE *>(file)));
 }
 
 static SAOffset SADFWrite(const void *p, SAOffset size, SAOffset nmemb,
                           SAFile file)
 {
-    return (SAOffset)fwrite(p, (size_t)size, (size_t)nmemb, (FILE *)file);
+    return static_cast<SAOffset>(fwrite(p, static_cast<size_t>(size),
+                                        static_cast<size_t>(nmemb),
+                                        reinterpret_cast<FILE *>(file)));
 }
 
 static SAOffset SADFSeek(SAFile file, SAOffset offset, int whence)
 {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-    return (SAOffset)_fseeki64((FILE *)file, (__int64)offset, whence);
+    return static_cast<SAOffset>(
+        _fseeki64(reinterpret_cast<FILE *>(file),
+                  static_cast<__int64>(offset), whence));
 #else
-    return (SAOffset)fseek((FILE *)file, (long)offset, whence);
+    return static_cast<SAOffset>(
+        fseek(reinterpret_cast<FILE *>(file),
+              static_cast<long>(offset), whence));
 #endif
 }
 
 static SAOffset SADFTell(SAFile file)
 {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-    return (SAOffset)_ftelli64((FILE *)file);
+    return static_cast<SAOffset>(_ftelli64(reinterpret_cast<FILE *>(file)));
 #else
-    return (SAOffset)ftell((FILE *)file);
+    return static_cast<SAOffset>(ftell(reinterpret_cast<FILE *>(file)));
 #endif
 }
 
 static int SADFFlush(SAFile file)
 {
-    return fflush((FILE *)file);
+    return fflush(reinterpret_cast<FILE *>(file));
 }
 
 static int SADFClose(SAFile file)
 {
-    return fclose((FILE *)file);
+    return fclose(reinterpret_cast<FILE *>(file));
 }
 
 static int SADRemove(const char *filename, void *pvUserData)
@@ -108,14 +121,15 @@ void SASetupDefaultHooks(SAHooks *psHooks)
 
 static wchar_t *Utf8ToWideChar(const char *pszFilename)
 {
-    const int nMulti = (int)strlen(pszFilename) + 1;
+    const int nMulti = static_cast<int>(strlen(pszFilename)) + 1;
     const int nWide =
         MultiByteToWideChar(CP_UTF8, 0, pszFilename, nMulti, 0, 0);
     if (nWide == 0)
     {
         return NULL;
     }
-    wchar_t *pwszFileName = (wchar_t *)malloc(nWide * sizeof(wchar_t));
+    wchar_t *pwszFileName =
+        static_cast<wchar_t *>(malloc(nWide * sizeof(wchar_t)));
     if (pwszFileName == NULL)
     {
         return NULL;
@@ -142,7 +156,7 @@ static SAFile SAUtf8WFOpen(const char *pszFilename, const char *pszAccess,
     wchar_t *pwszAccess = Utf8ToWideChar(pszAccess);
     if (pwszFileName != NULL && pwszAccess != NULL)
     {
-        file = (SAFile)_wfopen(pwszFileName, pwszAccess);
+        file = reinterpret_cast<SAFile>(_wfopen(pwszFileName, pwszAccess));
     }
     free(pwszFileName);
     free(pwszAccess);

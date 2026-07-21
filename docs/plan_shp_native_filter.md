@@ -245,7 +245,16 @@ Rename is inert (Phase-0 tests still 24/24 pass, 1790 assertions).
    - Phase-0 test wiring in top `CMakeLists.txt` → new path.
 3. Build both systems + rerun Phase-0 tests (green = move is inert).
 
-### Sub-plan 1b — rename `.c`→`.cpp`, compile as C++17 (own commit)
+### Sub-plan 1b — rename `.c`→`.cpp`, compile as C++17 (own commit) — done ✅
+
+**Landed**: 2026-07-21 — `build(shapelib): compile shapelib as C++17 (.c -> .cpp)`.
+Phase-0 corpus tests still 24/24 (1790 assertions) — behavior invariance under
+the rename is proven.  Both build systems (CMake `librecad_tests` + qmake6 full
+app w/ new `libshapelib.a` static lib) green.  Optional `common.pri`
+`QMAKE_CFLAGS = -std=c++17` cleanup deferred: repo-wide audit shows no
+remaining `.c` sources, so the line is dead but the revert has cross-platform
+Windows/MinGW risk not worth taking in this commit — flagged as follow-up.
+
 1. `git mv` `shpopen.c→shpopen.cpp`, `dbfopen.c→dbfopen.cpp`, `safileio.c→safileio.cpp`.
    **Zero source edits required** — empirically verified clean under
    `clang++ -std=c++17 -Wall -Wextra -Wpedantic` (cast macros already emit C++ casts under
