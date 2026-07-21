@@ -39,190 +39,11 @@
     </message>
 </context>
 <context>
-    <name>CustomToolbarCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="vanished">Çerçeve</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="vanished">&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;</source>
-        <translation type="vanished">&lt;</translation>
-    </message>
-    <message>
-        <source>+</source>
-        <translation type="vanished">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="vanished">-</translation>
-    </message>
-    <message>
-        <source>input a name and then press +</source>
-        <translation type="vanished">Bir ad girin ve + tuşuna basın</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">Kaydet</translation>
-    </message>
-</context>
-<context>
-    <name>CustomWidgetCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="vanished">Çerçeve</translation>
-    </message>
-    <message>
-        <source>-&gt;</source>
-        <translation type="vanished">-&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;-</source>
-        <translation type="vanished">&lt;-</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">Kaydet</translation>
-    </message>
-</context>
-<context>
-    <name>DlgParabola</name>
-    <message>
-        <source>Parabola</source>
-        <translation type="vanished">Parabola</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Points on Spline</source>
-        <translation type="vanished">Spline</translation>
-    </message>
-    <message>
-        <source>Control Points</source>
-        <translation type="vanished">Kontrol Noktaları</translation>
-    </message>
-</context>
-<context>
-    <name>DlgSplinePoints</name>
-    <message>
-        <source>SplinePoints</source>
-        <translation type="vanished">Eğri noktaları</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">Kapalı</translation>
-    </message>
-    <message>
-        <source>If selected, spline points are used</source>
-        <translation type="vanished">Eğer seçilmişse, spline puanları kullanılır</translation>
-    </message>
-    <message>
-        <source>Spline Points</source>
-        <translation type="vanished">Spline Noktaları</translation>
-    </message>
-    <message>
-        <source>If selected, control points are used</source>
-        <translation type="vanished">Eğer seçilmişse, kontrol noktaları kullanılır</translation>
-    </message>
-    <message>
-        <source>Control Points</source>
-        <translation type="vanished">Kontrol Noktaları</translation>
-    </message>
-    <message>
-        <source>Points on Spline</source>
-        <translation type="vanished">Spline</translation>
-    </message>
-</context>
-<context>
     <name>LC_AbstractActionDrawLine</name>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_abstractactiondrawline.cpp" line="64"/>
         <source>Start point may set in distance or point state only</source>
         <translation>Başlangıç noktası sadece mesafe veya nokta durumunda ayarlanabilir</translation>
-    </message>
-</context>
-<context>
-    <name>LC_AbstractActionDrawRectangle</name>
-    <message>
-        <source>To be created:</source>
-        <translation type="vanished">Oluşturulmak için:</translation>
-    </message>
-    <message>
-        <source>Rectangle</source>
-        <translation type="vanished">Rect</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Genişlik:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Yükseklik:</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">Merkez:</translation>
-    </message>
-    <message>
-        <source>Invalid Angle</source>
-        <translation type="vanished">Geçersiz Açı</translation>
-    </message>
-    <message>
-        <source>Invalid radius</source>
-        <translation type="vanished">Invalid Yarısı</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation type="vanished">Invalid değeri</translation>
-    </message>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">Addion point</translation>
-    </message>
-    <message>
-        <source>Specify angle</source>
-        <translation type="vanished">Konum km</translation>
-    </message>
-    <message>
-        <source>Specify size (width, height)</source>
-        <translation type="vanished">Boyut ( genişlik, yükseklik)</translation>
-    </message>
-    <message>
-        <source>Specify corners type
-[str|round|bevels]</source>
-        <translation type="vanished">Köşe tipi
-[str|round|bevels]</translation>
-    </message>
-    <message>
-        <source>Specify corner bevel length (x,y)</source>
-        <translation type="vanished">Köşenin uzunluğu (x,y)</translation>
-    </message>
-    <message>
-        <source>Specify corner radius</source>
-        <translation type="vanished">Köşe yarıçapı</translation>
-    </message>
-    <message>
-        <source>Specify edges mode
-[both|hor|vert]</source>
-        <translation type="vanished">€ kenarlar modu
-[Her ikisi de</translation>
     </message>
 </context>
 <context>
@@ -471,73 +292,6 @@ Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawArc2POptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Height of the arc (the distanсe between chord and top arc point)</source>
-        <translation type="vanished">Kanın yüksekliği (ortalama ve üst ark noktası arasındaki tarafsızlık)</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Yükseklik:</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">Okunma Sayısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from the drawing</source>
-        <translation type="vanished">Çizimten açı seçin</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">Yay yarıçapı</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Radius:</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">Saat</translation>
-    </message>
-    <message>
-        <source>Central angle of the arc</source>
-        <translation type="vanished">Orta açı arkın</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Length of the arc</source>
-        <translation type="vanished">Ayının uzunluğu</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">Çizimten Yarısı Çekin</translation>
-    </message>
-    <message>
-        <source>Pick height from drawing</source>
-        <translation type="vanished">Çizimden yüksekliğe bakın</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre alın</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawArc2PointsAngle</name>
     <message>
         <location filename="../src/actions/drawing/draw/arc/lc_action_draw_arc_2points_angle.cpp" line="58"/>
@@ -749,10 +503,6 @@ Bu blok eklenemez.</translation>
 <context>
     <name>LC_ActionDrawBoundingBox</name>
     <message>
-        <source>Select entities for bounding box (Enter to complete)</source>
-        <translation type="vanished">Bağlanma kutusu için varlıkları seçin (Enter to complete)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_action_draw_bounding_box.cpp" line="162"/>
         <source>Select entities for bounding box</source>
         <translation type="unfinished"></translation>
@@ -807,31 +557,6 @@ Bu blok eklenemez.</translation>
         <location filename="../src/actions/drawing/draw/line/misc/lc_action_draw_center_mark.cpp" line="397"/>
         <source>Select circle, arc or ellipse</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawCircle2PR</name>
-    <message>
-        <source>radius=%1 is too small for points selected
-distance between points=%2 is larger than diameter=%3</source>
-        <translation type="vanished">yarıçap=%1 seçilen noktalar için çok küçük
-noktalar arasındaki mesafe=%2 çap=%3 den daha büyük</translation>
-    </message>
-    <message>
-        <source>Select from two possible circle centers</source>
-        <translation type="vanished">İki olası çember merkezinden birini seçin</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">İlk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">İkinci noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Select circle center</source>
-        <translation type="vanished">Çember merkezini seç</translation>
     </message>
 </context>
 <context>
@@ -1080,13 +805,6 @@ noktalar arasındaki mesafe=%2 çap=%3 den daha büyük</translation>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawCross</name>
-    <message>
-        <source>Select circle, arc or ellipse</source>
-        <translation type="vanished">Çember seçin, ark veya elpse</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawDimBaseline</name>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp" line="416"/>
@@ -1130,10 +848,6 @@ noktalar arasındaki mesafe=%2 çap=%3 den daha büyük</translation>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="63"/>
         <source>Select Center</source>
         <translation>Merkezi Seç</translation>
-    </message>
-    <message>
-        <source>No center specified.</source>
-        <translation type="vanished">Hiçbir merkez belirtilmedi.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="68"/>
@@ -1528,154 +1242,6 @@ noktalar arasındaki mesafe=%2 çap=%3 den daha büyük</translation>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawLinePoints</name>
-    <message>
-        <source>Specify First Point</source>
-        <translation type="vanished">First Point</translation>
-    </message>
-    <message>
-        <source>Specify Second Point
-or [number|x|y|angle|p|edges|distance]</source>
-        <translation type="vanished">Second Point
-Ya da [sayı|x|y|kahkahalar)</translation>
-    </message>
-    <message>
-        <source>Specify Second Point
-or [number]</source>
-        <translation type="vanished">Second Point
-Ya da</translation>
-    </message>
-    <message>
-        <source>Specify line direction
-[x|y|angle|p|distance]</source>
-        <translation type="vanished">€ line yönü
-[x|y|kahkamet|sahkamet)</translation>
-    </message>
-    <message>
-        <source>Specify line direction angle
-or [x|y|p|number|edges|distance]</source>
-        <translation type="vanished">Hat yön açısı açı
-Ya da [x|y|p|sayı|sayı)</translation>
-    </message>
-    <message>
-        <source>Specify edge points mode
-[none|start|end|both|distance]</source>
-        <translation type="vanished">€ kenar noktaları modu
-[none|start|end|hem| mesafe]</translation>
-    </message>
-    <message>
-        <source>Specify fixed distance between points
-or[x|y|p|number|edges]</source>
-        <translation type="vanished">Noktaları arasında sabit mesafe
-veya [x|y|p|sayılar)</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Geri dön</translation>
-    </message>
-    <message>
-        <source>Specify distance (%1)
-or [%2]</source>
-        <translation type="vanished">Mesafe (%1)
-(%2)</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-    <message>
-        <source>Specify  distance (angle %1 deg)
-or [%2]</source>
-        <translation type="vanished">Uzaklığı ( %1 deg)
-(%2)</translation>
-    </message>
-    <message>
-        <source>Specify points count</source>
-        <translation type="vanished">€ points count</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygon4</name>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">Ikinci köşeyi paylaşın</translation>
-    </message>
-    <message>
-        <source>Specify second tangent</source>
-        <translation type="vanished">İkinci tanjan</translation>
-    </message>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">İlk köşeyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify first tangent</source>
-        <translation type="vanished">İlk tanjanjan</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygonBase</name>
-    <message>
-        <source>Not a valid number. Try 1..9999</source>
-        <translation type="vanished">Geçerli bir sayı değil. 1.999999</translation>
-    </message>
-    <message>
-        <source>Invalid value of rounding radius</source>
-        <translation type="vanished">Yuvarlak yarıçap değeri</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Enter number:</source>
-        <translation type="vanished">Sayı girin:</translation>
-    </message>
-    <message>
-        <source>Enter rounding radius:</source>
-        <translation type="vanished">Yuvarlak yarıçap girin:</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">Central Park</translation>
-    </message>
-    <message>
-        <source>To be created:</source>
-        <translation type="vanished">Oluşturulmak için:</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">Merkez:</translation>
-    </message>
-    <message>
-        <source>Start angle:</source>
-        <translation type="vanished">Başlangıç açısı:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Radius:</translation>
-    </message>
-    <message>
-        <source>Radius Inner:</source>
-        <translation type="vanished">Radius İç:</translation>
-    </message>
-    <message>
-        <source>Polygon</source>
-        <translation type="vanished">Polygon</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygonCenTan</name>
-    <message>
-        <source>Specify a tangent</source>
-        <translation type="vanished">Bir teğet belirt</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawLinePolygonCenterCorner</name>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_action_draw_polygon_center_corner.cpp" line="41"/>
@@ -1916,29 +1482,6 @@ or [%2]</source>
         <location filename="../src/actions/drawing/draw/text/lc_action_draw_mtext.cpp" line="198"/>
         <source>Enter text:</source>
         <translation type="unfinished">Metni girin:</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawMidLine</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Select first entity</source>
-        <translation type="vanished">İlk varlık seçin</translation>
-    </message>
-    <message>
-        <source>Select second entity</source>
-        <translation type="vanished">İkinci varlık seçin</translation>
-    </message>
-    <message>
-        <source>Alternate endpoints</source>
-        <translation type="vanished">Alternatif uç noktaları</translation>
-    </message>
-    <message>
-        <source>Enter offset value</source>
-        <translation type="vanished">Boşluk değeri girin</translation>
     </message>
 </context>
 <context>
@@ -3793,10 +3336,6 @@ or [%2]</source>
         <translation>Prompt</translation>
     </message>
     <message>
-        <source>Snap on grid</source>
-        <translation type="vanished">Izgaraya hizala</translation>
-    </message>
-    <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="449"/>
         <source>Snap Middle Manual</source>
         <translation>Snap Manual Orta</translation>
@@ -4262,26 +3801,6 @@ or [%2]</source>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="655"/>
         <source>Widget Options</source>
         <translation>Bileşen Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Sol</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Sağ</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="vanished">Üst</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="vanished">Alt</translation>
-    </message>
-    <message>
-        <source>Floating</source>
-        <translation type="vanished">Yüzüyor</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="658"/>
@@ -5249,10 +4768,6 @@ Puan: (%8, %9)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select entities to align (Enter to complete)</source>
-        <translation type="vanished">Ortakları seçmek için seçin (Enter to complete)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align.cpp" line="277"/>
         <source>Select and align</source>
         <translation>Seç ve hizalayın</translation>
@@ -5284,10 +4799,6 @@ Puan: (%8, %9)</translation>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align_ref.cpp" line="120"/>
         <source>Scale:</source>
         <translation>Scale:</translation>
-    </message>
-    <message>
-        <source>Select to align (Enter to complete)</source>
-        <translation type="vanished">Eşleştirmeyi seçin (Enter to complete)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align_ref.cpp" line="244"/>
@@ -6281,13 +5792,6 @@ Puan: (%8, %9)</translation>
     </message>
 </context>
 <context>
-    <name>LC_ActionModifySelectionBase</name>
-    <message>
-        <source>No entity selected!</source>
-        <translation type="vanished">Hiçbir varlık seçilmiş!</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionModifyStretch</name>
     <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_stretch.cpp" line="118"/>
@@ -7261,18 +6765,6 @@ Puan: (%8, %9)</translation>
         <translation>Verilen dosyayı okuyabil - lütfen mevcut olduğunu kontrol edin ve bundan okunmasına izin verilir.</translation>
     </message>
     <message>
-        <source>Shortcuts mappings were not imported.
- Provided file does exists, however it does not contain LibreCAD shortcuts mapping.</source>
-        <translation type="vanished">Kısa kesimler haritalamalar ithal edilmedi.
-Oluşturulan dosya var, ancak LibreCAD kısayolları haritalama içermez.</translation>
-    </message>
-    <message>
-        <source>Shortcuts mappings were not imported. 
-XML parsing error occurred during file processing.</source>
-        <translation type="vanished">Kısa kesimler haritalamalar ithal edilmedi.
-XML parsing hatası dosya işleme sırasında gerçekleşti.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="206"/>
         <source>Shortcuts mappings were saved successfully.</source>
         <translation>Kısa kesimler haritalamaları başarıyla kurtarıldı.</translation>
@@ -7281,12 +6773,6 @@ XML parsing hatası dosya işleme sırasında gerçekleşti.</translation>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="210"/>
         <source>Can&apos;t write to provided file - please check that it is allowed to write to it.</source>
         <translation>Dosyayı sağlamak için yazamaz - lütfen ona yazmasına izin verildiğini kontrol edin.</translation>
-    </message>
-    <message>
-        <source>Shortcuts mappings were not imported. 
-Some error occurred during XML generation.</source>
-        <translation type="vanished">Kısa kesimler haritalamalar ithal edilmedi.
-Bazı hata XML nesli sırasında gerçekleşti.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="189"/>
@@ -8687,74 +8173,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>LC_CircleByArcOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, original arc will be removed</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal yay kaldırılacaktır</translation>
-    </message>
-    <message>
-        <source>Replace arc</source>
-        <translation type="vanished">Ayırma Ekle</translation>
-    </message>
-    <message>
-        <source>Layer to which created circle should be placed</source>
-        <translation type="vanished">Oluşturulan çemberin yerleştirilmesi gereken Katman</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>layer</comment>
-        <translation type="vanished">Aktif</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>layer</comment>
-        <translation type="vanished">Orijinal</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>pen</comment>
-        <translation type="vanished">Aktif</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>pen</comment>
-        <translation type="vanished">Orijinal</translation>
-    </message>
-    <message>
-        <source>Original Resolved</source>
-        <comment>pen</comment>
-        <translation type="vanished">Orijinal Yeniden Çözüldü</translation>
-    </message>
-    <message>
-        <source>Pick offset value from drawing</source>
-        <translation type="vanished">Çizim değerini çizimden alın</translation>
-    </message>
-    <message>
-        <source>Pen:</source>
-        <translation type="vanished">Pen:</translation>
-    </message>
-    <message>
-        <source>Pen to apply to created circle</source>
-        <translation type="vanished">Pen, çember oluşturmak için başvuruda bulunmak</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Delta of circle&apos;s radius to arc&apos;s radius</source>
-        <translation type="vanished">Delta of Circle&apos;ın yarıçapına</translation>
-    </message>
-    <message>
-        <source>Radius Shift:</source>
-        <translation type="vanished">Yarıçap kaydırması:</translation>
-    </message>
-</context>
-<context>
     <name>LC_CircleByArcOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/circle/lc_circle_by_arc_options_filler.cpp" line="32"/>
@@ -9049,76 +8467,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/components/creators/lc_creatorinvoker.cpp" line="144"/>
         <source>Toolbar: %1 (Custom)</source>
         <translation>Toolbar: %1 (Müşteri)</translation>
-    </message>
-</context>
-<context>
-    <name>LC_CrossOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">Tipi</translation>
-    </message>
-    <message>
-        <source>Horizontal dimension of cross</source>
-        <translation type="vanished">Yatay geçiş boyutu</translation>
-    </message>
-    <message>
-        <source>Pick X value from drawing</source>
-        <translation type="vanished">X değerini çizimden alın</translation>
-    </message>
-    <message>
-        <source>Defines how to apply dimensions of cross</source>
-        <translation type="vanished">Haç boyutları nasıl uygulanır</translation>
-    </message>
-    <message>
-        <source>Extension</source>
-        <translation type="vanished">Extension</translation>
-    </message>
-    <message>
-        <source>Total Length</source>
-        <translation type="vanished">Toplam uzunluğu</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">Yüzde</translation>
-    </message>
-    <message>
-        <source>Pick Y value from drawing</source>
-        <translation type="vanished">Çizim Y değerini çizimden alın</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Vertical dimension of the cross</source>
-        <translation type="vanished">Haçın Dikey Boyutu</translation>
-    </message>
-    <message>
-        <source>Rotation angle for cross around center</source>
-        <translation type="vanished">Merkezin çevresinde geçiş açısı</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-</context>
-<context>
-    <name>LC_CustomToolbar</name>
-    <message>
-        <source>Add or Remove Action</source>
-        <translation type="vanished">Eylem ekle veya kaldır</translation>
     </message>
 </context>
 <context>
@@ -9482,45 +8830,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>LC_DlgDimOrdinate</name>
-    <message>
-        <source>Ordinate Dimension</source>
-        <translation type="vanished">Koordinat Ölçüsü</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">Boyut Katmanı</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">Pen nitelikleri</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Ordinate</source>
-        <translation type="vanished">Yoksa</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
     <name>LC_DlgDimStyleManager</name>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="14"/>
@@ -9582,11 +8891,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="162"/>
         <source>Baseline spacing:</source>
         <translation>Temel satır aralığı:</translation>
-    </message>
-    <message>
-        <source>Sets the spacing between the dimension lines of a baseline dimension. Enter a distance. For information about baseline dimensions, see DIMBASELINE. (DIMDLI system variable)
-</source>
-        <translation type="vanished">Bir temel boyutun boyut hatları arasında yayılan ayarlar. Bir mesafe girin. Temel boyutlar hakkında bilgi için, DIMBASELINE. (DIMDLI sistemi değişkeni)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="191"/>
@@ -11235,10 +10539,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <source>Hatch Properties</source>
         <translation>Tarama özellikleri</translation>
     </message>
-    <message>
-        <source>Properties?</source>
-        <translation type="vanished">Özellikler?</translation>
-    </message>
 </context>
 <context>
     <name>LC_DlgIconsSetup</name>
@@ -11760,10 +11060,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>UCS Detayları</translation>
     </message>
     <message>
-        <source>If checked, type of grid for saved view will be shown</source>
-        <translation type="vanished">Kontrol ederseniz, kurtarılan görüntü için tür bir ızgara gösterilecektir</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="88"/>
         <source>Grid Type icon column</source>
         <translation>Grid Type i column</translation>
@@ -11772,18 +11068,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="58"/>
         <source>Type icon column</source>
         <translation>Tipi ikon sütunu</translation>
-    </message>
-    <message>
-        <source>If checked, the column with details of view&apos;s coordinate system will be show</source>
-        <translation type="vanished">Kontrol ederseniz, görüntünün koordinat sisteminin ayrıntılarıyla sütun gösteri olacaktır</translation>
-    </message>
-    <message>
-        <source>Tooltip with view details for table items</source>
-        <translation type="vanished">Tablo öğeleri için görünüm ayrıntılarını içeren araç ipucu</translation>
-    </message>
-    <message>
-        <source>If checked, the column with details of view&apos;s coordinate system will be show.</source>
-        <translation type="vanished">Seçilirse, görünümün koordinat sisteminin ayrıntılarını içeren sütun gösterilir.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="75"/>
@@ -11826,10 +11110,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Kontrol ederseniz, bakış detayları olan sütun masada gösterilecektir.</translation>
     </message>
     <message>
-        <source>VIew Details column</source>
-        <translation type="vanished">VIew Detayları</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="141"/>
         <source>Operations</source>
         <translation>Operasyon Operasyon Operasyonları</translation>
@@ -11845,17 +11125,9 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Tablo öğesine tek tıklamayla görünümü geri yükle</translation>
     </message>
     <message>
-        <source>On double-click on table item</source>
-        <translation type="vanished">Masa öğesi üzerine çift tıkla</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="154"/>
         <source>Defines which action should be performed on double click on view item of the table.</source>
         <translation>Tablo görünüm öğesine çift tıklama üzerine gerçekleştirilecek işlemi tanımlar.</translation>
-    </message>
-    <message>
-        <source>Defines which action should be performed on double click on view item of the table. </source>
-        <translation type="vanished">Hangi eylemin masanın görüntü öğesi üzerinde iki tık üzerinde yapılmalıdır.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="158"/>
@@ -11883,10 +11155,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Eğer etkinleştirilirse, manzara masasındaki öğeyi tıklayın. Aksi takdirde, görüş açıkça restore edilmelidir.</translation>
     </message>
     <message>
-        <source>Restore view on single click by table item</source>
-        <translation type="vanished">Masa öğesi tarafından tek tıkla görüntü yükleme görünümü</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="95"/>
         <source>If show, tooltip with additional information about view will be shown for table item.</source>
         <translation>Eğer gösteri, görünüm hakkında ek bilgilerle araçtipi masa öğesi için gösterilecektir.</translation>
@@ -11895,10 +11163,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="36"/>
         <source>If checked and during creation the view with entered name already exists, it will be updated by new position. Otherwise, unique name of new view will be required.</source>
         <translation>Eğer kontrol edilip, zaten var olan görüş boyunca, yeni pozisyon tarafından güncellenecektir. Aksi takdirde, yeni görüşün eşsiz adı gerekli olacaktır.</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently. </source>
-        <translation type="vanished">Eğer seçilmişse, onay dialog görüşin kaldırılması üzerine gösterilecektir. Aksi takdirde, görüş sessizce kaldırılacaktır.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="29"/>
@@ -12194,17 +11458,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dialogs/creators/lc_dlg_new_widget.cpp" line="70"/>
         <source>Name is not unique. Please enter unique name.</source>
         <translation>İsim eşsiz değildir. Lütfen eşsiz bir isim girin.</translation>
-    </message>
-</context>
-<context>
-    <name>LC_DlgParabola</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-    <message>
-        <source>Parabola control points cannot be collinear</source>
-        <translation type="vanished">Parabola kontrol noktaları kollinear olamaz</translation>
     </message>
 </context>
 <context>
@@ -12620,13 +11873,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>LC_DlgSplinePoints</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
     <name>LC_DlgTolerance</name>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlg_tolerance.ui" line="14"/>
@@ -12708,17 +11954,9 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Eğer haklı çıkarsa, UCS hakkında ek bilgilerle araçtipi masa öğesi için gösterilecektir.</translation>
     </message>
     <message>
-        <source>Toolip with UCS details for table items</source>
-        <translation type="vanished">Masa öğeleri için UCS ayrıntıları ile</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="39"/>
         <source>Type icon column</source>
         <translation>Tipi ikon sütunu</translation>
-    </message>
-    <message>
-        <source>If checked, column with details of UCS origin and angle will be shown in the table</source>
-        <translation type="vanished">Kontrol ederseniz, UCS kökeni ve açısının ayrıntılarıyla sütun masada gösterilecektir</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="49"/>
@@ -12734,10 +11972,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="89"/>
         <source>Editing</source>
         <translation>Editing</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently. </source>
-        <translation type="vanished">Eğer seçilmişse, onay dialog görüşin kaldırılması üzerine gösterilecektir. Aksi takdirde, görüş sessizce kaldırılacaktır.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="29"/>
@@ -12758,10 +11992,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="56"/>
         <source>If checked, the column with type of grid for UCS will be shown.</source>
         <translation>İşaretlenirse, UCS için ızgara türünü içeren sütun gösterilir.</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently.</source>
-        <translation type="vanished">Seçiliyse, görünüm kaldırıldığında bir onay iletişim kutusu gösterilir. Aksi takdirde, görünüm sessizce kaldırılır.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="98"/>
@@ -12829,26 +12059,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>KKS işaretçisinin KKS&apos;yi vurgulamak için kaç kez yanıp söneceğini tanımlar.</translation>
     </message>
     <message>
-        <source>Defines which action should be performed on double click on the item of the table. </source>
-        <translation type="vanished">Hangi eylemin masanın öğesine çift tıkla yapılması gerektiğini tanımlar.</translation>
-    </message>
-    <message>
-        <source>Restore UCS on single click by table item</source>
-        <translation type="vanished">UCS&apos;yi tek tek bir tablo öğesi ile kapatın</translation>
-    </message>
-    <message>
-        <source>If checked, the column with icon for type of UCS will be shown in the table. </source>
-        <translation type="vanished">Eğer kontrol edilirse, UCS tipi için ikon sütunu masada gösterilecektir.</translation>
-    </message>
-    <message>
-        <source>If checked, the column with type of grid for UCS will be shown</source>
-        <translation type="vanished">Kontrol ederseniz, UCS için bir tür ızgara ile sütun gösterilecektir</translation>
-    </message>
-    <message>
-        <source>Defines how drawing&apos;s view window should be adjusted after UCS is applied</source>
-        <translation type="vanished">UCS uygulandıktan sonra çizimin görünümünün nasıl ayarlanması gerektiğini tanımlar</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="197"/>
         <source>On double-click on table item</source>
         <translation>Masa öğesi üzerine çift tıkla</translation>
@@ -12904,10 +12114,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>UCS Vurgulama</translation>
     </message>
     <message>
-        <source>Defines delay between UCS marker blinks</source>
-        <translation type="vanished">UCS işaretli diskler arasında gecikme</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="216"/>
         <source> ms</source>
         <translation>ms m</translation>
@@ -12921,10 +12127,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="242"/>
         <source>Blink Delay:</source>
         <translation>Blink Gecikme:</translation>
-    </message>
-    <message>
-        <source>Defines amount of blinks of UCS marker for UCS highlighting</source>
-        <translation type="vanished">UCS için UCS işaretleyicilerinin miktarlarını tanımlar</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="252"/>
@@ -13321,45 +12523,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>LC_DrawBoundingBoxOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>If checked, bounding box for the entire selection will be created. Otherwise, it will be created for individual entities. </source>
-        <translation type="vanished">Kontrol ederseniz, tüm seçim için kutu oluşturulacaktır. Aksi takdirde, bireysel varlıklar için oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Selection As Group</source>
-        <translation type="vanished">Grup Seçimi</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">Çizimden Çıkarın</translation>
-    </message>
-    <message>
-        <source>If selected, only corner points will be drawn for bounding box. Otherwise, edge lines will be drawn.</source>
-        <translation type="vanished">Eğer seçilmişse, sadece köşe noktaları sınırlı kutu için çizilecektir. Aksi takdirde, kenar hatları çizilecektir.</translation>
-    </message>
-    <message>
-        <source>Corner points only</source>
-        <translation type="vanished">Köşe noktaları sadece sadece puanlar</translation>
-    </message>
-    <message>
-        <source>If selected, bounding box is drawn as polyline</source>
-        <translation type="vanished">Eğer seçilmişse, bağlantı kutusu poliline olarak çizilir</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-</context>
-<context>
     <name>LC_DrawBoundingBoxOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/misc/lc_draw_bounding_box_options_filler.cpp" line="30"/>
@@ -13453,86 +12616,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/action_options/misc/lc_draw_bounding_box_options_widget.ui" line="93"/>
         <source>Pick offset from drawing</source>
         <translation type="unfinished">Çizimden Çıkarın</translation>
-    </message>
-</context>
-<context>
-    <name>LC_DuplicateOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Vertical offset of duplicate from original entity</source>
-        <translation type="vanished">Orijinal varlıktan tekrarlanan fiziksel dengeleme</translation>
-    </message>
-    <message>
-        <source>Horizontal offset of duplicate from original entity</source>
-        <translation type="vanished">Özgün varlıktan geri dönüş</translation>
-    </message>
-    <message>
-        <source>Pick offset by X from drawing</source>
-        <translation type="vanished">X tarafından çizimden</translation>
-    </message>
-    <message>
-        <source>Pen:</source>
-        <translation type="vanished">Pen:</translation>
-    </message>
-    <message>
-        <source>If checked, duplicate will be positioned in original&apos;s coordinates</source>
-        <translation type="vanished">Kontrol ederseniz, tekrarlanan orijinal koordinatlarda yer alınacaktır</translation>
-    </message>
-    <message>
-        <source>In Place</source>
-        <translation type="vanished">Yerinde</translation>
-    </message>
-    <message>
-        <source>Pick offset by Y from drawing</source>
-        <translation type="vanished">Çizimten Y Tarafından Y</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Pen to apply to created duplicate</source>
-        <translation type="vanished">Yeniden oluşturulmak için Pen</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>pen</comment>
-        <translation type="vanished">Aktif</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>pen</comment>
-        <translation type="vanished">Orijinal</translation>
-    </message>
-    <message>
-        <source>Original Resolved</source>
-        <comment>pen</comment>
-        <translation type="vanished">Orijinal Yeniden Çözüldü</translation>
-    </message>
-    <message>
-        <source>Layer to which duplicate should be placed</source>
-        <translation type="vanished">Tekrarlanan Katman yerleştirilmelidir</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>layer</comment>
-        <translation type="vanished">Aktif</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>layer</comment>
-        <translation type="vanished">Orijinal</translation>
-    </message>
-    <message>
-        <source>Offset Y:</source>
-        <translation type="vanished">Y Ekseni Kaydırması:</translation>
-    </message>
-    <message>
-        <source>Offset X:</source>
-        <translation type="vanished">X Ekseni Kaydırması:</translation>
     </message>
 </context>
 <context>
@@ -13714,69 +12797,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>LC_Ellipse1PointOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Minor Radius:</source>
-        <translation type="vanished">Küçük Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Value of angle for major radius</source>
-        <translation type="vanished">Büyük yarıçap için açı değeri</translation>
-    </message>
-    <message>
-        <source>If checked, angle for major radius may be specified</source>
-        <translation type="vanished">Kontrol ederseniz, büyük yarılık için açı belirtilebilir</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">Ayak:</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">Okunma Sayısı</translation>
-    </message>
-    <message>
-        <source>Pick major actions from drawing</source>
-        <translation type="vanished">Çizimten büyük eylemler seçin</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If checked, major radius angle is specified by mouse</source>
-        <translation type="vanished">Kontrol ederseniz, büyük yarı açısı fare tarafından belirtilmiştir</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Length of major radius of ellipse</source>
-        <translation type="vanished">Elpsenin Büyük Yarısı</translation>
-    </message>
-    <message>
-        <source>Pick minor radius from drawing</source>
-        <translation type="vanished">Çizimten küçük yarıçap alın</translation>
-    </message>
-    <message>
-        <source>Major Radius:</source>
-        <translation type="vanished">Binbaşı Radius:</translation>
-    </message>
-    <message>
-        <source>Length of minor radius of ellipse</source>
-        <translation type="vanished">Elpse&apos;nin küçük yarısının uzunluğu</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">Saat</translation>
-    </message>
-</context>
-<context>
     <name>LC_Ellipse1PointOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/ellipse/lc_ellipse_1_point_options_filler.cpp" line="31"/>
@@ -13915,21 +12935,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/action_options/ellipse/lc_ellipse_1point_options_widget.ui" line="199"/>
         <source>Pick angle from drawing</source>
         <translation type="unfinished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
-    <name>LC_EllipseArcOptions</name>
-    <message>
-        <source>Arc Options</source>
-        <translation type="vanished">Arc Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">Saat</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">Okunma Sayısı</translation>
     </message>
 </context>
 <context>
@@ -14820,30 +13825,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <source>Eccentricity:</source>
         <translation>Ekolojiklik:</translation>
     </message>
-    <message>
-        <source>Invalid hyperbola definition</source>
-        <translation type="vanished">Invalid hiperbola tanımı</translation>
-    </message>
-    <message>
-        <source>Foci must be distinct</source>
-        <translation type="vanished">Foci ayrı olmalıdır</translation>
-    </message>
-    <message>
-        <source>Invalid center coordinates</source>
-        <translation type="vanished">Invalid center koordinatları</translation>
-    </message>
-    <message>
-        <source>Major radius must be positive</source>
-        <translation type="vanished">Binbaşı yarının pozitif olması gerekir</translation>
-    </message>
-    <message>
-        <source>Invalid rotation angle</source>
-        <translation type="vanished">Invalid rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Ratio or minor radius must be positive</source>
-        <translation type="vanished">Oran veya küçük yarının pozitif olması gerekir</translation>
-    </message>
 </context>
 <context>
     <name>LC_ImageOptionsFiller</name>
@@ -15015,10 +13996,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Genişlik:</translation>
     </message>
     <message>
-        <source>Width of image</source>
-        <translation type="vanished">Görüntünün genişliği</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="138"/>
         <source>Pick width value from drawing</source>
         <translation>Çizimten gelen genişlik değerini seçin</translation>
@@ -15029,21 +14006,9 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <translation>Yükseklik:</translation>
     </message>
     <message>
-        <source>Height of image</source>
-        <translation type="vanished">Görüntünün yüksekliği</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="219"/>
         <source>Pick height value from the drawing</source>
         <translation>Çizimden yüksek değer alın</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">Scale:</translation>
-    </message>
-    <message>
-        <source>Scaling factor</source>
-        <translation type="vanished">Scaling faktör</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="77"/>
@@ -15055,10 +14020,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="152"/>
         <source>Angle:</source>
         <translation>Boyut:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="198"/>
@@ -15090,22 +14051,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <source>Select an image file</source>
         <translation>Bir görüntü dosyasını seçin</translation>
     </message>
-    <message>
-        <source>Size (px):</source>
-        <translation type="vanished">Boyut (px):</translation>
-    </message>
-    <message>
-        <source>Size of image in pixels</source>
-        <translation type="vanished">Ekran boyutu</translation>
-    </message>
-    <message>
-        <source>DPI</source>
-        <translation type="vanished">DPI</translation>
-    </message>
-    <message>
-        <source>Resolution (dots per inch)</source>
-        <translation type="vanished">Karar (küre başına)</translation>
-    </message>
 </context>
 <context>
     <name>LC_IndexedPropertiesProviderBase</name>
@@ -15118,21 +14063,6 @@ Kartpostalarını kıracağınızdan emin misiniz?</translation>
         <location filename="../src/ui/dock_widgets/property_sheet/metaentity/entities/lc_indexed_propertiesprovider_base.h" line="132"/>
         <source>Y</source>
         <translation type="unfinished">Y</translation>
-    </message>
-</context>
-<context>
-    <name>LC_InfoDist2Options</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, the point will be always inside selected entity</source>
-        <translation type="vanished">Kontrol ederseniz, nokta her zaman seçilmiş varlık içinde olacaktır</translation>
-    </message>
-    <message>
-        <source>Snap On Entity</source>
-        <translation type="vanished">Nesneye Yakınlaştır</translation>
     </message>
 </context>
 <context>
@@ -15510,14 +14440,6 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
         <translation>Katmanın iç adını hiyerarşik isimlere ayırdık</translation>
     </message>
     <message>
-        <source>Layer Level Name Separator</source>
-        <translation type="vanished">Katman Seviye Adı Dikt</translation>
-    </message>
-    <message>
-        <source>Secondary Layer Suffixes</source>
-        <translation type="vanished">Orta Katman Suffixes</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="188"/>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="799"/>
         <source>Dimensional</source>
@@ -15548,10 +14470,6 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="247"/>
         <source>Suffix of layer&apos;s name that defines that layer is for alternative position.</source>
         <translation>Bu katmanı tanımlayan katmanın adının eki alternatif pozisyon içindir.</translation>
-    </message>
-    <message>
-        <source>Duplicating Name</source>
-        <translation type="vanished">Yinelenen Ad</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="61"/>
@@ -15694,17 +14612,9 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
         <translation>Çeşitli renkler ayarları</translation>
     </message>
     <message>
-        <source>Colors</source>
-        <translation type="vanished">Renkler</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="470"/>
         <source>Background color for selected items in layers tree.</source>
         <translation>Katman ağacındaki seçilmiş öğeler için arka plan rengi.</translation>
-    </message>
-    <message>
-        <source>Color for separator lines in layers tree view</source>
-        <translation type="vanished">Ağaçtaki separasyon hatları için renk</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="420"/>
@@ -15743,10 +14653,6 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="581"/>
         <source>Virtual layer background color</source>
         <translation>Sanal katman arka renk</translation>
-    </message>
-    <message>
-        <source>Threeview items separator grid</source>
-        <translation type="vanished">Threeview item selübü</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="503"/>
@@ -15802,10 +14708,6 @@ Bir İnşaat Katmanının içerikleri baskıda görünmemelidir.</translation>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="71"/>
         <source>Alternative Position Layer</source>
         <translation>Alternatif Pozisyon Katmanı Katmanı</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation type="vanished">ağ</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="103"/>
@@ -16295,118 +15197,6 @@ Lütfen farklı bir değeri belirtin.</translation>
     </message>
 </context>
 <context>
-    <name>LC_LineAngleRelOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, the length of line is defined by mouse position instead of setting</source>
-        <translation type="vanished">Kontrol ederseniz, hattın uzunluğu, ayar oluşturmak yerine fare pozisyonu tarafından tanımlanır</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Pick snap distance from drawing</source>
-        <translation type="vanished">Çizimten uzaklaşmak</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Offset of tick snap point from intersection point</source>
-        <translation type="vanished">Offset of tick snap point from cross point</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre alın</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">Çizimden Çıkarın</translation>
-    </message>
-    <message>
-        <source>If checked, original entity will be divided by intersection point.</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlık kesişim noktası ile bölünmüş olacaktır.</translation>
-    </message>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">Bölün</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Distance of intersection point from specified line snap point</source>
-        <translation type="vanished">Belirtilen çizgiden uzaklık noktası</translation>
-    </message>
-    <message>
-        <source>Defines which part of created line will be snapped to intersection point</source>
-        <translation type="vanished">Oluşturulan çizginin bir parçasının kesiştiği boşluklar</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>Tick Snap:</source>
-        <translation type="vanished">Tıklama Hizalaması:</translation>
-    </message>
-    <message>
-        <source>Line Snap:</source>
-        <translation type="vanished">Çizgi Hizalaması:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">Hattın uzunluğu</translation>
-    </message>
-    <message>
-        <source>If checked, angle is relative to angle of selected entity</source>
-        <translation type="vanished">Kontrol ederseniz, açı seçilmiş varlık açısına göre bağlıdır</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">Rel</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Snap point for position of intersection point between created line and source entity (within original line)</source>
-        <translation type="vanished">Oluşturulan çizgi ve kaynak varlık arasındaki kesişim noktası için Snap point for location of cross point between created line and source entity (Within original line)</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <comment>linesnap</comment>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Snap Distance:</source>
-        <translation type="vanished">Hizalama Mesafesi:</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">Çizgi çizgi</translation>
-    </message>
-</context>
-<context>
     <name>LC_LineAngleRelOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/line/lc_line_angle_rel_options_filler.cpp" line="32"/>
@@ -16713,93 +15503,6 @@ Lütfen farklı bir değeri belirtin.</translation>
         <location filename="../src/ui/action_options/line/lc_line_bisector_options_widget.ui" line="103"/>
         <source>Number of bisectors to create</source>
         <translation type="unfinished">Oluşturulacak açıortay sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>LC_LineFromPointToLineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>End offset:</source>
-        <translation type="vanished">End dengeleme:</translation>
-    </message>
-    <message>
-        <source>Offset for created line from intersection point</source>
-        <translation type="vanished">Kurak noktasından oluşturulan çizgi için Offset</translation>
-    </message>
-    <message>
-        <source>Snap point for created line</source>
-        <translation type="vanished">Oluşturulan çizgi için Snap noktası</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Fixed length of created line</source>
-        <translation type="vanished">Oluşturulan çizgi uzunluğu</translation>
-    </message>
-    <message>
-        <source>Snap:</source>
-        <translation type="vanished">Snap:</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre alın</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">Çizimden Çıkarın</translation>
-    </message>
-    <message>
-        <source>Defines whether created line should be created to intersection point or should have fixed length</source>
-        <translation type="vanished">Oluşturulan çizginin kesişim noktası için yaratılmalı mı yoksa sabit uzunluğun olması gerekir</translation>
-    </message>
-    <message>
-        <source>To Intersection</source>
-        <translation type="vanished">Intersection</translation>
-    </message>
-    <message>
-        <source>Fixed Length</source>
-        <translation type="vanished">Sabit uzunluğu</translation>
-    </message>
-    <message>
-        <source>If checked, created line will be orthogonal to selected line</source>
-        <translation type="vanished">Kontrol ederseniz, oluşturulan çizgi seçilmiş çizgi için ortogonal olacaktır</translation>
-    </message>
-    <message>
-        <source>Orthogonal</source>
-        <translation type="vanished">Orthogonal</translation>
-    </message>
-    <message>
-        <source>Angle between original line and created one</source>
-        <translation type="vanished">Orijinal çizgi ve bir tane yarattı</translation>
     </message>
 </context>
 <context>
@@ -17185,81 +15888,6 @@ Lütfen farklı bir değeri belirtin.</translation>
     </message>
 </context>
 <context>
-    <name>LC_LineJoinOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, polyline will be created instead of individual lines</source>
-        <translation type="vanished">Kontrol ederseniz, poliline bireysel çizgiler yerine oluşturulacaktır</translation>
-    </message>
-    <message>
-        <source>Create Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Policy for the line was selected second</source>
-        <translation type="vanished">Hat için Politika ikinci seçildi</translation>
-    </message>
-    <message>
-        <source>Extend/Trim</source>
-        <translation type="vanished">Uzat /Trim</translation>
-    </message>
-    <message>
-        <source>Add segment</source>
-        <translation type="vanished">Segment Ekle</translation>
-    </message>
-    <message>
-        <source>No change</source>
-        <translation type="vanished">Hiçbir değişiklik yok</translation>
-    </message>
-    <message>
-        <source>Line 1:</source>
-        <translation type="vanished">Çizgi 1:</translation>
-    </message>
-    <message>
-        <source>Line 2:</source>
-        <translation type="vanished">Çizgi 2:</translation>
-    </message>
-    <message>
-        <source>Policy for joining line that was selected first</source>
-        <translation type="vanished">İlk önce seçilen çizgiye katılma politikası</translation>
-    </message>
-    <message>
-        <source>Defines how pen should be applied to created entities</source>
-        <translation type="vanished">Oluşturulan varlıklar için kalem nasıl uygulanmalıdır</translation>
-    </message>
-    <message>
-        <source>Active Pen</source>
-        <translation type="vanished">Aktif Pen Aktif Kalem</translation>
-    </message>
-    <message>
-        <source>Line 1</source>
-        <translation type="vanished">Satır 1</translation>
-    </message>
-    <message>
-        <source>Line 2</source>
-        <translation type="vanished">Satır 2</translation>
-    </message>
-    <message>
-        <source>Both lines</source>
-        <translation type="vanished">Her iki satır da</translation>
-    </message>
-    <message>
-        <source>Attributes:</source>
-        <translation type="vanished">Attributes:</translation>
-    </message>
-    <message>
-        <source>If checked, original lines will be removed</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal çizgiler kaldırılacaktır</translation>
-    </message>
-    <message>
-        <source>Remove originals</source>
-        <translation type="vanished">Orijinalleri Kaldırın</translation>
-    </message>
-</context>
-<context>
     <name>LC_LineJoinOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_line_join_options_filler.cpp" line="35"/>
@@ -17641,85 +16269,6 @@ Lütfen farklı bir değeri belirtin.</translation>
         <location filename="../src/ui/action_options/line/lc_line_parallel_through_options_widget.ui" line="121"/>
         <source>Within</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_LinePointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Controls how points on the edges (start/end points) should be created.</source>
-        <translation type="vanished">Kenarlarda hangi noktaları kontrol eder (start/end points) yaratılmalıdır.</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">Hiçbir şey yok</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">Her ikisi de her ikisi de</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">Çizimten uzak durun</translation>
-    </message>
-    <message>
-        <source>Number of points to create</source>
-        <translation type="vanished">Yaratmak için puan sayısı</translation>
-    </message>
-    <message>
-        <source>Edge Points:</source>
-        <translation type="vanished">Kenar Noktaları:</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Specifies whether all points should fit between start/end points of line or whether the length of line is calculated based on number of points and distance between points.</source>
-        <translation type="vanished">Tüm noktaların çizginin başlangıç / bitiş noktaları arasında uygun olup olmadığını veya çizginin uzunluğu puan ve puanlar arasında mesafeye dayalı olarak hesaplanmış olup olmadığını belirtir.</translation>
-    </message>
-    <message>
-        <source>Fit Line</source>
-        <translation type="vanished">Çiziğe Uydur</translation>
-    </message>
-    <message>
-        <source>Distance between points.</source>
-        <translation type="vanished">Puanlar arasında mesafe.</translation>
-    </message>
-    <message>
-        <source>If checked, line of points will be drawn with specified angle</source>
-        <translation type="vanished">Kontrol ederseniz, puan hattı belirtilen açı ile çizilecektir</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Number of points:</source>
-        <translation type="vanished">Sayı sayısı:</translation>
-    </message>
-    <message>
-        <source>If checked, fixed specified distance between points will be used. Otherwise, distance will be calculated.</source>
-        <translation type="vanished">Kontrol ederseniz, puanlar arasındaki sabit belirtilen mesafe kullanılacaktır. Aksi takdirde, mesafe hesaplanacaktır.</translation>
-    </message>
-    <message>
-        <source>Fixed Distance</source>
-        <translation type="vanished">Sabit Mesafe</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">Çizgi çizgi</translation>
     </message>
 </context>
 <context>
@@ -21969,433 +20518,6 @@ Lütfen farklı bir değeri belirtin.</translation>
     </message>
 </context>
 <context>
-    <name>LC_MenuFactory</name>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="vanished">Yardım ve Yardım</translation>
-    </message>
-    <message>
-        <source>On&amp;line Docs</source>
-        <translation type="vanished">Çevrimiçi Belgeler</translation>
-    </message>
-    <message>
-        <source>&amp;Wiki</source>
-        <translation type="vanished">&amp;Wiki</translation>
-    </message>
-    <message>
-        <source>User&apos;s &amp;Manual</source>
-        <translation type="vanished">Kullanıcının &amp;Manual</translation>
-    </message>
-    <message>
-        <source>&amp;Commands</source>
-        <translation type="vanished">AndCommands</translation>
-    </message>
-    <message>
-        <source>&amp;Style Sheets</source>
-        <translation type="vanished">Stil Sayfaları</translation>
-    </message>
-    <message>
-        <source>Wid&amp;gets</source>
-        <translation type="vanished">Wid&amp;gets</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="vanished">About</translation>
-    </message>
-    <message>
-        <source>&amp;Forum</source>
-        <translation type="vanished">&amp; Forum</translation>
-    </message>
-    <message>
-        <source>Zulip &amp;Chat</source>
-        <translation type="vanished">Zulip Sohbeti</translation>
-    </message>
-    <message>
-        <source>&amp;Submit Error</source>
-        <translation type="vanished">VeSubmit Hata</translation>
-    </message>
-    <message>
-        <source>&amp;Request Feature</source>
-        <translation type="vanished">Özellik Talep Et</translation>
-    </message>
-    <message>
-        <source>&amp;Releases Page</source>
-        <translation type="vanished">&amp;Sürümler Sayfası</translation>
-    </message>
-    <message>
-        <source>&amp;Donate</source>
-        <translation type="vanished">Ve Donate</translation>
-    </message>
-    <message>
-        <source>&amp;Line</source>
-        <translation type="vanished">&amp;Line</translation>
-    </message>
-    <message>
-        <source>Poin&amp;t</source>
-        <translation type="vanished">Poin&amp;t</translation>
-    </message>
-    <message>
-        <source>&amp;Circle</source>
-        <translation type="vanished">&amp; Circle</translation>
-    </message>
-    <message>
-        <source>&amp;Arc</source>
-        <translation type="vanished">&amp; &amp; &amp; Arc</translation>
-    </message>
-    <message>
-        <source>Poly&amp;gon</source>
-        <translation type="vanished">Poly&amp;gon</translation>
-    </message>
-    <message>
-        <source>Splin&amp;e</source>
-        <translation type="vanished">Splin&amp;e</translation>
-    </message>
-    <message>
-        <source>Ellip&amp;se</source>
-        <translation type="vanished">Ellip&amp;se</translation>
-    </message>
-    <message>
-        <source>&amp;Polyline</source>
-        <translation type="vanished">VePolyline</translation>
-    </message>
-    <message>
-        <source>&amp;Other</source>
-        <translation type="vanished">Ve Diğer</translation>
-    </message>
-    <message>
-        <source>&amp;Draw</source>
-        <translation type="vanished">&amp; Draw</translation>
-    </message>
-    <message>
-        <source>&amp;Ellipse</source>
-        <translation type="vanished">&amp;Ellipse</translation>
-    </message>
-    <message>
-        <source>Ot&amp;her</source>
-        <translation type="vanished">Ot&amp;her</translation>
-    </message>
-    <message>
-        <source>&amp;Modify</source>
-        <translation type="vanished">&amp;Modify</translation>
-    </message>
-    <message>
-        <source>&amp;Order</source>
-        <translation type="vanished">VeOrder</translation>
-    </message>
-    <message>
-        <source>&amp;Dimensions</source>
-        <translation type="vanished">&amp;Dimensions</translation>
-    </message>
-    <message>
-        <source>&amp;Info</source>
-        <translation type="vanished">&amp;Info</translation>
-    </message>
-    <message>
-        <source>&amp;Tools</source>
-        <translation type="vanished">&amp;Tools</translation>
-    </message>
-    <message>
-        <source>&amp;Select</source>
-        <translation type="vanished">Ve seçin</translation>
-    </message>
-    <message>
-        <source>Dime&amp;nsion</source>
-        <translation type="vanished">Dime&amp;nsion</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="vanished">&amp;File</translation>
-    </message>
-    <message>
-        <source>Recent Files</source>
-        <translation type="vanished">Son dosyalar</translation>
-    </message>
-    <message>
-        <source>Import</source>
-        <translation type="vanished">İthalat</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">İhracat İhracatı</translation>
-    </message>
-    <message>
-        <source>&amp;Options</source>
-        <translation type="vanished">&amp;Options</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="vanished">&amp;Edit</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="vanished">&amp;View</translation>
-    </message>
-    <message>
-        <source>&amp;Views Restore</source>
-        <translation type="vanished">&amp;Görünümleri Geri Yükle</translation>
-    </message>
-    <message>
-        <source>Pl&amp;ugins</source>
-        <translation type="vanished">Pl&amp;ugins</translation>
-    </message>
-    <message>
-        <source>&amp;Workspace</source>
-        <translation type="vanished">&amp;Workspace</translation>
-    </message>
-    <message>
-        <source>Dock Areas</source>
-        <translation type="vanished">Dock Alanları</translation>
-    </message>
-    <message>
-        <source>CAD Wid&amp;gets</source>
-        <translation type="vanished">CAD &amp;Araç Kutuları</translation>
-    </message>
-    <message>
-        <source>&amp;Drawings</source>
-        <translation type="vanished">&amp;Drawings</translation>
-    </message>
-    <message>
-        <source>Context</source>
-        <translation type="vanished">Context</translation>
-    </message>
-    <message>
-        <source>Toolbars</source>
-        <translation type="vanished">Toolbars</translation>
-    </message>
-    <message>
-        <source>Widgets</source>
-        <translation type="vanished">Widgets</translation>
-    </message>
-    <message>
-        <source>CAD Widgets</source>
-        <translation type="vanished">CAD Araç Kutuları</translation>
-    </message>
-    <message>
-        <source>CAD Toolbars</source>
-        <translation type="vanished">CAD Araç Çubukları</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Select</translation>
-    </message>
-    <message>
-        <source>Recent</source>
-        <translation type="vanished">Son Güncelleme Tarihi</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation type="vanished">Modifyify</translation>
-    </message>
-    <message>
-        <source>Modify More</source>
-        <translation type="vanished">Daha Fazlasını Değiştirin</translation>
-    </message>
-    <message>
-        <source>Draw</source>
-        <translation type="vanished">Çizim</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Line</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">Point</translation>
-    </message>
-    <message>
-        <source>Circle</source>
-        <translation type="vanished">Circle</translation>
-    </message>
-    <message>
-        <source>Arc</source>
-        <translation type="vanished">Arc</translation>
-    </message>
-    <message>
-        <source>Polygon</source>
-        <translation type="vanished">Polygon</translation>
-    </message>
-    <message>
-        <source>Polyline/Spline</source>
-        <translation type="vanished">Polyline/Spline</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellipse</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation type="vanished">Diğer</translation>
-    </message>
-    <message>
-        <source>Add Dimensions</source>
-        <translation type="vanished">Ekle Boyutlar ekle</translation>
-    </message>
-    <message>
-        <source>Align</source>
-        <translation type="vanished">Align</translation>
-    </message>
-    <message>
-        <source>Draw Order</source>
-        <translation type="vanished">Sipariş</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="vanished">Katmanlar</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="vanished">Info</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">Edit</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation type="vanished">Seçenekleri</translation>
-    </message>
-    <message>
-        <source>&amp;Named Views</source>
-        <translation type="vanished">&amp;Adlandırılmış Görünümler</translation>
-    </message>
-    <message>
-        <source>Edit Properties</source>
-        <translation type="vanished">Edit Özellikler</translation>
-    </message>
-    <message>
-        <source>Modify Generic</source>
-        <translation type="vanished">Genric&apos;i Değiştirin</translation>
-    </message>
-    <message>
-        <source>Modify Line</source>
-        <translation type="vanished">Çizgiyi Değiştir</translation>
-    </message>
-    <message>
-        <source>Draw Line</source>
-        <translation type="vanished">Çizim Hattı</translation>
-    </message>
-    <message>
-        <source>Draw Circle</source>
-        <translation type="vanished">Çemberli Çizim</translation>
-    </message>
-    <message>
-        <source>Draw Other</source>
-        <translation type="vanished">Diğer Çizimler</translation>
-    </message>
-    <message>
-        <source>Modify Circle</source>
-        <translation type="vanished">Çemberi Değiştirin</translation>
-    </message>
-    <message>
-        <source>Modify Arc</source>
-        <translation type="vanished">Arcify</translation>
-    </message>
-    <message>
-        <source>Modify Polyline</source>
-        <translation type="vanished">Polyline&apos;ı Değiştirin</translation>
-    </message>
-    <message>
-        <source>Modify Spline</source>
-        <translation type="vanished">Spline&apos;ı Değiştir</translation>
-    </message>
-    <message>
-        <source>Modify Spline Points</source>
-        <translation type="vanished">Spline Noktalarını Değiştir</translation>
-    </message>
-    <message>
-        <source>Modify Text</source>
-        <translation type="vanished">Metni Değiştir</translation>
-    </message>
-    <message>
-        <source>Modify MText</source>
-        <translation type="vanished">Değiştirin MText</translation>
-    </message>
-    <message>
-        <source>Edit Block</source>
-        <translation type="vanished">Blok Düzenle</translation>
-    </message>
-    <message>
-        <source>Order</source>
-        <translation type="vanished">Sipariş sipariş siparişi</translation>
-    </message>
-    <message>
-        <source>&amp;Toolbars</source>
-        <translation type="vanished">&amp;Toolbars</translation>
-    </message>
-    <message>
-        <source>&amp;CAD Toolbars</source>
-        <translation type="vanished">&amp;CAD Araç Çubukları</translation>
-    </message>
-    <message>
-        <source>&amp;Workspaces</source>
-        <translation type="vanished">&amp;Workspaces</translation>
-    </message>
-    <message>
-        <source>Ta&amp;b mode</source>
-        <translation type="vanished">Ta&amp;b mod</translation>
-    </message>
-    <message>
-        <source>&amp;Window mode</source>
-        <translation type="vanished">&amp;Window modu</translation>
-    </message>
-    <message>
-        <source>&amp;Layout</source>
-        <translation type="vanished">&amp;Layout</translation>
-    </message>
-    <message>
-        <source>Rounded</source>
-        <translation type="vanished">Rounded</translation>
-    </message>
-    <message>
-        <source>Triangular</source>
-        <translation type="vanished">Triangular</translation>
-    </message>
-    <message>
-        <source>North</source>
-        <translation type="vanished">Kuzey</translation>
-    </message>
-    <message>
-        <source>South</source>
-        <translation type="vanished">Güney</translation>
-    </message>
-    <message>
-        <source>East</source>
-        <translation type="vanished">Doğu</translation>
-    </message>
-    <message>
-        <source>West</source>
-        <translation type="vanished">West</translation>
-    </message>
-    <message>
-        <source>&amp;Arrange</source>
-        <translation type="vanished">&amp;Arrange</translation>
-    </message>
-    <message>
-        <source>&amp;Maximized</source>
-        <translation type="vanished">VeMaxested</translation>
-    </message>
-    <message>
-        <source>&amp;Cascade</source>
-        <translation type="vanished">VeCascade</translation>
-    </message>
-    <message>
-        <source>&amp;Tile</source>
-        <translation type="vanished">&amp;Tile</translation>
-    </message>
-    <message>
-        <source>Tile &amp;Vertically</source>
-        <translation type="vanished">Karo veVertically</translation>
-    </message>
-    <message>
-        <source>Tile &amp;Horizontally</source>
-        <translation type="vanished">Karo veHorizontally</translation>
-    </message>
-</context>
-<context>
     <name>LC_MenuFactoryBase</name>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory_base.cpp" line="55"/>
@@ -23011,21 +21133,6 @@ Lütfen farklı bir değeri belirtin.</translation>
     </message>
 </context>
 <context>
-    <name>LC_MidLineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">Çizimden Çıkarın</translation>
-    </message>
-</context>
-<context>
     <name>LC_MirrorOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_filler.cpp" line="31"/>
@@ -23162,197 +21269,6 @@ Lütfen farklı bir değeri belirtin.</translation>
     </message>
 </context>
 <context>
-    <name>LC_ModifyAlignRefOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for mirrored entities, otherwise - original ones. </source>
-        <translation type="vanished">Kontrol ederseniz, mevcut özellikler aynalı varlıklar için kullanılacaktır, aksi takdirde - orijinal olanlar.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation type="vanished">Eğer kontrol edilemezse, orijinal varlıklar kaldırılacaktır, aksi takdirde hayatta kalacaklardır.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">Kontrol edilirse, aynalı varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">User Current Katman</translation>
-    </message>
-    <message>
-        <source>If checked, entities will be scaled if necessary. Otherwise, they will be just positioned and rotated.</source>
-        <translation type="vanished">Eğer kontrol edilirse, varlıklar gerekli olursa ölçeklenecektir. Aksi takdirde, sadece konumlanmış ve döndürülecektir.</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="vanished">Scale</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyBreakDivideOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, segements between intersection points will be removed. If unchecked - the entitiy will be divided in intersection points. </source>
-        <translation type="vanished">Kontrol ederseniz, kesişim noktaları arasındaki ayrım kaldırılacaktır. Eğer kontrol edilmezse - entitiy kesişim noktalarında bölünmüş olacaktır.</translation>
-    </message>
-    <message>
-        <source>Remove Segments</source>
-        <translation type="vanished">Kaldır Segmentler</translation>
-    </message>
-    <message>
-        <source>If checked, selected segment will be removed. Otherwise, selected segment will survive and remaining segments will be removed. </source>
-        <translation type="vanished">Kontrol ederseniz, seçilen segment kaldırılacaktır. Aksi takdirde, seçilen segment hayatta kalacaktır ve kalan segmentler kaldırılacaktır.</translation>
-    </message>
-    <message>
-        <source>Remove Selected</source>
-        <translation type="vanished">İndirin</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyGapOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Snap Distance:</source>
-        <translation type="vanished">Yakın Mesafe:</translation>
-    </message>
-    <message>
-        <source>Snap point of gap to line snap point</source>
-        <translation type="vanished">Snap point of boşluk to line snap point</translation>
-    </message>
-    <message>
-        <source>Line Snap:</source>
-        <translation type="vanished">Çizgi Yakınlığı:</translation>
-    </message>
-    <message>
-        <source>Gap Size:</source>
-        <translation type="vanished">Gap Boyut:</translation>
-    </message>
-    <message>
-        <source>Snap point for gap on the line</source>
-        <translation type="vanished">Çizgide boşluk için Snap noktası</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Gap Snap:</source>
-        <translation type="vanished">Aralık Yakınlığı:</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <comment>gap</comment>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <comment>gap</comment>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <comment>gap</comment>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <comment>snap</comment>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <comment>snap</comment>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <comment>snap</comment>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <comment>snap</comment>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>PIck gap size from drawing</source>
-        <translation type="vanished">Çizimten Boyut</translation>
-    </message>
-    <message>
-        <source>Distance from snap point</source>
-        <translation type="vanished">Hızlıca nokta</translation>
-    </message>
-    <message>
-        <source>Pick snap distance from drawing</source>
-        <translation type="vanished">Çizimten uzaklaşmak</translation>
-    </message>
-    <message>
-        <source>Size of the gap, if not free</source>
-        <translation type="vanished">Boşluk boyutu, özgür değilse</translation>
-    </message>
-    <message>
-        <source>If cheched, the size of the gap is determined by mouse</source>
-        <translation type="vanished">Eğer cheched, boşluğun büyüklüğü fare tarafından belirlenir</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyMirrorOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, mirror will be performed by selected line entity.</source>
-        <translation type="vanished">Kontrol ederseniz, ayna seçilmiş çizgi varlık tarafından gerçekleştirilecektir.</translation>
-    </message>
-    <message>
-        <source>Mirror to selected line</source>
-        <translation type="vanished">Ayna seçilmiş çizgi</translation>
-    </message>
-    <message>
-        <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation type="vanished">Eğer kontrol edilemezse, orijinal varlıklar kaldırılacaktır, aksi takdirde hayatta kalacaklardır.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for mirrored entities, otherwise - original ones. </source>
-        <translation type="vanished">Kontrol ederseniz, mevcut özellikler aynalı varlıklar için kullanılacaktır, aksi takdirde - orijinal olanlar.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">Kontrol edilirse, aynalı varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">User Current Katman</translation>
-    </message>
-</context>
-<context>
     <name>LC_ModifyMirrorOptionsWidget</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_widget.ui" line="14"/>
@@ -23398,234 +21314,6 @@ Lütfen farklı bir değeri belirtin.</translation>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_widget.ui" line="85"/>
         <source>User Current Layer</source>
         <translation type="unfinished">User Current Katman</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyRotateOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">Rotate Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Free selection of factor should be performed by mouse if checked.</source>
-        <translation type="vanished">Kontrol ederseniz faktörün ücretsiz seçimi fare tarafından yapılmalıdır.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>If checked, new enties will be placed on current layer, otherwise they will be in original layers.</source>
-        <translation type="vanished">Eğer kontrol edilirse, yeni miraslar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlarda olacaklar.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>If absolute, reference point will be rotated but entity will be rotated by second angle only, otherwise angles will summ up</source>
-        <translation type="vanished">Eğer mutlak olarak, referans noktası döndürülecek, ancak varlık sadece ikinci açı ile döndürülecektir, aksi takdirde açılar susayacaktır</translation>
-    </message>
-    <message>
-        <source>Absolute</source>
-        <translation type="vanished">Mutlaka</translation>
-    </message>
-    <message>
-        <source>Angle to rotate entity around rotation center point</source>
-        <translation type="vanished">Döndürme merkezi noktası etrafında varlık döndürmek için</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, othewise original ones will be used. </source>
-        <translation type="vanished">Eğer kontrol edilirse, mevcut nitelikler yaratılan varlıklara uygulanacaktır, aksi takdirde orijinal olanlar kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, second rotation is around reference point</source>
-        <translation type="vanished">Kontrol ederseniz, ikinci rotasyon referans noktası etrafında</translation>
-    </message>
-    <message>
-        <source>Rotate twice</source>
-        <translation type="vanished">Rotate iki kez</translation>
-    </message>
-    <message>
-        <source>Angle for additional rotation around refrence point</source>
-        <translation type="vanished">Refrence noktası etrafında ek rotasyon için</translation>
-    </message>
-    <message>
-        <source>Pick rotation angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will be survive, otherwise they will be removed.</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalacaktır, aksi takdirde kaldırılacaktır.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>Multiple copies will be created if checked.</source>
-        <translation type="vanished">Kontrol edilirse birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-    <message>
-        <source>Rotation Angle:</source>
-        <translation type="vanished">Döndürme Açısı:</translation>
-    </message>
-    <message>
-        <source>Specifies whether angle is defined by entered value or by mouse position</source>
-        <translation type="vanished">Anahtarlamanın değere veya fare pozisyonu tarafından tanımlandığını belirtir</translation>
-    </message>
-    <message>
-        <source>Pick second rotation angle from drawing</source>
-        <translation type="vanished">Çizimten ikinci rotasyon açısı seçin</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyScaleOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">Rotate Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created.</source>
-        <translation type="vanished">Kontrol ederseniz, birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>If checked, the same scaling factor for X and Y axis will be applied.</source>
-        <translation type="vanished">Kontrol ederseniz, X ve Y eksen için aynı ölçeklendirme faktörü uygulanacaktır.</translation>
-    </message>
-    <message>
-        <source>Isotropic</source>
-        <translation type="vanished">Isotropic</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">Kontrol edilirse, mevcut nitelikler yaratılan varlıklara uygulanacaktır, aksi takdirde orijinal olanlar kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Geçerli Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>Scale factor for Y axis</source>
-        <translation type="vanished">Y eksen için boyut faktörü</translation>
-    </message>
-    <message>
-        <source>Scale Factor:</source>
-        <translation type="vanished">Ölçek Faktörü:</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed to original layers. </source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir. Aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>If checked, factor will be freely selected by mouse. Otherwise, specified values of factors will be used.</source>
-        <translation type="vanished">Kontrol ederseniz, faktör fare tarafından özgürce seçilir. Aksi takdirde, faktörlerin belirtilen değerleri kullanılır.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Scale factor for X axis</source>
-        <translation type="vanished">X eksen faktörü için</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyStretchOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep originals</source>
-        <translation type="vanished">Orijinalleri Keep originals</translation>
-    </message>
-</context>
-<context>
-    <name>LC_MoveOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed into original layers. </source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir. Aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, owtherwise original ones will be used. </source>
-        <translation type="vanished">Kontrol edilirse, mevcut nitelikler yaratılan varlıklar için uygulanacaktır, aksi takdirde orijinal olanlar kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Geçerli Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">Kontrol ederseniz, birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
     </message>
 </context>
 <context>
@@ -23941,14 +21629,6 @@ Lütfen farklı bir değeri belirtin.</translation>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.ui" line="81"/>
         <source>...</source>
         <translation>...</translation>
-    </message>
-    <message>
-        <source>Filtering views by name</source>
-        <translation type="vanished">İsimleri</translation>
-    </message>
-    <message>
-        <source>Filter...</source>
-        <translation type="vanished">Filtre...</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.ui" line="55"/>
@@ -24384,45 +22064,6 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <source>Control Points</source>
         <translation>Kontrol Noktaları</translation>
     </message>
-    <message>
-        <source>Parabola control points cannot be collinear</source>
-        <translation type="vanished">Parabola kontrol noktaları kollinear olamaz</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PasteToPointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If selected, the point entity used as insertion point will be deleted after paste operation. Otherwise, it will survive.</source>
-        <translation type="vanished">Eğer seçilmişse, eksiyon noktası olarak kullanılan nokta, yapıştırma işleminden sonra silinecektir. Aksi takdirde hayatta kalacaktır.</translation>
-    </message>
-    <message>
-        <source>Remove point</source>
-        <translation type="vanished">Take point</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">Ölçek Faktörü</translation>
-    </message>
-    <message>
-        <source>Scale factor for pasted entities</source>
-        <translation type="vanished">Geçmiş varlıklar için ölçek faktörü</translation>
-    </message>
-    <message>
-        <source>Rotation angle for pasted entities</source>
-        <translation type="vanished">Geçmiş varlıklar için Rotasyon açısı</translation>
-    </message>
 </context>
 <context>
     <name>LC_PasteToPointsOptionsFiller</name>
@@ -24498,89 +22139,6 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <location filename="../src/ui/action_options/edit/lc_paste_to_points_options_widget.ui" line="143"/>
         <source>Pick angle from drawing</source>
         <translation type="unfinished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PasteTransformOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Rotation angle for pasted entities</source>
-        <translation type="vanished">Geçmiş varlıklar için Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Spacing between entities insertion points in rows. </source>
-        <translation type="vanished">Varlıklar arasında yer alma noktaları sıralarda.</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Pick array spacing by X from drawing</source>
-        <translation type="vanished">X tarafından çizimden ayarlayın</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">Ölçek Faktörü</translation>
-    </message>
-    <message>
-        <source>Pick array angle from drawing</source>
-        <translation type="vanished">Çizimten dizi açısı seçin</translation>
-    </message>
-    <message>
-        <source>Rotation angle for array.</source>
-        <translation type="vanished">Dizi için Rotation açısı.</translation>
-    </message>
-    <message>
-        <source>Array rows number.</source>
-        <translation type="vanished">Dizi satırları sayısı.</translation>
-    </message>
-    <message>
-        <source>Pick array spacing by Y from drawing</source>
-        <translation type="vanished">Çizim serisinden Y tarafından titreyin</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If checked, the same rotation angle is used for each individual paste and whole array. Otherwise, different angles are used. </source>
-        <translation type="vanished">Eğer kontrol edilirse, aynı rotasyon açısı her bir bireysel yapıştırma ve bütün dizi için kullanılır. Aksi takdirde, farklı açılar kullanılır.</translation>
-    </message>
-    <message>
-        <source>Same Angles</source>
-        <translation type="vanished">Aynı</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">Spacing:</translation>
-    </message>
-    <message>
-        <source>Array columns number.</source>
-        <translation type="vanished">Dizi sütunları numarası.</translation>
-    </message>
-    <message>
-        <source>If checked, arrays of copies will be created on paste.</source>
-        <translation type="vanished">Kontrol ederseniz, kopyaların dizileri yapıştırılır.</translation>
-    </message>
-    <message>
-        <source>Array</source>
-        <translation type="vanished">Dizi Dizileri</translation>
-    </message>
-    <message>
-        <source>Array Angle:</source>
-        <translation type="vanished">Diz:</translation>
-    </message>
-    <message>
-        <source>Scale factor for pasted entities</source>
-        <translation type="vanished">Geçmiş varlıklar için ölçek faktörü</translation>
-    </message>
-    <message>
-        <source>Spacing between insertion points of entities in columns.</source>
-        <translation type="vanished">Kısmen varlık noktaları arasında yer alma.</translation>
     </message>
 </context>
 <context>
@@ -25202,17 +22760,9 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <translation>Line Genişlik Name Name</translation>
     </message>
     <message>
-        <source>Colors</source>
-        <translation type="vanished">Renkler</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="66"/>
         <source>Background color for pen element currently edited in pen&apos;s table</source>
         <translation>Kalem elementi için arka plan rengi şu anda pen&apos;s masasında düzenlenmiş</translation>
-    </message>
-    <message>
-        <source>Color of grid for pens list</source>
-        <translation type="vanished">Pens listesi için ızgaranın rengi</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="32"/>
@@ -25234,10 +22784,6 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="79"/>
         <source>Entire table row is bold for active pen</source>
         <translation>Entire masası satırları aktif kalem için cesur</translation>
-    </message>
-    <message>
-        <source>Grid Color:</source>
-        <translation type="vanished">Kılavuz Rengi:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="96"/>
@@ -25330,17 +22876,9 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <translation>Mümkün olan doğal adı</translation>
     </message>
     <message>
-        <source>If selected, additional messages will be show as part of pen related operations</source>
-        <translation type="vanished">Eğer seçilmişse, ek mesajlar kalemle ilgili operasyonların bir parçası olarak gösterilecek</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="280"/>
         <source>Show info message if no entities may be selected by pen</source>
         <translation>Kalemle seçilebilecek varlık yoksa bir bilgi mesajı göster</translation>
-    </message>
-    <message>
-        <source>On double click on table item</source>
-        <translation type="vanished">DoubleClick on table item</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="162"/>
@@ -25565,12 +23103,6 @@ Please note that if you&apos;ll save pen via editor without restart, current pen
 
 Yeniden başlatmadan düzenleyici aracılığıyla kalem kaydederseniz, paletteki mevcut kalemler yeni dosyaya kaydedilir ve mevcut içerik üzerine yazılır.</translation>
     </message>
-    <message>
-        <source>Location of pens file is changed, please restart the application so new pens file will be used.
-Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="vanished">Kalem dosyası konumu değiştirildi, lütfen uygulamayı yeniden başlatın, böylece yeni kalem dosyası kullanılabilir.
-Lütfen, yeniden başlatmadan düzenleyici aracılığıyla bir kalemi kaydettiğinizde, paletten mevcut kalemlerin yeni dosyaya kaydedileceğini ve bu nedenle mevcut içeriğinin üzerine yazılacağını unutmayın.</translation>
-    </message>
 </context>
 <context>
     <name>LC_PointPickButton</name>
@@ -25616,37 +23148,6 @@ Lütfen, yeniden başlatmadan düzenleyici aracılığıyla bir kalemi kaydetti�
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_point.ui" line="103"/>
         <source>Pick position from the drawing</source>
         <translation>Çizim pozisyonundan pozisyon alın</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PointsLatticeOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Number of points by lattice Y direction (count of lattice rows)</source>
-        <translation type="vanished">Lattice Y yönünden puan sayısı ( lattice sıralarının hesabı)</translation>
-    </message>
-    <message>
-        <source>Rows Count:</source>
-        <translation type="vanished">Satır Sayısı:</translation>
-    </message>
-    <message>
-        <source>Columns Count:</source>
-        <translation type="vanished">Köşeler Kont:</translation>
-    </message>
-    <message>
-        <source>Number of points by X lattice direction (count of lattice columns)</source>
-        <translation type="vanished">X lattice yönünden puan sayısı ( lattice sütunları hesabı)</translation>
-    </message>
-    <message>
-        <source>If selected, last point of lattice will be adjusted accoriding to position of first point, so lattice will be rect or quadrangle</source>
-        <translation type="vanished">Eğer seçilmişse, lattice&apos;nin son noktası ilk noktanın konumuna kadar accoriding ayarlayacaktır, bu yüzden lattice ret veya dört boston</translation>
-    </message>
-    <message>
-        <source>Adjust last point to first</source>
-        <translation type="vanished">Son noktaya ilk kez ayarlayın</translation>
     </message>
 </context>
 <context>
@@ -32913,10 +30414,6 @@ Lütfen, yeniden başlatmadan düzenleyici aracılığıyla bir kalemi kaydetti�
         <translation>1</translation>
     </message>
     <message>
-        <source>Circumference</source>
-        <translation type="vanished">Circumference</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="615"/>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="633"/>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="740"/>
@@ -33904,10 +31401,6 @@ p, li { beyaz uzay: pre-wrap; }
         <translation>Varlık Bilgisi</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be show in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Eğer seçilmişse, poliline&apos;nin bir parçası olan çizgiler ve arklar hakkında daha ayrıntılı bilgi Entity Info widget&apos;ında gösterilecektir.&lt;br/&gt; Aksi takdirde, sadece fatexes/bulges hakkında bilgi gösterilecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="81"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be shown in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Seçiliyse, çoklu çizginin parçası olan çizgiler ve yaylar hakkında Varlık Bilgisi widget&apos;ında daha ayrıntılı bilgi gösterilir.&lt;br/&gt;Aksi takdirde yalnızca köşe noktaları/şişkinlikler hakkında bilgi görüntülenir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -33956,205 +31449,6 @@ p, li { beyaz uzay: pre-wrap; }
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.cpp" line="44"/>
         <source>Points highlight pen</source>
         <translation>Noktalar Kalemi vurgulamaktadır</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rectangle1PointOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">Edges:</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap point should be shifted by radius of corners.</source>
-        <translation type="vanished">Eğer kontrol edilirse, bu şık noktanın köşelerin yarıçapı tarafından değiştirilmesi gerektiğini belirtir.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">Snap değişim</translation>
-    </message>
-    <message>
-        <source>Length of bevel corner for Y direction. </source>
-        <translation type="vanished">Y yöndeki orta köşenin uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">Ret boklarının kenarlarının çizilmesi gereken tanımlamalar (bu yüzden retcut yerine sadece iki paralel çizgi oluşturmak mümkündür)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">Her ikisi de her ikisi de</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">Dikey</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">Yatay</translation>
-    </message>
-    <message>
-        <source>Width of rectangle</source>
-        <translation type="vanished">Regt bok genişliği</translation>
-    </message>
-    <message>
-        <source>Controls how corners of rectangle should be drawn.</source>
-        <translation type="vanished">Tamamlama köşelerinin nasıl çizilmesi gerektiğini kontroller.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">Doğru</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">Yuvarlak</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">Bevel</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be rotated on specified angle.</source>
-        <translation type="vanished">Kontrol ederseniz, dikdörtgen belirtilen açıda döndürülecektir.</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">Ayak:</translation>
-    </message>
-    <message>
-        <source>If checked, specified height and width of rectangle defines distance between centers of arcs for rounding corners. Otherwise, these values defines outer size of the rectangle.</source>
-        <translation type="vanished">Eğer kontrol edilirse, belirli bir yüksekliğe ve dikdörtgen genişliği yuvarlak köşeler için ark merkezleri arasında mesafe tanımlar. Aksi takdirde, bu değerler ret çemberinin dış boyutunu tanımlar.</translation>
-    </message>
-    <message>
-        <source>Size inner</source>
-        <translation type="vanished">İç Boyut</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">Uzunluk Y:</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be created as polyline instead of individual segments.</source>
-        <translation type="vanished">Kontrol ederseniz, dikdörtgen bireysel segmentler yerine poliline olarak oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Snap:</source>
-        <translation type="vanished">Snap:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Yükseklik:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Radius:</translation>
-    </message>
-    <message>
-        <source>Length of bevel corner for X direction. </source>
-        <translation type="vanished">X yönü için orta köşenin uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">Uzunluk X:</translation>
-    </message>
-    <message>
-        <source>Height of rectangle</source>
-        <translation type="vanished">Dökün yüksekliği</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners.</source>
-        <translation type="vanished">Radius yuvarlak köşeler.</translation>
-    </message>
-    <message>
-        <source>Point of rectangle wich will be placed to insertion point.</source>
-        <translation type="vanished">Tamamlama noktası wich eklemek için yerleştirilir.</translation>
-    </message>
-    <message>
-        <source>Top-left</source>
-        <translation type="vanished">Top-left</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="vanished">Top</translation>
-    </message>
-    <message>
-        <source>Top-right</source>
-        <translation type="vanished">Top-right</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">Sol sol sol</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">Doğru</translation>
-    </message>
-    <message>
-        <source>Bottom-left</source>
-        <translation type="vanished">Sub-left</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="vanished">Alt</translation>
-    </message>
-    <message>
-        <source>Bottom-right</source>
-        <translation type="vanished">Sub-right</translation>
-    </message>
-    <message>
-        <source>Pick rotation angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing.</source>
-        <translation type="vanished">Çizimten yarık köşeleri alın.</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Pick height of rectangle from drawing</source>
-        <translation type="vanished">Çizimden dikdörtgenin yüksekliğini seçin</translation>
-    </message>
-    <message>
-        <source>Pick width of rectangle from drawing</source>
-        <translation type="vanished">Çizimten dikdörtgenin genişliğini seçin</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Genişlik:</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">Köşeler:</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel corner for X direction from drawing.</source>
-        <translation type="vanished">Çizimten X yönü için bevel köşesini alın.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel corner for Y direction from drawing.</source>
-        <translation type="vanished">Çizimten Y yönü için vel köşesini alın.</translation>
-    </message>
-    <message>
-        <source>If checked, angle will be specified by mouse position. Otherwise, specified value will be used.</source>
-        <translation type="vanished">Kontrol ederseniz, açı fare pozisyonu tarafından belirtilecektir. Aksi takdirde, belirtilen değer kullanılır.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
     </message>
 </context>
 <context>
@@ -34524,153 +31818,6 @@ p, li { beyaz uzay: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>LC_Rectangle2PointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">Ret boklarının kenarlarının çizilmesi gereken tanımlamalar (bu yüzden retcut yerine sadece iki paralel çizgi oluşturmak mümkündür)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">Her ikisi de her ikisi de</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">Dikey</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">Yatay</translation>
-    </message>
-    <message>
-        <source>Defines which point of rectangle should be placed into start point position.</source>
-        <translation type="vanished">Tamamlama noktasının başlangıç noktası haline getirilmesi gereken tanımlar.</translation>
-    </message>
-    <message>
-        <source>Corner</source>
-        <translation type="vanished">Corner</translation>
-    </message>
-    <message>
-        <source>Mid-Vertical</source>
-        <translation type="vanished">Mid-Vertical</translation>
-    </message>
-    <message>
-        <source>Mid-Horizontal</source>
-        <translation type="vanished">Mid-Horizontal</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>Pick rectangle rotation angle from drawing</source>
-        <translation type="vanished">Çizimden dikdörtgen rotasyon açısı alın</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing. </source>
-        <translation type="vanished">Çizimten yarık köşeleri alın.</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">Köşeler:</translation>
-    </message>
-    <message>
-        <source>Defines which point of rectangle should be placed into end point position. </source>
-        <translation type="vanished">Tamamlama noktasının son noktaya yerleştirilmesi gereken tanımlar.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in X direction from drawing.</source>
-        <translation type="vanished">X yönde çizimden uzun bir süre alın.</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">Edges:</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in Y direction from drawing. </source>
-        <translation type="vanished">Çizimten Y yönde uzun sür.</translation>
-    </message>
-    <message>
-        <source>Start Snap:</source>
-        <translation type="vanished">Başlangıç Noktası:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y yöndeki bevel uzunluğu.</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation type="vanished">Kontrol ederseniz, snap puanlarının köşelerin yarıçapı tarafından değiştirilmesi gerektiğini belirtir.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">Snap değişim</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">Uzunluk X:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Radius:</translation>
-    </message>
-    <message>
-        <source>If checked, allows to specify rotation angle for rectangle.</source>
-        <translation type="vanished">Kontrol ederseniz, ret bok için rotasyon açısını belirtmenize izin verir.</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">Ayak:</translation>
-    </message>
-    <message>
-        <source>Rectangle rotation angle.</source>
-        <translation type="vanished">Düz dönüş açısı.</translation>
-    </message>
-    <message>
-        <source>End Snap:</source>
-        <translation type="vanished">Bitiş Noktası:</translation>
-    </message>
-    <message>
-        <source>Defines how corners of rectangle should be drawn. </source>
-        <translation type="vanished">Tamamlama köşelerinin nasıl çizilmesi gerektiğini tanımlar.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">Doğru</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">Yuvarlak</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">Bevel</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners. </source>
-        <translation type="vanished">Radius yuvarlak köşeler.</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">Uzunluk Y:</translation>
-    </message>
-    <message>
-        <source>If checked, the entire rectangle will be drawn as polyline.</source>
-        <translation type="vanished">Kontrol ederseniz, tüm dikdörtgen poliline olarak çizilecektir.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X yöndeki bevel uzunluğu.</translation>
-    </message>
-</context>
-<context>
     <name>LC_Rectangle2PointsOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle_2points_options_filler.cpp" line="36"/>
@@ -34928,145 +32075,6 @@ p, li { beyaz uzay: pre-wrap; }
         <location filename="../src/ui/action_options/rect/lc_rectangle_2points_options_widget.ui" line="361"/>
         <source>Pick length of bevel in Y direction from drawing. </source>
         <translation type="unfinished">Çizimten Y yönde uzun sür.</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rectangle3PointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Inner angle of quadrangle.</source>
-        <translation type="vanished">Dört bokluk iç açısı.</translation>
-    </message>
-    <message>
-        <source>If checked, inner angle of quadrangle will be fixed to specified value.</source>
-        <translation type="vanished">Eğer kontrol edilirse, dört boksun iç açısı belirtilen değer için sabit olacaktır.</translation>
-    </message>
-    <message>
-        <source>Fixed Inner Angle:</source>
-        <translation type="vanished">Sabit İç Boyut:</translation>
-    </message>
-    <message>
-        <source>Base angle of rectangle. </source>
-        <translation type="vanished">Tamamlama açısı.</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">Uzunluk X:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X yöndeki bevel uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Defines how corners should be drawn for rectangle. </source>
-        <translation type="vanished">Köşelerin yeniden dikmek için nasıl çizilmesi gerektiğini tanımlar.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">Doğru</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">Yuvarlak</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">Bevel</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">Köşeler:</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation type="vanished">Kontrol ederseniz, snap puanlarının köşelerin yarıçapı tarafından değiştirilmesi gerektiğini belirtir.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">Snap değişim</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">Uzunluk Y:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y yöndeki bevel uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners.</source>
-        <translation type="vanished">Radius yuvarlak köşeler.</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Radius:</translation>
-    </message>
-    <message>
-        <source>If checked, the shape will be created as polyline. </source>
-        <translation type="vanished">Kontrol ederseniz, form poliline olarak oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Pick inner angle of quadrangle from drawing.</source>
-        <translation type="vanished">Çizimten dört perdenin iç açısını seçin.</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">Edges:</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing.</source>
-        <translation type="vanished">Çizimten yarık köşeleri alın.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in X direction from drawing.</source>
-        <translation type="vanished">X yönde çizimden uzun bir süre alın.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in Y direction from drawing.</source>
-        <translation type="vanished">Çizimten Y yönde uzun sür.</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">Ret boklarının kenarlarının çizilmesi gereken tanımlamalar (bu yüzden retcut yerine sadece iki paralel çizgi oluşturmak mümkündür)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">Her ikisi de her ikisi de</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">Dikey</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">Yatay</translation>
-    </message>
-    <message>
-        <source>Pick base angle of rectangle from drawing</source>
-        <translation type="vanished">Çizimin temel açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be rotated to specified base angle.  Otherwise, base angle will be defined by angle between first and second points of rectangle.</source>
-        <translation type="vanished">Kontrol ederseniz, dikdörtgen belirli temel açı için döndürülecektir. Aksi takdirde, temel açı ilk ve ikinci ret bok noktaları arasında açı ile tanımlanacaktır.</translation>
-    </message>
-    <message>
-        <source>Fixed Base Angle:</source>
-        <translation type="vanished">Sabit Base Angle:</translation>
-    </message>
-    <message>
-        <source>If checked, quadrangle will be created instead of rectangle.</source>
-        <translation type="vanished">Eğer kontrol edilirse, dört bok dikmek yerine oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Quadrangle</source>
-        <translation type="vanished">Quadrangle</translation>
     </message>
 </context>
 <context>
@@ -35715,100 +32723,6 @@ p, li { beyaz uzay: pre-wrap; }
         <location filename="../src/ui/components/relative_position_assistant/lc_relative_position_editing_widget.cpp" line="328"/>
         <source>Relative zero:</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_ReleaseChecker</name>
-    <message>
-        <source>Sorry, some network error occurred during checking for new version.</source>
-        <translation type="vanished">Üzgünüm, yeni sürüm için kontrol sırasında bazı ağ hatası meydana geldi.</translation>
-    </message>
-    <message>
-        <source>Unable to parse response from the server</source>
-        <translation type="vanished">Sunucudan yanıt için kullanılamaz</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rotate2Options</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">Rotate Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Specifies whetether copies will be inserted to current or original layer</source>
-        <translation type="vanished">Oluşturulan kopyalar mevcut veya orijinal katmana eklenecektir</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>Adjust secondary angle so the sum of angles (relative rotation angle) is 0. With such setting entity will be moved but not rotated.</source>
-        <translation type="vanished">Ortasal açı ayarlama, böylece açıların toplamı (relatif rotasyon açısı) 0. Bu tür ayar varlığı ile hareket edilecek, ancak dönmeyecek.</translation>
-    </message>
-    <message>
-        <source>Angles mirrored</source>
-        <translation type="vanished">Şekiller Aynalı</translation>
-    </message>
-    <message>
-        <source>Pick primary angle from drawing</source>
-        <translation type="vanished">Çizimten birincil açı seçin</translation>
-    </message>
-    <message>
-        <source>Defines whether current or original drawing attributes will be applied</source>
-        <translation type="vanished">Mevcut veya orijinal çizim niteliklerinin uygulanacak olup olmadığını tanımlar</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>Pick secondary angle from drawing</source>
-        <translation type="vanished">Çizimten ikincil açı seçin</translation>
-    </message>
-    <message>
-        <source>Angle for rotation over absolute reference point</source>
-        <translation type="vanished">Mutlak referans noktası üzerine döndürmek için</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">Kontrol ederseniz, birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-    <message>
-        <source>Number of copies to create</source>
-        <translation type="vanished">İçerik sayısı oluşturmak için</translation>
-    </message>
-    <message>
-        <source>Secondary Angle:</source>
-        <translation type="vanished">Orta Boyut:</translation>
-    </message>
-    <message>
-        <source>If checked, the same angle will be used for all copies. Otherwise, it will be increased proportionally to copy number. </source>
-        <translation type="vanished">Kontrol ederseniz, aynı açı tüm kopyalar için kullanılacaktır. Aksi takdirde, kopya numarasına orantılı olarak artacaktır.</translation>
-    </message>
-    <message>
-        <source>Same secondary angle for copies</source>
-        <translation type="vanished">Kopya için aynı ikincil açı</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>Primary Angle:</source>
-        <translation type="vanished">İlk Boyut:</translation>
-    </message>
-    <message>
-        <source>Angle to rotate over secondary reference point</source>
-        <translation type="vanished">Ikincil referans noktası üzerinde döndürmek için</translation>
     </message>
 </context>
 <context>
@@ -36803,141 +33717,6 @@ p, li { beyaz uzay: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>LC_SliceDivideOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Start Circle Angle:</source>
-        <translation type="vanished">Circle Angle&apos;a başlayın:</translation>
-    </message>
-    <message>
-        <source>Start angle for circle from which ticks will start. </source>
-        <translation type="vanished">Hangi keneler başlayacak olan çember için açı başlayın.</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Offset of tick snap point to intersection point. </source>
-        <translation type="vanished">Kırk noktanın kesişim noktası.</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">Çizimten uzak durun</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">Mesafe:</translation>
-    </message>
-    <message>
-        <source>Distance between ticks.</source>
-        <translation type="vanished">İşaretler arasında mesafe.</translation>
-    </message>
-    <message>
-        <source>If checked, selected entity will be divided by tick intersection points. </source>
-        <translation type="vanished">Kontrol edilirse, seçilen varlık işaret kesişim noktaları ile bölünmüş olacaktır.</translation>
-    </message>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">Bölün</translation>
-    </message>
-    <message>
-        <source>Pick tick offset from drawing</source>
-        <translation type="vanished">Çizimten Çıkar</translation>
-    </message>
-    <message>
-        <source>Length of tick.</source>
-        <translation type="vanished">Uzun bir akış.</translation>
-    </message>
-    <message>
-        <source>Pick tick angle from drawing</source>
-        <translation type="vanished">Çizimten işaret açı seçin</translation>
-    </message>
-    <message>
-        <source>Tick snap:</source>
-        <translation type="vanished">Tavşan:</translation>
-    </message>
-    <message>
-        <source>Pick tick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre tutun</translation>
-    </message>
-    <message>
-        <source>PIck start circle angle from drawing</source>
-        <translation type="vanished">PIck, çizimden çember açısı başlatır</translation>
-    </message>
-    <message>
-        <source>Angle between tick and selected entity.</source>
-        <translation type="vanished">Tick ve seçilmiş varlık arasındaki açı.</translation>
-    </message>
-    <message>
-        <source>If checked, tick angle is related to selected entity, otherwise it is absolute angle.</source>
-        <translation type="vanished">Kontrol ederseniz, işaret açısı seçilmiş varlıkla ilgilidir, aksi takdirde mutlak bir açıdır.</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">Rel</translation>
-    </message>
-    <message>
-        <source>Tick Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Defines which point of tick should be placed to intersection point with selected entity.</source>
-        <translation type="vanished">Kılıcının hangi noktası seçilen varlıkla kesişmelidir.</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Start</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">End</translation>
-    </message>
-    <message>
-        <source>If checked, specified fixed distance between ticks will be used. Otherwise, distance will be calculated based on entity length and ticks count. </source>
-        <translation type="vanished">Kontrol ederseniz, ticks arasında sabit mesafe kullanılacaktır. Aksi takdirde, mesafe, varlık uzunluğu ve ticks sayına göre hesaplanacaktır.</translation>
-    </message>
-    <message>
-        <source>Fixed </source>
-        <translation type="vanished">Sabit</translation>
-    </message>
-    <message>
-        <source>Count of ticks between edges of selected entity.</source>
-        <translation type="vanished">Seçilmiş varlığın kenarları arasındaki kenet say.</translation>
-    </message>
-    <message>
-        <source>Count:</source>
-        <translation type="vanished">Kont:</translation>
-    </message>
-    <message>
-        <source>Devines how ticks on entity edges should be placed. </source>
-        <translation type="vanished">Varlık kenarlarında nasıl kenetler yerleştirilmelidir.</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">Hiçbir şey yok</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">Her ikisi de her ikisi de</translation>
-    </message>
-    <message>
-        <source>Edge Tick:</source>
-        <translation type="vanished">Kenar İşareti:</translation>
-    </message>
-</context>
-<context>
     <name>LC_SliceDivideOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/line/lc_slice_divide_options_filler.cpp" line="34"/>
@@ -37257,57 +34036,6 @@ p, li { beyaz uzay: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>LC_SplineExplodeOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Defines the number of line segments to be generated for each spline-fit spline-fit polyline</source>
-        <translation type="vanished">Her spline-fit poliline için oluşturulacak çizgi segment sayısını tanımlar</translation>
-    </message>
-    <message>
-        <source>If unchecked, original spline will be removed, otherwise it will survive.</source>
-        <translation type="vanished">Eğer kontrol edilemezse, orijinal spline kaldırılacaktır, aksi takdirde hayatta kalacaktır.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for created entities, otherwise - original ones. </source>
-        <translation type="vanished">Kontrol ederseniz, mevcut nitelikler yaratılan varlıklar için kullanılacaktır, aksi takdirde - orijinal olanlar.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>If checked, it is possible to specify custom amount of line segments. Otherwise, the value from settings for current drawing will be used.</source>
-        <translation type="vanished">Kontrol ederseniz, özel hat segmentlerini belirtmek mümkündür. Aksi takdirde, mevcut çizim için ayarlardan gelen değer kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Custom Segments Count</source>
-        <translation type="vanished">Özel Segmentler Count</translation>
-    </message>
-    <message>
-        <source>If checked, line segments will be part of polyline. Otherwise, they will be individual lines</source>
-        <translation type="vanished">Eğer kontrol edilirse, çizgi segmentler polilinen bir parçası olacaktır. Aksi takdirde, bireysel çizgiler olacaktır</translation>
-    </message>
-    <message>
-        <source>To Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-</context>
-<context>
     <name>LC_SplineExplodeOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/spline/lc_spline_explode_options_filler.cpp" line="33"/>
@@ -37431,65 +34159,6 @@ p, li { beyaz uzay: pre-wrap; }
         <location filename="../src/ui/action_options/spline/lc_spline_explode_options_widget.ui" line="96"/>
         <source>To Polyline</source>
         <translation type="unfinished">Polyline</translation>
-    </message>
-</context>
-<context>
-    <name>LC_SplineFromPolylineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlara yerleştirilirler.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">User Current Katman</translation>
-    </message>
-    <message>
-        <source>Amount of middle points of polyline segment that will be added to spline. </source>
-        <translation type="vanished">Genişlemeye eklenecek poliline segmentin orta noktaları.</translation>
-    </message>
-    <message>
-        <source>Defines degree of the spline</source>
-        <translation type="vanished">Kesir derecesi</translation>
-    </message>
-    <message>
-        <source>If unchecked, original polyline will be removed, otherwise it will survive.</source>
-        <translation type="vanished">Kontrol edilemezse, orijinal poliline kaldırılacaktır, aksi takdirde hayatta kalacaktır.</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">Derece:</translation>
-    </message>
-    <message>
-        <source>If checked, polyline vertexes are considered as spline points and spline by points will be created. Otherwise, they are considered as control points and ordinary spline will be created.</source>
-        <translation type="vanished">İşaretliyse, çoklu çizginin köşe noktaları eğri noktası olarak değerlendirilir ve noktalardan geçen eğri oluşturulur. Aksi hâlde kontrol noktası olarak kabul edilir ve normal eğri oluşturulur.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>Mid points:</source>
-        <translation type="vanished">Orta Noktalar:</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for created entities, otherwise - original ones. </source>
-        <translation type="vanished">Kontrol ederseniz, mevcut nitelikler yaratılan varlıklar için kullanılacaktır, aksi takdirde - orijinal olanlar.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, polyline vertexes are considered as spline points and spline by points will be created. Otherwise, they are considered as control points and orinary spline will be created.</source>
-        <translation type="vanished">Kontrol edilirse, poliline vertexes, puanlar tarafından spline puanlar ve spline olarak kabul edilir. Aksi takdirde kontrol noktaları olarak kabul edilirler ve orinary spline oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Vertexes are spline points</source>
-        <translation type="vanished">Vertexes spline points</translation>
     </message>
 </context>
 <context>
@@ -37746,10 +34415,6 @@ p, li { beyaz uzay: pre-wrap; }
 <context>
     <name>LC_SplinePropertiesEditingWidget</name>
     <message>
-        <source>Form</source>
-        <translation type="vanished">Biçim</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="14"/>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="17"/>
         <source>Spline Properties Editor</source>
@@ -37897,69 +34562,6 @@ p, li { beyaz uzay: pre-wrap; }
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="83"/>
         <source>Degree used to approximate spline</source>
         <translation>Derece yaklaşık spline</translation>
-    </message>
-</context>
-<context>
-    <name>LC_StarOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>If checked, symmetric star will be created.</source>
-        <translation type="vanished">Kontrol ederseniz, symmetric yıldızı oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">Symmetric</translation>
-    </message>
-    <message>
-        <source>Radius for inner edges.</source>
-        <translation type="vanished">Radius iç kenarlar için.</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>Pick outer radius from drawing</source>
-        <translation type="vanished">Çizimten Dış Yarısı Çekin</translation>
-    </message>
-    <message>
-        <source>Pick inner radius from drawing</source>
-        <translation type="vanished">Çizimten içsel yarıçap alın</translation>
-    </message>
-    <message>
-        <source>Number of rays.</source>
-        <translation type="vanished">Işınların sayısı.</translation>
-    </message>
-    <message>
-        <source>If checked, outer edges will be rounded. </source>
-        <translation type="vanished">Kontrol ederseniz, dış kenarlar yuvarlanacaktır.</translation>
-    </message>
-    <message>
-        <source>Radius Outer</source>
-        <translation type="vanished">Radius Dış</translation>
-    </message>
-    <message>
-        <source>If checked, inner edges will be rounded. </source>
-        <translation type="vanished">Kontrol ederseniz, iç kenarlar yuvarlanacaktır.</translation>
-    </message>
-    <message>
-        <source>Radius Inner</source>
-        <translation type="vanished">Radius İç</translation>
-    </message>
-    <message>
-        <source>If checked, the star will be drawn as polyline. </source>
-        <translation type="vanished">Eğer kontrol edilirse, yıldız poliline olarak çizilecektir.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Radius for outer rays (edges).</source>
-        <translation type="vanished">Radius dış ışınlar için (atlar).</translation>
     </message>
 </context>
 <context>
@@ -38850,14 +35452,6 @@ p, li { beyaz uzay: pre-wrap; }
         <translation>Ayarlar</translation>
     </message>
     <message>
-        <source>Filtering user coordinates by name</source>
-        <translation type="vanished">Filtreleme kullanıcı adı ile koordine eder</translation>
-    </message>
-    <message>
-        <source>Filter...</source>
-        <translation type="vanished">Filtre...</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="230"/>
         <source>&lt;No name&gt;</source>
         <translation>&lt;İsim Yok&gt;</translation>
@@ -38958,33 +35552,6 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="581"/>
         <source>Remove A&amp;ll UCSs</source>
         <translation>A&amp;ll UCSs</translation>
-    </message>
-</context>
-<context>
-    <name>LC_UCSSetOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">Form</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Angle X-axis of new coordinate system</source>
-        <translation type="vanished">Yeni koordinat sistemi</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Specifies whether X-Axis angle is defined by entered value or by mouse position</source>
-        <translation type="vanished">X-Axis açısının değere girilerek veya fare pozisyonu tarafından tanımlanıp tanımlanmasını belirtir</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
     </message>
 </context>
 <context>
@@ -39597,33 +36164,6 @@ Uyarı: Bu eylem geri alınamaz!</translation>
         <location filename="../src/ui/dialogs/settings/options_drawing/lg_dimzerosbox.cpp" line="63"/>
         <source>remove 0&quot;</source>
         <translation>0&quot; kaldır</translation>
-    </message>
-</context>
-<context>
-    <name>PolylineEquidistantOptions</name>
-    <message>
-        <source>Line Relative Angle Options</source>
-        <translation type="vanished">Çizgi Göreli Açı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">Boşluk:</translation>
-    </message>
-    <message>
-        <source>Distance from original polyline</source>
-        <translation type="vanished">Özgün çoklu çizgiden uzaklık</translation>
-    </message>
-    <message>
-        <source>Copies:</source>
-        <translation type="vanished">Kopyalar:</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>Pick spacing from drawing</source>
-        <translation type="vanished">Çizimten Spacing</translation>
     </message>
 </context>
 <context>
@@ -40303,81 +36843,6 @@ Lütfen varlığını ve izinlerini kontrol edin.</translation>
     </message>
 </context>
 <context>
-    <name>QG_DlgArc</name>
-    <message>
-        <source>Arc</source>
-        <translation type="vanished">Arc</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of arc</source>
-        <translation type="vanished">Yay katmanı</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">Pen nitelikleri</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>X Coordinate of arc&apos;s center</source>
-        <translation type="vanished">X arkın merkezini koordine eder</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of arc&apos;s center</source>
-        <translation type="vanished">Y arkın merkezi</translation>
-    </message>
-    <message>
-        <source>Defines whether arc is reversed (clockwise)</source>
-        <translation type="vanished">Ayının tersine çevrildiğini tanımlar (saat)</translation>
-    </message>
-    <message>
-        <source>Reversed</source>
-        <translation type="vanished">Tersane</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">Merkez (y):</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">Yay yarıçapı</translation>
-    </message>
-    <message>
-        <source>Start Angle:</source>
-        <translation type="vanished">Başlangıç açısı:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Starting angle of arc</source>
-        <translation type="vanished">Kazım açısına başlayın</translation>
-    </message>
-    <message>
-        <source>End angle of arc</source>
-        <translation type="vanished">Saçın son açısı</translation>
-    </message>
-    <message>
-        <source>End Angle:</source>
-        <translation type="vanished">Bitiş açısı:</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">Merkez (x):</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgAttributes</name>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_attributes.ui" line="26"/>
@@ -40415,198 +36880,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <location filename="../src/ui/dialogs/entity/qg_dlg_attributes.cpp" line="61"/>
         <source>Pen</source>
         <translation>Pen</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgCircle</name>
-    <message>
-        <source>Circle</source>
-        <translation type="vanished">Circle</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Radius of circle</source>
-        <translation type="vanished">Radius of Circle</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">Merkez (y):</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of circle&apos;s center</source>
-        <translation type="vanished">Y çemberin merkezi koordinatörü</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">Merkez (x):</translation>
-    </message>
-    <message>
-        <source>X Coordinate of circle&apos;s center</source>
-        <translation type="vanished">X çemberin merkezi koordinatörü</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgDimLinear</name>
-    <message>
-        <source>Linear Dimension</source>
-        <translation type="vanished">Doğrusal Ölçü</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">Boyut Katmanı</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">Pen nitelikleri</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation angle of dimension</source>
-        <translation type="vanished">Rotasyon açısının boyutu</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgDimension</name>
-    <message>
-        <source>Dimension</source>
-        <translation type="vanished">Boyut</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">Boyut Katmanı</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">Pen nitelikleri</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgEllipse</name>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellipse</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of ellipse</source>
-        <translation type="vanished">Elips katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Rotation angle for the major axis of ellipse, degrees</source>
-        <translation type="vanished">Elpse&apos;nin ana eksenleri için Rotation açısı, dereceler</translation>
-    </message>
-    <message>
-        <source>Defines whether arc is reversed</source>
-        <translation type="vanished">Ayının tersine çevrildiğini tanımlar</translation>
-    </message>
-    <message>
-        <source>Reversed</source>
-        <translation type="vanished">Tersane</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">Merkez (y):</translation>
-    </message>
-    <message>
-        <source>End angle of elliptic arc, degrees</source>
-        <translation type="vanished">Elptik ark açısı, derece</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of arc&apos;s center</source>
-        <translation type="vanished">Y arkın merkezi</translation>
-    </message>
-    <message>
-        <source>Radius of major axis of ellipse</source>
-        <translation type="vanished">Radius, elpse</translation>
-    </message>
-    <message>
-        <source>in degrees</source>
-        <translation type="vanished">derecelerde</translation>
-    </message>
-    <message>
-        <source>Start Angle(°):</source>
-        <translation type="vanished">Start Angle (°):</translation>
-    </message>
-    <message>
-        <source>Rotation(°):</source>
-        <translation type="vanished">Rotation (°):</translation>
-    </message>
-    <message>
-        <source>Radius of minor axis of the ellipse</source>
-        <translation type="vanished">Radius, elpsenin küçük eksenlerinden</translation>
-    </message>
-    <message>
-        <source>End Angle(°):</source>
-        <translation type="vanished">End Angle (°):</translation>
-    </message>
-    <message>
-        <source>Start angle of elliptic arc, degrees</source>
-        <translation type="vanished">Elptik ark açısına başlayın, derece</translation>
-    </message>
-    <message>
-        <source>Major:</source>
-        <translation type="vanished">Binbaşı:</translation>
-    </message>
-    <message>
-        <source>Minor:</source>
-        <translation type="vanished">Minor:</translation>
-    </message>
-    <message>
-        <source>X Coordinate of ellipse&apos;s center</source>
-        <translation type="vanished">X elpse&apos;nin merkezini koordine eder</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">Merkez (x):</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
     </message>
 </context>
 <context>
@@ -40683,105 +36956,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
     </message>
 </context>
 <context>
-    <name>QG_DlgImage</name>
-    <message>
-        <source>Image</source>
-        <translation type="vanished">Image</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of image</source>
-        <translation type="vanished">Görüntü katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Yükseklik:</translation>
-    </message>
-    <message>
-        <source>Width of image</source>
-        <translation type="vanished">Görüntünün genişliği</translation>
-    </message>
-    <message>
-        <source>insert (y):</source>
-        <translation type="vanished">Ekle (y):</translation>
-    </message>
-    <message>
-        <source>X coordinate of insertion point</source>
-        <translation type="vanished">X ekleme noktasının koordinatörü</translation>
-    </message>
-    <message>
-        <source>Resolution (dots per inch)</source>
-        <translation type="vanished">Karar (küre başına)</translation>
-    </message>
-    <message>
-        <source>Path to image file</source>
-        <translation type="vanished">Görüntü dosyası için yol</translation>
-    </message>
-    <message>
-        <source>Scaling factor</source>
-        <translation type="vanished">Scaling faktör</translation>
-    </message>
-    <message>
-        <source>Size (px):</source>
-        <translation type="vanished">Boyut (px):</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Y coordinate of insertion point</source>
-        <translation type="vanished">Y ekleme noktasının koordinatörü</translation>
-    </message>
-    <message>
-        <source>path:</source>
-        <translation type="vanished">Yol:</translation>
-    </message>
-    <message>
-        <source>insert (x):</source>
-        <translation type="vanished">Ekle (x):</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">Ölçek:</translation>
-    </message>
-    <message>
-        <source>Size of image in pixels</source>
-        <translation type="vanished">Ekran boyutu</translation>
-    </message>
-    <message>
-        <source>DPI</source>
-        <translation type="vanished">DPI</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Genişlik:</translation>
-    </message>
-    <message>
-        <source>Height of image</source>
-        <translation type="vanished">Görüntünün yüksekliği</translation>
-    </message>
-    <message>
-        <source>Select an image file</source>
-        <translation type="vanished">Bir görüntü dosyasını seçin</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgInitial</name>
     <message>
         <location filename="../src/ui/dialogs/main/qg_dlginitial.ui" line="32"/>
@@ -40804,167 +36978,9 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <translation>Arayüz Dili:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700;&quot;&gt;Welcome to LibreCAD&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Please choose the unit you want to use for new drawings and your preferred language for Ui and Command.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;You can changes these settings later.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700;&quot;&gt;LibreCAD&apos;e Hoş Geldiniz&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Lütfen yeni çizimler için kullanmak istediğiniz birimi ve kullanıcı arayüzü ve komut için tercih ettiğiniz dili seçin.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Bu ayarları daha sonra değiştirebilirsiniz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/main/qg_dlginitial.ui" line="187"/>
         <source>Command Language:</source>
         <translation>Komut Dili:</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgInsert</name>
-    <message>
-        <source>Insert</source>
-        <translation type="vanished">Ekle</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of insert</source>
-        <translation type="vanished">Ekleme katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Insertion point (y):</source>
-        <translation type="vanished">Kesion noktası (y):</translation>
-    </message>
-    <message>
-        <source>Insertion point (x):</source>
-        <translation type="vanished">Kesion noktası (x):</translation>
-    </message>
-    <message>
-        <source>Amount of rows for copies</source>
-        <translation type="vanished">Kopyalar için tablolar</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Spacing between columns</source>
-        <translation type="vanished">Sütunlar arasında</translation>
-    </message>
-    <message>
-        <source>Scaling factor by X axis</source>
-        <translation type="vanished">X eksenli faktör</translation>
-    </message>
-    <message>
-        <source>X coordinate of insertion point</source>
-        <translation type="vanished">X ekleme noktasının koordinatörü</translation>
-    </message>
-    <message>
-        <source>Spacing between rows</source>
-        <translation type="vanished">Satırlar arasında Spacing</translation>
-    </message>
-    <message>
-        <source>Amount of columns for copies</source>
-        <translation type="vanished">Kopyalar için sütunlar</translation>
-    </message>
-    <message>
-        <source>Scaling factor by Y axis</source>
-        <translation type="vanished">Y eksen</translation>
-    </message>
-    <message>
-        <source>Scale Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>Rows:</source>
-        <translation type="vanished">Rows:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Y coordinate of insertion point</source>
-        <translation type="vanished">Y ekleme noktasının koordinatörü</translation>
-    </message>
-    <message>
-        <source>Row Spacing:</source>
-        <translation type="vanished">Satır Aralığı:</translation>
-    </message>
-    <message>
-        <source>Columns:</source>
-        <translation type="vanished">Köşeler:</translation>
-    </message>
-    <message>
-        <source>Scale X:</source>
-        <translation type="vanished">X Ölçeği:</translation>
-    </message>
-    <message>
-        <source>Column Spacing:</source>
-        <translation type="vanished">Köşe Spacing:</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgLine</name>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Çizgi</translation>
-    </message>
-    <message>
-        <source>ID: </source>
-        <translation type="vanished">ID: </translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of line</source>
-        <translation type="vanished">Çizgi katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>End point (x):</source>
-        <translation type="vanished">Bitiş noktası (x):</translation>
-    </message>
-    <message>
-        <source>Ending point X coordinate</source>
-        <translation type="vanished">Ending point X koordinatörü</translation>
-    </message>
-    <message>
-        <source>Ending point Y coordinate</source>
-        <translation type="vanished">Ending point Y koordinat</translation>
-    </message>
-    <message>
-        <source>End point (y):</source>
-        <translation type="vanished">Bitiş noktası (y):</translation>
-    </message>
-    <message>
-        <source>Start point (y):</source>
-        <translation type="vanished">Başlangıç noktası (y):</translation>
-    </message>
-    <message>
-        <source>Starting point Y coordinate</source>
-        <translation type="vanished">Başlangıç noktası Y koordinat</translation>
-    </message>
-    <message>
-        <source>Start point (x):</source>
-        <translation type="vanished">Başlangıç noktası (x):</translation>
-    </message>
-    <message>
-        <source>Starting point X coordinate</source>
-        <translation type="vanished">Başlangıç noktası X koordinatörü</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
     </message>
 </context>
 <context>
@@ -41135,10 +37151,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <translation>Sembol Ekle</translation>
     </message>
     <message>
-        <source>Symbol insertion</source>
-        <translation type="vanished">Sembol ekler</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="881"/>
         <source>Degree (°)</source>
         <translation>Derece (°)</translation>
@@ -41187,10 +37199,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="929"/>
         <source>Pound (£)</source>
         <translation>Sterlin (£)</translation>
-    </message>
-    <message>
-        <source>Yen (¥)</source>
-        <translation type="vanished">Yen (¥)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="872"/>
@@ -41826,115 +37834,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.cpp" line="250"/>
         <source>Pen</source>
         <translation>Pen</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMirror</name>
-    <message>
-        <source>Mirroring Options</source>
-        <translation type="vanished">Yansılama Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMove</name>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">&amp;Çoklu Kopya</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Move/Copy Options</source>
-        <translation type="vanished">Taşı/Kopyala Seçenekleri</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMoveRotate</name>
-    <message>
-        <source>Move/Rotate Options</source>
-        <translation type="vanished">Taşı/Döndür Seçenekleri</translation>
-    </message>
-    <message>
-        <source>&amp;Angle (a):</source>
-        <translation type="vanished">&amp;Açı (a):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="vanished">Ctrl+S</translation>
     </message>
 </context>
 <context>
@@ -44951,10 +40850,6 @@ Bu, Bloğun kendisinin tüm varlıklarını yinelemeli olarak değiştirir.</tra
         <translation>Rev Marker</translation>
     </message>
     <message>
-        <source>Behavior</source>
-        <translation type="vanished">Davranış</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1021"/>
         <source>Type of grid to be drawn</source>
         <translation>Eklenmek için ızgara türü</translation>
@@ -46010,287 +41905,6 @@ yani pişirme için gereken varsayılan adım değeri</translation>
     </message>
 </context>
 <context>
-    <name>QG_DlgOptionsVariables</name>
-    <message>
-        <source>Drawing Variables</source>
-        <translation type="vanished">Çizim değişkenleri</translation>
-    </message>
-    <message>
-        <source>Variable</source>
-        <translation type="vanished">Değişken</translation>
-    </message>
-    <message>
-        <source>Code</source>
-        <translation type="vanished">Kod Kodu</translation>
-    </message>
-    <message>
-        <source>Value</source>
-        <translation type="vanished">Değer değeri</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation type="vanished">&amp;Tamam</translation>
-    </message>
-    <message>
-        <source>Alt+O</source>
-        <translation type="vanished">Alt+O</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">İptal</translation>
-    </message>
-    <message>
-        <source>Esc</source>
-        <translation type="vanished">Esc</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgPoint</name>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">Point</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of point</source>
-        <translation type="vanished">Nokta katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Position (y):</source>
-        <translation type="vanished">Pozisyon (y):</translation>
-    </message>
-    <message>
-        <source>Position of point by Y coordinate</source>
-        <translation type="vanished">Y koordinatörü</translation>
-    </message>
-    <message>
-        <source>Position (x):</source>
-        <translation type="vanished">Pozisyon (x):</translation>
-    </message>
-    <message>
-        <source>Position of point by X coordinate</source>
-        <translation type="vanished">X koordinatörü</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgPolyline</name>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of polyline</source>
-        <translation type="vanished">Çoklu çizgi katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Defines whether polyline is closed contour</source>
-        <translation type="vanished">Poliline kapalı konsüsün kapalı olup olmadığını tanımlar</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">Kapalı</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgRotate</name>
-    <message>
-        <source>Rotation Options</source>
-        <translation type="vanished">Döndürme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies:</source>
-        <translation type="vanished">&amp;Çoklu Kopya:</translation>
-    </message>
-    <message>
-        <source>&amp;Angle (a):</source>
-        <translation type="vanished">&amp;Açı (a):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgRotate2</name>
-    <message>
-        <source>Rotate Two Options</source>
-        <translation type="vanished">İki Seçenekle Döndür</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">&amp;Çoklu Kopya</translation>
-    </message>
-    <message>
-        <source>Angle (&amp;a):</source>
-        <translation type="vanished">Açı (&amp;a):</translation>
-    </message>
-    <message>
-        <source>Angle (&amp;b):</source>
-        <translation type="vanished">Açı (&amp;b):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgScale</name>
-    <message>
-        <source>Scaling Options</source>
-        <translation type="vanished">Oranlama Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">Şimdiki &amp;öznitelikleri kullan</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">Şimdiki &amp;katmanı kullan</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Merkezin etrafındaki ölçekleme oranları bir referans noktası ve bir hedef noktası bulun.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">Kopya sayısı</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">Aslını &amp;Sil</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">Aslını Sil&amp;me</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">&amp;Çoklu Kopya</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Scale by the same factor at both x- and y- directions</source>
-        <translation type="vanished">Hem x- hem de y- yönünde aynı çarpanla ölçekle</translation>
-    </message>
-    <message>
-        <source>Isotropic Scaling</source>
-        <translation type="vanished">Eşit Ölçekle</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgSpline</name>
-    <message>
-        <source>Spline</source>
-        <translation type="vanished">Spline</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">Katman:</translation>
-    </message>
-    <message>
-        <source>Layer of spline</source>
-        <translation type="vanished">Eğri katmanı</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">Geometri</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">Derece:</translation>
-    </message>
-    <message>
-        <source>Defines whether spline defines closed contour</source>
-        <translation type="vanished">Spline&apos;in kapalı kontratürü tanımladığını tanımlar</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">Kapalı</translation>
-    </message>
-    <message>
-        <source>Degree used to approximate spline</source>
-        <translation type="vanished">Derece yaklaşık spline</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Kalem</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgText</name>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="20"/>
@@ -46443,10 +42057,6 @@ yani pişirme için gereken varsayılan adım değeri</translation>
         <translation>Sterlin (£)</translation>
     </message>
     <message>
-        <source>Yen (¥)</source>
-        <translation type="vanished">Yen (¥)</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="1007"/>
         <source>Times (×)</source>
         <translation>Çarpı (×)</translation>
@@ -46490,10 +42100,6 @@ yani pişirme için gereken varsayılan adım değeri</translation>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="197"/>
         <source>Layer of text</source>
         <translation>Metin çevirisi</translation>
-    </message>
-    <message>
-        <source>Obligue of text</source>
-        <translation type="vanished">Metin çevirisi</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="261"/>
@@ -47096,10 +42702,6 @@ yani pişirme için gereken varsayılan adım değeri</translation>
         <translation>Açı:</translation>
     </message>
     <message>
-        <source>Oblique:</source>
-        <translation type="vanished">Eğiklik:</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="317"/>
         <source>Width factor:</source>
         <translation>Genişlik çarpanı:</translation>
@@ -47174,84 +42776,89 @@ yani pişirme için gereken varsayılan adım değeri</translation>
 <context>
     <name>QG_FileDialog</name>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="135"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
         <source>Drawing Exchange DXF 2000 %1</source>
         <translation>Çizim Değişim DXF 2000 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="137"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
         <source>Drawing Exchange DXF R12 %1</source>
         <translation>Çizim Değişim DXF R12 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
         <source>LFF Font %1</source>
         <translation>LFF Yazı tipi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="144"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
         <source>QCad Font %1</source>
         <translation>QCad Yazı tipi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="150"/>
         <source>Jww Drawing %1</source>
         <translation>Jww Çizim %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="143"/>
         <source>Drawing Exchange %1</source>
         <translation>Çizim Değişimi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="146"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
         <source>QCad 1.x file %1</source>
         <translation>QCad 1.x dosyası %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="133"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
         <source>Drawing Exchange DXF 2007 %1</source>
         <translation>Çizim Değişim DXF 2007 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="134"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="139"/>
         <source>Drawing Exchange DXF 2004 %1</source>
         <translation>Çizim Değişim DXF 2004 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="136"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="141"/>
         <source>Drawing Exchange DXF R14 %1</source>
         <translation>Çizim Değişim DXF R14 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="151"/>
+        <source>ESRI Shapefile %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="155"/>
         <source>Block</source>
         <comment>block file</comment>
         <translation>Blok</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="158"/>
         <source>Drawing</source>
         <comment>drawing file</comment>
         <translation>Çizim</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="174"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="180"/>
         <source>Open %1</source>
         <translation>Aç %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="266"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="272"/>
         <source>Save %1 As</source>
         <translation>%1 Farklı Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="147"/>
         <source>dwg Drawing %1</source>
         <translation>dwg Çizim %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="248"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="254"/>
         <source>Untitled</source>
         <translation>İsimsiz</translation>
     </message>
@@ -47617,21 +43224,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>QG_PrintPreviewOptions</name>
-    <message>
-        <source>Invalid scale provided</source>
-        <translation type="vanished">Invalid ölçek provided</translation>
-    </message>
-    <message>
-        <source>Paper scale factor larger than max print ratio</source>
-        <translation type="vanished">Kağıt ölçek faktörü max baskı oranından daha büyük</translation>
-    </message>
-    <message>
-        <source>Paper scale factor smaller than min print ratio</source>
-        <translation type="vanished">Kağıt ölçek faktörü min baskı oranından daha küçük</translation>
-    </message>
-</context>
-<context>
     <name>QG_RecentFiles</name>
     <message>
         <location filename="../src/ui/main/support/qg_recentfiles.cpp" line="183"/>
@@ -47698,58 +43290,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="227"/>
         <source>World</source>
         <translation>Dünya</translation>
-    </message>
-    <message>
-        <source>Snap</source>
-        <translation type="vanished">Snap</translation>
-    </message>
-    <message>
-        <source>Snap to Endpoints</source>
-        <translation type="vanished">Uç noktalara yapış</translation>
-    </message>
-    <message>
-        <source>Snap to equidistant points of entity</source>
-        <translation type="vanished">Nesnenin eşit aralıklı noktalarına yapış</translation>
-    </message>
-    <message>
-        <source>Snap to center points</source>
-        <translation type="vanished">Merkez noktalara yapış</translation>
-    </message>
-    <message>
-        <source>Snap to intersections automatically</source>
-        <translation type="vanished">Kesişimlere otomatik yapış</translation>
-    </message>
-    <message>
-        <source>Snap to closest point on entity</source>
-        <translation type="vanished">Nesne üzerindeki en yakın noktaya yapış</translation>
-    </message>
-    <message>
-        <source>Snap to point with given distance to endpoint</source>
-        <translation type="vanished">Uç noktadan belirli uzaklıktaki noktaya yapış</translation>
-    </message>
-    <message>
-        <source>Snap to intersections manually</source>
-        <translation type="vanished">Kesişimlere el ile yapış</translation>
-    </message>
-    <message>
-        <source>Snap to grid</source>
-        <translation type="vanished">Izgara ya yapış</translation>
-    </message>
-    <message>
-        <source>Restrict Horizontally</source>
-        <translation type="vanished">Yatay sınırla</translation>
-    </message>
-    <message>
-        <source>Restrict Vertically</source>
-        <translation type="vanished">Dikey sınırla</translation>
-    </message>
-    <message>
-        <source>Move relative Zero</source>
-        <translation type="vanished">Göreli sıfırı taşı</translation>
-    </message>
-    <message>
-        <source>Lock relative Zero</source>
-        <translation type="vanished">Göreli sıfırı kilitle</translation>
     </message>
 </context>
 <context>
@@ -47950,12 +43490,6 @@ Lütfen farklı bir değeri belirtin.</translation>
         <translation>Boş tabakaları kaldır</translation>
     </message>
     <message>
-        <source>Layer(s) without entities found, yet they are filtered and not visible.
-Clear filtering mask and repeat.</source>
-        <translation type="vanished">Katman(s) bulunan varlıklar olmadan, ancak filtrelenmiş ve görünmezler.
-Clear filtreleme maskesi ve tekrar.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="963"/>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
@@ -48021,14 +43555,6 @@ If No - &quot;By Layer&quot; values remains and so pen of target layer will defi
 Evet ise — &quot;Katmana göre&quot; kalemlere sahip nesneler yeni katmanda önceki katmanlardaki gibi görünür ve değer çözümlenmiş kalemlerle değiştirilir.
 
 Hayır ise — &quot;Katmana göre&quot; değerleri kalır ve hedef katmanın kalemi bu nesnelerin kalemini tanımlar.</translation>
-    </message>
-    <message>
-        <source>Replace &quot;By Layer&quot; value to source layers values?
-If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
-If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
-        <translation type="vanished">&quot;Katmana Göre&quot; değerini kaynak katman değerleriyle değiştirelim mi?
-Evet ise, &quot;Katmana Göre&quot; kalemlerine sahip varlıklar yeni katmanda tam olarak önceki katmanlardaki gibi görünecek ve &quot;Katmana Göre&quot; değeri çözülmüş kalemlerle değiştirilecektir.
-Hayır ise, &quot;Katmana Göre&quot; değerleri korunacak ve böylece hedef katmanın kalemi bu tür varlıklar için kalemi tanımlayacaktır.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1805"/>
@@ -48195,35 +43721,35 @@ Lütfen farklı bir değeri belirtin.</translation>
         <translation>X Piksel Haritası</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="349"/>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="410"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="355"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="416"/>
         <source>Save Drawing As</source>
         <translation>Çizimi Farklı Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="411"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="417"/>
         <source>%1 already exists.
 Do you want to replace it?</source>
         <translation>%1 zaten var.
 Üzerine yazılsın mı?</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="468"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
         <source>Drawing Exchange %1</source>
         <translation>Çizim Değişimi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="473"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="479"/>
         <source>QCad 1.x file %1</source>
         <translation>QCad 1.x dosyası %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="475"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="481"/>
         <source>Font %1</source>
         <translation>Yazı tipi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="500"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="506"/>
         <source>Open Drawing</source>
         <translation>Çizim Aç</translation>
     </message>
@@ -48401,12 +43927,12 @@ Do you want to replace it?</source>
         <translation>metin gir</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="480"/>
         <source>LFF Font %1</source>
         <translation>LFF Yazı tipi %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="476"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="482"/>
         <source>Jww %1</source>
         <translation>Jww %1</translation>
     </message>
@@ -48471,130 +43997,122 @@ Do you want to replace it?</source>
         <translation>Etiketli Resim Dosyası Formatı(tiff)</translation>
     </message>
     <message>
-        <source>Old Drawing Exchange %1</source>
-        <translation type="vanished">Eski Çizim Değişimi %1</translation>
-    </message>
-    <message>
-        <source>Opened dwg file version %1.</source>
-        <translation type="vanished">Dwg dosyası sürüm %1 açıldı.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1022"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1023"/>
         <source>error reading DXF/DWG header data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG başlık verilerini okurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1119"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1120"/>
         <source>Opened DWG file version %1.</source>
         <translation>DWG dosyası sürüm %1 açıldı.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1123"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1124"/>
         <source>DWG load: %1 %2 had parse errors and were skipped. Drawing loaded with the rest.</source>
         <translation>DWG yükleme: %1 %2 ayrıştırma hataları içerdi ve atlandı. Çizim geri kalanıyla yüklendi.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1126"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
         <source>entity</source>
         <translation>nesne</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1128"/>
         <source>entities</source>
         <translation>nesne</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1151"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1152"/>
         <source>, and %n more class(es)</source>
         <translation>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1154"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1155"/>
         <source>DWG load: %1 vendor-extension entities not rendered (%2). These are typically AutoCAD Mechanical or other vertical-product custom classes that libdxfrw cannot decode.</source>
         <translation>DWG yükleme: %1 satıcı uzantısı nesne işlenemedi (%2). Bunlar genellikle libdxfrw&apos;nun çözemediği AutoCAD Mechanical veya diğer özel ürünlerin özel sınıflarıdır.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1180"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1181"/>
         <source>, and %n more object type(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1183"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1184"/>
         <source>DWG load: %1 unsupported metadata object(s) skipped (%2). Drawing geometry may still be complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1269"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1270"/>
         <source>DWG/DXF load: %1 XREF block(s) (%2) loaded but not INSERTed into modelspace. Their externally-referenced geometry won&apos;t be visible — AutoCAD typically renders these through a paper-space layout viewport, which LibreCAD doesn&apos;t render.</source>
         <translation>DWG/DXF yükleme: %1 XREF bloğu (%2) yüklendi ancak model uzayına eklenmedi. Dışarıdan referans alınan geometri görünmez olacak — AutoCAD bunları genellikle LibreCAD&apos;in desteklemediği kâğıt uzayı düzeni görünümü üzerinden işler.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1625"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1626"/>
         <source>XREF not resolved for block &quot;%1&quot;: %2 (file not found in host directory). The block will render as empty.</source>
         <translation>&quot;%1&quot; bloğu için XREF çözümlenemedi: %2 (ana dizinde dosya bulunamadı). Blok boş olarak işlenecek.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1654"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1655"/>
         <source>XREF load failed for block &quot;%1&quot;: %2</source>
         <translation>&quot;%1&quot; bloğu için XREF yüklenemedi: %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12410"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12454"/>
         <source>unknown error opening dwg file</source>
         <translation>dwg dosyasını açarken bilinmeyen hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12413"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12457"/>
         <source>can&apos;t open this dwg file</source>
         <translation>bu dwg dosyası açılamıyor</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12420"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12464"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <translation>DWG açılamıyor: dosya %1; LibreCAD %2 ve daha yenisini destekler. GNU LibreDWG (dwgread / dwg2dxf) ile dönüştürün veya güncel bir CAD aracından yeniden kaydedin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12431"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12475"/>
         <source>unsupported dwg version</source>
         <translation>desteklenmeyen dwg sürümü</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12438"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12482"/>
         <source>error reading file header in dwg file</source>
         <translation>dwg dosyasında dosya başlığı okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12441"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12485"/>
         <source>error reading header vars in dwg file</source>
         <translation>dwg dosyasındaki başlık değişiklikleri okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12444"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12488"/>
         <source>error reading classes in dwg file</source>
         <translation>dwg dosyasındaki sınıflar okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12447"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12491"/>
         <source>error reading offsets in dwg file</source>
         <translation>dwg dosyasındaki ofsetler okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12450"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12494"/>
         <source>error reading tables in dwg file</source>
         <translation>dwg dosyasındaki tablolar okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12456"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12500"/>
         <source>error reading entities in dwg file</source>
         <translation>dwg dosyasındaki varlıklar okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="471"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="477"/>
         <source>dwg Drawing %1</source>
         <translation>dwg Çizim %1</translation>
     </message>
@@ -48609,17 +44127,17 @@ Do you want to replace it?</source>
         <translation>(%2, %3) ile (%4, %5) arasındaki boşluk=%1 nedeniyle tarama başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="125"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="126"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12453"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12497"/>
         <source>error reading blocks in dwg file</source>
         <translation>dwg dosyasındaki bloklar okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12459"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12503"/>
         <source>error reading objects in dwg file</source>
         <translation>dwg dosyasındaki nesneler okunurken hata</translation>
     </message>
@@ -49775,7 +45293,7 @@ Do you want to replace it?</source>
         <translation>Yok</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12435"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12479"/>
         <source>error reading file metadata in dwg file</source>
         <translation>dwg dosyasındaki meta verileri okunurken hata</translation>
     </message>
@@ -50128,11 +45646,6 @@ Do you want to replace it?</source>
         <source>mpoint</source>
         <comment>draw middle of points</comment>
         <translation>mpoint</translation>
-    </message>
-    <message>
-        <source>criclebyarc</source>
-        <comment>draw circle by arc</comment>
-        <translation type="vanished">criclebyarc</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="218"/>
@@ -51851,144 +47364,135 @@ Do you want to replace it?</source>
         <translation>mimari e</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="85"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="86"/>
         <source>DWG support is not complete!</source>
         <translation>DWG desteği tamamlanmadı!</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="87"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
         <source>If this file fails to open try an older DWG format</source>
         <translation>Bu dosya açılmazsa daha eski bir DWG biçimini deneyin</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="89"/>
         <source>or try to find a converter to make it a DXF file.</source>
         <translation>veya bunu bir DXF dosyasına çevirecek bir dönüştürücü bulmayı deneyin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="91"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="92"/>
         <source>Information</source>
         <translation>Bilgiler</translation>
     </message>
     <message>
-        <source>DWG support is not complete; if this file fails to open try an older DWG format or convert it to DXF.</source>
-        <translation type="vanished">DWG desteği tamamlanmamış; bu dosya açılmıyorsa daha eski bir DWG biçimi deneyin veya DXF&apos;e dönüştürün.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="104"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
         <source>Error</source>
         <comment>fileImport</comment>
         <translation>Hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="106"/>
         <source>Import error:</source>
         <comment>fileImport</comment>
         <translation>İçe aktar hatası:</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="119"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
         <translation>Her neyse, tanımlanmış bazı varlıklar var.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="121"/>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
         <translation>Dosyayı şimdi açarsanız çizim tamamlanmamış veya kullanılamaz durumda olabilir.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="122"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="123"/>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
         <translation>Hatayı göz ardı edip dosya açılsın mı?</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1003"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1004"/>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG hatası yok</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1005"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1006"/>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG dosyası açılırken hata oluştu</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1009"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1010"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DWG açılamıyor: dosya %1; LibreCAD %2 ve daha yenisini destekler. GNU LibreDWG (dwgread / dwg2dxf) ile dönüştürün veya güncel bir CAD aracından yeniden kaydedin.</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1016"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1017"/>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>desteklenmeyen DXF/DWG dosya sürümü</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1018"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1019"/>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG meta verileri okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1020"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1021"/>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG dosya başlığını okurken hata</translation>
     </message>
     <message>
-        <source>error reading DXF/DWG header dara</source>
-        <comment>RS_FilterDXFRW</comment>
-        <translation type="vanished">DXF/DWG başlık verileri okunurken hata</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1024"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1025"/>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG nesne haritası okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1026"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1027"/>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG sınıfları okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1028"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1029"/>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG tabloları okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1030"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1031"/>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG bloklarını okurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1032"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1033"/>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG varlıklarını okurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1034"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1035"/>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG nesneleri okunurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1036"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1037"/>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG bölümlerini okurken hata</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1038"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1039"/>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG kodu okunurken hata</translation>
@@ -52003,26 +47507,6 @@ Do you want to replace it?</source>
         <location filename="../src/main/console_dxf2pdf/console_dxf2pdf.cpp" line="85"/>
         <source>usage: </source>
         <translation>kullanım: </translation>
-    </message>
-    <message>
-        <source> [options] &lt;dxf_files&gt;</source>
-        <translation type="vanished">[options] [seçenekler] &lt;dxf_dosyaları&gt;</translation>
-    </message>
-    <message>
-        <source> *.dxf</source>
-        <translation type="vanished"> *.dxf</translation>
-    </message>
-    <message>
-        <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation type="vanished">-- tüm dxf dosyalarını aynı addaki pdf dosyalarına yazdır.</translation>
-    </message>
-    <message>
-        <source> -o some.pdf *.dxf</source>
-        <translation type="vanished">-o some.pdf *.dxf</translation>
-    </message>
-    <message>
-        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
-        <translation type="vanished">-- tüm dxf dosyalarını &apos;some.pdf&apos; dosyasına yazdır.</translation>
     </message>
     <message>
         <location filename="../src/main/console_dxf2pdf/console_dxf2pdf.cpp" line="86"/>
@@ -52100,16 +47584,6 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Paper size (Width x Height) in mm.</source>
-        <comment>WxH</comment>
-        <translation type="vanished">Kağıt boyutu (Genişlik x Yükseklik), mm.</translation>
-    </message>
-    <message>
-        <source>Output resolution (DPI).</source>
-        <comment>integer</comment>
-        <translation type="vanished">Çıktı çözünürlüğü (DPI).</translation>
-    </message>
-    <message>
         <location filename="../src/main/console_dxf2pdf/console_dxf2pdf.cpp" line="129"/>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
         <translation>Çıktı ölçeği. Örn.: 0.01 (1:100 ölçeği için).</translation>
@@ -52155,14 +47629,6 @@ Do you want to replace it?</source>
         <location filename="../src/main/console_dxf2dwg.cpp" line="189"/>
         <source>Input %1 file(s).</source>
         <translation>Giriş dosyası(ları): %1.</translation>
-    </message>
-    <message>
-        <source>&lt;dxf_files&gt;</source>
-        <translation type="vanished">&lt;dxf_files&gt;</translation>
-    </message>
-    <message>
-        <source>Input DXF file(s)</source>
-        <translation type="vanished">DXF dosyalarını gir</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandwidget.cpp" line="56"/>
@@ -52410,7 +47876,7 @@ Do you want to replace it?</source>
         <translation>PDF&apos;ye ihracat</translation>
     </message>
     <message>
-        <location filename="../src/lib/printing/lc_printing.cpp" line="165"/>
+        <location filename="../src/lib/printing/lc_printing.cpp" line="166"/>
         <source>PDF files (*.pdf);;All files (*.*)</source>
         <translation>PDF dosyaları (*.pdf);; Tüm dosyalar (*.*)</translation>
     </message>
@@ -52571,21 +48037,23 @@ Do you want to replace it?</source>
         <translation>[Override]</translation>
     </message>
     <message>
-        <source>Draft</source>
-        <translation type="vanished">Taslak</translation>
-    </message>
-    <message>
         <location filename="../src/ui/qg_actionhandler.cpp" line="86"/>
         <source>%2 - command for &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="412"/>
+        <source>Cannot open shapefile %1 (missing or corrupt .shx?)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="541"/>
+        <source>Shapefile %1 contained %2 records but none were readable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksCreate</name>
-    <message>
-        <source>Select to create block (Enter to complete)</source>
-        <translation type="vanished">Blok oluşturmak için seçin (Enter to complete)</translation>
-    </message>
     <message>
         <location filename="../src/actions/dock_widgets/block/rs_actionblockscreate.cpp" line="105"/>
         <source>Select contour</source>
@@ -52600,68 +48068,6 @@ Do you want to replace it?</source>
         <location filename="../src/actions/dock_widgets/block/rs_actionblockscreate.cpp" line="111"/>
         <source>Specify reference point</source>
         <translation>Başlangıç noktası belirtilir</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionBlocksExplode</name>
-    <message>
-        <source>Select to explode container (Enter to complete)</source>
-        <translation type="vanished">Gürültülü konteyner (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Select and explode</source>
-        <translation type="vanished">Seç ve patlama</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionBlocksInsert</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Başlangıç noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">Açıyı girin:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">Çarpanı girin:</translation>
-    </message>
-    <message>
-        <source>Enter columns:</source>
-        <translation type="vanished">Sütun sayısı:</translation>
-    </message>
-    <message>
-        <source>Enter rows:</source>
-        <translation type="vanished">Satır sayısı:</translation>
-    </message>
-    <message>
-        <source>Enter column spacing:</source>
-        <translation type="vanished">Sütun genişliği:</translation>
-    </message>
-    <message>
-        <source>Enter row spacing:</source>
-        <translation type="vanished">Satır yüksekliği:</translation>
-    </message>
-    <message>
-        <source>Block cannot contain an insert of itself.</source>
-        <translation type="vanished">Blok kendisinin bir ekini içeremez.</translation>
-    </message>
-    <message>
-        <source> has nested insert of current block in:
-</source>
-        <translation type="vanished"> geçerli bloğun iç içe geçmiş ekini içeriyor:
-</translation>
-    </message>
-    <message>
-        <source>
-This block cannot be inserted.</source>
-        <translation type="vanished">
-Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
@@ -52913,270 +48319,6 @@ Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawArc</name>
-    <message>
-        <source>Length of chord should be non-zero</source>
-        <translation type="vanished">Chordin uzunluğu olmayan olmalıdır</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Not a valid chord length</source>
-        <translation type="vanished">Geçerli bir kiriş uzunluğu değil</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">Merkezi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify start point</source>
-        <translation type="vanished">Başlangıç noktanızı girin</translation>
-    </message>
-    <message>
-        <source>Alternative Arc</source>
-        <translation type="vanished">Alternatif Arc</translation>
-    </message>
-    <message>
-        <source>Specify chord length (negative for alt point):</source>
-        <translation type="vanished">Chord uzunluğu (orta nokta için uygun):</translation>
-    </message>
-    <message>
-        <source>Use alternative arc point</source>
-        <translation type="vanished">Alternatif ark noktası kullanın</translation>
-    </message>
-    <message>
-        <source>Specify radius</source>
-        <translation type="vanished">Yarıçapı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify start angle:</source>
-        <translation type="vanished">Başlangıç açısı:</translation>
-    </message>
-    <message>
-        <source>Specify end angle or [angle/chordlen]</source>
-        <translation type="vanished">Son bakış açısı veya [kahkaha/chordlen]</translation>
-    </message>
-    <message>
-        <source>Specify included angle:</source>
-        <translation type="vanished">İç açı:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawArc3P</name>
-    <message>
-        <source>Invalid arc data.</source>
-        <translation type="vanished">Veriler geçersiz.</translation>
-    </message>
-    <message>
-        <source>Specify third point</source>
-        <translation type="vanished">Üçüncü noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">İkinci noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify startpoint or [center]</source>
-        <translation type="vanished">Başlangıç noktası veya [merkez] belirt</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawArcTangential</name>
-    <message>
-        <source>Specify base entity</source>
-        <translation type="vanished">Baz varlığı belirtin</translation>
-    </message>
-    <message>
-        <source>Alternate arc</source>
-        <translation type="vanished">Alternatif ark</translation>
-    </message>
-    <message>
-        <source>Alternate Arc</source>
-        <translation type="vanished">Alternatif Arc</translation>
-    </message>
-    <message>
-        <source>Specify end angle</source>
-        <translation type="vanished">Bitiş açısını belirtin</translation>
-    </message>
-    <message>
-        <source>Specify end point</source>
-        <translation type="vanished">Uç noktayı belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">Merkezi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify point on circle</source>
-        <translation type="vanished">Çemberde noktayı belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle2P</name>
-    <message>
-        <source>Invalid Circle data.</source>
-        <translation type="vanished">Veriler geçersiz.</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">İlk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">İkinci noktayı belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle3P</name>
-    <message>
-        <source>Invalid circle data.</source>
-        <translation type="vanished">Veriler geçersiz.</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">İlk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">İkinci noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify third point</source>
-        <translation type="vanished">Üçüncü noktayı belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleCR</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify circle center</source>
-        <translation type="vanished">Çemberin merkezini belirtin</translation>
-    </message>
-    <message>
-        <source>Specify circle radius</source>
-        <translation type="vanished">Çemberin yarıçapını belirtin</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (expression)</source>
-        <translation type="vanished">yarı çap=%1 geçersiz (ifade)</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (negative)</source>
-        <translation type="vanished">yarı çap=%1 geçersiz (negatif)</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (zero)</source>
-        <translation type="vanished">yarıçap=%1 geçersiz (sıfır)</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleInscribe</name>
-    <message>
-        <source>Specify the first line</source>
-        <translation type="vanished">İlk çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify the second line</source>
-        <translation type="vanished">İkinci çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify the third line</source>
-        <translation type="vanished">Üçüncü çizgiyi belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan1_2P</name>
-    <message>
-        <source>Specify the first point on the tangent circle</source>
-        <translation type="vanished">Teğet çember üzerindeki ilk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify the second point on the tangent circle</source>
-        <translation type="vanished">Teğet çember üzerindeki ikinci noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">Teğet çemberin merkezini seçin</translation>
-    </message>
-    <message>
-        <source>Specify a line/arc/circle</source>
-        <translation type="vanished">Bir çizgi/yay/çember belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan2</name>
-    <message>
-        <source>Specify the first line/arc/circle</source>
-        <translation type="vanished">İlk çizgiyi/yayı/çemberi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify the second line/arc/circle</source>
-        <translation type="vanished">İkinci çizgiyi/yayı/çemberi belirtin</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">Teğet çemberin merkezini seçin</translation>
-    </message>
-    <message>
-        <source>No common tangential circle for radius &apos;%1&apos;</source>
-        <translation type="vanished">&apos;%1&apos; yarı çapı için ortak teğet çember yok</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan2_1P</name>
-    <message>
-        <source>Specify a line/arc/circle</source>
-        <translation type="vanished">Bir çizgi/yay/çember belirtin</translation>
-    </message>
-    <message>
-        <source>Specify the another line/arc/circle</source>
-        <translation type="vanished">Başka bir çizgi/arc/circle</translation>
-    </message>
-    <message>
-        <source>Specify a point on the tangent circle</source>
-        <translation type="vanished">Teğet çember üzerinde bir nokta belirtin</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">Teğet çemberin merkezini seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan3</name>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">Teğet çemberin merkezini seçin</translation>
-    </message>
-    <message>
-        <source>Specify the first line/arc/circle</source>
-        <translation type="vanished">İlk çizgiyi/yayı/çemberi belirtin</translation>
-    </message>
-    <message>
-        <source>No common tangential circle for selected entities</source>
-        <translation type="vanished">Seçilmiş varlıklar için ortak somut bir çember</translation>
-    </message>
-    <message>
-        <source>Specify the second line/arc/circle</source>
-        <translation type="vanished">İkinci çizgiyi/yayı/çemberi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify the third line/arc/circle</source>
-        <translation type="vanished">Üçüncü çizgiyi/yayı/çemberi belirtin</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawEllipse4Points</name>
     <message>
         <location filename="../src/actions/drawing/draw/ellipse/rs_actiondrawellipse4points.cpp" line="282"/>
@@ -53371,125 +48513,9 @@ Bu blok eklenemez.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select to hatch (Enter to complete)</source>
-        <translation type="vanished">Dokunmayı seçin (Enter to complete)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/draw/hatch/rs_actiondrawhatch.cpp" line="185"/>
         <source>Hatch immediately after selection</source>
         <translation>Hemen seçimden sonra</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawImage</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Başlangıç noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">Açıyı girin:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">Çarpanı girin:</translation>
-    </message>
-    <message>
-        <source>Enter dpi:</source>
-        <translation type="vanished">Dpi girin:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLine</name>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">İlk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify next point or [%1]</source>
-        <translation type="vanished">Sonraki noktayı ya da [%1] belirtin</translation>
-    </message>
-    <message>
-        <source>Specify next point</source>
-        <translation type="vanished">Sonraki noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
-        <translation type="vanished">Çizgi dizisi kapatılamıyor: Henüz yeterli sayıda varlık tanımlanmamış veya zaten kapatılmış.</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Begin of history reached</source>
-        <translation type="vanished">Geri alınamıyor: Geçmişin başlangıcına ulaşıldı</translation>
-    </message>
-    <message>
-        <source>Cannot redo: End of history reached</source>
-        <translation type="vanished">İleri al yapılamıyor: Geçmişin sonuna ulaşıldı</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineAngle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify position</source>
-        <translation type="vanished">Yerini belirtin</translation>
-    </message>
-    <message>
-        <source>Alternate Direction</source>
-        <translation type="vanished">Alternatif Yön</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">Açıyı girin:</translation>
-    </message>
-    <message>
-        <source>Enter length:</source>
-        <translation type="vanished">Uzunluğu girin:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineBisector</name>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">varlıklar oluşturulacak</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Select first line</source>
-        <translation type="vanished">İlk kenarı seçin</translation>
-    </message>
-    <message>
-        <source>Select second line</source>
-        <translation type="vanished">İkinci çizgiyi seçin</translation>
-    </message>
-    <message>
-        <source>Enter bisector length:</source>
-        <translation type="vanished">Açıortay uzunluğunu girin:</translation>
-    </message>
-    <message>
-        <source>Enter number of bisectors:</source>
-        <translation type="vanished">Açıortay sayısı:</translation>
-    </message>
-    <message>
-        <source>Number sector lines not in range: </source>
-        <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation type="vanished">Aralık içinde olmayan sektör çizgi sayısı: </translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineFree</name>
-    <message>
-        <source>Click and drag to draw a line</source>
-        <translation type="vanished">Çizgiyi çizmek için tıklayın ve fareyi sürükleyin</translation>
     </message>
 </context>
 <context>
@@ -53522,74 +48548,6 @@ Bu blok eklenemez.</translation>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawlineorthtan.cpp" line="260"/>
         <source>Select circle, arc or ellipse</source>
         <translation>Çember, yay ya da elips seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineParallel</name>
-    <message>
-        <source>Specify Distance &lt;%1&gt; or select entity or [%2]</source>
-        <translation type="vanished">Mesafe belirtin &lt;%1&gt; ya da varlık veya [%2] seçin</translation>
-    </message>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">varlıklar oluşturulacak</translation>
-    </message>
-    <message>
-        <source>Enter number:</source>
-        <translation type="vanished">Paralel sayısı:</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Not a valid number. Try 1..99</source>
-        <translation type="vanished">Paralel sayısı geçersiz: 1..99 arasında olmalı</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineParallelThrough</name>
-    <message>
-        <source>Select entity</source>
-        <translation type="vanished">Varlık seçin</translation>
-    </message>
-    <message>
-        <source>Specify through point</source>
-        <translation type="vanished">Geçiş noktasını belirtin</translation>
-    </message>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">varlıklar oluşturulacak</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Paralel sayısı:</translation>
-    </message>
-    <message>
-        <source>Not a valid number. Try 1..99</source>
-        <translation type="vanished">Paralel sayısı geçersiz. 1..99 arasında olmalı</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLinePolygonCenCor</name>
-    <message>
-        <source>Specify a corner</source>
-        <translation type="vanished">Bir köşe belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLinePolygonCorCor</name>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">İlk köşeyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">İkinci köşeyi belirtin</translation>
     </message>
 </context>
 <context>
@@ -53631,29 +48589,6 @@ Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawLineRelAngle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Select base entity</source>
-        <translation type="vanished">Temel varlığı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify angle</source>
-        <translation type="vanished">Konum km</translation>
-    </message>
-    <message>
-        <source>Specify length</source>
-        <translation type="vanished">Tesis uzunluğu</translation>
-    </message>
-    <message>
-        <source>Specify position</source>
-        <translation type="vanished">Kesişme yerini belirtin</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawLineTangent1</name>
     <message>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawlinetangent1.cpp" line="199"/>
@@ -53691,17 +48626,6 @@ Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawMText</name>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">Yerleşme noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Enter text:</source>
-        <translation type="vanished">Metni girin:</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawPoint</name>
     <message>
         <location filename="../src/actions/drawing/draw/point/lc_action_draw_point.cpp" line="88"/>
@@ -53710,108 +48634,7 @@ Bu blok eklenemez.</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawPolyline</name>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">İlk noktayı belirt</translation>
-    </message>
-    <message>
-        <source>Specify next point or [%1]</source>
-        <translation type="vanished">Sonraki noktayı belirtin veya [%1]</translation>
-    </message>
-    <message>
-        <source>Specify next point</source>
-        <translation type="vanished">Sonraki noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Cannot close sequence of lines: Not enough entities defined yet.</source>
-        <translation type="vanished">Çoklu çizgi kapatılamıyor: Henüz yeterli sayıda varlık tanımlanmadı.</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">Geri alınamıyor: Henüz yeterli sayıda varlık tanımlanmadı.</translation>
-    </message>
-    <message>
-        <source>Enter the end point x</source>
-        <translation type="vanished">Bitiş noktası x&apos;i girin</translation>
-    </message>
-    <message>
-        <source>Enter number of polylines</source>
-        <translation type="vanished">Çoklu çizgi sayısını girin</translation>
-    </message>
-    <message>
-        <source>Enter an equation, f(x)</source>
-        <translation type="vanished">Bir denklem girin, f(x)</translation>
-    </message>
-    <message>
-        <source>x</source>
-        <translation type="vanished">x</translation>
-    </message>
-    <message>
-        <source>Enter the start point x</source>
-        <translation type="vanished">Başlangıç noktası x&apos;i girin</translation>
-    </message>
-    <message>
-        <source>The entered x is invalid.</source>
-        <translation type="vanished">Girilen x geçersiz.</translation>
-    </message>
-    <message>
-        <source>The step size entered is invalid.</source>
-        <translation type="vanished">Girilen adım boyutu geçersiz.</translation>
-    </message>
-    <message>
-        <source>The value x entered is invalid.</source>
-        <translation type="vanished">Girilen x değeri geçersiz.</translation>
-    </message>
-    <message>
-        <source>Alternative Arc</source>
-        <translation type="vanished">Alternatif Arc</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawSpline</name>
-    <message>
-        <source>Specify first control point</source>
-        <translation type="vanished">İlk kontrol noktasını belirt</translation>
-    </message>
-    <message>
-        <source>Specify next control point or [%1]</source>
-        <translation type="vanished">Sonraki kontrol noktasını belirtin veya [%1]</translation>
-    </message>
-    <message>
-        <source>Specify next control point</source>
-        <translation type="vanished">Sonraki kontrol noktasını belirt</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">Geri alınamıyor: Henüz yeterli sayıda varlık tanımlanmadı.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawText</name>
-    <message>
-        <source>Text: </source>
-        <translation type="vanished">Text:</translation>
-    </message>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">Yerleştirileceği noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Enter text:</source>
-        <translation type="vanished">Metni girin:</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">İkinci noktayı belirtin</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionEditCopyPaste</name>
-    <message>
-        <source>Select to cut (Enter to complete)</source>
-        <translation type="vanished">Kesmeyi seçin (Enter to complete)</translation>
-    </message>
     <message>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="175"/>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="180"/>
@@ -53830,10 +48653,6 @@ Bu blok eklenemez.</translation>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="180"/>
         <source>Cut right after selection</source>
         <translation>Hemen seçimden sonra kes</translation>
-    </message>
-    <message>
-        <source>Select to copy (Enter to complete)</source>
-        <translation type="vanished">Kopyalamayı seçin (Enter to complete)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="174"/>
@@ -53871,24 +48690,6 @@ Bu blok eklenemez.</translation>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="208"/>
         <source>Paste Multiple</source>
         <translation>Paste multiple</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionEditPaste</name>
-    <message>
-        <source>Set paste reference point</source>
-        <translation type="vanished">Set Chip referans noktası</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionEditUndo</name>
-    <message>
-        <source>Nothing to undo!</source>
-        <translation type="vanished">Geri alınacak bir şey yok!</translation>
-    </message>
-    <message>
-        <source>Nothing to redo!</source>
-        <translation type="vanished">İleri alınacak bir şey yok!</translation>
     </message>
 </context>
 <context>
@@ -54109,57 +48910,6 @@ End: (%8, %9)</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionInfoDist2</name>
-    <message>
-        <source>Distance: %1
-Cartesian: (%2 , %3)
-Polar: (%4 &lt; %5)
-Point On Entity: (%6 , %7)
-Point: (%8 , %9)</source>
-        <translation type="vanished">Mesafe: %1
-Cartesian: (%2,%)
-Polar: (%4 &lt; %5)
-Puan Entity: (%6, %7)
-Puan: (%8, %9)</translation>
-    </message>
-    <message>
-        <source>Specify entity</source>
-        <translation type="vanished">Varlığı belirtin</translation>
-    </message>
-    <message>
-        <source>Do not snap to child entities in container</source>
-        <translation type="vanished">Konteynerlerdeki çocuk varlıklarına dolma</translation>
-    </message>
-    <message>
-        <source>Relative point is on entity</source>
-        <translation type="vanished">Relative noktası varlık üzerindedir</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="vanished">Info</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">Mesafe:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>From:</source>
-        <translation type="vanished">From:</translation>
-    </message>
-    <message>
-        <source>To:</source>
-        <translation type="vanished">To:</translation>
-    </message>
-    <message>
-        <source>Specify point</source>
-        <translation type="vanished">Noktayı belirtin</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionInfoInside</name>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfoinside.cpp" line="57"/>
@@ -54205,10 +48955,6 @@ Puan: (%8, %9)</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select to measure total length (Enter to complete)</source>
-        <translation type="vanished">Toplam uzunluğu ölçmek için seçin (Enter to complete)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/info/rs_actioninfototallength.cpp" line="74"/>
         <source>Select contour</source>
         <translation>Paket seçin</translation>
@@ -54240,917 +48986,6 @@ Puan: (%8, %9)</translation>
         <location filename="../src/lib/actions/rs_actioninterface.cpp" line="640"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionLibraryInsert</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Yerleştirme noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">Açıyı girin:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">Çarpanı girin:</translation>
-    </message>
-    <message>
-        <source>Cannot open file &apos;%1&apos;</source>
-        <translation type="vanished">&apos;%1&apos; dosyası açılamıyor</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyAttributes</name>
-    <message>
-        <source>Select to modify attributes (Enter to complete)</source>
-        <translation type="vanished">Özellikleri değiştirmek için seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Modify attributes immediately after selecting</source>
-        <translation type="vanished">Değiştirdikten hemen sonra özellikleri değiştirin</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyBevel</name>
-    <message>
-        <source>Selected lines are parallel</source>
-        <translation type="vanished">Seçilmiş çizgiler paraleldir</translation>
-    </message>
-    <message>
-        <source>Selected lines are not children of the same polyline</source>
-        <translation type="vanished">Seçilen çizgiler aynı polilinen çocukları değildir</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">Trim</translation>
-    </message>
-    <message>
-        <source>Intersection:</source>
-        <translation type="vanished">Intersection:</translation>
-    </message>
-    <message>
-        <source>Point 1:</source>
-        <translation type="vanished">1</translation>
-    </message>
-    <message>
-        <source>Point 2:</source>
-        <translation type="vanished">2</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-trimmable).</source>
-        <translation type="vanished">Invalid varlık seçilmiş (yardım edilemez).</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-atomic).</source>
-        <translation type="vanished">Invalid varlık seçilmiş (atomik olmayan).</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-trimmable with first entity).</source>
-        <translation type="vanished">Invalid varlık seçilmiş (ilk varlıkla yetersiz).</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Select first entity</source>
-        <translation type="vanished">İlk varlığı seçin</translation>
-    </message>
-    <message>
-        <source>Select second entity</source>
-        <translation type="vanished">İkinci varlığı seçin</translation>
-    </message>
-    <message>
-        <source>Enter length 1:</source>
-        <translation type="vanished">1. uzunluğu girin:</translation>
-    </message>
-    <message>
-        <source>Enter length 2:</source>
-        <translation type="vanished">2. uzunluğu girin:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyCut</name>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">Bölün</translation>
-    </message>
-    <message>
-        <source>At:</source>
-        <translation type="vanished">At:</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Cutting point may not be entity&apos;s endpoint.</source>
-        <translation type="vanished">Kesme noktası, varlığın son noktası olmayabilir.</translation>
-    </message>
-    <message>
-        <source>Specify entity to cut</source>
-        <translation type="vanished">Kesilecek varlığı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify cutting point</source>
-        <translation type="vanished">Kesme noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation type="vanished">Varlık bir çizgi, yay, çember, elips veya interpolasyon eğri çizgisi olmalıdır.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDelete</name>
-    <message>
-        <source>Select to delete (Enter to complete)</source>
-        <translation type="vanished">Silmek için (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Delete immediately after selection</source>
-        <translation type="vanished">Hemen seçimden sonra delete</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDeleteFree</name>
-    <message>
-        <source>Specify first break point on a polyline</source>
-        <translation type="vanished">Çoklu çizgide ilk kırılma noktasını belirt</translation>
-    </message>
-    <message>
-        <source>Specify second break point on the same polyline</source>
-        <translation type="vanished">Aynı çoklu çizgi üzerinde ikinci kırılma noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Entities not in the same polyline.</source>
-        <translation type="vanished">Varlıklar aynı çoklu çizgide değil.</translation>
-    </message>
-    <message>
-        <source>Parent of second entity is not a polyline</source>
-        <translation type="vanished">İkinci varlığın atası çoklu çizgi değil</translation>
-    </message>
-    <message>
-        <source>Parent of first entity is not a polyline</source>
-        <translation type="vanished">İlk varlığın atası çoklu çizgi değil</translation>
-    </message>
-    <message>
-        <source>Parent of second entity is nullptr</source>
-        <translation type="vanished">İkinci varlığın atası nullptr</translation>
-    </message>
-    <message>
-        <source>One of the chosen entities is nullptr</source>
-        <translation type="vanished">Seçilen varlıklardan biri nullptr</translation>
-    </message>
-    <message>
-        <source>Parent of first entity is nullptr</source>
-        <translation type="vanished">İlk varlığın atası nullptr</translation>
-    </message>
-    <message>
-        <source>First entity is nullptr</source>
-        <translation type="vanished">İlk varlık nullptr</translation>
-    </message>
-    <message>
-        <source>Second entity is nullptr</source>
-        <translation type="vanished">İkinci varlık nullptr</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDeleteQuick</name>
-    <message>
-        <source>Pick entity to delete</source>
-        <translation type="vanished">Silinecek nesneyi seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyEntity</name>
-    <message>
-        <source>Click on entity to modify</source>
-        <translation type="vanished">Değiştirmek için varlığa tıklayın</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyExplodeText</name>
-    <message>
-        <source>Select to explode text (Enter to complete)</source>
-        <translation type="vanished">Bombalamayı seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Explode immediately after selection</source>
-        <translation type="vanished">Explode hemen seçimden sonra</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMirror</name>
-    <message>
-        <source>Mirror</source>
-        <translation type="vanished">Ayna</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Angle (alt):</source>
-        <translation type="vanished">Lanet (alt):</translation>
-    </message>
-    <message>
-        <source>Line From:</source>
-        <translation type="vanished">RS_ActionModifyMirror: Başlangıç Noktası:</translation>
-    </message>
-    <message>
-        <source>Line To:</source>
-        <translation type="vanished">RS_ActionModifyMirror: Bitiş Noktası:</translation>
-    </message>
-    <message>
-        <source>Select to mirror (Enter to complete)</source>
-        <translation type="vanished">Aynayı seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Specify mirror line</source>
-        <translation type="vanished">Ayna çizgisi</translation>
-    </message>
-    <message>
-        <source>Flip Vertically</source>
-        <translation type="vanished">Flip</translation>
-    </message>
-    <message>
-        <source>Flip Horizontally</source>
-        <translation type="vanished">Flip yatayly</translation>
-    </message>
-    <message>
-        <source>Specify first point of mirror line</source>
-        <translation type="vanished">Aynalama çizgisinin ilk noktasını belirt</translation>
-    </message>
-    <message>
-        <source>Specify second point of mirror line</source>
-        <translation type="vanished">Yansılama ekseninin ikinci noktasını belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMove</name>
-    <message>
-        <source>Moving Offset</source>
-        <translation type="vanished">Move Offset</translation>
-    </message>
-    <message>
-        <source>Copy Offset</source>
-        <translation type="vanished">Kopya Offset</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Başlama noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Create a Copy</source>
-        <translation type="vanished">Bir Kopya Oluştur</translation>
-    </message>
-    <message>
-        <source>Select to move (Enter to complete)</source>
-        <translation type="vanished">Hareket etmeyi seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Move immediately after selection</source>
-        <translation type="vanished">Hemen seçimden sonra hareket edin</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">Hedef noktasını belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMoveRotate</name>
-    <message>
-        <source>Moving with rotation</source>
-        <translation type="vanished">Rotasyon ile hareket edin</translation>
-    </message>
-    <message>
-        <source>Source:</source>
-        <translation type="vanished">Kaynak:</translation>
-    </message>
-    <message>
-        <source>Target:</source>
-        <translation type="vanished">Hedef:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Başlama noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Select to move and rotate  (Enter to complete)</source>
-        <translation type="vanished">Hareket etmeyi ve döndürmeyi seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Move and rotate immediately after selection</source>
-        <translation type="vanished">Hareket ve hemen seçimden sonra döner ve döner</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">Hedef noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Enter rotation angle:</source>
-        <translation type="vanished">Döndürme açısı:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyOffset</name>
-    <message>
-        <source>Offset</source>
-        <translation type="vanished">Offset</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">Mesafe:</translation>
-    </message>
-    <message>
-        <source>Specify direction of offset</source>
-        <translation type="vanished">Öteleme yönünü belirtin</translation>
-    </message>
-    <message>
-        <source>Specify reference point for direction of offset</source>
-        <translation type="vanished">Boşluk yönünde referans noktası</translation>
-    </message>
-    <message>
-        <source>Select line, polyline, circle, arc or ellipse to create offset (Enter to complete)</source>
-        <translation type="vanished">Ofseti oluşturmak için çizgi, çoklu çizgi, çember, yay veya elipsi seçin (Enter ile tamamla)</translation>
-    </message>
-    <message>
-        <source>Select line, polyline, circle or arc to create offset (Enter to complete)</source>
-        <translation type="vanished">Çizgi seçin, poliline, çember veya ark dengeleme oluşturmak için (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Offset immediately after selection</source>
-        <translation type="vanished">Offset hemen seçimden sonra</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRevertDirection</name>
-    <message>
-        <source>Select to revert direction (Enter to complete)</source>
-        <translation type="vanished">Revert yönü seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Revert immediately after selection</source>
-        <translation type="vanished">Hemen seçim yaptıktan sonra</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRotate</name>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Döndürme noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation type="vanished">Rotation</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Source Point:</source>
-        <translation type="vanished">RS_ActionModifyRotate: Kaynak Noktası:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">Hedef Puanı:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Reference Point:</source>
-        <translation type="vanished">Referans noktası:</translation>
-    </message>
-    <message>
-        <source>Center Point:</source>
-        <translation type="vanished">Merkez Noktası:</translation>
-    </message>
-    <message>
-        <source>Second Angle:</source>
-        <translation type="vanished">İkinci Boyut:</translation>
-    </message>
-    <message>
-        <source>Select to rotate (Enter to complete)</source>
-        <translation type="vanished">Döndürmeyi seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Rotate immediately after selection</source>
-        <translation type="vanished">Hemen seçimden sonra Rotate</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Snap to center of selection</source>
-        <translation type="vanished">Snap to center of Selection</translation>
-    </message>
-    <message>
-        <source>Specify rotation center</source>
-        <translation type="vanished">Döndürme merkezini belirtin</translation>
-    </message>
-    <message>
-        <source>Specify target point to rotate to</source>
-        <translation type="vanished">Döndürülecek hedef noktayı belirtin</translation>
-    </message>
-    <message>
-        <source>Specify target point for rotation around reference point</source>
-        <translation type="vanished">Referans noktası etrafında rotasyon için hedef noktası</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRotate2</name>
-    <message>
-        <source>Rotating Twice</source>
-        <translation type="vanished">Rotating twice</translation>
-    </message>
-    <message>
-        <source>Center 1:</source>
-        <translation type="vanished">Merkez 1:</translation>
-    </message>
-    <message>
-        <source>Angle 1:</source>
-        <translation type="vanished">1</translation>
-    </message>
-    <message>
-        <source>Center 2:</source>
-        <translation type="vanished">Merkez 2:</translation>
-    </message>
-    <message>
-        <source>Angle 2:</source>
-        <translation type="vanished">2</translation>
-    </message>
-    <message>
-        <source>Select for two axis rotation  (Enter to complete)</source>
-        <translation type="vanished">İki eksen rotasyonu için seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Rotate 2 Axis immediately after selection</source>
-        <translation type="vanished">Rotate 2 Axis hemen seçimden sonra</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Specify absolute reference point</source>
-        <translation type="vanished">Mutlak döndürme noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Specify relative reference point</source>
-        <translation type="vanished">Göreli döndürme noktasını belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRound</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">Yuvarlak</translation>
-    </message>
-    <message>
-        <source>Point 1:</source>
-        <translation type="vanished">1</translation>
-    </message>
-    <message>
-        <source>Point 2:</source>
-        <translation type="vanished">2</translation>
-    </message>
-    <message>
-        <source>Specify second entity</source>
-        <translation type="vanished">İkinci varlığı belirtin</translation>
-    </message>
-    <message>
-        <source>Enter radius:</source>
-        <translation type="vanished">Yarıçapı girin:</translation>
-    </message>
-    <message>
-        <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation type="vanished">İlk varlığı belirtin veya yarıçapı girin &lt;%1&gt;</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyScale</name>
-    <message>
-        <source>Scale</source>
-        <translation type="vanished">Scale</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">Merkez:</translation>
-    </message>
-    <message>
-        <source>Source Point:</source>
-        <translation type="vanished">RS_ActionModifyScale: Kaynak Noktası:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">Hedef Puanı:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Scale by X:</source>
-        <translation type="vanished">X Tarafından Scale:</translation>
-    </message>
-    <message>
-        <source>Scale by Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>Specify scale center</source>
-        <translation type="vanished">Konum</translation>
-    </message>
-    <message>
-        <source>Snap to center of selection</source>
-        <translation type="vanished">Snap to center of Selection</translation>
-    </message>
-    <message>
-        <source>Specify source point</source>
-        <translation type="vanished">Source point</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">€ hedef noktası</translation>
-    </message>
-    <message>
-        <source>Free snap</source>
-        <translation type="vanished">RS_ActionModifyScale: Serbest hizalama</translation>
-    </message>
-    <message>
-        <source>Select to scale  (Enter to complete)</source>
-        <translation type="vanished">Ölçeklendirmeyi seçin (Enter to complete)</translation>
-    </message>
-    <message>
-        <source>Scale immediately after selection</source>
-        <translation type="vanished">Hemen seçimden sonra</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyStretch</name>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">İlk köşeyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">İkinci köşeyi belirtin</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="vanished">Çığ</translation>
-    </message>
-    <message>
-        <source>Start Corner:</source>
-        <translation type="vanished">Köşeye Başlayın:</translation>
-    </message>
-    <message>
-        <source>End Corner:</source>
-        <translation type="vanished">RS_ActionModifyStretch: Bitiş Köşesi:</translation>
-    </message>
-    <message>
-        <source>Reference Point:</source>
-        <translation type="vanished">Referans noktası:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">Hedef Puanı:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">Offset:</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">Başlama noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">Hedef noktasını belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyTrim</name>
-    <message>
-        <source>Select first trim entity</source>
-        <translation type="vanished">İlk kırpma varlığını seçin</translation>
-    </message>
-    <message>
-        <source>Select limiting entity</source>
-        <translation type="vanished">Sınırlayıcı varlığı seçin</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">Trim</translation>
-    </message>
-    <message>
-        <source>Trim Two</source>
-        <translation type="vanished">RS_ActionModifyTrim: İkinci Kesme</translation>
-    </message>
-    <message>
-        <source>Intersection:</source>
-        <translation type="vanished">Intersection:</translation>
-    </message>
-    <message>
-        <source>Intersection 2:</source>
-        <translation type="vanished">RS_ActionModifyTrim: 2. Kesişim Noktası:</translation>
-    </message>
-    <message>
-        <source>Select second trim entity</source>
-        <translation type="vanished">İkinci kırpma varlığını seçin</translation>
-    </message>
-    <message>
-        <source>Select entity to trim</source>
-        <translation type="vanished">Kırpılacak varlığı seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyTrimAmount</name>
-    <message>
-        <source>No entity found.</source>
-        <translation type="vanished">Hiçbir varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>The chosen Entity is not an atomic entity or cannot be trimmed.</source>
-        <translation type="vanished">Seçilen Varlık atomik bir varlık değil veya kırpılamaz.</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">Geçerli bir ifade değil</translation>
-    </message>
-    <message>
-        <source>Select line/arc to trim OR enter length value:</source>
-        <translation type="vanished">Line/arc&apos;ı kesmek için seçin OR uzun değeri girin:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionOrder</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Choose entities (Enter to Complete)</source>
-        <translation type="vanished">Varlıkları seçin (Enter to Complete)</translation>
-    </message>
-    <message>
-        <source>Order immediately after selection</source>
-        <translation type="vanished">Hemen seçimden sonra sipariş</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-    <message>
-        <source>Choose entity for order</source>
-        <translation type="vanished">Dizmek için varlık seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineAdd</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Adding point is invalid.</source>
-        <translation type="vanished">Ekleme noktası geçersiz.</translation>
-    </message>
-    <message>
-        <source>Adding point is not on entity.</source>
-        <translation type="vanished">Ekleme noktası varlık üzerinde değil.</translation>
-    </message>
-    <message>
-        <source>Specify polyline to add nodes</source>
-        <translation type="vanished">Düğüm eklenecek çoklu çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify adding node&apos;s point</source>
-        <translation type="vanished">Düğüm ekleme noktasını belirtin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineAppend</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Click somewhere near the beginning or end of existing polyline.</source>
-        <translation type="vanished">Mevcut çoklu çizginin başlangıcına veya sonuna yakın bir yere tıklayın.</translation>
-    </message>
-    <message>
-        <source>Enter number of polylines</source>
-        <translation type="vanished">Birçok polilines girin</translation>
-    </message>
-    <message>
-        <source>Specify the polyline somewhere near the beginning or end point</source>
-        <translation type="vanished">Çoklu çizgiyi başlangıç veya bitiş noktasına yakın bir yerde belirtin</translation>
-    </message>
-    <message>
-        <source>Can not append nodes in a closed polyline.</source>
-        <translation type="vanished">Kapalı çoklu çizgiye düğümler eklenemez.</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">Geri alınamıyor: Henüz yeterli sayıda varlık tanımlanmadı.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineDel</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Specify polyline to delete node</source>
-        <translation type="vanished">Düğümü silmek için çoklu çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify deleting node&apos;s point</source>
-        <translation type="vanished">Silinecek düğüm noktasını belirtin</translation>
-    </message>
-    <message>
-        <source>Deleting point is invalid.</source>
-        <translation type="vanished">Silme noktası geçersiz.</translation>
-    </message>
-    <message>
-        <source>Deleting point is not on entity.</source>
-        <translation type="vanished">Silme noktası varlıkta değil.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineDelBetween</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Deleting point is not on entity.</source>
-        <translation type="vanished">Silme noktası varlıkta değil.</translation>
-    </message>
-    <message>
-        <source>No polyline found.</source>
-        <translation type="vanished">Hiçbir poliline bulunamadı.</translation>
-    </message>
-    <message>
-        <source>At least two segments of polyline should be between selected points.</source>
-        <translation type="vanished">En az iki polilinen segmentleri seçilmiş noktalar arasında olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Specify polyline to delete between two nodes</source>
-        <translation type="vanished">İki düğüm arası silinecek çoklu çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify first node</source>
-        <translation type="vanished">İlk düğümü belirtin</translation>
-    </message>
-    <message>
-        <source>Specify second node</source>
-        <translation type="vanished">İkinci düğümü belirtin</translation>
-    </message>
-    <message>
-        <source>Deleting point is invalid.</source>
-        <translation type="vanished">Silme noktası geçersiz.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineEquidistant</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Choose the original polyline</source>
-        <translation type="vanished">Özgün çoklu çizgiyi seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineSegment</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Choose one of the segments on the original polyline</source>
-        <translation type="vanished">Özgün çoklu çizgideki bölümlerden birini seçin</translation>
-    </message>
-    <message>
-        <source>Entity can not be a closed polyline.</source>
-        <translation type="vanished">Varlık kapalı çoklu çizgi olamaz.</translation>
-    </message>
-    <message>
-        <source>Polyline created</source>
-        <translation type="vanished">Çoklu çizgi oluşturuldu</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineTrim</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">Varlık bulunamadı.</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">Varlık bir çoklu çizgi olmalıdır.</translation>
-    </message>
-    <message>
-        <source>First segment should be on selected polyline.</source>
-        <translation type="vanished">İlk segment seçilmiş poliline olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Second segment should be on selected polyline and not equal to first one.</source>
-        <translation type="vanished">İkinci segment seçilmiş poliline olmalıdır ve ilkine eşit olmamalıdır.</translation>
-    </message>
-    <message>
-        <source>Specify polyline to trim</source>
-        <translation type="vanished">Kırpılacak çoklu çizgiyi belirtin</translation>
-    </message>
-    <message>
-        <source>Specify first segment</source>
-        <translation type="vanished">İlk bölümü belirtin</translation>
-    </message>
-    <message>
-        <source>Specify second segment</source>
-        <translation type="vanished">İkinci bölümü belirtin</translation>
     </message>
 </context>
 <context>
@@ -55227,113 +49062,11 @@ Puan: (%8, %9)</translation>
     </message>
 </context>
 <context>
-    <name>RS_ActionSelect</name>
-    <message>
-        <source>No entity selected!</source>
-        <translation type="vanished">Hiçbir varlık seçilmiş!</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionSelectBase</name>
     <message>
         <location filename="../src/lib/actions/rs_actionselectbase.h" line="51"/>
         <source> (Enter or CTRL+LMB click to complete)</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectContour</name>
-    <message>
-        <source>Entity must be an Atomic Entity.</source>
-        <translation type="vanished">Varlık bir Atomik Varlık olmalıdır.</translation>
-    </message>
-    <message>
-        <source>Specify entity to select</source>
-        <translation type="vanished">Seçilmiş varlık</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectIntersected</name>
-    <message>
-        <source>Choose first point of intersection line</source>
-        <translation type="vanished">Kesişen çizginin ilk noktasını seçin</translation>
-    </message>
-    <message>
-        <source>Select intersecting entity</source>
-        <translation type="vanished">Yetkinliği seçin</translation>
-    </message>
-    <message>
-        <source>Select child entities</source>
-        <translation type="vanished">Çocuk varlıklarını seçin</translation>
-    </message>
-    <message>
-        <source>Choose second point of intersection line</source>
-        <translation type="vanished">Kesişen çizginin ikinci noktasını seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectLayer</name>
-    <message>
-        <source>Specify entity with desired layer</source>
-        <translation type="vanished">İstenen katman ile varlık</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectSingle</name>
-    <message>
-        <source>Specify entity to select</source>
-        <translation type="vanished">Seçilmiş varlık</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">Paket seçin</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectWindow</name>
-    <message>
-        <source>De-Selecting</source>
-        <translation type="vanished">De- Selecting</translation>
-    </message>
-    <message>
-        <source>Selecting</source>
-        <translation type="vanished">Selecting</translation>
-    </message>
-    <message>
-        <source> entities </source>
-        <translation type="vanished">varlıklar</translation>
-    </message>
-    <message>
-        <source>that intersect with box</source>
-        <translation type="vanished">bu kutu ile birlikte</translation>
-    </message>
-    <message>
-        <source>that are within box</source>
-        <translation type="vanished">bu kutu içinde</translation>
-    </message>
-    <message>
-        <source>Choose second edge</source>
-        <translation type="vanished">İkinci kenarı seçin</translation>
-    </message>
-    <message>
-        <source>Select Intersecting</source>
-        <translation type="vanished">Intersecting</translation>
-    </message>
-    <message>
-        <source>De-select entities</source>
-        <translation type="vanished">De-select varlıklar</translation>
-    </message>
-    <message>
-        <source>Select entities</source>
-        <translation type="vanished">Varlıkları seçin</translation>
-    </message>
-    <message>
-        <source>De-select intersecting</source>
-        <translation type="vanished">De-select-secting</translation>
-    </message>
-    <message>
-        <source>Click and drag for the selection window</source>
-        <translation type="vanished">Seçim penceresi için tıklayıp sürükleyin</translation>
     </message>
 </context>
 <context>
@@ -55641,158 +49374,6 @@ Puan: (%8, %9)</translation>
     </message>
 </context>
 <context>
-    <name>Ui_ArcOptions</name>
-    <message>
-        <source>Arc Options</source>
-        <translation type="vanished">Yay Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">Saatyönününtersi</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">Saat Yönü</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_ArcTangentialOptions</name>
-    <message>
-        <source>Tangential Arc Options</source>
-        <translation type="vanished">Teğetsel Yay Seçenekleri</translation>
-    </message>
-    <message>
-        <source>If selected, tangental arc with specified radius will be created</source>
-        <translation type="vanished">Eğer seçilmişse, belirtilmiş yarı ile tangental yay oluşturulacak</translation>
-    </message>
-    <message>
-        <source>Radius of the tangential arc</source>
-        <translation type="vanished">Teğetsel yayın yarı çapı</translation>
-    </message>
-    <message>
-        <source>If selected, arc with specified angle will be created</source>
-        <translation type="vanished">Eğer seçilmişse, belirtilen açı ile ark oluşturulacaktır</translation>
-    </message>
-    <message>
-        <source>Total subtending angle of the tangential arc</source>
-        <translation type="vanished">Teğet yayın toplam açısı</translation>
-    </message>
-    <message>
-        <source>Pick radius form drawing</source>
-        <translation type="vanished">Pick yarı formu çizim</translation>
-    </message>
-    <message>
-        <source>Radius</source>
-        <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="vanished">Yarı çap</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="vanished">Açı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_BevelOptions</name>
-    <message>
-        <source>Bevel Options</source>
-        <translation type="vanished">Pah Kırma Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Check to trim both entities to the bevel</source>
-        <translation type="vanished">Her iki varlığı pah kırma için kontrol et</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">Kırp</translation>
-    </message>
-    <message>
-        <source>Length 1:</source>
-        <translation type="vanished">Uzunluk 1:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X yöndeki bevel uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Pick first length form drawing</source>
-        <translation type="vanished">İlk uzun form çizimi seçin</translation>
-    </message>
-    <message>
-        <source>Length 2:</source>
-        <translation type="vanished">Uzunluk 2:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y yöndeki bevel uzunluğu.</translation>
-    </message>
-    <message>
-        <source>Pick second length form drawing</source>
-        <translation type="vanished">İkinci uzun form çizimini seçin</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_CircleOptions</name>
-    <message>
-        <source>Circle Options</source>
-        <translation type="vanished">Çember Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Radius of circle</source>
-        <translation type="vanished">Radius of Circle</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">Çizimten Yarısı Çekin</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_CircleTan2Options</name>
-    <message>
-        <source>Circle Tangential2 Options</source>
-        <translation type="vanished">Teğetsel2 Çember Seçenekleri</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çizilecek teğetsel çemberin yarı çapı&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Radius of tangential circle</source>
-        <translation type="vanished">Teğetsel çemberin yarıçapı</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">Çizimten Yarısı Çekin</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_DimLinearOptions</name>
-    <message>
-        <source>Linear Dimension Options</source>
-        <translation type="vanished">Doğrusal ölçü seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Angle of dimension</source>
-        <translation type="vanished">Ölçü açısı</translation>
-    </message>
-</context>
-<context>
     <name>Ui_DimOptions</name>
     <message>
         <location filename="../src/ui/action_options/dimensions/qg_dimoptions.ui" line="32"/>
@@ -55929,849 +49510,6 @@ Puan: (%8, %9)</translation>
     </message>
 </context>
 <context>
-    <name>Ui_ImageOptions</name>
-    <message>
-        <source>Insert Options</source>
-        <translation type="vanished">Yerleştirme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">Döndürme Açısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Scale Factor:</source>
-        <translation type="vanished">Ölçek Faktörü:</translation>
-    </message>
-    <message>
-        <source>DPI:</source>
-        <translation type="vanished">DPI:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">Büyütme Çarpanı</translation>
-    </message>
-    <message>
-        <source>DPI of Image</source>
-        <translation type="vanished">Görüntü DPI değeri</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_InsertOptions</name>
-    <message>
-        <source>Insert Options</source>
-        <translation type="vanished">Yerleştirme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">Döndürme Açısı</translation>
-    </message>
-    <message>
-        <source>Factor:</source>
-        <translation type="vanished">Çarpan:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">Büyütme Çarpanı</translation>
-    </message>
-    <message>
-        <source>Array:</source>
-        <translation type="vanished">Dizi:</translation>
-    </message>
-    <message>
-        <source>Number of Columns</source>
-        <translation type="vanished">Sütun Sayısı</translation>
-    </message>
-    <message>
-        <source>Number of Rows</source>
-        <translation type="vanished">Satır Sayısı</translation>
-    </message>
-    <message>
-        <source>Pick row spacing from drawing</source>
-        <translation type="vanished">Pick row spacing from çizim</translation>
-    </message>
-    <message>
-        <source>Pick column spacing from drawing</source>
-        <translation type="vanished">Çizim sütunu çizimden uzaklaştırın</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">Boşluk:</translation>
-    </message>
-    <message>
-        <source>Column Spacing</source>
-        <translation type="vanished">Sütun Boşluğu</translation>
-    </message>
-    <message>
-        <source>Row Spacing</source>
-        <translation type="vanished">Satır Boşluğu</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LibraryInsertOptions</name>
-    <message>
-        <source>Library Insert Options</source>
-        <translation type="vanished">Kütüphane Yerleştirme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">Döndürme Açısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Factor:</source>
-        <translation type="vanished">Çarpan:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">Büyütme Çarpanı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineAngleOptions</name>
-    <message>
-        <source>Line Angle Options</source>
-        <translation type="vanished">Çizgi Açısı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Point on created line that will be placed into insertion point</source>
-        <translation type="vanished">Oluşturulan çizgiye yer verecek olan nokta</translation>
-    </message>
-    <message>
-        <source>Line angle</source>
-        <translation type="vanished">Çizgi açısı</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">Çizgi uzunluğu</translation>
-    </message>
-    <message>
-        <source>Snap Point:</source>
-        <translation type="vanished">Yakalama Noktası:</translation>
-    </message>
-    <message>
-        <source>Pick line angle from drawing</source>
-        <translation type="vanished">Çizimten satır açı seçin</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Başlangıç</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">Son</translation>
-    </message>
-    <message>
-        <source>PIck line length from drawing</source>
-        <translation type="vanished">Çizimten Kısa Süre</translation>
-    </message>
-    <message>
-        <source>If selected, line will be orhotogonal to axis of angles basis. Otherwise - to screen axis</source>
-        <translation type="vanished">Eğer seçilmişse, çizgi, açısal temel eksenine veyahotogonal olacaktır. Aksi takdirde - ekran eksene</translation>
-    </message>
-    <message>
-        <source>To Angles Basis</source>
-        <translation type="vanished">Açı Temelli</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineBisectorOptions</name>
-    <message>
-        <source>Line Bisector Options</source>
-        <translation type="vanished">Çizgi Ortay Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Length of bisector</source>
-        <translation type="vanished">Açıortay uzunluğu</translation>
-    </message>
-    <message>
-        <source>Pick line length from drawing</source>
-        <translation type="vanished">Çizimten satır uzunluğu</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>Number of bisectors to create</source>
-        <translation type="vanished">Oluşturulacak açıortay sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineOptions</name>
-    <message>
-        <source>Line Options</source>
-        <translation type="vanished">Çizgi Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Form a closed contour from lines drawn</source>
-        <translation type="vanished">Çizilen çizgilerden kapalı bir kontur oluşturun</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">Kapat</translation>
-    </message>
-    <message>
-        <source>Undo the last line drawing</source>
-        <translation type="vanished">Son çizgi çizimini geri al</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Geri Al</translation>
-    </message>
-    <message>
-        <source>Redo the last line drawing</source>
-        <translation type="vanished">Son çizgi çizimini yeniden yap</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">İleri al</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineOptionsRel</name>
-    <message>
-        <source>Line Options</source>
-        <translation type="vanished">Line Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Direction:</source>
-        <translation type="vanished">Yön:</translation>
-    </message>
-    <message>
-        <source>Creates polyline from line segments</source>
-        <translation type="vanished">Çizgi segmentlerden poliline oluşturun</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Vertical line</source>
-        <translation type="vanished">Dikey çizgi</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-    <message>
-        <source>Line by specified angle</source>
-        <translation type="vanished">Line by specifiedlight</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <translation type="vanished">Yüz</translation>
-    </message>
-    <message>
-        <source>Horizontal line</source>
-        <translation type="vanished">Yatay çizgi</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>If checked, angle is relative to previous segment</source>
-        <extracomment>Angle is relative to previous segment</extracomment>
-        <translation type="vanished">Kontrol ederseniz, açı önceki segmente göre bağlıdır</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">Rel</translation>
-    </message>
-    <message>
-        <source>Undo the last line drawing</source>
-        <translation type="vanished">Undo the last line çizim</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Undo</translation>
-    </message>
-    <message>
-        <source>Form a closed contour from lines drawn</source>
-        <translation type="vanished">Form a kapalı bir çizgi çizildi</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">Close</translation>
-    </message>
-    <message>
-        <source>Redo the last line drawing</source>
-        <translation type="vanished">Redo son çizgi çizim</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">Redo</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">Çizgi çizgi</translation>
-    </message>
-    <message>
-        <source>Line to arbitrary point</source>
-        <translation type="vanished">Keyif noktası</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">Point</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineParallelOptions</name>
-    <message>
-        <source>Line Parallel Options</source>
-        <translation type="vanished">Paralel Çizgi Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">Mesafe:</translation>
-    </message>
-    <message>
-        <source>Distance to original entity</source>
-        <translation type="vanished">Özgün varlığa uzaklık</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">Çizimten uzak durun</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>Number of parallels to create</source>
-        <translation type="vanished">Oluşturulacak paralel sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineParallelThroughOptions</name>
-    <message>
-        <source>Line Parallel Through Options</source>
-        <translation type="vanished">Paralel Geçişli Çizgi Seçenekleri</translation>
-    </message>
-    <message>
-        <source>If checked, parallels will be created on both sides of entity</source>
-        <translation type="vanished">Kontrol ederseniz, paralellikler her iki tarafta da oluşturulacaktır</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">Symmetric</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>Number of parallels to create</source>
-        <translation type="vanished">Oluşturulacak paralel sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LinePolygon2Options</name>
-    <message>
-        <source>Polygon Options</source>
-        <translation type="vanished">Çokgen Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>Number of edges</source>
-        <translation type="vanished">Kenar sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LinePolygonOptions</name>
-    <message>
-        <source>Polygon Options</source>
-        <translation type="vanished">Çokgen Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">Sayı:</translation>
-    </message>
-    <message>
-        <source>If checked, vertexes of polygon will be rounded. </source>
-        <translation type="vanished">Kontrol ederseniz, poligon&apos;un kısımları yuvarlanacaktır.</translation>
-    </message>
-    <message>
-        <source>Radius</source>
-        <translation type="vanished">Radius</translation>
-    </message>
-    <message>
-        <source>If checked, the polygon will be drawn as polyline. Otherwise, individual entities will be created. </source>
-        <translation type="vanished">Kontrol ederseniz, poligon poliline olarak çizilecektir. Aksi takdirde, bireysel varlıklar oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">Polyline</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">Çizimten Yarısı Çekin</translation>
-    </message>
-    <message>
-        <source>Number of edges</source>
-        <translation type="vanished">Kenar sayısı</translation>
-    </message>
-    <message>
-        <source>Rounding radius for vertex bevel.</source>
-        <translation type="vanished">Vertex bevel için yarı yarıya.</translation>
-    </message>
-    <message>
-        <source>If selected, reference points are for vertexes of polygon. Otherwise, they are for middle point of edges. </source>
-        <translation type="vanished">Eğer seçilmişse, referans puanları poligon&apos;un kısımları içindir. Aksi takdirde, kenarların orta noktası içindir.</translation>
-    </message>
-    <message>
-        <source>Vertex to Vertex</source>
-        <translation type="vanished">Köşeden Köşeye</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineRelAngleOptions</name>
-    <message>
-        <source>Line Relative Angle Options</source>
-        <translation type="vanished">Çizgi Göreli Açı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Line angle</source>
-        <translation type="vanished">Çizgi açısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">Çizgi uzunluğu</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre alın</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_MTextOptions</name>
-    <message>
-        <source>Text Options</source>
-        <translation type="vanished">Yazı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Text:</source>
-        <translation type="vanished">Metin:</translation>
-    </message>
-    <message>
-        <source>Text to insert</source>
-        <translation type="vanished">Eklenecek Metin</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_ModifyOffsetOptions</name>
-    <message>
-        <source>Modify Offset Options</source>
-        <translation type="vanished">Öteleme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Distance for offset from original entity</source>
-        <translation type="vanished">Orijinal varlıktan dengeleme için uzak</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed into current layer, otherwise they will be in original layers.</source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlarda olacaklar.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>Number of copies.</source>
-        <translation type="vanished">Kopya sayısı.</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-    <message>
-        <source>If checked, fixes of distance of offset will be used, otherwise it will be defined by mouse.</source>
-        <translation type="vanished">Kontrol ederseniz, dengeleme mesafelerinin düzeltilmesi kullanılacaktır, aksi takdirde fare tarafından tanımlanacaktır.</translation>
-    </message>
-    <message>
-        <source>Fixed Distance</source>
-        <translation type="vanished">Sabit Mesafe</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">Kontrol edilirse, mevcut nitelikler yaratılan varlıklara uygulanacaktır, aksi takdirde orijinal olanlar kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>Pick distance from the drawing</source>
-        <translation type="vanished">Çizimten uzak durun</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">Kontrol ederseniz, birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_MoveRotateOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">Taşı Döndür Seçenekleri</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">Kontrol edilirse, mevcut nitelikler yaratılan varlıklara uygulanacaktır, aksi takdirde orijinal olanlar kullanılacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">Mevcut Özellikleri Kullan</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">Kontrol ederseniz, birden çok kopya oluşturulacaktır.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">Çok sayıda Copies</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>If checked, all copies will be rotated by the same agle. Otherwise, angle will be proportional to number of each copy. </source>
-        <translation type="vanished">Kontrol ederseniz, tüm kopyalar aynı agle tarafından döndürülecektir. Aksi takdirde, açı her kopya sayısına göre orantılı olacaktır.</translation>
-    </message>
-    <message>
-        <source>Same angle for copies</source>
-        <translation type="vanished">Kopya için aynı açı</translation>
-    </message>
-    <message>
-        <source>Rotation angle. </source>
-        <translation type="vanished">Rotasyon açısı.</translation>
-    </message>
-    <message>
-        <source>Number of copies.</source>
-        <translation type="vanished">Kopya sayısı.</translation>
-    </message>
-    <message>
-        <source>If checked, rotation angle is defined by mouse. Otherwise, specified value is used.</source>
-        <translation type="vanished">Kontrol ederseniz, rotasyon açısı fare tarafından tanımlanır. Aksi takdirde, belirtilen değer kullanılır.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">Ücretsiz</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed into current layer, otherwise the will be in original layers. </source>
-        <translation type="vanished">Kontrol edilirse, yaratılan varlıklar mevcut katmana yerleştirilir, aksi takdirde orijinal katmanlarda olacaktır.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">Use Current Katman Katman</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">Kontrol ederseniz, orijinal varlıklar hayatta kalır, aksi takdirde kaldırılırlar.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">Orijinalleri Keep Originals</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_PolylineOptions</name>
-    <message>
-        <source>Polyline Options</source>
-        <translation type="vanished">Çoklu Çizgi Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Connects ends of the polyline so closed contour is created</source>
-        <translation type="vanished">Connects poliline&apos;in sonları bu kadar kapalı kondüsü oluşturulur</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">Kapat</translation>
-    </message>
-    <message>
-        <source>Undo for previous vertex</source>
-        <translation type="vanished">Önceki İçerik için Undo</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Geri al</translation>
-    </message>
-    <message>
-        <source>Segment Type:</source>
-        <translation type="vanished">Segment Türü:</translation>
-    </message>
-    <message>
-        <source>Defines which segment of polyline should be created</source>
-        <translation type="vanished">Poliline segmentinin oluşturulması gereken tanımlamalar oluşturulmalıdır</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Çizgi</translation>
-    </message>
-    <message>
-        <source>Tangential</source>
-        <translation type="vanished">Teğetsel</translation>
-    </message>
-    <message>
-        <source>Tan Radius</source>
-        <translation type="vanished">Teğet Yarıçap</translation>
-    </message>
-    <message>
-        <source>Tan Angle</source>
-        <translation type="vanished">Teğet Açısı</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <translation type="vanished">Açı</translation>
-    </message>
-    <message>
-        <source>Tangential arc</source>
-        <translation type="vanished">Teğetsel yay</translation>
-    </message>
-    <message>
-        <source>Tangental arc with fixed radius</source>
-        <translation type="vanished">Tangental ark sabit yarıçap ile</translation>
-    </message>
-    <message>
-        <source>Tangental arc with fixed angle</source>
-        <translation type="vanished">Sabit açı ile Tangental yay</translation>
-    </message>
-    <message>
-        <source>Arc with angle</source>
-        <translation type="vanished">Arc açısı ile</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">Yay Yarıçapı</translation>
-    </message>
-    <message>
-        <source>Pick radius form drawing</source>
-        <translation type="vanished">Pick yarı formu çizim</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Angle of arc</source>
-        <translation type="vanished">Ayırma</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-    <message>
-        <source>Counter Clockwise</source>
-        <translation type="vanished">Saat Yönünün Tersi</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">Saat Yönü</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_PrintPreviewOptions</name>
-    <message>
-        <source>Print Preview Options</source>
-        <translation type="vanished">Baskı Önizleme Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Landscape Orientation</source>
-        <translation type="vanished">Peyzaj</translation>
-    </message>
-    <message>
-        <source>Drawing Settings</source>
-        <translation type="vanished">Çizim Ayarları</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">Scale:</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed boyut: çizim boyutu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yazdırma ölçeği geçerli değere kilitlendi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>fixed</source>
-        <translation type="vanished">sabit</translation>
-    </message>
-    <message>
-        <source>Toggle Black / White mode</source>
-        <translation type="vanished">Siyah / Beyaz modu</translation>
-    </message>
-    <message>
-        <source>Landscape Orientation of paper</source>
-        <translation type="vanished">Peyzaj Mimarlığı</translation>
-    </message>
-    <message>
-        <source>Portrait Orientation of paper</source>
-        <translation type="vanished">Kağıt</translation>
-    </message>
-    <message>
-        <source>Apply Print Scale to line width</source>
-        <translation type="vanished">Baskı Ölçeğini çizgi kalınlığına uygula</translation>
-    </message>
-    <message>
-        <source>Page in center of drawing</source>
-        <translation type="vanished">Page in center of çizim</translation>
-    </message>
-    <message>
-        <source>Zoom to Print Area</source>
-        <translation type="vanished">Yazdır Area</translation>
-    </message>
-    <message>
-        <source>Fit to 1 Page</source>
-        <translation type="vanished">1 Page</translation>
-    </message>
-    <message>
-        <source>If enabled, paper space will include specified amount of pages organized in columns and rows</source>
-        <translation type="vanished">Eğer etkinleştirilirse, kağıt alanı sütunlarda ve satırlarda düzenlenen sayfalar miktarını içerecektir</translation>
-    </message>
-    <message>
-        <source>Tiled Print</source>
-        <translation type="vanished">Karoli Baskı</translation>
-    </message>
-    <message>
-        <source>Pages Rows::</source>
-        <translation type="vanished">Sayfalar Satırlar::</translation>
-    </message>
-    <message>
-        <source>Amount of pages columns</source>
-        <translation type="vanished">Sayfalar Ayı</translation>
-    </message>
-    <message>
-        <source>Pages Columns:</source>
-        <translation type="vanished">Sayfalar Köşeler:</translation>
-    </message>
-    <message>
-        <source>Amount of pages rows</source>
-        <translation type="vanished">Sayfaların miktarı sıralanıyor</translation>
-    </message>
-    <message>
-        <source>Calculate number of pages needed to contain the drawing</source>
-        <translation type="vanished">Çizim içeriği için gerekli sayfa sayısını hesapla</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_RoundOptions</name>
-    <message>
-        <source>Round Options</source>
-        <translation type="vanished">Yuvarlatma Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Check to trim both edges to the rounding</source>
-        <translation type="vanished">Yuvarlatılacak köşenin kenarlarını kırp</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">Kırp</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">Yarıçap:</translation>
-    </message>
-    <message>
-        <source>Rounding radius</source>
-        <translation type="vanished">Rounding yarıçap</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">Çizimten Yarısı Çekin</translation>
-    </message>
-</context>
-<context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <location filename="../src/ui/action_options/snap/qg_snapdistoptions.ui" line="32"/>
@@ -56810,99 +49548,6 @@ Puan: (%8, %9)</translation>
         <location filename="../src/ui/action_options/snap/qg_snapmiddleoptions.ui" line="81"/>
         <source>Number of equidistant division points</source>
         <translation>Eşit aralıklı bölme noktaları sayısı</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_SplineOptions</name>
-    <message>
-        <source>Spline Options</source>
-        <translation type="vanished">Eğri Çizgi Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">Derece:</translation>
-    </message>
-    <message>
-        <source>Spline&apos;s degree used for approximation between points</source>
-        <translation type="vanished">Spline&apos;nin derecesi, puanlar arasında bir yaklaşım için kullanılır</translation>
-    </message>
-    <message>
-        <source>If selected, closed spline is created</source>
-        <translation type="vanished">Eğer seçilmişse, kapalı spline oluşturulur</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">Kapalı</translation>
-    </message>
-    <message>
-        <source>Undo previous point</source>
-        <translation type="vanished">Önceki noktayı geri al</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Geri Al</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_TextOptions</name>
-    <message>
-        <source>Text Options</source>
-        <translation type="vanished">Yazı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Text:</source>
-        <translation type="vanished">Metin:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">Açı:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">Rotasyon açısı</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">Çizim açısını çizimden alın</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_TrimAmountOptions</name>
-    <message>
-        <source>Trim Amount Options</source>
-        <translation type="vanished">Kırpma Miktarı Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation type="vanished">Mesafe. Negatif değerler kısaltır, pozitif değerler uzatır.</translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation type="vanished">Toplam</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">Uzunluk:</translation>
-    </message>
-    <message>
-        <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation type="vanished">Mesafe. Kısaltma için negatif değerler, uzatma için pozitif değerler. Nihai toplam uzunluğa göre kırpma yapılırken negatif işaret dikkate alınmaz.</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">Çizimten uzun süre alın</translation>
-    </message>
-    <message>
-        <source>If checked, trim/extension is performed for both sides of line.</source>
-        <translation type="vanished">Eğer kontrol edilirse, trim / genişletici her iki çizgi için yapılır.</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">Symmetric</translation>
-    </message>
-    <message>
-        <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation type="vanished">Giriş uzunluğu, uzunluk artışı yerine kırpma sonrasında toplam uzunluk olarak kullanılır</translation>
     </message>
 </context>
 </TS>

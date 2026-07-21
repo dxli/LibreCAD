@@ -39,190 +39,11 @@
     </message>
 </context>
 <context>
-    <name>CustomToolbarCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="vanished">フレーム</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>&lt;</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>+</source>
-        <translation type="vanished">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="vanished">-</translation>
-    </message>
-    <message>
-        <source>input a name and then press +</source>
-        <translation type="vanished">名前を入力して + を押してください</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-</context>
-<context>
-    <name>CustomWidgetCreator</name>
-    <message>
-        <source>Frame</source>
-        <translation type="vanished">フレーム</translation>
-    </message>
-    <message>
-        <source>-&gt;</source>
-        <translation type="vanished">-&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;-</source>
-        <translation type="vanished">&lt;-</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="vanished">保存</translation>
-    </message>
-</context>
-<context>
-    <name>DlgParabola</name>
-    <message>
-        <source>Parabola</source>
-        <translation type="vanished">パラボラ</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Points on Spline</source>
-        <translation type="vanished">Splineのポイント</translation>
-    </message>
-    <message>
-        <source>Control Points</source>
-        <translation type="vanished">コントロールポイント</translation>
-    </message>
-</context>
-<context>
-    <name>DlgSplinePoints</name>
-    <message>
-        <source>SplinePoints</source>
-        <translation type="vanished">スプライン点</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>If selected, spline points are used</source>
-        <translation type="vanished">選択した場合、スプラインポイントが使用されます</translation>
-    </message>
-    <message>
-        <source>Spline Points</source>
-        <translation type="vanished">スプラインポイント</translation>
-    </message>
-    <message>
-        <source>If selected, control points are used</source>
-        <translation type="vanished">選択した場合、制御ポイントが使用されます</translation>
-    </message>
-    <message>
-        <source>Control Points</source>
-        <translation type="vanished">コントロールポイント</translation>
-    </message>
-    <message>
-        <source>Points on Spline</source>
-        <translation type="vanished">Splineのポイント</translation>
-    </message>
-</context>
-<context>
     <name>LC_AbstractActionDrawLine</name>
     <message>
         <location filename="../src/actions/drawing/draw/line/lc_abstractactiondrawline.cpp" line="64"/>
         <source>Start point may set in distance or point state only</source>
         <translation>スタートポイントは、距離またはポイントの状態のみに設定できます</translation>
-    </message>
-</context>
-<context>
-    <name>LC_AbstractActionDrawRectangle</name>
-    <message>
-        <source>To be created:</source>
-        <translation type="vanished">作成する:</translation>
-    </message>
-    <message>
-        <source>Rectangle</source>
-        <translation type="vanished">長方形</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">幅:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">高さ:</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">センター:</translation>
-    </message>
-    <message>
-        <source>Invalid Angle</source>
-        <translation type="vanished">無効な角度</translation>
-    </message>
-    <message>
-        <source>Invalid radius</source>
-        <translation type="vanished">無効な半径</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation type="vanished">無効値</translation>
-    </message>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">インサートポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Specify angle</source>
-        <translation type="vanished">角度を指定する</translation>
-    </message>
-    <message>
-        <source>Specify size (width, height)</source>
-        <translation type="vanished">サイズ(幅、高さ)を指定する</translation>
-    </message>
-    <message>
-        <source>Specify corners type
-[str|round|bevels]</source>
-        <translation type="vanished">コーナータイプを指定する
-[str|round|bevels(ベベル)]</translation>
-    </message>
-    <message>
-        <source>Specify corner bevel length (x,y)</source>
-        <translation type="vanished">角の斜面の長さ(x、y)を指定する</translation>
-    </message>
-    <message>
-        <source>Specify corner radius</source>
-        <translation type="vanished">角の半径を指定する</translation>
-    </message>
-    <message>
-        <source>Specify edges mode
-[both|hor|vert]</source>
-        <translation type="vanished">エッジモードを指定する
-【ブースト|ホール|ベルト】</translation>
     </message>
 </context>
 <context>
@@ -469,73 +290,6 @@ This block cannot be inserted.</source>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawArc2POptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Height of the arc (the distanсe between chord and top arc point)</source>
-        <translation type="vanished">アークの高さ(コードと上部のアークポイント間の分散)</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">高さ:</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">カウンター時計回り</translation>
-    </message>
-    <message>
-        <source>Pick angle from the drawing</source>
-        <translation type="vanished">デッサンから角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">アークの半径</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">時計回り</translation>
-    </message>
-    <message>
-        <source>Central angle of the arc</source>
-        <translation type="vanished">アークの中央角度</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Length of the arc</source>
-        <translation type="vanished">アークの長さ</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">デッサンからの半径を選んで下さい</translation>
-    </message>
-    <message>
-        <source>Pick height from drawing</source>
-        <translation type="vanished">図面からの高さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">図面から長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawArc2PointsAngle</name>
     <message>
         <location filename="../src/actions/drawing/draw/arc/lc_action_draw_arc_2points_angle.cpp" line="58"/>
@@ -747,10 +501,6 @@ This block cannot be inserted.</source>
 <context>
     <name>LC_ActionDrawBoundingBox</name>
     <message>
-        <source>Select entities for bounding box (Enter to complete)</source>
-        <translation type="vanished">境界ボックスのエンティティティティを選択(入力完了)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/draw/line/misc/lc_action_draw_bounding_box.cpp" line="162"/>
         <source>Select entities for bounding box</source>
         <translation type="unfinished"></translation>
@@ -805,31 +555,6 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/drawing/draw/line/misc/lc_action_draw_center_mark.cpp" line="397"/>
         <source>Select circle, arc or ellipse</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawCircle2PR</name>
-    <message>
-        <source>radius=%1 is too small for points selected
-distance between points=%2 is larger than diameter=%3</source>
-        <translation type="vanished">半径= %1 は選択されたポイントに対して小さすぎる
-ポイントの間の距離= %2 は、直径= %3 より大きい</translation>
-    </message>
-    <message>
-        <source>Select from two possible circle centers</source>
-        <translation type="vanished">指定した2点を通る円の中心を選択する</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">最初の点を指定</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">次の点を指定</translation>
-    </message>
-    <message>
-        <source>Select circle center</source>
-        <translation type="vanished">円の中心を選択</translation>
     </message>
 </context>
 <context>
@@ -1078,13 +803,6 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawCross</name>
-    <message>
-        <source>Select circle, arc or ellipse</source>
-        <translation type="vanished">円、アークまたは楕円を選択します</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawDimBaseline</name>
     <message>
         <location filename="../src/actions/drawing/draw/dimensions/lc_actiondrawdimbaseline.cpp" line="416"/>
@@ -1128,10 +846,6 @@ distance between points=%2 is larger than diameter=%3</source>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="63"/>
         <source>Select Center</source>
         <translation>選択センター</translation>
-    </message>
-    <message>
-        <source>No center specified.</source>
-        <translation type="vanished">センター指定なし.</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/draw/curve/lc_actiondrawdual.cpp" line="68"/>
@@ -1526,154 +1240,6 @@ distance between points=%2 is larger than diameter=%3</source>
     </message>
 </context>
 <context>
-    <name>LC_ActionDrawLinePoints</name>
-    <message>
-        <source>Specify First Point</source>
-        <translation type="vanished">最初のポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Specify Second Point
-or [number|x|y|angle|p|edges|distance]</source>
-        <translation type="vanished">セカンドポイントを指定する
-または[番号]|x|y|angle|p|edges|distance(ディスタンス)</translation>
-    </message>
-    <message>
-        <source>Specify Second Point
-or [number]</source>
-        <translation type="vanished">セカンドポイントを指定する
-または [番号]</translation>
-    </message>
-    <message>
-        <source>Specify line direction
-[x|y|angle|p|distance]</source>
-        <translation type="vanished">ライン方向を指定する
-[x|y|angle|p|ディスタンス]</translation>
-    </message>
-    <message>
-        <source>Specify line direction angle
-or [x|y|p|number|edges|distance]</source>
-        <translation type="vanished">ライン方向角度を指定する
-または [x]|y|p|number|edges|distance の一覧</translation>
-    </message>
-    <message>
-        <source>Specify edge points mode
-[none|start|end|both|distance]</source>
-        <translation type="vanished">エッジポイントモードを指定する
-[none]|start|end|both|distance(ゼロ)</translation>
-    </message>
-    <message>
-        <source>Specify fixed distance between points
-or[x|y|p|number|edges]</source>
-        <translation type="vanished">ポイント間の固定距離を指定する
-または[x]|y|p|number|edges</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">バックナンバー</translation>
-    </message>
-    <message>
-        <source>Specify distance (%1)
-or [%2]</source>
-        <translation type="vanished">距離を指定する (%1)
-または [%2]</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">お問い合わせ</translation>
-    </message>
-    <message>
-        <source>Specify  distance (angle %1 deg)
-or [%2]</source>
-        <translation type="vanished">距離を指定する(角%1 deg)
-または [%2]</translation>
-    </message>
-    <message>
-        <source>Specify points count</source>
-        <translation type="vanished">ポイント数を指定する</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygon4</name>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">第二角を指定する</translation>
-    </message>
-    <message>
-        <source>Specify second tangent</source>
-        <translation type="vanished">第二のtangentを指定する</translation>
-    </message>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">最初の角を指定する</translation>
-    </message>
-    <message>
-        <source>Specify first tangent</source>
-        <translation type="vanished">ファーストタンジェントを指定する</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygonBase</name>
-    <message>
-        <source>Not a valid number. Try 1..9999</source>
-        <translation type="vanished">有効な数字ではありません。 試用版 1..9999</translation>
-    </message>
-    <message>
-        <source>Invalid value of rounding radius</source>
-        <translation type="vanished">円形の半径の無効な価値</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">有効な式ではない</translation>
-    </message>
-    <message>
-        <source>Enter number:</source>
-        <translation type="vanished">番号を入力してください:</translation>
-    </message>
-    <message>
-        <source>Enter rounding radius:</source>
-        <translation type="vanished">円形の半径を書き入れて下さい:</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">センターの指定</translation>
-    </message>
-    <message>
-        <source>To be created:</source>
-        <translation type="vanished">作成する:</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">センター:</translation>
-    </message>
-    <message>
-        <source>Start angle:</source>
-        <translation type="vanished">開始角度:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Radius Inner:</source>
-        <translation type="vanished">半径の内部:</translation>
-    </message>
-    <message>
-        <source>Polygon</source>
-        <translation type="vanished">ポリゴン</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawLinePolygonCenTan</name>
-    <message>
-        <source>Specify a tangent</source>
-        <translation type="vanished">タンジェントを指定する</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionDrawLinePolygonCenterCorner</name>
     <message>
         <location filename="../src/actions/drawing/draw/polygon/lc_action_draw_polygon_center_corner.cpp" line="41"/>
@@ -1914,29 +1480,6 @@ or [%2]</source>
         <location filename="../src/actions/drawing/draw/text/lc_action_draw_mtext.cpp" line="198"/>
         <source>Enter text:</source>
         <translation type="unfinished">文字列入力:</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ActionDrawMidLine</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">有効な式ではない</translation>
-    </message>
-    <message>
-        <source>Select first entity</source>
-        <translation type="vanished">最初のエンティティティを選択</translation>
-    </message>
-    <message>
-        <source>Select second entity</source>
-        <translation type="vanished">第二の組織を選択</translation>
-    </message>
-    <message>
-        <source>Alternate endpoints</source>
-        <translation type="vanished">代替エンドポイント</translation>
-    </message>
-    <message>
-        <source>Enter offset value</source>
-        <translation type="vanished">オフセット値を入力してください</translation>
     </message>
 </context>
 <context>
@@ -3791,10 +3334,6 @@ or [%2]</source>
         <translation>プロンプト</translation>
     </message>
     <message>
-        <source>Snap on grid</source>
-        <translation type="vanished">グリッド上のスナップ</translation>
-    </message>
-    <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="449"/>
         <source>Snap Middle Manual</source>
         <translation>スナップミドルマニュアル</translation>
@@ -4267,26 +3806,6 @@ or [%2]</source>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="715"/>
         <source>Focus on &amp;Command Line</source>
         <translation>指令枠に焦点を合わせる(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">左</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">右</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="vanished">上</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="vanished">下</translation>
-    </message>
-    <message>
-        <source>Floating</source>
-        <translation type="vanished">フローティング</translation>
     </message>
     <message>
         <location filename="../src/ui/main/init/lc_actionfactory.cpp" line="655"/>
@@ -5259,10 +4778,6 @@ Point: (%8 , %9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select entities to align (Enter to complete)</source>
-        <translation type="vanished">整列するエンティティティティを選択(入力完了)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align.cpp" line="277"/>
         <source>Select and align</source>
         <translation>選択と整列</translation>
@@ -5294,10 +4809,6 @@ Point: (%8 , %9)</source>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align_ref.cpp" line="120"/>
         <source>Scale:</source>
         <translation>スケール:</translation>
-    </message>
-    <message>
-        <source>Select to align (Enter to complete)</source>
-        <translation type="vanished">選択する 整列 (入力 完了)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_align_ref.cpp" line="244"/>
@@ -6291,13 +5802,6 @@ Point: (%8 , %9)</source>
     </message>
 </context>
 <context>
-    <name>LC_ActionModifySelectionBase</name>
-    <message>
-        <source>No entity selected!</source>
-        <translation type="vanished">組織は選択しません!</translation>
-    </message>
-</context>
-<context>
     <name>LC_ActionModifyStretch</name>
     <message>
         <location filename="../src/actions/drawing/modify/lc_action_modify_stretch.cpp" line="118"/>
@@ -7271,18 +6775,6 @@ Point: (%8 , %9)</source>
         <translation>提供したファイルを読み込めない - 存在しているかご確認ください.</translation>
     </message>
     <message>
-        <source>Shortcuts mappings were not imported.
- Provided file does exists, however it does not contain LibreCAD shortcuts mapping.</source>
-        <translation type="vanished">ショートカットマッピングはインポートできませんでした。
-提供ファイルは存在しますが、LibreCAD ショートカットマッピングは含まれていません.</translation>
-    </message>
-    <message>
-        <source>Shortcuts mappings were not imported. 
-XML parsing error occurred during file processing.</source>
-        <translation type="vanished">ショートカットマッピングはインポートできませんでした。
-ファイル処理中にXML解析エラーが発生しました.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="206"/>
         <source>Shortcuts mappings were saved successfully.</source>
         <translation>ショートカットマッピングが正常に保存されました.</translation>
@@ -7291,12 +6783,6 @@ XML parsing error occurred during file processing.</source>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="210"/>
         <source>Can&apos;t write to provided file - please check that it is allowed to write to it.</source>
         <translation>提供したファイルへの書き込みはできません - 書き込みを許可されていることを確認してください.</translation>
-    </message>
-    <message>
-        <source>Shortcuts mappings were not imported. 
-Some error occurred during XML generation.</source>
-        <translation type="vanished">ショートカットマッピングはインポートできませんでした。
-XML生成時にエラーが発生しました.</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/shortcuts/lc_actionsshortcutsdialog.cpp" line="189"/>
@@ -8697,74 +8183,6 @@ Are you sure you are going to discard changes?</source>
     </message>
 </context>
 <context>
-    <name>LC_CircleByArcOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, original arc will be removed</source>
-        <translation type="vanished">チェックすると、元のアークが削除されます</translation>
-    </message>
-    <message>
-        <source>Replace arc</source>
-        <translation type="vanished">アーク置換</translation>
-    </message>
-    <message>
-        <source>Layer to which created circle should be placed</source>
-        <translation type="vanished">作成した円が配置されるレイヤー</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>layer</comment>
-        <translation type="vanished">アクティブ</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>layer</comment>
-        <translation type="vanished">オリジナル</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>pen</comment>
-        <translation type="vanished">アクティブ</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>pen</comment>
-        <translation type="vanished">オリジナル</translation>
-    </message>
-    <message>
-        <source>Original Resolved</source>
-        <comment>pen</comment>
-        <translation type="vanished">元の解決</translation>
-    </message>
-    <message>
-        <source>Pick offset value from drawing</source>
-        <translation type="vanished">描画からオフセット値を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pen:</source>
-        <translation type="vanished">ペン:</translation>
-    </message>
-    <message>
-        <source>Pen to apply to created circle</source>
-        <translation type="vanished">作成した円に適用するペン</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">層:</translation>
-    </message>
-    <message>
-        <source>Delta of circle&apos;s radius to arc&apos;s radius</source>
-        <translation type="vanished">円の半径のデルタはアークの半径に</translation>
-    </message>
-    <message>
-        <source>Radius Shift:</source>
-        <translation type="vanished">半径のシフト:</translation>
-    </message>
-</context>
-<context>
     <name>LC_CircleByArcOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/circle/lc_circle_by_arc_options_filler.cpp" line="32"/>
@@ -9059,76 +8477,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/components/creators/lc_creatorinvoker.cpp" line="144"/>
         <source>Toolbar: %1 (Custom)</source>
         <translation>ツールバー: %1 (カスタム)</translation>
-    </message>
-</context>
-<context>
-    <name>LC_CrossOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">タイプ:</translation>
-    </message>
-    <message>
-        <source>Horizontal dimension of cross</source>
-        <translation type="vanished">十字の横次元</translation>
-    </message>
-    <message>
-        <source>Pick X value from drawing</source>
-        <translation type="vanished">描画からX値を選ぶ</translation>
-    </message>
-    <message>
-        <source>Defines how to apply dimensions of cross</source>
-        <translation type="vanished">クロスの寸法を適用する方法を定義する</translation>
-    </message>
-    <message>
-        <source>Extension</source>
-        <translation type="vanished">エクステンション</translation>
-    </message>
-    <message>
-        <source>Total Length</source>
-        <translation type="vanished">全長</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">パーセント</translation>
-    </message>
-    <message>
-        <source>Pick Y value from drawing</source>
-        <translation type="vanished">図面からY値を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Vertical dimension of the cross</source>
-        <translation type="vanished">十字の縦次元</translation>
-    </message>
-    <message>
-        <source>Rotation angle for cross around center</source>
-        <translation type="vanished">中心の横断のための回転角度</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-</context>
-<context>
-    <name>LC_CustomToolbar</name>
-    <message>
-        <source>Add or Remove Action</source>
-        <translation type="vanished">アクションの追加または削除</translation>
     </message>
 </context>
 <context>
@@ -9492,45 +8840,6 @@ Are you sure you are going to discard changes?</source>
     </message>
 </context>
 <context>
-    <name>LC_DlgDimOrdinate</name>
-    <message>
-        <source>Ordinate Dimension</source>
-        <translation type="vanished">オリジン次元</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">次元の層</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">ペン属性</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Ordinate</source>
-        <translation type="vanished">オリジン</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
     <name>LC_DlgDimStyleManager</name>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="14"/>
@@ -9592,11 +8901,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="162"/>
         <source>Baseline spacing:</source>
         <translation>ベースラインの間隔:</translation>
-    </message>
-    <message>
-        <source>Sets the spacing between the dimension lines of a baseline dimension. Enter a distance. For information about baseline dimensions, see DIMBASELINE. (DIMDLI system variable)
-</source>
-        <translation type="vanished">ベースライン寸法の寸法線の間隔を設定します。 距離を入力してください。 ベースライン寸法に関する情報は、DIMBASELINEを参照してください。 (DIMDLIシステム変数)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/settings/dimstyles/dimstyle_manager/lc_dlgdimstylemanager.ui" line="191"/>
@@ -11245,10 +10549,6 @@ Are you sure you are going to discard changes?</source>
         <source>Hatch Properties</source>
         <translation>ハッチングのプロパティ</translation>
     </message>
-    <message>
-        <source>Properties?</source>
-        <translation type="vanished">プロパティ?</translation>
-    </message>
 </context>
 <context>
     <name>LC_DlgIconsSetup</name>
@@ -11770,10 +11070,6 @@ Are you sure you are going to discard changes?</source>
         <translation>UCS 詳細欄</translation>
     </message>
     <message>
-        <source>If checked, type of grid for saved view will be shown</source>
-        <translation type="vanished">チェックすると、保存したビューのグリッドの種類が表示されます</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="88"/>
         <source>Grid Type icon column</source>
         <translation>グリッドタイプアイコン列</translation>
@@ -11782,18 +11078,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="58"/>
         <source>Type icon column</source>
         <translation>タイプ アイコン 列</translation>
-    </message>
-    <message>
-        <source>If checked, the column with details of view&apos;s coordinate system will be show</source>
-        <translation type="vanished">チェックすると、ビューの座標系の詳細を持つ列が表示されます</translation>
-    </message>
-    <message>
-        <source>Tooltip with view details for table items</source>
-        <translation type="vanished">テーブル項目のビューの詳細を表示するツールチップ</translation>
-    </message>
-    <message>
-        <source>If checked, the column with details of view&apos;s coordinate system will be show.</source>
-        <translation type="vanished">チェックされている場合、ビューの座標系の詳細を含む列が表示されます。</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="75"/>
@@ -11836,10 +11120,6 @@ Are you sure you are going to discard changes?</source>
         <translation>チェックすると、ビューの詳細はテーブルに列が表示されます.</translation>
     </message>
     <message>
-        <source>VIew Details column</source>
-        <translation type="vanished">VIew 詳細欄</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="141"/>
         <source>Operations</source>
         <translation>オペレーション</translation>
@@ -11855,17 +11135,9 @@ Are you sure you are going to discard changes?</source>
         <translation>テーブル項目のシングルクリックでビューを復元</translation>
     </message>
     <message>
-        <source>On double-click on table item</source>
-        <translation type="vanished">テーブル項目のダブルクリック</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="154"/>
         <source>Defines which action should be performed on double click on view item of the table.</source>
         <translation>テーブルのビュー項目をダブルクリックしたときに実行するアクションを定義します。</translation>
-    </message>
-    <message>
-        <source>Defines which action should be performed on double click on view item of the table. </source>
-        <translation type="vanished">テーブルのビュー項目をダブルクリックして実行するアクションを定義します.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="158"/>
@@ -11893,10 +11165,6 @@ Are you sure you are going to discard changes?</source>
         <translation>有効にされている場合は、ビューテーブル項目をクリックしてビューを復元します。 それ以外の場合は、ビューを明示的に復元する必要があります.</translation>
     </message>
     <message>
-        <source>Restore view on single click by table item</source>
-        <translation type="vanished">テーブル項目でシングルクリックでビューを復元</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="95"/>
         <source>If show, tooltip with additional information about view will be shown for table item.</source>
         <translation>表示すると、ビューに関する追加情報付きのツールチップがテーブル項目に表示されます.</translation>
@@ -11905,10 +11173,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="36"/>
         <source>If checked and during creation the view with entered name already exists, it will be updated by new position. Otherwise, unique name of new view will be required.</source>
         <translation>既に入力した名前でビューを作成中、チェックしてみると新しい位置で更新されます。 それ以外の場合は、新しいビューのユニークな名前が必要です.</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently. </source>
-        <translation type="vanished">選択した場合は、ビューの削除時に確認ダイアログが表示されます。 それ以外の場合は、ビューは静かに削除されます.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_dlgnamedviewslistoptions.ui" line="29"/>
@@ -12204,17 +11468,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dialogs/creators/lc_dlg_new_widget.cpp" line="70"/>
         <source>Name is not unique. Please enter unique name.</source>
         <translation>お名前は固くありません。 お名前を入力してください.</translation>
-    </message>
-</context>
-<context>
-    <name>LC_DlgParabola</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-    <message>
-        <source>Parabola control points cannot be collinear</source>
-        <translation type="vanished">パラボラの制御ポイントは、コリナーにすることはできません</translation>
     </message>
 </context>
 <context>
@@ -12630,13 +11883,6 @@ Are you sure you are going to discard changes?</source>
     </message>
 </context>
 <context>
-    <name>LC_DlgSplinePoints</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
     <name>LC_DlgTolerance</name>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_dlg_tolerance.ui" line="14"/>
@@ -12718,17 +11964,9 @@ Are you sure you are going to discard changes?</source>
         <translation>UCSに関する追加情報を含むツールチップはテーブル項目に表示します.</translation>
     </message>
     <message>
-        <source>Toolip with UCS details for table items</source>
-        <translation type="vanished">テーブル項目の UCS の細部との Toolip</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="39"/>
         <source>Type icon column</source>
         <translation>タイプ アイコン 列</translation>
-    </message>
-    <message>
-        <source>If checked, column with details of UCS origin and angle will be shown in the table</source>
-        <translation type="vanished">チェックをすれば、UCSの起源および角度の細部のコラムはテーブルで示されます</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="49"/>
@@ -12744,10 +11982,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="89"/>
         <source>Editing</source>
         <translation>編集する</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently. </source>
-        <translation type="vanished">選択した場合は、ビューの削除時に確認ダイアログが表示されます。 それ以外の場合は、ビューは静かに削除されます.</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="29"/>
@@ -12768,10 +12002,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="56"/>
         <source>If checked, the column with type of grid for UCS will be shown.</source>
         <translation>チェックされている場合、UCSのグリッドの種類を示す列が表示されます。</translation>
-    </message>
-    <message>
-        <source>If selected, confirmation dialog will be shown on removal of the view. Otherwise, view will be removed silently.</source>
-        <translation type="vanished">選択されている場合、ビューを削除する際に確認ダイアログが表示されます。それ以外の場合は、ビューがサイレントに削除されます。</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="98"/>
@@ -12839,26 +12069,6 @@ Are you sure you are going to discard changes?</source>
         <translation>UCSハイライト表示のために、UCSマーカーを何回点滅させるかを定義します。</translation>
     </message>
     <message>
-        <source>Defines which action should be performed on double click on the item of the table. </source>
-        <translation type="vanished">テーブルの項目をダブルクリックして実行するアクションを定義します.</translation>
-    </message>
-    <message>
-        <source>Restore UCS on single click by table item</source>
-        <translation type="vanished">UCSをテーブルアイテムでワンクリックで復元</translation>
-    </message>
-    <message>
-        <source>If checked, the column with icon for type of UCS will be shown in the table. </source>
-        <translation type="vanished">チェックすると、UCSの型アイコンの列が表に表示されます.</translation>
-    </message>
-    <message>
-        <source>If checked, the column with type of grid for UCS will be shown</source>
-        <translation type="vanished">チェックすると、UCSのグリッドの種類を持つ列が表示されます</translation>
-    </message>
-    <message>
-        <source>Defines how drawing&apos;s view window should be adjusted after UCS is applied</source>
-        <translation type="vanished">UCSが適用された後に描画のビューウィンドウを調整する方法を定義します</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="197"/>
         <source>On double-click on table item</source>
         <translation>テーブル項目のダブルクリック</translation>
@@ -12914,10 +12124,6 @@ Are you sure you are going to discard changes?</source>
         <translation>UCSハイライト</translation>
     </message>
     <message>
-        <source>Defines delay between UCS marker blinks</source>
-        <translation type="vanished">UCSマーカーブリンク間の遅延を定義する</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="216"/>
         <source> ms</source>
         <translation>ミリ秒</translation>
@@ -12931,10 +12137,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="242"/>
         <source>Blink Delay:</source>
         <translation>Blinkの遅れ:</translation>
-    </message>
-    <message>
-        <source>Defines amount of blinks of UCS marker for UCS highlighting</source>
-        <translation type="vanished">UCS ハイライト用 UCS マーカーの点滅量を定義する</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_dlgucslistoptions.ui" line="252"/>
@@ -13331,45 +12533,6 @@ Are you sure you are going to discard changes?</source>
     </message>
 </context>
 <context>
-    <name>LC_DrawBoundingBoxOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>If checked, bounding box for the entire selection will be created. Otherwise, it will be created for individual entities. </source>
-        <translation type="vanished">チェックすると、選択全体に境界ボックスが作成されます。 それ以外の場合は、個々の組織のために作成されます.</translation>
-    </message>
-    <message>
-        <source>Selection As Group</source>
-        <translation type="vanished">選定グループ</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">図面からオフセットを選ぶ</translation>
-    </message>
-    <message>
-        <source>If selected, only corner points will be drawn for bounding box. Otherwise, edge lines will be drawn.</source>
-        <translation type="vanished">選択した場合、境界ボックスにコーナーポイントのみが描画されます。 それ以外の場合は、エッジラインが描画されます.</translation>
-    </message>
-    <message>
-        <source>Corner points only</source>
-        <translation type="vanished">コーナーポイントのみ</translation>
-    </message>
-    <message>
-        <source>If selected, bounding box is drawn as polyline</source>
-        <translation type="vanished">選択した場合、バウンディングボックスはポリラインとして描画されます</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-</context>
-<context>
     <name>LC_DrawBoundingBoxOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/misc/lc_draw_bounding_box_options_filler.cpp" line="30"/>
@@ -13463,86 +12626,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/action_options/misc/lc_draw_bounding_box_options_widget.ui" line="93"/>
         <source>Pick offset from drawing</source>
         <translation type="unfinished">図面からオフセットを選ぶ</translation>
-    </message>
-</context>
-<context>
-    <name>LC_DuplicateOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Vertical offset of duplicate from original entity</source>
-        <translation type="vanished">元の団体からの重複の縦のオフセット</translation>
-    </message>
-    <message>
-        <source>Horizontal offset of duplicate from original entity</source>
-        <translation type="vanished">元の実体からの重複の横のオフセット</translation>
-    </message>
-    <message>
-        <source>Pick offset by X from drawing</source>
-        <translation type="vanished">描画からXでオフセットを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pen:</source>
-        <translation type="vanished">ペン:</translation>
-    </message>
-    <message>
-        <source>If checked, duplicate will be positioned in original&apos;s coordinates</source>
-        <translation type="vanished">チェックすると、元の座標で重複が配置されます</translation>
-    </message>
-    <message>
-        <source>In Place</source>
-        <translation type="vanished">開催場所</translation>
-    </message>
-    <message>
-        <source>Pick offset by Y from drawing</source>
-        <translation type="vanished">デッサンからのYによってオフセットを選ぶ</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">層:</translation>
-    </message>
-    <message>
-        <source>Pen to apply to created duplicate</source>
-        <translation type="vanished">作成した重複を作成するために適用するペン</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>pen</comment>
-        <translation type="vanished">アクティブ</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>pen</comment>
-        <translation type="vanished">オリジナル</translation>
-    </message>
-    <message>
-        <source>Original Resolved</source>
-        <comment>pen</comment>
-        <translation type="vanished">元の解決</translation>
-    </message>
-    <message>
-        <source>Layer to which duplicate should be placed</source>
-        <translation type="vanished">重複が配置されるレイヤー</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <comment>layer</comment>
-        <translation type="vanished">アクティブ</translation>
-    </message>
-    <message>
-        <source>Original</source>
-        <comment>layer</comment>
-        <translation type="vanished">オリジナル</translation>
-    </message>
-    <message>
-        <source>Offset Y:</source>
-        <translation type="vanished">オフセットY:</translation>
-    </message>
-    <message>
-        <source>Offset X:</source>
-        <translation type="vanished">オフセットX:</translation>
     </message>
 </context>
 <context>
@@ -13724,69 +12807,6 @@ Are you sure you are going to discard changes?</source>
     </message>
 </context>
 <context>
-    <name>LC_Ellipse1PointOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Minor Radius:</source>
-        <translation type="vanished">最低の半径:</translation>
-    </message>
-    <message>
-        <source>Value of angle for major radius</source>
-        <translation type="vanished">主要な半径のための角度の価値</translation>
-    </message>
-    <message>
-        <source>If checked, angle for major radius may be specified</source>
-        <translation type="vanished">チェックすると、大半の角度が指定される</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">基礎角度:</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">カウンター時計回り</translation>
-    </message>
-    <message>
-        <source>Pick major actions from drawing</source>
-        <translation type="vanished">描画から大きなアクションを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>If checked, major radius angle is specified by mouse</source>
-        <translation type="vanished">チェックすると、マウスで大きな半径の角度が指定されます</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Length of major radius of ellipse</source>
-        <translation type="vanished">楕円の主要な半径の長さ</translation>
-    </message>
-    <message>
-        <source>Pick minor radius from drawing</source>
-        <translation type="vanished">デッサンからマイナーな半径を選ぶ</translation>
-    </message>
-    <message>
-        <source>Major Radius:</source>
-        <translation type="vanished">主要な半径:</translation>
-    </message>
-    <message>
-        <source>Length of minor radius of ellipse</source>
-        <translation type="vanished">楕円のマイナー半径の長さ</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">時計回り</translation>
-    </message>
-</context>
-<context>
     <name>LC_Ellipse1PointOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/ellipse/lc_ellipse_1_point_options_filler.cpp" line="31"/>
@@ -13925,21 +12945,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/action_options/ellipse/lc_ellipse_1point_options_widget.ui" line="199"/>
         <source>Pick angle from drawing</source>
         <translation type="unfinished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
-    <name>LC_EllipseArcOptions</name>
-    <message>
-        <source>Arc Options</source>
-        <translation type="vanished">アークオプション</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">時計回り</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">カウンター時計回り</translation>
     </message>
 </context>
 <context>
@@ -14830,30 +13835,6 @@ Are you sure you are going to discard changes?</source>
         <source>Eccentricity:</source>
         <translation>同心性:</translation>
     </message>
-    <message>
-        <source>Invalid hyperbola definition</source>
-        <translation type="vanished">無効なハイパーボラ定義</translation>
-    </message>
-    <message>
-        <source>Foci must be distinct</source>
-        <translation type="vanished">フォシは明確でなければなりません</translation>
-    </message>
-    <message>
-        <source>Invalid center coordinates</source>
-        <translation type="vanished">無効な中心の座標</translation>
-    </message>
-    <message>
-        <source>Major radius must be positive</source>
-        <translation type="vanished">主要な半径は肯定的でなければなりません</translation>
-    </message>
-    <message>
-        <source>Invalid rotation angle</source>
-        <translation type="vanished">無効な回転角度</translation>
-    </message>
-    <message>
-        <source>Ratio or minor radius must be positive</source>
-        <translation type="vanished">比率かマイナーな半径は肯定的でなければなりません</translation>
-    </message>
 </context>
 <context>
     <name>LC_ImageOptionsFiller</name>
@@ -15025,10 +14006,6 @@ Are you sure you are going to discard changes?</source>
         <translation>幅:</translation>
     </message>
     <message>
-        <source>Width of image</source>
-        <translation type="vanished">画像の幅</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="138"/>
         <source>Pick width value from drawing</source>
         <translation>描画から幅値を取得する</translation>
@@ -15039,21 +14016,9 @@ Are you sure you are going to discard changes?</source>
         <translation>高さ:</translation>
     </message>
     <message>
-        <source>Height of image</source>
-        <translation type="vanished">画像の高さ</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="219"/>
         <source>Pick height value from the drawing</source>
         <translation>図面から高さ値を選ぶ</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">スケール:</translation>
-    </message>
-    <message>
-        <source>Scaling factor</source>
-        <translation type="vanished">スケーリング係数</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="77"/>
@@ -15065,10 +14030,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="152"/>
         <source>Angle:</source>
         <translation>角度:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_image.ui" line="198"/>
@@ -15100,22 +14061,6 @@ Are you sure you are going to discard changes?</source>
         <source>Select an image file</source>
         <translation>画像ファイルの選択</translation>
     </message>
-    <message>
-        <source>Size (px):</source>
-        <translation type="vanished">サイズ(px):</translation>
-    </message>
-    <message>
-        <source>Size of image in pixels</source>
-        <translation type="vanished">ピクセル内の画像のサイズ</translation>
-    </message>
-    <message>
-        <source>DPI</source>
-        <translation type="vanished">DPIについて</translation>
-    </message>
-    <message>
-        <source>Resolution (dots per inch)</source>
-        <translation type="vanished">決断(インチごとの点)</translation>
-    </message>
 </context>
 <context>
     <name>LC_IndexedPropertiesProviderBase</name>
@@ -15128,21 +14073,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/property_sheet/metaentity/entities/lc_indexed_propertiesprovider_base.h" line="132"/>
         <source>Y</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_InfoDist2Options</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, the point will be always inside selected entity</source>
-        <translation type="vanished">チェックすると、選択したエンティティティティの中でポイントは常に表示されます</translation>
-    </message>
-    <message>
-        <source>Snap On Entity</source>
-        <translation type="vanished">エンティティでスナップ</translation>
     </message>
 </context>
 <context>
@@ -15520,14 +14450,6 @@ Are you sure you are going to discard changes?</source>
         <translation>レイヤーの内部名を階層名に分割するために使用される分離器</translation>
     </message>
     <message>
-        <source>Layer Level Name Separator</source>
-        <translation type="vanished">層のレベルの名前の分離器</translation>
-    </message>
-    <message>
-        <source>Secondary Layer Suffixes</source>
-        <translation type="vanished">セカンダリーレイヤーサフィックス</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="188"/>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="799"/>
         <source>Dimensional</source>
@@ -15558,10 +14480,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="247"/>
         <source>Suffix of layer&apos;s name that defines that layer is for alternative position.</source>
         <translation>レイヤーの名前のサフィックスは、レイヤーが代替位置にあることを定義します.</translation>
-    </message>
-    <message>
-        <source>Duplicating Name</source>
-        <translation type="vanished">Duplicating 名前</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="61"/>
@@ -15704,17 +14622,9 @@ Are you sure you are going to discard changes?</source>
         <translation>各種カラー設定</translation>
     </message>
     <message>
-        <source>Colors</source>
-        <translation type="vanished">カラー</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="470"/>
         <source>Background color for selected items in layers tree.</source>
         <translation>レイヤーツリーで選択した項目の背景色.</translation>
-    </message>
-    <message>
-        <source>Color for separator lines in layers tree view</source>
-        <translation type="vanished">層のツリービューの分離器ラインのための色</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="420"/>
@@ -15753,10 +14663,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="581"/>
         <source>Virtual layer background color</source>
         <translation>バーチャル レイヤーの背景色</translation>
-    </message>
-    <message>
-        <source>Threeview items separator grid</source>
-        <translation type="vanished">3ビューアイテム分離器グリッド</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.ui" line="503"/>
@@ -15812,10 +14718,6 @@ Are you sure you are going to discard changes?</source>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="71"/>
         <source>Alternative Position Layer</source>
         <translation>代わりのポジションレイヤー</translation>
-    </message>
-    <message>
-        <source>grid</source>
-        <translation type="vanished">グリッド</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreeoptionsdialog.cpp" line="103"/>
@@ -16305,118 +15207,6 @@ Please specify a different value.</source>
     </message>
 </context>
 <context>
-    <name>LC_LineAngleRelOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, the length of line is defined by mouse position instead of setting</source>
-        <translation type="vanished">チェックすると、行の長さは設定ではなくマウスの位置で定義されます</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Pick snap distance from drawing</source>
-        <translation type="vanished">描画からスナップ距離をピック</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Offset of tick snap point from intersection point</source>
-        <translation type="vanished">交差点からのティックスナップポイントのオフセット</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">図面から長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">図面からオフセットを選ぶ</translation>
-    </message>
-    <message>
-        <source>If checked, original entity will be divided by intersection point.</source>
-        <translation type="vanished">チェックをすれば、元のエンティティティティは交差点で分けられます.</translation>
-    </message>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">ダイバーシティ</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Distance of intersection point from specified line snap point</source>
-        <translation type="vanished">指定された線のスナップポイントからの交差点の間隔</translation>
-    </message>
-    <message>
-        <source>Defines which part of created line will be snapped to intersection point</source>
-        <translation type="vanished">作成した行の一部が交差点にスナップされるかを定義する</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>Tick Snap:</source>
-        <translation type="vanished">ティックスナップ:</translation>
-    </message>
-    <message>
-        <source>Line Snap:</source>
-        <translation type="vanished">ラインスナップ:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">ラインの長さ</translation>
-    </message>
-    <message>
-        <source>If checked, angle is relative to angle of selected entity</source>
-        <translation type="vanished">チェックした場合、角度は選択したエンティティティの角度に相対的です</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Snap point for position of intersection point between created line and source entity (within original line)</source>
-        <translation type="vanished">生成されたラインとソースのエンティティティ間の交差点の位置のためのスナップポイント(元のラインで)</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <comment>linesnap</comment>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Snap Distance:</source>
-        <translation type="vanished">スナップの間隔:</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">ラインの角度</translation>
-    </message>
-</context>
-<context>
     <name>LC_LineAngleRelOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/line/lc_line_angle_rel_options_filler.cpp" line="32"/>
@@ -16723,93 +15513,6 @@ Please specify a different value.</source>
         <location filename="../src/ui/action_options/line/lc_line_bisector_options_widget.ui" line="103"/>
         <source>Number of bisectors to create</source>
         <translation type="unfinished">作成する２等分線の数</translation>
-    </message>
-</context>
-<context>
-    <name>LC_LineFromPointToLineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="vanished">サイズ:</translation>
-    </message>
-    <message>
-        <source>End offset:</source>
-        <translation type="vanished">端のオフセット:</translation>
-    </message>
-    <message>
-        <source>Offset for created line from intersection point</source>
-        <translation type="vanished">交差点から作ったラインのオフセット</translation>
-    </message>
-    <message>
-        <source>Snap point for created line</source>
-        <translation type="vanished">作成したラインのスナップポイント</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Fixed length of created line</source>
-        <translation type="vanished">作成された行の固定長さ</translation>
-    </message>
-    <message>
-        <source>Snap:</source>
-        <translation type="vanished">スナップ:</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">図面から長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">図面からオフセットを選ぶ</translation>
-    </message>
-    <message>
-        <source>Defines whether created line should be created to intersection point or should have fixed length</source>
-        <translation type="vanished">作成した行が交差点に作成されるか、固定長を持っているかを定義する</translation>
-    </message>
-    <message>
-        <source>To Intersection</source>
-        <translation type="vanished">交差点へ</translation>
-    </message>
-    <message>
-        <source>Fixed Length</source>
-        <translation type="vanished">固定長さ</translation>
-    </message>
-    <message>
-        <source>If checked, created line will be orthogonal to selected line</source>
-        <translation type="vanished">チェックされた行が選択された行に整形される場合</translation>
-    </message>
-    <message>
-        <source>Orthogonal</source>
-        <translation type="vanished">矯正歯科</translation>
-    </message>
-    <message>
-        <source>Angle between original line and created one</source>
-        <translation type="vanished">元のライン間の角度および作成される1</translation>
     </message>
 </context>
 <context>
@@ -17195,81 +15898,6 @@ Please specify a different value.</source>
     </message>
 </context>
 <context>
-    <name>LC_LineJoinOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, polyline will be created instead of individual lines</source>
-        <translation type="vanished">チェックすると、個々の行ではなくポリラインが生成されます</translation>
-    </message>
-    <message>
-        <source>Create Polyline</source>
-        <translation type="vanished">ポリラインを作成する</translation>
-    </message>
-    <message>
-        <source>Policy for the line was selected second</source>
-        <translation type="vanished">ラインの方針が2つ選ばれました</translation>
-    </message>
-    <message>
-        <source>Extend/Trim</source>
-        <translation type="vanished">延長/トリム</translation>
-    </message>
-    <message>
-        <source>Add segment</source>
-        <translation type="vanished">セグメントの追加</translation>
-    </message>
-    <message>
-        <source>No change</source>
-        <translation type="vanished">変更なし</translation>
-    </message>
-    <message>
-        <source>Line 1:</source>
-        <translation type="vanished">ライン1:</translation>
-    </message>
-    <message>
-        <source>Line 2:</source>
-        <translation type="vanished">ライン2:</translation>
-    </message>
-    <message>
-        <source>Policy for joining line that was selected first</source>
-        <translation type="vanished">最初に選ばれた行のポリシー</translation>
-    </message>
-    <message>
-        <source>Defines how pen should be applied to created entities</source>
-        <translation type="vanished">ペンが生成されたエンティティティに適用されるべきかを定義する</translation>
-    </message>
-    <message>
-        <source>Active Pen</source>
-        <translation type="vanished">活動的なペン</translation>
-    </message>
-    <message>
-        <source>Line 1</source>
-        <translation type="vanished">ライン 1</translation>
-    </message>
-    <message>
-        <source>Line 2</source>
-        <translation type="vanished">ライン2</translation>
-    </message>
-    <message>
-        <source>Both lines</source>
-        <translation type="vanished">両線</translation>
-    </message>
-    <message>
-        <source>Attributes:</source>
-        <translation type="vanished">属性:</translation>
-    </message>
-    <message>
-        <source>If checked, original lines will be removed</source>
-        <translation type="vanished">チェックをすれば、元のラインは取除きます</translation>
-    </message>
-    <message>
-        <source>Remove originals</source>
-        <translation type="vanished">オリジナル削除</translation>
-    </message>
-</context>
-<context>
     <name>LC_LineJoinOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_line_join_options_filler.cpp" line="35"/>
@@ -17651,85 +16279,6 @@ Please specify a different value.</source>
         <location filename="../src/ui/action_options/line/lc_line_parallel_through_options_widget.ui" line="121"/>
         <source>Within</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_LinePointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Controls how points on the edges (start/end points) should be created.</source>
-        <translation type="vanished">エッジのポイント(開始/終了ポイント)を生成する方法を制御します.</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">なし</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">両方とも</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">図面からの距離を選ぶ</translation>
-    </message>
-    <message>
-        <source>Number of points to create</source>
-        <translation type="vanished">作成するポイントの数</translation>
-    </message>
-    <message>
-        <source>Edge Points:</source>
-        <translation type="vanished">エッジポイント:</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Specifies whether all points should fit between start/end points of line or whether the length of line is calculated based on number of points and distance between points.</source>
-        <translation type="vanished">すべてのポイントがラインの開始点/終了点間、またはポイント間のポイントと距離に基づいて行の長さが計算されるかどうかを指定します.</translation>
-    </message>
-    <message>
-        <source>Fit Line</source>
-        <translation type="vanished">フィットライン</translation>
-    </message>
-    <message>
-        <source>Distance between points.</source>
-        <translation type="vanished">ポイント間の間隔.</translation>
-    </message>
-    <message>
-        <source>If checked, line of points will be drawn with specified angle</source>
-        <translation type="vanished">チェックすると、ポイントの線は指定された角度で描画されます</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Number of points:</source>
-        <translation type="vanished">ポイント数:</translation>
-    </message>
-    <message>
-        <source>If checked, fixed specified distance between points will be used. Otherwise, distance will be calculated.</source>
-        <translation type="vanished">チェックするとポイント間の固定指定距離が使用されます。 それ以外の場合は、距離を計算します.</translation>
-    </message>
-    <message>
-        <source>Fixed Distance</source>
-        <translation type="vanished">固定間隔</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">ラインの角度</translation>
     </message>
 </context>
 <context>
@@ -21979,433 +20528,6 @@ Please specify a different value.</source>
     </message>
 </context>
 <context>
-    <name>LC_MenuFactory</name>
-    <message>
-        <source>&amp;Help</source>
-        <translation type="vanished">&amp;ヘルプ</translation>
-    </message>
-    <message>
-        <source>On&amp;line Docs</source>
-        <translation type="vanished">On&amp;line ドキュメント</translation>
-    </message>
-    <message>
-        <source>&amp;Wiki</source>
-        <translation type="vanished">アンドウィキ</translation>
-    </message>
-    <message>
-        <source>User&apos;s &amp;Manual</source>
-        <translation type="vanished">ユーザー&amp;マニュアル</translation>
-    </message>
-    <message>
-        <source>&amp;Commands</source>
-        <translation type="vanished">&amp;コマンド</translation>
-    </message>
-    <message>
-        <source>&amp;Style Sheets</source>
-        <translation type="vanished">&amp;Styleシート</translation>
-    </message>
-    <message>
-        <source>Wid&amp;gets</source>
-        <translation type="vanished">ウィジェット</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="vanished">お問い合わせ</translation>
-    </message>
-    <message>
-        <source>&amp;Forum</source>
-        <translation type="vanished">&amp;フォーラム</translation>
-    </message>
-    <message>
-        <source>Zulip &amp;Chat</source>
-        <translation type="vanished">ジリップ&amp;チャット</translation>
-    </message>
-    <message>
-        <source>&amp;Submit Error</source>
-        <translation type="vanished">&amp;Submit エラー</translation>
-    </message>
-    <message>
-        <source>&amp;Request Feature</source>
-        <translation type="vanished">&amp;Requestの特徴</translation>
-    </message>
-    <message>
-        <source>&amp;Releases Page</source>
-        <translation type="vanished">&amp;リリースページ</translation>
-    </message>
-    <message>
-        <source>&amp;Donate</source>
-        <translation type="vanished">&amp;Donateについて</translation>
-    </message>
-    <message>
-        <source>&amp;Line</source>
-        <translation type="vanished">&amp;ライン</translation>
-    </message>
-    <message>
-        <source>Poin&amp;t</source>
-        <translation type="vanished">ポイン&amp;t</translation>
-    </message>
-    <message>
-        <source>&amp;Circle</source>
-        <translation type="vanished">&amp;サイクル</translation>
-    </message>
-    <message>
-        <source>&amp;Arc</source>
-        <translation type="vanished">・ ログイン</translation>
-    </message>
-    <message>
-        <source>Poly&amp;gon</source>
-        <translation type="vanished">ポリゴン</translation>
-    </message>
-    <message>
-        <source>Splin&amp;e</source>
-        <translation type="vanished">スプリン&amp;e</translation>
-    </message>
-    <message>
-        <source>Ellip&amp;se</source>
-        <translation type="vanished">エリプ&amp;se</translation>
-    </message>
-    <message>
-        <source>&amp;Polyline</source>
-        <translation type="vanished">&amp;ポリライン</translation>
-    </message>
-    <message>
-        <source>&amp;Other</source>
-        <translation type="vanished">・その他</translation>
-    </message>
-    <message>
-        <source>&amp;Draw</source>
-        <translation type="vanished">ドローイング</translation>
-    </message>
-    <message>
-        <source>&amp;Ellipse</source>
-        <translation type="vanished">&amp;エリス</translation>
-    </message>
-    <message>
-        <source>Ot&amp;her</source>
-        <translation type="vanished">オット・アンド・ヘル</translation>
-    </message>
-    <message>
-        <source>&amp;Modify</source>
-        <translation type="vanished">&amp;修正</translation>
-    </message>
-    <message>
-        <source>&amp;Order</source>
-        <translation type="vanished">&amp;オーダー</translation>
-    </message>
-    <message>
-        <source>&amp;Dimensions</source>
-        <translation type="vanished">&amp;寸法</translation>
-    </message>
-    <message>
-        <source>&amp;Info</source>
-        <translation type="vanished">インフォメーション</translation>
-    </message>
-    <message>
-        <source>&amp;Tools</source>
-        <translation type="vanished">&amp;ツール</translation>
-    </message>
-    <message>
-        <source>&amp;Select</source>
-        <translation type="vanished">選択する</translation>
-    </message>
-    <message>
-        <source>Dime&amp;nsion</source>
-        <translation type="vanished">ダイム&amp;nsion</translation>
-    </message>
-    <message>
-        <source>&amp;File</source>
-        <translation type="vanished">ファイル</translation>
-    </message>
-    <message>
-        <source>Recent Files</source>
-        <translation type="vanished">最近のファイル</translation>
-    </message>
-    <message>
-        <source>Import</source>
-        <translation type="vanished">インポート</translation>
-    </message>
-    <message>
-        <source>Export</source>
-        <translation type="vanished">エクスポート</translation>
-    </message>
-    <message>
-        <source>&amp;Options</source>
-        <translation type="vanished">・オプション</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="vanished">&amp;編集</translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="vanished">&amp;ビュー</translation>
-    </message>
-    <message>
-        <source>&amp;Views Restore</source>
-        <translation type="vanished">&amp;Viewsの復元</translation>
-    </message>
-    <message>
-        <source>Pl&amp;ugins</source>
-        <translation type="vanished">Pl&amp;uginsの特長</translation>
-    </message>
-    <message>
-        <source>&amp;Workspace</source>
-        <translation type="vanished">ワークスペース</translation>
-    </message>
-    <message>
-        <source>Dock Areas</source>
-        <translation type="vanished">ドックエリア</translation>
-    </message>
-    <message>
-        <source>CAD Wid&amp;gets</source>
-        <translation type="vanished">CADウィジェット</translation>
-    </message>
-    <message>
-        <source>&amp;Drawings</source>
-        <translation type="vanished">&amp;引き出し</translation>
-    </message>
-    <message>
-        <source>Context</source>
-        <translation type="vanished">コンテンツ</translation>
-    </message>
-    <message>
-        <source>Toolbars</source>
-        <translation type="vanished">ツールバー</translation>
-    </message>
-    <message>
-        <source>Widgets</source>
-        <translation type="vanished">ウィジェット</translation>
-    </message>
-    <message>
-        <source>CAD Widgets</source>
-        <translation type="vanished">CADウィジェット</translation>
-    </message>
-    <message>
-        <source>CAD Toolbars</source>
-        <translation type="vanished">CADツールバー</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">選択する</translation>
-    </message>
-    <message>
-        <source>Recent</source>
-        <translation type="vanished">最近の投稿</translation>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation type="vanished">変更する</translation>
-    </message>
-    <message>
-        <source>Modify More</source>
-        <translation type="vanished">もっと修正</translation>
-    </message>
-    <message>
-        <source>Draw</source>
-        <translation type="vanished">ドロー</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">ライン</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">ポイント</translation>
-    </message>
-    <message>
-        <source>Circle</source>
-        <translation type="vanished">サークル</translation>
-    </message>
-    <message>
-        <source>Arc</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Polygon</source>
-        <translation type="vanished">ポリゴン</translation>
-    </message>
-    <message>
-        <source>Polyline/Spline</source>
-        <translation type="vanished">ポリライン/スプライン</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">エリス</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation type="vanished">その他</translation>
-    </message>
-    <message>
-        <source>Add Dimensions</source>
-        <translation type="vanished">寸法の追加</translation>
-    </message>
-    <message>
-        <source>Align</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Draw Order</source>
-        <translation type="vanished">注文を引く</translation>
-    </message>
-    <message>
-        <source>Layers</source>
-        <translation type="vanished">レイヤー</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="vanished">インフォメーション</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="vanished">編集</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation type="vanished">オプション</translation>
-    </message>
-    <message>
-        <source>&amp;Named Views</source>
-        <translation type="vanished">&amp;Named ビュー</translation>
-    </message>
-    <message>
-        <source>Edit Properties</source>
-        <translation type="vanished">プロパティの編集</translation>
-    </message>
-    <message>
-        <source>Modify Generic</source>
-        <translation type="vanished">ジェネリックの修正</translation>
-    </message>
-    <message>
-        <source>Modify Line</source>
-        <translation type="vanished">改行ライン</translation>
-    </message>
-    <message>
-        <source>Draw Line</source>
-        <translation type="vanished">ドローライン</translation>
-    </message>
-    <message>
-        <source>Draw Circle</source>
-        <translation type="vanished">ドロップサークル</translation>
-    </message>
-    <message>
-        <source>Draw Other</source>
-        <translation type="vanished">引く その他</translation>
-    </message>
-    <message>
-        <source>Modify Circle</source>
-        <translation type="vanished">サークルの変更</translation>
-    </message>
-    <message>
-        <source>Modify Arc</source>
-        <translation type="vanished">アークを変更する</translation>
-    </message>
-    <message>
-        <source>Modify Polyline</source>
-        <translation type="vanished">ポリラインの変更</translation>
-    </message>
-    <message>
-        <source>Modify Spline</source>
-        <translation type="vanished">Splineの修正</translation>
-    </message>
-    <message>
-        <source>Modify Spline Points</source>
-        <translation type="vanished">スプラインポイントの変更</translation>
-    </message>
-    <message>
-        <source>Modify Text</source>
-        <translation type="vanished">テキストの変更</translation>
-    </message>
-    <message>
-        <source>Modify MText</source>
-        <translation type="vanished">MTextの変更</translation>
-    </message>
-    <message>
-        <source>Edit Block</source>
-        <translation type="vanished">編集ブロック</translation>
-    </message>
-    <message>
-        <source>Order</source>
-        <translation type="vanished">注文方法</translation>
-    </message>
-    <message>
-        <source>&amp;Toolbars</source>
-        <translation type="vanished">ツールバー</translation>
-    </message>
-    <message>
-        <source>&amp;CAD Toolbars</source>
-        <translation type="vanished">&amp;CADツールバー</translation>
-    </message>
-    <message>
-        <source>&amp;Workspaces</source>
-        <translation type="vanished">&amp;ワークスペース</translation>
-    </message>
-    <message>
-        <source>Ta&amp;b mode</source>
-        <translation type="vanished">Ta&amp;bモード</translation>
-    </message>
-    <message>
-        <source>&amp;Window mode</source>
-        <translation type="vanished">&amp;Windowモード</translation>
-    </message>
-    <message>
-        <source>&amp;Layout</source>
-        <translation type="vanished">&amp;レイアウト</translation>
-    </message>
-    <message>
-        <source>Rounded</source>
-        <translation type="vanished">ラウンド</translation>
-    </message>
-    <message>
-        <source>Triangular</source>
-        <translation type="vanished">トライアングル</translation>
-    </message>
-    <message>
-        <source>North</source>
-        <translation type="vanished">ノース</translation>
-    </message>
-    <message>
-        <source>South</source>
-        <translation type="vanished">サウス</translation>
-    </message>
-    <message>
-        <source>East</source>
-        <translation type="vanished">トピックス</translation>
-    </message>
-    <message>
-        <source>West</source>
-        <translation type="vanished">ウエスト</translation>
-    </message>
-    <message>
-        <source>&amp;Arrange</source>
-        <translation type="vanished">&amp;アレンジ</translation>
-    </message>
-    <message>
-        <source>&amp;Maximized</source>
-        <translation type="vanished">&amp;最大化</translation>
-    </message>
-    <message>
-        <source>&amp;Cascade</source>
-        <translation type="vanished">&amp;カスケード</translation>
-    </message>
-    <message>
-        <source>&amp;Tile</source>
-        <translation type="vanished">&amp;タイル</translation>
-    </message>
-    <message>
-        <source>Tile &amp;Vertically</source>
-        <translation type="vanished">タイル&amp;垂直</translation>
-    </message>
-    <message>
-        <source>Tile &amp;Horizontally</source>
-        <translation type="vanished">タイル&amp;水平方向</translation>
-    </message>
-</context>
-<context>
     <name>LC_MenuFactoryBase</name>
     <message>
         <location filename="../src/ui/main/init/lc_menufactory_base.cpp" line="55"/>
@@ -23021,21 +21143,6 @@ Please specify a different value.</source>
     </message>
 </context>
 <context>
-    <name>LC_MidLineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Pick offset from drawing</source>
-        <translation type="vanished">図面からオフセットを選ぶ</translation>
-    </message>
-</context>
-<context>
     <name>LC_MirrorOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_filler.cpp" line="31"/>
@@ -23172,197 +21279,6 @@ Please specify a different value.</source>
     </message>
 </context>
 <context>
-    <name>LC_ModifyAlignRefOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for mirrored entities, otherwise - original ones. </source>
-        <translation type="vanished">チェックすると、ミラー化されたエンティティティティのために現在の属性が使用されます。そうでなければ - 元の属性.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation type="vanished">チェックされていない場合、元のエンティティティティは削除されます。そうしないと生き残ります.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">チェックすると、現在のレイヤーにミラー化されたエンティティティが配置されます。そうしないと、元のレイヤーに置かれます.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">ユーザーの現在の層</translation>
-    </message>
-    <message>
-        <source>If checked, entities will be scaled if necessary. Otherwise, they will be just positioned and rotated.</source>
-        <translation type="vanished">チェックすると、必要に応じてエンティティティティがスケールされます。 さもなければ、彼らはちょうど配置され、回転されます.</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="vanished">スケール</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyBreakDivideOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, segements between intersection points will be removed. If unchecked - the entitiy will be divided in intersection points. </source>
-        <translation type="vanished">チェックをすると、交差点の隙間を外します。 チェックされていない場合 - entitiy は交差点のポイントに分割されます.</translation>
-    </message>
-    <message>
-        <source>Remove Segments</source>
-        <translation type="vanished">セグメントを削除</translation>
-    </message>
-    <message>
-        <source>If checked, selected segment will be removed. Otherwise, selected segment will survive and remaining segments will be removed. </source>
-        <translation type="vanished">チェックすると選択したセグメントが削除されます。 それ以外の場合は、選択したセグメントが有効になり、残りのセグメントは削除されます.</translation>
-    </message>
-    <message>
-        <source>Remove Selected</source>
-        <translation type="vanished">選択解除</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyGapOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Snap Distance:</source>
-        <translation type="vanished">スナップの間隔:</translation>
-    </message>
-    <message>
-        <source>Snap point of gap to line snap point</source>
-        <translation type="vanished">ラインスナップポイントへのギャップのスナップポイント</translation>
-    </message>
-    <message>
-        <source>Line Snap:</source>
-        <translation type="vanished">ラインスナップ:</translation>
-    </message>
-    <message>
-        <source>Gap Size:</source>
-        <translation type="vanished">ギャップのサイズ:</translation>
-    </message>
-    <message>
-        <source>Snap point for gap on the line</source>
-        <translation type="vanished">ライン上のギャップのためのスナップポイント</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Gap Snap:</source>
-        <translation type="vanished">ギャップのスナップ:</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <comment>gap</comment>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <comment>gap</comment>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <comment>gap</comment>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <comment>snap</comment>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <comment>snap</comment>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <comment>snap</comment>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <comment>snap</comment>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>PIck gap size from drawing</source>
-        <translation type="vanished">デッサンからのPIckのギャップのサイズ</translation>
-    </message>
-    <message>
-        <source>Distance from snap point</source>
-        <translation type="vanished">スナップポイントからの距離</translation>
-    </message>
-    <message>
-        <source>Pick snap distance from drawing</source>
-        <translation type="vanished">描画からスナップ距離をピック</translation>
-    </message>
-    <message>
-        <source>Size of the gap, if not free</source>
-        <translation type="vanished">ギャップのサイズ、自由でなければ</translation>
-    </message>
-    <message>
-        <source>If cheched, the size of the gap is determined by mouse</source>
-        <translation type="vanished">噛むと、隙間の大きさがマウスで決定される</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyMirrorOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, mirror will be performed by selected line entity.</source>
-        <translation type="vanished">チェックすると、選択したラインエンティティティティティがミラーで行います.</translation>
-    </message>
-    <message>
-        <source>Mirror to selected line</source>
-        <translation type="vanished">選択されたラインへのミラー</translation>
-    </message>
-    <message>
-        <source>If unchecked, original entities will be removed, otherwise they will survive.</source>
-        <translation type="vanished">チェックされていない場合、元のエンティティティティは削除されます。そうしないと生き残ります.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for mirrored entities, otherwise - original ones. </source>
-        <translation type="vanished">チェックすると、ミラー化されたエンティティティティのために現在の属性が使用されます。そうでなければ - 元の属性.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, mirrored entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">チェックすると、現在のレイヤーにミラー化されたエンティティティが配置されます。そうしないと、元のレイヤーに置かれます.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">ユーザーの現在の層</translation>
-    </message>
-</context>
-<context>
     <name>LC_ModifyMirrorOptionsWidget</name>
     <message>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_widget.ui" line="14"/>
@@ -23408,234 +21324,6 @@ Please specify a different value.</source>
         <location filename="../src/ui/action_options/modify/lc_mirror_options_widget.ui" line="85"/>
         <source>User Current Layer</source>
         <translation type="unfinished">ユーザーの現在の層</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyRotateOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">回転オプションの移動</translation>
-    </message>
-    <message>
-        <source>Free selection of factor should be performed by mouse if checked.</source>
-        <translation type="vanished">チェックをすれば、因子の自由な選択はマウスによって行われるべきです.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>If checked, new enties will be placed on current layer, otherwise they will be in original layers.</source>
-        <translation type="vanished">チェックすると、現在のレイヤーに新しいエンティが配置されます。それ以外の場合は元のレイヤーになります.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>If absolute, reference point will be rotated but entity will be rotated by second angle only, otherwise angles will summ up</source>
-        <translation type="vanished">絶対的であれば、参照ポイントは回転しますが、エンティティティティは2番目の角度だけで回転します。そうしないと角度はまとめられます</translation>
-    </message>
-    <message>
-        <source>Absolute</source>
-        <translation type="vanished">絶対</translation>
-    </message>
-    <message>
-        <source>Angle to rotate entity around rotation center point</source>
-        <translation type="vanished">回転中心ポイントのまわりのエンティティティを回す角度</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, othewise original ones will be used. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティに現在の属性が適用され、同様に元の属性が使用されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, second rotation is around reference point</source>
-        <translation type="vanished">チェックすると、2番目の回転は参照ポイントの周りにあります</translation>
-    </message>
-    <message>
-        <source>Rotate twice</source>
-        <translation type="vanished">2回回転</translation>
-    </message>
-    <message>
-        <source>Angle for additional rotation around refrence point</source>
-        <translation type="vanished">補強ポイントのまわりの付加的な回転のための角度</translation>
-    </message>
-    <message>
-        <source>Pick rotation angle from drawing</source>
-        <translation type="vanished">描画から回転角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will be survive, otherwise they will be removed.</source>
-        <translation type="vanished">チェックすると、元のエンティティティティが生き残ります。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>Multiple copies will be created if checked.</source>
-        <translation type="vanished">チェックをすれば複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-    <message>
-        <source>Rotation Angle:</source>
-        <translation type="vanished">回転角度:</translation>
-    </message>
-    <message>
-        <source>Specifies whether angle is defined by entered value or by mouse position</source>
-        <translation type="vanished">入力値またはマウス位置で角度を定義するかどうかを指定します</translation>
-    </message>
-    <message>
-        <source>Pick second rotation angle from drawing</source>
-        <translation type="vanished">描画から2番目の回転角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">コピー数</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyScaleOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">回転オプションの移動</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created.</source>
-        <translation type="vanished">チェックすると、複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>If checked, the same scaling factor for X and Y axis will be applied.</source>
-        <translation type="vanished">チェックすると、X軸とY軸の同じスケーリング係数が適用されます.</translation>
-    </message>
-    <message>
-        <source>Isotropic</source>
-        <translation type="vanished">イソトロピック</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">コピー数</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティに現在の属性が適用され、それ以外の場合は元の属性が使用されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>Scale factor for Y axis</source>
-        <translation type="vanished">Y軸のスケール係数</translation>
-    </message>
-    <message>
-        <source>Scale Factor:</source>
-        <translation type="vanished">スケールの要因:</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed to original layers. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置されます。 それ以外の場合は、元のレイヤーに配置されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>If checked, factor will be freely selected by mouse. Otherwise, specified values of factors will be used.</source>
-        <translation type="vanished">チェックすると、マウスで要素を自由に選択します。 それ以外の場合、要素の指定された値が使用されます.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Scale factor for X axis</source>
-        <translation type="vanished">X軸のスケール係数</translation>
-    </message>
-</context>
-<context>
-    <name>LC_ModifyStretchOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-</context>
-<context>
-    <name>LC_MoveOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed to current layer. Otherwise, they will be placed into original layers. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置されます。 それ以外の場合は、元のレイヤーに配置されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">コピー数</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, owtherwise original ones will be used. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティに現在の属性が適用され、代わりに元の属性が使用されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed.</source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">チェックすると、複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
     </message>
 </context>
 <context>
@@ -23951,14 +21639,6 @@ Please specify a different value.</source>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.ui" line="81"/>
         <source>...</source>
         <translation>・・・.</translation>
-    </message>
-    <message>
-        <source>Filtering views by name</source>
-        <translation type="vanished">名前によるビューのフィルタリング</translation>
-    </message>
-    <message>
-        <source>Filter...</source>
-        <translation type="vanished">フィルター...</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/views_list/lc_namedviewslistwidget.ui" line="55"/>
@@ -24394,45 +22074,6 @@ Warning: this action can NOT be undone!</source>
         <source>Control Points</source>
         <translation>コントロールポイント</translation>
     </message>
-    <message>
-        <source>Parabola control points cannot be collinear</source>
-        <translation type="vanished">パラボラの制御ポイントは、コリナーにすることはできません</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PasteToPointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>If selected, the point entity used as insertion point will be deleted after paste operation. Otherwise, it will survive.</source>
-        <translation type="vanished">選択した場合には、貼り付け操作後にインサートポイントとして使用されるポイントエンティティティティティが削除されます。 そうでなければ、それは生き残ります.</translation>
-    </message>
-    <message>
-        <source>Remove point</source>
-        <translation type="vanished">ポイントを削除</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">スケール要因</translation>
-    </message>
-    <message>
-        <source>Scale factor for pasted entities</source>
-        <translation type="vanished">過去のエンティティティのスケール要因</translation>
-    </message>
-    <message>
-        <source>Rotation angle for pasted entities</source>
-        <translation type="vanished">過去のエンティティティのための回転角度</translation>
-    </message>
 </context>
 <context>
     <name>LC_PasteToPointsOptionsFiller</name>
@@ -24508,89 +22149,6 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/action_options/edit/lc_paste_to_points_options_widget.ui" line="143"/>
         <source>Pick angle from drawing</source>
         <translation type="unfinished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PasteTransformOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Rotation angle for pasted entities</source>
-        <translation type="vanished">過去のエンティティティのための回転角度</translation>
-    </message>
-    <message>
-        <source>Spacing between entities insertion points in rows. </source>
-        <translation type="vanished">列内のエンティティティティティティティティポイントの間隔.</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Pick array spacing by X from drawing</source>
-        <translation type="vanished">描画からXで配列の間隔を選ぶ</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">スケール要因</translation>
-    </message>
-    <message>
-        <source>Pick array angle from drawing</source>
-        <translation type="vanished">デッサンからの配列の角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Rotation angle for array.</source>
-        <translation type="vanished">配列の回転角度.</translation>
-    </message>
-    <message>
-        <source>Array rows number.</source>
-        <translation type="vanished">配列行番号.</translation>
-    </message>
-    <message>
-        <source>Pick array spacing by Y from drawing</source>
-        <translation type="vanished">描画からYによる配列の間隔をピック</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>If checked, the same rotation angle is used for each individual paste and whole array. Otherwise, different angles are used. </source>
-        <translation type="vanished">チェックすると、個々のペーストと全配列に同じ回転角度が使用されます。 それ以外の場合、異なる角度が使用されます.</translation>
-    </message>
-    <message>
-        <source>Same Angles</source>
-        <translation type="vanished">同じ角度</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">間隔:</translation>
-    </message>
-    <message>
-        <source>Array columns number.</source>
-        <translation type="vanished">配列の列番号.</translation>
-    </message>
-    <message>
-        <source>If checked, arrays of copies will be created on paste.</source>
-        <translation type="vanished">チェックすると、コピーの配列がペースト上に作成されます.</translation>
-    </message>
-    <message>
-        <source>Array</source>
-        <translation type="vanished">アレイ</translation>
-    </message>
-    <message>
-        <source>Array Angle:</source>
-        <translation type="vanished">配列の角度:</translation>
-    </message>
-    <message>
-        <source>Scale factor for pasted entities</source>
-        <translation type="vanished">過去のエンティティティのスケール要因</translation>
-    </message>
-    <message>
-        <source>Spacing between insertion points of entities in columns.</source>
-        <translation type="vanished">列内のエンティティの挿入ポイント間の間隔。</translation>
     </message>
 </context>
 <context>
@@ -25212,17 +22770,9 @@ Warning: this action can NOT be undone!</source>
         <translation>ライン幅 名前</translation>
     </message>
     <message>
-        <source>Colors</source>
-        <translation type="vanished">カラー</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="66"/>
         <source>Background color for pen element currently edited in pen&apos;s table</source>
         <translation>現在、ペンの表で編集したペン要素の背景色</translation>
-    </message>
-    <message>
-        <source>Color of grid for pens list</source>
-        <translation type="vanished">ペンリスト用のグリッドの色</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="32"/>
@@ -25244,10 +22794,6 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="79"/>
         <source>Entire table row is bold for active pen</source>
         <translation>アクティブなペンのためにテーブルの行が太字</translation>
-    </message>
-    <message>
-        <source>Grid Color:</source>
-        <translation type="vanished">格子色:</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="96"/>
@@ -25340,17 +22886,9 @@ Warning: this action can NOT be undone!</source>
         <translation>可能な自然名</translation>
     </message>
     <message>
-        <source>If selected, additional messages will be show as part of pen related operations</source>
-        <translation type="vanished">選択した場合には、ペン関連の操作の一部として追加メッセージが表示されます</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="280"/>
         <source>Show info message if no entities may be selected by pen</source>
         <translation>ペンでエンティティティが選択されていない場合は、情報メッセージを表示</translation>
-    </message>
-    <message>
-        <source>On double click on table item</source>
-        <translation type="vanished">テーブル項目のダブルクリック</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/pen_palette/lc_penpaletteoptionsdialog.ui" line="162"/>
@@ -25575,12 +23113,6 @@ Please note that if you&apos;ll save pen via editor without restart, current pen
 
 再起動せずにエディタでペンを保存した場合、パレットの現在のペンが新しいファイルに保存され、既存の内容が上書きされます。</translation>
     </message>
-    <message>
-        <source>Location of pens file is changed, please restart the application so new pens file will be used.
-Please note that if you&apos;ll save pen via editor without restart, current pens from palette will be saved in the new file and therefore existing content of it will be overridden.</source>
-        <translation type="vanished">ペンのファイルの場所が変更されました。アプリケーションを再起動して、新しいペンのファイルを使用してください。
-エディターでペンのファイルを保存すると、再起動せずに現在のパレットのペンが新しいファイルに保存され、既存の内容が上書きされることに注意してください。</translation>
-    </message>
 </context>
 <context>
     <name>LC_PointPickButton</name>
@@ -25626,37 +23158,6 @@ Please note that if you&apos;ll save pen via editor without restart, current pen
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_point.ui" line="103"/>
         <source>Pick position from the drawing</source>
         <translation>図面からポジションを選ぶ</translation>
-    </message>
-</context>
-<context>
-    <name>LC_PointsLatticeOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Number of points by lattice Y direction (count of lattice rows)</source>
-        <translation type="vanished">格子Y方向によるポイント数(格子行のカウント)</translation>
-    </message>
-    <message>
-        <source>Rows Count:</source>
-        <translation type="vanished">列数:</translation>
-    </message>
-    <message>
-        <source>Columns Count:</source>
-        <translation type="vanished">列数:</translation>
-    </message>
-    <message>
-        <source>Number of points by X lattice direction (count of lattice columns)</source>
-        <translation type="vanished">X格子方向によるポイント数(格子列のカウント)</translation>
-    </message>
-    <message>
-        <source>If selected, last point of lattice will be adjusted accoriding to position of first point, so lattice will be rect or quadrangle</source>
-        <translation type="vanished">選択した場合、ラティスの最後のポイントは、最初のポイントの位置に調整されますので、ラティスは、リベットまたは四角になります</translation>
-    </message>
-    <message>
-        <source>Adjust last point to first</source>
-        <translation type="vanished">最後のポイントを最初に調節して下さい</translation>
     </message>
 </context>
 <context>
@@ -32923,10 +30424,6 @@ Please note that if you&apos;ll save pen via editor without restart, current pen
         <translation>直径</translation>
     </message>
     <message>
-        <source>Circumference</source>
-        <translation type="vanished">サーキュムフェレンス</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="615"/>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="633"/>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfoentitydata.cpp" line="740"/>
@@ -33914,10 +31411,6 @@ p, li {空白: プレラップ;
         <translation>エンティティー情報</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be show in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; 選択すると、ポリラインの一部であるラインとアークに関する詳細情報がEntity Info ウィジェットに表示されます。&lt;br/&gt; それ以外の場合は、vertexes/bulges に関する情報のみが表示されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.ui" line="81"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If selected, more detailed information about lines and arcs that are part of polyline will be shown in Entity Info widget.&lt;br/&gt;Otherwise, only information about vertexes/bulges will be displayed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;チェックすると、エンティティ情報ウィジェットにポリラインを構成する直線と弧の詳細情報が表示されます。&lt;br/&gt;それ以外は、頂点/膨らみの情報のみが表示されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -33966,205 +31459,6 @@ p, li {空白: プレラップ;
         <location filename="../src/ui/dock_widgets/entity_info/lc_quickinfowidgetoptionsdialog.cpp" line="44"/>
         <source>Points highlight pen</source>
         <translation>ポイントハイライトペン</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rectangle1PointOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">エッジ:</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap point should be shifted by radius of corners.</source>
-        <translation type="vanished">チェックすると、角の半径でスナップポイントがシフトされるべきだと指定します.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">スナップシフト</translation>
-    </message>
-    <message>
-        <source>Length of bevel corner for Y direction. </source>
-        <translation type="vanished">Y方向の斜角の長さ.</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">長方形のエッジが描画されるべきを定義します(矩形ではなく2つの平行線を作成することも可能です)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">両方とも</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">プロフィール</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>Width of rectangle</source>
-        <translation type="vanished">長方形の幅</translation>
-    </message>
-    <message>
-        <source>Controls how corners of rectangle should be drawn.</source>
-        <translation type="vanished">長方形の角を描画する方法を制御します.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">ストレート</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">ラウンド</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">ベベル</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be rotated on specified angle.</source>
-        <translation type="vanished">チェックすると、指定された角度で矩形が回転します.</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">基礎角度:</translation>
-    </message>
-    <message>
-        <source>If checked, specified height and width of rectangle defines distance between centers of arcs for rounding corners. Otherwise, these values defines outer size of the rectangle.</source>
-        <translation type="vanished">チェックした場合、指定された高さと長方形の幅は、角を丸めるためのアークのセンター間の距離を定義します。 それ以外の場合、これらの値は長方形の外のサイズを定義します.</translation>
-    </message>
-    <message>
-        <source>Size inner</source>
-        <translation type="vanished">サイズ 内部</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">長さ Y:</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be created as polyline instead of individual segments.</source>
-        <translation type="vanished">チェックすると、個々のセグメントの代わりに、長方形がポリラインとして作成されます.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Snap:</source>
-        <translation type="vanished">スナップ:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">高さ:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Length of bevel corner for X direction. </source>
-        <translation type="vanished">X方向の斜角の長さ.</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">長さ X:</translation>
-    </message>
-    <message>
-        <source>Height of rectangle</source>
-        <translation type="vanished">長方形の高さ</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners.</source>
-        <translation type="vanished">丸角の半径.</translation>
-    </message>
-    <message>
-        <source>Point of rectangle wich will be placed to insertion point.</source>
-        <translation type="vanished">矩形ウィッチのポイントを差し込みます.</translation>
-    </message>
-    <message>
-        <source>Top-left</source>
-        <translation type="vanished">トップ左</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation type="vanished">トップページ</translation>
-    </message>
-    <message>
-        <source>Top-right</source>
-        <translation type="vanished">トップページ</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation type="vanished">ふりがな</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation type="vanished">アクセス</translation>
-    </message>
-    <message>
-        <source>Bottom-left</source>
-        <translation type="vanished">ボトム左</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation type="vanished">ボトム</translation>
-    </message>
-    <message>
-        <source>Bottom-right</source>
-        <translation type="vanished">ボトムライト</translation>
-    </message>
-    <message>
-        <source>Pick rotation angle from drawing</source>
-        <translation type="vanished">描画から回転角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing.</source>
-        <translation type="vanished">丸みのある角の半径を描きます.</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Pick height of rectangle from drawing</source>
-        <translation type="vanished">デッサンからの長方形の高さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick width of rectangle from drawing</source>
-        <translation type="vanished">描画から長方形の幅を選ぶ</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">幅:</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">コーナー:</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel corner for X direction from drawing.</source>
-        <translation type="vanished">描画からX方向のベベルコーナーの長さを選択します.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel corner for Y direction from drawing.</source>
-        <translation type="vanished">描画からY方向のベベルコーナーの長さを選択します.</translation>
-    </message>
-    <message>
-        <source>If checked, angle will be specified by mouse position. Otherwise, specified value will be used.</source>
-        <translation type="vanished">チェックすると、マウスの位置で角度が指定されます。 それ以外の場合は、指定された値が使用されます.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
     </message>
 </context>
 <context>
@@ -34534,153 +31828,6 @@ p, li {空白: プレラップ;
     </message>
 </context>
 <context>
-    <name>LC_Rectangle2PointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">長方形のエッジが描画されるべきを定義します(矩形ではなく2つの平行線を作成することも可能です)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">両方とも</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">プロフィール</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>Defines which point of rectangle should be placed into start point position.</source>
-        <translation type="vanished">矩形が始点位置に配置されるべきポイントを定義します.</translation>
-    </message>
-    <message>
-        <source>Corner</source>
-        <translation type="vanished">コーナー</translation>
-    </message>
-    <message>
-        <source>Mid-Vertical</source>
-        <translation type="vanished">ミッドプロファイル</translation>
-    </message>
-    <message>
-        <source>Mid-Horizontal</source>
-        <translation type="vanished">ミッドホライゾンタル</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>Pick rectangle rotation angle from drawing</source>
-        <translation type="vanished">デッサンからの長方形の回転角度を選んで下さい</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing. </source>
-        <translation type="vanished">丸みのある角の半径を描きます.</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">コーナー:</translation>
-    </message>
-    <message>
-        <source>Defines which point of rectangle should be placed into end point position. </source>
-        <translation type="vanished">矩形の位置を終点位置に配置すべき点を定義します.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in X direction from drawing.</source>
-        <translation type="vanished">描画からX方向の斜面の長さを選択します.</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">エッジ:</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in Y direction from drawing. </source>
-        <translation type="vanished">描画からY方向の斜面の長さを選択します.</translation>
-    </message>
-    <message>
-        <source>Start Snap:</source>
-        <translation type="vanished">スナップを始めて下さい:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y方向の斜面の長さ.</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation type="vanished">チェックすると、スナップポイントが角の半径でシフトされるべきであることを指定します.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">スナップシフト</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">長さ X:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>If checked, allows to specify rotation angle for rectangle.</source>
-        <translation type="vanished">チェックすると、矩形に回転角度を指定できます.</translation>
-    </message>
-    <message>
-        <source>Base Angle:</source>
-        <translation type="vanished">基礎角度:</translation>
-    </message>
-    <message>
-        <source>Rectangle rotation angle.</source>
-        <translation type="vanished">長方形の回転角度.</translation>
-    </message>
-    <message>
-        <source>End Snap:</source>
-        <translation type="vanished">端のスナップ:</translation>
-    </message>
-    <message>
-        <source>Defines how corners of rectangle should be drawn. </source>
-        <translation type="vanished">長方形の角を描画する方法を定義します.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">ストレート</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">ラウンド</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">ベベル</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners. </source>
-        <translation type="vanished">丸角の半径.</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">長さ Y:</translation>
-    </message>
-    <message>
-        <source>If checked, the entire rectangle will be drawn as polyline.</source>
-        <translation type="vanished">チェックすると、四角全体をポリラインとして描画します.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X方向の斜面の長さ.</translation>
-    </message>
-</context>
-<context>
     <name>LC_Rectangle2PointsOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/rect/lc_rectangle_2points_options_filler.cpp" line="36"/>
@@ -34938,145 +32085,6 @@ p, li {空白: プレラップ;
         <location filename="../src/ui/action_options/rect/lc_rectangle_2points_options_widget.ui" line="361"/>
         <source>Pick length of bevel in Y direction from drawing. </source>
         <translation type="unfinished">描画からY方向の斜面の長さを選択します.</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rectangle3PointsOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Inner angle of quadrangle.</source>
-        <translation type="vanished">四角形の内側の角度.</translation>
-    </message>
-    <message>
-        <source>If checked, inner angle of quadrangle will be fixed to specified value.</source>
-        <translation type="vanished">チェックすると、四角形の内側の角度は指定された値に固定されます.</translation>
-    </message>
-    <message>
-        <source>Fixed Inner Angle:</source>
-        <translation type="vanished">固定内部の角度:</translation>
-    </message>
-    <message>
-        <source>Base angle of rectangle. </source>
-        <translation type="vanished">長方形のベースアングル.</translation>
-    </message>
-    <message>
-        <source>Length X:</source>
-        <translation type="vanished">長さ X:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X方向の斜面の長さ.</translation>
-    </message>
-    <message>
-        <source>Defines how corners should be drawn for rectangle. </source>
-        <translation type="vanished">角の角を描画する方法を定義します.</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation type="vanished">ストレート</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">ラウンド</translation>
-    </message>
-    <message>
-        <source>Bevel</source>
-        <translation type="vanished">ベベル</translation>
-    </message>
-    <message>
-        <source>Corners:</source>
-        <translation type="vanished">コーナー:</translation>
-    </message>
-    <message>
-        <source>If checked, specifies that snap points should be shifted by radius of corners.</source>
-        <translation type="vanished">チェックすると、スナップポイントが角の半径でシフトされるべきであることを指定します.</translation>
-    </message>
-    <message>
-        <source>Snap shift</source>
-        <translation type="vanished">スナップシフト</translation>
-    </message>
-    <message>
-        <source>Length Y:</source>
-        <translation type="vanished">長さ Y:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y方向の斜面の長さ.</translation>
-    </message>
-    <message>
-        <source>Radius of rounded corners.</source>
-        <translation type="vanished">丸角の半径.</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>If checked, the shape will be created as polyline. </source>
-        <translation type="vanished">チェックすると、形状はポリラインとして作成されます.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Pick inner angle of quadrangle from drawing.</source>
-        <translation type="vanished">デッサンからの四角形の内側の角度を選んで下さい.</translation>
-    </message>
-    <message>
-        <source>Edges:</source>
-        <translation type="vanished">エッジ:</translation>
-    </message>
-    <message>
-        <source>Pick radius of rounded corners from drawing.</source>
-        <translation type="vanished">丸みのある角の半径を描きます.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in X direction from drawing.</source>
-        <translation type="vanished">描画からX方向の斜面の長さを選択します.</translation>
-    </message>
-    <message>
-        <source>Pick length of bevel in Y direction from drawing.</source>
-        <translation type="vanished">描画からY方向の斜面の長さを選択します.</translation>
-    </message>
-    <message>
-        <source>Defines which edges of rectangle should be drawn (so it is possible to create just two parallel lines instead of rectangle)</source>
-        <translation type="vanished">長方形のエッジが描画されるべきを定義します(矩形ではなく2つの平行線を作成することも可能です)</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">両方とも</translation>
-    </message>
-    <message>
-        <source>Vertical</source>
-        <translation type="vanished">プロフィール</translation>
-    </message>
-    <message>
-        <source>Horizontal</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>Pick base angle of rectangle from drawing</source>
-        <translation type="vanished">描画から長方形のベースアングルを選ぶ</translation>
-    </message>
-    <message>
-        <source>If checked, rectangle will be rotated to specified base angle.  Otherwise, base angle will be defined by angle between first and second points of rectangle.</source>
-        <translation type="vanished">チェックすると、指定したベースアングルに矩形が回転します。 さもなければ、ベースアングルは長方形の第1と第2の角度で定義されます.</translation>
-    </message>
-    <message>
-        <source>Fixed Base Angle:</source>
-        <translation type="vanished">固定基礎角度:</translation>
-    </message>
-    <message>
-        <source>If checked, quadrangle will be created instead of rectangle.</source>
-        <translation type="vanished">チェックすると、四角形は長方形の代わりに作成されます.</translation>
-    </message>
-    <message>
-        <source>Quadrangle</source>
-        <translation type="vanished">クォーダーアングル</translation>
     </message>
 </context>
 <context>
@@ -35725,100 +32733,6 @@ p, li {空白: プレラップ;
         <location filename="../src/ui/components/relative_position_assistant/lc_relative_position_editing_widget.cpp" line="328"/>
         <source>Relative zero:</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LC_ReleaseChecker</name>
-    <message>
-        <source>Sorry, some network error occurred during checking for new version.</source>
-        <translation type="vanished">申し訳ありません、新しいバージョンのチェック中にネットワークエラーが発生しました.</translation>
-    </message>
-    <message>
-        <source>Unable to parse response from the server</source>
-        <translation type="vanished">サーバからの応答を解析できない</translation>
-    </message>
-</context>
-<context>
-    <name>LC_Rotate2Options</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">回転オプションの移動</translation>
-    </message>
-    <message>
-        <source>Specifies whetether copies will be inserted to current or original layer</source>
-        <translation type="vanished">Whetetherのコピーを現在のか元の層に差し込みます指定して下さい</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>Adjust secondary angle so the sum of angles (relative rotation angle) is 0. With such setting entity will be moved but not rotated.</source>
-        <translation type="vanished">2次角度を調整して、角度の合計（相対回転角度）が0になるようにします。この設定では、エンティティは移動しますが、回転はしません。</translation>
-    </message>
-    <message>
-        <source>Angles mirrored</source>
-        <translation type="vanished">映される角度</translation>
-    </message>
-    <message>
-        <source>Pick primary angle from drawing</source>
-        <translation type="vanished">デッサンからの第一次角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Defines whether current or original drawing attributes will be applied</source>
-        <translation type="vanished">現行または元の描画属性が適用されるかどうかを定義する</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>Pick secondary angle from drawing</source>
-        <translation type="vanished">デッサンからの二次角度を選ぶ</translation>
-    </message>
-    <message>
-        <source>Angle for rotation over absolute reference point</source>
-        <translation type="vanished">絶対参照ポイント上の回転のための角度</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">チェックすると、複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-    <message>
-        <source>Number of copies to create</source>
-        <translation type="vanished">作成するコピーの数</translation>
-    </message>
-    <message>
-        <source>Secondary Angle:</source>
-        <translation type="vanished">二次角度:</translation>
-    </message>
-    <message>
-        <source>If checked, the same angle will be used for all copies. Otherwise, it will be increased proportionally to copy number. </source>
-        <translation type="vanished">チェックすると、全てのコピーに同じ角度が使用されます。 それ以外の場合は、コピー番号に比例して増加します.</translation>
-    </message>
-    <message>
-        <source>Same secondary angle for copies</source>
-        <translation type="vanished">コピーのための同じ二次角度</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>Primary Angle:</source>
-        <translation type="vanished">第一次角度:</translation>
-    </message>
-    <message>
-        <source>Angle to rotate over secondary reference point</source>
-        <translation type="vanished">二次参照ポイントを上回る角度</translation>
     </message>
 </context>
 <context>
@@ -36813,141 +33727,6 @@ p, li {空白: プレラップ;
     </message>
 </context>
 <context>
-    <name>LC_SliceDivideOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Start Circle Angle:</source>
-        <translation type="vanished">円の角度を始めて下さい:</translation>
-    </message>
-    <message>
-        <source>Start angle for circle from which ticks will start. </source>
-        <translation type="vanished">ダニが始まる円の角度からスタートします.</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Offset of tick snap point to intersection point. </source>
-        <translation type="vanished">ティックスナップポイントのオフセットを交差点に.</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">図面からの距離を選ぶ</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">距離:</translation>
-    </message>
-    <message>
-        <source>Distance between ticks.</source>
-        <translation type="vanished">ダニ間の間隔.</translation>
-    </message>
-    <message>
-        <source>If checked, selected entity will be divided by tick intersection points. </source>
-        <translation type="vanished">チェックすると、選択したエンティティティティは、ティック交差点のポイントで分割されます.</translation>
-    </message>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">ダイバーシティ</translation>
-    </message>
-    <message>
-        <source>Pick tick offset from drawing</source>
-        <translation type="vanished">デッサンからダニのオフセットを選んで下さい</translation>
-    </message>
-    <message>
-        <source>Length of tick.</source>
-        <translation type="vanished">ダニの長さ.</translation>
-    </message>
-    <message>
-        <source>Pick tick angle from drawing</source>
-        <translation type="vanished">デッサンからのダニの角度を選んで下さい</translation>
-    </message>
-    <message>
-        <source>Tick snap:</source>
-        <translation type="vanished">ティックスナップ:</translation>
-    </message>
-    <message>
-        <source>Pick tick length from drawing</source>
-        <translation type="vanished">デッサンからダニの長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>PIck start circle angle from drawing</source>
-        <translation type="vanished">PIckはデッサンからの円の角度を始めます</translation>
-    </message>
-    <message>
-        <source>Angle between tick and selected entity.</source>
-        <translation type="vanished">ダニと選択したエンティティティ間の角度.</translation>
-    </message>
-    <message>
-        <source>If checked, tick angle is related to selected entity, otherwise it is absolute angle.</source>
-        <translation type="vanished">チェックした場合、チェック角度は選択したエンティティティに関連しています。そうしないと絶対的な角度です.</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Tick Length:</source>
-        <translation type="vanished">ティック長さ:</translation>
-    </message>
-    <message>
-        <source>Defines which point of tick should be placed to intersection point with selected entity.</source>
-        <translation type="vanished">選択されたエンティティティを持つ交差点にチェックポイントを置くべきポイントを定義します.</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">スタート</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">ミドル</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">リリース</translation>
-    </message>
-    <message>
-        <source>If checked, specified fixed distance between ticks will be used. Otherwise, distance will be calculated based on entity length and ticks count. </source>
-        <translation type="vanished">チェックをすると、ティック間の固定距離が使用されます。 それ以外の場合は、エンティティティティティの長さとティック数に基づいて距離を計算します.</translation>
-    </message>
-    <message>
-        <source>Fixed </source>
-        <translation type="vanished">固定式</translation>
-    </message>
-    <message>
-        <source>Count of ticks between edges of selected entity.</source>
-        <translation type="vanished">選択したエンティティティのエッジ間のティック数.</translation>
-    </message>
-    <message>
-        <source>Count:</source>
-        <translation type="vanished">カウント:</translation>
-    </message>
-    <message>
-        <source>Devines how ticks on entity edges should be placed. </source>
-        <translation type="vanished">エンティティティエンティティティエンズエッジのティックの配置方法を決めます.</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="vanished">なし</translation>
-    </message>
-    <message>
-        <source>Both</source>
-        <translation type="vanished">両方とも</translation>
-    </message>
-    <message>
-        <source>Edge Tick:</source>
-        <translation type="vanished">エッジティック:</translation>
-    </message>
-</context>
-<context>
     <name>LC_SliceDivideOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/line/lc_slice_divide_options_filler.cpp" line="34"/>
@@ -37267,57 +34046,6 @@ p, li {空白: プレラップ;
     </message>
 </context>
 <context>
-    <name>LC_SplineExplodeOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Defines the number of line segments to be generated for each spline-fit spline-fit polyline</source>
-        <translation type="vanished">各スプラインフィットスプラインフィットポリラインで生成される行セグメントの数を定義します</translation>
-    </message>
-    <message>
-        <source>If unchecked, original spline will be removed, otherwise it will survive.</source>
-        <translation type="vanished">チェックされていない場合、元のスプラインは削除されます。そうしないと生き残ります.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for created entities, otherwise - original ones. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティエントに現在の属性が使用されます。そうしないと - 元の属性です.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置されます。そうしないと、元のレイヤーに置かれます.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>If checked, it is possible to specify custom amount of line segments. Otherwise, the value from settings for current drawing will be used.</source>
-        <translation type="vanished">チェックすると、カスタムラインセグメントの量を指定できます。 それ以外の場合、現在の描画の設定からの値が使用されます.</translation>
-    </message>
-    <message>
-        <source>Custom Segments Count</source>
-        <translation type="vanished">カスタムセグメントカウント</translation>
-    </message>
-    <message>
-        <source>If checked, line segments will be part of polyline. Otherwise, they will be individual lines</source>
-        <translation type="vanished">チェックすると、ラインセグメントはポリラインの一部になります。 それ以外の場合、それらは個々の行になります</translation>
-    </message>
-    <message>
-        <source>To Polyline</source>
-        <translation type="vanished">ポリラインへ</translation>
-    </message>
-</context>
-<context>
     <name>LC_SplineExplodeOptionsFiller</name>
     <message>
         <location filename="../src/ui/action_options/spline/lc_spline_explode_options_filler.cpp" line="33"/>
@@ -37441,65 +34169,6 @@ p, li {空白: プレラップ;
         <location filename="../src/ui/action_options/spline/lc_spline_explode_options_widget.ui" line="96"/>
         <source>To Polyline</source>
         <translation type="unfinished">ポリラインへ</translation>
-    </message>
-</context>
-<context>
-    <name>LC_SplineFromPolylineOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed on current layer, otherwise they will be placed into original layers.</source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置されます。そうしないと、元のレイヤーに置かれます.</translation>
-    </message>
-    <message>
-        <source>User Current Layer</source>
-        <translation type="vanished">ユーザーの現在の層</translation>
-    </message>
-    <message>
-        <source>Amount of middle points of polyline segment that will be added to spline. </source>
-        <translation type="vanished">スプラインに追加されるポリラインセグメントの中間点数.</translation>
-    </message>
-    <message>
-        <source>Defines degree of the spline</source>
-        <translation type="vanished">スプラインの度を定義する</translation>
-    </message>
-    <message>
-        <source>If unchecked, original polyline will be removed, otherwise it will survive.</source>
-        <translation type="vanished">チェックを外せば、元のポリラインは取除かれます、そうでなければ生き残ります.</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">学位:</translation>
-    </message>
-    <message>
-        <source>If checked, polyline vertexes are considered as spline points and spline by points will be created. Otherwise, they are considered as control points and ordinary spline will be created.</source>
-        <translation type="vanished">チェックすると、ポリラインの頂点がスプライン点とみなされ、通過点スプラインが作成されます。チェックなしの場合、制御点とみなされ、通常のスプラインが作成されます。</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>Mid points:</source>
-        <translation type="vanished">中間点:</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be used for created entities, otherwise - original ones. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティエントに現在の属性が使用されます。そうしないと - 元の属性です.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, polyline vertexes are considered as spline points and spline by points will be created. Otherwise, they are considered as control points and orinary spline will be created.</source>
-        <translation type="vanished">チェックした場合、ポリライン vertexe はスプライン ポイントとして考慮され、ポイントによってスプラインが作成されます。 そうでなければ、それらは制御ポイントとして考慮され、元のスプラインは作成されます.</translation>
-    </message>
-    <message>
-        <source>Vertexes are spline points</source>
-        <translation type="vanished">頂点はスプラインポイント</translation>
     </message>
 </context>
 <context>
@@ -37756,10 +34425,6 @@ p, li {空白: プレラップ;
 <context>
     <name>LC_SplinePropertiesEditingWidget</name>
     <message>
-        <source>Form</source>
-        <translation type="vanished">選択する</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="14"/>
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="17"/>
         <source>Spline Properties Editor</source>
@@ -37907,69 +34572,6 @@ p, li {空白: プレラップ;
         <location filename="../src/ui/dialogs/entity/lc_propertieseditingwidget_spline.ui" line="83"/>
         <source>Degree used to approximate spline</source>
         <translation>スプラインを近似するのに使用される程度</translation>
-    </message>
-</context>
-<context>
-    <name>LC_StarOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>If checked, symmetric star will be created.</source>
-        <translation type="vanished">チェックすると、対称スターが作成されます.</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">シンメトリクス</translation>
-    </message>
-    <message>
-        <source>Radius for inner edges.</source>
-        <translation type="vanished">内部の端のための半径.</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">番号:</translation>
-    </message>
-    <message>
-        <source>Pick outer radius from drawing</source>
-        <translation type="vanished">図面から外側の半径を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick inner radius from drawing</source>
-        <translation type="vanished">デッサンから内部の半径を選んで下さい</translation>
-    </message>
-    <message>
-        <source>Number of rays.</source>
-        <translation type="vanished">線の数.</translation>
-    </message>
-    <message>
-        <source>If checked, outer edges will be rounded. </source>
-        <translation type="vanished">チェックすると、外側のエッジが丸めになります.</translation>
-    </message>
-    <message>
-        <source>Radius Outer</source>
-        <translation type="vanished">半径 外</translation>
-    </message>
-    <message>
-        <source>If checked, inner edges will be rounded. </source>
-        <translation type="vanished">チェックすると、内側のエッジが丸められます.</translation>
-    </message>
-    <message>
-        <source>Radius Inner</source>
-        <translation type="vanished">半径の内部</translation>
-    </message>
-    <message>
-        <source>If checked, the star will be drawn as polyline. </source>
-        <translation type="vanished">チェックすると、星はポリラインとして描画されます.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Radius for outer rays (edges).</source>
-        <translation type="vanished">アウターレイ(エッジ)用半径.</translation>
     </message>
 </context>
 <context>
@@ -38860,14 +35462,6 @@ p, li {空白: プレラップ;
         <translation>コンテンツ</translation>
     </message>
     <message>
-        <source>Filtering user coordinates by name</source>
-        <translation type="vanished">ユーザが名前で座標をフィルタリングする</translation>
-    </message>
-    <message>
-        <source>Filter...</source>
-        <translation type="vanished">フィルター...</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="230"/>
         <source>&lt;No name&gt;</source>
         <translation>&lt;名前なし&gt;</translation>
@@ -38968,33 +35562,6 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/dock_widgets/ucs_list/lc_ucslistwidget.cpp" line="581"/>
         <source>Remove A&amp;ll UCSs</source>
         <translation>A&amp;ll UCSの削除</translation>
-    </message>
-</context>
-<context>
-    <name>LC_UCSSetOptions</name>
-    <message>
-        <source>Form</source>
-        <translation type="vanished">フォーム</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Angle X-axis of new coordinate system</source>
-        <translation type="vanished">新しい座標系の角度X軸</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Specifies whether X-Axis angle is defined by entered value or by mouse position</source>
-        <translation type="vanished">X-Axis の角度が入力された値かマウスの位置によって定義されるかどうか指定します</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
     </message>
 </context>
 <context>
@@ -39607,33 +36174,6 @@ Warning: this action can NOT be undone!</source>
         <location filename="../src/ui/dialogs/settings/options_drawing/lg_dimzerosbox.cpp" line="63"/>
         <source>remove 0&quot;</source>
         <translation>0インチを削除</translation>
-    </message>
-</context>
-<context>
-    <name>PolylineEquidistantOptions</name>
-    <message>
-        <source>Line Relative Angle Options</source>
-        <translation type="vanished">線分相対角度オプション</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">間隔:</translation>
-    </message>
-    <message>
-        <source>Distance from original polyline</source>
-        <translation type="vanished">元のポリラインからの距離</translation>
-    </message>
-    <message>
-        <source>Copies:</source>
-        <translation type="vanished">複写:</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">コピー数</translation>
-    </message>
-    <message>
-        <source>Pick spacing from drawing</source>
-        <translation type="vanished">図面から選ぶ</translation>
     </message>
 </context>
 <context>
@@ -40313,81 +36853,6 @@ Please check its existence and permissions.</source>
     </message>
 </context>
 <context>
-    <name>QG_DlgArc</name>
-    <message>
-        <source>Arc</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of arc</source>
-        <translation type="vanished">円弧のレイヤー</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">ペン属性</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>X Coordinate of arc&apos;s center</source>
-        <translation type="vanished">アークの中心のX座標</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of arc&apos;s center</source>
-        <translation type="vanished">アークの中心のY座標</translation>
-    </message>
-    <message>
-        <source>Defines whether arc is reversed (clockwise)</source>
-        <translation type="vanished">アークが逆転しているかどうかを定義します(時計回り)</translation>
-    </message>
-    <message>
-        <source>Reversed</source>
-        <translation type="vanished">逆転</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">センター(y):</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">アークの半径</translation>
-    </message>
-    <message>
-        <source>Start Angle:</source>
-        <translation type="vanished">開始角度:</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Starting angle of arc</source>
-        <translation type="vanished">アークの開始角度</translation>
-    </message>
-    <message>
-        <source>End angle of arc</source>
-        <translation type="vanished">アークの端の角度</translation>
-    </message>
-    <message>
-        <source>End Angle:</source>
-        <translation type="vanished">端の角度:</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">中心(x):</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgAttributes</name>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_attributes.ui" line="26"/>
@@ -40425,198 +36890,6 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/entity/qg_dlg_attributes.cpp" line="61"/>
         <source>Pen</source>
         <translation>ペンシルペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgCircle</name>
-    <message>
-        <source>Circle</source>
-        <translation type="vanished">サークル</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Radius of circle</source>
-        <translation type="vanished">円の半径</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">センター(y):</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of circle&apos;s center</source>
-        <translation type="vanished">Y 円の中心の座標</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">中心(x):</translation>
-    </message>
-    <message>
-        <source>X Coordinate of circle&apos;s center</source>
-        <translation type="vanished">円の中心のX座標</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgDimLinear</name>
-    <message>
-        <source>Linear Dimension</source>
-        <translation type="vanished">線形次元</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">次元の層</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">ペン属性</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation angle of dimension</source>
-        <translation type="vanished">次元の回転角度</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgDimension</name>
-    <message>
-        <source>Dimension</source>
-        <translation type="vanished">ディメンション:</translation>
-    </message>
-    <message>
-        <source>Layer of dimension</source>
-        <translation type="vanished">次元の層</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Pen attributes</source>
-        <translation type="vanished">ペン属性</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgEllipse</name>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">エリス</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of ellipse</source>
-        <translation type="vanished">楕円のレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Rotation angle for the major axis of ellipse, degrees</source>
-        <translation type="vanished">楕円、度の主要な軸のための回転角度</translation>
-    </message>
-    <message>
-        <source>Defines whether arc is reversed</source>
-        <translation type="vanished">アークが逆転しているかどうかを定義する</translation>
-    </message>
-    <message>
-        <source>Reversed</source>
-        <translation type="vanished">逆転</translation>
-    </message>
-    <message>
-        <source>Center (y):</source>
-        <translation type="vanished">センター(y):</translation>
-    </message>
-    <message>
-        <source>End angle of elliptic arc, degrees</source>
-        <translation type="vanished">楕円アークの端角、度</translation>
-    </message>
-    <message>
-        <source>Y Coordinate of arc&apos;s center</source>
-        <translation type="vanished">アークの中心のY座標</translation>
-    </message>
-    <message>
-        <source>Radius of major axis of ellipse</source>
-        <translation type="vanished">楕円の主要な軸の半径</translation>
-    </message>
-    <message>
-        <source>in degrees</source>
-        <translation type="vanished">度単位</translation>
-    </message>
-    <message>
-        <source>Start Angle(°):</source>
-        <translation type="vanished">開始角度(°):</translation>
-    </message>
-    <message>
-        <source>Rotation(°):</source>
-        <translation type="vanished">回転(°):</translation>
-    </message>
-    <message>
-        <source>Radius of minor axis of the ellipse</source>
-        <translation type="vanished">楕円のマイナー軸の半径</translation>
-    </message>
-    <message>
-        <source>End Angle(°):</source>
-        <translation type="vanished">端の角度(°):</translation>
-    </message>
-    <message>
-        <source>Start angle of elliptic arc, degrees</source>
-        <translation type="vanished">楕円アークの開始角度、度</translation>
-    </message>
-    <message>
-        <source>Major:</source>
-        <translation type="vanished">メジャー:</translation>
-    </message>
-    <message>
-        <source>Minor:</source>
-        <translation type="vanished">マイナー:</translation>
-    </message>
-    <message>
-        <source>X Coordinate of ellipse&apos;s center</source>
-        <translation type="vanished">楕円の中心のX座標</translation>
-    </message>
-    <message>
-        <source>Center (x):</source>
-        <translation type="vanished">中心(x):</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
     </message>
 </context>
 <context>
@@ -40693,105 +36966,6 @@ This recursively modifies all entities of the Block itself.</source>
     </message>
 </context>
 <context>
-    <name>QG_DlgImage</name>
-    <message>
-        <source>Image</source>
-        <translation type="vanished">サイトマップ</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of image</source>
-        <translation type="vanished">画像のレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">高さ:</translation>
-    </message>
-    <message>
-        <source>Width of image</source>
-        <translation type="vanished">画像の幅</translation>
-    </message>
-    <message>
-        <source>insert (y):</source>
-        <translation type="vanished">挿入 (y):</translation>
-    </message>
-    <message>
-        <source>X coordinate of insertion point</source>
-        <translation type="vanished">インサートポイントのX座標</translation>
-    </message>
-    <message>
-        <source>Resolution (dots per inch)</source>
-        <translation type="vanished">決断(インチごとの点)</translation>
-    </message>
-    <message>
-        <source>Path to image file</source>
-        <translation type="vanished">画像ファイルへのパス</translation>
-    </message>
-    <message>
-        <source>Scaling factor</source>
-        <translation type="vanished">スケーリング係数</translation>
-    </message>
-    <message>
-        <source>Size (px):</source>
-        <translation type="vanished">サイズ(px):</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Y coordinate of insertion point</source>
-        <translation type="vanished">インサートポイントのY座標</translation>
-    </message>
-    <message>
-        <source>path:</source>
-        <translation type="vanished">パス:</translation>
-    </message>
-    <message>
-        <source>insert (x):</source>
-        <translation type="vanished">挿入 (x):</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">スケール:</translation>
-    </message>
-    <message>
-        <source>Size of image in pixels</source>
-        <translation type="vanished">ピクセル内の画像のサイズ</translation>
-    </message>
-    <message>
-        <source>DPI</source>
-        <translation type="vanished">DPIについて</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">幅:</translation>
-    </message>
-    <message>
-        <source>Height of image</source>
-        <translation type="vanished">画像の高さ</translation>
-    </message>
-    <message>
-        <source>Select an image file</source>
-        <translation type="vanished">画像ファイルの選択</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgInitial</name>
     <message>
         <location filename="../src/ui/dialogs/main/qg_dlginitial.ui" line="32"/>
@@ -40814,167 +36988,9 @@ This recursively modifies all entities of the Block itself.</source>
         <translation>GUI言語:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700;&quot;&gt;Welcome to LibreCAD&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Please choose the unit you want to use for new drawings and your preferred language for Ui and Command.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;You can changes these settings later.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:large; font-weight:700;&quot;&gt;LibreCADへようこそ&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;新しい図面で使用する単位と、UIおよびコマンドで使用する言語を選択してください。&lt;br/&gt;&lt;/p&gt;&lt;p&gt;これらの設定は後で変更できます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/main/qg_dlginitial.ui" line="187"/>
         <source>Command Language:</source>
         <translation>コマンド 言語:</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgInsert</name>
-    <message>
-        <source>Insert</source>
-        <translation type="vanished">挿入</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of insert</source>
-        <translation type="vanished">挿入ブロックのレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Insertion point (y):</source>
-        <translation type="vanished">インサートポイント(y):</translation>
-    </message>
-    <message>
-        <source>Insertion point (x):</source>
-        <translation type="vanished">インサートポイント(x):</translation>
-    </message>
-    <message>
-        <source>Amount of rows for copies</source>
-        <translation type="vanished">コピー用の行数</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Spacing between columns</source>
-        <translation type="vanished">コラム間の間隔</translation>
-    </message>
-    <message>
-        <source>Scaling factor by X axis</source>
-        <translation type="vanished">X軸によるスケーリング係数</translation>
-    </message>
-    <message>
-        <source>X coordinate of insertion point</source>
-        <translation type="vanished">インサートポイントのX座標</translation>
-    </message>
-    <message>
-        <source>Spacing between rows</source>
-        <translation type="vanished">行間の間隔</translation>
-    </message>
-    <message>
-        <source>Amount of columns for copies</source>
-        <translation type="vanished">コピーの列数</translation>
-    </message>
-    <message>
-        <source>Scaling factor by Y axis</source>
-        <translation type="vanished">Y軸によるスケーリング係数</translation>
-    </message>
-    <message>
-        <source>Scale Y:</source>
-        <translation type="vanished">スケールY:</translation>
-    </message>
-    <message>
-        <source>Rows:</source>
-        <translation type="vanished">列:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Y coordinate of insertion point</source>
-        <translation type="vanished">インサートポイントのY座標</translation>
-    </message>
-    <message>
-        <source>Row Spacing:</source>
-        <translation type="vanished">列の間隔:</translation>
-    </message>
-    <message>
-        <source>Columns:</source>
-        <translation type="vanished">コラム:</translation>
-    </message>
-    <message>
-        <source>Scale X:</source>
-        <translation type="vanished">スケールX:</translation>
-    </message>
-    <message>
-        <source>Column Spacing:</source>
-        <translation type="vanished">コラムの間隔:</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgLine</name>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">直線</translation>
-    </message>
-    <message>
-        <source>ID: </source>
-        <translation type="vanished">ID: </translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of line</source>
-        <translation type="vanished">直線のレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>End point (x):</source>
-        <translation type="vanished">終点(x):</translation>
-    </message>
-    <message>
-        <source>Ending point X coordinate</source>
-        <translation type="vanished">終了点 X座標</translation>
-    </message>
-    <message>
-        <source>Ending point Y coordinate</source>
-        <translation type="vanished">終了点 Y座標</translation>
-    </message>
-    <message>
-        <source>End point (y):</source>
-        <translation type="vanished">終点(y):</translation>
-    </message>
-    <message>
-        <source>Start point (y):</source>
-        <translation type="vanished">開始ポイント(y):</translation>
-    </message>
-    <message>
-        <source>Starting point Y coordinate</source>
-        <translation type="vanished">開始点 Y座標</translation>
-    </message>
-    <message>
-        <source>Start point (x):</source>
-        <translation type="vanished">開始ポイント(x):</translation>
-    </message>
-    <message>
-        <source>Starting point X coordinate</source>
-        <translation type="vanished">開始点 X座標</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
     </message>
 </context>
 <context>
@@ -41145,10 +37161,6 @@ This recursively modifies all entities of the Block itself.</source>
         <translation>シンボル挿入</translation>
     </message>
     <message>
-        <source>Symbol insertion</source>
-        <translation type="vanished">シンボルインサート</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="881"/>
         <source>Degree (°)</source>
         <translation>角度 (°)</translation>
@@ -41197,10 +37209,6 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="929"/>
         <source>Pound (£)</source>
         <translation>ポンド (£)</translation>
-    </message>
-    <message>
-        <source>Yen (¥)</source>
-        <translation type="vanished">日本円 (¥)</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.ui" line="872"/>
@@ -41836,115 +37844,6 @@ This recursively modifies all entities of the Block itself.</source>
         <location filename="../src/ui/dialogs/entity/qg_dlg_mtext.cpp" line="250"/>
         <source>Pen</source>
         <translation>ペンシルペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMirror</name>
-    <message>
-        <source>Mirroring Options</source>
-        <translation type="vanished">鏡面オプション</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性を使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMove</name>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">複数複写(&amp;M)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Move/Copy Options</source>
-        <translation type="vanished">移動/コピー オプション</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgMoveRotate</name>
-    <message>
-        <source>Move/Rotate Options</source>
-        <translation type="vanished">移動回転オプション</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>&amp;Angle (a):</source>
-        <translation type="vanished">角度&amp;A(a):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="vanished">Ctrl+S</translation>
     </message>
 </context>
 <context>
@@ -44798,10 +40697,6 @@ This recursively modifies all entities of the Block itself.</source>
         <translation>相対的なゼロ マーカー</translation>
     </message>
     <message>
-        <source>Behavior</source>
-        <translation type="vanished">行動規範</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/settings/options_general/qg_dlgoptionsgeneral.ui" line="1021"/>
         <source>Type of grid to be drawn</source>
         <translation>描画するグリッドの種類</translation>
@@ -46022,287 +41917,6 @@ so default step value required for baking</source>
     </message>
 </context>
 <context>
-    <name>QG_DlgOptionsVariables</name>
-    <message>
-        <source>Drawing Variables</source>
-        <translation type="vanished">図面変数</translation>
-    </message>
-    <message>
-        <source>Variable</source>
-        <translation type="vanished">変数</translation>
-    </message>
-    <message>
-        <source>Code</source>
-        <translation type="vanished">コードコード</translation>
-    </message>
-    <message>
-        <source>Value</source>
-        <translation type="vanished">バリュー</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation type="vanished">OK(&amp;O)</translation>
-    </message>
-    <message>
-        <source>Alt+O</source>
-        <translation type="vanished">Alt+O</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">キャンセル</translation>
-    </message>
-    <message>
-        <source>Esc</source>
-        <translation type="vanished">Esc</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgPoint</name>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">ポイント</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of point</source>
-        <translation type="vanished">点のレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Position (y):</source>
-        <translation type="vanished">位置(y):</translation>
-    </message>
-    <message>
-        <source>Position of point by Y coordinate</source>
-        <translation type="vanished">Y座標によるポイントの位置</translation>
-    </message>
-    <message>
-        <source>Position (x):</source>
-        <translation type="vanished">位置(x):</translation>
-    </message>
-    <message>
-        <source>Position of point by X coordinate</source>
-        <translation type="vanished">X座標によるポイントの位置</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgPolyline</name>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of polyline</source>
-        <translation type="vanished">ポリラインのレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Defines whether polyline is closed contour</source>
-        <translation type="vanished">ポリラインが閉じた輪郭かどうかを定義する</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgRotate</name>
-    <message>
-        <source>Rotation Options</source>
-        <translation type="vanished">回転オプション</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies:</source>
-        <translation type="vanished">複数複写(&amp;M):</translation>
-    </message>
-    <message>
-        <source>&amp;Angle (a):</source>
-        <translation type="vanished">角度&amp;A(a):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgRotate2</name>
-    <message>
-        <source>Rotate Two Options</source>
-        <translation type="vanished">回転２オプション</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">複数複写(&amp;M)</translation>
-    </message>
-    <message>
-        <source>Angle (&amp;a):</source>
-        <translation type="vanished">角度(&amp;a):</translation>
-    </message>
-    <message>
-        <source>Angle (&amp;b):</source>
-        <translation type="vanished">角度(&amp;b):</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgScale</name>
-    <message>
-        <source>Scaling Options</source>
-        <translation type="vanished">スケールオプション</translation>
-    </message>
-    <message>
-        <source>Number of copies</source>
-        <translation type="vanished">複写回数</translation>
-    </message>
-    <message>
-        <source>Use current &amp;attributes</source>
-        <translation type="vanished">現在属性使用(&amp;a)</translation>
-    </message>
-    <message>
-        <source>Use current &amp;layer</source>
-        <translation type="vanished">現在のレイヤーを使用(&amp;l)</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find the scaling ratios around the center by a reference point and a target point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; 参照ポイントとターゲットポイントで中心の周りのスケーリング比を見つけます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;Delete Original</source>
-        <translation type="vanished">原本削除(&amp;D)</translation>
-    </message>
-    <message>
-        <source>&amp;Keep Original</source>
-        <translation type="vanished">原本保持(&amp;K)</translation>
-    </message>
-    <message>
-        <source>&amp;Multiple Copies</source>
-        <translation type="vanished">複数複写(&amp;M)</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="vanished">...</translation>
-    </message>
-    <message>
-        <source>Scale by the same factor at both x- and y- directions</source>
-        <translation type="vanished">x方向、y方向とも同じ縮尺</translation>
-    </message>
-    <message>
-        <source>Isotropic Scaling</source>
-        <translation type="vanished">等角投影図の縮尺</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
-    </message>
-</context>
-<context>
-    <name>QG_DlgSpline</name>
-    <message>
-        <source>Spline</source>
-        <translation type="vanished">スプライン</translation>
-    </message>
-    <message>
-        <source>Layer:</source>
-        <translation type="vanished">レイヤー:</translation>
-    </message>
-    <message>
-        <source>Layer of spline</source>
-        <translation type="vanished">スプラインのレイヤー</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="vanished">ジオメトリ</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">次数:</translation>
-    </message>
-    <message>
-        <source>Defines whether spline defines closed contour</source>
-        <translation type="vanished">Spline が閉じた輪郭を定義するかどうかを定義する</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>Degree used to approximate spline</source>
-        <translation type="vanished">スプラインを近似するのに使用される程度</translation>
-    </message>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">ペン</translation>
-    </message>
-</context>
-<context>
     <name>QG_DlgText</name>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="20"/>
@@ -46448,10 +42062,6 @@ so default step value required for baking</source>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="197"/>
         <source>Layer of text</source>
         <translation>テキストのレイヤー</translation>
-    </message>
-    <message>
-        <source>Obligue of text</source>
-        <translation type="vanished">テキストの曖昧さ</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="261"/>
@@ -47079,10 +42689,6 @@ so default step value required for baking</source>
         <translation>ポンド (£)</translation>
     </message>
     <message>
-        <source>Yen (¥)</source>
-        <translation type="vanished">日本円 (¥)</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="1007"/>
         <source>Times (×)</source>
         <translation>乗算 (×)</translation>
@@ -47106,10 +42712,6 @@ so default step value required for baking</source>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="268"/>
         <source>Angle:</source>
         <translation>角度:</translation>
-    </message>
-    <message>
-        <source>Oblique:</source>
-        <translation type="vanished">傾き:</translation>
     </message>
     <message>
         <location filename="../src/ui/dialogs/entity/qg_dlg_text.ui" line="317"/>
@@ -47186,85 +42788,90 @@ so default step value required for baking</source>
 <context>
     <name>QG_FileDialog</name>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="135"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
         <source>Drawing Exchange DXF 2000 %1</source>
         <translation>図面を入れ替え DXF 2000 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="137"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
         <source>Drawing Exchange DXF R12 %1</source>
         <translation>図面を入れ替え DXF R12 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
         <source>LFF Font %1</source>
         <translation>LFF フォント %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="144"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
         <source>QCad Font %1</source>
         <translation>QCad フォント %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="150"/>
         <source>Jww Drawing %1</source>
         <translation>Jww 書式 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="143"/>
         <source>Drawing Exchange %1</source>
         <translation>図面を入れ替え %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="146"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
         <source>QCad 1.x file %1</source>
         <translation>%1 はQCad 1.x ファイル</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="133"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
         <source>Drawing Exchange DXF 2007 %1</source>
         <translation>図面を入れ替え DXF 2007 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="134"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="139"/>
         <source>Drawing Exchange DXF 2004 %1</source>
         <translation>図面を入れ替え DXF 2004 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="136"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="141"/>
         <source>Drawing Exchange DXF R14 %1</source>
         <translation>図面を入れ替え DXF R14 %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="151"/>
+        <source>ESRI Shapefile %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="155"/>
         <source>Block</source>
         <comment>block file</comment>
         <translatorcomment>AutoCADにあわせて「ブロック」と訳すことにした</translatorcomment>
         <translation>ブロックファイル</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="158"/>
         <source>Drawing</source>
         <comment>drawing file</comment>
         <translation>図面ファイル</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="174"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="180"/>
         <source>Open %1</source>
         <translation>%1 を開く</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="266"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="272"/>
         <source>Save %1 As</source>
         <translation>%1 を別名で保存</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="147"/>
         <source>dwg Drawing %1</source>
         <translation>%1 はｄｗｇ書式の図面</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="248"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="254"/>
         <source>Untitled</source>
         <translation>無題</translation>
     </message>
@@ -47630,21 +43237,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>QG_PrintPreviewOptions</name>
-    <message>
-        <source>Invalid scale provided</source>
-        <translation type="vanished">提供される無効なスケール</translation>
-    </message>
-    <message>
-        <source>Paper scale factor larger than max print ratio</source>
-        <translation type="vanished">ペーパースケールの要因 最高の印刷物の比率より大きい</translation>
-    </message>
-    <message>
-        <source>Paper scale factor smaller than min print ratio</source>
-        <translation type="vanished">紙スケールの要因は最低の印刷物の比率より小さいです</translation>
-    </message>
-</context>
-<context>
     <name>QG_RecentFiles</name>
     <message>
         <location filename="../src/ui/main/support/qg_recentfiles.cpp" line="183"/>
@@ -47711,58 +43303,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/ui/components/toolbars/qg_snaptoolbar.cpp" line="227"/>
         <source>World</source>
         <translation>ワールドワールド</translation>
-    </message>
-    <message>
-        <source>Snap</source>
-        <translation type="vanished">スナップ</translation>
-    </message>
-    <message>
-        <source>Snap to Endpoints</source>
-        <translation type="vanished">端点にスナップ</translation>
-    </message>
-    <message>
-        <source>Snap to equidistant points of entity</source>
-        <translation type="vanished">エンティティの等分点にスナップ</translation>
-    </message>
-    <message>
-        <source>Snap to center points</source>
-        <translation type="vanished">中心点にスナップ</translation>
-    </message>
-    <message>
-        <source>Snap to intersections automatically</source>
-        <translation type="vanished">交点に自動スナップ</translation>
-    </message>
-    <message>
-        <source>Snap to closest point on entity</source>
-        <translation type="vanished">エンティティの最近点にスナップ</translation>
-    </message>
-    <message>
-        <source>Snap to point with given distance to endpoint</source>
-        <translation type="vanished">端点から指定距離の点にスナップ</translation>
-    </message>
-    <message>
-        <source>Snap to intersections manually</source>
-        <translation type="vanished">交点に手動スナップ</translation>
-    </message>
-    <message>
-        <source>Snap to grid</source>
-        <translation type="vanished">グリッドにスナップ</translation>
-    </message>
-    <message>
-        <source>Restrict Horizontally</source>
-        <translation type="vanished">水平に制限</translation>
-    </message>
-    <message>
-        <source>Restrict Vertically</source>
-        <translation type="vanished">垂直に制限</translation>
-    </message>
-    <message>
-        <source>Move relative Zero</source>
-        <translation type="vanished">相対ゼロを移動</translation>
-    </message>
-    <message>
-        <source>Lock relative Zero</source>
-        <translation type="vanished">相対ゼロをロック</translation>
     </message>
 </context>
 <context>
@@ -47965,12 +43505,6 @@ Please specify a different value.</source>
         <translation>空のレイヤーを削除</translation>
     </message>
     <message>
-        <source>Layer(s) without entities found, yet they are filtered and not visible.
-Clear filtering mask and repeat.</source>
-        <translation type="vanished">組織が見つからずにレイヤーをフィルタリングして表示しません。
-マスクを取り除き、繰り返します.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="963"/>
         <source>Layer(s) without entities found, yet they are filtered and not visible.
 
@@ -48036,14 +43570,6 @@ If No - &quot;By Layer&quot; values remains and so pen of target layer will defi
 はいの場合 — &quot;レイヤーに従う&quot; ペンを持つエンティティは新しいレイヤーでも以前と同様に表示され、値は解決されたペンに置き換えられます。
 
 いいえの場合 — &quot;レイヤーに従う&quot; の値はそのまま残り、ターゲットレイヤーのペンがエンティティのペンを定義します。</translation>
-    </message>
-    <message>
-        <source>Replace &quot;By Layer&quot; value to source layers values?
-If Yes - entities with &quot;By Layer&quot; pens will look on new layer exactly as on previous layers and &quot;By Layer&quot; value will be replaced by resolved pens.
-If No - &quot;By Layer&quot; values remains and so pen of target layer will define pen for such entities.</source>
-        <translation type="vanished">「レイヤー別」の値を、元のレイヤーの値に置き換えますか？
-「はい」の場合、新しいレイヤーで「レイヤー別」のペンを持つエンティティは、以前のレイヤーと同じように表示され、「レイヤー別」の値は解決されたペンに置き換えられます。
-「いいえ」の場合、「レイヤー別」の値はそのままになり、ターゲットレイヤーのペンが、そのようなエンティティのペンを定義します。</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/layers_tree/lc_layertreewidget.cpp" line="1805"/>
@@ -48145,19 +43671,19 @@ Please specify a different value.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="349"/>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="410"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="355"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="416"/>
         <source>Save Drawing As</source>
         <translation>別名で保存</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="411"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="417"/>
         <source>%1 already exists.
 Do you want to replace it?</source>
         <translation>%1は既に存在します。置き換えますか?</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="500"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="506"/>
         <source>Open Drawing</source>
         <translation>図面を開く</translation>
     </message>
@@ -48230,17 +43756,17 @@ Do you want to replace it?</source>
         <translation>グラフィック変換形式</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="468"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
         <source>Drawing Exchange %1</source>
         <translation>図面を入れ替え %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="473"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="479"/>
         <source>QCad 1.x file %1</source>
         <translation>QCad 1.x ファイル %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="475"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="481"/>
         <source>Font %1</source>
         <translation>フォント %1</translation>
     </message>
@@ -48621,12 +44147,12 @@ Do you want to replace it?</source>
         <translation>文字列入力</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="480"/>
         <source>LFF Font %1</source>
         <translation>LFF フォント %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="476"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="482"/>
         <source>Jww %1</source>
         <translation>JW-Cad ファイル %1</translation>
     </message>
@@ -48703,219 +44229,206 @@ Do you want to replace it?</source>
         <translation>TIFF - Tagged Image File Format</translation>
     </message>
     <message>
-        <source>Old Drawing Exchange %1</source>
-        <translation type="vanished">古い図面を入れ替え %1</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1003"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1004"/>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>dXF/DWG エラーなし</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1005"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1006"/>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>dXF/DWGファイルを開くエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1009"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1010"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DWG を開けません: ファイルバージョンは %1 です。LibreCAD は %2 以降をサポートします。GNU LibreDWG（dwgread / dwg2dxf）で変換するか、最新の CAD ツールで再保存してください。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1016"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1017"/>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>サポートされていないDXF/DWGファイルバージョン</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1018"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1019"/>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込み DXF/DWG メタデータ</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1020"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1021"/>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込み DXF/DWG ファイルヘッダ</translation>
     </message>
     <message>
-        <source>error reading DXF/DWG header dara</source>
-        <comment>RS_FilterDXFRW</comment>
-        <translation type="vanished">エラー読み込み DXF/DWG ヘッダー dara</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1024"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1025"/>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込み DXF/DWG オブジェクトマップ</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1026"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1027"/>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>dXF/DWG クラスを読んでいるエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1028"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1029"/>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込みDXF/DWGテーブル</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1030"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1031"/>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込みDXF/DWGブロック</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1032"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1033"/>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>dXF/DWG の実体を読む間違い</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1034"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1035"/>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込み DXF/DWG オブジェクト</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1036"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1037"/>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>エラー読み込みDXF/DWG セクション</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1038"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1039"/>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>dXF/DWGコードを読み込むエラー</translation>
     </message>
     <message>
-        <source>Opened dwg file version %1.</source>
-        <translation type="vanished">開いたDWGファイルのバージョン: %1.</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1022"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1023"/>
         <source>error reading DXF/DWG header data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation>DXF/DWG ヘッダーデータの読み込みエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1119"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1120"/>
         <source>Opened DWG file version %1.</source>
         <translation>DWG ファイルバージョン %1 を開きました。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1123"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1124"/>
         <source>DWG load: %1 %2 had parse errors and were skipped. Drawing loaded with the rest.</source>
         <translation>DWG 読み込み: %1 個の %2 に解析エラーがあり、スキップされました。図面は残りで読み込まれました。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1126"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
         <source>entity</source>
         <translation>エンティティ</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1128"/>
         <source>entities</source>
         <translation>エンティティ</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1151"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1152"/>
         <source>, and %n more class(es)</source>
         <translation>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1154"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1155"/>
         <source>DWG load: %1 vendor-extension entities not rendered (%2). These are typically AutoCAD Mechanical or other vertical-product custom classes that libdxfrw cannot decode.</source>
         <translation>DWG 読み込み: %1 個のベンダー拡張エンティティが描画されませんでした（%2）。通常、これらは AutoCAD Mechanical やその他の専門製品のカスタムクラスで、libdxfrw ではデコードできません。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1180"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1181"/>
         <source>, and %n more object type(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1183"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1184"/>
         <source>DWG load: %1 unsupported metadata object(s) skipped (%2). Drawing geometry may still be complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1269"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1270"/>
         <source>DWG/DXF load: %1 XREF block(s) (%2) loaded but not INSERTed into modelspace. Their externally-referenced geometry won&apos;t be visible — AutoCAD typically renders these through a paper-space layout viewport, which LibreCAD doesn&apos;t render.</source>
         <translation>DWG/DXF 読み込み: %1 個の XREF ブロック（%2）が読み込まれましたが、モデル空間に挿入されていません。外部参照ジオメトリは表示されません — AutoCAD では通常、ペーパー空間レイアウトビューポートを通じて描画されますが、LibreCAD はこれをサポートしていません。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1625"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1626"/>
         <source>XREF not resolved for block &quot;%1&quot;: %2 (file not found in host directory). The block will render as empty.</source>
         <translation>ブロック &quot;%1&quot; の XREF が解決されませんでした: %2（ホストディレクトリにファイルが見つかりません）。ブロックは空として描画されます。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1654"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1655"/>
         <source>XREF load failed for block &quot;%1&quot;: %2</source>
         <translation>ブロック &quot;%1&quot; の XREF 読み込みに失敗しました: %2</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12410"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12454"/>
         <source>unknown error opening dwg file</source>
         <translation>未知のエラー： DWGファイルが開けない</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12413"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12457"/>
         <source>can&apos;t open this dwg file</source>
         <translation>このDWGファイルは開くことができない</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12420"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12464"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <translation>DWG を開けません: ファイルバージョンは %1 です。LibreCAD は %2 以降をサポートします。GNU LibreDWG（dwgread / dwg2dxf）で変換するか、最新の CAD ツールで再保存してください。</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12431"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12475"/>
         <source>unsupported dwg version</source>
         <translation>サポートされていないバージョンの DWGファイル</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12438"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12482"/>
         <source>error reading file header in dwg file</source>
         <translation>DWGファイル内のファイルヘッダーの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12441"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12485"/>
         <source>error reading header vars in dwg file</source>
         <translation>DWGファイル内のヘッダー・バージョンの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12444"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12488"/>
         <source>error reading classes in dwg file</source>
         <translation>DWGファイル内のクラスの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12447"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12491"/>
         <source>error reading offsets in dwg file</source>
         <translation>DWGファイル内のオフセットの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12450"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12494"/>
         <source>error reading tables in dwg file</source>
         <translation>DWGファイル内のテーブルの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12456"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12500"/>
         <source>error reading entities in dwg file</source>
         <translation>DWGファイル内の要素の読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="471"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="477"/>
         <source>dwg Drawing %1</source>
         <translation>%1 はｄｗｇ書式の図面</translation>
     </message>
@@ -48930,72 +44443,68 @@ Do you want to replace it?</source>
         <translation>ハッチングに失敗、ギャップ=%1 隙間  (%2, %3) 及び (%4, %5) による</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="85"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="86"/>
         <source>DWG support is not complete!</source>
         <translation>DWGのサポートは完了していません!</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="87"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
         <source>If this file fails to open try an older DWG format</source>
         <translation>このファイルが古い DWG 形式を試すことができない場合</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="89"/>
         <source>or try to find a converter to make it a DXF file.</source>
         <translation>またはDXFファイルを作成するためにコンバーターを見つけるようにしてください.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="91"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="92"/>
         <source>Information</source>
         <translation>インフォメーション</translation>
     </message>
     <message>
-        <source>DWG support is not complete; if this file fails to open try an older DWG format or convert it to DXF.</source>
-        <translation type="vanished">DWG サポートは完全ではありません。このファイルが開けない場合は、古い DWG 形式を試すか、DXF に変換してください。</translation>
-    </message>
-    <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="104"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
         <source>Error</source>
         <comment>fileImport</comment>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="106"/>
         <source>Import error:</source>
         <comment>fileImport</comment>
         <translation>インポートエラー:</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="119"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
         <translation>どんなに、特定された事業体があります.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="121"/>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
         <translation>ファイルを開いた場合、図面は完了または使用不能になる場合があります.</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="122"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="123"/>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
         <translation>エラーを無視してファイルを開きますか?</translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="125"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="126"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12453"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12497"/>
         <source>error reading blocks in dwg file</source>
         <translatorcomment>AutoCADにあわせて「ブロック」と訳すことにした</translatorcomment>
         <translation>DWGファイル内のブロックの読み込み中にエラー</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12459"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12503"/>
         <source>error reading objects in dwg file</source>
         <translation>DWGファイル内のオブジェクトの読み込み中にエラー</translation>
     </message>
@@ -50151,7 +45660,7 @@ Do you want to replace it?</source>
         <translation>無し</translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12435"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12479"/>
         <source>error reading file metadata in dwg file</source>
         <translation>ファイル読み込みエラー（dwgファイル内のメタデータ）</translation>
     </message>
@@ -50507,11 +46016,6 @@ Do you want to replace it?</source>
         <source>mpoint</source>
         <comment>draw middle of points</comment>
         <translation>マンポイント</translation>
-    </message>
-    <message>
-        <source>criclebyarc</source>
-        <comment>draw circle by arc</comment>
-        <translation type="vanished">クリクルバイアーク</translation>
     </message>
     <message>
         <location filename="../src/cmd/lc_commandItems.h" line="218"/>
@@ -52043,26 +47547,6 @@ Do you want to replace it?</source>
         <translation>使用法:</translation>
     </message>
     <message>
-        <source> [options] &lt;dxf_files&gt;</source>
-        <translation type="vanished">[options] [オプション] &lt;dxf files&gt;</translation>
-    </message>
-    <message>
-        <source> *.dxf</source>
-        <translation type="vanished">*.dxfの</translation>
-    </message>
-    <message>
-        <source>-- print all dxf files to pdf files with the same names.</source>
-        <translation type="vanished">-- 同じ名前の pdf ファイルにすべての dxf ファイルを印刷して下さい.</translation>
-    </message>
-    <message>
-        <source> -o some.pdf *.dxf</source>
-        <translation type="vanished">-o いくつかの.pdf *.dxf</translation>
-    </message>
-    <message>
-        <source>-- print all dxf files to &apos;some.pdf&apos; file.</source>
-        <translation type="vanished">-- &apos;some.pdf&apos; ファイルにすべての dxf ファイルを印刷します.</translation>
-    </message>
-    <message>
         <location filename="../src/main/console_dxf2pdf/console_dxf2pdf.cpp" line="86"/>
         <source> [options] &lt;%1_files&gt;</source>
         <translation type="unfinished"></translation>
@@ -52138,16 +47622,6 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Paper size (Width x Height) in mm.</source>
-        <comment>WxH</comment>
-        <translation type="vanished">用紙サイズ(幅×高さ)mm.</translation>
-    </message>
-    <message>
-        <source>Output resolution (DPI).</source>
-        <comment>integer</comment>
-        <translation type="vanished">出力決断(DPI).</translation>
-    </message>
-    <message>
         <location filename="../src/main/console_dxf2pdf/console_dxf2pdf.cpp" line="129"/>
         <source>Output scale. E.g.: 0.01 (for 1:100 scale).</source>
         <translation>出力スケール。 例:0.01(1:100スケール).</translation>
@@ -52193,14 +47667,6 @@ Do you want to replace it?</source>
         <location filename="../src/main/console_dxf2dwg.cpp" line="189"/>
         <source>Input %1 file(s).</source>
         <translation>入力ファイル数: %1。</translation>
-    </message>
-    <message>
-        <source>&lt;dxf_files&gt;</source>
-        <translation type="vanished">&lt;dxf files&gt;</translation>
-    </message>
-    <message>
-        <source>Input DXF file(s)</source>
-        <translation type="vanished">入力DXFファイル(s)</translation>
     </message>
     <message>
         <location filename="../src/ui/dock_widgets/command_line/qg_commandwidget.cpp" line="56"/>
@@ -52448,7 +47914,7 @@ Do you want to replace it?</source>
         <translation>PDFへのエクスポート</translation>
     </message>
     <message>
-        <location filename="../src/lib/printing/lc_printing.cpp" line="165"/>
+        <location filename="../src/lib/printing/lc_printing.cpp" line="166"/>
         <source>PDF files (*.pdf);;All files (*.*)</source>
         <translation>PDFファイル(*.pdf);;すべてのファイル(*.*)</translation>
     </message>
@@ -52609,21 +48075,23 @@ Do you want to replace it?</source>
         <translation>[Override] [オーバーライド]</translation>
     </message>
     <message>
-        <source>Draft</source>
-        <translation type="vanished">下書き</translation>
-    </message>
-    <message>
         <location filename="../src/ui/qg_actionhandler.cpp" line="86"/>
         <source>%2 - command for &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="412"/>
+        <source>Cannot open shapefile %1 (missing or corrupt .shx?)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="541"/>
+        <source>Shapefile %1 contained %2 records but none were readable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RS_ActionBlocksCreate</name>
-    <message>
-        <source>Select to create block (Enter to complete)</source>
-        <translation type="vanished">ブロックを作成するために選択する(完了するために入力)</translation>
-    </message>
     <message>
         <location filename="../src/actions/dock_widgets/block/rs_actionblockscreate.cpp" line="105"/>
         <source>Select contour</source>
@@ -52638,66 +48106,6 @@ Do you want to replace it?</source>
         <location filename="../src/actions/dock_widgets/block/rs_actionblockscreate.cpp" line="111"/>
         <source>Specify reference point</source>
         <translation>参照点定義</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionBlocksExplode</name>
-    <message>
-        <source>Select to explode container (Enter to complete)</source>
-        <translation type="vanished">コンテナを爆発させる選択(完了するために入力)</translation>
-    </message>
-    <message>
-        <source>Select and explode</source>
-        <translation type="vanished">選択と爆発</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionBlocksInsert</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点定義</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">角度入力:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">倍率:</translation>
-    </message>
-    <message>
-        <source>Enter columns:</source>
-        <translation type="vanished">列数:</translation>
-    </message>
-    <message>
-        <source>Enter rows:</source>
-        <translation type="vanished">行数:</translation>
-    </message>
-    <message>
-        <source>Enter column spacing:</source>
-        <translation type="vanished">列幅:</translation>
-    </message>
-    <message>
-        <source>Enter row spacing:</source>
-        <translation type="vanished">行間:</translation>
-    </message>
-    <message>
-        <source>Block cannot contain an insert of itself.</source>
-        <translation type="vanished">ブロックはインサート自体を含まない.</translation>
-    </message>
-    <message>
-        <source> has nested insert of current block in:
-</source>
-        <translation type="vanished">現在のブロックのネストインサート:</translation>
-    </message>
-    <message>
-        <source>
-This block cannot be inserted.</source>
-        <translation type="vanished">このブロックはインサートできません.</translation>
     </message>
 </context>
 <context>
@@ -52950,270 +48358,6 @@ This block cannot be inserted.</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawArc</name>
-    <message>
-        <source>Length of chord should be non-zero</source>
-        <translation type="vanished">弦の長さはゼロであるべきです</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Not a valid chord length</source>
-        <translation type="vanished">弦の長さが有効でありません</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">中心指定</translation>
-    </message>
-    <message>
-        <source>Specify start point</source>
-        <translation type="vanished">スタートポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Alternative Arc</source>
-        <translation type="vanished">代替アーク</translation>
-    </message>
-    <message>
-        <source>Specify chord length (negative for alt point):</source>
-        <translation type="vanished">Chordの長さ(altポイントの必須)を指定します</translation>
-    </message>
-    <message>
-        <source>Use alternative arc point</source>
-        <translation type="vanished">代替アークポイントを使用する</translation>
-    </message>
-    <message>
-        <source>Specify radius</source>
-        <translation type="vanished">半径指定</translation>
-    </message>
-    <message>
-        <source>Specify start angle:</source>
-        <translation type="vanished">開始角度指定:</translation>
-    </message>
-    <message>
-        <source>Specify end angle or [angle/chordlen]</source>
-        <translation type="vanished">端の角度か[角度/コードレン]を指定する</translation>
-    </message>
-    <message>
-        <source>Specify included angle:</source>
-        <translation type="vanished">内角指定:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawArc3P</name>
-    <message>
-        <source>Invalid arc data.</source>
-        <translation type="vanished">有効でない円弧データ。</translation>
-    </message>
-    <message>
-        <source>Specify third point</source>
-        <translation type="vanished">第3ポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">二点目指示</translation>
-    </message>
-    <message>
-        <source>Specify startpoint or [center]</source>
-        <translation type="vanished">始点[または中心]を指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawArcTangential</name>
-    <message>
-        <source>Specify base entity</source>
-        <translation type="vanished">基準図形要素指示</translation>
-    </message>
-    <message>
-        <source>Alternate arc</source>
-        <translation type="vanished">代替アーク</translation>
-    </message>
-    <message>
-        <source>Alternate Arc</source>
-        <translation type="vanished">代替アーク</translation>
-    </message>
-    <message>
-        <source>Specify end angle</source>
-        <translation type="vanished">終了角度指示</translation>
-    </message>
-    <message>
-        <source>Specify end point</source>
-        <translation type="vanished">終点指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify center</source>
-        <translation type="vanished">中心指定</translation>
-    </message>
-    <message>
-        <source>Specify point on circle</source>
-        <translation type="vanished">円のポイントを指定する</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle2P</name>
-    <message>
-        <source>Invalid Circle data.</source>
-        <translation type="vanished">有効でない円データ。</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">１点目指示</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">２点目指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircle3P</name>
-    <message>
-        <source>Invalid circle data.</source>
-        <translation type="vanished">有効でない円データ。</translation>
-    </message>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">１点目指示</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">２点目指示</translation>
-    </message>
-    <message>
-        <source>Specify third point</source>
-        <translation type="vanished">３点目指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleCR</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify circle center</source>
-        <translation type="vanished">中心指示</translation>
-    </message>
-    <message>
-        <source>Specify circle radius</source>
-        <translation type="vanished">半径指示</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (expression)</source>
-        <translation type="vanished">radius=%1 は無効です (expression)</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (negative)</source>
-        <translation type="vanished">radius=%1 は無効です (必須)</translation>
-    </message>
-    <message>
-        <source>radius=%1 is invalid (zero)</source>
-        <translation type="vanished">radius=%1 は無効です (ゼロ)</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleInscribe</name>
-    <message>
-        <source>Specify the first line</source>
-        <translation type="vanished">最初の線を指定</translation>
-    </message>
-    <message>
-        <source>Specify the second line</source>
-        <translation type="vanished">2本目の線を指定</translation>
-    </message>
-    <message>
-        <source>Specify the third line</source>
-        <translation type="vanished">3本目の線を指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan1_2P</name>
-    <message>
-        <source>Specify the first point on the tangent circle</source>
-        <translation type="vanished">最初の接する円を指定</translation>
-    </message>
-    <message>
-        <source>Specify the second point on the tangent circle</source>
-        <translation type="vanished">次の接する円を指定</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">接する円の中心を指定</translation>
-    </message>
-    <message>
-        <source>Specify a line/arc/circle</source>
-        <translation type="vanished">線/弧/円を指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan2</name>
-    <message>
-        <source>Specify the first line/arc/circle</source>
-        <translation type="vanished">最初の線/弧/円を指定</translation>
-    </message>
-    <message>
-        <source>Specify the second line/arc/circle</source>
-        <translation type="vanished">２つ目の線/弧/円を指定</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">接する円の中心を選択</translation>
-    </message>
-    <message>
-        <source>No common tangential circle for radius &apos;%1&apos;</source>
-        <translation type="vanished">半径 &apos;%1&apos; のための共通の有形円無し</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan2_1P</name>
-    <message>
-        <source>Specify a line/arc/circle</source>
-        <translation type="vanished">線/弧/円を指定</translation>
-    </message>
-    <message>
-        <source>Specify the another line/arc/circle</source>
-        <translation type="vanished">別の行/アーク/円を指定します</translation>
-    </message>
-    <message>
-        <source>Specify a point on the tangent circle</source>
-        <translation type="vanished">接する円を指定</translation>
-    </message>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">接する円の中心を指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawCircleTan3</name>
-    <message>
-        <source>Select the center of the tangent circle</source>
-        <translation type="vanished">接する円の中心を指定</translation>
-    </message>
-    <message>
-        <source>Specify the first line/arc/circle</source>
-        <translation type="vanished">最初の線/弧/円を指定</translation>
-    </message>
-    <message>
-        <source>No common tangential circle for selected entities</source>
-        <translation type="vanished">選択されたエンティティティのための共通の有形円無し</translation>
-    </message>
-    <message>
-        <source>Specify the second line/arc/circle</source>
-        <translation type="vanished">２つ目の線/弧/円を指定</translation>
-    </message>
-    <message>
-        <source>Specify the third line/arc/circle</source>
-        <translation type="vanished">３つ目の線/弧/円を指定</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawEllipse4Points</name>
     <message>
         <location filename="../src/actions/drawing/draw/ellipse/rs_actiondrawellipse4points.cpp" line="282"/>
@@ -53408,125 +48552,9 @@ This block cannot be inserted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select to hatch (Enter to complete)</source>
-        <translation type="vanished">選択する 孵化器 (完了するために入力)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/draw/hatch/rs_actiondrawhatch.cpp" line="185"/>
         <source>Hatch immediately after selection</source>
         <translation>選択直後のハッチ</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawImage</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点指示</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">角度入力:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">倍率入力:</translation>
-    </message>
-    <message>
-        <source>Enter dpi:</source>
-        <translation type="vanished">DPI入力:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLine</name>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">１点目指示</translation>
-    </message>
-    <message>
-        <source>Specify next point or [%1]</source>
-        <translation type="vanished">次点又は[%1]指示</translation>
-    </message>
-    <message>
-        <source>Specify next point</source>
-        <translation type="vanished">次点指示</translation>
-    </message>
-    <message>
-        <source>Cannot close sequence of lines: Not enough entities defined yet, or already closed.</source>
-        <translation type="vanished">線分を閉じることができない：要素をまだ十分に定義していなかったか、またはすでに閉まっていた。</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Begin of history reached</source>
-        <translation type="vanished">禁止:歴史の始まり</translation>
-    </message>
-    <message>
-        <source>Cannot redo: End of history reached</source>
-        <translation type="vanished">できません。: 歴史の最後に到達</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineAngle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify position</source>
-        <translation type="vanished">位置指示</translation>
-    </message>
-    <message>
-        <source>Alternate Direction</source>
-        <translation type="vanished">任意方向</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">角度入力:</translation>
-    </message>
-    <message>
-        <source>Enter length:</source>
-        <translation type="vanished">長さ入力:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineBisector</name>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">組織が作成される</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Select first line</source>
-        <translation type="vanished">１つ目の線分</translation>
-    </message>
-    <message>
-        <source>Select second line</source>
-        <translation type="vanished">２つ目の線分</translation>
-    </message>
-    <message>
-        <source>Enter bisector length:</source>
-        <translation type="vanished">角の２等分線長さ入力:</translation>
-    </message>
-    <message>
-        <source>Enter number of bisectors:</source>
-        <translation type="vanished">角の２等分線の数:</translation>
-    </message>
-    <message>
-        <source>Number sector lines not in range: </source>
-        <comment>number of bisector to create must be in [1, 200]</comment>
-        <translation type="vanished">番号のセクターラインが範囲内にない:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineFree</name>
-    <message>
-        <source>Click and drag to draw a line</source>
-        <translation type="vanished">クリックして作図線を引く</translation>
     </message>
 </context>
 <context>
@@ -53559,74 +48587,6 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawlineorthtan.cpp" line="260"/>
         <source>Select circle, arc or ellipse</source>
         <translation>円、楕円選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineParallel</name>
-    <message>
-        <source>Specify Distance &lt;%1&gt; or select entity or [%2]</source>
-        <translation type="vanished">距離&lt;%1&gt;、図形選択、[%2]指示</translation>
-    </message>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">組織が作成される</translation>
-    </message>
-    <message>
-        <source>Enter number:</source>
-        <translation type="vanished">数値入力:</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Not a valid number. Try 1..99</source>
-        <translation type="vanished">有効な数値ではありません。1..99まで</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLineParallelThrough</name>
-    <message>
-        <source>Select entity</source>
-        <translation type="vanished">図形選択</translation>
-    </message>
-    <message>
-        <source>Specify through point</source>
-        <translation type="vanished">通過点指示</translation>
-    </message>
-    <message>
-        <source> entities will be created</source>
-        <translation type="vanished">組織が作成される</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数値:</translation>
-    </message>
-    <message>
-        <source>Not a valid number. Try 1..99</source>
-        <translation type="vanished">有効な数値ではありません。1..99まで</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLinePolygonCenCor</name>
-    <message>
-        <source>Specify a corner</source>
-        <translation type="vanished">コーナー指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawLinePolygonCorCor</name>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">１つ目のコーナー指示</translation>
-    </message>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">２つ目のコーナー指示</translation>
     </message>
 </context>
 <context>
@@ -53668,29 +48628,6 @@ This block cannot be inserted.</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawLineRelAngle</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Select base entity</source>
-        <translation type="vanished">基準図形選択</translation>
-    </message>
-    <message>
-        <source>Specify angle</source>
-        <translation type="vanished">角度を指定する</translation>
-    </message>
-    <message>
-        <source>Specify length</source>
-        <translation type="vanished">長さを指定する</translation>
-    </message>
-    <message>
-        <source>Specify position</source>
-        <translation type="vanished">位置指示</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawLineTangent1</name>
     <message>
         <location filename="../src/actions/drawing/draw/line/rs_actiondrawlinetangent1.cpp" line="199"/>
@@ -53728,17 +48665,6 @@ This block cannot be inserted.</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawMText</name>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">挿入点指示</translation>
-    </message>
-    <message>
-        <source>Enter text:</source>
-        <translation type="vanished">文字列入力:</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionDrawPoint</name>
     <message>
         <location filename="../src/actions/drawing/draw/point/lc_action_draw_point.cpp" line="88"/>
@@ -53747,108 +48673,7 @@ This block cannot be inserted.</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionDrawPolyline</name>
-    <message>
-        <source>Specify first point</source>
-        <translation type="vanished">最初のポイントを指示</translation>
-    </message>
-    <message>
-        <source>Alternative Arc</source>
-        <translation type="vanished">代替アーク</translation>
-    </message>
-    <message>
-        <source>Specify next point</source>
-        <translation type="vanished">次のポイントを指示</translation>
-    </message>
-    <message>
-        <source>Specify next point or [%1]</source>
-        <translation type="vanished">次のポイント または [%1] を指示</translation>
-    </message>
-    <message>
-        <source>Cannot close sequence of lines: Not enough entities defined yet.</source>
-        <translation type="vanished">線分を閉じることができません: 図形の定義が不足。</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">取り消しができません: 要素が定義されていません。</translation>
-    </message>
-    <message>
-        <source>Enter the end point x</source>
-        <translation type="vanished">終点 x を入力してください</translation>
-    </message>
-    <message>
-        <source>Enter number of polylines</source>
-        <translation type="vanished">ポリラインの数を入力してください</translation>
-    </message>
-    <message>
-        <source>Enter an equation, f(x)</source>
-        <translation type="vanished">式、f(x) を入力してください</translation>
-    </message>
-    <message>
-        <source>x</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>Enter the start point x</source>
-        <translation type="vanished">スタートポイントxを入力</translation>
-    </message>
-    <message>
-        <source>The entered x is invalid.</source>
-        <translation type="vanished">入力されたxは無効です.</translation>
-    </message>
-    <message>
-        <source>The step size entered is invalid.</source>
-        <translation type="vanished">入力したステップサイズは無効です.</translation>
-    </message>
-    <message>
-        <source>The value x entered is invalid.</source>
-        <translation type="vanished">入力した値は無効です.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawSpline</name>
-    <message>
-        <source>Specify first control point</source>
-        <translation type="vanished">１つ目の制御点指示</translation>
-    </message>
-    <message>
-        <source>Specify next control point or [%1]</source>
-        <translation type="vanished">次の制御点指示か[%1]</translation>
-    </message>
-    <message>
-        <source>Specify next control point</source>
-        <translation type="vanished">次の制御点指示</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">取り消しできません:作図されていません。</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionDrawText</name>
-    <message>
-        <source>Text: </source>
-        <translation type="vanished">テキスト:</translation>
-    </message>
-    <message>
-        <source>Specify insertion point</source>
-        <translation type="vanished">挿入点指示</translation>
-    </message>
-    <message>
-        <source>Enter text:</source>
-        <translation type="vanished">文字列入力:</translation>
-    </message>
-    <message>
-        <source>Specify second point</source>
-        <translation type="vanished">２点目を指示</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionEditCopyPaste</name>
-    <message>
-        <source>Select to cut (Enter to complete)</source>
-        <translation type="vanished">カットを選択(入力完了)</translation>
-    </message>
     <message>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="175"/>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="180"/>
@@ -53867,10 +48692,6 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="180"/>
         <source>Cut right after selection</source>
         <translation>選択後すぐに切って下さい</translation>
-    </message>
-    <message>
-        <source>Select to copy (Enter to complete)</source>
-        <translation type="vanished">コピーを選択(入力完了)</translation>
     </message>
     <message>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="174"/>
@@ -53908,24 +48729,6 @@ This block cannot be inserted.</source>
         <location filename="../src/actions/drawing/edit/lc_action_edit_copy_cut.cpp" line="208"/>
         <source>Paste Multiple</source>
         <translation>複数のペースト</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionEditPaste</name>
-    <message>
-        <source>Set paste reference point</source>
-        <translation type="vanished">ペースト参照ポイントの設定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionEditUndo</name>
-    <message>
-        <source>Nothing to undo!</source>
-        <translation type="vanished">取り消ししない!</translation>
-    </message>
-    <message>
-        <source>Nothing to redo!</source>
-        <translation type="vanished">やり直ししない!</translation>
     </message>
 </context>
 <context>
@@ -54146,57 +48949,6 @@ End: (%8 , %9)</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionInfoDist2</name>
-    <message>
-        <source>Distance: %1
-Cartesian: (%2 , %3)
-Polar: (%4 &lt; %5)
-Point On Entity: (%6 , %7)
-Point: (%8 , %9)</source>
-        <translation type="vanished">距離: %1
-カルテシア語:(%2、%3)
-極: (%4 &lt;%5)
-ポイントオンエンティティティ: (%6 , %7)
-ポイント: (%8 , %9)</translation>
-    </message>
-    <message>
-        <source>Specify entity</source>
-        <translation type="vanished">図形を指示</translation>
-    </message>
-    <message>
-        <source>Do not snap to child entities in container</source>
-        <translation type="vanished">コンテナ内の子のエンティティティティにスナップしないでください</translation>
-    </message>
-    <message>
-        <source>Relative point is on entity</source>
-        <translation type="vanished">相対的なポイントは企業にあります</translation>
-    </message>
-    <message>
-        <source>Info</source>
-        <translation type="vanished">インフォメーション</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">距離:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>From:</source>
-        <translation type="vanished">から:</translation>
-    </message>
-    <message>
-        <source>To:</source>
-        <translation type="vanished">に:</translation>
-    </message>
-    <message>
-        <source>Specify point</source>
-        <translation type="vanished">点を指示</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionInfoInside</name>
     <message>
         <location filename="../src/actions/drawing/info/rs_actioninfoinside.cpp" line="57"/>
@@ -54242,10 +48994,6 @@ Point: (%8 , %9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select to measure total length (Enter to complete)</source>
-        <translation type="vanished">総長さを測定するために選択して下さい(完了するために入ります)</translation>
-    </message>
-    <message>
         <location filename="../src/actions/drawing/info/rs_actioninfototallength.cpp" line="74"/>
         <source>Select contour</source>
         <translation>輪郭を選択</translation>
@@ -54277,917 +49025,6 @@ Point: (%8 , %9)</source>
         <location filename="../src/lib/actions/rs_actioninterface.cpp" line="640"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionLibraryInsert</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点指示</translation>
-    </message>
-    <message>
-        <source>Enter angle:</source>
-        <translation type="vanished">角度入力:</translation>
-    </message>
-    <message>
-        <source>Enter factor:</source>
-        <translation type="vanished">倍率入力:</translation>
-    </message>
-    <message>
-        <source>Cannot open file &apos;%1&apos;</source>
-        <translation type="vanished">ファイル&apos;%1&apos; を開けません</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyAttributes</name>
-    <message>
-        <source>Select to modify attributes (Enter to complete)</source>
-        <translation type="vanished">属性の修正を選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Modify attributes immediately after selecting</source>
-        <translation type="vanished">選択直後に属性を変更する</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyBevel</name>
-    <message>
-        <source>Selected lines are parallel</source>
-        <translation type="vanished">選択されたラインは平行です</translation>
-    </message>
-    <message>
-        <source>Selected lines are not children of the same polyline</source>
-        <translation type="vanished">選択されたラインは同じポリラインの子供ではないです</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">トリム</translation>
-    </message>
-    <message>
-        <source>Intersection:</source>
-        <translation type="vanished">セクション:</translation>
-    </message>
-    <message>
-        <source>Point 1:</source>
-        <translation type="vanished">ポイント1:</translation>
-    </message>
-    <message>
-        <source>Point 2:</source>
-        <translation type="vanished">ポイント2:</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-trimmable).</source>
-        <translation type="vanished">選択した無効なエンティティティティ(非有利).</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-atomic).</source>
-        <translation type="vanished">選択された無効な組織(非アトミック).</translation>
-    </message>
-    <message>
-        <source>Invalid entity selected (non-trimmable with first entity).</source>
-        <translation type="vanished">選択された無効なエンティティティティ(最初のエンティティティと非有利).</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Select first entity</source>
-        <translation type="vanished">１つ目の図形選択</translation>
-    </message>
-    <message>
-        <source>Select second entity</source>
-        <translation type="vanished">２つ目の図形選択</translation>
-    </message>
-    <message>
-        <source>Enter length 1:</source>
-        <translation type="vanished">長さ 1を入力:</translation>
-    </message>
-    <message>
-        <source>Enter length 2:</source>
-        <translation type="vanished">長さ 2を入力:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyCut</name>
-    <message>
-        <source>Divide</source>
-        <translation type="vanished">ダイバーシティ</translation>
-    </message>
-    <message>
-        <source>At:</source>
-        <translation type="vanished">で:</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Cutting point may not be entity&apos;s endpoint.</source>
-        <translation type="vanished">切断ポイントは、エンティティティティのエンドポイントではない場合があります.</translation>
-    </message>
-    <message>
-        <source>Specify entity to cut</source>
-        <translation type="vanished">切断する要素を選択</translation>
-    </message>
-    <message>
-        <source>Specify cutting point</source>
-        <translation type="vanished">切断点を指示</translation>
-    </message>
-    <message>
-        <source>Entity must be a line, arc, circle, ellipse or interpolation spline.</source>
-        <translation type="vanished">要素は、直線、弧、円、楕円、補間スプライン.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDelete</name>
-    <message>
-        <source>Select to delete (Enter to complete)</source>
-        <translation type="vanished">削除を選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Delete immediately after selection</source>
-        <translation type="vanished">選択直後に削除する</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDeleteFree</name>
-    <message>
-        <source>Specify first break point on a polyline</source>
-        <translation type="vanished">ポリライン上の１点目を指示</translation>
-    </message>
-    <message>
-        <source>Specify second break point on the same polyline</source>
-        <translation type="vanished">ポリライン上の２点目を指示</translation>
-    </message>
-    <message>
-        <source>Entities not in the same polyline.</source>
-        <translation type="vanished">図形群は同一ポリラインにありません。</translation>
-    </message>
-    <message>
-        <source>Parent of second entity is not a polyline</source>
-        <translation type="vanished">二番目の図形の親はポリラインではありません</translation>
-    </message>
-    <message>
-        <source>Parent of first entity is not a polyline</source>
-        <translation type="vanished">最初の要素の親はポリラインではありません</translation>
-    </message>
-    <message>
-        <source>Parent of second entity is nullptr</source>
-        <translation type="vanished">２番目の要素の親は nullptr</translation>
-    </message>
-    <message>
-        <source>One of the chosen entities is nullptr</source>
-        <translation type="vanished">選択要素の一つが nullptr</translation>
-    </message>
-    <message>
-        <source>Parent of first entity is nullptr</source>
-        <translation type="vanished">最初の要素の親は nullptr</translation>
-    </message>
-    <message>
-        <source>First entity is nullptr</source>
-        <translation type="vanished">最初の要素は nullptr</translation>
-    </message>
-    <message>
-        <source>Second entity is nullptr</source>
-        <translation type="vanished">２番目の要素は nullptr</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyDeleteQuick</name>
-    <message>
-        <source>Pick entity to delete</source>
-        <translation type="vanished">削除するエンティティを選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyEntity</name>
-    <message>
-        <source>Click on entity to modify</source>
-        <translation type="vanished">組織をクリックして変更する</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyExplodeText</name>
-    <message>
-        <source>Select to explode text (Enter to complete)</source>
-        <translation type="vanished">テキストを抜粋する(入力完了)</translation>
-    </message>
-    <message>
-        <source>Explode immediately after selection</source>
-        <translation type="vanished">選択直後に爆発</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMirror</name>
-    <message>
-        <source>Mirror</source>
-        <translation type="vanished">ミラー</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Angle (alt):</source>
-        <translation type="vanished">角度(alt):</translation>
-    </message>
-    <message>
-        <source>Line From:</source>
-        <translation type="vanished">ラインから:</translation>
-    </message>
-    <message>
-        <source>Line To:</source>
-        <translation type="vanished">ラインへの:</translation>
-    </message>
-    <message>
-        <source>Select to mirror (Enter to complete)</source>
-        <translation type="vanished">ミラーを選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Specify mirror line</source>
-        <translation type="vanished">ミラーラインを指定する</translation>
-    </message>
-    <message>
-        <source>Flip Vertically</source>
-        <translation type="vanished">縦にフリップ</translation>
-    </message>
-    <message>
-        <source>Flip Horizontally</source>
-        <translation type="vanished">横にフリップ</translation>
-    </message>
-    <message>
-        <source>Specify first point of mirror line</source>
-        <translation type="vanished">対称軸の一点目指示</translation>
-    </message>
-    <message>
-        <source>Specify second point of mirror line</source>
-        <translation type="vanished">対称軸の二点目指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMove</name>
-    <message>
-        <source>Moving Offset</source>
-        <translation type="vanished">移動オフセット</translation>
-    </message>
-    <message>
-        <source>Copy Offset</source>
-        <translation type="vanished">コピーオフセット</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点を指示</translation>
-    </message>
-    <message>
-        <source>Create a Copy</source>
-        <translation type="vanished">コピーを作成する</translation>
-    </message>
-    <message>
-        <source>Select to move (Enter to complete)</source>
-        <translation type="vanished">移動を選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Move immediately after selection</source>
-        <translation type="vanished">選択後すぐに移動</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">目的点を指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyMoveRotate</name>
-    <message>
-        <source>Moving with rotation</source>
-        <translation type="vanished">回転で移動</translation>
-    </message>
-    <message>
-        <source>Source:</source>
-        <translation type="vanished">ソース:</translation>
-    </message>
-    <message>
-        <source>Target:</source>
-        <translation type="vanished">ターゲット:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点を指示</translation>
-    </message>
-    <message>
-        <source>Select to move and rotate  (Enter to complete)</source>
-        <translation type="vanished">移動と回転を選択(完了するために入力)</translation>
-    </message>
-    <message>
-        <source>Move and rotate immediately after selection</source>
-        <translation type="vanished">選択後すぐに移動し、回して下さい</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">目的点を指示</translation>
-    </message>
-    <message>
-        <source>Enter rotation angle:</source>
-        <translation type="vanished">回転角度入力:</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyOffset</name>
-    <message>
-        <source>Offset</source>
-        <translation type="vanished">オフセット</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">距離:</translation>
-    </message>
-    <message>
-        <source>Specify direction of offset</source>
-        <translation type="vanished">オフセットの方向を指定</translation>
-    </message>
-    <message>
-        <source>Specify reference point for direction of offset</source>
-        <translation type="vanished">オフセットの方向の参照ポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Select line, polyline, circle, arc or ellipse to create offset (Enter to complete)</source>
-        <translation type="vanished">オフセットを作成する直線、ポリライン、円、弧または楕円を選択してください（Enter で完了）</translation>
-    </message>
-    <message>
-        <source>Select line, polyline, circle or arc to create offset (Enter to complete)</source>
-        <translation type="vanished">ライン、ポリライン、円、またはアークを選択して、オフセットを作成します</translation>
-    </message>
-    <message>
-        <source>Offset immediately after selection</source>
-        <translation type="vanished">選択の後ですぐにオフセット</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRevertDirection</name>
-    <message>
-        <source>Select to revert direction (Enter to complete)</source>
-        <translation type="vanished">方向を逆転させる選択(完了するために入力して下さい)</translation>
-    </message>
-    <message>
-        <source>Revert immediately after selection</source>
-        <translation type="vanished">選択の後ですぐに逆転して下さい</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRotate</name>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点を指示</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation type="vanished">ローテーション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Source Point:</source>
-        <translation type="vanished">源ポイント:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">ターゲット ポイント:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Reference Point:</source>
-        <translation type="vanished">参照ポイント:</translation>
-    </message>
-    <message>
-        <source>Center Point:</source>
-        <translation type="vanished">センターポイント:</translation>
-    </message>
-    <message>
-        <source>Second Angle:</source>
-        <translation type="vanished">第二の角度:</translation>
-    </message>
-    <message>
-        <source>Select to rotate (Enter to complete)</source>
-        <translation type="vanished">選択する 回転する (入力 完了する)</translation>
-    </message>
-    <message>
-        <source>Rotate immediately after selection</source>
-        <translation type="vanished">選択の後ですぐに回して下さい</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Snap to center of selection</source>
-        <translation type="vanished">選択の中心に急いで下さい</translation>
-    </message>
-    <message>
-        <source>Specify rotation center</source>
-        <translation type="vanished">回転の中心を指定</translation>
-    </message>
-    <message>
-        <source>Specify target point to rotate to</source>
-        <translation type="vanished">回転の目標点を指定</translation>
-    </message>
-    <message>
-        <source>Specify target point for rotation around reference point</source>
-        <translation type="vanished">参照ポイントの周りの回転のためのターゲットポイントを指定する</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRotate2</name>
-    <message>
-        <source>Rotating Twice</source>
-        <translation type="vanished">回転 Twice</translation>
-    </message>
-    <message>
-        <source>Center 1:</source>
-        <translation type="vanished">センター1:</translation>
-    </message>
-    <message>
-        <source>Angle 1:</source>
-        <translation type="vanished">角度1:</translation>
-    </message>
-    <message>
-        <source>Center 2:</source>
-        <translation type="vanished">センター2:</translation>
-    </message>
-    <message>
-        <source>Angle 2:</source>
-        <translation type="vanished">角度 2:</translation>
-    </message>
-    <message>
-        <source>Select for two axis rotation  (Enter to complete)</source>
-        <translation type="vanished">2軸回転を選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Rotate 2 Axis immediately after selection</source>
-        <translation type="vanished">選択の後ですぐに2軸を回して下さい</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Specify absolute reference point</source>
-        <translation type="vanished">絶対参照点指示</translation>
-    </message>
-    <message>
-        <source>Specify relative reference point</source>
-        <translation type="vanished">相対参照点指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyRound</name>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Round</source>
-        <translation type="vanished">ラウンド</translation>
-    </message>
-    <message>
-        <source>Point 1:</source>
-        <translation type="vanished">ポイント1:</translation>
-    </message>
-    <message>
-        <source>Point 2:</source>
-        <translation type="vanished">ポイント2:</translation>
-    </message>
-    <message>
-        <source>Specify second entity</source>
-        <translation type="vanished">二番目の図形指示</translation>
-    </message>
-    <message>
-        <source>Enter radius:</source>
-        <translation type="vanished">半径入力:</translation>
-    </message>
-    <message>
-        <source>Specify first entity or enter radius &lt;%1&gt;</source>
-        <translation type="vanished">最初にエンティティを指定するか、半径 &lt;%1&gt; を入力してください</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyScale</name>
-    <message>
-        <source>Scale</source>
-        <translation type="vanished">スケール</translation>
-    </message>
-    <message>
-        <source>Center:</source>
-        <translation type="vanished">センター:</translation>
-    </message>
-    <message>
-        <source>Source Point:</source>
-        <translation type="vanished">源ポイント:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">ターゲット ポイント:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Scale by X:</source>
-        <translation type="vanished">Xでスケール:</translation>
-    </message>
-    <message>
-        <source>Scale by Y:</source>
-        <translation type="vanished">Yによるスケール:</translation>
-    </message>
-    <message>
-        <source>Specify scale center</source>
-        <translation type="vanished">スケール センターを指定する</translation>
-    </message>
-    <message>
-        <source>Snap to center of selection</source>
-        <translation type="vanished">選択の中心に急いで下さい</translation>
-    </message>
-    <message>
-        <source>Specify source point</source>
-        <translation type="vanished">ソースポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">ターゲットポイントを指定する</translation>
-    </message>
-    <message>
-        <source>Free snap</source>
-        <translation type="vanished">無料スナップ</translation>
-    </message>
-    <message>
-        <source>Select to scale  (Enter to complete)</source>
-        <translation type="vanished">スケールを選択(入力完了)</translation>
-    </message>
-    <message>
-        <source>Scale immediately after selection</source>
-        <translation type="vanished">選択直後のスケール</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyStretch</name>
-    <message>
-        <source>Specify first corner</source>
-        <translation type="vanished">１つ目のコーナー指示</translation>
-    </message>
-    <message>
-        <source>Specify second corner</source>
-        <translation type="vanished">２つ目のコーナー指示</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="vanished">ストレッチ</translation>
-    </message>
-    <message>
-        <source>Start Corner:</source>
-        <translation type="vanished">スタートコーナー:</translation>
-    </message>
-    <message>
-        <source>End Corner:</source>
-        <translation type="vanished">エンド コーナー:</translation>
-    </message>
-    <message>
-        <source>Reference Point:</source>
-        <translation type="vanished">参照ポイント:</translation>
-    </message>
-    <message>
-        <source>Target Point:</source>
-        <translation type="vanished">ターゲット ポイント:</translation>
-    </message>
-    <message>
-        <source>Offset:</source>
-        <translation type="vanished">オフセット:</translation>
-    </message>
-    <message>
-        <source>Specify reference point</source>
-        <translation type="vanished">参照点を指示</translation>
-    </message>
-    <message>
-        <source>Specify target point</source>
-        <translation type="vanished">目的点を指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyTrim</name>
-    <message>
-        <source>Select first trim entity</source>
-        <translation type="vanished">最初のトリムする要素を選択</translation>
-    </message>
-    <message>
-        <source>Select limiting entity</source>
-        <translation type="vanished">範囲図形選択</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">トリム</translation>
-    </message>
-    <message>
-        <source>Trim Two</source>
-        <translation type="vanished">トリム2</translation>
-    </message>
-    <message>
-        <source>Intersection:</source>
-        <translation type="vanished">セクション:</translation>
-    </message>
-    <message>
-        <source>Intersection 2:</source>
-        <translation type="vanished">断面 2:</translation>
-    </message>
-    <message>
-        <source>Select second trim entity</source>
-        <translation type="vanished">２つ目のトリムする要素を選択</translation>
-    </message>
-    <message>
-        <source>Select entity to trim</source>
-        <translation type="vanished">トリムのための要素を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionModifyTrimAmount</name>
-    <message>
-        <source>No entity found.</source>
-        <translation type="vanished">組織が見つかりません.</translation>
-    </message>
-    <message>
-        <source>The chosen Entity is not an atomic entity or cannot be trimmed.</source>
-        <translation type="vanished">選ばれた図形は基本図形でないか切除できないものです。</translation>
-    </message>
-    <message>
-        <source>Not a valid expression</source>
-        <translation type="vanished">表記に誤り</translation>
-    </message>
-    <message>
-        <source>Select line/arc to trim OR enter length value:</source>
-        <translation type="vanished">行/アークを選択して、または長さの値を入力するかを選択します</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionOrder</name>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Choose entities (Enter to Complete)</source>
-        <translation type="vanished">組織を選択(完全入力)</translation>
-    </message>
-    <message>
-        <source>Order immediately after selection</source>
-        <translation type="vanished">選択の後ですぐに発注して下さい</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-    <message>
-        <source>Choose entity for order</source>
-        <translation type="vanished">配置する図形を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineAdd</name>
-    <message>
-        <source>Specify polyline to add nodes</source>
-        <translation type="vanished">ノードを挿入するポリラインを指示</translation>
-    </message>
-    <message>
-        <source>Specify adding node&apos;s point</source>
-        <translation type="vanished">挿入するノード位置を指示</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
-    </message>
-    <message>
-        <source>Adding point is invalid.</source>
-        <translation type="vanished">指示位置が無効です。</translation>
-    </message>
-    <message>
-        <source>Adding point is not on entity.</source>
-        <translation type="vanished">追加点が図形上にありません。</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineAppend</name>
-    <message>
-        <source>Click somewhere near the beginning or end of existing polyline.</source>
-        <translation type="vanished">ポリライン図形の開始または終了点の近傍を指示.</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
-    </message>
-    <message>
-        <source>Specify the polyline somewhere near the beginning or end point</source>
-        <translation type="vanished">最初または終点の近くでどこかにポリラインを指定</translation>
-    </message>
-    <message>
-        <source>Can not append nodes in a closed polyline.</source>
-        <translation type="vanished">閉じられたポリラインのノードを追加できない.</translation>
-    </message>
-    <message>
-        <source>Enter number of polylines</source>
-        <translation type="vanished">ポリラインの数を入力してください</translation>
-    </message>
-    <message>
-        <source>Cannot undo: Not enough entities defined yet.</source>
-        <translation type="vanished">取り消しできません:作図されていません。</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineDel</name>
-    <message>
-        <source>Specify polyline to delete node</source>
-        <translation type="vanished">ノードを削除するポリラインを指示</translation>
-    </message>
-    <message>
-        <source>Specify deleting node&apos;s point</source>
-        <translation type="vanished">削除するノード位置を指示</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
-    </message>
-    <message>
-        <source>Deleting point is invalid.</source>
-        <translation type="vanished">削除位置が無効.</translation>
-    </message>
-    <message>
-        <source>Deleting point is not on entity.</source>
-        <translation type="vanished">削除位置が図形上にありません。</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineDelBetween</name>
-    <message>
-        <source>Specify polyline to delete between two nodes</source>
-        <translation type="vanished">二ノード間を削除するポリラインを指示</translation>
-    </message>
-    <message>
-        <source>Specify first node</source>
-        <translation type="vanished">最初のノードを指示</translation>
-    </message>
-    <message>
-        <source>Specify second node</source>
-        <translation type="vanished">二番目のノードを指示</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
-    </message>
-    <message>
-        <source>Deleting point is not on entity.</source>
-        <translation type="vanished">削除位置が図形上にありません。</translation>
-    </message>
-    <message>
-        <source>Deleting point is invalid.</source>
-        <translation type="vanished">削除位置が無効.</translation>
-    </message>
-    <message>
-        <source>No polyline found.</source>
-        <translation type="vanished">ポリラインが見つかりません.</translation>
-    </message>
-    <message>
-        <source>At least two segments of polyline should be between selected points.</source>
-        <translation type="vanished">ポリラインの少なくとも2つのセグメントは、選択した点間でなければなりません.</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineEquidistant</name>
-    <message>
-        <source>Choose the original polyline</source>
-        <translation type="vanished">ポリライン図形を指示</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineSegment</name>
-    <message>
-        <source>Choose one of the segments on the original polyline</source>
-        <translation type="vanished">元ポリライン図形のセグメントの一つを選択</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity can not be a closed polyline.</source>
-        <translation type="vanished">要素は閉じたポリラインではない.</translation>
-    </message>
-    <message>
-        <source>Polyline created</source>
-        <translation type="vanished">新規ポリライン</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionPolylineTrim</name>
-    <message>
-        <source>First segment should be on selected polyline.</source>
-        <translation type="vanished">最初のセグメントは、選択したポリラインにする必要があります.</translation>
-    </message>
-    <message>
-        <source>Second segment should be on selected polyline and not equal to first one.</source>
-        <translation type="vanished">第二のセグメントは、選択されたポリライン上と最初の1に等しいべきではありません.</translation>
-    </message>
-    <message>
-        <source>Specify polyline to trim</source>
-        <translation type="vanished">部分削除するポリラインを指示</translation>
-    </message>
-    <message>
-        <source>Specify first segment</source>
-        <translation type="vanished">最初のセグメントを指示</translation>
-    </message>
-    <message>
-        <source>Specify second segment</source>
-        <translation type="vanished">二番目のセグメントを指示</translation>
-    </message>
-    <message>
-        <source>No Entity found.</source>
-        <translation type="vanished">図形が見つかりません。</translation>
-    </message>
-    <message>
-        <source>Entity must be a polyline.</source>
-        <translation type="vanished">図形はポリラインではありません。</translation>
     </message>
 </context>
 <context>
@@ -55264,113 +49101,11 @@ Point: (%8 , %9)</source>
     </message>
 </context>
 <context>
-    <name>RS_ActionSelect</name>
-    <message>
-        <source>No entity selected!</source>
-        <translation type="vanished">組織は選択しません!</translation>
-    </message>
-</context>
-<context>
     <name>RS_ActionSelectBase</name>
     <message>
         <location filename="../src/lib/actions/rs_actionselectbase.h" line="51"/>
         <source> (Enter or CTRL+LMB click to complete)</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectContour</name>
-    <message>
-        <source>Entity must be an Atomic Entity.</source>
-        <translation type="vanished">図形は基本図形。</translation>
-    </message>
-    <message>
-        <source>Specify entity to select</source>
-        <translation type="vanished">選択するエンティティティを指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectIntersected</name>
-    <message>
-        <source>Choose first point of intersection line</source>
-        <translation type="vanished">交差線分の一点目指示</translation>
-    </message>
-    <message>
-        <source>Select intersecting entity</source>
-        <translation type="vanished">交差するエンティティティティティを選択</translation>
-    </message>
-    <message>
-        <source>Select child entities</source>
-        <translation type="vanished">子の組織を選択</translation>
-    </message>
-    <message>
-        <source>Choose second point of intersection line</source>
-        <translation type="vanished">交差線分の二点目指示</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectLayer</name>
-    <message>
-        <source>Specify entity with desired layer</source>
-        <translation type="vanished">目的のレイヤーでエンティティティを指定</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectSingle</name>
-    <message>
-        <source>Specify entity to select</source>
-        <translation type="vanished">選択するエンティティティを指定</translation>
-    </message>
-    <message>
-        <source>Select contour</source>
-        <translation type="vanished">輪郭を選択</translation>
-    </message>
-</context>
-<context>
-    <name>RS_ActionSelectWindow</name>
-    <message>
-        <source>De-Selecting</source>
-        <translation type="vanished">選択解除</translation>
-    </message>
-    <message>
-        <source>Selecting</source>
-        <translation type="vanished">選択する</translation>
-    </message>
-    <message>
-        <source> entities </source>
-        <translation type="vanished">コンテンツ</translation>
-    </message>
-    <message>
-        <source>that intersect with box</source>
-        <translation type="vanished">箱と交差する</translation>
-    </message>
-    <message>
-        <source>that are within box</source>
-        <translation type="vanished">それは箱の中にあります</translation>
-    </message>
-    <message>
-        <source>Choose second edge</source>
-        <translation type="vanished">２番目の端点指示</translation>
-    </message>
-    <message>
-        <source>Select Intersecting</source>
-        <translation type="vanished">インターセッティングを選択</translation>
-    </message>
-    <message>
-        <source>De-select entities</source>
-        <translation type="vanished">組織を選択解除</translation>
-    </message>
-    <message>
-        <source>Select entities</source>
-        <translation type="vanished">組織を選択</translation>
-    </message>
-    <message>
-        <source>De-select intersecting</source>
-        <translation type="vanished">インターセッティングを選択解除</translation>
-    </message>
-    <message>
-        <source>Click and drag for the selection window</source>
-        <translation type="vanished">ドラッグして範囲を選択</translation>
     </message>
 </context>
 <context>
@@ -55678,158 +49413,6 @@ Point: (%8 , %9)</source>
     </message>
 </context>
 <context>
-    <name>Ui_ArcOptions</name>
-    <message>
-        <source>Arc Options</source>
-        <translation type="vanished">円弧オプション</translation>
-    </message>
-    <message>
-        <source>Counterclockwise</source>
-        <translation type="vanished">反時計回り</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">時計回り</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_ArcTangentialOptions</name>
-    <message>
-        <source>Tangential Arc Options</source>
-        <translation type="vanished">接線円弧オプション</translation>
-    </message>
-    <message>
-        <source>If selected, tangental arc with specified radius will be created</source>
-        <translation type="vanished">選択した場合、指定された半径のタンタルアークが作成されます</translation>
-    </message>
-    <message>
-        <source>Radius of the tangential arc</source>
-        <translation type="vanished">接線の弧の半径</translation>
-    </message>
-    <message>
-        <source>If selected, arc with specified angle will be created</source>
-        <translation type="vanished">選択した場合、指定された角度のアークが作成されます</translation>
-    </message>
-    <message>
-        <source>Total subtending angle of the tangential arc</source>
-        <translation type="vanished">接する円の全体の角度</translation>
-    </message>
-    <message>
-        <source>Pick radius form drawing</source>
-        <translation type="vanished">ピック半径形状図</translation>
-    </message>
-    <message>
-        <source>Radius</source>
-        <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="vanished">半径</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <extracomment>Draw Tangential Arc by the given radius</extracomment>
-        <translation type="vanished">角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_BevelOptions</name>
-    <message>
-        <source>Bevel Options</source>
-        <translation type="vanished">Ｃ面取りオプション</translation>
-    </message>
-    <message>
-        <source>Check to trim both entities to the bevel</source>
-        <translation type="vanished">Ｃ面取りする両図形をチェック</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">トリム</translation>
-    </message>
-    <message>
-        <source>Length 1:</source>
-        <translation type="vanished">長さ 1:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in X direction.</source>
-        <translation type="vanished">X方向の斜面の長さ.</translation>
-    </message>
-    <message>
-        <source>Pick first length form drawing</source>
-        <translation type="vanished">最初に長さの形態のデッサンを選ぶ</translation>
-    </message>
-    <message>
-        <source>Length 2:</source>
-        <translation type="vanished">長さ 2:</translation>
-    </message>
-    <message>
-        <source>Length of bevel in Y direction. </source>
-        <translation type="vanished">Y方向の斜面の長さ.</translation>
-    </message>
-    <message>
-        <source>Pick second length form drawing</source>
-        <translation type="vanished">第2の長さの形態のデッサンを選ぶ</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_CircleOptions</name>
-    <message>
-        <source>Circle Options</source>
-        <translation type="vanished">円オプション</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Radius of circle</source>
-        <translation type="vanished">円の半径</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">デッサンからの半径を選んで下さい</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_CircleTan2Options</name>
-    <message>
-        <source>Circle Tangential2 Options</source>
-        <translation type="vanished">円の接線は２つのオプション</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Radius of the tangential circle to draw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;線に接した円の半径&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Radius of tangential circle</source>
-        <translation type="vanished">接線の円の半径</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">デッサンからの半径を選んで下さい</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_DimLinearOptions</name>
-    <message>
-        <source>Linear Dimension Options</source>
-        <translation type="vanished">線形寸法オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Angle of dimension</source>
-        <translation type="vanished">寸法の角度</translation>
-    </message>
-</context>
-<context>
     <name>Ui_DimOptions</name>
     <message>
         <location filename="../src/ui/action_options/dimensions/qg_dimoptions.ui" line="32"/>
@@ -55966,849 +49549,6 @@ Point: (%8 , %9)</source>
     </message>
 </context>
 <context>
-    <name>Ui_ImageOptions</name>
-    <message>
-        <source>Insert Options</source>
-        <translation type="vanished">挿入オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Scale Factor:</source>
-        <translation type="vanished">スケールの要因:</translation>
-    </message>
-    <message>
-        <source>DPI:</source>
-        <translation type="vanished">DPI:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">倍率</translation>
-    </message>
-    <message>
-        <source>DPI of Image</source>
-        <translation type="vanished">画像のDPI</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_InsertOptions</name>
-    <message>
-        <source>Insert Options</source>
-        <translation type="vanished">挿入オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Factor:</source>
-        <translation type="vanished">倍率:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">倍率</translation>
-    </message>
-    <message>
-        <source>Array:</source>
-        <translation type="vanished">配列:</translation>
-    </message>
-    <message>
-        <source>Number of Columns</source>
-        <translation type="vanished">列数</translation>
-    </message>
-    <message>
-        <source>Number of Rows</source>
-        <translation type="vanished">行数</translation>
-    </message>
-    <message>
-        <source>Pick row spacing from drawing</source>
-        <translation type="vanished">描画から行の間隔を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick column spacing from drawing</source>
-        <translation type="vanished">デッサンからのコラムの間隔を選ぶ</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Spacing:</source>
-        <translation type="vanished">間隔:</translation>
-    </message>
-    <message>
-        <source>Column Spacing</source>
-        <translation type="vanished">列間隔</translation>
-    </message>
-    <message>
-        <source>Row Spacing</source>
-        <translation type="vanished">行間</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LibraryInsertOptions</name>
-    <message>
-        <source>Library Insert Options</source>
-        <translation type="vanished">ライブラリ挿入オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation Angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Factor:</source>
-        <translation type="vanished">倍率:</translation>
-    </message>
-    <message>
-        <source>Scale Factor</source>
-        <translation type="vanished">倍率</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineAngleOptions</name>
-    <message>
-        <source>Line Angle Options</source>
-        <translation type="vanished">線分角度オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Point on created line that will be placed into insertion point</source>
-        <translation type="vanished">生成された行のポイントは、インサートポイントに配置されます</translation>
-    </message>
-    <message>
-        <source>Line angle</source>
-        <translation type="vanished">線分角度</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">線分長さ</translation>
-    </message>
-    <message>
-        <source>Snap Point:</source>
-        <translation type="vanished">点スナップ:</translation>
-    </message>
-    <message>
-        <source>Pick line angle from drawing</source>
-        <translation type="vanished">デッサンからのピック ラインの角度</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">始点</translation>
-    </message>
-    <message>
-        <source>Middle</source>
-        <translation type="vanished">中点</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">終点</translation>
-    </message>
-    <message>
-        <source>PIck line length from drawing</source>
-        <translation type="vanished">デッサンからの PIck ライン長さ</translation>
-    </message>
-    <message>
-        <source>If selected, line will be orhotogonal to axis of angles basis. Otherwise - to screen axis</source>
-        <translation type="vanished">選択すると、線は角度の軸線に直角します。 さもなければ - 軸線を選別する</translation>
-    </message>
-    <message>
-        <source>To Angles Basis</source>
-        <translation type="vanished">バシスを角度に</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineBisectorOptions</name>
-    <message>
-        <source>Line Bisector Options</source>
-        <translation type="vanished">２等分線オプション</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Length of bisector</source>
-        <translation type="vanished">２等分線の周長</translation>
-    </message>
-    <message>
-        <source>Pick line length from drawing</source>
-        <translation type="vanished">デッサンからライン長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数値:</translation>
-    </message>
-    <message>
-        <source>Number of bisectors to create</source>
-        <translation type="vanished">作成する２等分線の数</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineOptions</name>
-    <message>
-        <source>Line Options</source>
-        <translation type="vanished">線分オプション</translation>
-    </message>
-    <message>
-        <source>Form a closed contour from lines drawn</source>
-        <translation type="vanished">引かれた線を閉じる</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>Undo the last line drawing</source>
-        <translation type="vanished">最後に書かれた線を取り消す</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">取り消し</translation>
-    </message>
-    <message>
-        <source>Redo the last line drawing</source>
-        <translation type="vanished">取り消した線を再描画</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">やり直し</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineOptionsRel</name>
-    <message>
-        <source>Line Options</source>
-        <translation type="vanished">ラインオプション</translation>
-    </message>
-    <message>
-        <source>Direction:</source>
-        <translation type="vanished">方向:</translation>
-    </message>
-    <message>
-        <source>Creates polyline from line segments</source>
-        <translation type="vanished">ラインセグメントからポリラインを作成する</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Vertical line</source>
-        <translation type="vanished">縦ライン</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">お問い合わせ</translation>
-    </message>
-    <message>
-        <source>Line by specified angle</source>
-        <translation type="vanished">指定した角度で行</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <translation type="vanished">アングル</translation>
-    </message>
-    <message>
-        <source>Horizontal line</source>
-        <translation type="vanished">水平線</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">ツイート</translation>
-    </message>
-    <message>
-        <source>If checked, angle is relative to previous segment</source>
-        <extracomment>Angle is relative to previous segment</extracomment>
-        <translation type="vanished">チェックした場合、角度は前のセグメントに相対的</translation>
-    </message>
-    <message>
-        <source>Rel</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Undo the last line drawing</source>
-        <translation type="vanished">最後の行のデッサンをUndo</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Form a closed contour from lines drawn</source>
-        <translation type="vanished">線が引かれたから閉じた輪郭を形作って下さい</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">ふりがな</translation>
-    </message>
-    <message>
-        <source>Redo the last line drawing</source>
-        <translation type="vanished">最後の行の描画をRedo</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">ログイン</translation>
-    </message>
-    <message>
-        <source>Angle of line</source>
-        <translation type="vanished">ラインの角度</translation>
-    </message>
-    <message>
-        <source>Line to arbitrary point</source>
-        <translation type="vanished">任意ポイントへのライン</translation>
-    </message>
-    <message>
-        <source>Point</source>
-        <translation type="vanished">ポイント</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineParallelOptions</name>
-    <message>
-        <source>Line Parallel Options</source>
-        <translation type="vanished">平行線分オプション</translation>
-    </message>
-    <message>
-        <source>Distance:</source>
-        <translation type="vanished">距離:</translation>
-    </message>
-    <message>
-        <source>Distance to original entity</source>
-        <translation type="vanished">基準図形への距離</translation>
-    </message>
-    <message>
-        <source>Pick distance from drawing</source>
-        <translation type="vanished">図面からの距離を選ぶ</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数値:</translation>
-    </message>
-    <message>
-        <source>Number of parallels to create</source>
-        <translation type="vanished">作成する平行線分の数</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineParallelThroughOptions</name>
-    <message>
-        <source>Line Parallel Through Options</source>
-        <translation type="vanished">平行線分通過オプション</translation>
-    </message>
-    <message>
-        <source>If checked, parallels will be created on both sides of entity</source>
-        <translation type="vanished">チェックをすると、両端に並列が作成されます</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">シンメトリクス</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数値:</translation>
-    </message>
-    <message>
-        <source>Number of parallels to create</source>
-        <translation type="vanished">作成する平行線分の数</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LinePolygon2Options</name>
-    <message>
-        <source>Polygon Options</source>
-        <translation type="vanished">多角形オプション</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数:</translation>
-    </message>
-    <message>
-        <source>Number of edges</source>
-        <translation type="vanished">辺の数</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LinePolygonOptions</name>
-    <message>
-        <source>Polygon Options</source>
-        <translation type="vanished">多角形オプション</translation>
-    </message>
-    <message>
-        <source>Number:</source>
-        <translation type="vanished">数値:</translation>
-    </message>
-    <message>
-        <source>If checked, vertexes of polygon will be rounded. </source>
-        <translation type="vanished">チェックすると、ポリゴンのvertexeが丸められます.</translation>
-    </message>
-    <message>
-        <source>Radius</source>
-        <translation type="vanished">ラディウス</translation>
-    </message>
-    <message>
-        <source>If checked, the polygon will be drawn as polyline. Otherwise, individual entities will be created. </source>
-        <translation type="vanished">チェックするとポリゴンはポリラインとして描画されます。 それ以外の場合は、個々のエンティティティティが作成されます.</translation>
-    </message>
-    <message>
-        <source>Polyline</source>
-        <translation type="vanished">ポリライン</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">デッサンからの半径を選んで下さい</translation>
-    </message>
-    <message>
-        <source>Number of edges</source>
-        <translation type="vanished">辺の数</translation>
-    </message>
-    <message>
-        <source>Rounding radius for vertex bevel.</source>
-        <translation type="vanished">頂点の斜面のための円形の半径.</translation>
-    </message>
-    <message>
-        <source>If selected, reference points are for vertexes of polygon. Otherwise, they are for middle point of edges. </source>
-        <translation type="vanished">選択した場合、参照ポイントはポリゴンのvertexes 用です。 そうでなければ、それらは端の中間点のためです.</translation>
-    </message>
-    <message>
-        <source>Vertex to Vertex</source>
-        <translation type="vanished">VertexからVertexへ</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_LineRelAngleOptions</name>
-    <message>
-        <source>Line Relative Angle Options</source>
-        <translation type="vanished">線分相対角度オプション</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Line angle</source>
-        <translation type="vanished">線分角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Length of line</source>
-        <translation type="vanished">線分長さ</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">図面から長さを選ぶ</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_MTextOptions</name>
-    <message>
-        <source>Text Options</source>
-        <translation type="vanished">テキストオプション</translation>
-    </message>
-    <message>
-        <source>Text:</source>
-        <translation type="vanished">テキスト:</translation>
-    </message>
-    <message>
-        <source>Text to insert</source>
-        <translation type="vanished">テキストを差し込む</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_ModifyOffsetOptions</name>
-    <message>
-        <source>Modify Offset Options</source>
-        <translation type="vanished">オフセットオプションの修正</translation>
-    </message>
-    <message>
-        <source>Distance for offset from original entity</source>
-        <translation type="vanished">元の団体からのオフセットのための間隔</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed into current layer, otherwise they will be in original layers.</source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置され、それ以外の場合は元のレイヤーになります.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>Number of copies.</source>
-        <translation type="vanished">コピー数.</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-    <message>
-        <source>If checked, fixes of distance of offset will be used, otherwise it will be defined by mouse.</source>
-        <translation type="vanished">チェックすると、オフセットの間隔の固定が使用されます。そうしないとマウスで定義されます.</translation>
-    </message>
-    <message>
-        <source>Fixed Distance</source>
-        <translation type="vanished">固定間隔</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティに現在の属性が適用され、それ以外の場合は元の属性が使用されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>Pick distance from the drawing</source>
-        <translation type="vanished">図面からの距離を選ぶ</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">チェックすると、複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_MoveRotateOptions</name>
-    <message>
-        <source>Move Rotate Options</source>
-        <translation type="vanished">移動回転オプション</translation>
-    </message>
-    <message>
-        <source>If checked, current attributes will be applied to created entities, otherwise original ones will be used. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティに現在の属性が適用され、それ以外の場合は元の属性が使用されます.</translation>
-    </message>
-    <message>
-        <source>Use Current Attributes</source>
-        <translation type="vanished">現在の属性を使用する</translation>
-    </message>
-    <message>
-        <source>If checked, multiple copies will be created. </source>
-        <translation type="vanished">チェックすると、複数のコピーが作成されます.</translation>
-    </message>
-    <message>
-        <source>Multiple Copies</source>
-        <translation type="vanished">複数のコピ</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>If checked, all copies will be rotated by the same agle. Otherwise, angle will be proportional to number of each copy. </source>
-        <translation type="vanished">チェックすると、すべてのコピーは同じ角度で回転します。 それ以外の場合は、各コピーの数に角度が比例します.</translation>
-    </message>
-    <message>
-        <source>Same angle for copies</source>
-        <translation type="vanished">コピーのための同じ角度</translation>
-    </message>
-    <message>
-        <source>Rotation angle. </source>
-        <translation type="vanished">回転角度.</translation>
-    </message>
-    <message>
-        <source>Number of copies.</source>
-        <translation type="vanished">コピー数.</translation>
-    </message>
-    <message>
-        <source>If checked, rotation angle is defined by mouse. Otherwise, specified value is used.</source>
-        <translation type="vanished">チェックすると、マウスで回転角度を定義します。 それ以外の場合、指定された値が使用されます.</translation>
-    </message>
-    <message>
-        <source>Free</source>
-        <translation type="vanished">無料</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>If checked, created entities will be placed into current layer, otherwise the will be in original layers. </source>
-        <translation type="vanished">チェックすると、生成されたエンティティティティが現在のレイヤーに配置され、それ以外の場合は元のレイヤーになります.</translation>
-    </message>
-    <message>
-        <source>Use Current Layer</source>
-        <translation type="vanished">現在の層を使用して下さい</translation>
-    </message>
-    <message>
-        <source>If checked, original entities will survive, otherwise they will be removed. </source>
-        <translation type="vanished">チェックすると、元のエンティティティティが存続します。そうしないと削除されます.</translation>
-    </message>
-    <message>
-        <source>Keep Originals</source>
-        <translation type="vanished">オリジナルをキープ</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_PolylineOptions</name>
-    <message>
-        <source>Polyline Options</source>
-        <translation type="vanished">ポリラインオプション</translation>
-    </message>
-    <message>
-        <source>Connects ends of the polyline so closed contour is created</source>
-        <translation type="vanished">ポリラインの端を接続するので、閉じた輪郭が作成されます</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>Undo for previous vertex</source>
-        <translation type="vanished">前の頂点のためのUndo</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">取り消し</translation>
-    </message>
-    <message>
-        <source>Segment Type:</source>
-        <translation type="vanished">区分のタイプ:</translation>
-    </message>
-    <message>
-        <source>Defines which segment of polyline should be created</source>
-        <translation type="vanished">ポリラインのセグメントを作成する</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">直線</translation>
-    </message>
-    <message>
-        <source>Tangential</source>
-        <translation type="vanished">タンジェント</translation>
-    </message>
-    <message>
-        <source>Tan Radius</source>
-        <translation type="vanished">タンジェント 半径</translation>
-    </message>
-    <message>
-        <source>Tan Angle</source>
-        <translation type="vanished">タンアングル</translation>
-    </message>
-    <message>
-        <source>Angle</source>
-        <translation type="vanished">角度</translation>
-    </message>
-    <message>
-        <source>Tangential arc</source>
-        <translation type="vanished">タンジェンシャルアーク</translation>
-    </message>
-    <message>
-        <source>Tangental arc with fixed radius</source>
-        <translation type="vanished">固定半径のタンジェントアーク</translation>
-    </message>
-    <message>
-        <source>Tangental arc with fixed angle</source>
-        <translation type="vanished">固定角度のタンジェントアーク</translation>
-    </message>
-    <message>
-        <source>Arc with angle</source>
-        <translation type="vanished">角度のアーク</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Radius of arc</source>
-        <translation type="vanished">アークの半径</translation>
-    </message>
-    <message>
-        <source>Pick radius form drawing</source>
-        <translation type="vanished">ピック半径形状図</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Angle of arc</source>
-        <translation type="vanished">アークの角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-    <message>
-        <source>Counter Clockwise</source>
-        <translation type="vanished">反時計回り</translation>
-    </message>
-    <message>
-        <source>Clockwise</source>
-        <translation type="vanished">時計回り</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_PrintPreviewOptions</name>
-    <message>
-        <source>Print Preview Options</source>
-        <translation type="vanished">印刷プレビューオプション</translation>
-    </message>
-    <message>
-        <source>Landscape Orientation</source>
-        <translation type="vanished">景観オリエンテーション</translation>
-    </message>
-    <message>
-        <source>Drawing Settings</source>
-        <translation type="vanished">図面設定</translation>
-    </message>
-    <message>
-        <source>Scale:</source>
-        <translation type="vanished">スケール:</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : drawing size&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;printed size : 図面サイズ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Print Scale is locked to the current value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;印刷倍率は現在の値に固定する&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>fixed</source>
-        <translation type="vanished">自動合わせ</translation>
-    </message>
-    <message>
-        <source>Toggle Black / White mode</source>
-        <translation type="vanished">白黒反転切り替え</translation>
-    </message>
-    <message>
-        <source>Landscape Orientation of paper</source>
-        <translation type="vanished">ペーパーの風景のオリエンテーション</translation>
-    </message>
-    <message>
-        <source>Portrait Orientation of paper</source>
-        <translation type="vanished">紙の肖像画のオリエンテーション</translation>
-    </message>
-    <message>
-        <source>Apply Print Scale to line width</source>
-        <translation type="vanished">プリントスケールをライン幅に適用</translation>
-    </message>
-    <message>
-        <source>Page in center of drawing</source>
-        <translation type="vanished">デッサンの中心のページ</translation>
-    </message>
-    <message>
-        <source>Zoom to Print Area</source>
-        <translation type="vanished">プリントエリアへのズーム</translation>
-    </message>
-    <message>
-        <source>Fit to 1 Page</source>
-        <translation type="vanished">1ページまで</translation>
-    </message>
-    <message>
-        <source>If enabled, paper space will include specified amount of pages organized in columns and rows</source>
-        <translation type="vanished">有効にすると、列と行に整理されたページが指定された量がペーパースペースに含まれます</translation>
-    </message>
-    <message>
-        <source>Tiled Print</source>
-        <translation type="vanished">タイルプリント</translation>
-    </message>
-    <message>
-        <source>Pages Rows::</source>
-        <translation type="vanished">ページの列::</translation>
-    </message>
-    <message>
-        <source>Amount of pages columns</source>
-        <translation type="vanished">ページ列の量</translation>
-    </message>
-    <message>
-        <source>Pages Columns:</source>
-        <translation type="vanished">ページ列:</translation>
-    </message>
-    <message>
-        <source>Amount of pages rows</source>
-        <translation type="vanished">ページの行数</translation>
-    </message>
-    <message>
-        <source>Calculate number of pages needed to contain the drawing</source>
-        <translation type="vanished">図面を含むために必要なページ数を計算する</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_RoundOptions</name>
-    <message>
-        <source>Round Options</source>
-        <translation type="vanished">丸み面取りオプション</translation>
-    </message>
-    <message>
-        <source>Check to trim both edges to the rounding</source>
-        <translation type="vanished">丸み面取りするコーナ線分をチェック</translation>
-    </message>
-    <message>
-        <source>Trim</source>
-        <translation type="vanished">トリム</translation>
-    </message>
-    <message>
-        <source>Radius:</source>
-        <translation type="vanished">半径:</translation>
-    </message>
-    <message>
-        <source>Rounding radius</source>
-        <translation type="vanished">円形の半径</translation>
-    </message>
-    <message>
-        <source>Pick radius from drawing</source>
-        <translation type="vanished">デッサンからの半径を選んで下さい</translation>
-    </message>
-</context>
-<context>
     <name>Ui_SnapDistOptions</name>
     <message>
         <location filename="../src/ui/action_options/snap/qg_snapdistoptions.ui" line="32"/>
@@ -56847,99 +49587,6 @@ Point: (%8 , %9)</source>
         <location filename="../src/ui/action_options/snap/qg_snapmiddleoptions.ui" line="81"/>
         <source>Number of equidistant division points</source>
         <translation>等距離分割点の数</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_SplineOptions</name>
-    <message>
-        <source>Spline Options</source>
-        <translation type="vanished">スプラインオプション</translation>
-    </message>
-    <message>
-        <source>Degree:</source>
-        <translation type="vanished">度:</translation>
-    </message>
-    <message>
-        <source>Spline&apos;s degree used for approximation between points</source>
-        <translation type="vanished">点間の近似に使用されるスプラインの度</translation>
-    </message>
-    <message>
-        <source>If selected, closed spline is created</source>
-        <translation type="vanished">選択した場合、クローズドスプラインが作成されます</translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="vanished">閉じる</translation>
-    </message>
-    <message>
-        <source>Undo previous point</source>
-        <translation type="vanished">前のポイント</translation>
-    </message>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">取り消し</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_TextOptions</name>
-    <message>
-        <source>Text Options</source>
-        <translation type="vanished">テキストオプション</translation>
-    </message>
-    <message>
-        <source>Text:</source>
-        <translation type="vanished">テキスト:</translation>
-    </message>
-    <message>
-        <source>Angle:</source>
-        <translation type="vanished">角度:</translation>
-    </message>
-    <message>
-        <source>Rotation angle</source>
-        <translation type="vanished">回転角度</translation>
-    </message>
-    <message>
-        <source>Pick angle from drawing</source>
-        <translation type="vanished">デッサンからのピックアングル</translation>
-    </message>
-</context>
-<context>
-    <name>Ui_TrimAmountOptions</name>
-    <message>
-        <source>Trim Amount Options</source>
-        <translation type="vanished">調節量オプション</translation>
-    </message>
-    <message>
-        <source>Distance. Negative values for trimming, positive values for extending.</source>
-        <translation type="vanished">距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation type="vanished">合計:</translation>
-    </message>
-    <message>
-        <source>Length:</source>
-        <translation type="vanished">長さ:</translation>
-    </message>
-    <message>
-        <source>Distance. Negative values for trimming, positive values for extending. Negative sign is ignored when trimming to final total length.</source>
-        <translation type="vanished">距離。負の値はトリミング、正の値は伸長。負の符号は最終的な総長さのトリミング時に無視される。</translation>
-    </message>
-    <message>
-        <source>Pick length from drawing</source>
-        <translation type="vanished">図面から長さを選ぶ</translation>
-    </message>
-    <message>
-        <source>If checked, trim/extension is performed for both sides of line.</source>
-        <translation type="vanished">チェックすると、行の両側にトリム/拡張子が実行されます.</translation>
-    </message>
-    <message>
-        <source>Symmetric</source>
-        <translation type="vanished">シンメトリクス</translation>
-    </message>
-    <message>
-        <source>The input length is used as total length after trimming, instead of length increase</source>
-        <translation type="vanished">入力された値を全体の長さとする、増加はしない</translation>
     </message>
 </context>
 </TS>

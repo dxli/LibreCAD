@@ -5,9 +5,17 @@
 ### Added
 - shortcut "0" to specify coordinates "0,0" on command line
 - shortcut "." or "," to specify the current point coordinates on command line
-- importshp plugin restored with shapelib 1.6.3, fixes #1481
+- native ESRI Shapefile (.shp) import via File→Open — per-entity color /
+  linetype / width mapped from DBF attributes, Z preserved on POINTZ / ARCZ /
+  POLYGONZ / MULTIPOINTZ / *M records, codepage-aware DBF string decoding
+  (UTF-8 and LDID/87 Latin-1 mapped explicitly).  Backed by vendored shapelib
+  1.6.3 compiled as C++17 (CVE-2023-30259-hardened via the corpus + hostile-
+  fixture safety-net tests in librecad_tests).  Fixes #1481.
 
 ### Removed
+- importshp plugin (superseded by the native SHP filter above; the plugin's
+  Document_Interface path was layer-only / 2D by design and its import was
+  never reachable at runtime).
 
 ### Changed
 

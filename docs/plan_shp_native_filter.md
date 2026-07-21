@@ -582,7 +582,18 @@ provides File→Open integration with per-entity styling and Z preservation.
 
 ---
 
-## 8. Phase 6 — Docs, changelog, translations
+## 8. Phase 6 — Docs, changelog, translations — done ✅
+
+**Landed**: 2026-07-21 — `docs(shp): changelog, shapelib vendoring/resync notes, translations`.
+CHANGELOG.md updated (Added: native ESRI Shapefile import; Removed: importshp
+plugin).  `libraries/shapelib/README.librecad` already contained the full
+vendoring notes + resync procedure from Phase 1b (no further edits needed).
+Ran `lupdate librecad/src/src.pro -no-obsolete` — three new source strings
+picked up by every locale (`ESRI Shapefile %1`, `Cannot open shapefile %1
+(missing or corrupt .shx?)`, `Shapefile %1 contained %2 records but none
+were readable`) — translations left `type="unfinished"` for translators to
+fill in per the repo's normal workflow.
+
 
 1. `CHANGELOG.md`: `Added: native ESRI Shapefile (.shp) import — File→Open, per-entity
    color/linetype/width from DBF attributes, shapelib 1.6.3 (C++17, CVE-2023-30259-hardened)`.

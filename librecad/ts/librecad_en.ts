@@ -42710,84 +42710,89 @@ so default step value required for baking</source>
 <context>
     <name>QG_FileDialog</name>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="135"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
         <source>Drawing Exchange DXF 2000 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="137"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
         <source>Drawing Exchange DXF R12 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="140"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
         <source>LFF Font %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="144"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
         <source>QCad Font %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="145"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="150"/>
         <source>Jww Drawing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="143"/>
         <source>Drawing Exchange %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="146"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
         <source>QCad 1.x file %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="133"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="138"/>
         <source>Drawing Exchange DXF 2007 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="134"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="139"/>
         <source>Drawing Exchange DXF 2004 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="136"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="141"/>
         <source>Drawing Exchange DXF R14 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="149"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="151"/>
+        <source>ESRI Shapefile %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="155"/>
         <source>Block</source>
         <comment>block file</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="152"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="158"/>
         <source>Drawing</source>
         <comment>drawing file</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="174"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="180"/>
         <source>Open %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="266"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="272"/>
         <source>Save %1 As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="142"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="147"/>
         <source>dwg Drawing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="248"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="254"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43566,19 +43571,19 @@ Please specify a different value.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="349"/>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="410"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="355"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="416"/>
         <source>Save Drawing As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="411"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="417"/>
         <source>%1 already exists.
 Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="500"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="506"/>
         <source>Open Drawing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43638,17 +43643,17 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="468"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
         <source>Drawing Exchange %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="473"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="479"/>
         <source>QCad 1.x file %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="475"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="481"/>
         <source>Font %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43711,12 +43716,12 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="474"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="480"/>
         <source>LFF Font %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="476"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="482"/>
         <source>Jww %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43781,7 +43786,7 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="471"/>
+        <location filename="../src/ui/dialogs/file/qg_filedialog.cpp" line="477"/>
         <source>dwg Drawing %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -47371,271 +47376,271 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="85"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="86"/>
         <source>DWG support is not complete!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="87"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
         <source>If this file fails to open try an older DWG format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="88"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="89"/>
         <source>or try to find a converter to make it a DXF file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="91"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="92"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="104"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
         <source>Error</source>
         <comment>fileImport</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="105"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="106"/>
         <source>Import error:</source>
         <comment>fileImport</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="119"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
         <source>Anyhow, there are some entities identified.</source>
         <comment>dwgImport</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="120"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="121"/>
         <source>If you open the file now, the drawing may be not complete or unusable.</source>
         <comment>dwgImport</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="122"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="123"/>
         <source>Ignore error and open the file?</source>
         <comment>dwgImport</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/fileio/rs_fileio.cpp" line="125"/>
+        <location filename="../src/lib/fileio/rs_fileio.cpp" line="126"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1003"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1004"/>
         <source>no DXF/DWG error</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1005"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1006"/>
         <source>error opening DXF/DWG file</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1009"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1010"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1016"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1017"/>
         <source>unsupported DXF/DWG file version</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1018"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1019"/>
         <source>error reading DXF/DWG meta data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1020"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1021"/>
         <source>error reading DXF/DWG file header</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1024"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1025"/>
         <source>error reading DXF/DWG object map</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1026"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1027"/>
         <source>error reading DXF/DWG classes</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1028"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1029"/>
         <source>error reading DXF/DWG tables</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1030"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1031"/>
         <source>error reading DXF/DWG blocks</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1032"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1033"/>
         <source>error reading DXF/DWG entities</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1034"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1035"/>
         <source>error reading DXF/DWG objects</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1036"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1037"/>
         <source>error reading DXF/DWG sections</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1038"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1039"/>
         <source>error reading DXF/DWG code</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1022"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1023"/>
         <source>error reading DXF/DWG header data</source>
         <comment>RS_FilterDXFRW</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1119"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1120"/>
         <source>Opened DWG file version %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1123"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1124"/>
         <source>DWG load: %1 %2 had parse errors and were skipped. Drawing loaded with the rest.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1126"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
         <source>entity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1127"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1128"/>
         <source>entities</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1151"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1152"/>
         <source>, and %n more class(es)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1154"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1155"/>
         <source>DWG load: %1 vendor-extension entities not rendered (%2). These are typically AutoCAD Mechanical or other vertical-product custom classes that libdxfrw cannot decode.</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1180"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1181"/>
         <source>, and %n more object type(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1183"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1184"/>
         <source>DWG load: %1 unsupported metadata object(s) skipped (%2). Drawing geometry may still be complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1269"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1270"/>
         <source>DWG/DXF load: %1 XREF block(s) (%2) loaded but not INSERTed into modelspace. Their externally-referenced geometry won&apos;t be visible — AutoCAD typically renders these through a paper-space layout viewport, which LibreCAD doesn&apos;t render.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1625"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1626"/>
         <source>XREF not resolved for block &quot;%1&quot;: %2 (file not found in host directory). The block will render as empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1654"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="1655"/>
         <source>XREF load failed for block &quot;%1&quot;: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12410"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12454"/>
         <source>unknown error opening dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12413"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12457"/>
         <source>can&apos;t open this dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12420"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12464"/>
         <source>Cannot open DWG: file is %1; LibreCAD supports %2 and newer. Convert with GNU LibreDWG (dwgread / dwg2dxf) or re-save from a recent CAD tool.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12431"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12475"/>
         <source>unsupported dwg version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12435"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12479"/>
         <source>error reading file metadata in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12438"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12482"/>
         <source>error reading file header in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12441"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12485"/>
         <source>error reading header vars in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12444"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12488"/>
         <source>error reading classes in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12447"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12491"/>
         <source>error reading offsets in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12450"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12494"/>
         <source>error reading tables in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12453"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12497"/>
         <source>error reading blocks in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12456"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12500"/>
         <source>error reading entities in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12459"/>
+        <location filename="../src/lib/filters/rs_filterdxfrw.cpp" line="12503"/>
         <source>error reading objects in dwg file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -47785,7 +47790,7 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/lib/printing/lc_printing.cpp" line="165"/>
+        <location filename="../src/lib/printing/lc_printing.cpp" line="166"/>
         <source>PDF files (*.pdf);;All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -47948,6 +47953,16 @@ Do you want to replace it?</source>
     <message>
         <location filename="../src/ui/qg_actionhandler.cpp" line="86"/>
         <source>%2 - command for &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="412"/>
+        <source>Cannot open shapefile %1 (missing or corrupt .shx?)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/lib/filters/rs_filtershp.cpp" line="541"/>
+        <source>Shapefile %1 contained %2 records but none were readable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
