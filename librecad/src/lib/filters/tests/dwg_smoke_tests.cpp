@@ -9132,6 +9132,73 @@ TEST_CASE("proxy graphics decoder unit", "[proxy]") {
   CHECK(cap.lastA.endangle == Catch::Approx(M_PI / 2.0));    // 0 + 90° sweep
 }
 
+// Transform stack: op29 PUSH_MATRIX … op31 POP_MATRIX.  Primitives nested
+// inside a matrix must be emitted in the transformed frame, and the matrix must
+// stop applying after the pop.  Before this was handled, every proxy primitive
+// under a matrix decoded fine (so counts looked right) but rendered at the
+// wrong position — a silent geometry error.  The wire layout is 16 row-major
+// doubles with the translation in the 4th column (verified against corpus
+// op29 chunks, whose bottom row is 0,0,0,1).
+TEST_CASE("proxy transform stack push/pop matrix", "[proxy]") {
+  auto putU32 = [](std::string& s, std::uint32_t v) {
+    for (int i = 0; i < 4; ++i) s.push_back(char((v >> (8 * i)) & 0xFF));
+  };
+  auto putD = [](std::string& s, double v) {
+    char b[8]; std::memcpy(b, &v, 8); s.append(b, 8); // host LE
+  };
+  std::string blob(8, '\0');                 // 8-byte header (skipped)
+  // PUSH_MATRIX (29): scale x2, translate (100,200). 16 doubles = 128 bytes.
+  putU32(blob, 8 + 128); putU32(blob, 29);
+  putD(blob, 2.0); putD(blob, 0.0); putD(blob, 0.0); putD(blob, 100.0);
+  putD(blob, 0.0); putD(blob, 2.0); putD(blob, 0.0); putD(blob, 200.0);
+  putD(blob, 0.0); putD(blob, 0.0); putD(blob, 1.0); putD(blob, 0.0);
+  putD(blob, 0.0); putD(blob, 0.0); putD(blob, 0.0); putD(blob, 1.0);
+  // CIRCLE under the matrix: centre (10,20) r=5 → (120,240) r=10
+  putU32(blob, 8 + 56); putU32(blob, 2);
+  putD(blob, 10.0); putD(blob, 20.0); putD(blob, 0.0);
+  putD(blob, 5.0);
+  putD(blob, 0.0); putD(blob, 0.0); putD(blob, 1.0);
+  // POLYLINE under the matrix: L count + 2×3d = 52-byte payload.
+  // (0,0)→(100,200) and (1,1)→(102,202)
+  putU32(blob, 8 + 52); putU32(blob, 6);
+  putU32(blob, 2);
+  putD(blob, 0.0); putD(blob, 0.0); putD(blob, 0.0);
+  putD(blob, 1.0); putD(blob, 1.0); putD(blob, 0.0);
+  // POP_MATRIX (31): empty payload.
+  putU32(blob, 8); putU32(blob, 31);
+  // CIRCLE after the pop: must be emitted untransformed.
+  putU32(blob, 8 + 56); putU32(blob, 2);
+  putD(blob, 1.0); putD(blob, 2.0); putD(blob, 0.0);
+  putD(blob, 3.0);
+  putD(blob, 0.0); putD(blob, 0.0); putD(blob, 1.0);
+
+  struct Cap : public TypeTrackingIface {
+    std::vector<DRW_Circle> circles;
+    std::vector<DRW_Polyline> plines;
+    void addCircle(const DRW_Circle& e) override { circles.push_back(e); }
+    void addPolyline(const DRW_Polyline& e) override { plines.push_back(e); }
+  } cap;
+  DRW_Point parent;
+  int n = DRW_ProxyGraphicDecoder::decode(blob, DRW::AC1024, cap, parent);
+
+  REQUIRE(n == 3);
+  REQUIRE(cap.circles.size() == 2);
+  REQUIRE(cap.plines.size() == 1);
+  // Under the matrix: point scaled+translated, radius scaled.
+  CHECK(cap.circles[0].basePoint.x == Catch::Approx(120.0));
+  CHECK(cap.circles[0].basePoint.y == Catch::Approx(240.0));
+  CHECK(cap.circles[0].radious == Catch::Approx(10.0));
+  REQUIRE(cap.plines[0].vertlist.size() == 2);
+  CHECK(cap.plines[0].vertlist[0]->basePoint.x == Catch::Approx(100.0));
+  CHECK(cap.plines[0].vertlist[0]->basePoint.y == Catch::Approx(200.0));
+  CHECK(cap.plines[0].vertlist[1]->basePoint.x == Catch::Approx(102.0));
+  CHECK(cap.plines[0].vertlist[1]->basePoint.y == Catch::Approx(202.0));
+  // After POP_MATRIX the transform must no longer apply.
+  CHECK(cap.circles[1].basePoint.x == Catch::Approx(1.0));
+  CHECK(cap.circles[1].basePoint.y == Catch::Approx(2.0));
+  CHECK(cap.circles[1].radious == Catch::Approx(3.0));
+}
+
 // DXF parity (Part 2.3): an unmodeled DXF entity carrying proxy graphics
 // (group 92 length + group 310 hex) is decoded into render primitives on read,
 // via DRW_Entity::parseCode + dxfRW::processRawEntity. Mirrors the DWG path.

@@ -17,8 +17,8 @@ namespace {
 constexpr double DEG_PER_RAD = 57.29577951308232087680; // 180/pi
 
 // ezdxf ProxyGraphicTypes (proxygraphic.py:208). Only the opcodes we decode
-// are named; every other opcode (matrices, mesh, shell, extents, clip, …) is
-// skipped uniformly by the framing loop via its self-describing chunk size.
+// are named; every other opcode (mesh, shell, extents, clip, …) is skipped
+// uniformly by the framing loop via its self-describing chunk size.
 enum OpCode {
     OP_CIRCLE                = 2,
     OP_CIRCLE_3P             = 3,
@@ -33,11 +33,56 @@ enum OpCode {
     OP_ATTRIBUTE_LINETYPE    = 18,
     OP_ATTRIBUTE_TRUE_COLOR  = 22,
     OP_ATTRIBUTE_LINEWEIGHT  = 23,
+    OP_PUSH_MATRIX           = 29,
+    OP_PUSH_MATRIX2          = 30,
+    OP_POP_MATRIX            = 31,
     OP_POLYLINE_NORMALS      = 32,
     OP_LWPOLYLINE            = 33,
     OP_UNICODE_TEXT2         = 38,
     OP_ELLIPTIC_ARC          = 44,
 };
+
+// Affine transform carried by PUSH_MATRIX (29/30) and unwound by POP_MATRIX
+// (31).  Stored row-major with the translation in the 4th column (the ODA
+// transform convention; equivalently ezdxf's Matrix44 after its transpose at
+// proxygraphic.py:343-347).  Without this, every primitive nested inside a
+// matrix is emitted in the block's local frame and renders at the wrong
+// position — a silent error, since the primitive still decodes and counts.
+struct Matrix {
+    // rows 0..2, each [xx xy xz tx]
+    double m[12] = {1, 0, 0, 0,
+                    0, 1, 0, 0,
+                    0, 0, 1, 0};
+
+    DRW_Coord point(const DRW_Coord &p) const {
+        return DRW_Coord(m[0] * p.x + m[1] * p.y + m[2]  * p.z + m[3],
+                         m[4] * p.x + m[5] * p.y + m[6]  * p.z + m[7],
+                         m[8] * p.x + m[9] * p.y + m[10] * p.z + m[11]);
+    }
+    // Direction vectors ignore the translation column.
+    DRW_Coord dir(const DRW_Coord &v) const {
+        return DRW_Coord(m[0] * v.x + m[1] * v.y + m[2]  * v.z,
+                         m[4] * v.x + m[5] * v.y + m[6]  * v.z,
+                         m[8] * v.x + m[9] * v.y + m[10] * v.z);
+    }
+    // Similarity scale from the planar linear part.  Proxy graphics is
+    // overwhelmingly planar; a non-uniform scale would turn a circle into an
+    // ellipse, which no corpus file exercises (no circle/arc/ellipse occurs
+    // under an active matrix).
+    double scale() const {
+        const double det = m[0] * m[5] - m[1] * m[4];
+        const double s = std::sqrt(std::fabs(det));
+        return (s > 1e-12) ? s : 1.0;
+    }
+};
+
+inline DRW_Coord xfPoint(const Matrix *xf, const DRW_Coord &p) {
+    return xf ? xf->point(p) : p;
+}
+inline DRW_Coord xfDir(const Matrix *xf, const DRW_Coord &v) {
+    return xf ? xf->dir(v) : v;
+}
+inline double xfScale(const Matrix *xf) { return xf ? xf->scale() : 1.0; }
 
 // Byte-aligned little-endian cursor with 4-byte struct alignment, mirroring
 // ezdxf ByteStream (tools/binarydata.py).  Bounds-checked: any over-read sets
@@ -160,12 +205,18 @@ bool circumcenter2d(const DRW_Coord &a, const DRW_Coord &b, const DRW_Coord &c,
 // constrains the circle.  The trailing arc_type long is NOT read (commented out
 // in ezdxf).
 void doArc3p(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-             const DRW_Entity &parent, const DrawState &st, int &count) {
+             const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+             int &count) {
     ByteStream bs(p, n);
     DRW_Coord p1 = bs.readVertex();  // start
     DRW_Coord p2 = bs.readVertex();  // definition point (only constrains the circle)
     DRW_Coord p3 = bs.readVertex();  // end
     if (bs.bad) return;
+    // Transform the defining points; centre/radius/angles derived below then
+    // follow automatically.
+    p1 = xfPoint(xf, p1);
+    p2 = xfPoint(xf, p2);
+    p3 = xfPoint(xf, p3);
     double cx, cy;
     if (!circumcenter2d(p1, p2, p3, cx, cy)) return; // collinear → emit nothing
     DRW_Arc e;
@@ -181,12 +232,16 @@ void doArc3p(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 
 // --- opcode 3: CIRCLE_3P (proxygraphic.py:425) ---
 void doCircle3p(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-                const DRW_Entity &parent, const DrawState &st, int &count) {
+                const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+                int &count) {
     ByteStream bs(p, n);
     DRW_Coord p1 = bs.readVertex();
     DRW_Coord p2 = bs.readVertex();
     DRW_Coord p3 = bs.readVertex();
     if (bs.bad) return;
+    p1 = xfPoint(xf, p1);
+    p2 = xfPoint(xf, p2);
+    p3 = xfPoint(xf, p3);
     double cx, cy;
     if (!circumcenter2d(p1, p2, p3, cx, cy)) return;
     DRW_Circle e;
@@ -200,14 +255,17 @@ void doCircle3p(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 
 // --- opcode 2: CIRCLE (proxygraphic.py:408) ---
 void doCircle(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-              const DRW_Entity &parent, const DrawState &st, int &count) {
+              const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+              int &count) {
     ByteStream bs(p, n);
     DRW_Circle e;
-    e.basePoint = bs.readVertex();
-    e.radious = bs.readDouble();
+    const DRW_Coord centre = bs.readVertex();
+    const double radius = bs.readDouble();
     // normal vector follows (3 doubles) — read to advance but ignore (planar).
     bs.readVertex();
     if (bs.bad) return;
+    e.basePoint = xfPoint(xf, centre);
+    e.radious = radius * xfScale(xf);
     e.extPoint = DRW_Coord(0, 0, 1);
     applyAttribs(e, parent, st);
     iface.addCircle(e);
@@ -216,16 +274,22 @@ void doCircle(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 
 // --- opcode 4: CIRCULAR_ARC (proxygraphic.py:436) ---
 void doArc(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-           const DRW_Entity &parent, const DrawState &st, int &count) {
+           const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+           int &count) {
     ByteStream bs(p, n);
     DRW_Arc e;
-    e.basePoint = bs.readVertex();      // center (WCS)
-    e.radious = bs.readDouble();
+    const DRW_Coord centre = bs.readVertex();  // center (WCS)
+    const double radius = bs.readDouble();
     bs.readVertex();                    // normal (ignored — planar)
     DRW_Coord start = bs.readVertex();  // UCS x-axis
     double sweep = bs.readDouble();     // radians
     if (bs.bad) return;
+    e.basePoint = xfPoint(xf, centre);
+    e.radious = radius * xfScale(xf);
     // Planar case: start angle from the start vector, end = start + sweep.
+    // The sweep is preserved under a rotation/uniform scale (the only kinds the
+    // corpus carries); a mirroring matrix would additionally flip its sign.
+    start = xfDir(xf, start);
     e.staangle = std::atan2(start.y, start.x); // libdxfrw stores radians
     e.endangle = e.staangle + sweep;
     e.extPoint = DRW_Coord(0, 0, 1);
@@ -236,10 +300,11 @@ void doArc(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 
 // --- opcode 44: ELLIPTIC_ARC (proxygraphic.py:484) ---
 void doEllipse(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-               const DRW_Entity &parent, const DrawState &st, int &count) {
+               const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+               int &count) {
     ByteStream bs(p, n);
     DRW_Ellipse e;
-    e.basePoint = bs.readVertex();   // center
+    const DRW_Coord centre = bs.readVertex();   // center
     bs.readVertex();                 // extrusion (ignored — planar)
     double majorLen = bs.readDouble();
     double minorLen = bs.readDouble();
@@ -247,9 +312,12 @@ void doEllipse(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
     double endParam = bs.readDouble();
     double majorAngle = bs.readDouble();
     if (bs.bad || majorLen == 0.0) return;
-    e.ratio = minorLen / majorLen;
-    e.secPoint = DRW_Coord(std::cos(majorAngle) * majorLen,
-                           std::sin(majorAngle) * majorLen, 0.0); // major axis vector
+    e.basePoint = xfPoint(xf, centre);
+    e.ratio = minorLen / majorLen;   // preserved under a similarity transform
+    // Major axis is a direction+length, so it rotates and scales with the
+    // linear part alone.
+    e.secPoint = xfDir(xf, DRW_Coord(std::cos(majorAngle) * majorLen,
+                                     std::sin(majorAngle) * majorLen, 0.0));
     e.staparam = startParam;
     e.endparam = endParam;
     e.extPoint = DRW_Coord(0, 0, 1);
@@ -263,7 +331,7 @@ void doEllipse(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 // count×3d.  A POLYGON (7) is a closed POLYLINE.
 void doPolyline(const std::uint8_t *p, std::size_t n, bool closed, bool loadNormal,
                 DRW_Interface &iface, const DRW_Entity &parent, const DrawState &st,
-                int &count) {
+                const Matrix *xf, int &count) {
     ByteStream bs(p, n);
     std::uint32_t vcount = bs.readLong();
     if (loadNormal) vcount += 1; // last vertex is the normal
@@ -275,6 +343,10 @@ void doPolyline(const std::uint8_t *p, std::size_t n, bool closed, bool loadNorm
     if (bs.bad) return;
     if (loadNormal && !verts.empty()) verts.pop_back(); // drop the normal
     if (verts.size() < 2) return;
+
+    // Transform before the planarity probe so `is3d` reflects the final coords.
+    if (xf)
+        for (DRW_Coord &v : verts) v = xf->point(v);
 
     DRW_Polyline e;
     bool is3d = false;
@@ -290,18 +362,22 @@ void doPolyline(const std::uint8_t *p, std::size_t n, bool closed, bool loadNorm
 
 // --- opcode 10: TEXT (proxygraphic.py:694, non-unicode) ---
 void doText(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-            const DRW_Entity &parent, const DrawState &st, int &count) {
+            const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+            int &count) {
     ByteStream bs(p, n);
     DRW_Text e;
-    e.basePoint = bs.readVertex();          // start point
+    const DRW_Coord start = bs.readVertex();  // start point
     bs.readVertex();                        // normal (ignored)
     DRW_Coord dir = bs.readVertex();        // text direction
-    e.height = bs.readDouble();
+    const double height = bs.readDouble();
     e.widthscale = bs.readDouble();
     e.oblique = bs.readDouble() * DEG_PER_RAD;
     std::string text = bs.readPaddedString();
     if (bs.bad || text.empty()) return;
     e.text = text;
+    e.basePoint = xfPoint(xf, start);
+    e.height = height * xfScale(xf);
+    dir = xfDir(xf, dir);
     e.angle = std::atan2(dir.y, dir.x) * DEG_PER_RAD;
     e.extPoint = DRW_Coord(0, 0, 1);
     applyAttribs(e, parent, st);
@@ -313,7 +389,8 @@ void doText(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 // <2l>(ignore_len, raw) <4d>(height, width, oblique, tracking) <5L>(backwards,
 // upsidedown, vertical, underline, overline).  We stop before the trailing font
 // strings (style resolution is out of scope).  Fills the metadata onto `e`.
-void readText2Metadata(ByteStream &bs, DRW_Text &e, const DRW_Coord &dir) {
+void readText2Metadata(ByteStream &bs, DRW_Text &e, const DRW_Coord &dir,
+                       double scale = 1.0) {
     bs.readLong(); bs.readLong();            // <2l ignore_length_of_string, raw
     double h = bs.readDouble();
     double w = bs.readDouble();
@@ -322,7 +399,7 @@ void readText2Metadata(ByteStream &bs, DRW_Text &e, const DRW_Coord &dir) {
     std::uint32_t isBackwards = bs.readLong();
     std::uint32_t isUpsideDown = bs.readLong();
     bs.readLong(); bs.readLong(); bs.readLong(); // is_vertical/underline/overline — discard
-    e.height = h;
+    e.height = h * scale;
     e.widthscale = w;
     e.oblique = oblique * DEG_PER_RAD;
     e.angle = std::atan2(dir.y, dir.x) * DEG_PER_RAD;
@@ -332,15 +409,17 @@ void readText2Metadata(ByteStream &bs, DRW_Text &e, const DRW_Coord &dir) {
 
 // --- opcode 11: TEXT2 (proxygraphic.py:723) — string FIRST, then metadata ---
 void doText2(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-             const DRW_Entity &parent, const DrawState &st, int &count) {
+             const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+             int &count) {
     ByteStream bs(p, n);
     DRW_Text e;
-    e.basePoint = bs.readVertex();          // start_point
+    const DRW_Coord start = bs.readVertex();  // start_point
     bs.readVertex();                        // normal (ignored — planar)
     DRW_Coord dir = bs.readVertex();        // text_direction
     std::string text = bs.readPaddedString(); // self.encoding bytes (kept raw)
-    readText2Metadata(bs, e, dir);
+    readText2Metadata(bs, e, xfDir(xf, dir), xfScale(xf));
     if (bs.bad || text.empty()) return;
+    e.basePoint = xfPoint(xf, start);
     e.text = text;
     applyAttribs(e, parent, st);
     iface.addText(e);
@@ -349,17 +428,19 @@ void doText2(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 
 // --- opcode 38: UNICODE_TEXT2 (proxygraphic.py:778) — UTF-16LE text ---
 void doUnicodeText2(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
-                    const DRW_Entity &parent, const DrawState &st, int &count) {
+                    const DRW_Entity &parent, const DrawState &st,
+                    const Matrix *xf, int &count) {
     ByteStream bs(p, n);
     DRW_Text e;
-    e.basePoint = bs.readVertex();
+    const DRW_Coord start = bs.readVertex();
     bs.readVertex();                        // normal (ignored)
     DRW_Coord dir = bs.readVertex();
     std::string u16 = bs.readPaddedUnicodeString(); // raw UTF-16LE bytes
-    readText2Metadata(bs, e, dir);          // same trailing layout as op11
+    readText2Metadata(bs, e, xfDir(xf, dir), xfScale(xf)); // same tail as op11
     if (bs.bad || u16.empty()) return;
     std::string text = DRW_ConvUTF16().toUtf8(u16); // surrogate-aware
     if (text.empty()) return;
+    e.basePoint = xfPoint(xf, start);
     e.text = text;
     applyAttribs(e, parent, st);
     iface.addText(e);
@@ -369,7 +450,7 @@ void doUnicodeText2(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
 // --- opcode 33: LWPOLYLINE (proxygraphic.py:549) — an ODA *bit* stream ---
 void doLwpolyline(const std::uint8_t *p, std::size_t n, DRW::Version version,
                   DRW_Interface &iface, const DRW_Entity &parent,
-                  const DrawState &st, int &count) {
+                  const DrawState &st, const Matrix *xf, int &count) {
     std::vector<std::uint8_t> buf(p, p + n);
     dwgBuffer bs(buf.data(), buf.size(), nullptr); // no text → no decoder needed
     bs.getRawLong32();                              // num_data_bytes (RL)
@@ -390,13 +471,19 @@ void doLwpolyline(const std::uint8_t *p, std::size_t n, DRW::Version version,
     }
     (void)numBulges; (void)numVertexIds; (void)numWidth;
 
+    // Vertices are decoded as deltas off the previous raw pair, so transform a
+    // COPY when emitting and keep px/py in the stream's own frame.
+    auto emit2d = [&](double x, double y) {
+        const DRW_Coord t = xfPoint(xf, DRW_Coord(x, y, 0.0));
+        e.addVertex(DRW_Vertex2D(t.x, t.y, 0.0));
+    };
     double px = bs.getRawDouble();
     double py = bs.getRawDouble();
-    e.addVertex(DRW_Vertex2D(px, py, 0.0));
+    emit2d(px, py);
     for (std::int32_t i = 1; i < numPoints; ++i) {
         px = bs.getDefaultDouble(px);
         py = bs.getDefaultDouble(py);
-        e.addVertex(DRW_Vertex2D(px, py, 0.0));
+        emit2d(px, py);
     }
     if (!bs.isGood()) return; // bit stream overran — drop
     e.vertexnum = numPoints;
@@ -421,8 +508,12 @@ int DRW_ProxyGraphicDecoder::decode(const std::string &bytes, DRW::Version versi
     std::size_t index = 8;
     int count = 0;
     DrawState st;
+    // Transform stack: PUSH_MATRIX (29/30) … POP_MATRIX (31).  ezdxf applies the
+    // TOP matrix only, not the composed product (proxygraphic.py:309-313).
+    std::vector<Matrix> xfStack;
     int guard = 0;
     while (index + 8 <= len && guard++ < 1000000) {
+        const Matrix *xf = xfStack.empty() ? nullptr : &xfStack.back();
         std::uint32_t size, type;
         std::memcpy(&size, data + index, 4);
         std::memcpy(&type, data + index + 4, 4);
@@ -494,18 +585,35 @@ int DRW_ProxyGraphicDecoder::decode(const std::string &bytes, DRW::Version versi
                 else                    st.lineType = "BYLAYER"; // out-of-range fallback
             }
             break;
-        case OP_CIRCLE:        doCircle(pay, payLen, iface, parent, st, count); break;
-        case OP_CIRCLE_3P:     doCircle3p(pay, payLen, iface, parent, st, count); break;
-        case OP_CIRCULAR_ARC:  doArc(pay, payLen, iface, parent, st, count); break;
-        case OP_CIRCULAR_ARC_3P: doArc3p(pay, payLen, iface, parent, st, count); break;
-        case OP_ELLIPTIC_ARC:  doEllipse(pay, payLen, iface, parent, st, count); break;
-        case OP_POLYLINE:      doPolyline(pay, payLen, /*closed=*/false, /*normal=*/false, iface, parent, st, count); break;
-        case OP_POLYLINE_NORMALS: doPolyline(pay, payLen, /*closed=*/false, /*normal=*/true, iface, parent, st, count); break;
-        case OP_POLYGON:       doPolyline(pay, payLen, /*closed=*/true, /*normal=*/false, iface, parent, st, count); break;
-        case OP_TEXT:          doText(pay, payLen, iface, parent, st, count); break;
-        case OP_TEXT2:         doText2(pay, payLen, iface, parent, st, count); break;
-        case OP_UNICODE_TEXT2: doUnicodeText2(pay, payLen, iface, parent, st, count); break;
-        case OP_LWPOLYLINE:    doLwpolyline(pay, payLen, version, iface, parent, st, count); break;
+        case OP_PUSH_MATRIX:
+        case OP_PUSH_MATRIX2:
+            // 16 doubles; translation sits in the 4th column of each row.
+            // Bounded so a malformed stream cannot grow the stack without end.
+            if (payLen >= 16 * sizeof(double) && xfStack.size() < 64) {
+                double a[16];
+                std::memcpy(a, pay, sizeof(a));
+                Matrix mx;
+                for (int r = 0; r < 3; ++r)
+                    for (int c = 0; c < 4; ++c)
+                        mx.m[r * 4 + c] = a[r * 4 + c];
+                xfStack.push_back(mx);
+            }
+            break;
+        case OP_POP_MATRIX:
+            if (!xfStack.empty()) xfStack.pop_back();
+            break;
+        case OP_CIRCLE:        doCircle(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_CIRCLE_3P:     doCircle3p(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_CIRCULAR_ARC:  doArc(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_CIRCULAR_ARC_3P: doArc3p(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_ELLIPTIC_ARC:  doEllipse(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_POLYLINE:      doPolyline(pay, payLen, /*closed=*/false, /*normal=*/false, iface, parent, st, xf, count); break;
+        case OP_POLYLINE_NORMALS: doPolyline(pay, payLen, /*closed=*/false, /*normal=*/true, iface, parent, st, xf, count); break;
+        case OP_POLYGON:       doPolyline(pay, payLen, /*closed=*/true, /*normal=*/false, iface, parent, st, xf, count); break;
+        case OP_TEXT:          doText(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_TEXT2:         doText2(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_UNICODE_TEXT2: doUnicodeText2(pay, payLen, iface, parent, st, xf, count); break;
+        case OP_LWPOLYLINE:    doLwpolyline(pay, payLen, version, iface, parent, st, xf, count); break;
         default:
             break; // unsupported opcode — skip by size
         }
