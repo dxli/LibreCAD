@@ -618,6 +618,110 @@ TEST_CASE("shapelib hostile: malformed_truncated.dbf either opens safely or null
 }
 
 // ---------------------------------------------------------------------------
+// Phase-4a generated fixtures (scripts/make_shp_fixtures.py):
+// pins the shapelib-level behaviour on the newly-added Z types, MULTIPATCH,
+// and the two CVE-class DoS crafts.
+// ---------------------------------------------------------------------------
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated: POLYGONZ opens with 1 record, 4 verts, 1 part",
+          "[shp][shapelib][z][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("polygonz.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);
+    int n = 0, t = 0;
+    double lo[4], hi[4];
+    SHPGetInfo(h, &n, &t, lo, hi);
+    CHECK(t == SHPT_POLYGONZ);
+    CHECK(n == 1);
+    ScopedShape rec{SHPReadObject(h, 0)};
+    REQUIRE(rec.o != nullptr);
+    CHECK(rec->nSHPType == SHPT_POLYGONZ);
+    CHECK(rec->nParts == 1);
+    CHECK(rec->nVertices == 4);
+    REQUIRE(rec->padfZ != nullptr);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated: POLYLINEZ opens with 2 parts, 5 verts",
+          "[shp][shapelib][z][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("polylinez.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);
+    int n = 0, t = 0;
+    double lo[4], hi[4];
+    SHPGetInfo(h, &n, &t, lo, hi);
+    CHECK(t == SHPT_ARCZ);
+    CHECK(n == 1);
+    ScopedShape rec{SHPReadObject(h, 0)};
+    REQUIRE(rec.o != nullptr);
+    CHECK(rec->nParts == 2);
+    CHECK(rec->nVertices == 5);
+    REQUIRE(rec->panPartStart != nullptr);
+    CHECK(rec->panPartStart[0] == 0);
+    CHECK(rec->panPartStart[1] == 3);
+    REQUIRE(rec->padfZ != nullptr);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated: MULTIPOINTZ opens with 4 verts, Z populated",
+          "[shp][shapelib][z][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("multipointz.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);
+    int n = 0, t = 0;
+    double lo[4], hi[4];
+    SHPGetInfo(h, &n, &t, lo, hi);
+    CHECK(t == SHPT_MULTIPOINTZ);
+    CHECK(n == 1);
+    ScopedShape rec{SHPReadObject(h, 0)};
+    REQUIRE(rec.o != nullptr);
+    CHECK(rec->nVertices == 4);
+    REQUIRE(rec->padfZ != nullptr);
+    // Sanity — Z values monotonic 1.0..4.0 per make_shp_fixtures.py.
+    for (int i = 0; i < rec->nVertices; ++i)
+        CHECK(rec->padfZ[i] == Catch::Approx(static_cast<double>(i + 1)));
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated: MULTIPATCH panPartType has both rings and strip",
+          "[shp][shapelib][multipatch][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("multipatch.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);
+    int n = 0, t = 0;
+    double lo[4], hi[4];
+    SHPGetInfo(h, &n, &t, lo, hi);
+    CHECK(t == SHPT_MULTIPATCH);
+    CHECK(n == 1);
+    ScopedShape rec{SHPReadObject(h, 0)};
+    REQUIRE(rec.o != nullptr);
+    CHECK(rec->nParts == 3);
+    CHECK(rec->nVertices == 14);
+    REQUIRE(rec->panPartType != nullptr);
+    // Ordering matches make_shp_fixtures.py: OUTER_RING, INNER_RING, TRISTRIP.
+    CHECK(rec->panPartType[0] == SHPP_OUTERRING);
+    CHECK(rec->panPartType[1] == SHPP_INNERRING);
+    CHECK(rec->panPartType[2] == SHPP_TRISTRIP);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated hostile: nPoints=60M rejected by 50M cap",
+          "[shp][shapelib][hostile][cve][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("dos_npoints.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);   // Header is valid; the DoS is in record content.
+    // SHPReadObject must reject at the nPoints > 50M cap
+    // (libraries/shapelib/src/shpopen.cpp:2258) without allocating.
+    ScopedShape rec{SHPReadObject(h, 0)};
+    CHECK(rec.o == nullptr);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("shapelib generated hostile: nParts=15M rejected by 10M cap",
+          "[shp][shapelib][hostile][cve][generated]") {
+    ScopedSHP h{SHPOpen(corpusPath("dos_nparts.shp").c_str(), "rb")};
+    REQUIRE(h.h != nullptr);
+    ScopedShape rec{SHPReadObject(h, 0)};
+    CHECK(rec.o == nullptr);
+}
+
+// ---------------------------------------------------------------------------
 // Sanity: shapelib type-name lookup (SHPTypeName) covers every SHPT_* value
 // used above, and does not return null.  Pins the small helper API.
 // ---------------------------------------------------------------------------

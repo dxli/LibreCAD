@@ -403,6 +403,107 @@ TEST_CASE("RS_FilterSHP: malformed_dbf.shp -> false, no crash",
 }
 
 // ---------------------------------------------------------------------------
+// Phase-4a generated fixtures — Z types and MULTIPATCH parts + CVE-class DoS.
+// These are the only fixtures under test_data/shp/ produced by
+// scripts/make_shp_fixtures.py; the rest of the corpus is fixed reference
+// data.  See the plan's Phase 4a for the rationale.
+// ---------------------------------------------------------------------------
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: generated POLYGONZ ring imports as one closed polyline",
+          "[shp][filter][matrix][z]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    REQUIRE(filter.fileImport(graphic, corpusPath("polygonz.shp"),
+                              RS2::FormatSHP));
+    const EntityCounts c = countEntities(graphic);
+    // Single POLYGONZ record, single ring — one closed polyline.
+    CHECK(c.polylines == 1);
+    CHECK(c.closedPolylines == 1);
+    CHECK(c.points == 0);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: generated POLYLINEZ (ARCZ) 2-part -> 2 open polylines",
+          "[shp][filter][matrix][z]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    REQUIRE(filter.fileImport(graphic, corpusPath("polylinez.shp"),
+                              RS2::FormatSHP));
+    const EntityCounts c = countEntities(graphic);
+    // Two parts, both open — Z carried per vertex but the polyline is open.
+    CHECK(c.polylines == 2);
+    CHECK(c.closedPolylines == 0);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: generated MULTIPOINTZ -> one RS_Point per vertex",
+          "[shp][filter][matrix][z]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    REQUIRE(filter.fileImport(graphic, corpusPath("multipointz.shp"),
+                              RS2::FormatSHP));
+    const EntityCounts c = countEntities(graphic);
+    // 4 vertices in the MULTIPOINTZ record.
+    CHECK(c.points == 4);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: MULTIPATCH — rings closed, strips open wireframe",
+          "[shp][filter][matrix][multipatch]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    REQUIRE(filter.fileImport(graphic, corpusPath("multipatch.shp"),
+                              RS2::FormatSHP));
+    const EntityCounts c = countEntities(graphic);
+    // 3 parts: OUTER_RING + INNER_RING + TRIANGLE_STRIP
+    // -> two closed polylines (outer + inner rings)
+    // -> one open polyline (the strip, as documented 2.5D simplification).
+    CHECK(c.polylines == 3);
+    CHECK(c.closedPolylines == 2);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: DoS crafted nPoints=60M rejected without allocation",
+          "[shp][filter][matrix][hostile][cve]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    // Shapelib caps nPoints at 50 M (shpopen.cpp:2259); this fixture claims
+    // 60 M in the record content.  fileImport still returns true (the file
+    // header is valid and nEntities > 0 with 0 readable records isn't a
+    // hard error), but SHPReadObject returns null internally so 0 entities
+    // are emitted — no gigabyte allocation, no crash, process survives.
+    // CVE-2023-30259-class regression guard.
+    const bool ok = filter.fileImport(graphic, corpusPath("dos_npoints.shp"),
+                                      RS2::FormatSHP);
+    // Either result is acceptable — filter may report false because zero
+    // records readable, or true because header was fine.  The load-bearing
+    // assertion is: no entities emitted, no crash, no huge alloc.
+    (void)ok;
+    CHECK(countEntities(graphic).total == 0);
+}
+
+// NOLINTNEXTLINE(readability-identifier-naming)
+TEST_CASE("RS_FilterSHP: DoS crafted nParts=15M rejected without allocation",
+          "[shp][filter][matrix][hostile][cve]") {
+    ensureQtContext();
+    RS_Graphic graphic;
+    RS_FilterSHP filter;
+    // Shapelib caps nParts at 10 M (shpopen.cpp:2259); this fixture claims
+    // 15 M.  Same expectation as dos_npoints: no crash, no allocation
+    // blow-up, no partial entities.
+    const bool ok = filter.fileImport(graphic, corpusPath("dos_nparts.shp"),
+                                      RS2::FormatSHP);
+    (void)ok;
+    CHECK(countEntities(graphic).total == 0);
+}
+
+// ---------------------------------------------------------------------------
 // canImport / canExport polarity — locks the import-only contract that
 // Phase 3's UI wiring depends on.
 // ---------------------------------------------------------------------------

@@ -201,5 +201,53 @@
       "has_shx": true,
       "has_prj": false
     }
+  ],
+  "generated_z_types": [
+    {
+      "name": "polygonz.shp",
+      "shp_size": 268,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "polylinez.shp",
+      "shp_size": 296,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "multipointz.shp",
+      "shp_size": 260,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "multipatch.shp",
+      "shp_size": 528,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    }
+  ],
+  "generated_hostile": [
+    {
+      "name": "dos_npoints.shp",
+      "shp_size": 220,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py",
+      "expect": "SHPReadObject returns null (nPoints=60M > 50M cap)"
+    },
+    {
+      "name": "dos_nparts.shp",
+      "shp_size": 220,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py",
+      "expect": "SHPReadObject returns null (nParts=15M > 10M cap)"
+    }
   ]
 }

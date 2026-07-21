@@ -459,26 +459,37 @@ feat(ui): surface Shapefile import in File→Open and format detection
 
 ---
 
-## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof — partial ✅
+## 6. Phase 4 — Full validation matrix, corpus gaps, hardening proof
 
-**Sub-plan 4b landed**: 2026-07-21 — `test(shp): full import validation matrix
-for RS_FilterSHP over corpus`.  40 [shp] test cases pass (1841 assertions);
-per-geometry-type happy paths (POINT/ARC/POLYGON/MULTIPOINT/multi-part),
-DBF-driven MText labels on bc_hospitals, Latin-1 codepage round-trip on
-latin1-property, edge/null/empty/missing-shx behaviour, and all four hostile
-fixtures (malformed_dbf, malformed_truncated, pointz, missing_shx) pinned
-as "false, no crash, no partial entities".
+**Sub-plan 4b landed** (2026-07-21, commit `04b749474`): filter-level test
+matrix over the pre-existing corpus.  40 [shp] cases / 1841 assertions.
 
-**Sub-plans 4a (fixture generator for POLYGONZ/MULTIPATCH/DoS crafts) and 4c
-(ASan/UBSan clean-run evidence) deferred** to a follow-up:
-* 4a needs a Python stdlib fixture generator; new files (not modifications to
-  existing pinned fixtures) added under test_data/shp/.  Genuinely new
-  filenames only.  Scope-wise a full one-session job on its own.
-* 4c is a separate build-config sweep: -fsanitize=address,undefined with the
-  hostile portion of the corpus.  Can run against the current test matrix
-  as-is; requires a fresh Debug build tree with the sanitizer flags.
+**Sub-plan 4a landed** — done ✅ (2026-07-21):
+`test(shp): generated Z/MULTIPATCH/DoS fixtures + filter coverage`.
+`scripts/make_shp_fixtures.py` (pure Python stdlib `struct`-packing, no
+GDAL) writes six new fixtures under `test_data/shp/` (all genuinely new
+filenames — never touches existing pinned fixtures): `polygonz.shp`,
+`polylinez.shp`, `multipointz.shp`, `multipatch.shp` (OUTER_RING +
+INNER_RING + TRIANGLE_STRIP), `dos_npoints.shp` (nPoints=60M),
+`dos_nparts.shp` (nParts=15M).  Each has a companion `.shx` (and `.dbf`
+for the four happy-path Z types).  Refuses to overwrite existing files
+without `--force`.  Inventory extended with `generated_z_types` and
+`generated_hostile` buckets in `test_data/shp_inventory.json`.
 
-Both are documented follow-up items rather than blockers on Phase 5.
+New test coverage after 4a: `[shp]` grew to 52 cases / 1897 assertions
+(6 shapelib-level cases pinning the raw record structure, 6 filter-level
+cases pinning the RS_FilterSHP emission — including MULTIPATCH: 2 closed
+polylines from the rings + 1 open polyline from the strip; and the two
+DoS crafts: zero entities emitted, no allocation blow-up).  Full
+librecad_tests suite 658 cases / 11 967 assertions with `~[corpus]`.
+Skipped optional Natural Earth download (step 2) — network dependency
+not worth it; documented as skippable.
+
+**Sub-plan 4c (ASan/UBSan clean-run evidence) deferred** — separate
+build-config sweep with `-fsanitize=address,undefined` against the
+current test matrix (now including the 4a hostile fixtures).  Requires
+a fresh Debug build tree with the sanitizer flags; can run against the
+test matrix as-is.
 
 
 ### Sub-plan 4a — complete the corpus (the "downloaded SHP sample files" item)
