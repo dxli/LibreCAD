@@ -1091,6 +1091,8 @@ set (SHARED_SOURCES
      librecad/src/lib/filters/rs_filterjww.h
      librecad/src/lib/filters/rs_filterlff.cpp
      librecad/src/lib/filters/rs_filterlff.h
+     librecad/src/lib/filters/rs_filtershp.cpp
+     librecad/src/lib/filters/rs_filtershp.h
      librecad/src/lib/generators/image/lc_imageexporter.cpp
      librecad/src/lib/generators/image/lc_imageexporter.h
      librecad/src/lib/generators/layers/lc_layersexporter.cpp
@@ -2453,6 +2455,7 @@ if (BUILD_TESTS)
         # librecad_lib (SHARED_SOURCES) since Phase 1b, so the test target
         # only needs the test file itself.
         librecad/src/lib/filters/tests/shp_shapelib_tests.cpp
+        librecad/src/lib/filters/tests/shp_import_filter_tests.cpp
     )
 
     # Include directories for rs_math.h and other dependencies

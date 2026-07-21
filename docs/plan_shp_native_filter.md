@@ -309,7 +309,16 @@ Corpus tests from the previous commit prove behavior is unchanged.
 
 ---
 
-## 4. Phase 2 — `RS_FilterSHP`: the native import filter
+## 4. Phase 2 — `RS_FilterSHP`: the native import filter — done ✅
+
+**Landed**: 2026-07-21 — `feat(filters): native ESRI Shapefile import filter (RS_FilterSHP)`.
+Sub-plans 2a (enum + skeleton + registration), 2b (geometry mapping via RAII
+shapelib wrappers, ARC/POLYGON/MULTIPOINT/POINT + Z-preserved, MULTIPATCH ring
+vs strip simplification), 2c (DBF-driven layers + per-entity RS_Pen, codepage-
+aware string decoding via QStringDecoder, LC_ShpImportOptions options seam),
+and 2d (smoke test) all in one commit per the section-9 ladder.  25/25 [shp]
+cases green, 631/631 total cases green (`~[corpus]`).
+
 
 **Goal**: first-class SHP import producing native entities with full styling fidelity.
 

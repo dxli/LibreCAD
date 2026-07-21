@@ -125,7 +125,8 @@ namespace RS2 {
         FormatLFF, /**< LibreCAD Font File format. */
         FormatCXF, /**< CAM Expert Font format. */
         FormatJWW, /**< JWW Format type */
-        FormatJWC /**< JWC Format type */
+        FormatJWC, /**< JWC Format type */
+        FormatSHP /**< ESRI Shapefile (import only). */
     };
 
     /*

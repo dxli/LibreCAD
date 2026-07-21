@@ -544,6 +544,7 @@ HEADERS += \
     lib/filters/rs_filterdxf1.h \
     lib/filters/rs_filterjww.h \
     lib/filters/rs_filterlff.h \
+    lib/filters/rs_filtershp.h \
     lib/filters/rs_filterinterface.h \
     lib/generators/layers/lc_layersexporter.h \
     lib/generators/image/lc_imageexporter.h \
@@ -1182,6 +1183,7 @@ SOURCES += \
     lib/filters/rs_filterdxf1.cpp \
     lib/filters/rs_filterjww.cpp \
     lib/filters/rs_filterlff.cpp \
+    lib/filters/rs_filtershp.cpp \
     #lib/gui/no_used/rs_painterold.cpp \
    # lib/gui/no_used/rs_painterqtold.cpp \
     ui/action_options/edit/lc_paste_to_points_options_widget.cpp \
