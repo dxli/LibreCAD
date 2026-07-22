@@ -26,6 +26,7 @@ enum OpCode {
     OP_CIRCULAR_ARC_3P       = 5,
     OP_POLYLINE              = 6,
     OP_POLYGON               = 7,
+    OP_SHELL                 = 9,
     OP_TEXT                  = 10,
     OP_TEXT2                 = 11,
     OP_ATTRIBUTE_COLOR       = 14,
@@ -360,6 +361,48 @@ void doPolyline(const std::uint8_t *p, std::size_t n, bool closed, bool loadNorm
     ++count;
 }
 
+// --- opcode 9: SHELL (proxygraphic.py shell) → polyface mesh ---
+// Layout: RL total_vertex_count, count×3d vertices, RL face_entry_count (the
+// number of longs in the face stream), then a flat stream of
+// [signed edge_count, idx0, idx1, …] entries (edge_count<0 marks a wrap/hole,
+// its magnitude is the vertex count; indices are 0-based).  ezdxf builds a
+// POLYLINE_POLYFACE; we deliver a DRW_Mesh (base-cage vertices + face index
+// lists) which LibreCAD renders by decomposing faces to polylines.  Trailing
+// mesh traits (per-face colours/normals) are ignored.
+void doShell(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
+             const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
+             int &count) {
+    ByteStream bs(p, n);
+    std::uint32_t vcount = bs.readLong();
+    if (vcount == 0 || vcount > 1000000u) return;
+    DRW_Mesh e;
+    e.vertices.reserve(vcount);
+    for (std::uint32_t i = 0; i < vcount && !bs.bad; ++i)
+        e.vertices.push_back(xfPoint(xf, bs.readVertex()));
+    if (bs.bad) return;
+
+    std::uint32_t faceEntries = bs.readLong();   // total longs in the face stream
+    if (faceEntries > 4000000u) return;
+    std::uint32_t read = 0;
+    while (read < faceEntries && !bs.bad) {
+        std::int32_t edgeCount = static_cast<std::int32_t>(bs.readLong());
+        if (edgeCount < 0) edgeCount = -edgeCount;   // <0 = wrap/hole; use magnitude
+        read += 1u + static_cast<std::uint32_t>(edgeCount);
+        std::vector<std::int32_t> face;
+        face.reserve(static_cast<std::size_t>(edgeCount));
+        for (std::int32_t j = 0; j < edgeCount && !bs.bad; ++j) {
+            std::uint32_t idx = bs.readLong();
+            if (idx < e.vertices.size())
+                face.push_back(static_cast<std::int32_t>(idx));
+        }
+        if (face.size() >= 2) e.faces.push_back(std::move(face));
+    }
+    if (e.vertices.empty() || e.faces.empty()) return;
+    applyAttribs(e, parent, st);
+    iface.addMesh(e);
+    ++count;
+}
+
 // --- opcode 10: TEXT (proxygraphic.py:694, non-unicode) ---
 void doText(const std::uint8_t *p, std::size_t n, DRW_Interface &iface,
             const DRW_Entity &parent, const DrawState &st, const Matrix *xf,
@@ -610,6 +653,7 @@ int DRW_ProxyGraphicDecoder::decode(const std::string &bytes, DRW::Version versi
         case OP_POLYLINE:      doPolyline(pay, payLen, /*closed=*/false, /*normal=*/false, iface, parent, st, xf, count); break;
         case OP_POLYLINE_NORMALS: doPolyline(pay, payLen, /*closed=*/false, /*normal=*/true, iface, parent, st, xf, count); break;
         case OP_POLYGON:       doPolyline(pay, payLen, /*closed=*/true, /*normal=*/false, iface, parent, st, xf, count); break;
+        case OP_SHELL:         doShell(pay, payLen, iface, parent, st, xf, count); break;
         case OP_TEXT:          doText(pay, payLen, iface, parent, st, xf, count); break;
         case OP_TEXT2:         doText2(pay, payLen, iface, parent, st, xf, count); break;
         case OP_UNICODE_TEXT2: doUnicodeText2(pay, payLen, iface, parent, st, xf, count); break;

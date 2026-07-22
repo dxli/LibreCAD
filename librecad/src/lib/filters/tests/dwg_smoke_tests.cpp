@@ -568,6 +568,11 @@ public:
   }
   void addPolyline(const DRW_Polyline &e) override { trackT(e, "POLYLINE"); }
   void addSpline(const DRW_Spline *e) override { trackT(*e, "SPLINE"); }
+  // These entity types are delivered by the reader but were previously untracked
+  // here, so they were undercounted in the [.audit]/[.coverage] telemetry.
+  void addHelix(const DRW_Helix *e) override { trackT(*e, "HELIX"); }
+  void addOle2Frame(const DRW_Ole2Frame &e) override { trackT(e, "OLE2FRAME"); }
+  void addShape(const DRW_Shape &e) override { trackT(e, "SHAPE"); }
   void addKnot(const DRW_Entity &) override {}
   void addInsert(const DRW_Insert &e) override {
     trackT(e, "INSERT");
@@ -9197,6 +9202,60 @@ TEST_CASE("proxy transform stack push/pop matrix", "[proxy]") {
   CHECK(cap.circles[1].basePoint.x == Catch::Approx(1.0));
   CHECK(cap.circles[1].basePoint.y == Catch::Approx(2.0));
   CHECK(cap.circles[1].radious == Catch::Approx(3.0));
+}
+
+// Proxy SHELL (op9) → DRW_Mesh. Layout: RL vertex count, count×3d vertices, RL
+// face-entry count (longs in the face stream), then [signed edge_count, idx…]
+// entries (0-based indices). Verified against the ezdxf shell() reference and
+// gh109_1.dwg (3 shells decoded). Also checks the transform stack applies to
+// the mesh vertices.
+TEST_CASE("proxy SHELL op9 -> mesh", "[proxy]") {
+  auto putU32 = [](std::string& s, std::uint32_t v) {
+    for (int i = 0; i < 4; ++i) s.push_back(char((v >> (8 * i)) & 0xFF));
+  };
+  auto putD = [](std::string& s, double v) {
+    char b[8]; std::memcpy(b, &v, 8); s.append(b, 8);
+  };
+  // A unit quad (4 verts) with one 4-edge face [0,1,2,3], under translate(10,20).
+  std::string blob(8, '\0');
+  putU32(blob, 8 + 128); putU32(blob, 29);          // PUSH_MATRIX translate(10,20)
+  putD(blob, 1); putD(blob, 0); putD(blob, 0); putD(blob, 10);
+  putD(blob, 0); putD(blob, 1); putD(blob, 0); putD(blob, 20);
+  putD(blob, 0); putD(blob, 0); putD(blob, 1); putD(blob, 0);
+  putD(blob, 0); putD(blob, 0); putD(blob, 0); putD(blob, 1);
+  // SHELL payload: 4 (RL) + 4×24 verts + 5 (RL faceEntries) + [4,0,1,2,3] (5 RL)
+  std::string pay;
+  putU32(pay, 4);
+  putD(pay, 0); putD(pay, 0); putD(pay, 0);
+  putD(pay, 1); putD(pay, 0); putD(pay, 0);
+  putD(pay, 1); putD(pay, 1); putD(pay, 0);
+  putD(pay, 0); putD(pay, 1); putD(pay, 0);
+  putU32(pay, 5);                                   // face_entry_count (longs)
+  putU32(pay, 4);                                   // edge_count
+  putU32(pay, 0); putU32(pay, 1); putU32(pay, 2); putU32(pay, 3);
+  putU32(blob, static_cast<std::uint32_t>(8 + pay.size())); putU32(blob, 9);
+  blob += pay;
+  putU32(blob, 8); putU32(blob, 31);                // POP_MATRIX
+
+  struct Cap : public TypeTrackingIface {
+    std::vector<DRW_Mesh> meshes;
+    void addMesh(const DRW_Mesh& e) override { meshes.push_back(e); }
+  } cap;
+  DRW_Point parent;
+  int n = DRW_ProxyGraphicDecoder::decode(blob, DRW::AC1024, cap, parent);
+
+  REQUIRE(n == 1);
+  REQUIRE(cap.meshes.size() == 1);
+  REQUIRE(cap.meshes[0].vertices.size() == 4);
+  REQUIRE(cap.meshes[0].faces.size() == 1);
+  CHECK(cap.meshes[0].faces[0].size() == 4);
+  // Vertices translated by (10,20).
+  CHECK(cap.meshes[0].vertices[0].x == Catch::Approx(10.0));
+  CHECK(cap.meshes[0].vertices[0].y == Catch::Approx(20.0));
+  CHECK(cap.meshes[0].vertices[2].x == Catch::Approx(11.0));
+  CHECK(cap.meshes[0].vertices[2].y == Catch::Approx(21.0));
+  CHECK(cap.meshes[0].faces[0][0] == 0);
+  CHECK(cap.meshes[0].faces[0][3] == 3);
 }
 
 // DXF parity (Part 2.3): an unmodeled DXF entity carrying proxy graphics
