@@ -42,10 +42,12 @@ greaterThan(QT_MAJOR_VERSION, 5): QMAKE_UIC_FLAGS += --connections string
 GEN_LIB_DIR = ../../generated/lib
 msvc {
     PRE_TARGETDEPS += $$GEN_LIB_DIR/dxfrw.lib \
-            $$GEN_LIB_DIR/jwwlib.lib
+            $$GEN_LIB_DIR/jwwlib.lib \
+            $$GEN_LIB_DIR/shapelib.lib
 } else {
     PRE_TARGETDEPS += $$GEN_LIB_DIR/libdxfrw.a \
-            $$GEN_LIB_DIR/libjwwlib.a
+            $$GEN_LIB_DIR/libjwwlib.a \
+            $$GEN_LIB_DIR/libshapelib.a
 }
 
 DESTDIR = $${INSTALLDIR}
@@ -107,12 +109,14 @@ DEFINES += LC_PRERELEASE=\"$$LC_PRERELEASE\"
 # Additional libraries to load
 LIBS += -L../../generated/lib  \
     -ldxfrw \
-    -ljwwlib
+    -ljwwlib \
+    -lshapelib
 
 INCLUDEPATH += \
     ../../libraries/lciconengine \
     ../../libraries/libdxfrw/src \
     ../../libraries/jwwlib/src \
+    ../../libraries/shapelib/src \
     cmd \
     lib/actions \
     lib/actions/visual_snap \
@@ -540,6 +544,7 @@ HEADERS += \
     lib/filters/rs_filterdxf1.h \
     lib/filters/rs_filterjww.h \
     lib/filters/rs_filterlff.h \
+    lib/filters/rs_filtershp.h \
     lib/filters/rs_filterinterface.h \
     lib/generators/layers/lc_layersexporter.h \
     lib/generators/image/lc_imageexporter.h \
@@ -1178,6 +1183,7 @@ SOURCES += \
     lib/filters/rs_filterdxf1.cpp \
     lib/filters/rs_filterjww.cpp \
     lib/filters/rs_filterlff.cpp \
+    lib/filters/rs_filtershp.cpp \
     #lib/gui/no_used/rs_painterold.cpp \
    # lib/gui/no_used/rs_painterqtold.cpp \
     ui/action_options/edit/lc_paste_to_points_options_widget.cpp \

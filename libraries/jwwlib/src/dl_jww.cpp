@@ -536,7 +536,7 @@ printf("r = %d, left = %d, bufleft = %d\n", r, left, bufleft);
 #else
 //	int ires = SJIS2UTF8N(sjis,buf,bufleft);
 	int nBytesOut;
-    strncpy(buf, sizeof(buf) -1, (const char *)CUnicodeF::sjis_to_euc((const unsigned char *)sjis/*, &nBytesOut*/));
+    strncpy(buf, (const char *)CUnicodeF::sjis_to_euc((const unsigned char *)sjis/*, &nBytesOut*/), sizeof(buf) - 1);
 //	QTextCodec* codec = QTextCodec::codecForName("eucJP");
 //	data3.text = codec->toUnicode(buf);
 #endif

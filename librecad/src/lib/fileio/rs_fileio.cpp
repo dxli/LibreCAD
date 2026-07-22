@@ -47,6 +47,7 @@
 #include "rs_filterdxfrw.h"
 #include "rs_filterjww.h"
 #include "rs_filterlff.h"
+#include "rs_filtershp.h"
 
 /**
  * Calls the import method of the filter responsible for the format
@@ -162,7 +163,8 @@ RS2::FormatType RS_FileIO::detectFormat(const QString & file, bool forRead){
     std::map<QString, RS2::FormatType> list{
         {"dxf", RS2::FormatDXFRW},
         {"cxf", RS2::FormatCXF},
-        {"lff", RS2::FormatLFF}
+        {"lff", RS2::FormatLFF},
+        {"shp", RS2::FormatSHP}
     };
     list["dwg"] = RS2::FormatDWG;
 
@@ -266,6 +268,7 @@ std::vector<std::function<RS_FilterInterface*()>> RS_FileIO::getFilters() {
         RS_FilterDXFRW::createFilter,
         RS_FilterCXF::createFilter,
         RS_FilterJWW::createFilter,
-        RS_FilterDXF1::createFilter
+        RS_FilterDXF1::createFilter,
+        RS_FilterSHP::createFilter
     };
 }
