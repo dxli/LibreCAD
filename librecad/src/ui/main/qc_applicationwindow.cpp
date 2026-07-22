@@ -446,7 +446,7 @@ void QC_ApplicationWindow::closeEvent(QCloseEvent* ce) {
 
 bool QC_ApplicationWindow::isAcceptableDragNDropFileName(const QString& fileName) {
     if (fileName.endsWith(R"(.dxf)", Qt::CaseInsensitive) || fileName.endsWith(R"(.cxf)", Qt::CaseInsensitive) || fileName.endsWith(
-        R"(.lff)", Qt::CaseInsensitive)) {
+        R"(.lff)", Qt::CaseInsensitive) || fileName.endsWith(R"(.shp)", Qt::CaseInsensitive)) {
         return QFileInfo::exists(fileName);
     }
     return false;

@@ -480,6 +480,7 @@ QString QG_FileDialog::getOpenFileName(QWidget* parent, RS2::FormatType* type) {
     const QString fLff(QObject::tr("LFF Font %1").arg("(*.lff)"));
     const QString fCxf(QObject::tr("Font %1").arg("(*.cxf)"));
     const QString fJww(QObject::tr("Jww %1").arg("(*.jww)"));
+    const QString fShp(QObject::tr("ESRI Shapefile %1").arg("(*.shp)"));
 
     RS_DEBUG->print("fDxfrw: %s", fDxfrw.toLatin1().data());
     RS_DEBUG->print("fDxf1: %s", fDxf1.toLatin1().data());
@@ -500,6 +501,7 @@ QString QG_FileDialog::getOpenFileName(QWidget* parent, RS2::FormatType* type) {
     filters.append(fLff);
     filters.append(fCxf);
     filters.append(fJww);
+    filters.append(fShp);
 
     fileDlg.setNameFilters(filters);
     fileDlg.setFileMode(QFileDialog::ExistingFile);
@@ -539,6 +541,9 @@ QString QG_FileDialog::getOpenFileName(QWidget* parent, RS2::FormatType* type) {
             }
             else if (fileDlg.selectedNameFilter() == fJww) {
                 *type = RS2::FormatJWW;
+            }
+            else if (fileDlg.selectedNameFilter() == fShp) {
+                *type = RS2::FormatSHP;
             }
         }
         cancel = false;

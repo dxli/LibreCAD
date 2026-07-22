@@ -114,7 +114,11 @@ namespace LC_PropertyFieldUtils {
             result->setName(compoundName);
         }
         if (!descriptionFormat.isEmpty()) {
-            result->setDescription(descriptionFormat.arg(property->getDisplayName()));
+            if (descriptionFormat.contains(QLatin1String("%1"))) {
+                result->setDescription(descriptionFormat.arg(property->getDisplayName()));
+            } else {
+                result->setDescription(descriptionFormat);
+            }
         }
 
         auto delegatedValue = result->getAsDelegateValue();
