@@ -1,0 +1,68 @@
+shapelib — LibreCAD vendoring notes
+====================================
+
+Upstream
+--------
+- Version : 1.6.3
+- Source  : https://download.osgeo.org/shapelib/shapelib-1.6.3.tar.gz
+- Home    : https://shapelib.maptools.org/
+- License : dual MIT / LGPL (see LICENSE-MIT, LICENSE-LGPL)
+
+Purpose in LibreCAD
+-------------------
+This library backs the native ESRI Shapefile (.shp) import filter
+(`RS_FilterSHP`, `librecad/src/lib/filters/rs_filtershp.{h,cpp}`).  It is
+imported into LibreCAD as source so we can compile it as C++17 alongside the
+rest of the codebase — see `docs/plan_shp_native_filter.md` for the plan that
+introduced it.
+
+Sources live directly under `src/`.  Layout mirrors upstream so a resync is a
+straight `.c → .cpp` overwrite followed by re-applying the (deliberately
+small) delta list below.
+
+Build integration
+-----------------
+- CMake (top `CMakeLists.txt`): sources compile directly into `librecad_lib`
+  under `${SHARED_INCLUDES}` — mirrors how `libraries/jwwlib/*` is wired.
+- qmake6 (`libraries/shapelib/shapelib.pro`): builds a static lib linked into
+  the main app via `librecad/src/src.pro` (`PRE_TARGETDEPS`/`-lshapelib`).
+  Added in Phase 1b.
+
+Local deltas vs upstream
+------------------------
+Kept intentionally minimal so upstream CVE-fix resyncs stay cheap:
+
+1. **Filename rename** (Phase 1b): `shpopen.c`, `dbfopen.c`, `safileio.c`
+   renamed to `.cpp` and compiled as C++17.  Upstream already emits C++-style
+   casts under `__cplusplus` (see `shapefil_private.h` cast macros and the
+   `extern "C"` guards in `shapefil.h`), so `shpopen.cpp` compiles cleanly
+   with `clang++ -std=c++17 -Wall -Wextra -Wpedantic` without any source
+   edits.
+2. **`dbfopen.cpp` CPLsprintf dedupe** (Phase 1b): the upstream file defines
+   `CPLsprintf`/`CPLsnprintf` twice — once before the MSVC snprintf shim
+   (upstream lines 25-26) and once after (lines 48-49).  The pre-shim block
+   is redundant (sprintf has no shim; snprintf is remapped just below), so
+   it was removed.  A comment in-place marks the delta.
+3. **`safileio.cpp` old-style casts modernised** (Phase 1b): every C-style
+   cast in this file (both the POSIX hooks and the Windows
+   `SHPAPI_WINDOWS`/UTF-8 hooks) converted to `reinterpret_cast` for
+   pointer-vs-pointer conversions (SAFile↔FILE*, malloc→wchar_t*, etc.) and
+   `static_cast` for numeric widenings (SAOffset↔size_t/long/__int64,
+   strlen→int).  Semantics unchanged; the file now compiles cleanly under
+   `-Wold-style-cast`.
+
+Resync procedure
+----------------
+When picking up a new upstream release (e.g., after a CVE fix):
+
+1. Download the upstream tarball.
+2. Overwrite `src/{shpopen,dbfopen,safileio,shapefil,shapefil_private}.*`
+   with the upstream files (as `.c` and `.h`).
+3. Re-rename the three translation units back to `.cpp`.
+4. Re-apply the delta list above (a, b).
+5. Update this file's `Version` line and diff.
+6. Run the Phase-0 corpus safety net —
+   `ctest --test-dir build-test -R librecad_tests --output-on-failure` after
+   `cmake --build build-test --target librecad_tests -j12` — to prove
+   behavior is unchanged over the 31 corpus shapefiles under `test_data/shp/`.
+7. Also run `qmake6 librecad.pro && make -j12` to confirm the dual build.

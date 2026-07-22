@@ -105,6 +105,8 @@ add_subdirectory(picfile)
 add_subdirectory(plotequation)
 add_subdirectory(pointstocsv)
 add_subdirectory(gear)
+# importshp plugin removed in Phase 5 of docs/plan_shp_native_filter.md;
+# superseded by the native RS_FilterSHP filter (File->Open path).
 
 # Compile plugin translations (.ts → .qm)
 # Note: qt_add_translations is commented out to avoid duplicate resource definition

@@ -1,0 +1,253 @@
+{
+  "basic_2d": [
+    {
+      "name": "points.shp",
+      "shp_size": 352,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "pointz.shp",
+      "shp_size": 184,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "polygons.shp",
+      "shp_size": 676,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "polylines.shp",
+      "shp_size": 376,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "world_borders.shp",
+      "shp_size": 448188,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "multi_part/multipoint.shp",
+      "shp_size": 27556,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "z_m_types/multipointm.shp",
+      "shp_size": 236,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "z_m_types/pointm.shp",
+      "shp_size": 208,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "z_m_types/polygonm.shp",
+      "shp_size": 292,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "z_m_types/polylinem.shp",
+      "shp_size": 388,
+      "has_shx": false,
+      "has_prj": false
+    }
+  ],
+  "multi": [
+    {
+      "name": "multi_part_polyline.shp",
+      "shp_size": 264,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "multipoints.shp",
+      "shp_size": 356,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "multi_part/bc_hospitals.shp",
+      "shp_size": 1332,
+      "has_shx": true,
+      "has_prj": true
+    }
+  ],
+  "null_edge": [
+    {
+      "name": "missing_shx.shp",
+      "shp_size": 196,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "null_shape.shp",
+      "shp_size": 164,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/empty.shp",
+      "shp_size": 100,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/null.shp",
+      "shp_size": 288,
+      "has_shx": true,
+      "has_prj": false
+    }
+  ],
+  "attribute_types": [
+    {
+      "name": "real_world/boolean-property.shp",
+      "shp_size": 352,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/date-property.shp",
+      "shp_size": 184,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/mixed-properties.shp",
+      "shp_size": 184,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/number-null-property.shp",
+      "shp_size": 852,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/number-property.shp",
+      "shp_size": 184,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/string-property.shp",
+      "shp_size": 184,
+      "has_shx": true,
+      "has_prj": false
+    }
+  ],
+  "encoding": [
+    {
+      "name": "real_world/latin1-property.shp",
+      "shp_size": 128,
+      "has_shx": true,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/utf8-property.shp",
+      "shp_size": 128,
+      "has_shx": true,
+      "has_prj": false,
+      "has_cpg": true
+    }
+  ],
+  "real_world": [
+    {
+      "name": "real_world/Chi-SDOH.shp",
+      "shp_size": 1914232,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "real_world/TM_WORLD_BORDERS-0.2.shp",
+      "shp_size": 6478464,
+      "has_shx": true,
+      "has_prj": true
+    },
+    {
+      "name": "real_world/ignore-properties.shp",
+      "shp_size": 184,
+      "has_shx": false,
+      "has_prj": false
+    },
+    {
+      "name": "real_world/singleton.shp",
+      "shp_size": 128,
+      "has_shx": false,
+      "has_prj": false
+    }
+  ],
+  "handmade": [
+    {
+      "name": "malformed_dbf.shp",
+      "shp_size": 152,
+      "has_shx": true,
+      "has_prj": false
+    }
+  ],
+  "corrupt": [
+    {
+      "name": "malformed_truncated.shp",
+      "shp_size": 152,
+      "has_shx": true,
+      "has_prj": false
+    }
+  ],
+  "generated_z_types": [
+    {
+      "name": "polygonz.shp",
+      "shp_size": 268,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "polylinez.shp",
+      "shp_size": 296,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "multipointz.shp",
+      "shp_size": 260,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    },
+    {
+      "name": "multipatch.shp",
+      "shp_size": 528,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py"
+    }
+  ],
+  "generated_hostile": [
+    {
+      "name": "dos_npoints.shp",
+      "shp_size": 220,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py",
+      "expect": "SHPReadObject returns null (nPoints=60M > 50M cap)"
+    },
+    {
+      "name": "dos_nparts.shp",
+      "shp_size": 220,
+      "has_shx": true,
+      "has_prj": false,
+      "generator": "scripts/make_shp_fixtures.py",
+      "expect": "SHPReadObject returns null (nParts=15M > 10M cap)"
+    }
+  ]
+}
