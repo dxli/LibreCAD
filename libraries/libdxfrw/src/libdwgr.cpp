@@ -1313,7 +1313,18 @@ bool dwgRW::processDwg() {
         ret = ret2;
     }
 
-    ret2 = reader->readDwgTables(hdr);
+    // readDwgTables/Blocks/Entities/Objects all depend on a valid header,
+    // classes map and object handle map from the phases above -- on a
+    // corrupted file where one of those already failed (ret is false),
+    // running them anyway walks whatever ended up in ObjectMap (empty,
+    // partial, or built from garbage offsets) and pays full CRC/decompress
+    // cost per bogus "entity"/"object" before each is individually reported
+    // as a parse failure. `ret &&` short-circuits the call once ret is
+    // false, turning that multi-second futile parse into a fast, clear
+    // error return; the already-set error code (from whichever phase failed
+    // first) is preserved, matching the existing "first failure wins"
+    // pattern below.
+    ret2 = ret && reader->readDwgTables(hdr);
     if (ret && !ret2) {
         error = DRW::BAD_READ_TABLES;
         ret = ret2;
@@ -1360,19 +1371,19 @@ bool dwgRW::processDwg() {
         iface->addUCS(const_cast<DRW_UCS&>(*u));
     }
 
-    ret2 = reader->readDwgBlocks(*iface);
+    ret2 = ret && reader->readDwgBlocks(*iface);
     if (ret && !ret2) {
         error = DRW::BAD_READ_BLOCKS;
         ret = ret2;
     }
 
-    ret2 = reader->readDwgEntities(*iface);
+    ret2 = ret && reader->readDwgEntities(*iface);
     if (ret && !ret2) {
         error = DRW::BAD_READ_ENTITIES;
         ret = ret2;
     }
 
-    ret2 = reader->readDwgObjects(*iface);
+    ret2 = ret && reader->readDwgObjects(*iface);
     if (ret && !ret2) {
         error = DRW::BAD_READ_OBJECTS;
         ret = ret2;
