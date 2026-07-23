@@ -43,12 +43,44 @@ RScodec::RScodec(unsigned int pp, int mm, int tt) {
     RSgenerate_gf(pp) ;
     /* compute the generator polynomial for this RS code */
     RSgen_poly() ;
+
+    // decode() scratch buffers -- see the member declarations in rscodec.h.
+    const int bb = nn - kk;
+    recd = new (std::nothrow) int[nn];
+    elp = new int*[bb + 2];
+    for (int i = 0; i < bb + 2; ++i) {
+        elp[i] = new int[bb];
+    }
+    d = new int[bb + 2];
+    l = new int[bb + 2];
+    u_lu = new int[bb + 2];
+    s = new int[bb + 1];
+    root = new int[tt];
+    loc = new int[tt];
+    z = new int[tt + 1];
+    err = new int[nn];
+    reg = new int[tt + 1];
 }
 
 RScodec::~RScodec() {
     delete[] alpha_to;
     delete[] index_of;
     delete[] gg;
+
+    delete[] recd;
+    for (int i = 0; i < nn - kk + 2; ++i) {
+        delete[] elp[i];
+    }
+    delete[] elp;
+    delete[] d;
+    delete[] l;
+    delete[] u_lu;
+    delete[] s;
+    delete[] root;
+    delete[] loc;
+    delete[] z;
+    delete[] err;
+    delete[] reg;
 }
 
 
@@ -394,39 +426,9 @@ int RScodec::decode(unsigned char *data) {
     if (!isOk) {
         return -1;
     }
-    int bb = nn-kk;; //nn-kk length of parity data
+    const int bb = nn-kk; //nn-kk length of parity data
 
-    int *recd = new (std::nothrow) int[nn];
-    int **elp = new int*[bb + 2];
-    for (int i = 0; i < bb + 2; ++i) {
-        elp[i] = new int[bb];
-    }
-    int *d = new int[bb + 2];
-    int *l = new int[bb + 2];
-    int *u_lu = new int[bb + 2];
-    int *s = new int[bb + 1];
-    int *root = new int[tt];
-    int *loc = new int[tt];
-    int *z = new int[tt+1];
-    int *err = new int[nn];
-    int *reg = new int[tt + 1];
-
-    int res = calcDecode(data, recd, elp ,d ,l, u_lu, s, root, loc ,z, err, reg, bb);
-
-    delete[] recd;
-    for (int i = 0; i < bb + 2; ++i) {
-        delete[] elp[i];
-    }
-    delete[] elp;
-    delete[] d;
-    delete[] l;
-    delete[] u_lu;
-    delete[] s;
-    delete[] root;
-    delete[] loc;
-    delete[] z;
-    delete[] err;
-    delete[] reg;
-
-    return res;
+    // Scratch buffers are member-owned (sized once in the constructor) and
+    // reused across every call -- see the member declarations in rscodec.h.
+    return calcDecode(data, recd, elp, d, l, u_lu, s, root, loc, z, err, reg, bb);
 }

@@ -353,6 +353,13 @@ bool dwgReader::readDwgHandles(dwgBuffer *dbuf, std::uint64_t offset, std::uint6
     DRW_DBG("\nSection HANDLES size= "); DRW_DBG(size);
     DRW_DBG("\nSection HANDLES maxPos= "); DRW_DBG(maxPos);
 
+    // Each entry is >= 2 bytes (a 1-byte-minimum modular-char handle delta +
+    // a 1-byte-minimum modular-char location delta), so size/2 is a safe
+    // upper bound on entry count. Avoids repeated rehashing while the loop
+    // below fills ObjectMap -- large DWGs have hundreds of thousands of
+    // handles.
+    ObjectMap.reserve(size / 2);
+
     std::uint64_t startPos = offset;
     bool end = false;
 

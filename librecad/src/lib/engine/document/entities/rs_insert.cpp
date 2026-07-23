@@ -51,12 +51,20 @@ const QString& layerZeroName() {
     return name;
 }
 
-bool layerNameEquals(RS_Layer *layer, const QString &name) {
+// Cheap, unvalidated name check -- only safe for a layer pointer known to be
+// live (e.g. straight from RS_Entity::getLayer() on a real, still-owned
+// entity). NOT a substitute for RS_Entity::layerNameEquals(), which validates
+// the pointer first: block clones can retain dangling layer pointers (see
+// RS_Entity::validatedLayer's doc comment), and calling this on one would be
+// a use-after-free. Named distinctly from the RS_Entity member of a similar
+// name so an unqualified call from inside an RS_Insert member function can't
+// silently resolve to the wrong one via C++ name lookup.
+bool layerIsNamed(RS_Layer *layer, const QString &name) {
     return layer != nullptr && layer->getName().compare(name, Qt::CaseInsensitive) == 0;
 }
 
 bool usesInheritedLayer(const RS_Entity& entity) {
-    return layerNameEquals(entity.getLayer(), layerZeroName());
+    return layerIsNamed(entity.getLayer(), layerZeroName());
 }
 
 // Expanded INSERTs are flattened, so the derived child must retain the
@@ -408,9 +416,13 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
         }
         applyTransform(*clone, transform, parts);
         RS_Layer* layer = clone->getLayer();
-        if (layerNameEquals(layer, layerZeroName()))
+        // Validate once and reuse -- layer can be a dangling pointer left
+        // over from the block clone (see RS_Entity::validatedLayer), so this
+        // check cannot be skipped or replaced with the cheap layerIsNamed().
+        RS_Layer* validated = layer != nullptr ? this->validatedLayer(layer) : nullptr;
+        if (validated != nullptr && layerIsNamed(validated, layerZeroName()))
             clone->setLayer(inheritedLayer);
-        else if (layer != nullptr && validatedLayer(layer) == nullptr)
+        else if (layer != nullptr && validated == nullptr)
             clone->setLayer(nullptr);
         clone->setParent(this);
         clone->setVisible(hasEffectiveInsertVisibility(source, inheritedVisibility));
@@ -574,7 +586,10 @@ void RS_Insert::update(const RS_InsertExpansionBudget& budget) {
                     break;
                 }
                 RS_Layer* nestedLayer = nested.getLayer();
-                if (layerNameEquals(nestedLayer, layerZeroName()))
+                // Validating member call (nestedLayer can be dangling, as in
+                // appendLeaf above) -- kept explicit so it can't be mistaken
+                // for the cheap free-function layerIsNamed().
+                if (this->layerNameEquals(nestedLayer, layerZeroName()))
                     nestedLayer = item.inheritedLayer;
                 const bool nestedVisibility =
                     hasEffectiveInsertVisibility(nested, item.inheritedVisibility)

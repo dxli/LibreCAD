@@ -57,27 +57,42 @@ public:
     // getInstance()/print -- so on the common disabled path there is no
     // getInstance() call and no virtual isDebugEnabled(). Debug is off by
     // default; these were the two hottest functions in a large DWG read.
-    template<typename T> static void dbg(T&& v) {
+    //
+    // [[gnu::always_inline]] forces these trivial wrappers to collapse to a
+    // single load-global+branch at every call site instead of a real `bl`;
+    // measured at ~3500 DRW_DBG(...) call sites in the entity/object parse
+    // hot path, the compiler was NOT inlining the string-literal overload on
+    // its own (it inlines the numeric overloads fine), costing ~4% of a large
+    // DWG parse just to test a bool and return. MSVC silently ignores this
+    // attribute rather than erroring -- a missed optimization there, not a
+    // build break.
+    template<typename T> [[gnu::always_inline]] static void dbg(T&& v) {
         if (s_enabled) getInstance()->print(std::forward<T>(v));
     }
-    template<typename T> static void dbgH(T&& v) {
+    template<typename T> [[gnu::always_inline]] static void dbgH(T&& v) {
         if (s_enabled) getInstance()->printH(std::forward<T>(v));
     }
-    template<typename T> static void dbgB(T&& v) {
+    template<typename T> [[gnu::always_inline]] static void dbgB(T&& v) {
         if (s_enabled) getInstance()->printB(std::forward<T>(v));
     }
     template<typename C, typename S, typename H>
-    static void dbgHL(C&& c, S&& s, H&& h) {
+    [[gnu::always_inline]] static void dbgHL(C&& c, S&& s, H&& h) {
         if (s_enabled) getInstance()->printHL(std::forward<C>(c),
                                               std::forward<S>(s),
                                               std::forward<H>(h));
     }
     template<typename X, typename Y, typename Z>
-    static void dbgPT(X&& x, Y&& y, Z&& z) {
+    [[gnu::always_inline]] static void dbgPT(X&& x, Y&& y, Z&& z) {
         if (s_enabled) getInstance()->printPT(std::forward<X>(x),
                                               std::forward<Y>(y),
                                               std::forward<Z>(z));
     }
+    // const char* overload wins by array-to-pointer decay over print(const
+    // std::string&) for every DRW_DBG("literal") call site (the overwhelming
+    // majority), so the std::string construction it needs stays inside this
+    // one out-of-line function instead of being duplicated at every call
+    // site -- that duplication was what defeated always_inline above.
+    void print(const char *s);
     void print(const std::string &s);
     void print(signed char i);
     void print(unsigned char i);

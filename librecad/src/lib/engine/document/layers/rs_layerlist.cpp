@@ -52,6 +52,7 @@ RS_LayerList::~RS_LayerList() {
  */
 void RS_LayerList::clear() {
     m_layers.clear();
+    m_layerSet.clear();
     setModified(true);
 }
 
@@ -136,6 +137,7 @@ void RS_LayerList::add(RS_Layer* layerToAdd) {
     RS_Layer* existingLayer = find(layerToAdd->getName());
     if (existingLayer == nullptr) {
         m_layers.append(layerToAdd);
+        m_layerSet.insert(layerToAdd);
         this->sort();
         // notify listeners
         fireLayerAdded(layerToAdd);
@@ -183,6 +185,7 @@ void RS_LayerList::remove(RS_Layer* layerToRemove) {
 
     // here the layer is removed from the list but not deleted
     m_layers.removeOne(layerToRemove);
+    m_layerSet.remove(layerToRemove);
 
     fireLayerRemoved(layerToRemove);
 

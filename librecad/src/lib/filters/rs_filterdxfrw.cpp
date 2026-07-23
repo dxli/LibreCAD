@@ -1229,6 +1229,7 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
     // sub-imports use a separate child filter, so this never wipes parent state.
     m_blockHash.clear();
     m_importLayerCache.clear();
+    m_importLayerRawCache.clear();
     m_mlineStyleCache.clear();
     m_underlayDefMap.clear();
     m_xrefBlockNames.clear();
@@ -1468,10 +1469,22 @@ bool RS_FilterDXFRW::fileImport(RS_Graphic& g, const QString& file, [[maybe_unus
  */
 RS_Layer *RS_FilterDXFRW::importLayerForEntity(const QString &layName,
                                                const std::string &rawLayerName) {
+    // Fast path: most entities repeat one of a handful of distinct layer
+    // names, so a raw-string hit here skips the NFC-normalization pass below
+    // entirely. A raw-key hit can only return a layer that was itself
+    // resolved (and validated) via the normalized-key path below for this
+    // exact byte-identical string, so there is no correctness difference
+    // from a miss -- just a skipped normalization.
+    auto rawCached = m_importLayerRawCache.constFind(layName);
+    if (rawCached != m_importLayerRawCache.constEnd())
+        return rawCached.value();
+
     const QString key = layName.normalized(QString::NormalizationForm_C);
     auto cached = m_importLayerCache.constFind(key);
-    if (cached != m_importLayerCache.constEnd())
+    if (cached != m_importLayerCache.constEnd()) {
+        m_importLayerRawCache.insert(layName, cached.value());
         return cached.value();
+    }
 
     RS_Layer *layer = m_graphic->findLayer(layName);
     if (layer == nullptr) {
@@ -1480,8 +1493,10 @@ RS_Layer *RS_FilterDXFRW::importLayerForEntity(const QString &layName,
         addLayer(lay);
         layer = m_graphic->findLayer(layName);
     }
-    if (layer != nullptr)
+    if (layer != nullptr) {
         m_importLayerCache.insert(key, layer);
+        m_importLayerRawCache.insert(layName, layer);
+    }
     return layer;
 }
 

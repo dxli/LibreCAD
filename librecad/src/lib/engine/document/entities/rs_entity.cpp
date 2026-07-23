@@ -811,8 +811,8 @@ RS_Layer *RS_Entity::validatedLayer(RS_Layer *layer) const {
     if (g == nullptr)
         return nullptr;
     RS_LayerList *list = g->getLayerList();
-    // getIndex only compares pointers — safe even if layer is dangling.
-    if (list == nullptr || list->getIndex(layer) < 0)
+    // contains() only compares pointers — safe even if layer is dangling.
+    if (list == nullptr || !list->contains(layer))
         return nullptr;
     return layer;
 }

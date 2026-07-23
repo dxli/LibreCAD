@@ -546,6 +546,13 @@ private:
     QHash<int, RS_EntityContainer*> m_blockHash;
     /** Per-import layer cache keyed by NFC-normalized name. */
     QHash<QString, RS_Layer *> m_importLayerCache;
+    /** Fast-path mirror of m_importLayerCache keyed by the RAW (pre-
+     *  normalization) name, checked first in importLayerForEntity() so a
+     *  repeated layer name (the common case: few distinct layers, many
+     *  entities) skips the NFC-normalization pass entirely on a hit. Falls
+     *  back to m_importLayerCache (which does normalize) on a miss, so this
+     *  is purely additive -- never the only source of truth for a name. */
+    QHash<QString, RS_Layer *> m_importLayerRawCache;
     /** Pointer to entity container to store possible orphan entities like paper space */
     RS_EntityContainer* m_dummyContainer = nullptr;
     void applyParsedDimStyleExtData(const LC_DimStyle* dimStyle, const QString& appName, const std::vector<DRW_Variant>& vector);

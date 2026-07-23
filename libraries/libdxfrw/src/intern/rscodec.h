@@ -62,6 +62,26 @@ private:
     bool isOk;
     unsigned int *index_of;
     int *alpha_to;
+
+    // calcDecode() scratch buffers, sized once from nn/tt/(nn-kk) in the
+    // constructor and reused by every decode() call on this instance instead
+    // of being new[]/delete[]'d per call -- decode() runs once per 255-byte
+    // codeword, so a large DWG section can call it thousands of times.
+    // Non-reentrant (a single instance can't run two decode() calls at once),
+    // which is fine: callers (dwgRSCodec::decode239I/decode251I) construct one
+    // RScodec and call decode() in a plain sequential loop, never concurrently
+    // or recursively.
+    int *recd;
+    int **elp;
+    int *d;
+    int *l;
+    int *u_lu;
+    int *s;
+    int *root;
+    int *loc;
+    int *z;
+    int *err;
+    int *reg;
 };
 
 #endif

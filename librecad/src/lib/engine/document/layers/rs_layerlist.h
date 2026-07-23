@@ -29,6 +29,7 @@
 #define RS_LAYERLIST_H
 
 #include <QList>
+#include <QSet>
 
 class RS_Layer;
 class RS_LayerListListener;
@@ -71,6 +72,12 @@ public:
     RS_Layer* find(const QString& name);
     int getIndex(const QString& name);
     int getIndex(RS_Layer* layer) const;
+    //! O(1) membership test -- use this instead of getIndex(layer) >= 0 when
+    //! only "is this pointer still in the list" is needed (the common case:
+    //! validating a possibly-dangling RS_Layer* before dereferencing it).
+    bool contains(RS_Layer* layer) const {
+        return m_layerSet.contains(layer);
+    }
 
     void addListener(RS_LayerListListener* listener);
     void removeListener(RS_LayerListListener* listener);
@@ -126,6 +133,9 @@ protected:
 private:
     //! layers in the graphic
     QList<RS_Layer*> m_layers;
+    //! mirror of m_layers for O(1) contains(); kept in sync at every
+    //! mutation point (add/remove/clear) -- sort() never changes membership.
+    QSet<RS_Layer*> m_layerSet;
     //! List of registered LayerListListeners
     QList<RS_LayerListListener*> m_layerListListeners;
     RS_Layer* m_activeLayer = nullptr;
