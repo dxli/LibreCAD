@@ -58,6 +58,10 @@ sudo codesign --force --deep --sign - LibreCAD.app
 [`libdxfrw`](https://github.com/LibreCAD/libdxfrw) is an associated project that allows LibreCAD to read DXF and DWG files.
 
 
+## ESRI Shapefile (.shp) Import
+LibreCAD can natively import ESRI Shapefiles (`.shp`/`.shx`/`.dbf`), built with [`shapelib`](https://shapelib.maptools.org/). Points, polylines/arcs, and polygons are imported as native entities (Z preserved), with DBF-driven layers and per-entity styling (color, linetype, width) where the corresponding fields are present. Import is read-only; there is no Shapefile export.
+
+
 ## Requests and Bug Reports
 
 - [GitHub Issues (preferred)](https://github.com/LibreCAD/LibreCAD/issues)
