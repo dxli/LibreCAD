@@ -33,6 +33,14 @@ public:
     virtual bool setPos(std::uint64_t p) = 0;
     virtual bool good() const = 0;
     virtual dwgBasicStream* clone() const = 0;
+    //! Direct read-only pointer to [pos, pos+n) in the underlying buffer, for
+    //! streams that are already fully in memory -- lets a caller (crc8/crc32)
+    //! fold over the bytes in place instead of seeking + copying into a
+    //! scratch buffer. Returns nullptr (default) if out of range or if this
+    //! stream has no contiguous backing memory (e.g. a real ifstream), so
+    //! callers must always have a safe seek+copy fallback for that case.
+    //! Never advances/mutates the stream's own position.
+    virtual const std::uint8_t* directPointer(std::uint64_t, std::uint64_t) const { return nullptr; }
 };
 
 class dwgFileStream: public dwgBasicStream{
@@ -67,6 +75,9 @@ public:
     bool setPos(std::uint64_t p) override;
     bool good() const override {return isOk;}
     dwgBasicStream* clone() const override {return new dwgCharStream(stream, sz);}
+    const std::uint8_t* directPointer(std::uint64_t p, std::uint64_t n) const override {
+        return (n <= sz && p <= sz - n) ? stream + p : nullptr;
+    }
 private:
     std::uint8_t *stream{nullptr};
     std::uint64_t sz{0};

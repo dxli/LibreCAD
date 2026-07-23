@@ -906,31 +906,53 @@ bool dwgBuffer::getBytes(unsigned char *buf, std::uint64_t size){
     return true;
 }
 
+namespace {
+// Fold helpers -- identical logic used by both the direct-pointer fast path
+// and the seek+copy fallback below, so the two can never diverge.
+std::uint16_t crc8Fold(const std::uint8_t *p, int n, std::uint16_t dx) {
+    while (n-- > 0) {
+        std::uint8_t al = (std::uint8_t)((*p) ^ ((std::int8_t)(dx & 0xFF)));
+        dx = (dx>>8) & 0xFF;
+        dx = dx ^ crctable[al & 0xFF];
+        p++;
+    }
+    return dx;
+}
+std::uint32_t crc32Fold(const std::uint8_t *p, int n, std::uint32_t seed) {
+    std::uint32_t invertedCrc = ~seed;
+    while (n-- > 0) {
+        std::uint8_t data = *p++;
+        invertedCrc = (invertedCrc >> 8) ^ crc32Table[(invertedCrc ^ data) & 0xff];
+    }
+    return ~invertedCrc;
+}
+} // namespace
+
 std::uint16_t dwgBuffer::crc8(std::uint16_t dx,std::int32_t start,std::int32_t end){
     // Guard against a negative/empty byte range from a corrupt section size:
     // `new std::uint8_t[end-start]` would compute a negative size (huge size_t).
     // An empty fold leaves the seed unchanged, so return dx.
     if (end <= start)
         return dx;
+    int n = end-start;
+    // Fast path: fold directly over the already-in-memory buffer (the common
+    // case -- pages/records are read into a dwgCharStream) instead of
+    // seeking + copying into a scratch buffer. Byte-identical to the
+    // fallback: directPointer returns the exact bytes dwgCharStream::read()
+    // would have copied, and never moves the stream's own position, so
+    // there is nothing to save/restore here.
+    if (const std::uint8_t *dp = filestr->directPointer(
+            static_cast<std::uint64_t>(start), static_cast<std::uint64_t>(n)))
+        return crc8Fold(dp, n, dx);
+
     std::uint64_t pos = filestr->getPos();
     filestr->setPos(start);
-    int n = end-start;
     std::vector<std::uint8_t> tmpBuf(n);
-    std::uint8_t *p = tmpBuf.data();
     filestr->read (tmpBuf.data(),n);
     filestr->setPos(pos);
     if (!filestr->good())
         return 0;
-
-    std::uint8_t al;
-
-  while (n-- > 0) {
-    al = (std::uint8_t)((*p) ^ ((std::int8_t)(dx & 0xFF)));
-    dx = (dx>>8) & 0xFF;
-    dx = dx ^ crctable[al & 0xFF];
-    p++;
-  }
-  return(dx);
+    return crc8Fold(tmpBuf.data(), n, dx);
 }
 
 std::uint32_t dwgBuffer::crc32(std::uint32_t seed,std::int32_t start,std::int32_t end){
@@ -938,22 +960,20 @@ std::uint32_t dwgBuffer::crc32(std::uint32_t seed,std::int32_t start,std::int32_
     // identity of this fold is the seed: ~(~seed) == seed.
     if (end <= start)
         return seed;
+    int n = end-start;
+    // Fast path -- see crc8 above.
+    if (const std::uint8_t *dp = filestr->directPointer(
+            static_cast<std::uint64_t>(start), static_cast<std::uint64_t>(n)))
+        return crc32Fold(dp, n, seed);
+
     std::uint64_t pos = filestr->getPos();
     filestr->setPos(start);
-    int n = end-start;
     std::vector<std::uint8_t> tmpBuf(n);
-    std::uint8_t *p = tmpBuf.data();
     filestr->read (tmpBuf.data(),n);
     filestr->setPos(pos);
     if (!filestr->good())
         return 0;
-
-    std::uint32_t invertedCrc = ~seed;
-    while (n-- > 0) {
-    std::uint8_t data = *p++;
-    invertedCrc = (invertedCrc >> 8) ^ crc32Table[(invertedCrc ^ data) & 0xff];
-    }
-    return ~invertedCrc;
+    return crc32Fold(tmpBuf.data(), n, seed);
 }
 
 
