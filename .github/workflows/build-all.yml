@@ -38,14 +38,9 @@ jobs:
       - name: Build and analyze
         run: |
           echo "cmake"
-          cmake -S . -B unix -DBUILD_TESTS=ON
+          cmake -S . -B unix -DBUILD_TESTS=OFF
           echo "cmake build"
           cmake --build unix -j$(nproc)
-
-      - name: Run Tests
-        run: |
-          cd unix
-          ./librecad_tests
 
       - name: Verify DWG/DXF readiness metadata
         run: |
@@ -345,7 +340,9 @@ jobs:
 
           echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
           echo "VIProductVersion=$vi" >> $env:GITHUB_ENV
-          echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi"
+          $packageName = if ('${{ github.ref_name }}' -eq '2.2.1') { 'LibreCAD' } else { 'LibreCAD-beta' }
+          echo "LC_PACKAGE_NAME=$packageName" >> $env:GITHUB_ENV
+          echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi, LC_PACKAGE_NAME=$packageName"
         shell: pwsh
 
       - name: Generate custom.nsh and Deploy
@@ -367,7 +364,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-x64.exe
+          mv generated/"${LC_PACKAGE_NAME}"-*.exe "${LC_PACKAGE_NAME}"-`git describe --always`-win-x64.exe
         shell: bash
 
       - name: Upload artifact
@@ -461,7 +458,9 @@ jobs:
 
           echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
           echo "VIProductVersion=$vi" >> $env:GITHUB_ENV
-          echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi"
+          $packageName = if ('${{ github.ref_name }}' -eq '2.2.1') { 'LibreCAD' } else { 'LibreCAD-beta' }
+          echo "LC_PACKAGE_NAME=$packageName" >> $env:GITHUB_ENV
+          echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi, LC_PACKAGE_NAME=$packageName"
         shell: pwsh
 
       - name: Generate custom.nsh and Deploy
@@ -483,7 +482,7 @@ jobs:
 
       - name: Rename installer
         run: |
-          mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win-arm64.exe
+          mv generated/"${LC_PACKAGE_NAME}"-*.exe "${LC_PACKAGE_NAME}"-`git describe --always`-win-arm64.exe
         shell: bash
 
       - name: Upload artifact

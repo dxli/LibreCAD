@@ -98,6 +98,19 @@ if "!SCMREVISION!"=="unknown" (
     set SCMREVISION=2.2.2-alpha
 )
 echo "SCMREVISION=%SCMREVISION%"
+if "!LC_PACKAGE_NAME!"=="" (
+    set "LC_PACKAGE_NAME=LibreCAD"
+    echo(!SCMREVISION!| findstr /I /C:"alpha" /C:"beta" >nul
+    if !errorlevel! equ 0 set "LC_PACKAGE_NAME=LibreCAD-beta"
+    findstr /I /C:"alpha" /C:"beta" "librecad\src\src.pro" >nul
+    if !errorlevel! equ 0 set "LC_PACKAGE_NAME=LibreCAD-beta"
+)
+if /I not "!LC_PACKAGE_NAME!"=="LibreCAD" if /I not "!LC_PACKAGE_NAME!"=="LibreCAD-beta" (
+    echo [ERROR] LC_PACKAGE_NAME must be LibreCAD or LibreCAD-beta, got: !LC_PACKAGE_NAME!
+    popd
+    exit /b 1
+)
+echo "LC_PACKAGE_NAME=%LC_PACKAGE_NAME%"
 :: Input string (e.g., 2.2.1.3-*, 2.2.2-alpha)
 set "input=%SCMREVISION%"
 if "!input!"=="" set "input=2.2.2-alpha*"
@@ -158,6 +171,6 @@ if not "!LC_ARCH!"=="" (
 )
 rem Pass the extracted SCMREVISION to NSIS
 echo "SCMREVISION=%SCMREVISION%"
-set NSIS_FLAGS=!NSIS_FLAGS! /DSCMREVISION="!SCMREVISION!" /DVIProductVersion="!VIProductVersion!"
+set NSIS_FLAGS=!NSIS_FLAGS! /DAPPNAME="!LC_PACKAGE_NAME!" /DSCMREVISION="!SCMREVISION!" /DVIProductVersion="!VIProductVersion!"
 makensis.exe !NSIS_FLAGS! %LC_NSIS_FILE%
 popd

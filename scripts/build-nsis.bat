@@ -6,6 +6,7 @@ rem
 rem Inputs (env vars; all optional):
 rem   LC_ARCH         AMD64 (default) or ARM64 - passed to NSIS as /D<ARCH>
 rem   LC_NSIS_FILE    NSIS script under scripts/postprocess-windows (default: nsis-msvc.nsi)
+rem   LC_PACKAGE_NAME LibreCAD or LibreCAD-beta. Auto-derived from SCMREVISION if empty.
 rem   SCMREVISION     Version string (e.g. 2.2.2-alpha-12-gabc1234). Auto-derived if empty/"unknown".
 rem   VIProductVersion  4-part X.X.X.X for VS_VERSION_INFO. Auto-derived from SCMREVISION if empty.
 rem   NSIS_DIR        Directory containing makensis.exe (default: C:\Program Files (x86)\NSIS)
@@ -23,16 +24,30 @@ if "%SCMREVISION%"=="" set "SCMREVISION=unknown"
 if /I "%SCMREVISION%"=="unknown" call :derive_scmrevision
 echo [INFO] SCMREVISION=!SCMREVISION!
 
-rem ── 2. VIProductVersion ───────────────────────────────────────────────────
+rem ── 2. Package name ───────────────────────────────────────────────────────
+if "!LC_PACKAGE_NAME!"=="" (
+    set "LC_PACKAGE_NAME=LibreCAD"
+    echo(!SCMREVISION!| findstr /I /C:"alpha" /C:"beta" >nul
+    if !errorlevel! equ 0 set "LC_PACKAGE_NAME=LibreCAD-beta"
+    findstr /I /C:"alpha" /C:"beta" "!REPO_ROOT!\librecad\src\src.pro" >nul
+    if !errorlevel! equ 0 set "LC_PACKAGE_NAME=LibreCAD-beta"
+)
+if /I not "!LC_PACKAGE_NAME!"=="LibreCAD" if /I not "!LC_PACKAGE_NAME!"=="LibreCAD-beta" (
+    echo [ERROR] LC_PACKAGE_NAME must be LibreCAD or LibreCAD-beta, got: !LC_PACKAGE_NAME!
+    exit /b 1
+)
+echo [INFO] LC_PACKAGE_NAME=!LC_PACKAGE_NAME!
+
+rem ── 3. VIProductVersion ───────────────────────────────────────────────────
 if "%VIProductVersion%"=="" call :derive_viproductversion
 echo [INFO] VIProductVersion=!VIProductVersion!
 echo [INFO] LC_ARCH=!LC_ARCH!
 
-rem ── 3. Run makensis ───────────────────────────────────────────────────────
+rem ── 4. Run makensis ───────────────────────────────────────────────────────
 pushd "%~dp0postprocess-windows"
 
 set NSIS_FLAGS=/X"SetCompressor /FINAL lzma" /V4 /D!LC_ARCH!
-set NSIS_FLAGS=!NSIS_FLAGS! /DSCMREVISION="!SCMREVISION!" /DVIProductVersion="!VIProductVersion!"
+set NSIS_FLAGS=!NSIS_FLAGS! /DAPPNAME="!LC_PACKAGE_NAME!" /DSCMREVISION="!SCMREVISION!" /DVIProductVersion="!VIProductVersion!"
 
 echo [INFO] Running: makensis !NSIS_FLAGS! !LC_NSIS_FILE!
 makensis.exe !NSIS_FLAGS! "!LC_NSIS_FILE!"
