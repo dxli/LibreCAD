@@ -1,0 +1,31 @@
+name: Test PR 2876 clean Windows ARM64 installation
+on:
+  push:
+    branches:
+      - codex/test-pr-2876-install-20261016
+permissions:
+  contents: read
+  actions: read
+jobs:
+  InstallWindowsARM64:
+    runs-on: windows-11-vs2026-arm
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the tested ARM64 installer
+        uses: actions/download-artifact@v4
+        with:
+          name: pr2876-windows-arm64
+          run-id: 38997838521
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build-artifact
+      - name: Install and test without development Qt
+        shell: pwsh
+        run: ./install-verify.ps1
+      - name: Upload installation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr2876-clean-arm64-installation
+          retention-days: 7
+          path: install-evidence/**
