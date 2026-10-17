@@ -102,6 +102,7 @@ foreach ($runtime in @('msvcp140.dll', 'vcruntime140.dll')) {
 Assert-True (@(Get-ChildItem "$appDir/resources/fonts" -Filter *.lff -Recurse).Count -gt 0) 'Installer contains CAD fonts.'
 Assert-True (@(Get-ChildItem "$appDir/resources/qm" -Filter librecad_*.qm).Count -gt 0) 'Installer contains application translations.'
 Assert-True (@(Get-ChildItem $appDir -Recurse -Filter *.tlog).Count -eq 0) 'Installer contains no MSBuild tlog intermediates.'
+Assert-True (@(Get-ChildItem $appDir -Recurse -File -Include *.lib,*.pdb).Count -eq 0) 'Installer excludes root and nested build archives and debug symbols.'
 
 $env:QT_QPA_PLATFORM = 'offscreen'
 $env:PATH = (($env:PATH -split ';') | Where-Object { $_ -notmatch '(?i)[\\/]Qt[\\/]|msvc2022|[\\/]VC[\\/]' }) -join ';'

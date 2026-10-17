@@ -77,6 +77,7 @@ try {
     }
 }
 $files = @(Get-ChildItem $destination -File -Recurse)
+Assert-True (@($files | Where-Object { $_.Extension -in @('.lib', '.pdb') }).Count -eq 0) 'Installed runtime contains no build archives or debug symbols.'
 $files | ForEach-Object { $_.FullName.Substring($destination.Length + 1) } | Out-File "$evidence/installed-files.txt"
 $files | ForEach-Object { [pscustomobject]@{Name = $_.FullName.Substring($destination.Length + 1); Bytes = $_.Length} } | ConvertTo-Json | Out-File "$evidence/installed-sizes.json"
 $process = Start-Process -FilePath "$destination/Uninstall.exe" -ArgumentList @('/S', "_?=$destination") -PassThru

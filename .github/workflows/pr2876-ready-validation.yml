@@ -1,0 +1,123 @@
+---
+name: PR 2876 revised native installer verification
+'on':
+  push:
+    branches:
+    - codex/pr2876-readiness-validation
+permissions:
+  contents: read
+  actions: read
+jobs:
+  PackageWindowsARM64:
+    runs-on: windows-11-vs2026-arm
+    timeout-minutes: 30
+    steps:
+    - name: Checkout tested PR head
+      uses: actions/checkout@v4
+      with:
+        repository: dxli/LibreCAD
+        ref: '029b8dec1e754932df484b3f1f4ba54c00595e69'
+        fetch-depth: 0
+    - name: Checkout verification scripts
+      uses: actions/checkout@v4
+      with:
+        path: pr2876-harness
+    - name: Download verified native ARM64 binaries
+      uses: actions/download-artifact@v4
+      with:
+        name: pr2876-windows-arm64
+        run-id: 39000450836
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        path: prebuilt
+    - name: Enforce packaging-only changes and prepare runtime
+      shell: pwsh
+      run: "./pr2876-harness/prepare-runtime.ps1"
+    - name: Install Qt6
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: 6.9.*
+        host: windows_arm64
+        arch: win64_msvc2022_arm64
+        target: desktop
+        tools-only: 'false'
+        modules: qt5compat qtimageformats qtshadertools
+    - name: "(3) Add MSBuild to PATH"
+      uses: microsoft/setup-msbuild@v2
+      with:
+        msbuild-architecture: arm64
+    - name: Extract version (SCMREVISION)
+      id: extract_version
+      run: |
+        $scmRevision = "2.2.2-alpha"
+        if (Test-Path .git) {
+          $out = (git describe --always 2>$null) | Out-String
+          if ($LASTEXITCODE -eq 0 -and $out.Trim()) { $scmRevision = $out.Trim() }
+        }
+
+        $vi = "0.0.0.0"
+        if ($scmRevision -match '^v?(\d+)\.(\d+)(?:\.(\d+))?[^-]*(?:-(\d+))?') {
+          $major = $Matches[1]
+          $minor = $Matches[2]
+          $patch = if ($Matches[3]) { $Matches[3] } else { '0' }
+          $build = if ($Matches[4]) { $Matches[4] } else { '0' }
+          $vi = "$major.$minor.$patch.$build"
+        }
+
+        echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
+        echo "VIProductVersion=$vi" >> $env:GITHUB_ENV
+        echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi"
+      shell: pwsh
+    - name: Generate custom.nsh and Deploy
+      run: |
+        cd "${{ github.workspace }}"
+        powershell.exe -ExecutionPolicy Bypass -File scripts\generate-custom-nsh.ps1 -Architecture ARM64 -OutputPath "scripts\postprocess-windows\custom.nsh"
+        if errorlevel 1 exit /b 1
+
+        cd generated
+        windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
+        if errorlevel 1 exit /b 1
+        cd ..
+        xcopy /E /Y /I generated\Release windows
+        if errorlevel 1 exit /b 1
+        if not exist windows\Qt6Core.dll exit /b 1
+        if not exist windows\platforms\qwindows.dll exit /b 1
+        for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+        for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+        powershell.exe -ExecutionPolicy Bypass -File scripts\copy-vc-runtime.ps1 -Architecture ARM64 -Destination windows
+        if errorlevel 1 exit /b 1
+        set LC_ARCH=ARM64
+        call "${{ github.workspace }}\scripts\build-nsis.bat"
+      shell: cmd
+    - name: Verify new installer architecture and payload
+      shell: pwsh
+      run: "./pr2876-harness/verify.ps1 -Mode Payload"
+    - name: Upload revised installer
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: pr2876-ready-arm64
+        retention-days: 7
+        path: |
+          generated/LibreCAD-*.exe
+          pr2876-evidence/**
+  InstallWindowsARM64:
+    needs: PackageWindowsARM64
+    runs-on: windows-11-vs2026-arm
+    timeout-minutes: 15
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download revised installer
+      uses: actions/download-artifact@v4
+      with:
+        name: pr2876-ready-arm64
+        path: build-artifact
+    - name: Verify clean installation without development Qt
+      shell: pwsh
+      run: "./install-verify.ps1"
+    - name: Upload clean installation evidence
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: pr2876-ready-clean-install
+        retention-days: 7
+        path: install-evidence/**
