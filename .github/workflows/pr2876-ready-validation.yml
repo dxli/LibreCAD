@@ -15,7 +15,7 @@ jobs:
     - name: Checkout tested PR head
       uses: actions/checkout@v4
       with:
-        repository: dxli/LibreCAD
+        repository: LibreCAD/LibreCAD
         ref: '029b8dec1e754932df484b3f1f4ba54c00595e69'
         fetch-depth: 0
     - name: Checkout verification scripts
