@@ -1,0 +1,137 @@
+---
+name: Test PR 2876 Windows ARM64 installer
+'on':
+  push:
+    branches:
+    - codex/test-pr-2876-20261016
+permissions:
+  contents: read
+jobs:
+  BuildWindowsARM64:
+    runs-on: windows-11-vs2026-arm
+    steps:
+    - name: Checkout current upstream master
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 193a366d14821efa1b6279522de8b5d287f3ce45
+        fetch-depth: 0
+        submodules: recursive
+    - name: Checkout isolated test harness
+      uses: actions/checkout@v4
+      with:
+        path: pr2876-harness
+    - name: Apply exact PR 2876 patch
+      shell: pwsh
+      run: |
+        git apply --check pr2876-harness/pr2876.patch
+        if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        git apply pr2876-harness/pr2876.patch
+        if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        git diff --check
+        if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        git diff --stat
+    - name: Install Qt6
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: 6.9.*
+        host: windows_arm64
+        arch: win64_msvc2022_arm64
+        target: desktop
+        tools-only: 'false'
+        modules: qt5compat qtimageformats qtshadertools
+    - name: "(3) Add MSBuild to PATH"
+      uses: microsoft/setup-msbuild@v2
+      with:
+        msbuild-architecture: arm64
+    - name: Install boost
+      run: |
+        curl -# -L -o boost.7z https://archives.boost.io/release/1.87.0/source/boost_1_87_0.7z
+        7z x -o. -y boost.7z
+        mv boost_1_87_0 boost
+        rm boost.7z
+        pwd
+        ls -ld boost/boost/version.hpp
+      shell: bash
+    - name: Configure CMake
+      run: 'cmake.exe -S . -B generated -G "Visual Studio 18 2026" -A ARM64 -T v143
+        -DBOOST_ROOT="%CD%\boost"
+
+        '
+      shell: cmd
+      env:
+        BUILD_TYPE: release
+        MSVC_VER_NUMBER: Visual Studio 17 2022
+        CXXFLAGS: "/MP"
+    - name: Build
+      run: 'cmake --build generated --config Release --parallel
+
+        '
+      shell: cmd
+    - name: listFile
+      run: |
+        cd generated
+        dir *.*
+        dir Release\*.*
+      shell: cmd
+    - name: List files
+      run: |
+        echo "${{ github.workspace }}"
+        dir "${{ github.workspace }}"
+      shell: cmd
+    - name: Extract version (SCMREVISION)
+      id: extract_version
+      run: |
+        $scmRevision = "2.2.2-alpha"
+        if (Test-Path .git) {
+          $out = (git describe --always 2>$null) | Out-String
+          if ($LASTEXITCODE -eq 0 -and $out.Trim()) { $scmRevision = $out.Trim() }
+        }
+
+        $vi = "0.0.0.0"
+        if ($scmRevision -match '^v?(\d+)\.(\d+)(?:\.(\d+))?[^-]*(?:-(\d+))?') {
+          $major = $Matches[1]
+          $minor = $Matches[2]
+          $patch = if ($Matches[3]) { $Matches[3] } else { '0' }
+          $build = if ($Matches[4]) { $Matches[4] } else { '0' }
+          $vi = "$major.$minor.$patch.$build"
+        }
+
+        echo "SCMREVISION=$scmRevision" >> $env:GITHUB_ENV
+        echo "VIProductVersion=$vi" >> $env:GITHUB_ENV
+        echo "Extracted: SCMREVISION=$scmRevision, VIProductVersion=$vi"
+      shell: pwsh
+    - name: Reproduce old bug and test real deployment failures
+      shell: pwsh
+      run: "./pr2876-harness/verify.ps1 -Mode Failures"
+    - name: Generate custom.nsh and Deploy
+      run: |
+        cd "${{ github.workspace }}"
+        powershell.exe -ExecutionPolicy Bypass -File scripts\generate-custom-nsh.ps1 -Architecture ARM64 -OutputPath "scripts\postprocess-windows\custom.nsh"
+
+        cd generated
+        windeployqt6.exe --release --compiler-runtime Release\LibreCAD.exe
+        if errorlevel 1 exit /b 1
+        cd ..
+        xcopy /E /Y /I generated\Release windows
+        if errorlevel 1 exit /b 1
+        for /r generated %%f in (librecad_*.qm) do copy "%%f" librecad\ts\
+        for /r generated %%f in (plugins_*.qm) do copy "%%f" plugins\ts\
+        powershell.exe -ExecutionPolicy Bypass -File scripts\copy-vc-runtime.ps1 -Architecture ARM64 -Destination windows
+        if errorlevel 1 exit /b 1
+        set LC_ARCH=ARM64
+        call "${{ github.workspace }}\scripts\build-nsis.bat"
+      shell: cmd
+    - name: Inspect installer and run isolated application
+      shell: pwsh
+      run: "./pr2876-harness/verify.ps1 -Mode Payload"
+    - name: Upload test installer and evidence
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: pr2876-windows-arm64
+        retention-days: 7
+        path: |
+          generated/LibreCAD-*.exe
+          pr2876-evidence/**
+    timeout-minutes: 60
