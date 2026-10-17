@@ -68,6 +68,7 @@ jobs:
 
         '
       shell: cmd
+      id: build_application
     - name: listFile
       run: |
         cd generated
@@ -122,8 +123,11 @@ jobs:
         set LC_ARCH=ARM64
         call "${{ github.workspace }}\scripts\build-nsis.bat"
       shell: cmd
+      id: deploy_application
+      if: always() && steps.build_application.outcome == 'success'
     - name: Inspect installer and run isolated application
       shell: pwsh
+      if: always() && steps.deploy_application.outcome == 'success'
       run: "./pr2876-harness/verify.ps1 -Mode Payload"
     - name: Upload test installer and evidence
       uses: actions/upload-artifact@v4
@@ -133,5 +137,7 @@ jobs:
         retention-days: 7
         path: |
           generated/LibreCAD-*.exe
+          generated/Release/*.exe
+          generated/Release/**/*.dll
           pr2876-evidence/**
-    timeout-minutes: 60
+    timeout-minutes: 90

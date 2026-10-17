@@ -21,11 +21,13 @@ if ($Mode -eq 'Failures') {
         if ($case -in @('copy-failure', 'success')) {
             Copy-Item "$root/generated/Release" "$directory/generated/Release" -Recurse
         }
-        if ($case -eq 'copy-failure') {
-            Set-Content "$directory/windows" 'a file, not a staging directory'
-        }
         $batch = if ($case -eq 'old-path') { 'original-deploy.cmd' } else { 'fixed-deploy.cmd' }
         Copy-Item "$PSScriptRoot/$batch" "$directory/deploy.cmd"
+        if ($case -eq 'copy-failure') {
+            $content = Get-Content "$directory/deploy.cmd" -Raw
+            $content = $content.Replace('xcopy /E /Y /I generated\Release windows', "ren generated\Release Release-deployed`r`nxcopy /E /Y /I generated\Release windows")
+            [IO.File]::WriteAllText("$directory/deploy.cmd", $content, [Text.Encoding]::ASCII)
+        }
         Push-Location $directory
         try {
             & cmd.exe /d /c deploy.cmd 2>&1 | Tee-Object -FilePath "$evidence/$case.log" | Write-Host
@@ -45,7 +47,7 @@ if ($Mode -eq 'Failures') {
                 Assert-True (-not (Test-Path "$directory/windows")) 'No staging occurs after failed deployment.'
             }
             'copy-failure' {
-                Assert-True (Test-Path "$directory/generated/Release/Qt6Core.dll") 'windeployqt succeeded before the injected copy failure.'
+                Assert-True (Test-Path "$directory/generated/Release-deployed/Qt6Core.dll") 'windeployqt succeeded before the injected copy failure.'
                 Assert-True ($code -ne 0 -and -not $reached) 'Fixed batch stops on real xcopy failure.'
             }
             'success' {
