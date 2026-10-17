@@ -76,7 +76,9 @@ try {
         if (-not $gui.WaitForExit(5000)) { $gui.Kill(); $gui.WaitForExit() }
     }
 }
-Get-ChildItem $destination -File -Recurse | ForEach-Object { $_.FullName.Substring($destination.Length + 1) } | Out-File "$evidence/installed-files.txt"
+$files = @(Get-ChildItem $destination -File -Recurse)
+$files | ForEach-Object { $_.FullName.Substring($destination.Length + 1) } | Out-File "$evidence/installed-files.txt"
+$files | ForEach-Object { [pscustomobject]@{Name = $_.FullName.Substring($destination.Length + 1); Bytes = $_.Length} } | ConvertTo-Json | Out-File "$evidence/installed-sizes.json"
 $process = Start-Process -FilePath "$destination/Uninstall.exe" -ArgumentList @('/S', "_?=$destination") -PassThru
 Wait-Native $process 'silent uninstallation' 180000
 Assert-True (-not (Test-Path $uninstallKey)) 'Uninstaller removes the ARM64 uninstall entry.'
