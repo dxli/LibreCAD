@@ -1,0 +1,414 @@
+# Copyright (C) 2026 librecad.org and Dongxu Li
+---
+name: PR 3157 stable CI validation
+concurrency:
+  group: pr3157-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  BuildLinux:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Install Qt5
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: 5.15.*
+    - name: Install dependencies
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -qq install \
+        libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2
+        sudo apt-get -qq install clang clang-tools
+        sudo rm -rf /usr/local/lib/android
+    - name: Build and analyze
+      run: |
+        export CC=g++
+        export ANALYZE="scan-build -o out --use-cc=g++ --use-analyzer=/usr/bin/clang++ "
+        ${ANALYZE}qmake -r librecad.pro CONFIG+=debug_and_release PREFIX=/usr
+        ${ANALYZE}make release -j$(nproc)
+    - name: Create AppImage
+      run: |
+        ./CI/build-appimg.sh
+        pwd
+        echo  ${{github.workspace}}
+        ls  ${{github.workspace}}/
+        ls  ${{github.workspace}}/**.AppImage
+        ls
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: linuxAssets
+        path: "${{github.workspace}}/LibreCAD*.AppImage"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildLinuxAarch64:
+    runs-on: ubuntu-22.04-arm
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Install dependencies
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -qq install libqt5svg5 libqwt-qt5-dev imagemagick
+        sudo apt-get -qq install qt5-qmake libqt5core5a libqt5gui5 libqt5widgets5 libqt5printsupport5 libqt5svg5-dev \
+        libqt5pdf5 libqt5scripttools5 libqt5dbus5 libqt5charts5-dev qttools5-dev-tools \
+        libgl-dev libmuparser-dev libboost-dev librsvg2-bin libfreetype6-dev libicu-dev pkg-config libfuse2 \
+        qttranslations5-l10n
+        sudo rm -rf /usr/local/lib/android
+    - name: Build
+      run: |
+        /usr/lib/qt5/bin/qmake -r librecad.pro CONFIG+=debug_and_release PREFIX=/usr
+        make release -j$(nproc)
+    - name: Create AppImage
+      run: |
+        ./CI/build-appimg-aarch64.sh
+        pwd
+        echo  ${{github.workspace}}
+        ls  ${{github.workspace}}/
+        ls  ${{github.workspace}}/**.AppImage
+        ls
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: linuxAarch64Assets
+        path: "${{github.workspace}}/LibreCAD*.AppImage"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildSnap:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Build snap
+      id: snap
+      uses: canonical/action-build@v1
+    - name: Rename snap
+      run: mv "${{ steps.snap.outputs.snap }}" "LibreCAD-$(git describe --always).snap"
+    - name: Uploading snap
+      uses: actions/upload-artifact@v5
+      with:
+        name: snapAssets
+        path: "${{ github.workspace }}/LibreCAD*.snap"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildMacOS:
+    runs-on: macos-15-intel
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Install Qt5
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: 5.15.*
+        host: mac
+        target: desktop
+        arch: clang_64
+    - name: update Qt5
+      run: |
+        sed -i'' -e 's:isEmpty(QMAKE_DEFAULT_LIBDIRS)|isEmpty(QMAKE_DEFAULT_INCDIRS):isEmpty("H"):' $Qt5_Dir/mkspecs/features/toolchain.prf
+        sed -i'' -e 's:error("failed to parse default search paths from compiler output"):LIBRECAD_SDK=:' $Qt5_Dir/mkspecs/features/toolchain.prf
+    - name: Install dependencies
+      run: |
+        rm -f /usr/local/bin/2to3
+        brew install boost
+    - name: Kill XProtectBehaviorService
+      run: |
+        echo Killing XProtect.
+        sudo pkill -9 XProtect >/dev/null || true
+    - name: Build and packaging
+      run: |
+        scripts/build-osx.sh -cert=-
+        mv LibreCAD.dmg LibreCAD-`git describe --always`.dmg
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: macOSAssets
+        path: "${{github.workspace}}/LibreCAD*.dmg"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildMacOSArm64:
+    runs-on: macos-15
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Install dependencies
+      run: |
+        rm -f /usr/local/bin/2to3
+        brew install boost qt@5
+        echo "/opt/homebrew/opt/qt@5/bin" >> $GITHUB_PATH
+    - name: update Qt5
+      run: |
+        sed -i'' -e 's:isEmpty(QMAKE_DEFAULT_LIBDIRS)|isEmpty(QMAKE_DEFAULT_INCDIRS):isEmpty("H"):' /opt/homebrew/opt/qt@5/mkspecs/features/toolchain.prf
+        sed -i'' -e 's:error("failed to parse default search paths from compiler output"):LIBRECAD_SDK=:' /opt/homebrew/opt/qt@5/mkspecs/features/toolchain.prf
+    - name: Kill XProtectBehaviorService
+      run: |
+        echo Killing XProtect.
+        sudo pkill -9 XProtect >/dev/null || true
+    - name: Build and packaging
+      env:
+        QMAKE_OPTS: QMAKE_APPLE_DEVICE_ARCHS=arm64
+      run: |
+        scripts/build-osx.sh -cert=-
+        mv LibreCAD.dmg LibreCAD-`git describe --always`-arm64.dmg
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: macOSArm64Assets
+        path: "${{github.workspace}}/LibreCAD*.dmg"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildWindows:
+    runs-on: windows-2022
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Setup MSVC developer environment (32-bit)
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x86
+    - name: Install Qt-5.15 (MSVC 2019 32-bit)
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: 5.15.*
+        host: windows
+        target: desktop
+        arch: win32_msvc2019
+        dir: ".."
+        install-deps: 'true'
+        cache: 'false'
+        setup-python: 'true'
+        set-env: 'true'
+        aqtversion: "==3.1.*"
+        py7zrversion: "==0.20.*"
+        extra: "--external 7z"
+    - name: Install boost
+      shell: bash
+      run: |
+        curl -# -L -o boost.7z https://archives.boost.io/release/1.87.0/source/boost_1_87_0.7z
+        7z x -o. -y boost.7z
+        mv boost_1_87_0 ../boost
+        rm boost.7z
+    - name: Configure for MSVC
+      shell: cmd
+      run: |
+        copy CI\custom-win.pri custom.pri
+        copy CI\custom-win.nsh scripts\postprocess-windows\custom.nsh
+    - name: Build and package with script (MSVC-compatible)
+      shell: cmd
+      run: |
+        pushd "${{github.workspace}}\scripts"
+        build-windows.bat
+    - name: Verify deployed Windows payload
+      shell: cmd
+      run: |
+        if not exist windows\LibreCAD.exe exit /b 1
+        if not exist windows\Qt5Core.dll exit /b 1
+        if not exist windows\platforms\qwindows.dll exit /b 1
+    - name: Rename installer
+      shell: bash
+      run: 'mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-msvc.exe
+
+        '
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: win32Assets
+        path: "${{github.workspace}}/LibreCAD*.exe"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  BuildWindows64:
+    runs-on: windows-2022
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Test installer version parsing
+      shell: powershell
+      run: "./scripts/tests/installer-version-tests.ps1"
+    - name: Setup MSVC developer environment (64-bit)
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+    - name: Install Qt-5.15 (MSVC 2019 64-bit)
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: 5.15.*
+        host: windows
+        target: desktop
+        arch: win64_msvc2019_64
+        dir: ".."
+        install-deps: 'true'
+        cache: 'false'
+        setup-python: 'true'
+        set-env: 'true'
+        aqtversion: "==3.1.*"
+        py7zrversion: "==0.20.*"
+        extra: "--external 7z"
+    - name: Install boost
+      shell: bash
+      run: |
+        curl -# -L -o boost.7z https://archives.boost.io/release/1.87.0/source/boost_1_87_0.7z
+        7z x -o. -y boost.7z
+        mv boost_1_87_0 ../boost
+        rm boost.7z
+    - name: Configure for MSVC
+      shell: cmd
+      run: |
+        copy CI\custom-win.pri custom.pri
+        copy CI\custom-win-x64.nsh scripts\postprocess-windows\custom.nsh
+    - name: Build and package with script (MSVC-compatible)
+      shell: cmd
+      run: |
+        pushd "${{github.workspace}}\scripts"
+        build-windows.bat
+    - name: Verify deployed Windows payload
+      shell: cmd
+      run: |
+        if not exist windows\LibreCAD.exe exit /b 1
+        if not exist windows\Qt5Core.dll exit /b 1
+        if not exist windows\platforms\qwindows.dll exit /b 1
+    - name: Rename installer
+      shell: bash
+      run: 'mv generated/LibreCAD-*.exe LibreCAD-`git describe --always`-win64-msvc.exe
+
+        '
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: win64Assets
+        path: "${{github.workspace}}/LibreCAD*.exe"
+        retention-days: 2
+        if-no-files-found: error
+    timeout-minutes: 180
+  RegressionTests:
+    name: Qt 5 stable regression tests
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+    - name: Checkout exact PR 3157 source
+      uses: actions/checkout@v4
+      with:
+        repository: LibreCAD/LibreCAD
+        ref: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
+        fetch-depth: 0
+    - name: Verify exact PR source
+      shell: bash
+      run: |
+        test "$(git rev-parse HEAD)" = "$PR_SOURCE_SHA"
+        git diff --exit-code
+        git log -1 --oneline
+    - name: Install Qt 5 CMake test dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends build-essential cmake ninja-build \
+          qtbase5-dev libqt5svg5-dev qttools5-dev qttools5-dev-tools \
+          libboost-dev libfreetype6-dev libgl-dev
+        qmake -query QT_VERSION
+    - name: Configure and build stable regression tests
+      run: |
+        cmake -S . -B ci-tests -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
+        cmake --build ci-tests --target librecad_static_analysis_tests --parallel 2
+        git rev-parse HEAD > ci-tests/source-sha.txt
+    - name: Run full stable static-analysis regression suite
+      run: |
+        export HOME="$RUNNER_TEMP/pr3157-test-home"
+        export QT_QPA_PLATFORM=offscreen
+        mkdir -p "$HOME"
+        ctest --test-dir ci-tests -R '^static_analysis$' --output-on-failure \
+          --output-junit results.xml
+    - name: Retain regression test results
+      if: "${{ always() }}"
+      uses: actions/upload-artifact@v5
+      with:
+        name: pr3157-qt5-regression-results
+        path: |-
+          ci-tests/Testing/Temporary/LastTest.log
+          ci-tests/results.xml
+          ci-tests/source-sha.txt
+          ci-tests/CMakeCache.txt
+        retention-days: 7
+        if-no-files-found: warn
+'on':
+  push:
+    branches:
+    - codex/pr3157-ci
+permissions:
+  contents: read
+env:
+  PR_SOURCE_SHA: 0d7fc7e20eae6286f051f01c2f01df724d7d950a
