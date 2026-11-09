@@ -1,3 +1,5 @@
+Warning: marker3256 was declared with const; use let for reassignable variables.
+Warning: index3256 was declared with const; use let for reassignable variables.
 /****************************************************************************
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
@@ -20299,15 +20301,21 @@ TEST_CASE("DWG R2004 page cannot extend past the logical section",
 
 TEST_CASE("DWG R2004 page rejects an output window past its allocation",
           "[dwg][r2004][safety]") {
-    const std::vector<std::uint8_t> compressed{
-        0x01, 0xA1, 0xB2, 0xC3, 0xD4, 0x11
-    };
-    const auto encoded = makeAc18DataPage(0, 1, compressed, 1, 4);
+    std::vector<std::uint8_t> compressed{0x01, 0xA1, 0xB2, 0xC3, 0xD4};
+    for (std::uint8_t i = 0; i < 6; ++i) {
+        compressed.push_back(0xF1);
+        compressed.push_back(0x00);
+        compressed.push_back(static_cast<std::uint8_t>(0xE0 + i));
+    }
+    compressed.push_back(0x61);
+    compressed.push_back(0x00);
+    compressed.push_back(0xEE);
+    const auto encoded = makeAc18DataPage(0, 1, compressed, 1, 100);
 
     dwgSectionInfo section;
     section.Id = 1;
     section.size = 4;
-    section.maxSize = 4;
+    section.maxSize = 100;
     section.compressed = 2;
     section.pageCount = 1;
     dwgPageInfo pageInfo(1, 0, encoded.size());
