@@ -20297,6 +20297,33 @@ TEST_CASE("DWG R2004 page cannot extend past the logical section",
     CHECK(reader.decodedStateForTest() == previousState);
 }
 
+TEST_CASE("DWG R2004 page rejects an output window past its allocation",
+          "[dwg][r2004][safety]") {
+    const std::vector<std::uint8_t> compressed{
+        0x01, 0xA1, 0xB2, 0xC3, 0xD4, 0x11
+    };
+    const auto encoded = makeAc18DataPage(0, 1, compressed, 1, 4);
+
+    dwgSectionInfo section;
+    section.Id = 1;
+    section.size = 4;
+    section.maxSize = 4;
+    section.compressed = 2;
+    section.pageCount = 1;
+    dwgPageInfo pageInfo(1, 0, encoded.size());
+    pageInfo.dataSize = compressed.size();
+    pageInfo.startOffset = 1;
+    section.pages.emplace(1, pageInfo);
+
+    DwgDataPageReader18Probe reader(std::make_unique<dwgBuffer>(
+        const_cast<std::uint8_t*>(encoded.data()), encoded.size()));
+    reader.setVersionForTest(DRW::AC1018);
+    const std::vector<std::uint8_t> previousState{0xA5, 0x5A};
+    reader.setDecodedStateForTest(previousState);
+    CHECK_FALSE(reader.parseDataPage(section));
+    CHECK(reader.decodedStateForTest() == previousState);
+}
+
 TEST_CASE("DWG section capacity accounts for omitted zero pages",
           "[dwg][safety]") {
     std::uint64_t capacity = 0;
