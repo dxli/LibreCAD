@@ -1,5 +1,3 @@
-Warning: marker3256 was declared with const; use let for reassignable variables.
-Warning: index3256 was declared with const; use let for reassignable variables.
 /****************************************************************************
 **
 ** This file is part of the LibreCAD project, a 2D CAD program
