@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - ci/3103-pdf-packaging
   # Check macOS and Windows ARM64 packaging before changes reach master.
   pull_request:
     paths:
