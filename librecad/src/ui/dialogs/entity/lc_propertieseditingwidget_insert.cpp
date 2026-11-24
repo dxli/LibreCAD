@@ -23,6 +23,8 @@
 
 #include "lc_propertieseditingwidget_insert.h"
 
+#include <cmath>
+
 #include <QSpinBox>
 
 #include "rs_insert.h"
@@ -30,6 +32,13 @@
 #include "ui_lc_propertieseditingwidget_insert.h"
 
 #define ALLOW_PICK_SCALE false
+
+namespace {
+// A factor a reference can use: zero and infinity empty it, a negative sign would mirror it.
+bool isScaleFactor(const double value) {
+    return std::isfinite(value) && value > 0.;
+}
+}
 
 LC_PropertiesEditingWidgetInsert::LC_PropertiesEditingWidgetInsert(QWidget *parent)
     : LC_EntityPropertiesEditorWidget(parent)
@@ -57,15 +66,41 @@ LC_PropertiesEditingWidgetInsert::~LC_PropertiesEditingWidgetInsert(){
 }
 
 void LC_PropertiesEditingWidgetInsert::onInsertionPointEditingFinished() const {
-    m_entity->setInsertionPoint(toWCS(ui->leInsertionPointX, ui->leInsertionPointY, m_entity->getInsertionPoint()));
+    const RS_Vector current = m_entity->getInsertionPoint();
+    const RS_Vector point = toWCS(ui->leInsertionPointX, ui->leInsertionPointY, current);
+    // An entry that is no finite number (1/0) is not taken: infinity and NaN would empty the reference.
+    if (std::isfinite(point.x) && std::isfinite(point.y)) {
+        m_entity->setInsertionPoint(point);
+    }
+    else {
+        toUI(current, ui->leInsertionPointX, ui->leInsertionPointY);
+    }
 }
 
 void LC_PropertiesEditingWidgetInsert::onScaleEditingFinishedChanged() const {
-    m_entity->setScale(toWCSRaw(ui->leScaleX,ui->leScaleY, m_entity->getScale()));
+    const RS_Vector current = m_entity->getScale();
+    RS_Vector scale = toWCSRaw(ui->leScaleX,ui->leScaleY, current);
+    // Only a positive factor is taken: any other entry is ignored, as an unusable count is.
+    // A mirrored reference keeps its sign until a positive factor is entered.
+    if (!isScaleFactor(scale.x)) {
+        scale.x = current.x;
+    }
+    if (!isScaleFactor(scale.y)) {
+        scale.y = current.y;
+    }
+    m_entity->setScale(scale);
+    // The fields show what the reference holds: an entry it did not take must not stay.
+    toUIRaw(m_entity->getScale(), ui->leScaleX, ui->leScaleY);
 }
 
 void LC_PropertiesEditingWidgetInsert::onAngleEditingFinished() const {
-    m_entity->setAngle(toWCSAngle(ui->leAngle, m_entity->getAngle()));
+    const double angle = toWCSAngle(ui->leAngle, m_entity->getAngle());
+    if (std::isfinite(angle)) {
+        m_entity->setAngle(angle);
+    }
+    else {
+        toUIAngleDeg(m_entity->getAngle(), ui->leAngle);
+    }
 }
 
 void LC_PropertiesEditingWidgetInsert::onRowsValueChanged(const int value) const {
@@ -77,8 +112,19 @@ void LC_PropertiesEditingWidgetInsert::onColsValueChanged(const int value) const
 }
 
 void LC_PropertiesEditingWidgetInsert::onSpacingEditingFinished() const {
-    m_entity->setSpacing(RS_Vector(RS_Math::eval(ui->leColSpacing->text()),
-                                 RS_Math::eval(ui->leRowSpacing->text())));
+    const RS_Vector current = m_entity->getSpacing();
+    RS_Vector spacing(toWCSValue(ui->leColSpacing, current.x), toWCSValue(ui->leRowSpacing, current.y));
+    // An entry that is no finite number is not taken, nor is text that is no number:
+    // the fields show what the reference holds.
+    if (!std::isfinite(spacing.x)) {
+        spacing.x = current.x;
+    }
+    if (!std::isfinite(spacing.y)) {
+        spacing.y = current.y;
+    }
+    m_entity->setSpacing(spacing);
+    toUIValue(m_entity->getSpacing().x, ui->leColSpacing);
+    toUIValue(m_entity->getSpacing().y, ui->leRowSpacing);
 }
 
 void LC_PropertiesEditingWidgetInsert::setupInteractiveInputWidgets() {
@@ -101,9 +147,8 @@ void LC_PropertiesEditingWidgetInsert::setEntity(RS_Entity* entity) {
 
     ui->sbRows->setValue(m_entity->getRows());
     ui->sbCols->setValue(m_entity->getCols());
-    QString s;
-    s.setNum(m_entity->getSpacing().y);
-    ui->leRowSpacing->setText(s);
-    s.setNum(m_entity->getSpacing().x);
-    ui->leColSpacing->setText(s);
+    // A field leaving the focus stores what it shows: setNum's six digits would round the spacing,
+    // so use the precision of the other fields.
+    toUIValue(m_entity->getSpacing().y, ui->leRowSpacing);
+    toUIValue(m_entity->getSpacing().x, ui->leColSpacing);
 }

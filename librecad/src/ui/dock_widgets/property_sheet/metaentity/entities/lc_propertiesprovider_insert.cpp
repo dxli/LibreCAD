@@ -23,6 +23,7 @@
 
 #include "lc_propertiesprovider_insert.h"
 
+#include "lc_property_double_spinbox_view.h"
 #include "rs_block.h"
 #include "rs_document.h"
 #include "rs_graphic.h"
@@ -39,8 +40,9 @@ void LC_PropertiesProviderInsert::doCreateEntitySpecificProperties(LC_PropertyCo
                                  const auto document = this->m_actionContext->getDocument();
                                  const auto graphic = document->getGraphic();
                                  if (graphic != nullptr) {
-                                     // Only blocks the reference can expand: not removed ones (kept for undo), not
-                                     // layout pseudo-blocks, and in a block's editor none that contain that block.
+                                     // Only blocks the reference can expand: not removed ones (kept for undo), and in
+                                     // a block's editor none that contain that block.
+                                     // The block the reference uses stays in the list.
                                      const QString edited = document->is(RS2::EntityBlock)
                                                                 ? static_cast<RS_Block*>(document)->getName()
                                                                 : QString();
@@ -48,11 +50,14 @@ void LC_PropertiesProviderInsert::doCreateEntitySpecificProperties(LC_PropertyCo
                                      const auto blockList = graphic->getBlockList();
                                      for (const auto& b : *blockList) {
                                          const QString name = b->getName();
-                                         if (name != h->getName() && (b->isDeleted() || name.startsWith('*') || (!edited.isEmpty()
-                                                 && (name == edited || !b->findNestedInsert(edited).isEmpty())))) {
+                                         if (b->isDeleted() || (!edited.isEmpty()
+                                                 && (name == edited || !b->findNestedInsert(edited).isEmpty()))) {
                                              continue;
                                          }
                                          values.append(name);
+                                     }
+                                     if (!values.contains(h->getName())) {
+                                         values.append(h->getName());
                                      }
                                      values.sort();
                                      descriptor[LC_PropertyQStringListComboBoxView::ATTR_ITEMS] = values;
@@ -67,23 +72,31 @@ void LC_PropertiesProviderInsert::doCreateEntitySpecificProperties(LC_PropertyCo
                              e->setInsertionPoint(v);
                          }, list, contGeometry);
 
-    // A factor, not a length: a plain number of any sign (zero is turned away by RS_Insert::setScale).
+    // A factor, not a length: a number above the tolerance. The spin box takes no minus sign (it would mirror
+    // the block) and ignores zero, before the entry reaches the references: a setter that ignored it would let
+    // the row copy the first reference's factor onto the others. (With a minimum of 0 Qt lets "-0.5" through as 0.)
+    // A step of 1 from the factor 1 would land on the minimum, so the step is 0.1.
+    auto funPositiveFactor = []([[maybe_unused]] RS_Insert* insert, LC_PropertyViewDescriptor& descriptor) -> bool {
+        descriptor.attributes[LC_PropertyDoubleSpinBoxView::ATTR_MIN] = RS_TOLERANCE;
+        descriptor.attributes[LC_PropertyDoubleSpinBoxView::ATTR_STEP] = 0.1;
+        return false;
+    };
+
     addDouble<RS_Insert>({"scaleX", tr("Scale X"), tr("Scale factor of block by X")}, [](const RS_Insert* e) -> double {
                              return e->getScale().x;
                          }, [](const double& v, RS_Insert* l) -> void {
                              RS_Vector scale = l->getScale();
                              scale.setX(v);
                              l->setScale(scale);
-                         }, list, contGeometry);
+                         }, list, contGeometry, funPositiveFactor);
 
-    // A factor, not a length: a plain number of any sign (zero is turned away by RS_Insert::setScale).
     addDouble<RS_Insert>({"scaleY", tr("Scale Y"), tr("Scale factor of block by Y")}, [](const RS_Insert* e) -> double {
                              return e->getScale().y;
                          }, [](const double& v, RS_Insert* l) -> void {
                              RS_Vector scale = l->getScale();
                              scale.setY(v);
                              l->setScale(scale);
-                         }, list, contGeometry);
+                         }, list, contGeometry, funPositiveFactor);
 
     addWCSAngle<RS_Insert>({"angle", tr("Angle"), tr("Block rotation angle")}, [](const RS_Insert* e) -> double {
                                return e->getAngle();

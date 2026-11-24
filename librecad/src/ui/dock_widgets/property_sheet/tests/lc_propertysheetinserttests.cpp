@@ -22,15 +22,22 @@
 ****************************************************************************/
 
 // The Insert panel of the property sheet: the Rows row that kept the wrong focus, the Block list that offered
-// blocks a reference cannot expand, the count rows without an upper limit and a zero scale factor.
+// blocks a reference cannot expand, the count rows without an upper limit, and a zero or negative scale factor.
+// A negative entry is refused by the spin box of the Scale rows, so those tests type into the editor the sheet opens.
 
 #include <catch2/catch_test_macros.hpp>
 
+#include <memory>
 #include <string>
+#include <vector>
 
 #include <QCoreApplication>
+#include <QDoubleSpinBox>
 #include <QEventLoop>
+#include <QKeyEvent>
+#include <QLineEdit>
 #include <QTimer>
+#include <QWidget>
 
 #include "lc_actioncontext.h"
 #include "lc_actiongroupmanager.h"
@@ -42,6 +49,7 @@
 #include "lc_property_int_spinbox_view.h"
 #include "lc_property_multi.h"
 #include "lc_property_qstring_list_combobox_view.h"
+#include "lc_property_view_factory.h"
 #include "lc_propertysheet_widget_options.h"
 #include "lc_propertysheetwidget.h"
 #include "rs_block.h"
@@ -87,6 +95,17 @@ RS_Insert* liveInsert(RS_EntityContainer& container) {
     return found;
 }
 
+/// the references of \p container that an edit has not replaced, in the order they were added
+std::vector<RS_Insert*> liveInserts(RS_EntityContainer& container) {
+    std::vector<RS_Insert*> found;
+    for (RS_Entity* e : container) {
+        if (e != nullptr && e->rtti() == RS2::EntityInsert && !e->isDeleted()) {
+            found.push_back(static_cast<RS_Insert*>(e));
+        }
+    }
+    return found;
+}
+
 /// the application comes first: a drawing reads its settings when it is built
 struct TestApplication {
     TestApplication() {
@@ -94,7 +113,7 @@ struct TestApplication {
     }
 };
 
-/// a property sheet over a drawing with block B (a line from 0,0 to 10,0) and the layout block *Paper_Space
+/// a property sheet over a drawing with block B (a line from 0,0 to 10,0)
 struct Sheet : TestApplication {
     LC_ActionContext context;
     LC_ActionGroupManager actions{nullptr};
@@ -109,16 +128,15 @@ struct Sheet : TestApplication {
         auto* block = new RS_Block(&graphic, RS_BlockData("B", RS_Vector(0, 0), false));
         block->addEntity(new RS_Line(block, RS_LineData(RS_Vector(0, 0), RS_Vector(10, 0))));
         graphic.addBlock(block);
-        graphic.addBlock(new RS_Block(&graphic, RS_BlockData("*Paper_Space", RS_Vector(0, 0), false)));
     }
 
     ~Sheet() {
         sheet.setGraphicView(nullptr);
     }
 
-    /// a reference of block B in \p container
-    RS_Insert* addInsert(RS_EntityContainer* container) {
-        auto* insert = new RS_Insert(container, RS_InsertData("B", RS_Vector(0, 0), RS_Vector(1, 1), 0., 1, 1, RS_Vector(0, 0)));
+    /// a reference of block B in \p container, with the scale factors \p scale
+    RS_Insert* addInsert(RS_EntityContainer* container, const RS_Vector& scale = RS_Vector(1, 1)) {
+        auto* insert = new RS_Insert(container, RS_InsertData("B", RS_Vector(0, 0), scale, 0., 1, 1, RS_Vector(0, 0)));
         container->addEntity(insert);
         insert->update();
         return insert;
@@ -126,7 +144,12 @@ struct Sheet : TestApplication {
 
     /// shows \p selected, an entity of \p document, in the sheet
     void open(RS_Document* document, RS_Entity* selected) {
-        document->select(QList<RS_Entity*>{selected}, true);
+        open(document, QList<RS_Entity*>{selected});
+    }
+
+    /// shows the row of every entity of \p selected, which are entities of \p document
+    void open(RS_Document* document, const QList<RS_Entity*>& selected) {
+        document->select(selected, true);
         view.setDocument(document);
         context.setDocumentAndView(document, &view);
         sheet.show();
@@ -157,6 +180,11 @@ struct Sheet : TestApplication {
         auto* typed = dynamic_cast<PropertyClass*>(multi->getFirstProperty());
         REQUIRE(typed != nullptr);
         REQUIRE(typed->setValue(value, LC_PropertyChangeReason(PropertyChangeReasonEdit) | PropertyChangeReasonValueNew));
+        apply(multi);
+    }
+
+    /// what the sheet does when the editor of a row is closed: it applies the entry to the selected entities
+    void apply(LC_PropertyMulti* multi) {
         sheet.onPropertyEdited(multi);
         waitMs(100);
     }
@@ -166,6 +194,53 @@ struct Sheet : TestApplication {
         const LC_PropertyViewDescriptor* descriptor = row("Block")->getFirstProperty()->getViewDescriptor();
         REQUIRE(descriptor != nullptr);
         return descriptor->attributes.value(LC_PropertyQStringListComboBoxView::ATTR_ITEMS).toStringList().join(",").toStdString();
+    }
+};
+
+/// the spin box the sheet opens on a number row, made the way the sheet makes it, and the keys a user presses in it
+struct SpinEditor {
+    std::unique_ptr<LC_PropertyView> view; // after the editor, which is destroyed first
+    QWidget parent;
+    QDoubleSpinBox* spinBox = nullptr;
+    QLineEdit* lineEdit = nullptr; // the text of the spin box
+
+    explicit SpinEditor(LC_PropertyMulti* multi) {
+        LC_PropertyAtomic* first = multi->getFirstProperty();
+        view.reset(LC_PropertyViewFactory::staticInstance()->createView(first));
+        view->setStateProperty(multi);
+        // a row can have no attributes at all: the sheet then applies none
+        const LC_PropertyViewDescriptor* attributes = first->getViewDescriptor();
+        view->applyAttributes(attributes != nullptr ? *attributes : LC_PropertyViewDescriptor());
+        auto* editable = dynamic_cast<LC_PropertyViewEditable*>(view.get());
+        REQUIRE(editable != nullptr);
+        spinBox = qobject_cast<QDoubleSpinBox*>(editable->createValueEditor(&parent, QRect(0, 0, 200, 24), nullptr));
+        REQUIRE(spinBox != nullptr);
+        lineEdit = spinBox->findChild<QLineEdit*>();
+        REQUIRE(lineEdit != nullptr);
+        multi->markEdited(true); // as the sheet does while the editor is open: an entry reaches every selected entity
+    }
+
+    /// what the editor shows
+    std::string shown() const {
+        return lineEdit->text().toStdString();
+    }
+
+    /// the user presses \p key in the editor (Up and Down step the value)
+    void press(const int key) {
+        QKeyEvent event(QEvent::KeyPress, key, Qt::NoModifier);
+        QCoreApplication::sendEvent(lineEdit, &event);
+    }
+
+    /// the user types \p text over the shown value, key by key, and presses Return
+    void enter(const char* text) {
+        lineEdit->selectAll();
+        for (const char* c = text; *c != '\0'; ++c) {
+            const int key = *c == '-' ? Qt::Key_Minus : *c == '.' ? Qt::Key_Period : Qt::Key_0 + (*c - '0');
+            QKeyEvent press(QEvent::KeyPress, key, Qt::NoModifier, QString(QChar(*c)));
+            QCoreApplication::sendEvent(lineEdit, &press);
+        }
+        QKeyEvent ret(QEvent::KeyPress, Qt::Key_Return, Qt::NoModifier);
+        QCoreApplication::sendEvent(spinBox, &ret);
     }
 };
 
@@ -186,24 +261,41 @@ TEST_CASE("The Rows row of a block reference keeps the focus when it is edited",
     CHECK(s.properties()->getActiveProperty()->getDisplayName().toStdString() == "Rows");
 }
 
-TEST_CASE("The Block list of a block reference leaves out layout blocks and removed blocks", "[gui][properties][insert]") {
+TEST_CASE("The Block list of a block reference leaves out removed blocks and lists the others once",
+          "[gui][properties][insert]") {
     Sheet s;
+    // an anonymous block expands as any
     s.graphic.addBlock(new RS_Block(&s.graphic, RS_BlockData("*U1", RS_Vector(0, 0), false)));
     auto* removed = new RS_Block(&s.graphic, RS_BlockData("R", RS_Vector(0, 0), false));
     s.graphic.addBlock(removed);
     removed->setFlag(RS2::FlagDeleted); // Blocks > Remove keeps the block in the list, flagged, for undo
     s.open(&s.graphic, s.addInsert(&s.graphic));
 
-    CHECK(s.blockNames() == "B");
+    CHECK(s.blockNames() == "*U1,B");
 
-    // a reference that already uses a layout block keeps showing it
-    Sheet anonymous;
-    anonymous.graphic.addBlock(new RS_Block(&anonymous.graphic, RS_BlockData("*U1", RS_Vector(0, 0), false)));
-    auto* insert = new RS_Insert(&anonymous.graphic, RS_InsertData("*U1", RS_Vector(0, 0), RS_Vector(1, 1), 0., 1, 1, RS_Vector(0, 0)));
-    anonymous.graphic.addEntity(insert);
-    anonymous.open(&anonymous.graphic, insert);
+    // a reference of a block that was removed keeps showing it
+    Sheet orphan;
+    auto* gone = new RS_Block(&orphan.graphic, RS_BlockData("G", RS_Vector(0, 0), false));
+    orphan.graphic.addBlock(gone);
+    auto* insert = new RS_Insert(&orphan.graphic,
+                                 RS_InsertData("G", RS_Vector(0, 0), RS_Vector(1, 1), 0., 1, 1, RS_Vector(0, 0)));
+    orphan.graphic.addEntity(insert);
+    gone->setFlag(RS2::FlagDeleted);
+    orphan.open(&orphan.graphic, insert);
 
-    CHECK(anonymous.blockNames() == "*U1,B");
+    CHECK(orphan.blockNames() == "B,G");
+
+    // a block removed and made again under its name is listed once
+    Sheet again;
+    RS_Block* old = again.graphic.getBlockList()->find("B");
+    REQUIRE(old != nullptr);
+    old->setFlag(RS2::FlagDeleted);
+    auto* fresh = new RS_Block(&again.graphic, RS_BlockData("B", RS_Vector(0, 0), false));
+    fresh->addEntity(new RS_Line(fresh, RS_LineData(RS_Vector(0, 0), RS_Vector(5, 0))));
+    REQUIRE(again.graphic.addBlock(fresh));
+    again.open(&again.graphic, again.addInsert(&again.graphic));
+
+    CHECK(again.blockNames() == "B");
 }
 
 TEST_CASE("In a block's editor the Block list leaves out that block and the blocks that contain it", "[gui][properties][insert]") {
@@ -242,4 +334,109 @@ TEST_CASE("A zero scale factor in the Scale X row keeps the block reference expa
     const RS_Insert* insert = liveInsert(s.graphic);
     CHECK(insert->getScale().x == 1.0);
     CHECK(insert->count() == 1);
+}
+
+TEST_CASE("The Scale X and Scale Y rows take no minus sign and ignore zero", "[gui][properties][insert]") {
+    Sheet s;
+    s.open(&s.graphic, s.addInsert(&s.graphic, RS_Vector(2, 3)));
+
+    // a negative factor would mirror the block: the spin box does not take the minus sign,
+    // so "-4" is 4 and "-0.5" is 0.5
+    {
+        LC_PropertyMulti* row = s.row("Scale X");
+        SpinEditor editor(row);
+        CHECK(editor.spinBox->minimum() == RS_TOLERANCE);
+        editor.enter("-4");
+        CHECK(editor.shown() == "4");
+        s.apply(row);
+    }
+    {
+        LC_PropertyMulti* row = s.row("Scale Y");
+        SpinEditor editor(row);
+        editor.enter("-0.5");
+        s.apply(row);
+    }
+    CHECK(liveInsert(s.graphic)->getScale().x == 4.0);
+    CHECK(liveInsert(s.graphic)->getScale().y == 0.5);
+
+    // zero is below the minimum: the entry is ignored and the reference keeps its factors
+    for (const char* name : {"Scale X", "Scale Y"}) {
+        INFO(name);
+        LC_PropertyMulti* row = s.row(name);
+        SpinEditor editor(row);
+        editor.enter("0");
+        s.apply(row);
+    }
+    CHECK(liveInsert(s.graphic)->getScale().x == 4.0);
+    CHECK(liveInsert(s.graphic)->getScale().y == 0.5);
+}
+
+TEST_CASE("A step down in a Scale row does not land on the minimum", "[gui][properties][insert]") {
+    Sheet s;
+    s.open(&s.graphic, s.addInsert(&s.graphic));
+
+    // the minimum is the tolerance: a step of 1 from the factor 1 would leave a reference that has all but vanished
+    LC_PropertyMulti* row = s.row("Scale X");
+    SpinEditor editor(row);
+    editor.press(Qt::Key_Down);
+
+    CHECK(editor.shown() == "0.9");
+}
+
+TEST_CASE("An ignored scale entry leaves every selected block reference as it was", "[gui][properties][insert]") {
+    Sheet s;
+    RS_Insert* first = s.addInsert(&s.graphic, RS_Vector(2, 1));
+    RS_Insert* second = s.addInsert(&s.graphic, RS_Vector(3, 1));
+    s.open(&s.graphic, QList<RS_Entity*>{first, second});
+
+    // the row holds both factors: an entry that is not taken must not copy the first factor to the second
+    {
+        LC_PropertyMulti* row = s.row("Scale X");
+        SpinEditor editor(row);
+        editor.enter("0");
+        s.apply(row);
+    }
+    auto inserts = liveInserts(s.graphic);
+    REQUIRE(inserts.size() == 2);
+    CHECK(inserts[0]->getScale().x == 2.0);
+    CHECK(inserts[1]->getScale().x == 3.0);
+
+    {
+        LC_PropertyMulti* row = s.row("Scale X");
+        SpinEditor editor(row);
+        editor.enter("-4");
+        s.apply(row);
+    }
+    inserts = liveInserts(s.graphic);
+    REQUIRE(inserts.size() == 2);
+    CHECK(inserts[0]->getScale().x == 4.0);
+    CHECK(inserts[1]->getScale().x == 4.0);
+}
+
+TEST_CASE("A mirrored block reference keeps its sign until a factor is entered", "[gui][properties][insert]") {
+    Sheet s;
+    s.open(&s.graphic, s.addInsert(&s.graphic, RS_Vector(-1, 1))); // a file or Modify > Mirror made it
+
+    s.edit<LC_PropertyDouble>("Scale Y", 2.0); // the other factor
+    CHECK(liveInsert(s.graphic)->getScale().x == -1.0);
+    CHECK(liveInsert(s.graphic)->getScale().y == 2.0);
+
+    for (const char* entry : {"", "0"}) {
+        // the spin box cannot show a negative factor: closing it with no entry, or with zero,
+        // must not store what it shows
+        INFO("entered '" << entry << "'");
+        LC_PropertyMulti* row = s.row("Scale X");
+        SpinEditor editor(row);
+        editor.enter(entry);
+        s.apply(row);
+        CHECK(liveInsert(s.graphic)->getScale().x == -1.0);
+    }
+
+    {
+        LC_PropertyMulti* row = s.row("Scale X");
+        SpinEditor editor(row);
+        editor.enter("3"); // a positive entry is the way out of the mirror
+        s.apply(row);
+    }
+    CHECK(liveInsert(s.graphic)->getScale().x == 3.0);
 }

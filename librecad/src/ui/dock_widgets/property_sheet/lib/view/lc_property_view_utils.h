@@ -58,13 +58,17 @@ namespace LC_PropertyViewUtils {
         bool maxOk = false;
         double min = minv.toDouble(&minOk);
         double max = maxv.toDouble(&maxOk);
-        if (!minOk || max < min || !qIsFinite(min) || min < std::numeric_limits<T>::lowest() || min > std::numeric_limits<T>::max()) {
+        // A bound that is not given reads as 0 and is not compared: a minimum above 0 given alone was dropped.
+        const bool reversed = minOk && maxOk && max < min;
+        if (!minOk || reversed || !qIsFinite(min) || min < std::numeric_limits<T>::lowest()
+            || min > std::numeric_limits<T>::max()) {
             minv = QVariant();
         }
         else {
             minv = min;
         }
-        if (!maxOk || max < min || !qIsFinite(max) || max < std::numeric_limits<T>::lowest() || max > std::numeric_limits<T>::max()) {
+        if (!maxOk || reversed || !qIsFinite(max) || max < std::numeric_limits<T>::lowest()
+            || max > std::numeric_limits<T>::max()) {
             maxv = QVariant();
         }
         else {

@@ -22,7 +22,8 @@
 ****************************************************************************/
 
 // The Insert Properties dialog (Modify > Properties on a block reference): the Columns field that was wired to the
-// Rows slot, the crossed spacing pick buttons, and the counts and scale factor that could empty the reference.
+// Rows slot, the crossed spacing pick buttons, and the counts and the scale factors that emptied or mirrored the
+// reference.
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -147,15 +148,125 @@ TEST_CASE("The Insert Properties dialog uses bounded spin boxes for array counts
     CHECK(d.clone->getCols() == RS_InsertData::MaxArrayCount);
 }
 
-TEST_CASE("The Insert Properties dialog keeps a zero scale factor from emptying the reference", "[gui][dialog][insert]") {
-    for (const char* text : {"0", "1/0"}) {
+TEST_CASE("The Insert Properties dialog takes only a positive scale factor", "[gui][dialog][insert]") {
+    // zero and infinity would empty the reference, a negative factor would mirror it: the reference keeps its factors
+    // and the fields show them (an entry that is no number is not taken either)
+    for (const char* text : {"0", "1/0", "0/0", "-1/0", "-2", "-0.5", "-1/2", "-1e-9", "1e-11", "abc", ""}) {
         Dialog d;
-        INFO("typed '" << text << "' in Scale X");
+        d.type("leScaleX", "3");
+        d.type("leScaleY", "0.5");
+        INFO("typed '" << text << "'");
 
         d.type("leScaleX", text);
+        d.type("leScaleY", text);
         d.clone->update();
 
-        CHECK(d.clone->getScale().x == 1.0);
+        CHECK(d.clone->getScale().x == 3.0);
+        CHECK(d.clone->getScale().y == 0.5);
+        CHECK(d.clone->count() == 1);
+        CHECK(d.field("leScaleX")->text().toStdString() == "3");
+        CHECK(d.field("leScaleY")->text().toStdString() == "0.5");
+    }
+
+    Dialog d;
+    d.type("leScaleX", "2.5");
+    CHECK(d.clone->getScale().x == 2.5);
+}
+
+TEST_CASE("The Insert Properties dialog keeps the sign of a mirrored reference", "[gui][dialog][insert]") {
+    Dialog d;
+    d.clone->setScale(RS_Vector(-1, 1)); // a file or Modify > Mirror made it
+    d.widget->setEntity(d.clone);
+
+    d.type("leScaleY", "2");
+    CHECK(d.clone->getScale().x == -1.0);
+    CHECK(d.clone->getScale().y == 2.0);
+
+    for (const char* text : {"-3", "0", "1/0"}) {
+        INFO("typed '" << text << "'");
+        d.type("leScaleX", text);
+        CHECK(d.clone->getScale().x == -1.0);
+        CHECK(d.field("leScaleX")->text().toStdString() == "-1");
+    }
+
+    d.type("leScaleX", "3"); // a positive entry is the way out of the mirror
+    CHECK(d.clone->getScale().x == 3.0);
+}
+
+TEST_CASE("The Insert Properties dialog keeps the spacings when a field is left without a change",
+          "[gui][dialog][insert]") {
+    // a field emits editingFinished when it loses the focus, edited or not, and the slot stores what the fields show
+    Dialog d;
+    d.clone->setSpacing(RS_Vector(1234.5678, 0.123456789));
+    d.widget->setEntity(d.clone);
+
+    REQUIRE(QMetaObject::invokeMethod(d.field("leRowSpacing"), "editingFinished"));
+
+    CHECK(d.clone->getSpacing().x == 1234.5678);
+    CHECK(d.clone->getSpacing().y == 0.123456789);
+}
+
+TEST_CASE("The Insert Properties dialog keeps a spacing it cannot read", "[gui][dialog][insert]") {
+    Dialog d;
+    d.clone->setSpacing(RS_Vector(5, 7));
+    d.widget->setEntity(d.clone);
+
+    // text that is no number leaves the spacing as it was, and the field shows it
+    for (const char* text : {"abc", ""}) {
+        INFO("typed '" << text << "'");
+        d.type("leColSpacing", text);
+        d.type("leRowSpacing", text);
+
+        CHECK(d.clone->getSpacing().x == 5.0);
+        CHECK(d.clone->getSpacing().y == 7.0);
+        CHECK(d.field("leColSpacing")->text().toStdString() == "5");
+        CHECK(d.field("leRowSpacing")->text().toStdString() == "7");
+    }
+
+    d.type("leColSpacing", "1/4");
+    d.type("leRowSpacing", "2*3");
+    CHECK(d.clone->getSpacing().x == 0.25);
+    CHECK(d.clone->getSpacing().y == 6.0);
+}
+
+TEST_CASE("The Insert Properties dialog keeps the position, the angle and the spacings it cannot use",
+          "[gui][dialog][insert]") {
+    // infinity and NaN empty the reference, and Save as DXF refuses to write them
+    for (const char* text : {"1/0", "0/0", "-1/0"}) {
+        Dialog d;
+        d.clone->setInsertionPoint(RS_Vector(5, 6));
+        d.clone->setAngle(0.5);
+        d.clone->setSpacing(RS_Vector(7, 8));
+        d.widget->setEntity(d.clone);
+        INFO("typed '" << text << "'");
+
+        for (const char* name : {"leInsertionPointX", "leInsertionPointY", "leAngle", "leColSpacing",
+                                 "leRowSpacing"}) {
+            INFO("in " << name);
+            d.type(name, text);
+        }
+        d.clone->update();
+
+        CHECK(d.clone->getInsertionPoint().x == 5.0);
+        CHECK(d.clone->getInsertionPoint().y == 6.0);
+        CHECK(d.clone->getAngle() == 0.5);
+        CHECK(d.clone->getSpacing().x == 7.0);
+        CHECK(d.clone->getSpacing().y == 8.0);
         CHECK(d.clone->count() == 1);
     }
+}
+
+TEST_CASE("A value picked for a spacing of the Insert Properties dialog lands in its own field",
+          "[gui][dialog][insert]") {
+    Dialog d;
+    d.clone->setSpacing(RS_Vector(7, 8));
+    d.widget->setEntity(d.clone);
+
+    d.widget->interactiveInputUpdate(LC_ActionContext::InteractiveInputInfo::DISTANCE, "colSpacing", 12.5, 0.);
+    CHECK(d.clone->getSpacing().x == 12.5);
+    CHECK(d.clone->getSpacing().y == 8.0);
+
+    d.widget->interactiveInputUpdate(LC_ActionContext::InteractiveInputInfo::DISTANCE, "rowSpacing", 3.25, 0.);
+    CHECK(d.clone->getSpacing().x == 12.5);
+    CHECK(d.clone->getSpacing().y == 3.25);
 }
